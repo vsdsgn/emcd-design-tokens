@@ -20,6 +20,12 @@
   --brand-accent-solid: var(--color-electric-blue-600);
   --brand-accent-solid-hover: var(--color-electric-blue-700);
   --brand-accent-solid-pressed: var(--color-electric-blue-800);
+  --brand-accent-fg-on-light: var(--color-electric-blue-600);
+  --brand-accent-fg-on-dark: var(--color-electric-blue-400);
+  --brand-accent-fg-strong-on-light: var(--color-electric-blue-800);
+  --brand-accent-fg-strong-on-dark: var(--color-electric-blue-300);
+  --brand-accent-focus-on-light: var(--color-electric-blue-500);
+  --brand-accent-focus-on-dark: var(--color-electric-blue-400);
   --brand-highlight-100: var(--color-electric-green-100);
   --brand-highlight-300: var(--color-electric-green-300);
   --brand-highlight-500: var(--color-electric-green-500);

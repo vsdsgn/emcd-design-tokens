@@ -78,15 +78,15 @@
     },
     "accent": {
       "$type": "color",
-      "$value": "{brand.accent.600}"
+      "$value": "{brand.accent.fg-on-light}"
     },
     "link": {
       "$type": "color",
-      "$value": "{brand.accent.600}"
+      "$value": "{brand.accent.fg-on-light}"
     },
     "link-hover": {
       "$type": "color",
-      "$value": "{brand.accent.700}"
+      "$value": "{brand.accent.fg-strong-on-light}"
     },
     "danger": {
       "$type": "color",
@@ -132,7 +132,7 @@
     },
     "accent": {
       "$type": "color",
-      "$value": "{brand.accent.600}"
+      "$value": "{brand.accent.fg-on-light}"
     },
     "danger": {
       "$type": "color",
@@ -166,11 +166,11 @@
     },
     "accent": {
       "$type": "color",
-      "$value": "{brand.accent.500}"
+      "$value": "{brand.accent.focus-on-light}"
     },
     "focus": {
       "$type": "color",
-      "$value": "{brand.accent.500}"
+      "$value": "{brand.accent.focus-on-light}"
     },
     "inverse": {
       "$type": "color",
@@ -339,7 +339,7 @@
       },
       "focus": {
         "$type": "color",
-        "$value": "{brand.accent.500}"
+        "$value": "{brand.accent.focus-on-light}"
       },
       "error": {
         "$type": "color",
@@ -431,6 +431,16 @@
     "8": {
       "$type": "color",
       "$value": "{color.lime.600}"
+    }
+  },
+  "fixed": {
+    "light": {
+      "$type": "color",
+      "$value": "{color.neutral.0}"
+    },
+    "dark": {
+      "$type": "color",
+      "$value": "{color.neutral.950}"
     }
   }
 }

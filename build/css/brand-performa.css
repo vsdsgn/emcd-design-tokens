@@ -1,0 +1,46 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-brand="performa"] {
+  --brand-accent-50: var(--color-yellow-50);
+  --brand-accent-100: var(--color-yellow-100);
+  --brand-accent-150: var(--color-yellow-150);
+  --brand-accent-200: var(--color-yellow-200);
+  --brand-accent-300: var(--color-yellow-300);
+  --brand-accent-400: var(--color-yellow-400);
+  --brand-accent-500: var(--color-yellow-500);
+  --brand-accent-600: var(--color-yellow-600);
+  --brand-accent-700: var(--color-yellow-700);
+  --brand-accent-800: var(--color-yellow-800);
+  --brand-accent-850: var(--color-yellow-850);
+  --brand-accent-900: var(--color-yellow-900);
+  --brand-accent-950: var(--color-yellow-950);
+  --brand-accent-on-solid: var(--color-neutral-950);
+  --brand-accent-solid: var(--color-yellow-400);
+  --brand-accent-solid-hover: var(--color-yellow-500);
+  --brand-accent-solid-pressed: var(--color-yellow-600);
+  --brand-accent-fg-on-light: var(--color-yellow-800);
+  --brand-accent-fg-on-dark: var(--color-yellow-400);
+  --brand-accent-fg-strong-on-light: var(--color-yellow-850);
+  --brand-accent-fg-strong-on-dark: var(--color-yellow-300);
+  --brand-accent-focus-on-light: var(--color-violet-500);
+  --brand-accent-focus-on-dark: var(--color-yellow-400);
+  --brand-highlight-100: var(--color-violet-100);
+  --brand-highlight-300: var(--color-violet-300);
+  --brand-highlight-500: var(--color-violet-500);
+  --brand-highlight-700: var(--color-violet-700);
+  --brand-highlight-900: var(--color-violet-900);
+  --brand-highlight-on-solid: var(--color-neutral-0);
+  --brand-font-family-text: var(--font-family-roobert-pro);
+  --brand-font-family-display: var(--font-family-roobert-pro);
+  --brand-font-family-mono: var(--font-family-ibm-plex-mono);
+  --brand-radius-xs: var(--dimension-x0-25);
+  --brand-radius-sm: var(--dimension-x0-5);
+  --brand-radius-md: var(--dimension-x0-75);
+  --brand-radius-lg: var(--dimension-x1);
+  --brand-radius-xl: var(--dimension-x1-5);
+  --brand-radius-2xl: var(--dimension-x2);
+  --brand-radius-none: var(--dimension-x0);
+  --brand-radius-full: var(--dimension-full);
+}
