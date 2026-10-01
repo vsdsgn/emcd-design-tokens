@@ -1,0 +1,309 @@
+new_name,status,uses_mining_web_app,legacy_names (uses),size_copies,generation
+icon/emcd-icon,used,8086,"ic-emcd-icon (8084), ic-emcd-icon/true/workers (2)",,current ic-
+icon/corner-small-down,used,2892,"ic-corner-small-down-x1 (1650), ic-corner-small-down-x2 (604), ic-corner-small-down (545), ic-corner-small-down-x3 (65), ic-corner-small-down-x1,5 (28)",yes,current ic-
+icon/tabbar-stage-1,orphan,1526,ic_tabbar_stage 1 (1526),,old ic_
+icon/arrow-list-down,orphan,1393,ic_arrow_list_down (1393),,old ic_
+icon/plus,used,1316,"ic-plus (1179), ic_plus (78), ic-plus-x1 (51), ic-plus-x3 (8)",yes,mixed
+icon/arrow-list,orphan,1074,ic_arrow_list (1074),,old ic_
+icon/kebab-horizontal-menu,used,893,"ic-kebab-horizontal-menu (841), ic-kebab-horizontal-menu-x3 (39), ic-kebab-horizontal-menu-x1,5 (13)",yes,current ic-
+icon/sort-line-down,used,815,ic-sort-line-down (815),,current ic-
+icon/close,used,752,"ic_close (478), ic-close (270), ic-close-x1 (3), ic-close-x1,5 (1)",yes,mixed
+icon/exchange,used,731,"ic-exchange (669), ic-exchange-x1,5 (35), ic_exchange (24), ic-exchange-x3 (3)",yes,mixed
+icon/send,used,712,"ic-send (708), ic-send-x3 (4)",yes,current ic-
+icon/calc,used,589,ic-calc (589),,current ic-
+icon/info,orphan,518,"ic_info (419), ic-info-x1 (61), ic-info (38)",yes,mixed
+icon/info-tooltip-small,used,489,ic-info-tooltip-small (489),,current ic-
+icon/check,used,403,"ic-check-x1 (248), ic-check (93), ic_check (59), ic-check-x2 (3)",yes,mixed
+icon/copy,used,314,"ic-copy (244), ic_copy (70)",,mixed
+icon/arrow-new-tab,used,297,"ic-arrow-new-tab (238), ic_arrow_new_tab (59)",,mixed
+icon/close-small,used,293,"ic-close-small (163), ic-close-small-x3 (118), ic-close-small-x1,5 (12)",yes,current ic-
+icon/lines-menu-3,orphan,281,ic-lines-menu-3-x3 (281),yes,current ic-
+icon/chevron-down-sm,used,280,ic-chevron-down-sm (280),,current ic-
+icon/search,used,253,"ic-searh (230), ic-search (23)",,current ic-
+icon/chevron-left-md,used,248,ic-chevron-left-md (248),,current ic-
+icon/kebab-vertical-menu,used,235,"ic-kebab-vertical-menu (214), ic-kebab-vertical-menu-x1 (21)",yes,current ic-
+icon/renewal,used,231,"ic-renewal-x3 (193), ic-renewal-x1 (37), ic-renewal (1)",yes,current ic-
+icon/sample-empty,orphan,227,ic_sample_empty (227),,old ic_
+icon/corner-small-right,used,223,"ic-corner-small-right (177), ic-corner-small-right-x1 (46)",yes,current ic-
+icon/group,orphan,217,"ic_group (184), ic-group-x1,5 (33)",yes,mixed
+icon/info-tooltip,used,212,ic-info-tooltip (212),,current ic-
+icon/chevron-right-sm,used,200,ic-chevron-right-sm (200),,current ic-
+icon/excel,orphan,193,ic_excel (193),,old ic_
+icon/delete,used,178,ic_delete (178),,old ic_
+icon/check-tick,orphan,155,ic_check_tick (155),,old ic_
+icon/erase-input-close,used,154,"ic-erase-input-close (141), ic_erase_input_close (13)",,mixed
+icon/list,used,146,"ic_list (117), ic_list-x1,5 (29)",yes,old ic_
+icon/calendar,used,136,"ic_calendar (91), ic-calendar (45)",,mixed
+icon/arrow-switch,used,136,"ic-arrow-switch (134), ic-arrow-switch-x3 (2)",yes,current ic-
+icon/settings,used,134,"ic-settings (132), ic-settings-x1 (2)",yes,current ic-
+icon/corner-small-up,used,129,ic-corner-small-up (129),,current ic-
+icon/question,used,128,"ic-question (73), ic_question (53), ic-question-x3 (2)",yes,mixed
+icon/group-add,used,125,ic-group-add (125),,current ic-
+icon/time,used,121,ic-time (121),,current ic-
+icon/check-small,used,120,"ic-check-small-x3 (63), ic-check-small (54), ic-check-small-x1,5 (3)",yes,current ic-
+icon/lock,used,113,ic-lock (113),,current ic-
+icon/excel-csv,used,109,ic-excel-csv (109),,current ic-
+icon/close-small-circle,orphan,97,ic-close-small-circle-x1 (97),yes,current ic-
+icon/history,orphan,96,ic_history (96),,old ic_
+icon/arrow-up-right,used,88,"ic-arrow-up-right (80), ic-arrow-up-right-x1 (8)",yes,current ic-
+icon/minus,used,77,"ic-minus (44), ic-minus-x1 (33)",yes,current ic-
+icon/arrow-right,used,74,"ic_arrow_right (54), ic-arrow-right (20)",,mixed
+icon/pen-edit,used,74,ic-pen-edit (74),,current ic-
+icon/sort,used,71,"ic_sort (68), ic-sort (3)",,mixed
+icon/chevron-right-md,used,69,ic-chevron-right-md (69),,current ic-
+icon/link,used,67,"ic-link (61), ic_link (6)",,mixed
+icon/shield-check,used,66,ic-shield-check (66),,current ic-
+icon/qr-scan,used,62,"ic-qr-scan (46), ic_qr_scan (16)",,mixed
+icon/coinhold-coins,used,62,"ic-coinhold-coins (60), ic-coinhold-coins-x3 (2)",yes,current ic-
+icon/tuning,used,60,ic-tuning (60),,current ic-
+icon/arrow-switch-p2p,used,56,ic-arrow-switch-p2p (56),,current ic-
+icon/chat-support,used,53,ic-chat-support (53),,current ic-
+icon/calculator,orphan,50,ic_calculator (50),,old ic_
+icon/arrow-left,used,46,"ic-arrow-left (41), ic-arrow-left-x3 (5)",yes,current ic-
+icon/blockchain,used,45,ic_blockchain (45),,old ic_
+icon/check-tick-round,orphan,45,ic_check_tick_round (45),,old ic_
+icon/swap-transfer,orphan,44,ic_swap_transfer (44),,old ic_
+icon/percentage,used,44,ic-percentage (44),,current ic-
+icon/eye-open,used,43,ic-eye-open (43),,current ic-
+icon/wallet-income,used,42,ic-wallet-income (42),,current ic-
+icon/arrow-new-tab-alt,used,40,"ic-arrow-new-tab-alt-x3 (27), ic-arrow-new-tab-alt (13)",yes,current ic-
+icon/group-folder,used,40,ic-group-folder (40),,current ic-
+icon/arrow,orphan,38,ic_arrow (38),,old ic_
+icon/chevron-up-sm,used,36,ic-chevron-up-sm (36),,current ic-
+icon/profile,used,34,ic-profile (34),,current ic-
+icon/document-csv,used,34,ic-document-csv (34),,current ic-
+icon/bell-notifications,used,34,ic-bell-notifications (34),,current ic-
+icon/dollar-circle,used,34,ic-dollar-circle (34),,current ic-
+icon/refresh-circle,used,33,ic-refresh-circle (33),,current ic-
+icon/corner-small-left,used,29,ic-corner-small-left (29),,current ic-
+icon/chevron-right,used,28,ic-chevron-right (28),,current ic-
+icon/qr,used,28,"ic_qr (21), ic-qr (7)",,mixed
+icon/card,used,28,ic-card (28),,current ic-
+icon/iphone,used,27,ic-iphone (27),,current ic-
+icon/play,used,27,"ic_play (21), ic-play (6)",,mixed
+icon/mail,used,27,"ic-mail (25), ic-mail-x1,5 (2)",yes,current ic-
+icon/apple-ios,orphan,26,ic_apple_ios (26),,old ic_
+icon/cloud,used,24,ic-cloud (24),,current ic-
+icon/logo-emcd-e,used,24,ic-logo-emcd-e (24),,current ic-
+icon/eye-closed,used,24,ic-eye-closed (24),,current ic-
+icon/loader,used,22,"ic-loader (12), ic-loader-x1,5 (9), ic-loader-x1 (1)",yes,current ic-
+icon/rename-text,used,22,"ic-rename-text (15), ic_rename_text (7)",,mixed
+icon/document-api,used,22,"ic-document-api (20), ic_document_api (2)",,mixed
+icon/wallet-index,used,22,ic-wallet-index (22),,current ic-
+icon/android-google-store,orphan,22,ic_android_google_store (22),,old ic_
+icon/close-erase-input,orphan,20,ic_close_erase_input (20),,old ic_
+icon/renewal-stop,used,20,ic-renewal-stop-x3 (20),yes,current ic-
+icon/users,used,20,ic-users (20),,current ic-
+icon/gift,used,20,ic-gift (20),,current ic-
+icon/telegram,used,19,ic-telegram (19),,current ic-
+icon/eye-,orphan,17,ic_eye- (17),,old ic_
+icon/brands-instagram,orphan,17,ic_brands_Instagram (17),,old ic_
+icon/arrow-repeat,used,17,ic-arrow-repeat (17),,current ic-
+icon/call,used,16,"ic-call (9), ic-call-x1,5 (7)",yes,current ic-
+icon/shield,used,15,ic-shield (15),,current ic-
+icon/at-mail-mention,used,15,ic-at-mail-mention (15),,current ic-
+icon/add-wallet,used,15,ic-add-wallet (15),,current ic-
+icon/arrow-list-up,orphan,15,ic_arrow_list_up (15),,old ic_
+icon/web,used,14,ic-web (14),,current ic-
+icon/dot,used,13,"ic-dot-x1,5 (13)",yes,current ic-
+icon/empty,orphan,13,ic_empty (13),,old ic_
+icon/filters,orphan,13,ic_filters (13),,old ic_
+icon/arrow-exit,used,13,ic-arrow-exit (13),,current ic-
+icon/brands-telegram,orphan,13,ic_brands_Telegram (13),,old ic_
+icon/auto-topup,used,12,"ic-auto-topup (6), ic-auto-topup-x1 (6)",yes,current ic-
+icon/trend-up,used,12,ic-trend-up (12),,current ic-
+icon/corner-right,used,11,ic-corner-right (11),,current ic-
+icon/aml-not-passed,used,11,ic-aml-not-passed (11),,current ic-
+icon/device-mobile,used,10,ic-device-mobile (10),,current ic-
+icon/add-email,used,10,ic-add-email (10),,current ic-
+icon/promocode,used,10,ic-promocode (10),,current ic-
+icon/devices,used,10,ic-devices (10),,current ic-
+icon/heart,used,10,ic-heart (10),,current ic-
+icon/filter,used,9,"ic-filter (8), ic_filter (1)",,mixed
+icon/freeze,used,9,ic-freeze (9),,current ic-
+icon/add-phone-number,used,9,ic-add-phone-number (9),,current ic-
+icon/bookmark,used,9,ic-bookmark (9),,current ic-
+icon/dollar,used,9,"ic-dollar (7), ic-dollar-x3 (2)",yes,current ic-
+icon/arrow-left-small,used,8,ic-arrow-left-small (8),,current ic-
+icon/alert,used,8,"ic-alert-x3 (4), ic-alert-x1,5 (4)",yes,current ic-
+icon/profile-status-star,used,8,ic-profile-status-star (8),,current ic-
+icon/mining-coin,used,8,"ic-mining-coin (5), ic-mining-coin-x3 (3)",yes,current ic-
+icon/seen-checkmark,used,8,ic-seen-checkmark (8),,current ic-
+icon/arrow-left-2,orphan,8,ic_arrow_left_2 (8),,old ic_
+icon/document,used,7,"ic_document (4), ic-document (3)",,mixed
+icon/brands-x.com,orphan,7,ic_brands_X.com (7),,old ic_
+icon/bankcard,orphan,7,ic_bankcard (7),,old ic_
+icon/check-paid,used,7,ic-check-paid (7),,current ic-
+icon/alarm,used,7,ic-alarm (7),,current ic-
+icon/suitcase,used,6,ic-suitcase (6),,current ic-
+icon/forklog,used,6,ic-forklog (6),,current ic-
+icon/brands-youtube-square,orphan,6,ic_brands_Youtube Square (6),,old ic_
+icon/brands-vk,orphan,6,ic_brands_Vk - 1 (6),,old ic_
+icon/trading-exchange,used,6,ic-trading-exchange (6),,current ic-
+icon/message-chat,orphan,5,ic_message_chat (5),,old ic_
+icon/passkey,used,5,"ic-passkey-x1,5 (5)",yes,current ic-
+icon/key-settings,used,5,"ic-key-settings-x1,5 (5)",yes,current ic-
+icon/essentials-chat-2,orphan,5,ic_essentials_Chat - 2 (5),,old ic_
+icon/brands-linkedin-circle,orphan,5,ic_brands_Linkedin Circle (5),,old ic_
+icon/lightning,used,5,ic-lightning (5),,current ic-
+icon/arrow-left-md,used,5,ic-arrow-left-md (5),,current ic-
+icon/lines-menu-tripple,used,5,ic-lines-menu-tripple (5),,current ic-
+icon/eye+,orphan,4,ic_eye+ (4),,old ic_
+icon/add-user,used,4,ic-add-user (4),,current ic-
+icon/at-dog-mail,orphan,4,ic_at_dog_mail (4),,old ic_
+icon/bank-card,orphan,4,ic-bank-card (4),,current ic-
+icon/code,used,4,ic-code (4),,current ic-
+icon/download,used,4,ic-download (4),,current ic-
+icon/keyboard-close-down,rare,3,ic-keyboard-close-down (3),,current ic-
+icon/auto-exchange,rare,3,ic-auto-exchange (3),,current ic-
+icon/apple,rare,3,ic-apple (3),,current ic-
+icon/star,rare,3,"ic-star-x1,5 (3)",yes,current ic-
+icon/loans,rare,3,ic-loans (3),,current ic-
+icon/percent-coin,rare,3,ic-percent-coin (3),,current ic-
+icon/dispute,rare,3,ic-dispute (3),,current ic-
+icon/chevron-up-md,rare,3,ic-chevron-up-md (3),,current ic-
+icon/close-circle,orphan,2,ic-close-circle-x1 (2),yes,current ic-
+icon/stop,rare,2,ic-stop (2),,current ic-
+icon/key,rare,2,ic-key (2),,current ic-
+icon/edit-change,orphan,2,ic_edit_change (2),,old ic_
+icon/info-small,orphan,2,ic-info-small (2),,current ic-
+icon/attach,rare,2,"ic-attach-x1,5 (2)",yes,current ic-
+icon/coin-swap,orphan,2,ic_coin_swap (2),,old ic_
+icon/wallet,rare,2,ic-wallet-x3 (2),yes,current ic-
+icon/rocket,rare,2,ic-rocket (2),,current ic-
+icon/arrow-down-right,rare,2,ic-arrow-down-right-x1 (2),yes,current ic-
+icon/linkedin,rare,2,ic-linkedin (2),,current ic-
+icon/info-circle,rare,2,ic-info-circle (2),,current ic-
+icon/history-list,rare,2,ic–history–list (2),,current ic-
+icon/document-xls,rare,1,ic-document-xls (1),,current ic-
+icon/image,rare,1,ic-image (1),,current ic-
+icon/sort-line-up,rare,1,ic-sort-line-up (1),,current ic-
+icon/send-message,rare,1,"ic-send-message-x1,5 (1)",yes,current ic-
+icon/corner-down,orphan,1,ic-corner-down-x1 (1),yes,current ic-
+icon/bell,orphan,1,"ic-bell-x1,5 (1)",yes,current ic-
+icon/vk,rare,1,ic-vk (1),,current ic-
+icon/vcru,rare,1,ic-vcru (1),,current ic-
+icon/youtube,rare,1,ic-youtube (1),,current ic-
+icon/instagram,rare,1,ic-instagram (1),,current ic-
+icon/chevron-down-md,rare,1,ic-chevron-down-md (1),,current ic-
+icon/bank-card-swap,unused,0,Bank Card swap,,
+icon/add,unused,0,ic-add,,
+icon/add-username,unused,0,ic-add-username,,
+icon/airplane,unused,0,ic-airplane,,
+icon/arrow-down,unused,0,ic-arrow-down,,
+icon/arrow-down-md,unused,0,ic-arrow-down-md,,
+icon/arrow-down-sm,unused,0,ic-arrow-down-sm,,
+icon/arrow-down-small,unused,0,ic-arrow-down-small,,
+icon/arrow-left-sm,unused,0,ic-arrow-left-sm,,
+icon/arrow-right-md,unused,0,ic-arrow-right-md,,
+icon/arrow-right-sm,unused,0,ic-arrow-right-sm,,
+icon/arrow-right-small,unused,0,ic-arrow-right-small,,
+icon/arrow-swap,unused,0,ic-arrow-swap,,
+icon/arrow-up,unused,0,ic-arrow-up,,
+icon/arrow-up-md,unused,0,ic-arrow-up-md,,
+icon/arrow-up-sm,unused,0,ic-arrow-up-sm,,
+icon/arrow-up-small,unused,0,ic-arrow-up-small,,
+icon/arrows-horizontal,unused,0,ic-arrows-horizontal,,
+icon/bank-card-add,unused,0,ic-bank-card-add,,
+icon/bank-card-receive,unused,0,ic-bank-card-receive,,
+icon/bank-card-send,unused,0,ic-bank-card-send,,
+icon/bookmark-add,unused,0,ic-bookmark-add,,
+icon/brandsx,unused,0,ic-brandsx,,
+icon/camera,unused,0,ic-camera,,
+icon/candle-chart,unused,0,ic-candle-chart,,
+icon/candle-chart-filled,unused,0,ic-candle-chart-filled,,
+icon/car,unused,0,ic-car,,
+icon/card-close,unused,0,ic-card-close,,
+icon/card-lock,unused,0,ic-card-lock,,
+icon/card-star,unused,0,ic-card-star,,
+icon/card-update,unused,0,ic-card-update,,
+icon/charttree-line,unused,0,ic-charttree-line,,
+icon/charttree-line-filled,unused,0,ic-charttree-line-filled,,
+icon/check-circle-small,unused,0,ic-check-circle-small,,
+icon/chevron-left-sm,unused,0,ic-chevron-left-sm,,
+icon/coinhold-top-up,unused,0,ic-coinhold-top-up,,
+icon/corner-left,unused,0,ic-corner-left,,
+icon/cube,unused,0,ic-cube,,
+icon/discord,unused,0,ic-discord,,
+icon/document-copy,unused,0,ic-document-copy,,
+icon/document-paper,unused,0,ic-document-paper,,
+icon/document-pdf,unused,0,ic-document-pdf,,
+icon/dot-menu,unused,0,ic-dot-menu,,
+icon/dot-menu-square,unused,0,ic-dot-menu-square,,
+icon/earth,unused,0,ic-earth,,
+icon/emcd-card,unused,0,ic-emcd-card,,
+icon/essentials-chat,unused,0,ic-essentials-chat,,
+icon/facebook,unused,0,ic-facebook,,
+icon/fast,unused,0,ic-fast,,
+icon/filter-cancel,unused,0,ic-filter-cancel,,
+icon/flashlight-off,unused,0,ic-flashlight-off,,
+icon/flashlight-on,unused,0,ic-flashlight-on,,
+icon/gamepad,unused,0,ic-gamepad,,
+icon/google,unused,0,ic-google,,
+icon/google-store,unused,0,ic-google-store,,
+icon/hand-coins,unused,0,ic-hand-coins,,
+icon/history-log,unused,0,ic-history-log,,
+icon/house,unused,0,ic-house,,
+icon/house-filled,unused,0,ic-house-filled,,
+icon/lines-menu-duo,unused,0,ic-lines-menu-duo,,
+icon/lines-menu-right,unused,0,ic-lines-menu-right,,
+icon/lines-menu-right-var,unused,0,ic-lines-menu-right-var,,
+icon/market,unused,0,ic-market,,
+icon/market-filled,unused,0,ic-market-filled,,
+icon/mobile-shield,unused,0,ic-mobile-shield,,
+icon/moon,unused,0,ic-moon,,
+icon/navigate-year-next,unused,0,ic-navigate-year-next,,
+icon/navigate-year-prev,unused,0,ic-navigate-year-prev,,
+icon/news,unused,0,ic-news,,
+icon/notebook,unused,0,ic-notebook,,
+icon/numbers-1,unused,0,ic-numbers-1,,
+icon/numbers-2,unused,0,ic-numbers-2,,
+icon/numbers-3,unused,0,ic-numbers-3,,
+icon/numbers-4,unused,0,ic-numbers-4,,
+icon/numbers-5,unused,0,ic-numbers-5,,
+icon/part,unused,0,ic-part,,
+icon/pause,unused,0,ic-pause,,
+icon/pause-circle,unused,0,ic-pause-circle,,
+icon/payment-link,unused,0,ic-payment-link,,
+icon/performa-logo,unused,0,ic-performa-logo,,
+icon/pie-chart,unused,0,ic–pie-chart,,
+icon/pin,unused,0,ic-pin,,
+icon/profile-add,unused,0,ic-profile-add,,
+icon/profile-person,unused,0,ic-profile-person,,
+icon/profile-scan,unused,0,ic-profile-scan,,
+icon/profile-status-shield,unused,0,ic-profile-status-shield,,
+icon/qr-scan-process,unused,0,ic-qr-scan-process,,
+icon/question-small,unused,0,ic-question-small,,
+icon/question-without-circle,unused,0,ic-question-without-circle,,
+icon/rave,unused,0,ic-rave,,
+icon/reduce-risk,unused,0,ic-reduce-risk,,
+icon/refresh,unused,0,ic-refresh,,
+icon/round-refresh,unused,0,ic-round-refresh,,
+icon/rwa,unused,0,ic-rwa,,
+icon/safe,unused,0,ic-safe,,
+icon/search-no-result,unused,0,ic-search-no-resault,,
+icon/select-point,unused,0,ic-select-point,,
+icon/settings-filled,unused,0,ic-settings-filled,,
+icon/share,unused,0,ic-share,,
+icon/share-outside,unused,0,ic-share-outside,,
+icon/shopping-bag,unused,0,ic-shopping-bag,,
+icon/sm,unused,0,ic-sm,,
+icon/sort-up,unused,0,ic-sort-up,,
+icon/star-cup,unused,0,ic-star-cup,,
+icon/star-fill,unused,0,ic-star-fill,,
+icon/swap,unused,0,ic-swap,,
+icon/token,unused,0,ic-token,,
+icon/unban,unused,0,ic-unban,,
+icon/upload,unused,0,ic-upload,,
+icon/user,unused,0,ic-user,,
+icon/villa,unused,0,ic-villa,,
+icon/volume-off,unused,0,ic-volume-off,,
+icon/volume-on,unused,0,ic-volume-on,,
+icon/wallet-filled,unused,0,ic-wallet-filled,,
+icon/web-payment,unused,0,ic-web-payment,,
+icon/wechat,unused,0,ic-wechat,,
+icon/whatsapp,unused,0,ic-whatsapp,,
+icon/widgets,unused,0,ic-widgets,,
+icon/windows,unused,0,ic-windows,,
+icon/zoom-in,unused,0,ic-zoom-in,,
+icon/sun,unused,0,Sun,,

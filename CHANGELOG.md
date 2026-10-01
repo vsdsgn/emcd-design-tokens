@@ -10,6 +10,10 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+### Added
+- `docs/icons-audit.csv`: usage audit of icons in Mining Web App + App (52 pages), mapping legacy names → `icon/<name>`; audit board in Figma (Icons › Audit).
+- `CONTRIBUTING.md`: simple rules for designers (who edits, how to propose a change, naming, versioning).
+
 ## [0.2.0] — 2026-10-01
 
 ### Added
