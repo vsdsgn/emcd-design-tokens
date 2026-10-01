@@ -81,15 +81,17 @@
   --data-6: var(--color-cyan-500);
   --data-7: var(--color-rose-500);
   --data-8: var(--color-lime-600);
+  --fixed-light: var(--color-neutral-0);
+  --fixed-dark: var(--color-neutral-950);
   --text-on-accent: var(--brand-accent-on-solid);
   --text-on-highlight: var(--brand-highlight-on-solid);
-  --text-accent: var(--brand-accent-600);
-  --text-link: var(--brand-accent-600);
-  --text-link-hover: var(--brand-accent-700);
+  --text-accent: var(--brand-accent-fg-on-light);
+  --text-link: var(--brand-accent-fg-on-light);
+  --text-link-hover: var(--brand-accent-fg-strong-on-light);
   --icon-on-accent: var(--brand-accent-on-solid);
-  --icon-accent: var(--brand-accent-600);
-  --border-accent: var(--brand-accent-500);
-  --border-focus: var(--brand-accent-500);
+  --icon-accent: var(--brand-accent-fg-on-light);
+  --border-accent: var(--brand-accent-focus-on-light);
+  --border-focus: var(--brand-accent-focus-on-light);
   --action-primary-default: var(--brand-accent-solid);
   --action-primary-hover: var(--brand-accent-solid-hover);
   --action-primary-pressed: var(--brand-accent-solid-pressed);
@@ -97,6 +99,6 @@
   --highlight-subtle: var(--brand-highlight-100);
   --accent-subtle: var(--brand-accent-50);
   --accent-subtle-hover: var(--brand-accent-100);
-  --control-border-focus: var(--brand-accent-500);
+  --control-border-focus: var(--brand-accent-focus-on-light);
   --control-checked: var(--brand-accent-solid);
 }

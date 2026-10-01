@@ -20,6 +20,12 @@
   --brand-accent-solid: var(--color-violet-500);
   --brand-accent-solid-hover: var(--color-violet-600);
   --brand-accent-solid-pressed: var(--color-violet-700);
+  --brand-accent-fg-on-light: var(--color-violet-600);
+  --brand-accent-fg-on-dark: var(--color-violet-400);
+  --brand-accent-fg-strong-on-light: var(--color-violet-850);
+  --brand-accent-fg-strong-on-dark: var(--color-violet-300);
+  --brand-accent-focus-on-light: var(--color-violet-500);
+  --brand-accent-focus-on-dark: var(--color-violet-400);
   --brand-highlight-100: var(--color-lime-100);
   --brand-highlight-300: var(--color-lime-300);
   --brand-highlight-500: var(--color-lime-500);

@@ -68,6 +68,30 @@
       "solid-pressed": {
         "$type": "color",
         "$value": "{color.electric-blue.800}"
+      },
+      "fg-on-light": {
+        "$type": "color",
+        "$value": "{color.electric-blue.600}"
+      },
+      "fg-on-dark": {
+        "$type": "color",
+        "$value": "{color.electric-blue.400}"
+      },
+      "fg-strong-on-light": {
+        "$type": "color",
+        "$value": "{color.electric-blue.800}"
+      },
+      "fg-strong-on-dark": {
+        "$type": "color",
+        "$value": "{color.electric-blue.300}"
+      },
+      "focus-on-light": {
+        "$type": "color",
+        "$value": "{color.electric-blue.500}"
+      },
+      "focus-on-dark": {
+        "$type": "color",
+        "$value": "{color.electric-blue.400}"
       }
     },
     "highlight": {
