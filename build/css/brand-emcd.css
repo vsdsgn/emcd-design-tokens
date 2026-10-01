@@ -29,12 +29,12 @@
   --brand-font-family-text: var(--font-family-roobert-pro);
   --brand-font-family-display: var(--font-family-roobert-pro);
   --brand-font-family-mono: var(--font-family-ibm-plex-mono);
-  --brand-radius-xs: var(--dimension-4);
-  --brand-radius-sm: var(--dimension-8);
-  --brand-radius-md: var(--dimension-12);
-  --brand-radius-lg: var(--dimension-16);
-  --brand-radius-xl: var(--dimension-24);
-  --brand-radius-2xl: var(--dimension-32);
-  --brand-radius-none: var(--dimension-0);
+  --brand-radius-xs: var(--dimension-x0-25);
+  --brand-radius-sm: var(--dimension-x0-5);
+  --brand-radius-md: var(--dimension-x0-75);
+  --brand-radius-lg: var(--dimension-x1);
+  --brand-radius-xl: var(--dimension-x1-5);
+  --brand-radius-2xl: var(--dimension-x2);
+  --brand-radius-none: var(--dimension-x0);
   --brand-radius-full: var(--dimension-full);
 }

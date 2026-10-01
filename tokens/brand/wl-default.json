@@ -115,31 +115,31 @@
     "radius": {
       "xs": {
         "$type": "dimension",
-        "$value": "{dimension.4}"
+        "$value": "{dimension.x0-25}"
       },
       "sm": {
         "$type": "dimension",
-        "$value": "{dimension.8}"
+        "$value": "{dimension.x0-5}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "{dimension.12}"
+        "$value": "{dimension.x0-75}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "{dimension.16}"
+        "$value": "{dimension.x1}"
       },
       "xl": {
         "$type": "dimension",
-        "$value": "{dimension.24}"
+        "$value": "{dimension.x1-5}"
       },
       "2xl": {
         "$type": "dimension",
-        "$value": "{dimension.32}"
+        "$value": "{dimension.x2}"
       },
       "none": {
         "$type": "dimension",
-        "$value": "{dimension.0}"
+        "$value": "{dimension.x0}"
       },
       "full": {
         "$type": "dimension",

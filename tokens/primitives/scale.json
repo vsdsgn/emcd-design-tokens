@@ -1,112 +1,112 @@
 {
   "dimension": {
-    "0": {
+    "x0": {
       "$type": "dimension",
       "$value": "0px"
     },
-    "1": {
+    "x0-0625": {
       "$type": "dimension",
       "$value": "1px"
     },
-    "2": {
+    "x0-125": {
       "$type": "dimension",
       "$value": "2px"
     },
-    "4": {
+    "x0-25": {
       "$type": "dimension",
       "$value": "4px"
     },
-    "6": {
+    "x0-375": {
       "$type": "dimension",
       "$value": "6px"
     },
-    "8": {
+    "x0-5": {
       "$type": "dimension",
       "$value": "8px"
     },
-    "10": {
+    "x0-625": {
       "$type": "dimension",
       "$value": "10px"
     },
-    "12": {
+    "x0-75": {
       "$type": "dimension",
       "$value": "12px"
     },
-    "14": {
+    "x0-875": {
       "$type": "dimension",
       "$value": "14px"
     },
-    "16": {
+    "x1": {
       "$type": "dimension",
       "$value": "16px"
     },
-    "20": {
+    "x1-25": {
       "$type": "dimension",
       "$value": "20px"
     },
-    "24": {
+    "x1-5": {
       "$type": "dimension",
       "$value": "24px"
     },
-    "28": {
+    "x1-75": {
       "$type": "dimension",
       "$value": "28px"
     },
-    "32": {
+    "x2": {
       "$type": "dimension",
       "$value": "32px"
     },
-    "36": {
+    "x2-25": {
       "$type": "dimension",
       "$value": "36px"
     },
-    "40": {
+    "x2-5": {
       "$type": "dimension",
       "$value": "40px"
     },
-    "44": {
+    "x2-75": {
       "$type": "dimension",
       "$value": "44px"
     },
-    "48": {
+    "x3": {
       "$type": "dimension",
       "$value": "48px"
     },
-    "52": {
-      "$type": "dimension",
-      "$value": "52px"
-    },
-    "56": {
+    "x3-5": {
       "$type": "dimension",
       "$value": "56px"
     },
-    "64": {
+    "x4": {
       "$type": "dimension",
       "$value": "64px"
     },
-    "72": {
+    "x4-5": {
       "$type": "dimension",
       "$value": "72px"
     },
-    "80": {
+    "x5": {
       "$type": "dimension",
       "$value": "80px"
     },
-    "96": {
+    "x6": {
       "$type": "dimension",
       "$value": "96px"
     },
-    "120": {
+    "x7-5": {
       "$type": "dimension",
       "$value": "120px"
     },
-    "160": {
+    "x10": {
       "$type": "dimension",
       "$value": "160px"
     },
     "full": {
       "$type": "dimension",
       "$value": "9999px"
+    },
+    "x3-25": {
+      "$type": "dimension",
+      "$value": "52px"
     }
   },
   "font-size": {
