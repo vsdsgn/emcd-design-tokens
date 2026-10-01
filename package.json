@@ -1,0 +1,17 @@
+{
+  "name": "@emcd/design-tokens",
+  "version": "0.1.0",
+  "description": "EMCD DS 2.0 design tokens — multi-brand, multi-theme, multi-platform. Source: Figma «◆ EMCD DS 2.0 — Foundations».",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "convert": "node scripts/figma-to-dtcg.mjs",
+    "build": "node scripts/build.mjs",
+    "all": "npm run convert && npm run build"
+  },
+  "files": ["tokens", "build"],
+  "devDependencies": {
+    "style-dictionary": "^4.3.0"
+  }
+}

@@ -1,0 +1,39 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root, [data-brand="emcd"] {
+  --brand-accent-50: var(--color-violet-50);
+  --brand-accent-100: var(--color-violet-100);
+  --brand-accent-150: var(--color-violet-150);
+  --brand-accent-200: var(--color-violet-200);
+  --brand-accent-300: var(--color-violet-300);
+  --brand-accent-400: var(--color-violet-400);
+  --brand-accent-500: var(--color-violet-500);
+  --brand-accent-600: var(--color-violet-600);
+  --brand-accent-700: var(--color-violet-700);
+  --brand-accent-800: var(--color-violet-800);
+  --brand-accent-850: var(--color-violet-850);
+  --brand-accent-900: var(--color-violet-900);
+  --brand-accent-950: var(--color-violet-950);
+  --brand-accent-on-solid: var(--color-neutral-0);
+  --brand-accent-solid: var(--color-violet-500);
+  --brand-accent-solid-hover: var(--color-violet-600);
+  --brand-accent-solid-pressed: var(--color-violet-700);
+  --brand-highlight-100: var(--color-lime-100);
+  --brand-highlight-300: var(--color-lime-300);
+  --brand-highlight-500: var(--color-lime-500);
+  --brand-highlight-700: var(--color-lime-700);
+  --brand-highlight-900: var(--color-lime-900);
+  --brand-highlight-on-solid: var(--color-neutral-950);
+  --brand-font-family-text: var(--font-family-roobert-pro);
+  --brand-font-family-display: var(--font-family-roobert-pro);
+  --brand-radius-xs: var(--dimension-4);
+  --brand-radius-sm: var(--dimension-8);
+  --brand-radius-md: var(--dimension-12);
+  --brand-radius-lg: var(--dimension-16);
+  --brand-radius-xl: var(--dimension-24);
+  --brand-radius-2xl: var(--dimension-32);
+  --brand-radius-none: var(--dimension-0);
+  --brand-radius-full: var(--dimension-full);
+}

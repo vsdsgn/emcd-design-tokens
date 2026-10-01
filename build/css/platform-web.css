@@ -1,0 +1,46 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root, [data-platform="web"] {
+  --space-none: var(--dimension-0);
+  --space-3xs: var(--dimension-2);
+  --space-2xs: var(--dimension-4);
+  --space-xs: var(--dimension-8);
+  --space-sm: var(--dimension-12);
+  --space-md: var(--dimension-16);
+  --space-lg: var(--dimension-24);
+  --space-xl: var(--dimension-32);
+  --space-2xl: var(--dimension-48);
+  --space-3xl: var(--dimension-64);
+  --control-height-sm: var(--dimension-32);
+  --control-height-md: var(--dimension-40);
+  --control-height-lg: var(--dimension-48);
+  --control-padding-x-sm: var(--dimension-12);
+  --control-padding-x-md: var(--dimension-16);
+  --control-padding-x-lg: var(--dimension-20);
+  --control-gap: var(--dimension-8);
+  --touch-min: var(--dimension-24);
+  --icon-size-sm: var(--dimension-16);
+  --icon-size-md: var(--dimension-20);
+  --icon-size-lg: var(--dimension-24);
+  --icon-size-xl: var(--dimension-32);
+  --icon-size-inline: var(--dimension-16);
+  --icon-size-control: var(--dimension-20);
+  --icon-size-nav: var(--dimension-24);
+  --icon-stroke-regular: var(--stroke-1-5);
+  --icon-stroke-strong: var(--stroke-2);
+  --list-item-height: var(--dimension-48);
+  --nav-header-height: var(--dimension-64);
+  --nav-bar-height: var(--dimension-56);
+  --card-padding: var(--dimension-16);
+  --card-gap: var(--dimension-12);
+  --modal-padding: var(--dimension-24);
+  --border-width-default: var(--stroke-1);
+  --border-width-focus: var(--stroke-2);
+  --radius-control: var(--brand-radius-md);
+  --radius-container: var(--brand-radius-lg);
+  --radius-surface: var(--brand-radius-xl);
+  --radius-chip: var(--brand-radius-full);
+  --radius-inner: var(--brand-radius-sm);
+}

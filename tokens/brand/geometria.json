@@ -1,0 +1,146 @@
+{
+  "brand": {
+    "accent": {
+      "50": {
+        "$type": "color",
+        "$value": "{color.electric-blue.50}"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "{color.electric-blue.100}"
+      },
+      "150": {
+        "$type": "color",
+        "$value": "{color.electric-blue.200}"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "{color.electric-blue.200}"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "{color.electric-blue.300}"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "{color.electric-blue.400}"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "{color.electric-blue.500}"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "{color.electric-blue.600}"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "{color.electric-blue.700}"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "{color.electric-blue.800}"
+      },
+      "850": {
+        "$type": "color",
+        "$value": "{color.electric-blue.800}"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "{color.electric-blue.900}"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "{color.electric-blue.900}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{color.neutral.0}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{color.electric-blue.600}"
+      },
+      "solid-hover": {
+        "$type": "color",
+        "$value": "{color.electric-blue.700}"
+      },
+      "solid-pressed": {
+        "$type": "color",
+        "$value": "{color.electric-blue.800}"
+      }
+    },
+    "highlight": {
+      "100": {
+        "$type": "color",
+        "$value": "{color.electric-green.100}"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "{color.electric-green.300}"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "{color.electric-green.500}"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "{color.electric-green.700}"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "{color.electric-green.900}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{color.neutral.950}"
+      }
+    },
+    "font": {
+      "family": {
+        "text": {
+          "$type": "fontFamily",
+          "$value": "{font-family.pp-neue-montreal}"
+        },
+        "display": {
+          "$type": "fontFamily",
+          "$value": "{font-family.pp-neue-montreal}"
+        }
+      }
+    },
+    "radius": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "{dimension.2}"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "{dimension.4}"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{dimension.6}"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{dimension.8}"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "{dimension.12}"
+      },
+      "2xl": {
+        "$type": "dimension",
+        "$value": "{dimension.16}"
+      },
+      "none": {
+        "$type": "dimension",
+        "$value": "{dimension.0}"
+      },
+      "full": {
+        "$type": "dimension",
+        "$value": "{dimension.full}"
+      }
+    }
+  }
+}
