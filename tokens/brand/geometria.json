@@ -105,6 +105,10 @@
         "display": {
           "$type": "fontFamily",
           "$value": "{font-family.pp-neue-montreal}"
+        },
+        "mono": {
+          "$type": "fontFamily",
+          "$value": "{font-family.ibm-plex-mono}"
         }
       }
     },

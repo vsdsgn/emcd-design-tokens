@@ -100,11 +100,15 @@
       "family": {
         "text": {
           "$type": "fontFamily",
-          "$value": "{font-family.roobert-pro}"
+          "$value": "{font-family.ibm-plex-sans}"
         },
         "display": {
           "$type": "fontFamily",
-          "$value": "{font-family.roobert-pro}"
+          "$value": "{font-family.ibm-plex-sans}"
+        },
+        "mono": {
+          "$type": "fontFamily",
+          "$value": "{font-family.ibm-plex-mono}"
         }
       }
     },

@@ -41,6 +41,10 @@
     "overlay": {
       "$type": "color",
       "$value": "{color.alpha.black.64}"
+    },
+    "glass": {
+      "$type": "color",
+      "$value": "{color.alpha.black.64}"
     }
   },
   "text": {
@@ -382,9 +386,17 @@
     }
   },
   "shadow": {
-    "color": {
+    "key": {
       "$type": "color",
       "$value": "{color.alpha.black.48}"
+    },
+    "ambient": {
+      "$type": "color",
+      "$value": "{color.alpha.black.32}"
+    },
+    "strong": {
+      "$type": "color",
+      "$value": "{color.alpha.black.64}"
     }
   },
   "data": {
