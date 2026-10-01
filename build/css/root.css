@@ -1,0 +1,5 @@
+/* 320 → 8K: everything in rem scales up on very wide screens. */
+html { font-size: 100%; }
+@media (min-width: 160em) { html { font-size: 112.5%; } } /* ≥ 2560px */
+@media (min-width: 240em) { html { font-size: 125%; } }   /* ≥ 3840px */
+@media (min-width: 480em) { html { font-size: 150%; } }   /* ≥ 7680px */

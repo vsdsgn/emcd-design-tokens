@@ -1,3 +1,4 @@
+@import "./root.css";
 @import "./primitives.css";
 @import "./brand-emcd.css";
 @import "./brand-geometria.css";
@@ -8,3 +9,4 @@
 @import "./platform-site.css";
 @import "./platform-web.css";
 @import "./viewport.css";
+@import "./type-fluid.css";

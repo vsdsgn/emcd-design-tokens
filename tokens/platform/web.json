@@ -2,114 +2,114 @@
   "space": {
     "none": {
       "$type": "dimension",
-      "$value": "{dimension.0}"
+      "$value": "{dimension.x0}"
     },
     "3xs": {
       "$type": "dimension",
-      "$value": "{dimension.2}"
+      "$value": "{dimension.x0-125}"
     },
     "2xs": {
       "$type": "dimension",
-      "$value": "{dimension.4}"
+      "$value": "{dimension.x0-25}"
     },
     "xs": {
       "$type": "dimension",
-      "$value": "{dimension.8}"
+      "$value": "{dimension.x0-5}"
     },
     "sm": {
       "$type": "dimension",
-      "$value": "{dimension.12}"
+      "$value": "{dimension.x0-75}"
     },
     "md": {
       "$type": "dimension",
-      "$value": "{dimension.16}"
+      "$value": "{dimension.x1}"
     },
     "lg": {
       "$type": "dimension",
-      "$value": "{dimension.24}"
+      "$value": "{dimension.x1-5}"
     },
     "xl": {
       "$type": "dimension",
-      "$value": "{dimension.32}"
+      "$value": "{dimension.x2}"
     },
     "2xl": {
       "$type": "dimension",
-      "$value": "{dimension.48}"
+      "$value": "{dimension.x3}"
     },
     "3xl": {
       "$type": "dimension",
-      "$value": "{dimension.64}"
+      "$value": "{dimension.x4}"
     }
   },
   "control": {
     "height": {
       "sm": {
         "$type": "dimension",
-        "$value": "{dimension.32}"
+        "$value": "{dimension.x2}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "{dimension.40}"
+        "$value": "{dimension.x2-5}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "{dimension.48}"
+        "$value": "{dimension.x3}"
       }
     },
     "padding-x": {
       "sm": {
         "$type": "dimension",
-        "$value": "{dimension.12}"
+        "$value": "{dimension.x0-75}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "{dimension.16}"
+        "$value": "{dimension.x1}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "{dimension.20}"
+        "$value": "{dimension.x1-25}"
       }
     },
     "gap": {
       "$type": "dimension",
-      "$value": "{dimension.8}"
+      "$value": "{dimension.x0-5}"
     }
   },
   "touch": {
     "min": {
       "$type": "dimension",
-      "$value": "{dimension.24}"
+      "$value": "{dimension.x1-5}"
     }
   },
   "icon": {
     "size": {
       "sm": {
         "$type": "dimension",
-        "$value": "{dimension.16}"
+        "$value": "{dimension.x1}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "{dimension.20}"
+        "$value": "{dimension.x1-25}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "{dimension.24}"
+        "$value": "{dimension.x1-5}"
       },
       "xl": {
         "$type": "dimension",
-        "$value": "{dimension.32}"
+        "$value": "{dimension.x2}"
       },
       "inline": {
         "$type": "dimension",
-        "$value": "{dimension.16}"
+        "$value": "{dimension.x1}"
       },
       "control": {
         "$type": "dimension",
-        "$value": "{dimension.20}"
+        "$value": "{dimension.x1-25}"
       },
       "nav": {
         "$type": "dimension",
-        "$value": "{dimension.24}"
+        "$value": "{dimension.x1-5}"
       }
     },
     "stroke": {
@@ -126,33 +126,33 @@
   "list": {
     "item-height": {
       "$type": "dimension",
-      "$value": "{dimension.48}"
+      "$value": "{dimension.x3}"
     }
   },
   "nav": {
     "header-height": {
       "$type": "dimension",
-      "$value": "{dimension.64}"
+      "$value": "{dimension.x4}"
     },
     "bar-height": {
       "$type": "dimension",
-      "$value": "{dimension.56}"
+      "$value": "{dimension.x3-5}"
     }
   },
   "card": {
     "padding": {
       "$type": "dimension",
-      "$value": "{dimension.16}"
+      "$value": "{dimension.x1}"
     },
     "gap": {
       "$type": "dimension",
-      "$value": "{dimension.12}"
+      "$value": "{dimension.x0-75}"
     }
   },
   "modal": {
     "padding": {
       "$type": "dimension",
-      "$value": "{dimension.24}"
+      "$value": "{dimension.x1-5}"
     }
   },
   "radius": {

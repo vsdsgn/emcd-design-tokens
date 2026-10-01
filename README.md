@@ -36,6 +36,21 @@ scripts/              figma-to-dtcg.mjs (export → DTCG), build.mjs (Style Dict
 Defaults on `:root`: brand `emcd`, theme `dark`, platform `web`. Viewport switches automatically by media queries
 (600 / 840 / 1200 / 1600 px).
 
+## Units and adaptivity (320×640 → 8K)
+
+Figma works in px; names carry the rem value: `dimension/x1` = 16px = 1rem, `dimension/x0-25` = 4px = 0.25rem.
+
+| Where | Unit | Why |
+|---|---|---|
+| Web: spacing, sizes, type, radii | `rem` | Follows the user's browser font size (WCAG 1.4.4 text resize) |
+| Web: strokes, `radius/full` | `px` | Hairlines must stay crisp |
+| Web: breakpoints | `em` media queries | Correct with browser zoom |
+| Web: type scale | fluid `clamp()` 360→1600px | No jumps between steps |
+| Web: very wide screens | root font-size 112.5% ≥2560px, 125% ≥3840px, 150% ≥7680px | 4K/8K at 100% OS scaling |
+| Flutter | numbers (logical px / dp) | Flutter applies the system text scale itself |
+
+TV (10-foot UI: remote, focus, reading distance) will be a separate Platform mode, not a Viewport step.
+
 ## Update flow
 
 1. Change variables in Figma Foundations.

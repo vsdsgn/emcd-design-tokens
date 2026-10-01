@@ -4,11 +4,11 @@
 
 :root {
   --layout-columns: 4;
-  --layout-content-max: 600px;
+  --layout-content-max: 37.5rem;
   --layout-breakpoint-min: 0;
-  --layout-margin: var(--dimension-16);
-  --layout-gutter: var(--dimension-16);
-  --space-section: var(--dimension-32);
+  --layout-margin: var(--dimension-x1);
+  --layout-gutter: var(--dimension-x1);
+  --space-section: var(--dimension-x2);
   --type-display-lg-size: var(--font-size-32);
   --type-display-lg-line-height: var(--line-height-40);
   --type-display-md-size: var(--font-size-28);
