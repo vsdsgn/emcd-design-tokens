@@ -86,7 +86,13 @@ html { font-size: 100%; }
 @media (min-width: 480em) { html { font-size: 150%; } }   /* ≥ 7680px */
 `);
 
-const order = ['root', 'primitives', ...brands.map((b) => `brand-${b}`), ...themes.map((t) => `theme-${t}`), ...platforms.map((p) => `platform-${p}`), 'viewport', 'type-fluid'];
+// Default layer (:root) must come first, otherwise it overrides [data-*] selectors of equal specificity.
+const defFirst = (arr, def) => [def, ...arr.filter((x) => x !== def)];
+const order = ['root', 'primitives',
+  ...defFirst(brands, DEFAULT.brand).map((b) => `brand-${b}`),
+  ...defFirst(themes, DEFAULT.theme).map((t) => `theme-${t}`),
+  ...defFirst(platforms, DEFAULT.platform).map((p) => `platform-${p}`),
+  'viewport', 'type-fluid'];
 writeFileSync('build/css/index.css', order.map((f) => `@import "./${f}.css";`).join('\n') + '\n');
 
 mkdirSync('build/json', { recursive: true });
