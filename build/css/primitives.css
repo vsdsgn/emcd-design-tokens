@@ -232,6 +232,11 @@
   --font-family-pp-neue-montreal: 'PP Neue Montreal';
   --font-family-sf-pro: 'SF Pro';
   --font-family-roboto: Roboto;
+  --font-family-ibm-plex-sans: 'IBM Plex Sans';
+  --font-family-ibm-plex-mono: 'IBM Plex Mono';
+  --font-family-ibm-plex-sans-thai: 'IBM Plex Sans Thai';
+  --font-family-ibm-plex-sans-hebrew: 'IBM Plex Sans Hebrew';
+  --font-family-noto-sans-arabic: 'Noto Sans Arabic';
   --letter-spacing-tight: -2px;
   --letter-spacing-snug: -1px;
   --letter-spacing-normal: 0px;

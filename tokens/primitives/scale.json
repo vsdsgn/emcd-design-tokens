@@ -291,6 +291,26 @@
     "roboto": {
       "$type": "fontFamily",
       "$value": "Roboto"
+    },
+    "ibm-plex-sans": {
+      "$type": "fontFamily",
+      "$value": "IBM Plex Sans"
+    },
+    "ibm-plex-mono": {
+      "$type": "fontFamily",
+      "$value": "IBM Plex Mono"
+    },
+    "ibm-plex-sans-thai": {
+      "$type": "fontFamily",
+      "$value": "IBM Plex Sans Thai"
+    },
+    "ibm-plex-sans-hebrew": {
+      "$type": "fontFamily",
+      "$value": "IBM Plex Sans Hebrew"
+    },
+    "noto-sans-arabic": {
+      "$type": "fontFamily",
+      "$value": "Noto Sans Arabic"
     }
   },
   "letter-spacing": {

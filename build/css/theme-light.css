@@ -13,6 +13,7 @@
   --surface-active: var(--color-neutral-150);
   --surface-disabled: var(--color-neutral-100);
   --surface-overlay: var(--color-alpha-black-48);
+  --surface-glass: var(--color-alpha-white-80);
   --text-primary: var(--color-neutral-950);
   --text-secondary: var(--color-neutral-600);
   --text-tertiary: var(--color-neutral-550);
@@ -69,7 +70,9 @@
   --scrollbar-thumb: var(--color-alpha-black-24);
   --scrollbar-thumb-hover: var(--color-alpha-black-48);
   --fade-edge: var(--color-neutral-0);
-  --shadow-color: var(--color-alpha-black-12);
+  --shadow-key: var(--color-alpha-black-12);
+  --shadow-ambient: var(--color-alpha-black-8);
+  --shadow-strong: var(--color-alpha-black-24);
   --data-1: var(--color-violet-500);
   --data-2: var(--color-blue-500);
   --data-3: var(--color-emerald-500);

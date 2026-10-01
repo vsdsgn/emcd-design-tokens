@@ -28,6 +28,7 @@
   --brand-highlight-on-solid: var(--color-neutral-950);
   --brand-font-family-text: var(--font-family-roobert-pro);
   --brand-font-family-display: var(--font-family-roobert-pro);
+  --brand-font-family-mono: var(--font-family-ibm-plex-mono);
   --brand-radius-xs: var(--dimension-4);
   --brand-radius-sm: var(--dimension-8);
   --brand-radius-md: var(--dimension-12);
