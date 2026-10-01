@@ -1,0 +1,146 @@
+{
+  "brand": {
+    "accent": {
+      "50": {
+        "$type": "color",
+        "$value": "{color.violet.50}"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "{color.violet.100}"
+      },
+      "150": {
+        "$type": "color",
+        "$value": "{color.violet.150}"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "{color.violet.200}"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "{color.violet.300}"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "{color.violet.400}"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "{color.violet.500}"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "{color.violet.600}"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "{color.violet.700}"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "{color.violet.800}"
+      },
+      "850": {
+        "$type": "color",
+        "$value": "{color.violet.850}"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "{color.violet.900}"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "{color.violet.950}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{color.neutral.0}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{color.violet.500}"
+      },
+      "solid-hover": {
+        "$type": "color",
+        "$value": "{color.violet.600}"
+      },
+      "solid-pressed": {
+        "$type": "color",
+        "$value": "{color.violet.700}"
+      }
+    },
+    "highlight": {
+      "100": {
+        "$type": "color",
+        "$value": "{color.lime.100}"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "{color.lime.300}"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "{color.lime.500}"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "{color.lime.700}"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "{color.lime.900}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{color.neutral.950}"
+      }
+    },
+    "font": {
+      "family": {
+        "text": {
+          "$type": "fontFamily",
+          "$value": "{font-family.roobert-pro}"
+        },
+        "display": {
+          "$type": "fontFamily",
+          "$value": "{font-family.roobert-pro}"
+        }
+      }
+    },
+    "radius": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "{dimension.4}"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "{dimension.8}"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{dimension.12}"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{dimension.16}"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "{dimension.24}"
+      },
+      "2xl": {
+        "$type": "dimension",
+        "$value": "{dimension.32}"
+      },
+      "none": {
+        "$type": "dimension",
+        "$value": "{dimension.0}"
+      },
+      "full": {
+        "$type": "dimension",
+        "$value": "{dimension.full}"
+      }
+    }
+  }
+}

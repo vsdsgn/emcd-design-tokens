@@ -1,0 +1,40 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --layout-columns: 4;
+  --layout-content-max: 600px;
+  --layout-breakpoint-min: 0;
+  --layout-margin: var(--dimension-16);
+  --layout-gutter: var(--dimension-16);
+  --space-section: var(--dimension-32);
+  --type-display-lg-size: var(--font-size-32);
+  --type-display-lg-line-height: var(--line-height-40);
+  --type-display-md-size: var(--font-size-28);
+  --type-display-md-line-height: var(--line-height-36);
+  --type-heading-xl-size: var(--font-size-24);
+  --type-heading-xl-line-height: var(--line-height-32);
+  --type-heading-lg-size: var(--font-size-20);
+  --type-heading-lg-line-height: var(--line-height-28);
+  --type-heading-md-size: var(--font-size-18);
+  --type-heading-md-line-height: var(--line-height-24);
+  --type-heading-sm-size: var(--font-size-16);
+  --type-heading-sm-line-height: var(--line-height-24);
+  --type-body-lg-size: var(--font-size-16);
+  --type-body-lg-line-height: var(--line-height-24);
+  --type-body-md-size: var(--font-size-14);
+  --type-body-md-line-height: var(--line-height-20);
+  --type-body-sm-size: var(--font-size-12);
+  --type-body-sm-line-height: var(--line-height-16);
+  --type-label-lg-size: var(--font-size-16);
+  --type-label-lg-line-height: var(--line-height-24);
+  --type-label-md-size: var(--font-size-14);
+  --type-label-md-line-height: var(--line-height-20);
+  --type-label-sm-size: var(--font-size-12);
+  --type-label-sm-line-height: var(--line-height-16);
+  --type-caption-size: var(--font-size-12);
+  --type-caption-line-height: var(--line-height-16);
+  --type-overline-size: var(--font-size-10);
+  --type-overline-line-height: var(--line-height-12);
+}
