@@ -6,8 +6,8 @@
 @import "./brand-wl-default.css";
 @import "./theme-dark.css";
 @import "./theme-light.css";
+@import "./platform-web.css";
 @import "./platform-app.css";
 @import "./platform-site.css";
-@import "./platform-web.css";
 @import "./viewport.css";
 @import "./type-fluid.css";
