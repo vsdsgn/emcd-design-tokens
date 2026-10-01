@@ -1,6 +1,6 @@
 {
   "name": "@emcd/design-tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "EMCD DS 2.0 design tokens — multi-brand, multi-theme, multi-platform. Source: Figma «◆ EMCD DS 2.0 — Foundations».",
   "type": "module",
   "license": "UNLICENSED",
