@@ -91,6 +91,17 @@ Legacy: старые имена компонента
 
 ## Button: типы
 
-9 типов (по частоте в продуктах): Secondary · Primary · Tertiary accent · Link · Secondary accent · Outline · Error · Tertiary error · Inverted. Размеры S 32 / M 40 / L 48 / XL 56. Состояния Default / Hover / Pressed / Disabled + свойства Focus ring, Loading.
+9 типов (по частоте в продуктах): Secondary · Primary · Tertiary accent · Link · Secondary accent · Outline · Error · Tertiary error · Inverted.
+
+### Размер по контексту
+
+| Размер | Где |
+|---|---|
+| S 32 | строки таблиц, тулбары, фильтры, действия в списках и плитках |
+| M 40 | **по умолчанию на Web**: формы, карточки, диалоги, шапки разделов |
+| L 48 | **по умолчанию в App и мобильном вебе**: формы, диалоги, шторки; на Web — главное действие экрана |
+| XL 56 | главный CTA: липкая кнопка внизу на мобилке, онбординг, промо, пустые состояния |
+
+Правила: кнопки в одной группе — одного размера; кнопка рядом с полем — размера поля (Input M ↔ Button M); внутри таблицы и тулбара — всё S. Состояния Default / Hover / Pressed / Disabled + свойства Focus ring, Loading.
 
 Пары: Primary + Tertiary accent (диалог) · Error + Secondary (опасное) · Primary + Secondary (форма) · Primary + Secondary + Tertiary accent (мастер) · Outline + Primary (тулбар) · Inverted + Tertiary accent (промо). На level-2 — Outline / Tertiary accent / Tertiary error.
