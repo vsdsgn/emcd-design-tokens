@@ -40,9 +40,11 @@ for (const c of comps) {
   const name = c.name.replace(/^icon\//, '').replace(/\//g, '-');
   let svg = await (await fetch(urls[c.id])).text();
   svg = svg
-    .replace(/<svg[^>]*>/, (m) => m.replace(/width="[^"]*"/, 'width="24"').replace(/height="[^"]*"/, 'height="24"'))
-    .replace(/(fill|stroke)="#(?:0{3}|0{6}|000000ff)"/gi, '$1="currentColor"')
-    .replace(/(fill|stroke)="black"/gi, '$1="currentColor"');
+    .replace(/<svg[^>]*>/, (m) => m.replace(/\s(width|height)="[^"]*"/g, '').replace('<svg', '<svg class="ds-icon"'))
+    .replace(/(fill|stroke)="#[0-9a-fA-F]{3,8}"/g, '$1="currentColor"')
+    .replace(/(fill|stroke)="black"/gi, '$1="currentColor"')
+    // keep stroke weight constant at any rendered size (same as Figma); override via CSS: .ds-icon { stroke-width: var(--icon-stroke-regular) }
+    .replace(/<(path|circle|rect|line|polyline|polygon|ellipse)([^>]*stroke="currentColor"[^>]*?)(\/?)>/g, (m, tag, attrs, close) => `<${tag}${attrs.includes('vector-effect') ? attrs : attrs + ' vector-effect="non-scaling-stroke"'}${close}>`);
   writeFileSync(`icons/svg/${name}.svg`, svg);
   manifest.push({ name, figma: c.name, description: (meta[c.id] && meta[c.id].description) || '' });
 }
@@ -51,7 +53,9 @@ for (const c of comps) {
 let outlined = 0;
 for (const { name } of manifest) {
   try {
-    const out = execFileSync(existsSync('.venv/bin/picosvg') ? '.venv/bin/picosvg' : 'picosvg', [`icons/svg/${name}.svg`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+    const tmp = `/tmp/ds-icon-${name}.svg`;
+    writeFileSync(tmp, readFileSync(`icons/svg/${name}.svg`, 'utf8').replace(/ vector-effect="non-scaling-stroke"/g, '').replace(' class="ds-icon"', ''));
+    const out = execFileSync(existsSync('.venv/bin/picosvg') ? '.venv/bin/picosvg' : 'picosvg', [tmp], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
     writeFileSync(`icons/flutter/${name}.svg`, out.replace(/fill="(?!none)[^"]*"/g, 'fill="currentColor"'));
     outlined++;
   } catch { /* picosvg missing or failed for this icon — web SVG still exported */ }
