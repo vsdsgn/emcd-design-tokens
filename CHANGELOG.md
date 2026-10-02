@@ -18,6 +18,8 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 - Accessibility rules for all components (focus, keyboard map, VoiceOver/TalkBack, touch targets, reduced motion) in `docs/components.md`.
 
 ### Changed
+- Colour ramps regenerated in OKLCH (violet, green, red, amber, blue, lime, yellow, electric-green, electric-blue): step 500 is the anchor and keeps its hex; lightness evenly spaced to 50 / 950; dark half keeps the 500 hue; one chroma curve; sRGB clip. Fixes lime (flat 50–500, cliff at 600, olive drift from 700), electric-green (400 darker than 500), yellow (cliff 700→800). Neutral and alpha unchanged. Before/after page «🎨 Ramps · OKLCH» in Foundations.
+- EMCD `accent/focus-on-light` lime/700 → lime/800 (5.0:1 on white); `data/8` light lime/600 → lime/800.
 - Control fills are translucent so controls read on every surface level (L0 / L1 / L2 / raised) in both themes: `control/track` black 12% / white 16%, `-hover` 16% / 24%, `-disabled` 4% / 8%; `control/box` dark white 8%, `-hover` 12%; `control/knob-disabled` dark white 24%; `control/surface/disabled` black 4% / white 4% (disabled no longer darker than its background).
 - Components: Checkbox, Radio, Toggle rebuilt on `control/*` tokens, label centred on the control; Toggle has no Danger. Button, Icon button, Checkbox, Radio, Toggle: two hit-area layers — `fine` max(size, 24) shown by `touch/is-fine`, `coarse` max(size, 44) shown by `touch/is-coarse`.
 - Control heights 32 / 40 / 48 / 56 (S/M/L/XL), paddings 10 / 14 / 16 / 20.

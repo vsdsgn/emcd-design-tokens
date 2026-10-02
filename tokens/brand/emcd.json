@@ -87,7 +87,7 @@
       },
       "focus-on-light": {
         "$type": "color",
-        "$value": "{color.lime.700}"
+        "$value": "{color.lime.800}"
       },
       "focus-on-dark": {
         "$type": "color",
