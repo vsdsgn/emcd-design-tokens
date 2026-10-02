@@ -75,3 +75,22 @@ Legacy: старые имена компонента
 - `prefers-reduced-motion` — анимации переходов заменяются на мгновенные или fade; спиннер — пульсацией.
 - `prefers-reduced-transparency` — без блюра (см. effects.md).
 - Текст масштабируется до 200% без поломки (rem в вебе, системный text scale во Flutter).
+
+## Уровни поверхностей
+
+Контрол всегда на уровень выше своей подложки (замер текущих продуктов).
+
+| Уровень | Токен | Dark | Light | Что на нём |
+|---|---|---|---|---|
+| 0 · страница | `bg/base` | #0a0a0a | #ffffff | фон экрана, промо |
+| 1 · карточка | `surface/default` | #111111 | #ffffff + `border/subtle` | основной контент; Secondary, инпуты, списки |
+| 2 · вложенный блок | `surface/nested` | #1a1a1a | #fafafa | блоки внутри карточки; только Outline, Tertiary, Link |
+| 3 · hover / pressed | `surface/hover`, `surface/active` | #232323 / #2d2d2d | #f5f5f5 / #eeeeee | состояния |
+
+`surface/raised` — для поповеров, дропдаунов, тостов (приподнятые над контентом), не для вложенных блоков.
+
+## Button: типы
+
+9 типов (по частоте в продуктах): Secondary · Primary · Tertiary accent · Link · Secondary accent · Outline · Error · Tertiary error · Inverted. Размеры S 32 / M 40 / L 48 / XL 56. Состояния Default / Hover / Pressed / Disabled + свойства Focus ring, Loading.
+
+Пары: Primary + Tertiary accent (диалог) · Error + Secondary (опасное) · Primary + Secondary (форма) · Primary + Secondary + Tertiary accent (мастер) · Outline + Primary (тулбар) · Inverted + Tertiary accent (промо). На level-2 — Outline / Tertiary accent / Tertiary error.
