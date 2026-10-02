@@ -86,13 +86,28 @@ html { font-size: 100%; }
 @media (min-width: 480em) { html { font-size: 150%; } }   /* ≥ 7680px */
 `);
 
+// Low-performance / reduced-transparency layer: no blur, glass becomes opaque, edges keep only the fade.
+writeFileSync('build/css/perf-low.css', `/* Lite mode: old phones, low-end Android, reduced transparency, no backdrop-filter support. */
+${['[data-perf="low"]'].join(', ')} {
+  --effect-blur-glass-sm: 0px; --effect-blur-glass-md: 0px; --effect-blur-glass-lg: 0px;
+  --effect-blur-edge: 0px; --effect-blur-backdrop: 0px;
+  --surface-glass: var(--surface-raised);
+}
+@media (prefers-reduced-transparency: reduce) {
+  :root { --effect-blur-glass-sm: 0px; --effect-blur-glass-md: 0px; --effect-blur-glass-lg: 0px; --effect-blur-edge: 0px; --effect-blur-backdrop: 0px; --surface-glass: var(--surface-raised); }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root { --surface-glass: var(--surface-raised); }
+}
+`);
+
 // Default layer (:root) must come first, otherwise it overrides [data-*] selectors of equal specificity.
 const defFirst = (arr, def) => [def, ...arr.filter((x) => x !== def)];
 const order = ['root', 'primitives',
   ...defFirst(brands, DEFAULT.brand).map((b) => `brand-${b}`),
   ...defFirst(themes, DEFAULT.theme).map((t) => `theme-${t}`),
   ...defFirst(platforms, DEFAULT.platform).map((p) => `platform-${p}`),
-  'viewport', 'type-fluid'];
+  'viewport', 'type-fluid', 'perf-low'];
 writeFileSync('build/css/index.css', order.map((f) => `@import "./${f}.css";`).join('\n') + '\n');
 
 mkdirSync('build/json', { recursive: true });
