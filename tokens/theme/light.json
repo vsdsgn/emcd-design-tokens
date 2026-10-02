@@ -482,7 +482,7 @@
     },
     "8": {
       "$type": "color",
-      "$value": "{color.lime.600}"
+      "$value": "{color.lime.800}"
     }
   },
   "fixed": {
