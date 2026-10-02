@@ -3,6 +3,8 @@
  */
 
 [data-platform="site"] {
+  --touch-is-coarse: false;
+  --touch-is-fine: true;
   --space-none: var(--dimension-x0);
   --space-3xs: var(--dimension-x0-125);
   --space-2xs: var(--dimension-x0-25);

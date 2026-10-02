@@ -45,6 +45,10 @@
     "glass": {
       "$type": "color",
       "$value": "{color.alpha.black.64}"
+    },
+    "nested": {
+      "$type": "color",
+      "$value": "{color.neutral.850}"
     }
   },
   "text": {
@@ -103,6 +107,10 @@
     "info": {
       "$type": "color",
       "$value": "{color.blue.400}"
+    },
+    "on-warning": {
+      "$type": "color",
+      "$value": "{color.neutral.950}"
     }
   },
   "icon": {
@@ -337,29 +345,29 @@
     "surface": {
       "default": {
         "$type": "color",
-        "$value": "{color.neutral.900}"
+        "$value": "{color.neutral.950}"
       },
       "hover": {
         "$type": "color",
-        "$value": "{color.neutral.850}"
+        "$value": "{color.neutral.950}"
       },
       "disabled": {
         "$type": "color",
-        "$value": "{color.neutral.850}"
+        "$value": "{color.alpha.white.4}"
       }
     },
     "border": {
       "default": {
         "$type": "color",
-        "$value": "{color.neutral.500}"
+        "$value": "{color.alpha.white.8}"
       },
       "hover": {
         "$type": "color",
-        "$value": "{color.neutral.400}"
+        "$value": "{brand.accent.fg-on-dark}"
       },
       "focus": {
         "$type": "color",
-        "$value": "{brand.accent.focus-on-dark}"
+        "$value": "{brand.accent.solid}"
       },
       "error": {
         "$type": "color",
@@ -367,7 +375,7 @@
       },
       "disabled": {
         "$type": "color",
-        "$value": "{color.neutral.700}"
+        "$value": "{color.alpha.white.4}"
       }
     },
     "checked": {
@@ -376,7 +384,31 @@
     },
     "track": {
       "$type": "color",
-      "$value": "{color.neutral.700}"
+      "$value": "{color.alpha.white.16}"
+    },
+    "box": {
+      "$type": "color",
+      "$value": "{color.alpha.white.8}"
+    },
+    "box-hover": {
+      "$type": "color",
+      "$value": "{color.alpha.white.12}"
+    },
+    "track-hover": {
+      "$type": "color",
+      "$value": "{color.alpha.white.24}"
+    },
+    "track-disabled": {
+      "$type": "color",
+      "$value": "{color.alpha.white.8}"
+    },
+    "knob": {
+      "$type": "color",
+      "$value": "{color.neutral.50}"
+    },
+    "knob-disabled": {
+      "$type": "color",
+      "$value": "{color.alpha.white.24}"
     }
   },
   "skeleton": {
@@ -465,12 +497,12 @@
   },
   "mode": {
     "is-light": {
-      "$type": "dimension",
-      "$value": "falsepx"
+      "$type": "boolean",
+      "$value": false
     },
     "is-dark": {
-      "$type": "dimension",
-      "$value": "truepx"
+      "$type": "boolean",
+      "$value": true
     }
   }
 }

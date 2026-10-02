@@ -1,6 +1,6 @@
 # DS 2.0 — передача контекста (handoff)
 
-Документ для нового чата / нового исполнителя. Обновлено: 2026-10-02.
+Документ для нового чата / нового исполнителя. Обновлено: 2026-10-02 (вечер).
 
 ## Файлы
 
@@ -21,13 +21,13 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 Этап 1 (Foundations, иконки, git) — готов. Этап 2 (компоненты) — в работе.
 
-Готово в Components: Button (12→9 типов: Primary, Secondary, Secondary accent, Outline, Tertiary accent, Tertiary error, Link, Inverted, Error; S32/M40/L48/XL56; Default/Hover/Pressed/Disabled + Focus ring, Loading), Icon button (Primary, Secondary, Outline, Ghost, Ghost accent, Inverted), Input (слоты Leading/Inline/Trailing — настоящие Figma slots; Label position Above / On border; 9 состояний; аддоны Unit, Max, Chevron, Stepper, Counter), Checkbox, Radio, Toggle (требуют пересборки, см. ниже), Spinner, Skeleton (кирпичи + shimmer).
+Готово в Components: Button (12→9 типов: Primary, Secondary, Secondary accent, Outline, Tertiary accent, Tertiary error, Link, Inverted, Error; S32/M40/L48/XL56; Default/Hover/Pressed/Disabled + Focus ring, Loading), Icon button (Primary, Secondary, Outline, Ghost, Ghost accent, Inverted), Input (слоты Leading/Inline/Trailing — настоящие Figma slots; Label position Above / On border; 9 состояний; аддоны Unit, Max, Chevron, Stepper, Counter), Checkbox, Radio, Toggle (пересобраны на `control/*`, текст по центру, у Toggle без Danger), Spinner, Skeleton (кирпичи + shimmer).
 
 ## Ближайшие задачи (по порядку)
 
-1. **Ждём публикации Foundations** → пересобрать Checkbox/Radio/Toggle: текст по центру контрола; цвета `control/box`, `control/track`, `control/knob`; Danger только у Checkbox/Radio; hit area — два слоя (24 Web/Site, 44 App) с видимостью от `touch/is-fine` / `touch/is-coarse`. Ту же схему hit area — на Button и Icon button (сейчас фикс. 44).
-2. Решение пользователя: amber/600 в светлой теме для warning-заливок (предложено).
-3. Символы: пользователь разбирает доску Icons → «Symbols · selection» (Оставить / Архив / Не символ). Затем: новая библиотека «◆ EMCD DS 2.0 — Symbols» (медиа, не иконки), имена `coin/btc`, `fiat/usd`, `flag/ru`, `payment/visa`, `service/*`, `stock/*`, `os/*`; дорисовать 10 майнинговых монет; медиа-компоненты Coin (+ стек «+N»), Avatar, Logo; экспорт в `symbols/`.
+1. **Опубликовать Foundations** (полупрозрачные `control/*`, `text/on-warning`) → в Components принять обновление библиотеки, проверить контролы на L0/L1/L2/raised в обеих темах.
+2. Решено: warning-заливка = amber/500 в обеих темах, текст на ней — `text/on-warning` (neutral/950). amber/600 не используем (белый на нём 3.2:1).
+3. Символы: пользователь разбирает доску Icons → «Symbols · selection» (Оставить / Архив / Не символ). Затем: новая библиотека «◆ EMCD DS 2.0 — Symbols» (медиа, не иконки), имена `coin/btc`, `fiat/usd`, `flag/ru`, `payment/visa`, `service/*`, `stock/*`, `os/*`; майнинговые монеты (BEL, PEP, DINGO, JKC, FB, BCH и др.) не рисовать — они уже есть в legacy-библиотеке «🎛️ Icons, symbols EMCD» как `ic_<coin>_<ticker>` (аудит шёл только по `smbl-*`), перенести оттуда; `status/verified` (залитая розетка с галочкой, legacy `ic-profile-status-star`) — в Symbols, в Icons остаётся контурный вариант для меню; медиа-компоненты Coin (+ стек «+N»), Avatar, Logo; экспорт в `symbols/`.
 4. Компоненты дальше: Tabs, Segmented, Chip, Select → Badge, Status + Legend → Tooltip, Toast, Alert, Banner, Empty state, Progress → Modal, Sheet, Side panel, Dropdown → List item, Stat card, Table → Shell, Page header. После первой пачки — эталонный экран (История / Дашборд Mining).
 5. Обновить скилл design-studio знаниями проекта; документация для разработки.
 
@@ -44,6 +44,11 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - **Права**: библиотеки редактирует только Stephane; разработка — viewer + свой PAT.
 - **Changelog**: CHANGELOG.md (SemVer), в Figma Publish — одна строка с версией.
 
+## Открытые вопросы
+
+- **Lime-рампа**: 50–500 почти одинаковые по светлоте (OKLCH L 0.95–0.996), обрыв 500→600, 700+ уходит в оливковый (hue 115→97). Предложено перегенерировать тёмную половину в OKLCH с постоянным hue, 500 = #EBFF00 не трогаем. Ждёт решения.
+- **OKLCH**: сейчас не используем (только hex). Предложено: рампы генерировать в OKLCH, в код отдавать hex (+ `oklch()` опционально).
+
 ## Технические приёмы (Figma Plugin API)
 
 - Слоты: `component.createSlot()` создаёт SLOT-узел + свойство; слот можно вложить в frame; пустой слот не схлопывается → нужен BOOLEAN «Show …» на visible.
@@ -51,4 +56,6 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - Переменные из библиотеки — `figma.teamLibrary.getVariablesInLibraryCollectionAsync` → `importVariableByKeyAsync`; новые переменные доступны в других файлах только после публикации Foundations.
 - Мастер-иконки живут в режиме Web (20px): глифы масштабировать относительно `comp.width/24`.
 - Клоны вариантов теряют `componentPropertyReferences` — перепривязывать после клонирования.
+- Экспорт токенов из Figma: скрипт в use_figma собирает коллекции в формат `figma/export-*.json` (`{c, m, v:[[name, type, values]]}`); ответ use_figma ≤ 20 KB, поэтому сначала сверять хеши коллекций и переносить только разошедшиеся. Пушим с Mac пользователя через Desktop Commander (его git-креды).
+- Привязанным пейнтам ставить fallback-цвет = резолвнутое значение (иначе рендер/скриншот показывает чёрный).
 - Экспорт иконок: `npm run icons` (нужен FIGMA_TOKEN в .env); токены: правка в Figma → экспорт коллекций в `figma/export-*.json` → `npm run all`.
