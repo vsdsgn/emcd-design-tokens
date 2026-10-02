@@ -1,0 +1,67 @@
+source,legacy_token,legacy_value,ds2_token,status,note
+Web·App,Color 1 [Back],#0a0a0a,bg/base,=,
+Web·App,Color 7 [Back],#0a0a0a,bg/base,=,
+Web·App,Color 2 [Back],#111111,surface/default,=,
+Web·App,Color 6 [Back],#111111,surface/default,=,
+Web·App,Color 3 [Back],#1a1a1a,surface/raised,=,
+Web·App,Color 35 [Back],#232323,surface/hover,=,
+Web·App,Color 4 [Back],#2d2d2d,surface/active,=,
+Web·App,Disabled / Inactive [Back],#1a1a1a,surface/disabled,=,
+Web·App,Color 1 [Text],#fafafa,text/primary,=,
+Web·App,Color 2 [Text],#d0d0d0,text/secondary,Δ,"becomes #a3a3a3 (two secondary levels merged)"
+Web·App,Color 3 [Text],#a3a3a3,text/tertiary,Δ,becomes #8b8b8b
+Web·App,Color 4 [Text],#7a7a7a,text/tertiary,Δ,"#7a7a7a fails AA on dark → #8b8b8b"
+Web·App,Color 5 [Text],#4d4d4d,text/disabled,=,
+Web·App,Brand,#8f42ff,action/primary/default,=,"button fill; for text use text/accent"
+Web·App,Brand fill hover,#6724b1,action/primary/hover,Δ,hover is violet/600
+Web·App,Brand hover,#ac63fc,text/accent,=,accent text and links on dark
+Web·App,Brand light,#c18afd,text/link-hover,=,
+Web·App,Brand disable,#2c0754,action/disabled,Δ,disabled is neutral now
+Web·App,Error / Red [Main],#e53935,status/danger/solid,=,
+Web·App,Error hover / Red [Hover],#be2f2b,action/danger/default,≈,"danger button red/600 (white text 5.8:1)"
+Web·App,Error disabled / Red [Disabled],#972421,action/disabled,Δ,disabled is neutral
+Web·App,Error back / Red [Back],#350a09,status/danger/subtle,Δ,#480f0e
+Web·App,Error back 2 / Red [Back] 2,#480f0e,status/danger/subtle,=,
+Web·App,Error secondary text,#be2f2b,text/danger,Δ,"on dark #ea615d (5.0:1 instead of 3.2:1)"
+Web·App,Success / Green [Main],#43a047,status/success/solid,=,
+Web·App,Success hover / Green [Hover],#38823b,status/success/solid,≈,no separate hover
+Web·App,Success back / Green [Back],#112412,status/success/subtle,=,
+Web·App,Success back 2,#173318,status/success/subtle,≈,
+Web·App,Success secondary text,#38823b,text/success,Δ,on dark #63b167
+Web·App,Attention / Orange [Main],#f59e0b,status/warning/solid,=,
+Web·App,Attention hover,#c68009,status/warning/solid,≈,
+Web·App,Attention back / Orange [back],#221601,status/warning/subtle,Δ,#3a2502
+Web·App,Attention back 2,#3a2502,status/warning/subtle,=,
+Web·App,Attention secondary text,#976207,text/warning,Δ,"on dark #f59e0b (8.9:1 instead of 3.4:1)"
+Web·App,accent base,#ebff00,highlight/solid,=,"text on it: text/on-highlight"
+Web·App,accent soft,#f6fe9e,highlight/solid,≈,clarify usage
+Web·App,accent bold,#9d8701,highlight/solid,≈,clarify usage
+Web·App,accent background,#231f00,highlight/subtle,Δ,#3c3400
+Web·App,theme · surface/base,#d0d0d0 7%,action/tertiary/hover,≈,translucent layer
+Web·App,theme · divider/base,#d0d0d0 7%,border/subtle,≈,divider is opaque now
+Site,text/neutral/base,#000 / #f5f5f5,text/primary,≈,
+Site,text/neutral/nbold-1,#7a7a7a / #b9b9b9,text/secondary,Δ,"light: #4d4d4d (AA)"
+Site,text/neutral/nbold-2,#a3a3a3 / #a3a3a3,text/tertiary,Δ,"#a3a3a3 on white 2.5:1 → #6b6b6b"
+Site,text/neutral/nbold-3,#b9b9b9 / #7a7a7a,text/disabled,≈,
+Site,text/neutral/nbold-4,#e0e0e0 / #1a1a1a,text/disabled,Δ,almost invisible text — revisit
+Site,text/fixed/white,#ffffff,fixed/light,=,
+Site,text/fixed/black,#000000,fixed/dark,≈,
+Site,icon/neutral/base,#000 / #fff,icon/primary,≈,
+Site,icon/neutral/nbold-1,#7a7a7a / #f5f5f5,icon/secondary,Δ,
+Site,icon/neutral/nbold-2,#a3a3a3 / #e0e0e0,icon/tertiary,Δ,
+Site,icon/neutral/nbold-3 · nbold-4,#b9b9b9 · #e0e0e0,icon/disabled,≈,
+Site,icon/fixed/white · black,#fff · #000,fixed/light · fixed/dark,=,
+Site,icon/brand/base,#8f42ff,icon/accent,Δ,"violet/600 light / 400 dark"
+Site,icon/brand/bold-1,#7f30d6 / #ac63fc,icon/accent,=,
+Site,border/neutral/nbold-1,#e0e0e0 / #2d2d2d,border/default,=,
+Site,border/neutral/nbold-2,#f5f5f5 / #1a1a1a,border/subtle,≈,
+Site,border/neutral/basic,#000 / #f5f5f5,border/inverse,≈,
+Site,background/neutral/basic,#fff / #0a0a0a,bg/base,=,
+Site,background/neutral/bold-1,#eeeeee / #1a1a1a,surface/hover,≈,
+Site,background/neutral/bold-2,#e0e0e0 / #232323,surface/active,≈,
+Site,background/neutral/bold-3,#0a0a0a / #fff,bg/inverse,=,
+Site,background/brand/basic,#8f42ff,action/primary/default,=,
+Site,background/brand/bold-1,#7f30d6 / #ac63fc,action/primary/hover,≈,
+Site,background/brand/nbasic-1,#f5ecff / #380d66,accent/subtle,=,
+Site,text/brand/base,#8f42ff,text/accent,Δ,"violet/600 light / 400 dark — contrast"
+Site,text/brand/bold-1,#7f30d6 / #ac63fc,text/accent,=,
