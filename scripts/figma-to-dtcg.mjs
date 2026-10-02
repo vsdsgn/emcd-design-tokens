@@ -33,6 +33,7 @@ function typeFor(name, t) {
   if (t === 'S') return /font-family|font\/family/.test(name) ? 'fontFamily' : 'string';
   if (/font-weight/.test(name)) return 'fontWeight';
   if (/^duration\//.test(name)) return 'duration';
+  if (/^blur\//.test(name) || /^effect\/blur\//.test(name)) return 'dimension';
   if (/opacity|columns|breakpoint-min/.test(name)) return 'number';
   return 'dimension';
 }

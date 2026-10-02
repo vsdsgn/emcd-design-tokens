@@ -274,4 +274,13 @@
   --opacity-60: 0.6;
   --opacity-80: 0.8;
   --opacity-100: 1;
+  --blur-0: 0px;
+  --blur-4: 4px;
+  --blur-8: 8px;
+  --blur-12: 12px;
+  --blur-16: 16px;
+  --blur-24: 24px;
+  --blur-32: 32px;
+  --blur-48: 48px;
+  --blur-64: 64px;
 }
