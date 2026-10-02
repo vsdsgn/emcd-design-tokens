@@ -11,6 +11,7 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 ## [Unreleased]
 
 ### Added
+- `surface/nested` (level 2: dark #1a1a1a, light #fafafa); surface level rules and button pairing in `docs/components.md`.
 - Button-aligned tokens: `action/success/*`, `action/inverse/*`, `radius/control-sm`, `radius/focus-ring(-sm)`, `focus/offset`, `control/height/xl`, `control/padding-x/xl`.
 - Accessibility rules for all components (focus, keyboard map, VoiceOver/TalkBack, touch targets, reduced motion) in `docs/components.md`.
 
