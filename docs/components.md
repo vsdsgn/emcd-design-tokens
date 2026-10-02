@@ -105,3 +105,28 @@ Legacy: старые имена компонента
 Правила: кнопки в одной группе — одного размера; кнопка рядом с полем — размера поля (Input M ↔ Button M); внутри таблицы и тулбара — всё S. Состояния Default / Hover / Pressed / Disabled + свойства Focus ring, Loading.
 
 Пары: Primary + Tertiary accent (диалог) · Error + Secondary (опасное) · Primary + Secondary (форма) · Primary + Secondary + Tertiary accent (мастер) · Outline + Primary (тулбар) · Inverted + Tertiary accent (промо). На level-2 — Outline / Tertiary accent / Tertiary error.
+
+## Загрузка: скелетоны и лоадеры
+
+Каждый компонент **с данными** имеет состояние **Skeleton**; каждый компонент, **запускающий действие**, — **Loading**.
+
+| Компонент | Загрузка |
+|---|---|
+| Button, Icon button | Loading (спиннер) |
+| Input | Loading (спиннер в поле), Skeleton |
+| List item, Table row, Stat card, Chart card, Card | Skeleton |
+| Coin, Avatar, Badge, Chip | Skeleton |
+| Список: «Загрузить ещё», бесконечный скролл | Loading в футере списка |
+| App: pull-to-refresh | индикатор сверху |
+| Долгие операции с известной длительностью | Progress (линейный / круговой) |
+
+Когда что показывать:
+
+- **до 300 мс** — ничего (иначе мигает);
+- **300 мс – 1 с** — Spinner на месте действия;
+- **> 1 с при загрузке контента** — Skeleton в форме будущего контента;
+- **известна длительность** — Progress;
+- **блокирующее действие** — кнопка в Loading, форма неактивна.
+
+Анимация: shimmer по `skeleton/base` → `skeleton/shimmer`, 1.2 с. `prefers-reduced-motion` — без перелива (статично или мягкая пульсация), спиннер — пульсацией.
+A11y: контейнер `aria-busy="true"`, для читалки — `role="status"` «Загрузка…».
