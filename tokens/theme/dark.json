@@ -166,7 +166,7 @@
     },
     "accent": {
       "$type": "color",
-      "$value": "{brand.accent.focus-on-dark}"
+      "$value": "{brand.accent.solid}"
     },
     "focus": {
       "$type": "color",
@@ -195,15 +195,15 @@
     "secondary": {
       "default": {
         "$type": "color",
-        "$value": "{color.neutral.800}"
+        "$value": "{color.neutral.850}"
       },
       "hover": {
         "$type": "color",
-        "$value": "{color.neutral.700}"
+        "$value": "{color.neutral.800}"
       },
       "pressed": {
         "$type": "color",
-        "$value": "{color.neutral.600}"
+        "$value": "{color.neutral.700}"
       }
     },
     "tertiary": {
@@ -223,16 +223,36 @@
     "danger": {
       "default": {
         "$type": "color",
-        "$value": "{color.red.600}"
+        "$value": "{color.red.500}"
       },
       "hover": {
         "$type": "color",
-        "$value": "{color.red.500}"
+        "$value": "{color.red.600}"
       }
     },
     "disabled": {
       "$type": "color",
-      "$value": "{color.neutral.800}"
+      "$value": "{color.neutral.850}"
+    },
+    "success": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.green.500}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.green.600}"
+      }
+    },
+    "inverse": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.50}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.neutral.200}"
+      }
     }
   },
   "highlight": {
@@ -441,6 +461,16 @@
     "dark": {
       "$type": "color",
       "$value": "{color.neutral.950}"
+    }
+  },
+  "mode": {
+    "is-light": {
+      "$type": "dimension",
+      "$value": "falsepx"
+    },
+    "is-dark": {
+      "$type": "dimension",
+      "$value": "truepx"
     }
   }
 }

@@ -43,4 +43,7 @@
   --brand-radius-2xl: var(--dimension-x2);
   --brand-radius-none: var(--dimension-x0);
   --brand-radius-full: var(--dimension-full);
+  --brand-radius-control-sm: var(--dimension-x0-5);
+  --brand-radius-focus-ring-sm: var(--dimension-x0-75);
+  --brand-radius-focus-ring: var(--dimension-x1);
 }

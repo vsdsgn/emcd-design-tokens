@@ -63,11 +63,11 @@
       },
       "solid-hover": {
         "$type": "color",
-        "$value": "{color.violet.600}"
+        "$value": "{color.violet.700}"
       },
       "solid-pressed": {
         "$type": "color",
-        "$value": "{color.violet.700}"
+        "$value": "{color.violet.800}"
       },
       "fg-on-light": {
         "$type": "color",
@@ -168,6 +168,18 @@
       "full": {
         "$type": "dimension",
         "$value": "{dimension.full}"
+      },
+      "control-sm": {
+        "$type": "dimension",
+        "$value": "{dimension.x0-625}"
+      },
+      "focus-ring-sm": {
+        "$type": "dimension",
+        "$value": "{dimension.x0-875}"
+      },
+      "focus-ring": {
+        "$type": "dimension",
+        "$value": "{dimension.x1}"
       }
     }
   }

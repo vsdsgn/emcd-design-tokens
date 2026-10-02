@@ -3,6 +3,8 @@
  */
 
 :root, [data-theme="dark"] {
+  --mode-is-light: NaNrem;
+  --mode-is-dark: NaNrem;
   --bg-base: var(--color-neutral-950);
   --bg-subtle: var(--color-neutral-900);
   --bg-inverse: var(--color-neutral-0);
@@ -36,15 +38,19 @@
   --border-default: var(--color-neutral-700);
   --border-strong: var(--color-neutral-500);
   --border-inverse: var(--color-neutral-0);
-  --action-secondary-default: var(--color-neutral-800);
-  --action-secondary-hover: var(--color-neutral-700);
-  --action-secondary-pressed: var(--color-neutral-600);
+  --action-secondary-default: var(--color-neutral-850);
+  --action-secondary-hover: var(--color-neutral-800);
+  --action-secondary-pressed: var(--color-neutral-700);
   --action-tertiary-default: var(--color-alpha-black-0);
   --action-tertiary-hover: var(--color-alpha-white-8);
   --action-tertiary-pressed: var(--color-alpha-white-12);
-  --action-danger-default: var(--color-red-600);
-  --action-danger-hover: var(--color-red-500);
-  --action-disabled: var(--color-neutral-800);
+  --action-danger-default: var(--color-red-500);
+  --action-danger-hover: var(--color-red-600);
+  --action-disabled: var(--color-neutral-850);
+  --action-success-default: var(--color-green-500);
+  --action-success-hover: var(--color-green-600);
+  --action-inverse-default: var(--color-neutral-50);
+  --action-inverse-hover: var(--color-neutral-200);
   --status-danger-solid: var(--color-red-500);
   --status-danger-subtle: var(--color-red-900);
   --status-danger-border: var(--color-red-800);
@@ -90,7 +96,7 @@
   --text-link-hover: var(--brand-accent-fg-strong-on-dark);
   --icon-on-accent: var(--brand-accent-on-solid);
   --icon-accent: var(--brand-accent-fg-on-dark);
-  --border-accent: var(--brand-accent-focus-on-dark);
+  --border-accent: var(--brand-accent-solid);
   --border-focus: var(--brand-accent-focus-on-dark);
   --action-primary-default: var(--brand-accent-solid);
   --action-primary-hover: var(--brand-accent-solid-hover);

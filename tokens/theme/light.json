@@ -166,7 +166,7 @@
     },
     "accent": {
       "$type": "color",
-      "$value": "{brand.accent.focus-on-light}"
+      "$value": "{brand.accent.solid}"
     },
     "focus": {
       "$type": "color",
@@ -233,6 +233,26 @@
     "disabled": {
       "$type": "color",
       "$value": "{color.neutral.100}"
+    },
+    "success": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.green.600}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.green.700}"
+      }
+    },
+    "inverse": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.950}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.neutral.800}"
+      }
     }
   },
   "highlight": {
@@ -441,6 +461,16 @@
     "dark": {
       "$type": "color",
       "$value": "{color.neutral.950}"
+    }
+  },
+  "mode": {
+    "is-light": {
+      "$type": "dimension",
+      "$value": "truepx"
+    },
+    "is-dark": {
+      "$type": "dimension",
+      "$value": "falsepx"
     }
   }
 }
