@@ -51,7 +51,7 @@ for (const c of comps) {
 let outlined = 0;
 for (const { name } of manifest) {
   try {
-    const out = execFileSync('picosvg', [`icons/svg/${name}.svg`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+    const out = execFileSync(existsSync('.venv/bin/picosvg') ? '.venv/bin/picosvg' : 'picosvg', [`icons/svg/${name}.svg`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
     writeFileSync(`icons/flutter/${name}.svg`, out.replace(/fill="(?!none)[^"]*"/g, 'fill="currentColor"'));
     outlined++;
   } catch { /* picosvg missing or failed for this icon — web SVG still exported */ }
