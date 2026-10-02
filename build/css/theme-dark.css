@@ -3,8 +3,8 @@
  */
 
 :root, [data-theme="dark"] {
-  --mode-is-light: NaNrem;
-  --mode-is-dark: NaNrem;
+  --mode-is-light: false;
+  --mode-is-dark: true;
   --bg-base: var(--color-neutral-950);
   --bg-subtle: var(--color-neutral-900);
   --bg-inverse: var(--color-neutral-0);
@@ -16,6 +16,7 @@
   --surface-disabled: var(--color-neutral-850);
   --surface-overlay: var(--color-alpha-black-64);
   --surface-glass: var(--color-alpha-black-64);
+  --surface-nested: var(--color-neutral-850);
   --text-primary: var(--color-neutral-50);
   --text-secondary: var(--color-neutral-400);
   --text-tertiary: var(--color-neutral-450);
@@ -25,6 +26,7 @@
   --text-success: var(--color-green-400);
   --text-warning: var(--color-amber-500);
   --text-info: var(--color-blue-400);
+  --text-on-warning: var(--color-neutral-950);
   --icon-primary: var(--color-neutral-50);
   --icon-secondary: var(--color-neutral-400);
   --icon-tertiary: var(--color-neutral-450);
@@ -63,14 +65,19 @@
   --status-info-solid: var(--color-blue-500);
   --status-info-subtle: var(--color-blue-900);
   --status-info-border: var(--color-blue-800);
-  --control-surface-default: var(--color-neutral-900);
-  --control-surface-hover: var(--color-neutral-850);
-  --control-surface-disabled: var(--color-neutral-850);
-  --control-border-default: var(--color-neutral-500);
-  --control-border-hover: var(--color-neutral-400);
+  --control-surface-default: var(--color-neutral-950);
+  --control-surface-hover: var(--color-neutral-950);
+  --control-surface-disabled: var(--color-alpha-white-4);
+  --control-border-default: var(--color-alpha-white-8);
   --control-border-error: var(--color-red-400);
-  --control-border-disabled: var(--color-neutral-700);
-  --control-track: var(--color-neutral-700);
+  --control-border-disabled: var(--color-alpha-white-4);
+  --control-track: var(--color-alpha-white-16);
+  --control-box: var(--color-alpha-white-8);
+  --control-box-hover: var(--color-alpha-white-12);
+  --control-track-hover: var(--color-alpha-white-24);
+  --control-track-disabled: var(--color-alpha-white-8);
+  --control-knob: var(--color-neutral-50);
+  --control-knob-disabled: var(--color-alpha-white-24);
   --skeleton-base: var(--color-neutral-800);
   --skeleton-shimmer: var(--color-neutral-700);
   --scrollbar-thumb: var(--color-alpha-white-24);
@@ -105,6 +112,7 @@
   --highlight-subtle: var(--brand-highlight-900);
   --accent-subtle: var(--brand-accent-900);
   --accent-subtle-hover: var(--brand-accent-850);
-  --control-border-focus: var(--brand-accent-focus-on-dark);
+  --control-border-hover: var(--brand-accent-fg-on-dark);
+  --control-border-focus: var(--brand-accent-solid);
   --control-checked: var(--brand-accent-solid);
 }

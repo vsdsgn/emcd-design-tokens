@@ -3,8 +3,8 @@
  */
 
 [data-theme="light"] {
-  --mode-is-light: NaNrem;
-  --mode-is-dark: NaNrem;
+  --mode-is-light: true;
+  --mode-is-dark: false;
   --bg-base: var(--color-neutral-0);
   --bg-subtle: var(--color-neutral-50);
   --bg-inverse: var(--color-neutral-950);
@@ -16,6 +16,7 @@
   --surface-disabled: var(--color-neutral-100);
   --surface-overlay: var(--color-alpha-black-48);
   --surface-glass: var(--color-alpha-white-80);
+  --surface-nested: var(--color-neutral-50);
   --text-primary: var(--color-neutral-950);
   --text-secondary: var(--color-neutral-600);
   --text-tertiary: var(--color-neutral-550);
@@ -25,6 +26,7 @@
   --text-success: var(--color-green-700);
   --text-warning: var(--color-amber-700);
   --text-info: var(--color-blue-600);
+  --text-on-warning: var(--color-neutral-950);
   --icon-primary: var(--color-neutral-950);
   --icon-secondary: var(--color-neutral-600);
   --icon-tertiary: var(--color-neutral-550);
@@ -64,13 +66,18 @@
   --status-info-subtle: var(--color-blue-50);
   --status-info-border: var(--color-blue-200);
   --control-surface-default: var(--color-neutral-0);
-  --control-surface-hover: var(--color-neutral-50);
-  --control-surface-disabled: var(--color-neutral-100);
-  --control-border-default: var(--color-neutral-500);
-  --control-border-hover: var(--color-neutral-600);
+  --control-surface-hover: var(--color-neutral-0);
+  --control-surface-disabled: var(--color-alpha-black-4);
+  --control-border-default: var(--color-neutral-200);
   --control-border-error: var(--color-red-600);
-  --control-border-disabled: var(--color-neutral-200);
-  --control-track: var(--color-neutral-200);
+  --control-border-disabled: var(--color-neutral-150);
+  --control-track: var(--color-alpha-black-12);
+  --control-box: var(--color-neutral-0);
+  --control-box-hover: var(--color-neutral-50);
+  --control-track-hover: var(--color-alpha-black-16);
+  --control-track-disabled: var(--color-alpha-black-4);
+  --control-knob: var(--color-neutral-0);
+  --control-knob-disabled: var(--color-neutral-50);
   --skeleton-base: var(--color-neutral-100);
   --skeleton-shimmer: var(--color-neutral-50);
   --scrollbar-thumb: var(--color-alpha-black-24);
@@ -105,6 +112,7 @@
   --highlight-subtle: var(--brand-highlight-100);
   --accent-subtle: var(--brand-accent-50);
   --accent-subtle-hover: var(--brand-accent-100);
-  --control-border-focus: var(--brand-accent-focus-on-light);
+  --control-border-hover: var(--brand-accent-fg-on-light);
+  --control-border-focus: var(--brand-accent-solid);
   --control-checked: var(--brand-accent-solid);
 }

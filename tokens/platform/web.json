@@ -87,6 +87,14 @@
     "min": {
       "$type": "dimension",
       "$value": "{dimension.x1-5}"
+    },
+    "is-coarse": {
+      "$type": "boolean",
+      "$value": false
+    },
+    "is-fine": {
+      "$type": "boolean",
+      "$value": true
     }
   },
   "icon": {

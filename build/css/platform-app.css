@@ -3,6 +3,8 @@
  */
 
 [data-platform="app"] {
+  --touch-is-coarse: true;
+  --touch-is-fine: false;
   --space-none: var(--dimension-x0);
   --space-3xs: var(--dimension-x0-125);
   --space-2xs: var(--dimension-x0-25);

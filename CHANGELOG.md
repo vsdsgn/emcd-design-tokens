@@ -11,11 +11,15 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 ## [Unreleased]
 
 ### Added
+- `text/on-warning` (neutral/950 in both themes) — text and icons on `status/warning/solid` (amber/500). White on amber fails contrast (2.15:1), dark passes (9.8:1).
+- Exported to repo: `control/box`, `control/box-hover`, `control/track-hover`, `control/track-disabled`, `control/knob`, `control/knob-disabled`, `touch/is-fine`, `touch/is-coarse` (were in Figma, missing in `figma/export-*.json`).
 - `surface/nested` (level 2: dark #1a1a1a, light #fafafa); surface level rules and button pairing in `docs/components.md`.
 - Button-aligned tokens: `action/success/*`, `action/inverse/*`, `radius/control-sm`, `radius/focus-ring(-sm)`, `focus/offset`, `control/height/xl`, `control/padding-x/xl`.
 - Accessibility rules for all components (focus, keyboard map, VoiceOver/TalkBack, touch targets, reduced motion) in `docs/components.md`.
 
 ### Changed
+- Control fills are translucent so controls read on every surface level (L0 / L1 / L2 / raised) in both themes: `control/track` black 12% / white 16%, `-hover` 16% / 24%, `-disabled` 4% / 8%; `control/box` dark white 8%, `-hover` 12%; `control/knob-disabled` dark white 24%; `control/surface/disabled` black 4% / white 4% (disabled no longer darker than its background).
+- Components: Checkbox, Radio, Toggle rebuilt on `control/*` tokens, label centred on the control; Toggle has no Danger. Button, Icon button, Checkbox, Radio, Toggle: two hit-area layers — `fine` max(size, 24) shown by `touch/is-fine`, `coarse` max(size, 44) shown by `touch/is-coarse`.
 - Control heights 32 / 40 / 48 / 56 (S/M/L/XL), paddings 10 / 14 / 16 / 20.
 - Dark theme matches current products: `action/secondary/*`, `action/disabled` = #1a1a1a; danger/success fills = legacy Error/Success; EMCD primary hover = violet/700.
 - EMCD focus colour = lime (lime/500 dark, lime/700 light); `border/accent` now brand `accent/solid` (not focus).
@@ -28,6 +32,9 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 - `stroke/1-7`; `icon/stroke/regular` is now 1.7 on App (Web/Site 1.5).
 - `docs/icons-audit.csv`: usage audit of icons in Mining Web App + App (52 pages), mapping legacy names → `icon/<name>`; audit board in Figma (Icons › Audit).
 - `CONTRIBUTING.md`: simple rules for designers (who edits, how to propose a change, naming, versioning).
+
+### Fixed
+- Boolean tokens (`mode/is-*`, `touch/is-*`) were built as `dimension` (`truepx`, `NaNrem`); now `$type: boolean`.
 
 ## [0.2.0] — 2026-10-01
 
