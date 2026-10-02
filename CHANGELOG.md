@@ -11,6 +11,7 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 ## [Unreleased]
 
 ### Added
+- Icons in repo: `icons/svg` (118, strokes, currentColor, non-scaling stroke), `icons/flutter` (outlined), `icons/manifest.json`; `npm run icons` exports from Figma.
 - Blur: primitives `blur/*`, semantic `effect/blur/glass-sm|md|lg`, `effect/blur/edge`, `effect/blur/backdrop` (Platform), `layout/edge-fade`; Glass styles bound to tokens; progressive `Edge/Top`, `Edge/Bottom` styles; `docs/effects.md`.
 - `docs/icons.md`: icon rules — strokes not outlines, stroke weight token, optical keylines, sizes, colour, export (web SVG strokes / Flutter outlined).
 - `stroke/1-7`; `icon/stroke/regular` is now 1.7 on App (Web/Site 1.5).
