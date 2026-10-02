@@ -11,9 +11,13 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 ## [Unreleased]
 
 ### Added
+- Button-aligned tokens: `action/success/*`, `action/inverse/*`, `radius/control-sm`, `radius/focus-ring(-sm)`, `focus/offset`, `control/height/xl`, `control/padding-x/xl`.
 - Accessibility rules for all components (focus, keyboard map, VoiceOver/TalkBack, touch targets, reduced motion) in `docs/components.md`.
 
 ### Changed
+- Control heights 32 / 40 / 48 / 56 (S/M/L/XL), paddings 10 / 14 / 16 / 20.
+- Dark theme matches current products: `action/secondary/*`, `action/disabled` = #1a1a1a; danger/success fills = legacy Error/Success; EMCD primary hover = violet/700.
+- EMCD focus colour = lime (lime/500 dark, lime/700 light); `border/accent` now brand `accent/solid` (not focus).
 - `Focus/Ring` effect: two-layer gap ring (2px background gap + 2px `border/focus`).
 - `docs/color-migration.csv` + Figma page «🔁 Migration · legacy → DS 2.0» in Foundations: 66 legacy colour tokens (DS Web, DS App, DS Site) mapped to DS 2.0 Theme tokens with status (= / ≈ / Δ).
 - Lite mode `build/css/perf-low.css`: no blur, opaque glass for `[data-perf="low"]`, reduced transparency, no backdrop-filter.

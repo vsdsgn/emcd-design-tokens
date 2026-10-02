@@ -13,12 +13,14 @@
   --space-xl: var(--dimension-x2);
   --space-2xl: var(--dimension-x3);
   --space-3xl: var(--dimension-x4);
-  --control-height-sm: var(--dimension-x2-5);
-  --control-height-md: var(--dimension-x3);
-  --control-height-lg: var(--dimension-x3-5);
-  --control-padding-x-sm: var(--dimension-x1);
-  --control-padding-x-md: var(--dimension-x1-25);
-  --control-padding-x-lg: var(--dimension-x1-5);
+  --control-height-sm: var(--dimension-x2);
+  --control-height-md: var(--dimension-x2-5);
+  --control-height-lg: var(--dimension-x3);
+  --control-height-xl: var(--dimension-x3-5);
+  --control-padding-x-sm: var(--dimension-x0-625);
+  --control-padding-x-md: var(--dimension-x0-875);
+  --control-padding-x-lg: var(--dimension-x1);
+  --control-padding-x-xl: var(--dimension-x1-25);
   --control-gap: var(--dimension-x0-5);
   --touch-min: var(--dimension-x1-5);
   --icon-size-sm: var(--dimension-x1);
@@ -44,9 +46,13 @@
   --effect-blur-edge: var(--blur-24);
   --effect-blur-backdrop: var(--blur-8);
   --layout-edge-fade: var(--dimension-x3);
+  --focus-offset: var(--dimension-x0-25);
   --radius-control: var(--brand-radius-md);
   --radius-container: var(--brand-radius-lg);
   --radius-surface: var(--brand-radius-xl);
   --radius-chip: var(--brand-radius-full);
   --radius-inner: var(--brand-radius-sm);
+  --radius-control-sm: var(--brand-radius-control-sm);
+  --radius-focus-ring-sm: var(--brand-radius-focus-ring-sm);
+  --radius-focus-ring: var(--brand-radius-focus-ring);
 }

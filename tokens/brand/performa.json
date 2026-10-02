@@ -168,6 +168,18 @@
       "full": {
         "$type": "dimension",
         "$value": "{dimension.full}"
+      },
+      "control-sm": {
+        "$type": "dimension",
+        "$value": "{dimension.x0-5}"
+      },
+      "focus-ring-sm": {
+        "$type": "dimension",
+        "$value": "{dimension.x0-75}"
+      },
+      "focus-ring": {
+        "$type": "dimension",
+        "$value": "{dimension.x1}"
       }
     }
   }

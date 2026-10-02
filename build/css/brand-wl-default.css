@@ -18,8 +18,8 @@
   --brand-accent-950: var(--color-violet-950);
   --brand-accent-on-solid: var(--color-neutral-0);
   --brand-accent-solid: var(--color-violet-500);
-  --brand-accent-solid-hover: var(--color-violet-600);
-  --brand-accent-solid-pressed: var(--color-violet-700);
+  --brand-accent-solid-hover: var(--color-violet-700);
+  --brand-accent-solid-pressed: var(--color-violet-800);
   --brand-accent-fg-on-light: var(--color-violet-600);
   --brand-accent-fg-on-dark: var(--color-violet-400);
   --brand-accent-fg-strong-on-light: var(--color-violet-850);
@@ -43,4 +43,7 @@
   --brand-radius-2xl: var(--dimension-x2);
   --brand-radius-none: var(--dimension-x0);
   --brand-radius-full: var(--dimension-full);
+  --brand-radius-control-sm: var(--dimension-x0-625);
+  --brand-radius-focus-ring-sm: var(--dimension-x0-875);
+  --brand-radius-focus-ring: var(--dimension-x1);
 }

@@ -3,6 +3,8 @@
  */
 
 [data-theme="light"] {
+  --mode-is-light: NaNrem;
+  --mode-is-dark: NaNrem;
   --bg-base: var(--color-neutral-0);
   --bg-subtle: var(--color-neutral-50);
   --bg-inverse: var(--color-neutral-950);
@@ -45,6 +47,10 @@
   --action-danger-default: var(--color-red-600);
   --action-danger-hover: var(--color-red-700);
   --action-disabled: var(--color-neutral-100);
+  --action-success-default: var(--color-green-600);
+  --action-success-hover: var(--color-green-700);
+  --action-inverse-default: var(--color-neutral-950);
+  --action-inverse-hover: var(--color-neutral-800);
   --status-danger-solid: var(--color-red-600);
   --status-danger-subtle: var(--color-red-50);
   --status-danger-border: var(--color-red-200);
@@ -90,7 +96,7 @@
   --text-link-hover: var(--brand-accent-fg-strong-on-light);
   --icon-on-accent: var(--brand-accent-on-solid);
   --icon-accent: var(--brand-accent-fg-on-light);
-  --border-accent: var(--brand-accent-focus-on-light);
+  --border-accent: var(--brand-accent-solid);
   --border-focus: var(--brand-accent-focus-on-light);
   --action-primary-default: var(--brand-accent-solid);
   --action-primary-hover: var(--brand-accent-solid-hover);

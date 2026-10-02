@@ -54,18 +54,26 @@
       "lg": {
         "$type": "dimension",
         "$value": "{dimension.x3}"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "{dimension.x3-5}"
       }
     },
     "padding-x": {
       "sm": {
         "$type": "dimension",
-        "$value": "{dimension.x0-75}"
+        "$value": "{dimension.x0-625}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "{dimension.x1}"
+        "$value": "{dimension.x0-875}"
       },
       "lg": {
+        "$type": "dimension",
+        "$value": "{dimension.x1}"
+      },
+      "xl": {
         "$type": "dimension",
         "$value": "{dimension.x1-25}"
       }
@@ -175,6 +183,18 @@
     "inner": {
       "$type": "dimension",
       "$value": "{brand.radius.sm}"
+    },
+    "control-sm": {
+      "$type": "dimension",
+      "$value": "{brand.radius.control-sm}"
+    },
+    "focus-ring-sm": {
+      "$type": "dimension",
+      "$value": "{brand.radius.focus-ring-sm}"
+    },
+    "focus-ring": {
+      "$type": "dimension",
+      "$value": "{brand.radius.focus-ring}"
     }
   },
   "border": {
@@ -217,6 +237,12 @@
     "edge-fade": {
       "$type": "dimension",
       "$value": "{dimension.x1-5}"
+    }
+  },
+  "focus": {
+    "offset": {
+      "$type": "dimension",
+      "$value": "{dimension.x0-25}"
     }
   }
 }
