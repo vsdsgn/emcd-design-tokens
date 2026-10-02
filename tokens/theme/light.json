@@ -409,6 +409,18 @@
     "knob-disabled": {
       "$type": "color",
       "$value": "{color.neutral.50}"
+    },
+    "segment-track": {
+      "$type": "color",
+      "$value": "{color.alpha.black.4}"
+    },
+    "segment": {
+      "$type": "color",
+      "$value": "{color.neutral.0}"
+    },
+    "segment-hover": {
+      "$type": "color",
+      "$value": "{color.alpha.black.4}"
     }
   },
   "skeleton": {
