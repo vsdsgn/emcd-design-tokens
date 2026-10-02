@@ -11,6 +11,8 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 ## [Unreleased]
 
 ### Added
+- Components (Status: beta): Tab + Tabs (M 48 / L 56, underline, Counter), Segment + Segmented (S/M/L/XL = field sizes, tone only on the selected segment: Neutral / Accent / Success / Danger), Chip (S 32 / M 40, selected = inverse, Meta, Remove), Badge (6 tones × Subtle/Solid × S/M/L, non-interactive), Counter (S/M, Neutral/Accent/Danger), Status (dot + label, 5 tones), Tooltip (Top/Bottom/Left/Right/None). Every component has the usage block (when / when not / rules / a11y / search / legacy).
+- `control/segment-track`, `control/segment`, `control/segment-hover` (Segmented; translucent so it reads on L1 and L2).
 - `text/on-warning` (neutral/950 in both themes) — text and icons on `status/warning/solid` (amber/500). White on amber fails contrast (2.15:1), dark passes (9.8:1).
 - Exported to repo: `control/box`, `control/box-hover`, `control/track-hover`, `control/track-disabled`, `control/knob`, `control/knob-disabled`, `touch/is-fine`, `touch/is-coarse` (were in Figma, missing in `figma/export-*.json`).
 - `surface/nested` (level 2: dark #1a1a1a, light #fafafa); surface level rules and button pairing in `docs/components.md`.
