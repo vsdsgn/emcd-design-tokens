@@ -78,6 +78,9 @@
   --control-track-disabled: var(--color-alpha-white-8);
   --control-knob: var(--color-neutral-50);
   --control-knob-disabled: var(--color-alpha-white-24);
+  --control-segment-track: var(--color-alpha-white-4);
+  --control-segment: var(--color-alpha-white-8);
+  --control-segment-hover: var(--color-alpha-white-4);
   --skeleton-base: var(--color-neutral-800);
   --skeleton-shimmer: var(--color-neutral-700);
   --scrollbar-thumb: var(--color-alpha-white-24);
