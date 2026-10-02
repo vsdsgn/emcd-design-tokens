@@ -11,6 +11,10 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 ## [Unreleased]
 
 ### Added
+- Accessibility rules for all components (focus, keyboard map, VoiceOver/TalkBack, touch targets, reduced motion) in `docs/components.md`.
+
+### Changed
+- `Focus/Ring` effect: two-layer gap ring (2px background gap + 2px `border/focus`).
 - `docs/color-migration.csv` + Figma page «🔁 Migration · legacy → DS 2.0» in Foundations: 66 legacy colour tokens (DS Web, DS App, DS Site) mapped to DS 2.0 Theme tokens with status (= / ≈ / Δ).
 - Lite mode `build/css/perf-low.css`: no blur, opaque glass for `[data-perf="low"]`, reduced transparency, no backdrop-filter.
 - Icons in repo: `icons/svg` (118, strokes, currentColor, non-scaling stroke), `icons/flutter` (outlined), `icons/manifest.json`; `npm run icons` exports from Figma.
