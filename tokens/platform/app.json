@@ -115,7 +115,7 @@
     "stroke": {
       "regular": {
         "$type": "dimension",
-        "$value": "{stroke.1-5}"
+        "$value": "{stroke.1-7}"
       },
       "strong": {
         "$type": "dimension",
