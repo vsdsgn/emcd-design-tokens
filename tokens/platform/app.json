@@ -188,5 +188,35 @@
         "$value": "{stroke.2}"
       }
     }
+  },
+  "effect": {
+    "blur": {
+      "glass-sm": {
+        "$type": "dimension",
+        "$value": "{blur.8}"
+      },
+      "glass-md": {
+        "$type": "dimension",
+        "$value": "{blur.12}"
+      },
+      "glass-lg": {
+        "$type": "dimension",
+        "$value": "{blur.24}"
+      },
+      "edge": {
+        "$type": "dimension",
+        "$value": "{blur.16}"
+      },
+      "backdrop": {
+        "$type": "dimension",
+        "$value": "{blur.4}"
+      }
+    }
+  },
+  "layout": {
+    "edge-fade": {
+      "$type": "dimension",
+      "$value": "{dimension.x2}"
+    }
   }
 }

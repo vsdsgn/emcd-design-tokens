@@ -17,7 +17,7 @@ const px = (v) => parseFloat(String(v));
 const rem = (n) => `${+(n / BASE).toFixed(4)}rem`;
 
 // px stays px for hairlines and "infinite" radius; everything else becomes rem.
-const keepPx = (t) => t.path[0] === 'stroke' || t.path.at(-1) === 'full';
+const keepPx = (t) => t.path[0] === 'stroke' || t.path[0] === 'blur' || t.path.at(-1) === 'full';
 StyleDictionary.registerTransform({
   name: 'emcd/size/rem', type: 'value',
   filter: (t) => t.$type === 'dimension',
