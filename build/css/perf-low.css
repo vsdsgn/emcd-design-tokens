@@ -1,0 +1,12 @@
+/* Lite mode: old phones, low-end Android, reduced transparency, no backdrop-filter support. */
+[data-perf="low"] {
+  --effect-blur-glass-sm: 0px; --effect-blur-glass-md: 0px; --effect-blur-glass-lg: 0px;
+  --effect-blur-edge: 0px; --effect-blur-backdrop: 0px;
+  --surface-glass: var(--surface-raised);
+}
+@media (prefers-reduced-transparency: reduce) {
+  :root { --effect-blur-glass-sm: 0px; --effect-blur-glass-md: 0px; --effect-blur-glass-lg: 0px; --effect-blur-edge: 0px; --effect-blur-backdrop: 0px; --surface-glass: var(--surface-raised); }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root { --surface-glass: var(--surface-raised); }
+}
