@@ -21,14 +21,15 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 Этап 1 (Foundations, иконки, git) — готов. Этап 2 (компоненты) — в работе.
 
-Готово в Components: Button (12→9 типов: Primary, Secondary, Secondary accent, Outline, Tertiary accent, Tertiary error, Link, Inverted, Error; S32/M40/L48/XL56; Default/Hover/Pressed/Disabled + Focus ring, Loading), Icon button (Primary, Secondary, Outline, Ghost, Ghost accent, Inverted), Input (слоты Leading/Inline/Trailing — настоящие Figma slots; Label position Above / On border; 9 состояний; аддоны Unit, Max, Chevron, Stepper, Counter), Checkbox, Radio, Toggle (пересобраны на `control/*`, текст по центру, у Toggle без Danger), Spinner, Skeleton (кирпичи + shimmer).
+Готово в Components: Button (12→9 типов: Primary, Secondary, Secondary accent, Outline, Tertiary accent, Tertiary error, Link, Inverted, Error; S32/M40/L48/XL56; Default/Hover/Pressed/Disabled + Focus ring, Loading), Icon button (Primary, Secondary, Outline, Ghost, Ghost accent, Inverted), Input (слоты Leading/Inline/Trailing — настоящие Figma slots; Label position Above / On border; 9 состояний; аддоны Unit, Max, Chevron, Stepper, Counter), Checkbox, Radio, Toggle (пересобраны на `control/*`, текст по центру, у Toggle без Danger), Spinner, Skeleton (кирпичи + shimmer), Tab + Tabs, Segment + Segmented, Chip (страница Tabs & Selection), Badge, Counter, Status (Feedback), Tooltip (Overlays).
 
 ## Ближайшие задачи (по порядку)
 
-1. **Опубликовать Foundations** (полупрозрачные `control/*`, `text/on-warning`) → в Components принять обновление библиотеки, проверить контролы на L0/L1/L2/raised в обеих темах.
+1. **После публикации Foundations — перепривязка**: Segment/Segmented временно сидят на `control/box` (вместо `control/segment`) и `control/surface/disabled` (вместо `control/segment-track` / `-hover`) — значения одинаковые; Badge Warning Solid — на `fixed/dark` вместо `text/on-warning`. Перепривязать одним скриптом.
+1a. **Опубликовать Foundations** (полупрозрачные `control/*`, `text/on-warning`) → в Components принять обновление библиотеки, проверить контролы на L0/L1/L2/raised в обеих темах.
 2. Решено: warning-заливка = amber/500 в обеих темах, текст на ней — `text/on-warning` (neutral/950). amber/600 не используем (белый на нём 3.2:1).
 3. Символы: пользователь разбирает доску Icons → «Symbols · selection» (Оставить / Архив / Не символ). Затем: новая библиотека «◆ EMCD DS 2.0 — Symbols» (медиа, не иконки), имена `coin/btc`, `fiat/usd`, `flag/ru`, `payment/visa`, `service/*`, `stock/*`, `os/*`; майнинговые монеты (BEL, PEP, DINGO, JKC, FB, BCH и др.) не рисовать — они уже есть в legacy-библиотеке «🎛️ Icons, symbols EMCD» как `ic_<coin>_<ticker>` (аудит шёл только по `smbl-*`), перенести оттуда; `status/verified` (залитая розетка с галочкой, legacy `ic-profile-status-star`) — в Symbols, в Icons остаётся контурный вариант для меню; медиа-компоненты Coin (+ стек «+N»), Avatar, Logo; экспорт в `symbols/`.
-4. Компоненты дальше: Tabs, Segmented, Chip, Select → Badge, Status + Legend → Tooltip, Toast, Alert, Banner, Empty state, Progress → Modal, Sheet, Side panel, Dropdown → List item, Stat card, Table → Shell, Page header. После первой пачки — эталонный экран (История / Дашборд Mining).
+4. Компоненты дальше: Select → Legend → Toast, Alert, Banner, Empty state, Progress → Modal, Sheet, Side panel, Dropdown → List item, Stat card, Table → Shell, Page header. После первой пачки — эталонный экран (История / Дашборд Mining).
 5. Обновить скилл design-studio знаниями проекта; документация для разработки.
 
 ## Принятые правила (не нарушать)
