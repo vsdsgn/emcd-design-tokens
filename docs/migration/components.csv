@@ -106,3 +106,13 @@ Chart card,DS Web,.layout / graphic · .layout / bar,top / center / bottom slot 
 Chart plot,DS Web,.graphics,state,loading|default|hover|disabled|empty,State,Loading|Default|Hover|Disabled|Empty,
 Chart axis label,DS Web,.chart,size | state,small/large | default/hover/active/skeleton,Size | State,S/L | Default/Hover/Active/Skeleton,
 Tabs,DS Web,.tabs (в bar widget),(height),30,Tab / Tabs Size,S (32),
+Chart card,DS Web (песочница),widget Graph → «Песочница графиков» (mining / wl / monitoring / website),макет,—,Type,Line,графики продуктов не были компонентами
+Chart plot,DS Web (песочница),хешрейт (линия),макет,—,Type,Line,
+Chart plot,DS Web (песочница),хешрейт WL / мощность Monitoring (область),макет,—,Type,Area,
+Chart plot,DS Web (песочница),хешрейт + реджекты (2-я ось),макет,—,Type,Line + Bars,
+Chart plot,DS Web (песочница),температура плат Monitoring,макет,—,Type,Multi-line,
+Chart plot,DS Web (песочница),хешрейт пула + курс монеты (сайт),макет,—,Type,Dual area,
+Chart plot,DS Web (песочница),WL Users payouts / income по статусам,макет,—,Type,Stacked bars,
+Chart tooltip,DS Web (песочница),тултип точки (дата / время / серии),макет,—,Rows,1–4 + Show date,
+Chart crosshair,DS Web (песочница),линия + точка под курсором,макет,—,Target,Line / Bar,
+Chart metric,DS Web (песочница),«Текущий хешрейт / за 1 день / реджекты»; «Средняя температура / Плата N»,макет,—,Tone,Default / Danger / Warning / Success,
