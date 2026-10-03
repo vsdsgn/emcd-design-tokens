@@ -10,6 +10,11 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+- Motion tokens: `easing/standard`, `easing/out`, `scale/press` (Primitives · Scale); `motion/duration/feedback|enter|exit|overlay`, `motion/easing/standard|enter`, `motion/scale/press` (Platform; overlay App 320). Converter: duration / cubicBezier / number types. docs/motion.md.
+- Figma: 202 Smart Animate variant transitions; prototype flows (modal → toast, sheet) on Playground. Live demo: https://claude.ai/artifact/K13KwN1M1wm9QSt9NEZtJj
+- Added (from legacy / products, with improvements): Input amount, Accordion, Slider, Divider, Avatar + Avatar group, Step symbol / Step trail / Step / Stepper, Code cell + Code input (2FA).
+- docs/references.md — supplementary libraries (Arc UI, Componentry, Space UI, Skecher UI, Planes); base remains design-studio + legacy + products.
+
 ### Changed
 - Components brought back to legacy form and logic (migration ±4 px, axes 1:1), map in `docs/migration/components.csv`:
   Badge (lg 36 / md 24 / sm 20, Close, Counter, Chevron, State Skeleton); Table cell (9 legacy types, Align = mirror, Skeleton), Table row Regular 72, Table header cell Skeleton; Menu item (label 16, 44/62, Checkbox) and Menu (padding 8, Search); Toast (416, padding 20, icon 24, title 16, Timer, full-width Button); Alert (tinted + tone text, no border, icon optional); Banner (Buttons: Bottom filled / Bottom hug / Right hug / None, Align Center, 24 icon, tone border, radius 12); Tabs (indicator 3/2, Skeleton, Size XL 64 = Navigation header); Chip (Layout Vertical 64×64); Tooltip (1.5 form: 320, radius 16, text 16, Content Text/Custom); Empty state (illustration 200, Layout H/V, Dashed background); Modal (Header Title/Coin/Empty × Footer Single/Stacked/Horizontal/None, 540, Display/MD, XL buttons); List item (Content types, Style Plain/Card, Size L/M, Leading 36); Legend item (State Default/Hover/Active/Skeleton + Legend swatch); Sheet (Type Menu = bottom sheet menu); Nav item (36, radius 12, icon 24, text 16); Sidebar (header 72, Balance widget, nav divider).
