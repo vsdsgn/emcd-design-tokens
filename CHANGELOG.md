@@ -10,6 +10,9 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+- Focus: pale 4 px ring flush to the edge. New `border/focus-ring` (Theme; brand 200 light / 800 dark), `border/width/focus-ring` (Platform, 4), Brand `accent/focus-ring-on-light|dark`. `border/focus` now brand 500 / 400 (was lime / neutral) — stroke of bordered controls in focus. `focus/offset` = 0. `radius/focus-ring(-sm)` deprecated (to be removed after components move to the new ring).
+- Colour: all chromatic ramps now 13 steps (50–950). Chart hues cyan, teal, emerald, indigo, fuchsia, pink, rose, orange generated in OKLCH (500 anchor; 300/700 shifted slightly). electric-blue/-green: added 150, 850, 950. Geometria `accent/150|850|950` now point to the exact steps.
+
 - Motion tokens: `easing/standard`, `easing/out`, `scale/press` (Primitives · Scale); `motion/duration/feedback|enter|exit|overlay`, `motion/easing/standard|enter`, `motion/scale/press` (Platform; overlay App 320). Converter: duration / cubicBezier / number types. docs/motion.md.
 - Figma: 202 Smart Animate variant transitions; prototype flows (modal → toast, sheet) on Playground. Live demo: https://claude.ai/artifact/K13KwN1M1wm9QSt9NEZtJj
 - Added (from legacy / products, with improvements): Input amount, Accordion, Slider, Divider, Avatar + Avatar group, Step symbol / Step trail / Step / Stepper, Code cell + Code input (2FA).

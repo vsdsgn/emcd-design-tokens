@@ -5,7 +5,7 @@
 [data-brand="geometria"] {
   --brand-accent-50: var(--color-electric-blue-50);
   --brand-accent-100: var(--color-electric-blue-100);
-  --brand-accent-150: var(--color-electric-blue-200);
+  --brand-accent-150: var(--color-electric-blue-150);
   --brand-accent-200: var(--color-electric-blue-200);
   --brand-accent-300: var(--color-electric-blue-300);
   --brand-accent-400: var(--color-electric-blue-400);
@@ -13,9 +13,9 @@
   --brand-accent-600: var(--color-electric-blue-600);
   --brand-accent-700: var(--color-electric-blue-700);
   --brand-accent-800: var(--color-electric-blue-800);
-  --brand-accent-850: var(--color-electric-blue-800);
+  --brand-accent-850: var(--color-electric-blue-850);
   --brand-accent-900: var(--color-electric-blue-900);
-  --brand-accent-950: var(--color-electric-blue-900);
+  --brand-accent-950: var(--color-electric-blue-950);
   --brand-accent-on-solid: var(--color-neutral-0);
   --brand-accent-solid: var(--color-electric-blue-600);
   --brand-accent-solid-hover: var(--color-electric-blue-700);
@@ -26,6 +26,8 @@
   --brand-accent-fg-strong-on-dark: var(--color-electric-blue-300);
   --brand-accent-focus-on-light: var(--color-electric-blue-500);
   --brand-accent-focus-on-dark: var(--color-electric-blue-400);
+  --brand-accent-focus-ring-on-light: var(--color-electric-blue-200);
+  --brand-accent-focus-ring-on-dark: var(--color-electric-blue-800);
   --brand-highlight-100: var(--color-electric-green-100);
   --brand-highlight-300: var(--color-electric-green-300);
   --brand-highlight-500: var(--color-electric-green-500);

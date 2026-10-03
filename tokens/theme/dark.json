@@ -183,6 +183,10 @@
     "inverse": {
       "$type": "color",
       "$value": "{color.neutral.0}"
+    },
+    "focus-ring": {
+      "$type": "color",
+      "$value": "{brand.accent.focus-ring-on-dark}"
     }
   },
   "action": {

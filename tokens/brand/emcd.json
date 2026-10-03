@@ -87,11 +87,19 @@
       },
       "focus-on-light": {
         "$type": "color",
-        "$value": "{color.lime.800}"
+        "$value": "{color.violet.500}"
       },
       "focus-on-dark": {
         "$type": "color",
-        "$value": "{color.lime.500}"
+        "$value": "{color.violet.400}"
+      },
+      "focus-ring-on-light": {
+        "$type": "color",
+        "$value": "{color.violet.200}"
+      },
+      "focus-ring-on-dark": {
+        "$type": "color",
+        "$value": "{color.violet.800}"
       }
     },
     "highlight": {
