@@ -101,3 +101,8 @@ Table cell / Icon,DS Web,table / icon,icon color,secondary/primary,Color,Seconda
 Table cell / Buttons,DS Web,table / small buttons,button 2 | button 3,bool,Button 2 | Button 3,bool,
 Table cell / More,DS Web,table / more button,status | button hover,bool | true/false,Status | —,bool,hover — состояние Icon button
 Table header cell,DS Web,table title / text,mirror | state,false/true | default/skeleton,Align | State,Left/Right | Default/Skeleton,высота 44 / текст 16
+Chart card,DS Web,bar widget,type,vertical|horizont|circle,Type,Bars|Horizontal|Gauge,
+Chart card,DS Web,.layout / graphic · .layout / bar,top / center / bottom slot value,—,слоты Top / Content / Bottom,,
+Chart plot,DS Web,.graphics,state,loading|default|hover|disabled|empty,State,Loading|Default|Hover|Disabled|Empty,
+Chart axis label,DS Web,.chart,size | state,small/large | default/hover/active/skeleton,Size | State,S/L | Default/Hover/Active/Skeleton,
+Tabs,DS Web,.tabs (в bar widget),(height),30,Tab / Tabs Size,S (32),
