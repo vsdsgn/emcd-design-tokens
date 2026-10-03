@@ -116,3 +116,9 @@ Chart plot,DS Web (песочница),WL Users payouts / income по стату
 Chart tooltip,DS Web (песочница),тултип точки (дата / время / серии),макет,—,Rows,1–4 + Show date,
 Chart crosshair,DS Web (песочница),линия + точка под курсором,макет,—,Target,Line / Bar,
 Chart metric,DS Web (песочница),«Текущий хешрейт / за 1 день / реджекты»; «Средняя температура / Плата N»,макет,—,Tone,Default / Danger / Warning / Success,
+Chart plot,Firmware,dashboard → Chain rate (Chain 1–3),макет,—,Type,Multi-line,
+Chart plot,Firmware,Hash board → Hashrate,макет,—,Type,Area,градиент data/N → прозрачный
+Chip map,Firmware,Hash board → Chips (+ легенда Normal / Underperforming / Failed),макет,—,Chip map,слот Chips,
+Chip cell,Firmware,чип в сетке,статус,normal/underperforming/failed,Status,Normal/Underperforming/Failed/Off,State Default/Hover/Selected
+Chart metric,Firmware,Intake / Exhaust RPM; Fans F1–F4; Fan speed / Miner temperature / Avg. total power / Running time,макет,—,Tone,Default/Danger/Warning/Success,
+Chart card,Firmware Archive,Chain's Hashrate / Power / Fans; Chains inlet temperature Inlet / Outlet,макет,—,Type=Line + Segmented в Top,,
