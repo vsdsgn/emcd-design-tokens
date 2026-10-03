@@ -100,6 +100,14 @@
       "focus-ring-on-dark": {
         "$type": "color",
         "$value": "{color.violet.800}"
+      },
+      "tint": {
+        "$type": "color",
+        "$value": "{color.alpha.violet.16}"
+      },
+      "glow": {
+        "$type": "color",
+        "$value": "{color.alpha.violet.24}"
       }
     },
     "highlight": {

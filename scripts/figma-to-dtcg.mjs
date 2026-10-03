@@ -16,6 +16,7 @@ const LAYERS = {
   T: { dir: 'theme', file: (m) => slug(m), prefix: [] },
   PL: { dir: 'platform', file: (m) => slug(m), prefix: [] },
   VP: { dir: 'viewport', file: (m) => slug(m), prefix: [] },
+  ST: { dir: 'style', file: (m) => slug(m), prefix: [] },
 };
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');

@@ -9,15 +9,15 @@ import { join, basename } from 'node:path';
 const BASE = 16; // 1rem
 const T = 'tokens';
 const list = (dir) => readdirSync(join(T, dir)).filter((f) => f.endsWith('.json')).map((f) => basename(f, '.json'));
-const brands = list('brand'), themes = list('theme'), platforms = list('platform');
+const brands = list('brand'), themes = list('theme'), platforms = list('platform'), styles = list('style');
 const viewports = ['compact', 'medium', 'expanded', 'large', 'xlarge'];
 const prim = [`${T}/primitives/*.json`];
-const DEFAULT = { brand: 'emcd', theme: 'dark', platform: 'web' };
+const DEFAULT = { brand: 'emcd', theme: 'dark', platform: 'web', style: 'base' };
 const px = (v) => parseFloat(String(v));
 const rem = (n) => `${+(n / BASE).toFixed(4)}rem`;
 
 // px stays px for hairlines and "infinite" radius; everything else becomes rem.
-const keepPx = (t) => t.path[0] === 'stroke' || t.path[0] === 'blur' || t.path.at(-1) === 'full';
+const keepPx = (t) => t.path[0] === 'stroke' || t.path[0] === 'blur' || t.path.at(-1) === 'blur' || t.path.at(-1) === 'full';
 StyleDictionary.registerTransform({
   name: 'emcd/size/rem', type: 'value',
   filter: (t) => t.$type === 'dimension',
@@ -46,6 +46,7 @@ await cssLayer({ name: 'primitives', sources: prim, own: 'primitives/', selector
 for (const b of brands) await cssLayer({ name: `brand-${b}`, sources: [...prim, `${T}/brand/${b}.json`], own: `brand/${b}.json`, selector: sel('brand', b, DEFAULT.brand) });
 for (const th of themes) await cssLayer({ name: `theme-${th}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/theme/${th}.json`], own: `theme/${th}.json`, selector: sel('theme', th, DEFAULT.theme) });
 for (const p of platforms) await cssLayer({ name: `platform-${p}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/platform/${p}.json`], own: `platform/${p}.json`, selector: sel('platform', p, DEFAULT.platform) });
+for (const s of styles) await cssLayer({ name: `style-${s}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/theme/${DEFAULT.theme}.json`, `${T}/platform/${DEFAULT.platform}.json`, `${T}/style/${s}.json`], own: `style/${s}.json`, selector: sel('style', s, DEFAULT.style) });
 for (const v of viewports) await cssLayer({ name: `viewport-${v}`, sources: [...prim, `${T}/viewport/${v}.json`], own: `viewport/${v}.json`, selector: ':root' });
 
 // Viewport steps as em media queries (em = scales with browser zoom / default font size).
@@ -107,16 +108,17 @@ const order = ['root', 'primitives',
   ...defFirst(brands, DEFAULT.brand).map((b) => `brand-${b}`),
   ...defFirst(themes, DEFAULT.theme).map((t) => `theme-${t}`),
   ...defFirst(platforms, DEFAULT.platform).map((p) => `platform-${p}`),
+  ...defFirst(styles, DEFAULT.style).map((s) => `style-${s}`),
   'viewport', 'type-fluid', 'perf-low'];
 writeFileSync('build/css/index.css', order.map((f) => `@import "./${f}.css";`).join('\n') + '\n');
 
 mkdirSync('build/json', { recursive: true });
-for (const b of brands) for (const th of themes) {
+for (const b of brands) for (const th of themes) for (const st of styles) {
   await new StyleDictionary({
     log: quiet,
-    source: [...prim, `${T}/brand/${b}.json`, `${T}/theme/${th}.json`, `${T}/platform/app.json`, `${T}/viewport/compact.json`],
+    source: [...prim, `${T}/brand/${b}.json`, `${T}/theme/${th}.json`, `${T}/platform/app.json`, `${T}/viewport/compact.json`, `${T}/style/${st}.json`],
     platforms: { json: { transforms: JSONT, buildPath: 'build/json/', files: [{
-      destination: `${b}.${th}.json`, format: 'json/flat', filter: (t) => !t.filePath.includes('primitives/') }] } },
+      destination: st === DEFAULT.style ? `${b}.${th}.json` : `${b}.${th}.${st}.json`, format: 'json/flat', filter: (t) => !t.filePath.includes('primitives/') }] } },
   }).buildAllPlatforms();
 }
-console.log(`Built CSS layers (rem, fluid type, root scaling) + ${brands.length * themes.length} Flutter JSON files`);
+console.log(`Built CSS layers (rem, fluid type, root scaling) + ${brands.length * themes.length * styles.length} Flutter JSON files`);

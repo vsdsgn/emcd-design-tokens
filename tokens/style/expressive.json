@@ -1,0 +1,54 @@
+{
+  "style": {
+    "decor": {
+      "glow": {
+        "$type": "boolean",
+        "$value": true
+      },
+      "card-tint": {
+        "$type": "boolean",
+        "$value": true
+      },
+      "glass": {
+        "$type": "boolean",
+        "$value": true
+      }
+    },
+    "glow": {
+      "color": {
+        "$type": "color",
+        "$value": "{brand.accent.glow}"
+      },
+      "blur": {
+        "$type": "dimension",
+        "$value": "160px"
+      }
+    },
+    "card": {
+      "tint": {
+        "$type": "color",
+        "$value": "{brand.accent.tint}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{border.glass}"
+      }
+    },
+    "edge": {
+      "accent": {
+        "$type": "color",
+        "$value": "{brand.accent.500}"
+      },
+      "highlight": {
+        "$type": "color",
+        "$value": "{color.alpha.white.32}"
+      }
+    },
+    "glass": {
+      "blur": {
+        "$type": "dimension",
+        "$value": "{effect.blur.glass-lg}"
+      }
+    }
+  }
+}
