@@ -276,11 +276,15 @@
   "accent": {
     "subtle": {
       "$type": "color",
-      "$value": "{brand.accent.900}"
+      "$value": "{brand.accent.950}"
     },
     "subtle-hover": {
       "$type": "color",
-      "$value": "{brand.accent.850}"
+      "$value": "{brand.accent.900}"
+    },
+    "on-subtle": {
+      "$type": "color",
+      "$value": "{brand.accent.300}"
     }
   },
   "status": {
@@ -291,11 +295,15 @@
       },
       "subtle": {
         "$type": "color",
-        "$value": "{color.red.900}"
+        "$value": "{color.red.950}"
       },
       "border": {
         "$type": "color",
         "$value": "{color.red.800}"
+      },
+      "on-subtle": {
+        "$type": "color",
+        "$value": "{color.red.300}"
       }
     },
     "success": {
@@ -305,11 +313,15 @@
       },
       "subtle": {
         "$type": "color",
-        "$value": "{color.green.900}"
+        "$value": "{color.green.950}"
       },
       "border": {
         "$type": "color",
         "$value": "{color.green.800}"
+      },
+      "on-subtle": {
+        "$type": "color",
+        "$value": "{color.green.300}"
       }
     },
     "warning": {
@@ -319,11 +331,15 @@
       },
       "subtle": {
         "$type": "color",
-        "$value": "{color.amber.900}"
+        "$value": "{color.amber.950}"
       },
       "border": {
         "$type": "color",
         "$value": "{color.amber.800}"
+      },
+      "on-subtle": {
+        "$type": "color",
+        "$value": "{color.amber.300}"
       }
     },
     "info": {
@@ -333,11 +349,15 @@
       },
       "subtle": {
         "$type": "color",
-        "$value": "{color.blue.900}"
+        "$value": "{color.blue.950}"
       },
       "border": {
         "$type": "color",
         "$value": "{color.blue.800}"
+      },
+      "on-subtle": {
+        "$type": "color",
+        "$value": "{color.blue.300}"
       }
     }
   },
