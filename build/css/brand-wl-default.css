@@ -26,6 +26,8 @@
   --brand-accent-fg-strong-on-dark: var(--color-violet-300);
   --brand-accent-focus-on-light: var(--color-violet-500);
   --brand-accent-focus-on-dark: var(--color-violet-400);
+  --brand-accent-focus-ring-on-light: var(--color-violet-200);
+  --brand-accent-focus-ring-on-dark: var(--color-violet-800);
   --brand-highlight-100: var(--color-lime-100);
   --brand-highlight-300: var(--color-lime-300);
   --brand-highlight-500: var(--color-lime-500);

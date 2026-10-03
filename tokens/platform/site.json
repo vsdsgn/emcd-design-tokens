@@ -214,6 +214,10 @@
       "focus": {
         "$type": "dimension",
         "$value": "{stroke.2}"
+      },
+      "focus-ring": {
+        "$type": "dimension",
+        "$value": "{dimension.x0-25}"
       }
     }
   },
@@ -250,7 +254,7 @@
   "focus": {
     "offset": {
       "$type": "dimension",
-      "$value": "{dimension.x0-25}"
+      "$value": "{dimension.x0}"
     }
   },
   "motion": {

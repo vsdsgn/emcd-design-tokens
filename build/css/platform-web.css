@@ -42,13 +42,14 @@
   --modal-padding: var(--dimension-x1-5);
   --border-width-default: var(--stroke-1);
   --border-width-focus: var(--stroke-2);
+  --border-width-focus-ring: var(--dimension-x0-25);
   --effect-blur-glass-sm: var(--blur-8);
   --effect-blur-glass-md: var(--blur-16);
   --effect-blur-glass-lg: var(--blur-32);
   --effect-blur-edge: var(--blur-24);
   --effect-blur-backdrop: var(--blur-8);
   --layout-edge-fade: var(--dimension-x1-5);
-  --focus-offset: var(--dimension-x0-25);
+  --focus-offset: var(--dimension-x0);
   --motion-duration-feedback: var(--duration-fast);
   --motion-duration-enter: var(--duration-base);
   --motion-duration-exit: var(--duration-fast);

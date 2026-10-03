@@ -11,7 +11,7 @@
       },
       "150": {
         "$type": "color",
-        "$value": "{color.electric-blue.200}"
+        "$value": "{color.electric-blue.150}"
       },
       "200": {
         "$type": "color",
@@ -43,7 +43,7 @@
       },
       "850": {
         "$type": "color",
-        "$value": "{color.electric-blue.800}"
+        "$value": "{color.electric-blue.850}"
       },
       "900": {
         "$type": "color",
@@ -51,7 +51,7 @@
       },
       "950": {
         "$type": "color",
-        "$value": "{color.electric-blue.900}"
+        "$value": "{color.electric-blue.950}"
       },
       "on-solid": {
         "$type": "color",
@@ -92,6 +92,14 @@
       "focus-on-dark": {
         "$type": "color",
         "$value": "{color.electric-blue.400}"
+      },
+      "focus-ring-on-light": {
+        "$type": "color",
+        "$value": "{color.electric-blue.200}"
+      },
+      "focus-ring-on-dark": {
+        "$type": "color",
+        "$value": "{color.electric-blue.800}"
       }
     },
     "highlight": {

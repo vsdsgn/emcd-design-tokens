@@ -92,6 +92,14 @@
       "focus-on-dark": {
         "$type": "color",
         "$value": "{color.violet.400}"
+      },
+      "focus-ring-on-light": {
+        "$type": "color",
+        "$value": "{color.violet.200}"
+      },
+      "focus-ring-on-dark": {
+        "$type": "color",
+        "$value": "{color.violet.800}"
       }
     },
     "highlight": {
