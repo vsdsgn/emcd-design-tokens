@@ -1,0 +1,54 @@
+{
+  "style": {
+    "decor": {
+      "glow": {
+        "$type": "boolean",
+        "$value": false
+      },
+      "card-tint": {
+        "$type": "boolean",
+        "$value": false
+      },
+      "glass": {
+        "$type": "boolean",
+        "$value": false
+      }
+    },
+    "glow": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.alpha.black.0}"
+      },
+      "blur": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
+    },
+    "card": {
+      "tint": {
+        "$type": "color",
+        "$value": "{color.alpha.black.0}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{border.subtle}"
+      }
+    },
+    "edge": {
+      "accent": {
+        "$type": "color",
+        "$value": "{border.subtle}"
+      },
+      "highlight": {
+        "$type": "color",
+        "$value": "{color.alpha.black.0}"
+      }
+    },
+    "glass": {
+      "blur": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
+    }
+  }
+}

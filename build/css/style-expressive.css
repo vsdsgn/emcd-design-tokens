@@ -1,0 +1,16 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-style="expressive"] {
+  --style-decor-glow: true;
+  --style-decor-card-tint: true;
+  --style-decor-glass: true;
+  --style-glow-blur: 160px;
+  --style-edge-highlight: var(--color-alpha-white-32);
+  --style-glow-color: var(--brand-accent-glow);
+  --style-card-tint: var(--brand-accent-tint);
+  --style-card-border: var(--border-glass);
+  --style-edge-accent: var(--brand-accent-500);
+  --style-glass-blur: var(--effect-blur-glass-lg);
+}

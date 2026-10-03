@@ -24,6 +24,8 @@
   "brandAccentFocusOnDark": "#3c8eff",
   "brandAccentFocusRingOnLight": "#9dc7ff",
   "brandAccentFocusRingOnDark": "#093c8e",
+  "brandAccentTint": "#1470ff29",
+  "brandAccentGlow": "#1470ff3d",
   "brandHighlight100": "#d0ffe7",
   "brandHighlight300": "#85ffbe",
   "brandHighlight500": "#00ff73",
@@ -98,6 +100,7 @@
   "borderFocus": "#1470ff",
   "borderInverse": "#0a0a0a",
   "borderFocusRing": "#9dc7ff",
+  "borderGlass": "#00000014",
   "borderWidthDefault": 1,
   "borderWidthFocus": 2,
   "borderWidthFocusRing": 4,
@@ -260,5 +263,15 @@
   "typeCaptionSize": 12,
   "typeCaptionLineHeight": 16,
   "typeOverlineSize": 10,
-  "typeOverlineLineHeight": 12
+  "typeOverlineLineHeight": 12,
+  "styleDecorGlow": false,
+  "styleDecorCardTint": false,
+  "styleDecorGlass": false,
+  "styleGlowColor": "#00000000",
+  "styleGlowBlur": 0,
+  "styleCardTint": "#00000000",
+  "styleCardBorder": "#eeeeee",
+  "styleEdgeAccent": "#eeeeee",
+  "styleEdgeHighlight": "#00000000",
+  "styleGlassBlur": 0
 }

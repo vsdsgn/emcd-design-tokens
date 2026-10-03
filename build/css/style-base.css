@@ -1,0 +1,16 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root, [data-style="base"] {
+  --style-decor-glow: false;
+  --style-decor-card-tint: false;
+  --style-decor-glass: false;
+  --style-glow-blur: 0px;
+  --style-glass-blur: 0px;
+  --style-glow-color: var(--color-alpha-black-0);
+  --style-card-tint: var(--color-alpha-black-0);
+  --style-edge-highlight: var(--color-alpha-black-0);
+  --style-card-border: var(--border-subtle);
+  --style-edge-accent: var(--border-subtle);
+}

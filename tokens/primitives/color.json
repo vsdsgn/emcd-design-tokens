@@ -1014,6 +1014,60 @@
           "$type": "color",
           "$value": "#ffffffcc"
         }
+      },
+      "violet": {
+        "8": {
+          "$type": "color",
+          "$value": "#8f42ff14"
+        },
+        "16": {
+          "$type": "color",
+          "$value": "#8f42ff29"
+        },
+        "24": {
+          "$type": "color",
+          "$value": "#8f42ff3d"
+        },
+        "40": {
+          "$type": "color",
+          "$value": "#8f42ff66"
+        }
+      },
+      "electric-blue": {
+        "8": {
+          "$type": "color",
+          "$value": "#1470ff14"
+        },
+        "16": {
+          "$type": "color",
+          "$value": "#1470ff29"
+        },
+        "24": {
+          "$type": "color",
+          "$value": "#1470ff3d"
+        },
+        "40": {
+          "$type": "color",
+          "$value": "#1470ff66"
+        }
+      },
+      "yellow": {
+        "8": {
+          "$type": "color",
+          "$value": "#f2dd0f14"
+        },
+        "16": {
+          "$type": "color",
+          "$value": "#f2dd0f29"
+        },
+        "24": {
+          "$type": "color",
+          "$value": "#f2dd0f3d"
+        },
+        "40": {
+          "$type": "color",
+          "$value": "#f2dd0f66"
+        }
       }
     },
     "yellow": {

@@ -40,6 +40,7 @@
   --border-default: var(--color-neutral-700);
   --border-strong: var(--color-neutral-500);
   --border-inverse: var(--color-neutral-0);
+  --border-glass: var(--color-alpha-white-8);
   --action-secondary-default: var(--color-neutral-850);
   --action-secondary-hover: var(--color-neutral-800);
   --action-secondary-pressed: var(--color-neutral-700);

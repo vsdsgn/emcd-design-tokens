@@ -9,6 +9,8 @@
 @import "./platform-web.css";
 @import "./platform-app.css";
 @import "./platform-site.css";
+@import "./style-base.css";
+@import "./style-expressive.css";
 @import "./viewport.css";
 @import "./type-fluid.css";
 @import "./perf-low.css";

@@ -28,6 +28,8 @@
   --brand-accent-focus-on-dark: var(--color-yellow-400);
   --brand-accent-focus-ring-on-light: var(--color-violet-200);
   --brand-accent-focus-ring-on-dark: var(--color-yellow-800);
+  --brand-accent-tint: var(--color-alpha-yellow-16);
+  --brand-accent-glow: var(--color-alpha-yellow-24);
   --brand-highlight-100: var(--color-violet-100);
   --brand-highlight-300: var(--color-violet-300);
   --brand-highlight-500: var(--color-violet-500);
