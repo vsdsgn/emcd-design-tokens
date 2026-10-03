@@ -10,6 +10,11 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+### Changed
+- Components brought back to legacy form and logic (migration ±4 px, axes 1:1), map in `docs/migration/components.csv`:
+  Badge (lg 36 / md 24 / sm 20, Close, Counter, Chevron, State Skeleton); Table cell (9 legacy types, Align = mirror, Skeleton), Table row Regular 72, Table header cell Skeleton; Menu item (label 16, 44/62, Checkbox) and Menu (padding 8, Search); Toast (416, padding 20, icon 24, title 16, Timer, full-width Button); Alert (tinted + tone text, no border, icon optional); Banner (Buttons: Bottom filled / Bottom hug / Right hug / None, Align Center, 24 icon, tone border, radius 12); Tabs (indicator 3/2, Skeleton, Size XL 64 = Navigation header); Chip (Layout Vertical 64×64); Tooltip (1.5 form: 320, radius 16, text 16, Content Text/Custom); Empty state (illustration 200, Layout H/V, Dashed background); Modal (Header Title/Coin/Empty × Footer Single/Stacked/Horizontal/None, 540, Display/MD, XL buttons); List item (Content types, Style Plain/Card, Size L/M, Leading 36); Legend item (State Default/Hover/Active/Skeleton + Legend swatch); Sheet (Type Menu = bottom sheet menu); Nav item (36, radius 12, icon 24, text 16); Sidebar (header 72, Balance widget, nav divider).
+- Added: Select compact (legacy Selector small), Balance widget, Legend swatch.
+
 ### Added
 - Components (Status: beta): Menu item + Menu (slots Leading/Trailing/Items), Select (built from Input instances), Alert, Banner, Toast, Empty state (slots Illustration/Actions), Progress + Progress circle, Legend item, Modal, Sheet, Side panel (slots Header actions/Body/Footer), List item, Stat card (Default + Skeleton), Table header cell, Table cell, Table row, Table (slots Toolbar/Rows/Footer), Nav item, Tab bar item, Tab bar, Sidebar, Top bar, Page header, Shell (Large/Compact, slot Content). Reference screen «Дашборд Mining» (Large Light/Dark, Compact) on 🧪 Playground.
 - Icons: `alert-circle`, `check-circle`, `alert-triangle` (Lucide geometry on the keyline).
