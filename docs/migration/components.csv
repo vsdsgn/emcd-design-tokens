@@ -1,0 +1,92 @@
+component_ds2,legacy_library,legacy_component,legacy_axis_or_prop,legacy_value,ds2_axis_or_prop,ds2_value,note
+Badge,DS Web,base badge / {neutral|brand|danger|success|warning} --1.5,(set name),neutral|brand|danger|success|warning,Tone,Neutral|Accent|Danger|Success|Warning,Info — новый тон
+Badge,DS Web,base badge --1.5,size,lg|md|sm,Size,L|M|S,lg 36 → L 36; md 24; sm 20
+Badge,DS Web,base badge --1.5,style,tinted|filled,Style,Subtle|Solid,
+Badge,DS Web,base badge --1.5,state,default|skeleton,State,Default|Skeleton,Skeleton только у Neutral/Subtle
+Badge,DS Web,base badge --1.5,var,text,—,—,по умолчанию
+Badge,DS Web,base badge --1.5,var,text eraseble,Close,true,
+Badge,DS Web,base badge --1.5,var,text counter,Counter,true,значение — Counter value
+Badge,DS Web,base badge --1.5,var,coin,Icon + Icon · swap,true + монета,монеты переезжают в Symbols
+Badge,DS Web,base badge --1.5,var,coin eraseble,Icon + Close,true + true,
+Badge,DS Web,base badge --1.5,var,next,Chevron,true,
+Table cell,DS Web,.table / cell base,variant,text primary|text secondary|vertical text with description|horizontal text with description|coin|image|progress line|badge|base [empty],Type,Text|Text secondary|Two-line|Inline|Coin|Image|Progress|Badge|Custom,buttons → Custom (слот)
+Table cell,DS Web,.table / cell base,mirror,false|true,Align,Left|Right,
+Table cell,DS Web,.table / cell base,skeleton loading,false|true,State,Default|Skeleton,
+Table header cell,DS Web,.table / column title,active,false|true,Sort,None|Ascending/Descending,направление — новое
+Table header cell,DS Web,.table / column title,mirror,false|true,Align,Left|Right,
+Table header cell,DS Web,.table / column title,state,default|skeleton,State,Default|Skeleton,
+Table row,DS Web,.table / raw,variant,row|title row,—,Table row | header в Table,title row → строка Table header cell
+Table row,DS Web,.table / raw,state,default|hover,State,Default|Hover|Selected,Selected — новое
+Table row,DS Web,.table / raw,(height),75,Density,Regular (72),Compact 48 — новое
+Table,DS Web,.table / layout,top / content / bottom slot,—,Toolbar / Rows / Footer,слоты,
+Table,DS Web,.table / layout,empty state,true,—,Empty state M в слоте Rows,
+Menu item,DS Web,Dropdown item,State,Default|Hover,State,Default|Hover|Pressed|Disabled,
+Menu item,DS Web,Dropdown item,Left addon / Left slot Type,Symbol|Icon|Emoji|Small symbol|Badge|Empty,Show leading + слот Leading,любое содержимое,Empty → Show leading=false
+Menu item,DS Web,Dropdown item,Right addon / Right slot Type,Checkbox,Checkbox,true,
+Menu item,DS Web,Dropdown item,Right addon / Right slot Type,Button|Badge|Dropdown|coin-group|pamyent-group,Show trailing + слот Trailing,содержимое,
+Menu item,DS Web,Content,Description,—,Show description,true,
+Menu,DS Web,Dropdown,Type,Menu|Multiselect|Coins|Small coins|Wallet|Subaccount|Payment|Net|Location|Coinhold coins,слот Items,пресеты = примеры содержимого,
+Menu,DS Web,Search,(в Dropdown),—,Search,true,поле = Input M
+Select compact,DS Web,Selector small,Type,Default|Inactive,State,Default|Disabled,Hover/Open — новые
+Select compact,DS Web,Selector small,Has icon / Icon,—,Show leading + слот Leading,,
+Toast,DS Web,base notification,Type,Error|Alert|Success,Tone,Danger|Warning|Success,Neutral / Info — новые
+Toast,DS Web,base notification,Status icon / Description / Button / Timer,bool,Status icon / Show description / Button / Timer,bool,1:1
+Alert,DS Web,baseCard / banner (header + description),Type,Info|Warning|Error|Success,Tone,Neutral|Warning|Danger|Success,legacy Info (серый) = Neutral; синий Info — новый
+Alert,DS Web,baseCard / banner,Closable / Description,bool,Close / Description,bool,
+Alert,DS Web,baseCard / banner,Desktop,True|False,—,ширина Fill,
+Banner,DS Web,base Banner --2.0,status,danger|alert|success|custom icon|-,Tone,Danger|Warning|Success|Info|Neutral,
+Banner,DS Web,base Banner --2.0,buttons var,bottom filled|bottom hug|right hug|-,Buttons,Bottom filled|Bottom hug|Right hug|None,
+Banner,DS Web,base Banner --2.0,center text var,true,Align,Center,только Tone=Neutral + Buttons=None
+Banner,DS Web,base Banner --2.0,close button / secondary button / discription,bool,Close / Secondary button / Show description,bool,
+Tabs,DS Web,base tab item,size,desktop|mobile,Size,L|M,60 → 56; 44 → 48
+Tabs,DS Web,base tab item,selected,false|true,Selected,Off|On,
+Tabs,DS Web,base tab item,state,skeleton|default|hover|pressed|focus|disabled,State + Focus ring,Skeleton|Default|Hover|Pressed|Disabled + bool,focus → свойство Focus ring
+Tabs,DS Web,tab item,counter badge,bool,Counter,bool,
+Tabs,DS Web,base tabbar --1.5,adaptive mobile,false|true,Tabs Size,L|M,
+Chip,DS Web,baseChip / base --1.5,size,md|sm,Size,M|S,44 → 40; 36 → 32
+Chip,DS Web,baseChip / base --1.5,active,false|true,Selected,Off|On,
+Chip,DS Web,baseChip / base --1.5,state + disable,default|hover|pressed + true,State,Default|Hover|Pressed|Disabled,
+Chip,DS Web,baseChip / vertical --1.5,(set),—,Layout,Vertical,64×64
+Chip,DS Web,baseChip,subtext,bool,Meta,bool,
+Chip,DS Web,baseChip,focus,bool,Focus ring,bool,
+Segmented,DS Web,base segmented picker item / text|icon only,status|color,neutral|brand|danger|success,Tone,Neutral|Accent|Danger|Success,
+Segmented,DS Web,base segmented picker item,size,lg|sm,Size,XL|M,item 48 → XL; 36 → M
+Segmented,DS Web,base segmented picker item,active,true|false,Selected,On|Off,
+Segmented,DS Web,base segmented picker item / icon only,(set),—,Show label,false,
+Segmented,DS Web,base segmented picker group,amount,2|3,Items,2|3,
+Tooltip,DS Web,base tooltip / neutral --1.5,arrow placement + tooltip arrow,top|bottom|left|right + bool,Placement,Top|Bottom|Left|Right|None,arrow=false → None
+Tooltip,DS Web,Tooltip,Content,Text|Limits|Swap,Content,Text|Custom,Limits/Swap → Custom (слот)
+Tooltip,DS Web,base tooltip / color --1.5,(set),—,—,Tooltip tour (будет),онбординг
+Empty state,DS Web,empty state,position,vertical|horizontal,Layout,Vertical|Horizontal,
+Empty state,DS Web,empty state,illustration / title / text frame / action 1 / action 2,bool,Show illustration / Title / Show text / Show actions,bool,кнопки — в слоте Actions
+Empty state,DS Web,empty state,dashed background,bool,Dashed background,bool,
+Empty state,DS Web,actions,type,buttons|input|badge|link,слот Actions,содержимое,
+Modal,DS Web,base modal header / title | title select,desktop var,true|false,—,ширина 540 (ресайз),на Compact — Sheet
+Modal,DS Web,base modal header / title | title select,(set),—,Header,Title,title select → Title + Select compact в заголовке
+Modal,DS Web,base modal header / coin | coin select,(set),—,Header,Coin,
+Modal,DS Web,base modal header / empty,(set),—,Header,Empty,
+Modal,DS Web,base modal header,divider,bool,Divider,bool,
+Modal,DS Web,base modal header / coin,description,bool,Header description,bool,
+Modal,DS Web,base modal footer / single button,(set),—,Footer,Single,
+Modal,DS Web,base modal footer / two buttons,var,default|horizontal|horizontal zen,Footer,Stacked|Horizontal|Horizontal,zen → Horizontal
+Modal,DS Web,base modal footer / empty,(set),—,Footer,None,
+Modal,DS Web,base modal footer,description / fade,bool,слот Footer,текст в слоте,fade — в коде при скролле
+List item,DS Web,List,Desktop,True|False,Size,L|M,
+List item,DS Web,List,Card,False|True,Style,Plain|Card,
+List item,DS Web,List,Devider,bool,Divider,bool,
+List item,DS Web,List,Left addon / Left Type,Coin|Icon secondary,Show leading + слот Leading,,
+List item,DS Web,Content,Type,Text first|Description first|Big value|Description only,Content,Text first|Description first|Big value|Description only,1:1
+List item,DS Web,List,Right addon / Right Type,Badge|Next|Button|Value|Toggle|Icon|Dashboard,Show trailing + слот Trailing,,
+List item,DS Web,List,(state),—,State,Default|Hover,Hover — новое
+Legend item,DS Web,.legends,state,default|hover|active|skeleton,State,Default|Hover|Active|Skeleton,1:1
+Legend item,DS Web,.legends,slot (маркер),—,Legend swatch (exposed),Marker × Series,Series = data/1…8
+Progress circle,DS Web,baseCircleLoader,percent,0…100,Value + Arc,,дуга задаётся в Arc
+Sheet,DS App,bottom sheet menu,var,more|send|top up|top up coinhold|exchange|coin change,Type=Menu + слот Items,пресеты = содержимое,
+Sheet,DS App,—,—,—,Type=Default,—,новое: шторка край-в-край со слотами
+Nav item,DS Web,Sidebar item / Navbar item,(state),default|hover|active,State,Default|Hover|Active,36 / радиус 12 / иконка 24 / текст 16
+Sidebar,DS Web,sidebar / default,ru,false|true,—,локализация текстом,
+Sidebar,DS Web,sidebar / default,Header frame / Navbar / Footer frame,—,слоты Header / Nav / Footer,,Primary + Secondary navigation через divider
+Balance widget,DS Web,Balance widget + Hotkeys (в sidebar),—,—,Balance widget,Label / Value / Currency / Show link + слот Hotkeys,в Sidebar — флаг Balance
+Tabs,DS Web,widget Navigation header / .tab,(desktop / mobile),64 / 44,Tab / Tabs Size,XL / M,табы-заголовок страницы
+Stat card,—,—,—,—,Stat card,—,новое: в legacy только в макетах продуктов
+Chart (будет),DS Web,bar widget,type,horizont|vertical|circle,—,—,следующий этап

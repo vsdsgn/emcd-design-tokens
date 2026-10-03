@@ -29,11 +29,15 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 1a. **Опубликовать Foundations** (полупрозрачные `control/*`, `text/on-warning`) → в Components принять обновление библиотеки, проверить контролы на L0/L1/L2/raised в обеих темах.
 2. Решено: warning-заливка = amber/500 в обеих темах, текст на ней — `text/on-warning` (neutral/950). amber/600 не используем (белый на нём 3.2:1).
 3. Символы: пользователь разбирает доску Icons → «Symbols · selection» (Оставить / Архив / Не символ). Затем: новая библиотека «◆ EMCD DS 2.0 — Symbols» (медиа, не иконки), имена `coin/btc`, `fiat/usd`, `flag/ru`, `payment/visa`, `service/*`, `stock/*`, `os/*`; майнинговые монеты (BEL, PEP, DINGO, JKC, FB, BCH и др.) не рисовать — они уже есть в legacy-библиотеке «🎛️ Icons, symbols EMCD» как `ic_<coin>_<ticker>` (аудит шёл только по `smbl-*`), перенести оттуда; `status/verified` (залитая розетка с галочкой, legacy `ic-profile-status-star`) — в Symbols, в Icons остаётся контурный вариант для меню; медиа-компоненты Coin (+ стек «+N»), Avatar, Logo; экспорт в `symbols/`.
-4. Компоненты дальше: Chart (линия/области/столбцы на токенах), виджеты дашборда, Multiselect, Datepicker. Нарисовать `empty/*` в Expressive.
+4. Компоненты дальше (тоже от legacy): Chart = legacy bar widget (horizont / vertical / circle) + widget Graph, Chart (линия/области/столбцы на токенах), виджеты дашборда, Multiselect, Datepicker. Нарисовать `empty/*` в Expressive.
    (было: Select → Legend → Toast, Alert, Banner, Empty state, Progress → Modal, Sheet, Side panel, Dropdown → List item, Stat card, Table → Shell, Page header. После первой пачки — эталонный экран (История / Дашборд Mining).
 5. Обновить скилл design-studio знаниями проекта; документация для разработки.
 
 ## Принятые правила (не нарушать)
+
+- **Миграция, а не перерисовка.** Новый компонент повторяет форму (±4 px) и логику (оси, состояния, опции) legacy-компонента из DS Web / App / Site. Отклонения — только под шкалу токенов или решения DS 2.0, и каждое — в `docs/migration/components.csv`. Перед сборкой — замер legacy (Plugin API в файле DS Web), после — сравнение до/после.
+- Иконки внутри скрытых инстансов не материализуются: чтобы перекрасить, временно показать (`visible = true`), перекрасить, вернуть.
+- Текст внутри слота нельзя привязать к свойству — текстовые свойства держать вне слотов.
 
 - **Рампы — в OKLCH**: 500 = якорь (hex не меняем), светлота равномерно к 50/950, hue тёмной половины = hue 500, общая кривая хромы, клип в sRGB. В коде — hex. Генератор и было/стало — страница «🎨 Ramps · OKLCH» в Foundations.
 
