@@ -9,9 +9,6 @@ Badge,DS Web,base badge --1.5,var,text counter,Counter,true,значение —
 Badge,DS Web,base badge --1.5,var,coin,Icon + Icon · swap,true + монета,монеты переезжают в Symbols
 Badge,DS Web,base badge --1.5,var,coin eraseble,Icon + Close,true + true,
 Badge,DS Web,base badge --1.5,var,next,Chevron,true,
-Table cell,DS Web,.table / cell base,variant,text primary|text secondary|vertical text with description|horizontal text with description|coin|image|progress line|badge|base [empty],Type,Text|Text secondary|Two-line|Inline|Coin|Image|Progress|Badge|Custom,buttons → Custom (слот)
-Table cell,DS Web,.table / cell base,mirror,false|true,Align,Left|Right,
-Table cell,DS Web,.table / cell base,skeleton loading,false|true,State,Default|Skeleton,
 Table header cell,DS Web,.table / column title,active,false|true,Sort,None|Ascending/Descending,направление — новое
 Table header cell,DS Web,.table / column title,mirror,false|true,Align,Left|Right,
 Table header cell,DS Web,.table / column title,state,default|skeleton,State,Default|Skeleton,
@@ -90,3 +87,17 @@ Balance widget,DS Web,Balance widget + Hotkeys (в sidebar),—,—,Balance widg
 Tabs,DS Web,widget Navigation header / .tab,(desktop / mobile),64 / 44,Tab / Tabs Size,XL / M,табы-заголовок страницы
 Stat card,—,—,—,—,Stat card,—,новое: в legacy только в макетах продуктов
 Chart (будет),DS Web,bar widget,type,horizont|vertical|circle,—,—,следующий этап
+Table cell / Text,DS Web,table / label text,text | state | hover,bool | default/skeleton/disable | bool,Show secondary | State | —,bool | Default/Skeleton/Disabled | Hover у Table row,
+Table cell / Date time,DS Web,table / date time · table / line label text,var,row/column,Layout,Row/Column,
+Table cell / Coin,DS Web,table / coin md label text · table / coin sm label text,(set) | coin symbol | icon blockchain,md/sm | instance | bool,Size | слот монеты,M/S,
+Table cell / Transaction,DS Web,table / transaction,var | text value,debit/сredit/neutral primary/neutral secondary | bool,Direction | Value,Debit/Credit/Neutral/Neutral secondary,skeleton/disable из var → State
+Table cell / Image,DS Web,table / image label text,state,image label text/disable/skeleton,State,Default/Disabled/Skeleton,
+Table cell / Avatar,DS Web,table / avatar label text,achieves | star achieve | shield achieve | text badge,bool,Achieves | Star achieve | Shield achieve | —,bool,
+Table cell / Progress,DS Web,table / progress line,puller | puller string | text,bool | text | bool,Percent,text,
+Table cell / Badge,DS Web,table / badge,state,default/skeleton/disable,State,Default/Skeleton/Disabled,
+Table cell / Toggle,DS Web,table / toggle,state,default/skeleton/disable,State,Default/Skeleton/Disabled,
+Table cell / Star,DS Web,table / star,star active,false/true,Active,Off/On,
+Table cell / Icon,DS Web,table / icon,icon color,secondary/primary,Color,Secondary/Primary,
+Table cell / Buttons,DS Web,table / small buttons,button 2 | button 3,bool,Button 2 | Button 3,bool,
+Table cell / More,DS Web,table / more button,status | button hover,bool | true/false,Status | —,bool,hover — состояние Icon button
+Table header cell,DS Web,table title / text,mirror | state,false/true | default/skeleton,Align | State,Left/Right | Default/Skeleton,высота 44 / текст 16
