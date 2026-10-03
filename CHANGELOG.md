@@ -11,6 +11,9 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 ## [Unreleased]
 
 ### Added
+- Components (Status: beta): Menu item + Menu (slots Leading/Trailing/Items), Select (built from Input instances), Alert, Banner, Toast, Empty state (slots Illustration/Actions), Progress + Progress circle, Legend item, Modal, Sheet, Side panel (slots Header actions/Body/Footer), List item, Stat card (Default + Skeleton), Table header cell, Table cell, Table row, Table (slots Toolbar/Rows/Footer), Nav item, Tab bar item, Tab bar, Sidebar, Top bar, Page header, Shell (Large/Compact, slot Content). Reference screen «Дашборд Mining» (Large Light/Dark, Compact) on 🧪 Playground.
+- Icons: `alert-circle`, `check-circle`, `alert-triangle` (Lucide geometry on the keyline).
+- `status/{success,warning,danger,info}/on-subtle`, `accent/on-subtle` — text on subtle tints, ≥ 5.7:1 in both themes (light 700, amber 800; dark 300).
 - Components (Status: beta): Tab + Tabs (M 48 / L 56, underline, Counter), Segment + Segmented (S/M/L/XL = field sizes, tone only on the selected segment: Neutral / Accent / Success / Danger), Chip (S 32 / M 40, selected = inverse, Meta, Remove), Badge (6 tones × Subtle/Solid × S/M/L, non-interactive), Counter (S/M, Neutral/Accent/Danger), Status (dot + label, 5 tones), Tooltip (Top/Bottom/Left/Right/None). Every component has the usage block (when / when not / rules / a11y / search / legacy).
 - `control/segment-track`, `control/segment`, `control/segment-hover` (Segmented; translucent so it reads on L1 and L2).
 - `text/on-warning` (neutral/950 in both themes) — text and icons on `status/warning/solid` (amber/500). White on amber fails contrast (2.15:1), dark passes (9.8:1).
@@ -20,6 +23,8 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 - Accessibility rules for all components (focus, keyboard map, VoiceOver/TalkBack, touch targets, reduced motion) in `docs/components.md`.
 
 ### Changed
+- Dark `status/*/subtle` and `accent/subtle` 900 → 950 (`accent/subtle-hover` 850 → 900) — matches legacy tinted surfaces.
+- Rebound after publish: Segment/Segmented → `control/segment*`; Badge Subtle text → `on-subtle`, Badge Warning Solid → `text/on-warning`; Alert/Banner/Toast status icons → `check-circle` / `alert-triangle` / `alert-circle`.
 - Colour ramps regenerated in OKLCH (violet, green, red, amber, blue, lime, yellow, electric-green, electric-blue): step 500 is the anchor and keeps its hex; lightness evenly spaced to 50 / 950; dark half keeps the 500 hue; one chroma curve; sRGB clip. Fixes lime (flat 50–500, cliff at 600, olive drift from 700), electric-green (400 darker than 500), yellow (cliff 700→800). Neutral and alpha unchanged. Before/after page «🎨 Ramps · OKLCH» in Foundations.
 - EMCD `accent/focus-on-light` lime/700 → lime/800 (5.0:1 on white); `data/8` light lime/600 → lime/800.
 - Control fills are translucent so controls read on every surface level (L0 / L1 / L2 / raised) in both themes: `control/track` black 12% / white 16%, `-hover` 16% / 24%, `-disabled` 4% / 8%; `control/box` dark white 8%, `-hover` 12%; `control/knob-disabled` dark white 24%; `control/surface/disabled` black 4% / white 4% (disabled no longer darker than its background).
@@ -38,6 +43,7 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 - `CONTRIBUTING.md`: simple rules for designers (who edits, how to propose a change, naming, versioning).
 
 ### Fixed
+- Icons: `icon/arrow-up` pointed down (copy of `arrow-down` without rotation).
 - Boolean tokens (`mode/is-*`, `touch/is-*`) were built as `dimension` (`truepx`, `NaNrem`); now `$type: boolean`.
 
 ## [0.2.0] — 2026-10-01

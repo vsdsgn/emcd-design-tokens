@@ -56,15 +56,19 @@
   --status-danger-solid: var(--color-red-600);
   --status-danger-subtle: var(--color-red-50);
   --status-danger-border: var(--color-red-200);
+  --status-danger-on-subtle: var(--color-red-700);
   --status-success-solid: var(--color-green-600);
   --status-success-subtle: var(--color-green-50);
   --status-success-border: var(--color-green-200);
+  --status-success-on-subtle: var(--color-green-700);
   --status-warning-solid: var(--color-amber-500);
   --status-warning-subtle: var(--color-amber-50);
   --status-warning-border: var(--color-amber-200);
+  --status-warning-on-subtle: var(--color-amber-800);
   --status-info-solid: var(--color-blue-600);
   --status-info-subtle: var(--color-blue-50);
   --status-info-border: var(--color-blue-200);
+  --status-info-on-subtle: var(--color-blue-700);
   --control-surface-default: var(--color-neutral-0);
   --control-surface-hover: var(--color-neutral-0);
   --control-surface-disabled: var(--color-alpha-black-4);
@@ -115,6 +119,7 @@
   --highlight-subtle: var(--brand-highlight-100);
   --accent-subtle: var(--brand-accent-50);
   --accent-subtle-hover: var(--brand-accent-100);
+  --accent-on-subtle: var(--brand-accent-700);
   --control-border-hover: var(--brand-accent-fg-on-light);
   --control-border-focus: var(--brand-accent-solid);
   --control-checked: var(--brand-accent-solid);
