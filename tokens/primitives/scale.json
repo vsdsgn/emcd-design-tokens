@@ -454,5 +454,21 @@
       "$type": "dimension",
       "$value": "64px"
     }
+  },
+  "easing": {
+    "standard": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0.2, 0, 0, 1)"
+    },
+    "out": {
+      "$type": "cubicBezier",
+      "$value": "cubic-bezier(0, 0, 0.58, 1)"
+    }
+  },
+  "scale": {
+    "press": {
+      "$type": "number",
+      "$value": 0.96
+    }
   }
 }

@@ -49,6 +49,13 @@
   --effect-blur-backdrop: var(--blur-4);
   --layout-edge-fade: var(--dimension-x2);
   --focus-offset: var(--dimension-x0-25);
+  --motion-duration-feedback: var(--duration-fast);
+  --motion-duration-enter: var(--duration-base);
+  --motion-duration-exit: var(--duration-fast);
+  --motion-duration-overlay: var(--duration-slow);
+  --motion-easing-standard: var(--easing-standard);
+  --motion-easing-enter: var(--easing-out);
+  --motion-scale-press: var(--scale-press);
   --radius-control: var(--brand-radius-md);
   --radius-container: var(--brand-radius-lg);
   --radius-surface: var(--brand-radius-xl);

@@ -252,5 +252,41 @@
       "$type": "dimension",
       "$value": "{dimension.x0-25}"
     }
+  },
+  "motion": {
+    "duration": {
+      "feedback": {
+        "$type": "duration",
+        "$value": "{duration.fast}"
+      },
+      "enter": {
+        "$type": "duration",
+        "$value": "{duration.base}"
+      },
+      "exit": {
+        "$type": "duration",
+        "$value": "{duration.fast}"
+      },
+      "overlay": {
+        "$type": "duration",
+        "$value": "{duration.base}"
+      }
+    },
+    "easing": {
+      "standard": {
+        "$type": "cubicBezier",
+        "$value": "{easing.standard}"
+      },
+      "enter": {
+        "$type": "cubicBezier",
+        "$value": "{easing.out}"
+      }
+    },
+    "scale": {
+      "press": {
+        "$type": "number",
+        "$value": "{scale.press}"
+      }
+    }
   }
 }

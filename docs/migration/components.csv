@@ -122,3 +122,12 @@ Chip map,Firmware,Hash board → Chips (+ легенда Normal / Underperformin
 Chip cell,Firmware,чип в сетке,статус,normal/underperforming/failed,Status,Normal/Underperforming/Failed/Off,State Default/Hover/Selected
 Chart metric,Firmware,Intake / Exhaust RPM; Fans F1–F4; Fan speed / Miner temperature / Avg. total power / Running time,макет,—,Tone,Default/Danger/Warning/Success,
 Chart card,Firmware Archive,Chain's Hashrate / Power / Fans; Chains inlet temperature Inlet / Outlet,макет,—,Type=Line + Segmented в Top,,
+Input amount,DS Web,widget Input amount,State | Filled | Info icon | Input message,Default/Error/Focus | bool,State | Filled | Info icon | Message,Default/Focus/Error/Disabled | bool,Disabled — новое; Selector small → Select compact
+Accordion,DS Web,baseAccordion --1.5,open | mobile adaptive | state,bool | bool | default/skeleton,Open | Size | State,On/Off | L/M | Default/Hover/Skeleton,Hover — новое; контент — слот
+Slider,DS Web,base slider,var | with num | label / value in label / description / info icon,3–10 | bool,Steps | Labels | свойства,3/5/10 | On/Off,
+Avatar,DS Web,avatar · base avatar / single,size | var | status,micro/small/medium/large | text/icon/icon action/image | bool,Size | Type | Status,XS/S/M/L | Text/Icon/Image | bool,icon action → Icon button
+Avatar group,DS Web,base avatar / group line,size | more | RTL,—,Size | More,XS/S/M | On/Off,RTL — в коде
+Stepper,DS Web,Step Symbol · Step Trail · Step Text - Horizontal,Type | State | Border type,—,Step symbol / Step trail / Step / Stepper,1:1,
+Divider,DS App,divider text --1.0,—,—,Orientation | Label,Horizontal/Vertical | On/Off,
+Code input,Web App,Безопасность → «Введи код из пуш уведомления» (4 ячейки),макет,—,Length | State,4/6 | Default/Error/Success/Disabled,доработка: 6 цифр, ошибка, лимит попыток, таймер повторной отправки
+Code cell,Web App,ячейка кода 69×70,макет,—,Size | State,L/M | Empty/Focus/Filled/Error/Success/Disabled,

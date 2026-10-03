@@ -283,4 +283,7 @@
   --blur-32: 32px;
   --blur-48: 48px;
   --blur-64: 64px;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-out: cubic-bezier(0, 0, 0.58, 1);
+  --scale-press: 0.96;
 }

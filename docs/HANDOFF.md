@@ -35,6 +35,15 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
    (было: Select → Legend → Toast, Alert, Banner, Empty state, Progress → Modal, Sheet, Side panel, Dropdown → List item, Stat card, Table → Shell, Page header. После первой пачки — эталонный экран (История / Дашборд Mining).
 5. Обновить скилл design-studio знаниями проекта; документация для разработки.
 
+## Обновление 2026-10-03 (вечер)
+
+- Принцип: преемственность с legacy (назначение, состав, свойства), но не буквальное копирование — доработки приветствуются, плохое и недоделанное переделываем. Почти всё «недостающее» уже есть в legacy DS или продуктах — сначала найти.
+- Основа — design-studio + его референсы; Arc UI / Componentry / Space UI / Skecher / Planes — только дополнение (docs/references.md).
+- Движение — docs/motion.md; демо — https://claude.ai/artifact/ARTIFACT_ID_REDACTED
+- Ключи файлов: Legacy DS Web FIGMA_FILE_KEY_REDACTED, DS App FIGMA_FILE_KEY_REDACTED, DS Site FIGMA_FILE_KEY_REDACTED; Web App FIGMA_FILE_KEY_REDACTED, App FIGMA_FILE_KEY_REDACTED, Monitoring FIGMA_FILE_KEY_REDACTED, WL B2B FIGMA_FILE_KEY_REDACTED, Firmware FIGMA_FILE_KEY_REDACTED, Firmware Archive FIGMA_FILE_KEY_REDACTED.
+- Очередь: (1) исправления — Alert иконка по умолчанию у Danger/Warning; Badge зона нажатия Close/Chevron; Toast компактное действие; Modal размер заголовка по типу; Chip map Normal спокойный; Table единые стили + tabular-nums. (2) Перенос с доработкой: Datepicker (DS Web «?Datepicker, timepicker»), Multiselect + Search (DS Web Multiselect, DS App input-search), адрес с копированием + QR (Web App Безопасность / Адресная книга / Reg + Auth), CoinStack (DS Web), карточка транзакции (DS App txn-card-history), экран статуса (DS App status screen), пароль с требованиями (Web App Reg), Payment Card, Notification, шапка/футер сайта (DS Site), пагинация (проверить Monitoring и WL B2B). (3) Выгрузка описаний компонентов в docs/components/*.md + llms.txt для Claude Design.
+- Приёмы Plugin API: скрытые инстансы не материализуют слои (visible=true → перекрасить → вернуть); текст в слоте нельзя привязать к свойству; vectorPaths — после пути y = min(y точек); позицию слоя внутри инстанса не переопределить; overlayPositionType/overlayBackground — только чтение (оверлей = полноэкранный фрейм со своим затемнением); точку градиента можно привязать к переменной; layoutGrow только 0/1; search_design_system — один запрос за вызов.
+
 ## Принятые правила (не нарушать)
 
 - **Миграция, а не перерисовка.** Новый компонент повторяет форму (±4 px) и логику (оси, состояния, опции) legacy-компонента из DS Web / App / Site. Отклонения — только под шкалу токенов или решения DS 2.0, и каждое — в `docs/migration/components.csv`. Перед сборкой — замер legacy (Plugin API в файле DS Web), после — сравнение до/после.
