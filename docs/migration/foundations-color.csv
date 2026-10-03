@@ -1,0 +1,67 @@
+source,legacy_token,legacy_light,legacy_dark,ds2_token,ds2_light,ds2_dark,dE_light,dE_dark,status,contrast_on_bg_light_dark,note
+Web·App,Color 1 [Back],,#0a0a0a,bg/base,#ffffff,#0a0a0a,,0.0,=,,
+Web·App,Color 7 [Back],,#0a0a0a,bg/base,#ffffff,#0a0a0a,,0.0,=,,
+Web·App,Color 2 [Back],,#111111,surface/default,#ffffff,#111111,,0.0,=,,
+Web·App,Color 6 [Back],,#111111,surface/default,#ffffff,#111111,,0.0,=,,
+Web·App,Color 3 [Back],,#1a1a1a,surface/raised,#ffffff,#1a1a1a,,0.0,=,,
+Web·App,Color 35 [Back],,#232323,surface/hover,#f5f5f5,#232323,,0.0,=,,
+Web·App,Color 4 [Back],,#2d2d2d,surface/active,#eeeeee,#2d2d2d,,0.0,=,,
+Web·App,Disabled / Inactive [Back],,#1a1a1a,surface/disabled,#f5f5f5,#1a1a1a,,0.0,=,,
+Web·App,Color 1 [Text],,#fafafa,text/primary,#0a0a0a,#fafafa,,0.0,=,19.8 / 19.0,
+Web·App,Color 2 [Text],,#d0d0d0,text/secondary,#4d4d4d,#a3a3a3,,16.5,Δ,8.5 / 7.8,
+Web·App,Color 3 [Text],,#a3a3a3,text/tertiary,#6b6b6b,#8b8b8b,,9.1,Δ,5.3 / 5.8,
+Web·App,Color 4 [Text],,#7a7a7a,text/tertiary,#6b6b6b,#8b8b8b,,6.6,≈,5.3 / 5.8,
+Web·App,Color 5 [Text],,#4d4d4d,text/disabled,#a3a3a3,#4d4d4d,,0.0,=,2.5 / 2.3,
+Web·App,Brand,,#8f42ff,action/primary/default,#8f42ff,#8f42ff,,0.0,=,,button fill; for text use text/accent
+Web·App,Brand fill hover,,#6724b1,action/primary/hover,#642db4,#642db4,,3.7,≈,,hover is violet/600
+Web·App,Brand hover,,#ac63fc,text/accent,#7a38db,#ac65fb,,1.7,=,6.1 / 5.7,accent text and links on dark
+Web·App,Brand light,,#c18afd,text/link-hover,#411c79,#c18afe,,0.5,=,12.6 / 7.9,
+Web·App,Brand disable,,#2c0754,action/disabled,#f5f5f5,#1a1a1a,,51.4,Δ,,disabled is neutral now
+Web·App,Error / Red [Main],,#e53935,status/danger/solid,#c4302c,#e53935,,0.0,=,,
+Web·App,Error hover / Red [Hover],,#be2f2b,action/danger/default,#c4302c,#e53935,,13.7,Δ,,danger button red/600 (white text 5.8:1)
+Web·App,Error disabled / Red [Disabled],,#972421,action/disabled,#f5f5f5,#1a1a1a,,61.5,Δ,,disabled is neutral
+Web·App,Error back / Red [Back],,#350a09,status/danger/subtle,#fff4f4,#3c0807,,4.7,≈,,
+Web·App,Error back 2 / Red [Back] 2,,#480f0e,status/danger/subtle,#fff4f4,#3c0807,,5.2,≈,,
+Web·App,Error secondary text,,#be2f2b,text/danger,#c4302c,#ef625e,,18.3,Δ,5.5 / 6.2,контраст до AA (было 3.4:1)
+Web·App,Success / Green [Main],,#43a047,status/success/solid,#38883b,#43a047,,0.0,=,,
+Web·App,Success hover / Green [Hover],,#38823b,status/success/solid,#38883b,#43a047,,14.4,Δ,,no separate hover
+Web·App,Success back / Green [Back],,#112412,status/success/subtle,#f0faf1,#09250a,,6.2,≈,,
+Web·App,Success back 2,,#173318,status/success/subtle,#f0faf1,#09250a,,6.5,≈,,
+Web·App,Success secondary text,,#38823b,text/success,#2b6e2e,#64b168,,17.5,Δ,6.2 / 7.6,контраст до AA (было 4.2:1)
+Web·App,Attention / Orange [Main],,#f59e0b,status/warning/solid,#f59e0b,#f59e0b,,0.0,=,,
+Web·App,Attention hover,,#c68009,status/warning/solid,#f59e0b,#f59e0b,,17.5,Δ,,
+Web·App,Attention back / Orange [back],,#221601,status/warning/subtle,#fdf6eb,#2d1900,,6.6,≈,,
+Web·App,Attention back 2,,#3a2502,status/warning/subtle,#fdf6eb,#2d1900,,9.1,Δ,,
+Web·App,Attention secondary text,,#976207,text/warning,#a36700,#f59e0b,,35.9,Δ,4.7 / 9.2,контраст до AA (было 3.8:1)
+Web·App,accent base,,#ebff00,highlight/solid,#ebff00,#ebff00,,0.0,=,,text on it: text/on-highlight
+Web·App,accent soft,,#f6fe9e,highlight/solid,#ebff00,#ebff00,,49.5,Δ,,clarify usage
+Web·App,accent bold,,#9d8701,highlight/solid,#ebff00,#ebff00,,56.8,Δ,,clarify usage
+Web·App,accent background,,#231f00,highlight/subtle,#f9fcd5,#3d4300,,25.2,Δ,,
+Web·App,theme · surface/base,,#d0d0d0,action/tertiary/hover,#0000000a,#ffffff14,,16.5,≈α,,translucent layer
+Web·App,theme · divider/base,,#d0d0d0,border/subtle,#eeeeee,#232323,,69.8,≈α,,divider is opaque now
+Site,text/neutral/base,#000000,#f5f5f5,text/primary,#0a0a0a,#fafafa,2.7,1.7,≈,19.8 / 19.0,
+Site,text/neutral/nbold-1,#7a7a7a,#b9b9b9,text/secondary,#4d4d4d,#a3a3a3,18.5,8.2,Δ,8.5 / 7.8,контраст до AA (было 4.3:1)
+Site,text/neutral/nbold-2,#a3a3a3,#a3a3a3,text/tertiary,#6b6b6b,#8b8b8b,21.8,9.1,Δ,5.3 / 5.8,контраст до AA (было 2.5:1)
+Site,text/neutral/nbold-3,#b9b9b9,#7a7a7a,text/disabled,#a3a3a3,#4d4d4d,8.2,18.5,Δ,2.5 / 2.3,
+Site,text/neutral/nbold-4,#e0e0e0,#1a1a1a,text/disabled,#a3a3a3,#4d4d4d,22.2,23.5,Δ,2.5 / 2.3,almost invisible text — revisit
+Site,text/fixed/white,,#ffffff,fixed/light,#ffffff,#ffffff,,0.0,=,,
+Site,text/fixed/black,,#000000,fixed/dark,#0a0a0a,#0a0a0a,,2.7,≈,,
+Site,icon/neutral/base,#000000,#ffffff,icon/primary,#0a0a0a,#fafafa,2.7,1.7,≈,19.8 / 19.0,
+Site,icon/neutral/nbold-1,#7a7a7a,#f5f5f5,icon/secondary,#4d4d4d,#a3a3a3,18.5,29.5,Δ,8.5 / 7.8,
+Site,icon/neutral/nbold-2,#a3a3a3,#e0e0e0,icon/tertiary,#6b6b6b,#8b8b8b,21.8,31.3,Δ,5.3 / 5.8,контраст до AA (было 2.5:1)
+Site,icon/neutral/nbold-3 · nbold-4,#b9b9b9,#e0e0e0,icon/disabled,#a3a3a3,#4d4d4d,8.2,56.4,Δ,2.5 / 2.3,
+Site,icon/fixed/white · black,#ffffff,#000000,fixed/light · fixed/dark,#ffffff,#0a0a0a,0.0,2.7,≈,,
+Site,icon/brand/base,,#8f42ff,icon/accent,#7a38db,#ac65fb,,22.5,Δ,6.1 / 5.7,violet/600 light / 400 dark
+Site,icon/brand/bold-1,#7f30d6,#ac63fc,icon/accent,#7a38db,#ac65fb,3.3,1.7,≈,6.1 / 5.7,
+Site,border/neutral/nbold-1,#e0e0e0,#2d2d2d,border/default,#e0e0e0,#2d2d2d,0.0,0.0,=,,
+Site,border/neutral/nbold-2,#f5f5f5,#1a1a1a,border/subtle,#eeeeee,#232323,2.4,4.5,≈,,
+Site,border/neutral/basic,#000000,#f5f5f5,border/inverse,#0a0a0a,#ffffff,2.7,3.5,≈,,
+Site,background/neutral/basic,#ffffff,#0a0a0a,bg/base,#ffffff,#0a0a0a,0.0,0.0,=,,
+Site,background/neutral/bold-1,#eeeeee,#1a1a1a,surface/hover,#f5f5f5,#232323,2.4,4.5,≈,,
+Site,background/neutral/bold-2,#e0e0e0,#232323,surface/active,#eeeeee,#2d2d2d,4.9,4.8,≈,,
+Site,background/neutral/bold-3,#0a0a0a,#ffffff,bg/inverse,#0a0a0a,#ffffff,0.0,0.0,=,,
+Site,background/brand/basic,,#8f42ff,action/primary/default,#8f42ff,#8f42ff,,0.0,=,,
+Site,background/brand/bold-1,#7f30d6,#ac63fc,action/primary/hover,#642db4,#642db4,15.9,24.0,Δ,,
+Site,background/brand/nbasic-1,#f5ecff,#380d66,accent/subtle,#f9f4ff,#240e46,4.9,18.7,Δ,,
+Site,text/brand/base,,#8f42ff,text/accent,#7a38db,#ac65fb,,22.5,Δ,6.1 / 5.7,violet/600 light / 400 dark — contrast
+Site,text/brand/bold-1,#7f30d6,#ac63fc,text/accent,#7a38db,#ac65fb,3.3,1.7,≈,6.1 / 5.7,
