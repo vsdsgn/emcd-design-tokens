@@ -1,28 +1,80 @@
 {
-  "style": {
-    "decor": {
-      "glow": {
-        "$type": "boolean",
-        "$value": true
+  "decor": {
+    "light": {
+      "$type": "boolean",
+      "$value": true
+    },
+    "tint": {
+      "$type": "boolean",
+      "$value": true
+    },
+    "material": {
+      "$type": "boolean",
+      "$value": true
+    }
+  },
+  "material": {
+    "thin": {
+      "fill": {
+        "$type": "color",
+        "$value": "{surface.glass-thin}"
       },
-      "card-tint": {
-        "$type": "boolean",
-        "$value": true
-      },
-      "glass": {
-        "$type": "boolean",
-        "$value": true
+      "blur": {
+        "$type": "dimension",
+        "$value": "{effect.blur.glass-sm}"
       }
     },
-    "glow": {
+    "regular": {
+      "fill": {
+        "$type": "color",
+        "$value": "{surface.glass-regular}"
+      },
+      "blur": {
+        "$type": "dimension",
+        "$value": "{effect.blur.glass-md}"
+      }
+    },
+    "thick": {
+      "fill": {
+        "$type": "color",
+        "$value": "{surface.glass-thick}"
+      },
+      "blur": {
+        "$type": "dimension",
+        "$value": "{effect.blur.glass-lg}"
+      }
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": "{surface.overlay}"
+    }
+  },
+  "light": {
+    "ambient": {
       "color": {
         "$type": "color",
-        "$value": "{brand.accent.glow}"
+        "$value": "{brand.accent.glow-strong}"
       },
       "blur": {
         "$type": "dimension",
         "$value": "160px"
+      }
+    },
+    "accent": {
+      "color": {
+        "$type": "color",
+        "$value": "{brand.accent.glow-strong}"
       },
+      "blur": {
+        "$type": "dimension",
+        "$value": "16px"
+      }
+    },
+    "tint": {
+      "$type": "color",
+      "$value": "{brand.accent.tint}"
+    },
+    "status": {
       "neutral": {
         "$type": "color",
         "$value": "{glow.neutral}"
@@ -43,32 +95,20 @@
         "$type": "color",
         "$value": "{brand.accent.glow-strong}"
       }
+    }
+  },
+  "edge": {
+    "hairline": {
+      "$type": "color",
+      "$value": "{border.glass}"
     },
-    "card": {
-      "tint": {
-        "$type": "color",
-        "$value": "{brand.accent.tint}"
-      },
-      "border": {
-        "$type": "color",
-        "$value": "{border.glass}"
-      }
+    "accent": {
+      "$type": "color",
+      "$value": "{brand.accent.500}"
     },
-    "edge": {
-      "accent": {
-        "$type": "color",
-        "$value": "{brand.accent.500}"
-      },
-      "highlight": {
-        "$type": "color",
-        "$value": "{color.alpha.white.32}"
-      }
-    },
-    "glass": {
-      "blur": {
-        "$type": "dimension",
-        "$value": "{effect.blur.glass-lg}"
-      }
+    "highlight": {
+      "$type": "color",
+      "$value": "{color.alpha.white.32}"
     }
   }
 }

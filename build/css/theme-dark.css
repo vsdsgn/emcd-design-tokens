@@ -17,6 +17,9 @@
   --surface-overlay: var(--color-alpha-black-64);
   --surface-glass: var(--color-alpha-black-64);
   --surface-nested: var(--color-neutral-850);
+  --surface-glass-thin: var(--color-alpha-neutral-900-64);
+  --surface-glass-regular: var(--color-alpha-neutral-900-76);
+  --surface-glass-thick: var(--color-alpha-neutral-900-88);
   --text-primary: var(--color-neutral-50);
   --text-secondary: var(--color-neutral-400);
   --text-tertiary: var(--color-neutral-450);

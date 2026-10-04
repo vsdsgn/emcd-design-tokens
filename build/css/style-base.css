@@ -3,19 +3,27 @@
  */
 
 :root, [data-style="base"] {
-  --style-decor-glow: false;
-  --style-decor-card-tint: false;
-  --style-decor-glass: false;
-  --style-glow-blur: 0px;
-  --style-glass-blur: 0px;
-  --style-glow-color: var(--color-alpha-black-0);
-  --style-glow-neutral: var(--color-alpha-black-0);
-  --style-glow-attention: var(--color-alpha-black-0);
-  --style-glow-error: var(--color-alpha-black-0);
-  --style-glow-success: var(--color-alpha-black-0);
-  --style-glow-brand: var(--color-alpha-black-0);
-  --style-card-tint: var(--color-alpha-black-0);
-  --style-edge-highlight: var(--color-alpha-black-0);
-  --style-card-border: var(--border-subtle);
-  --style-edge-accent: var(--border-subtle);
+  --decor-light: false;
+  --decor-tint: false;
+  --decor-material: false;
+  --material-thin-blur: 0px;
+  --material-regular-blur: 0px;
+  --material-thick-blur: 0px;
+  --light-ambient-blur: 0px;
+  --light-accent-blur: 0px;
+  --light-ambient-color: var(--color-alpha-black-0);
+  --light-accent-color: var(--color-alpha-black-0);
+  --light-tint: var(--color-alpha-black-0);
+  --light-status-neutral: var(--color-alpha-black-0);
+  --light-status-attention: var(--color-alpha-black-0);
+  --light-status-error: var(--color-alpha-black-0);
+  --light-status-success: var(--color-alpha-black-0);
+  --light-status-brand: var(--color-alpha-black-0);
+  --edge-highlight: var(--color-alpha-black-0);
+  --material-thin-fill: var(--surface-default);
+  --material-regular-fill: var(--surface-default);
+  --material-thick-fill: var(--surface-raised);
+  --material-scrim: var(--surface-overlay);
+  --edge-hairline: var(--border-subtle);
+  --edge-accent: var(--border-subtle);
 }
