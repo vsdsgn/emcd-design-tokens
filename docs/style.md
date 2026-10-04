@@ -46,3 +46,22 @@ Style не зависит от Brand: любое сочетание допуст
 ## Код
 
 `data-style="base|expressive"` на `<html>` (по умолчанию base). CSS: `build/css/style-*.css`. Flutter: `build/json/<brand>.<theme>.json` (Base) и `<brand>.<theme>.expressive.json`.
+
+## Инвентаризация legacy DS и Monitoring (2026-10-04)
+
+**DS Web** (JNNaqYwsSSVYUZSwZHKc6q)
+- `surface` (страница Surface) — единственный оформленный «декоративный» компонент: стеклянная карточка белый @5 + обводка, radius 12, под ней размытый (layer blur 250) градиентный эллипс 333×333 в цвете тона; `type` = neutral / attention / error / success / brand; слоты up / down / left / right. → в DS 2.0: Card с декор-слоем свечения, цвет свечения по тону, видимость `style/decor/glow`. Нужен `style/glow/*` по тонам (сейчас только бренд).
+- `base Banner --2.0` — свечение layer blur 150 + лаймовая тень. → декор-слой баннера.
+- Sidebar: `sidebar`, `sidebar / usa`, `sidebar / footer`, `Sidebar banner` — стекло (background blur 4–10), подсветки 15 / 160, фейды краёв. → стекло = `style/decor/glass`, пятна = `style/decor/glow`.
+- Страница Card — концепты карточек (не компоненты): пятна 400, стекло 10–20, градиентные обводки violet → прозрачный, градиент #2c0754 → #8f42ff.
+- Modals — только фейды футера (функциональные, остаются в Base).
+- `icon-payment-card` (Payment Card, 7 вариантов) — иллюстрации карт с радиальными градиентами, это ассет, не компонент карты.
+- Стили: `gradient` (#a363ff → #6800ff), `graf gradient` (заливка графиков), `skeleton`.
+
+**DS App** (BPkXyq9M44BXOiUDCrmlJs)
+- `Notification` (страница Card) — карточка уведомления с пятном layer blur 160.
+- Есть страницы, которых нет в DS 2.0: Payment Card, Txn, Status screen, Search, Filter bottom sheet, Button float.
+
+**Monitoring** (kY3VUdBinylsci3KoLWwLC, «главная страница»)
+- Тот же словарь, что и pool: волосок #d0d0d0 @7 (×129), градиентная обводка violet → прозрачный (×25), пятна 160 / 15, стекло 10 / 32, градиент #d3b4ff → #8f42ff. → Monitoring = Expressive, отдельный режим не нужен.
+- Собственных компонентов в файле нет: собран на legacy DS Web (Sidebar item, tab item, baseButton, Badge, baseChip, Selector small, baseCheckbox). Уникальное — не компонентами, а фреймами на экранах (сканер/QR, устройства, канбан задач) → кандидаты в библиотеку Monitoring.
