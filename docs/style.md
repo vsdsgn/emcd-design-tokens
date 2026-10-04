@@ -4,10 +4,10 @@
 
 | Режим | Где | Что |
 |---|---|---|
-| **Base** (по умолчанию) | все продукты, кроме EMCD mining pool: Monitoring, Firmware, WL B2B, fallback для WL-клиентов | чистые плоские поверхности, обычные обводки, без свечения, стекла и тинтов |
-| **Expressive** | EMCD mining pool (Web App, App) | стекло, световые пятна, брендовые тинты, градиентные обводки, свечение — как сейчас в pool, причёсано на токены |
+| **Base** (по умолчанию) | все продукты, кроме pool и Monitoring: Firmware, WL B2B, сайт, Geometria (бренд поверх Base), fallback для WL-клиентов | чистые плоские поверхности, обычные обводки, без свечения, стекла и тинтов |
+| **Expressive** | EMCD mining pool (Web App, App) и Monitoring | стекло, световые пятна, брендовые тинты, градиентные обводки, свечение — как сейчас в pool, причёсано на токены |
 
-Style не зависит от Brand: любое сочетание допустимо (EMCD + Base в Monitoring, WL Default + Base как fallback, EMCD + Expressive в pool). Geometria и сайт — режим не решён.
+Style не зависит от Brand: любое сочетание допустимо (EMCD + Base в Monitoring, WL Default + Base как fallback, EMCD + Expressive в pool). Geometria сейчас на Base и может включить Expressive (декор подхватит её бренд) или получить свой режим.
 
 ## Токены
 
@@ -23,6 +23,7 @@ Style не зависит от Brand: любое сочетание допуст
 | `style/edge/accent` | `border/subtle` | `accent/500` | первая точка градиентной обводки выделенных карточек; в Base обводка однотонная |
 | `style/edge/highlight` | прозрачный | белый @32 | внутренний блик верхнего края стекла (inner shadow 0 / 0.33) |
 | `style/glass/blur` | 0 | `effect/blur/glass-lg` | background blur стекла |
+| `style/glow/{neutral,attention,error,success,brand}` | прозрачный | `glow/neutral` (Theme), amber/red/green @40, `accent/glow-strong` | пятно свечения под карточкой по тону (legacy `surface`) |
 
 Новые опоры: Primitives `color/alpha/{violet,electric-blue,yellow}/{8,16,24,40}`, Brand `accent/tint`, `accent/glow`, Theme `border/glass`.
 
@@ -63,5 +64,5 @@ Style не зависит от Brand: любое сочетание допуст
 - Есть страницы, которых нет в DS 2.0: Payment Card, Txn, Status screen, Search, Filter bottom sheet, Button float.
 
 **Monitoring** (kY3VUdBinylsci3KoLWwLC, «главная страница»)
-- Тот же словарь, что и pool: волосок #d0d0d0 @7 (×129), градиентная обводка violet → прозрачный (×25), пятна 160 / 15, стекло 10 / 32, градиент #d3b4ff → #8f42ff. → если Monitoring оставляет декор, ему подходит Expressive без отдельного режима (не решено: по умолчанию EMCD вне pool = Base).
+- Тот же словарь, что и pool: волосок #d0d0d0 @7 (×129), градиентная обводка violet → прозрачный (×25), пятна 160 / 15, стекло 10 / 32, градиент #d3b4ff → #8f42ff. → если Monitoring оставляет декор, ему подходит Expressive без отдельного режима (решено 2026-10-04: Monitoring = Expressive).
 - Собственных компонентов в файле нет: собран на legacy DS Web (Sidebar item, tab item, baseButton, Badge, baseChip, Selector small, baseCheckbox). Уникальное — не компонентами, а фреймами на экранах (сканер/QR, устройства, канбан задач) → кандидаты в библиотеку Monitoring.

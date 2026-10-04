@@ -104,6 +104,7 @@
   --data-8: var(--color-lime-500);
   --fixed-light: var(--color-neutral-0);
   --fixed-dark: var(--color-neutral-950);
+  --glow-neutral: var(--color-alpha-white-16);
   --text-on-accent: var(--brand-accent-on-solid);
   --text-on-highlight: var(--brand-highlight-on-solid);
   --text-accent: var(--brand-accent-fg-on-dark);

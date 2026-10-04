@@ -9,6 +9,11 @@
   --style-glow-blur: 0px;
   --style-glass-blur: 0px;
   --style-glow-color: var(--color-alpha-black-0);
+  --style-glow-neutral: var(--color-alpha-black-0);
+  --style-glow-attention: var(--color-alpha-black-0);
+  --style-glow-error: var(--color-alpha-black-0);
+  --style-glow-success: var(--color-alpha-black-0);
+  --style-glow-brand: var(--color-alpha-black-0);
   --style-card-tint: var(--color-alpha-black-0);
   --style-edge-highlight: var(--color-alpha-black-0);
   --style-card-border: var(--border-subtle);

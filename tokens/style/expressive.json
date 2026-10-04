@@ -22,6 +22,26 @@
       "blur": {
         "$type": "dimension",
         "$value": "160px"
+      },
+      "neutral": {
+        "$type": "color",
+        "$value": "{glow.neutral}"
+      },
+      "attention": {
+        "$type": "color",
+        "$value": "{color.alpha.amber.40}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.alpha.red.40}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.alpha.green.40}"
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "{brand.accent.glow-strong}"
       }
     },
     "card": {
