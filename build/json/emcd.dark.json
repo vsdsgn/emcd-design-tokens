@@ -284,6 +284,7 @@
   "materialThickFill": "#1a1a1a",
   "materialThickBlur": 0,
   "materialScrim": "#000000a3",
+  "materialEdgeBlur": 0,
   "lightAmbientColor": "#00000000",
   "lightAmbientBlur": 0,
   "lightAccentColor": "#00000000",

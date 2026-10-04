@@ -47,6 +47,10 @@
     "scrim": {
       "$type": "color",
       "$value": "{surface.overlay}"
+    },
+    "edge-blur": {
+      "$type": "dimension",
+      "$value": "{effect.blur.edge}"
     }
   },
   "light": {
