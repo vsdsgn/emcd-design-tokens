@@ -27,7 +27,7 @@ CSS: `--motion-duration-*`, `--motion-easing-*`, `--motion-scale-press` (build/c
 7. **Задержки**: тултип — через 300 мс, скрывается сразу. Тост — 4 с (с действием — 8 с), пауза при наведении; Danger не скрывается сам. Подтверждение действия на переднем плане — на месте, без тоста.
 8. **Числа** докручиваются до нового значения, `tabular-nums`, фиксированная ширина.
 9. **Стаггер** (~100 мс между группами) — только для редких входов.
-10. **Reduced motion**: при `prefers-reduced-motion: reduce` (или `[data-motion="reduced"]`) все `motion/duration/*` = 0, `scale/press` = 1, shimmer скелетона → мягкая пульсация.
+10. **Reduced motion**: при `prefers-reduced-motion: reduce` (или `[data-motion="reduced"]`) все `motion/duration/*` ≈ 0 (в CSS 0.01 мс, чтобы `transitionend` срабатывал; слой `motion-reduced.css`), `scale/press` = 1, shimmer скелетона → мягкая пульсация.
 11. **Графики**: смена периода — линии и столбцы перетекают за `overlay`; перекрестие и тултип — за `feedback`.
 
 ## Figma

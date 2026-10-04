@@ -28,7 +28,15 @@ StyleDictionary.registerTransform({
   filter: (t) => t.$type === 'dimension',
   transform: (t) => px(t.$value),
 });
-const CSS = ['attribute/cti', 'name/kebab', 'color/css', 'fontFamily/css', 'emcd/size/rem'];
+// Brand fonts are web fonts: without a generic fallback a failed or blocked load renders the browser default (Times).
+const SANS_FALLBACK = "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";
+const MONO_FALLBACK = "ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace";
+StyleDictionary.registerTransform({
+  name: 'emcd/font/fallback', type: 'value', transitive: true,
+  filter: (t) => t.$type === 'fontFamily' && t.path[0] === 'font-family',
+  transform: (t) => `'${String(t.$value).replace(/'/g, '')}', ${/mono/i.test(t.$value) ? MONO_FALLBACK : SANS_FALLBACK}`,
+});
+const CSS = ['attribute/cti', 'name/kebab', 'color/css', 'emcd/font/fallback', 'emcd/size/rem'];
 const JSONT = ['attribute/cti', 'name/camel', 'color/hex', 'emcd/size/number'];
 const quiet = { verbosity: 'silent', warnings: 'disabled' };
 
@@ -51,6 +59,8 @@ for (const v of viewports) await cssLayer({ name: `viewport-${v}`, sources: [...
 
 // Viewport steps as em media queries (em = scales with browser zoom / default font size).
 const vpTokens = Object.fromEntries(viewports.map((v) => [v, JSON.parse(readFileSync(`${T}/viewport/${v}.json`, 'utf8'))]));
+const defFirstEarly = (arr, def) => [def, ...arr.filter((x) => x !== def)];
+const defFirst = defFirstEarly;
 const stripHeader = (css) => css.replace(/^\/\*\*[\s\S]*?\*\/\n/, '');
 writeFileSync('build/css/viewport.css', viewports.map((v) => {
   const min = vpTokens[v].layout['breakpoint-min'].$value;
@@ -77,7 +87,7 @@ const walk = (node, path) => {
   }
 };
 walk(vpTokens.compact.type, ['type']);
-writeFileSync('build/css/type-fluid.css', `/* Fluid type 360→1600px. Overrides stepped viewport values. */\n:root {\n${lines.join('\n')}\n}\n`);
+writeFileSync('build/css/type-fluid.css', `/* Fluid type 360→1600px. Overrides stepped viewport values where clamp() is supported (Safari < 13.1 keeps steps). */\n@supports (width: clamp(1px, 1vw, 2px)) {\n:root {\n${lines.join('\n')}\n}\n}\n`);
 
 // Root scaling for very large logical widths (4K/8K at 100% OS scaling, ultrawide). Percent keeps user font settings.
 writeFileSync('build/css/root.css', `/* 320 → 8K: everything in rem scales up on very wide screens. */
@@ -91,43 +101,65 @@ html { font-size: 100%; }
 // and Expressive falls back to Base (Base is the default; Expressive only on capable devices).
 const baseStyle = (() => { const c = readFileSync('build/css/style-base.css', 'utf8'); return c.slice(c.indexOf('{') + 1, c.lastIndexOf('}')).trim().replace(/\n\s*/g, ' '); })();
 writeFileSync('build/css/perf-low.css', `/* Lite mode: old phones, low-end Android, reduced transparency, no backdrop-filter support. */
-${['[data-perf="low"]'].join(', ')} {
+[data-perf="low"], [data-perf="low"] [data-style] {
   --effect-blur-glass-sm: 0px; --effect-blur-glass-md: 0px; --effect-blur-glass-lg: 0px;
   --effect-blur-edge: 0px; --effect-blur-backdrop: 0px;
   --surface-glass: var(--surface-raised);
   ${baseStyle}
 }
 @media (prefers-reduced-transparency: reduce) {
-  :root { --effect-blur-glass-sm: 0px; --effect-blur-glass-md: 0px; --effect-blur-glass-lg: 0px; --effect-blur-edge: 0px; --effect-blur-backdrop: 0px; --surface-glass: var(--surface-raised); ${baseStyle} }
+  :root, [data-style] { --effect-blur-glass-sm: 0px; --effect-blur-glass-md: 0px; --effect-blur-glass-lg: 0px; --effect-blur-edge: 0px; --effect-blur-backdrop: 0px; --surface-glass: var(--surface-raised); ${baseStyle} }
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  :root { --surface-glass: var(--surface-raised); ${baseStyle} }
+  :root, [data-style] { --surface-glass: var(--surface-raised); ${baseStyle} }
 }
 `);
 
-// High contrast (prefers-contrast: more): focus ring = solid brand border colour (passes 3:1), stronger borders,
-// tertiary text → secondary, no decor (Base). Forced colors: components keep a transparent outline so the system draws focus.
+// High contrast (prefers-contrast: more): focus ring = solid brand border colour (passes 3:1), each border one step
+// stronger, tertiary text → secondary, no decor (Base). Values are taken per theme from the theme layer, not chained
+// through var(--border-default): a chained override would collapse subtle → default → strong into one colour.
+// Forced colors: focus uses system colours; components must also keep a transparent outline (box-shadow is removed).
+const themeVal = (th, name) => (readFileSync(`build/css/theme-${th}.css`, 'utf8').match(new RegExp(`\\s${name}:\\s*([^;]+);`)) || [])[1];
+const contrastBlock = (th) => {
+  const sel = th === DEFAULT.theme ? `:root, [data-theme="${th}"]` : `[data-theme="${th}"]`;
+  return `  ${sel} {
+    --border-focus-ring: var(--border-focus);
+    --border-subtle: ${themeVal(th, '--border-default')};
+    --border-default: ${themeVal(th, '--border-strong')};
+    --control-border-default: ${themeVal(th, '--border-strong')};
+    --text-tertiary: ${themeVal(th, '--text-secondary')};
+    --icon-tertiary: ${themeVal(th, '--icon-secondary')};
+  }`;
+};
 writeFileSync('build/css/contrast-more.css', `/* prefers-contrast: more */
 @media (prefers-contrast: more) {
-  :root {
-    --border-focus-ring: var(--border-focus);
-    --border-subtle: var(--border-default);
-    --border-default: var(--border-strong);
-    --text-tertiary: var(--text-secondary);
-    --icon-tertiary: var(--icon-secondary);
-    ${baseStyle}
-  }
+${defFirstEarly(themes, DEFAULT.theme).map(contrastBlock).join('\n')}
+  :root, [data-style] { ${baseStyle} }
 }
+/* forced-colors (Windows High Contrast): system colours for focus. */
+@media (forced-colors: active) {
+  :root, [data-theme] { --border-focus: Highlight; --border-focus-ring: Highlight; --edge-highlight: transparent; }
+}
+`);
+
+// Reduced motion (OS setting or [data-motion="reduced"]): durations ≈ 0, no press scale.
+// 0.01ms instead of 0 so transitionend / animationend still fire for components that wait on them.
+const motionNames = [...new Set([...readFileSync(`build/css/platform-${DEFAULT.platform}.css`, 'utf8').matchAll(/(--motion-duration-[a-z0-9-]+):/g)].map((m) => m[1]))];
+const reduced = `${motionNames.map((n) => `${n}: 0.01ms;`).join(' ')} --motion-scale-press: 1;`;
+writeFileSync('build/css/motion-reduced.css', `/* Reduced motion: docs/motion.md §10 */
+@media (prefers-reduced-motion: reduce) {
+  :root, [data-platform] { ${reduced} }
+}
+[data-motion="reduced"], [data-motion="reduced"] [data-platform] { ${reduced} }
 `);
 
 // Default layer (:root) must come first, otherwise it overrides [data-*] selectors of equal specificity.
-const defFirst = (arr, def) => [def, ...arr.filter((x) => x !== def)];
 const order = ['root', 'primitives',
   ...defFirst(brands, DEFAULT.brand).map((b) => `brand-${b}`),
   ...defFirst(themes, DEFAULT.theme).map((t) => `theme-${t}`),
   ...defFirst(platforms, DEFAULT.platform).map((p) => `platform-${p}`),
   ...defFirst(styles, DEFAULT.style).map((s) => `style-${s}`),
-  'viewport', 'type-fluid', 'perf-low', 'contrast-more'];
+  'viewport', 'type-fluid', 'perf-low', 'contrast-more', 'motion-reduced'];
 writeFileSync('build/css/index.css', order.map((f) => `@import "./${f}.css";`).join('\n') + '\n');
 
 mkdirSync('build/json', { recursive: true });

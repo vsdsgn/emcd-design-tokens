@@ -1,6 +1,6 @@
 # DS 2.0 — передача контекста (handoff)
 
-Документ для нового чата / нового исполнителя. Обновлено: 2026-10-04.
+Документ для нового чата / нового исполнителя. Обновлено: 2026-10-05.
 
 ## Файлы
 
@@ -22,13 +22,13 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 1. Этот файл (файлы, правила, приёмы).
 2. `docs/OPEN-QUESTIONS.md` — **текущий этап** (чеклист), парковка, вопросы к Стефану.
 3. `docs/HOW-IT-WORKS.md` — как устроена система (оси Brand · Theme · Platform · Viewport · Style).
-4. По теме задачи: `style.md` + `visual-language.md` (Base/Expressive, декор), `platforms.md` (Web / Mobile web / iOS / Android, хаптики), `components.md` (правила, a11y, фокус), `effects.md`, `motion.md`, `a11y-report.md`, `migration/`.
+4. По теме задачи: `style.md` + `visual-language.md` (Base/Expressive, декор), `platforms.md` (Web / Mobile web / iOS / Android, хаптики), `components.md` (правила, a11y, фокус), `effects.md`, `motion.md`, `a11y-report.md`, `browser-support.md` (браузеры, тест `npm run test:browsers`), `migration/`.
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
 
 ## Где мы (2026-10-04)
 
-Этап: **Base DS 2.0 готова к ревью** — чеклист в OPEN-QUESTIONS. Сделано: фокус (новое кольцо у всех интерактивных компонентов), 13-шаговые рампы, Style (Base/Expressive, роли декора) и страница «🌗 Visual language», Platform = Web · iOS · Mobile web · Android (поведение `os/*`, хаптики `haptic/*`), `perf-low.css` и `contrast-more.css`, a11y-проверка токенов. В работе: компоненты по аудиту (зоны нажатия, состояния, motion, «не только цветом», описания, строки миграции). Foundations — ждут публикации.
+Этап: **Base DS 2.0 готова к ревью** — чеклист в OPEN-QUESTIONS. Сделано: фокус (новое кольцо у всех интерактивных компонентов), 13-шаговые рампы, Style (Base/Expressive, роли декора) и страница «🌗 Visual language», Platform = Web · iOS · Mobile web · Android (поведение `os/*`, хаптики `haptic/*`), `perf-low.css` и `contrast-more.css`, a11y-проверка токенов. В работе: компоненты по аудиту (зоны нажатия, состояния, motion, «не только цветом», описания, строки миграции). Foundations — ждут публикации. 2026-10-05: кросс-браузерный прогон (Chromium + WebKit, статический анализ старых) — 6 исправлений в сборке, отчёт `docs/browser-support.md`.
 
 ## Принятые правила (не нарушать)
 
@@ -36,6 +36,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - **Новая идея по ходу этапа**: быстро и ничего не ломает → делаем сразу; иначе → парковка в OPEN-QUESTIONS.
 - **Сайт = Web**: берёт базу, лендинги верстают поверх как хотят. Платформы Site нет.
 - **Иконки**: один набор DS (каркас Lucide); Expressive добавляет обработку слоями (свечение активного), не отдельный набор. Логотипы монет — контент, одинаковы в обоих режимах.
+- **Скоуп темы/бренда = все четыре `data-*` на одном элементе** + свои `color`/фон (вложенный `data-brand` без `data-theme` не пересчитывает семантику).
 - **Статус никогда не только цветом** (danger ↔ success путаются при дейтеранопии) — иконка или подпись рядом.
 
 

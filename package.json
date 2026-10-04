@@ -9,13 +9,15 @@
     "convert": "node scripts/figma-to-dtcg.mjs",
     "build": "node scripts/build.mjs",
     "all": "npm run convert && npm run build",
-    "icons": "node scripts/export-icons.mjs"
+    "icons": "node scripts/export-icons.mjs",
+    "test:browsers": "node tests/xbrowser/run.mjs"
   },
   "files": [
     "tokens",
     "build"
   ],
   "devDependencies": {
+    "playwright": "^1.63.0",
     "style-dictionary": "^4.3.0"
   }
 }

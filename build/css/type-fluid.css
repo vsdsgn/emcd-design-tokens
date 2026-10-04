@@ -1,4 +1,5 @@
-/* Fluid type 360→1600px. Overrides stepped viewport values. */
+/* Fluid type 360→1600px. Overrides stepped viewport values where clamp() is supported (Safari < 13.1 keeps steps). */
+@supports (width: clamp(1px, 1vw, 2px)) {
 :root {
   --type-display-lg-size: clamp(2rem, 1.4194rem + 2.5806vw, 4rem);
   --type-display-lg-line-height: clamp(2.5rem, 1.9194rem + 2.5806vw, 4.5rem);
@@ -28,4 +29,5 @@
   --type-caption-line-height: 1rem;
   --type-overline-size: 0.625rem;
   --type-overline-line-height: 0.75rem;
+}
 }

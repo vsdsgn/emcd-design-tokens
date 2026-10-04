@@ -1,0 +1,5 @@
+/* Reduced motion: docs/motion.md §10 */
+@media (prefers-reduced-motion: reduce) {
+  :root, [data-platform] { --motion-duration-feedback: 0.01ms; --motion-duration-enter: 0.01ms; --motion-duration-exit: 0.01ms; --motion-duration-overlay: 0.01ms; --motion-scale-press: 1; }
+}
+[data-motion="reduced"], [data-motion="reduced"] [data-platform] { --motion-duration-feedback: 0.01ms; --motion-duration-enter: 0.01ms; --motion-duration-exit: 0.01ms; --motion-duration-overlay: 0.01ms; --motion-scale-press: 1; }
