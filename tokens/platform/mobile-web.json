@@ -315,7 +315,7 @@
     "haptic": {
       "level": {
         "$type": "string",
-        "$value": "none"
+        "$value": "basic"
       }
     },
     "material": {
@@ -340,27 +340,27 @@
   "haptic": {
     "selection": {
       "$type": "string",
-      "$value": "none"
+      "$value": "selection"
     },
     "press": {
       "$type": "string",
-      "$value": "none"
+      "$value": "light"
     },
     "drag": {
       "$type": "string",
-      "$value": "none"
+      "$value": "medium"
     },
     "success": {
       "$type": "string",
-      "$value": "none"
+      "$value": "light"
     },
     "warning": {
       "$type": "string",
-      "$value": "none"
+      "$value": "medium"
     },
     "error": {
       "$type": "string",
-      "$value": "none"
+      "$value": "medium"
     }
   }
 }
