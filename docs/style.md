@@ -63,5 +63,5 @@ Style не зависит от Brand: любое сочетание допуст
 - Есть страницы, которых нет в DS 2.0: Payment Card, Txn, Status screen, Search, Filter bottom sheet, Button float.
 
 **Monitoring** (kY3VUdBinylsci3KoLWwLC, «главная страница»)
-- Тот же словарь, что и pool: волосок #d0d0d0 @7 (×129), градиентная обводка violet → прозрачный (×25), пятна 160 / 15, стекло 10 / 32, градиент #d3b4ff → #8f42ff. → Monitoring = Expressive, отдельный режим не нужен.
+- Тот же словарь, что и pool: волосок #d0d0d0 @7 (×129), градиентная обводка violet → прозрачный (×25), пятна 160 / 15, стекло 10 / 32, градиент #d3b4ff → #8f42ff. → если Monitoring оставляет декор, ему подходит Expressive без отдельного режима (не решено: по умолчанию EMCD вне pool = Base).
 - Собственных компонентов в файле нет: собран на legacy DS Web (Sidebar item, tab item, baseButton, Badge, baseChip, Selector small, baseCheckbox). Уникальное — не компонентами, а фреймами на экранах (сканер/QR, устройства, канбан задач) → кандидаты в библиотеку Monitoring.
