@@ -18,8 +18,8 @@ Inputs,Select compact,4,да,есть,НЕТ,ок,есть,есть,,P2
 Inputs,Input amount,8,да,есть (2026-10-04),НЕТ,ок,НЕТ,есть,State Focus vs Active в Input,P1
 Inputs,Code cell,12,да,есть (2026-10-04),НЕТ,ок,НЕТ,есть,State Empty/Focus/Filled — не как в Input,P2
 Inputs,Code input,8,да,—,НЕТ,ок,НЕТ,есть,нет анимации ошибки (shake) и успеха,P2
-Inputs,Input addon / Max,1,да,НЕТ,—,27×20 < 24 по ширине? проверить hit area,НЕТ,НЕТ,,P2
-Inputs,Input addon / Stepper,1,да,НЕТ,есть,ок,НЕТ,НЕТ,,P2
+Inputs,Input addon / Max,1,да,есть (2026-10-04),—,27×20 < 24 по ширине? проверить hit area,НЕТ,НЕТ,,P2
+Inputs,Input addon / Stepper,1,да,есть (2026-10-04),есть,ок,НЕТ,НЕТ,,P2
 Inputs,Input addon / Unit · Chevron · Counter,3,нет,—,—,—,НЕТ,НЕТ,,P3
 Tabs,Tab,36,да,есть,есть,ок,есть,НЕТ,,P2
 Tabs,Tabs,4,контейнер,—,есть,—,НЕТ,есть,,P3
@@ -27,8 +27,8 @@ Tabs,Segment,32,да,есть,есть,S24 — hit area в App,НЕТ,НЕТ,н�
 Tabs,Segmented,8,контейнер,—,есть,—,есть,есть,,P3
 Tabs,Chip,24,да,есть,есть,ок,есть,есть,в фокусе брендовая обводка control/border/focus + кольцо — сделано 2026-10-04,P3
 Data,Stat card,2,нет,—,—,—,НЕТ,есть,,P3
-Data,Table header cell,8,да (сортировка),НЕТ,НЕТ,ок,НЕТ,есть,нет Hover; State Skeleton/Default (порядок наоборот),P1
-Data,Table row,6,да,НЕТ,есть,ок,НЕТ,есть,единые стили + tabular-nums (из очереди),P1
+Data,Table header cell,8,да (сортировка),"есть, внутреннее (2026-10-04)",НЕТ,ок,НЕТ,есть,нет Hover; State Skeleton/Default (порядок наоборот),P1
+Data,Table row,6,да,"есть, внутреннее (2026-10-04)",есть,ок,НЕТ,есть,единые стили + tabular-nums (из очереди),P1
 Data,Table cell / * (13 наборов),87,частично,НЕТ у Toggle/Star/More,частично,ок,НЕТ,есть,tabular-nums в числовых ячейках,P1
 Data,Table,1,контейнер,—,есть,—,есть,есть,,P2
 Data,List item,32,да,есть (2026-10-04),есть,ок,НЕТ,есть,State только Default/Hover — нет Pressed/Disabled/Selected,P1
@@ -40,7 +40,7 @@ Data,Chip cell,12,да,есть (2026-10-04),есть,ок,НЕТ,есть,ст�
 Data,Chip map,1,да,—,есть,—,НЕТ,есть,"Normal спокойный, цвет только у аномалий (из очереди)",P1
 Data,Accordion,12,да,есть (2026-10-04),НЕТ,ок,НЕТ,есть,нет Disabled; нет анимации раскрытия,P1
 Data,Divider,3,нет,—,—,—,НЕТ,есть,,P3
-Data,Slider,6,да,НЕТ,НЕТ,ползунок проверить ≥24/44,НЕТ,есть,нет состояний ползунка (Hover/Pressed/Disabled),P1
+Data,Slider,6,да,есть (2026-10-04),НЕТ,ползунок проверить ≥24/44,НЕТ,есть,нет состояний ползунка (Hover/Pressed/Disabled),P1
 Data,Avatar · Avatar group,18,нет,—,—,—,НЕТ,есть,,P3
 Data,"Stepper (+ Step, Step symbol, Step trail)",22,нет,—,—,—,НЕТ,частично,State Active → Current (это не выбор),P2
 Overlays,Menu item,16,да,есть,есть,ок,НЕТ,есть,,P3
@@ -53,7 +53,7 @@ Overlays,Sheet,2,контейнер,—,есть,—,НЕТ,есть,,P2
 Feedback,Spinner,3,нет,—,—,—,НЕТ,НЕТ,reduced motion в описании,P3
 Feedback,Skeleton,7,нет,—,—,—,НЕТ,НЕТ,,P3
 Feedback,Counter,6,нет,—,—,—,есть,НЕТ,,P3
-Feedback,Badge,39,частично (Close/Chevron),НЕТ,НЕТ,зона нажатия Close/Chevron (из очереди),есть,есть,State Skeleton/Default — порядок,P1
+Feedback,Badge,39,частично (Close/Chevron),есть (2026-10-04),НЕТ,зона нажатия Close/Chevron (из очереди),есть,есть,State Skeleton/Default — порядок,P1
 Feedback,Status,10,нет,—,—,—,есть,НЕТ,,P3
 Feedback,Alert,5,контейнер,через Icon button,есть,—,НЕТ,есть,иконка по умолчанию у Danger/Warning (из очереди); role=alert в описании,P1
 Feedback,Empty state,5,контейнер,—,есть,—,есть,есть,,P3
