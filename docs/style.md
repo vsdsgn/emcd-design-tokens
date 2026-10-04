@@ -11,21 +11,7 @@ Style не зависит от Brand: любое сочетание допуст
 
 ## Токены
 
-| Токен | Base | Expressive | Где |
-|---|---|---|---|
-| `style/decor/glow` (bool) | false | true | visible слоя световых пятен фона |
-| `style/decor/card-tint` (bool) | false | true | visible слоя тинт-градиента карточки |
-| `style/decor/glass` (bool) | false | true | стеклянные панели (иначе — непрозрачная заливка) |
-| `style/glow/color` | прозрачный | `accent/glow` (бренд 500 @24) | тень-ореол акцентных карточек, радиальные подсветки |
-| `style/glow/blur` | 0 | 160 | размытие световых пятен |
-| `style/card/tint` | прозрачный | `accent/tint` (бренд 500 @16) | старт тинт-градиента карточки → прозрачный |
-| `style/card/border` | `border/subtle` | `border/glass` (белый @8 / чёрный @8) | обводка карточек |
-| `style/edge/accent` | `border/subtle` | `accent/500` | первая точка градиентной обводки выделенных карточек; в Base обводка однотонная |
-| `style/edge/highlight` | прозрачный | белый @32 | внутренний блик верхнего края стекла (inner shadow 0 / 0.33) |
-| `style/glass/blur` | 0 | `effect/blur/glass-lg` | background blur стекла |
-| `style/glow/{neutral,attention,error,success,brand}` | прозрачный | `glow/neutral` (Theme), amber/red/green @40, `accent/glow-strong` | пятно свечения под карточкой по тону (legacy `surface`) |
-
-Новые опоры: Primitives `color/alpha/{violet,electric-blue,yellow}/{8,16,24,40}`, Brand `accent/tint`, `accent/glow`, Theme `border/glass`.
+Роли — в `docs/visual-language.md` и на странице Foundations «🌗 Visual language» (Base / Expressive, тёмная и светлая). Style хранит: `decor/light|tint|material` (видимость декор-слоёв), `material/thin|regular|thick/fill|blur`, `material/scrim`, `light/ambient|accent/color|blur`, `light/status/*`, `light/tint`, `edge/hairline|accent|highlight`. Глубина (`Elevation/1–4`) одинакова в обоих режимах.
 
 ## Инвентаризация pool (Web App «Дашборд и подключение», App «Дашборд и подключение»)
 

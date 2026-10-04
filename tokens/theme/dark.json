@@ -49,6 +49,18 @@
     "nested": {
       "$type": "color",
       "$value": "{color.neutral.850}"
+    },
+    "glass-thin": {
+      "$type": "color",
+      "$value": "{color.alpha.neutral-900.64}"
+    },
+    "glass-regular": {
+      "$type": "color",
+      "$value": "{color.alpha.neutral-900.76}"
+    },
+    "glass-thick": {
+      "$type": "color",
+      "$value": "{color.alpha.neutral-900.88}"
     }
   },
   "text": {

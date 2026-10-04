@@ -3,19 +3,27 @@
  */
 
 [data-style="expressive"] {
-  --style-decor-glow: true;
-  --style-decor-card-tint: true;
-  --style-decor-glass: true;
-  --style-glow-blur: 160px;
-  --style-glow-attention: var(--color-alpha-amber-40);
-  --style-glow-error: var(--color-alpha-red-40);
-  --style-glow-success: var(--color-alpha-green-40);
-  --style-edge-highlight: var(--color-alpha-white-32);
-  --style-glow-color: var(--brand-accent-glow);
-  --style-glow-neutral: var(--glow-neutral);
-  --style-glow-brand: var(--brand-accent-glow-strong);
-  --style-card-tint: var(--brand-accent-tint);
-  --style-card-border: var(--border-glass);
-  --style-edge-accent: var(--brand-accent-500);
-  --style-glass-blur: var(--effect-blur-glass-lg);
+  --decor-light: true;
+  --decor-tint: true;
+  --decor-material: true;
+  --light-ambient-blur: 160px;
+  --light-accent-blur: 16px;
+  --light-status-attention: var(--color-alpha-amber-40);
+  --light-status-error: var(--color-alpha-red-40);
+  --light-status-success: var(--color-alpha-green-40);
+  --edge-highlight: var(--color-alpha-white-32);
+  --material-thin-fill: var(--surface-glass-thin);
+  --material-thin-blur: var(--effect-blur-glass-sm);
+  --material-regular-fill: var(--surface-glass-regular);
+  --material-regular-blur: var(--effect-blur-glass-md);
+  --material-thick-fill: var(--surface-glass-thick);
+  --material-thick-blur: var(--effect-blur-glass-lg);
+  --material-scrim: var(--surface-overlay);
+  --light-ambient-color: var(--brand-accent-glow-strong);
+  --light-accent-color: var(--brand-accent-glow-strong);
+  --light-tint: var(--brand-accent-tint);
+  --light-status-neutral: var(--glow-neutral);
+  --light-status-brand: var(--brand-accent-glow-strong);
+  --edge-hairline: var(--border-glass);
+  --edge-accent: var(--brand-accent-500);
 }

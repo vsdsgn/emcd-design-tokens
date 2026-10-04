@@ -238,6 +238,8 @@
   --color-alpha-black-48: rgba(0, 0, 0, 0.48);
   --color-alpha-black-64: rgba(0, 0, 0, 0.64);
   --color-alpha-black-80: rgba(0, 0, 0, 0.8);
+  --color-alpha-black-88: rgba(0, 0, 0, 0.88);
+  --color-alpha-black-92: rgba(0, 0, 0, 0.92);
   --color-alpha-white-4: rgba(255, 255, 255, 0.04);
   --color-alpha-white-8: rgba(255, 255, 255, 0.08);
   --color-alpha-white-12: rgba(255, 255, 255, 0.12);
@@ -247,6 +249,8 @@
   --color-alpha-white-48: rgba(255, 255, 255, 0.48);
   --color-alpha-white-64: rgba(255, 255, 255, 0.64);
   --color-alpha-white-80: rgba(255, 255, 255, 0.8);
+  --color-alpha-white-88: rgba(255, 255, 255, 0.88);
+  --color-alpha-white-92: rgba(255, 255, 255, 0.92);
   --color-alpha-violet-8: rgba(143, 66, 255, 0.08);
   --color-alpha-violet-16: rgba(143, 66, 255, 0.16);
   --color-alpha-violet-24: rgba(143, 66, 255, 0.24);
@@ -268,6 +272,9 @@
   --color-alpha-green-16: rgba(67, 160, 71, 0.16);
   --color-alpha-green-24: rgba(67, 160, 71, 0.24);
   --color-alpha-green-40: rgba(67, 160, 71, 0.4);
+  --color-alpha-neutral-900-64: rgba(17, 17, 17, 0.64);
+  --color-alpha-neutral-900-76: rgba(17, 17, 17, 0.76);
+  --color-alpha-neutral-900-88: rgba(17, 17, 17, 0.88);
   --color-yellow-50: #f9f8ea;
   --color-yellow-100: #f8f4d3;
   --color-yellow-150: #f6f1bf;
