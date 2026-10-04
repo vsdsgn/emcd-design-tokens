@@ -1,9 +1,0 @@
-{
-  "osPressFeedback": "highlight",
-  "osScrollOverscroll": "stretch",
-  "osNavBack": "button + system-back",
-  "osHapticLevel": "basic",
-  "osMaterialBlur": false,
-  "osPickerNative": false,
-  "osDialogNative": false
-}

@@ -11,10 +11,9 @@ Primitives            сырые значения: цвета (рампы 50–9
    ↓ ссылаются
 Brand                 чей продукт      EMCD · Geometria · WL Default · (Performa — эксперимент)
 Theme                 светлая/тёмная   Light · Dark
-Platform              плотность        Web · App · Site
+Platform              где работает     Web · Mobile web · iOS · Android · Site  (плотность + поведение)
 Viewport              ширина           Compact · …
 Style                 сколько декора   Base (по умолчанию) · Expressive
-OS                    поведение        Desktop web · Mobile web · iOS · Android
    ↓ используют
 Components            кнопки, инпуты, карточки… — только семантические токены, никаких hex и чисел
    ↓
@@ -29,10 +28,9 @@ Components            кнопки, инпуты, карточки… — тол
 |---|---|---|
 | Brand | акцентный цвет, шрифт, радиусы, фокус | поведение, декор |
 | Theme | светлое/тёмное | бренд, декор |
-| Platform | размеры контролов, отступы, сила блюров, motion | цвета |
+| Platform | размеры контролов, отступы, сила блюров, motion, поведение: отклик, «назад», оверскролл, хаптики, можно ли блюр | цвета |
 | Viewport | раскладку и кегли по ширине | всё остальное |
 | **Style** | декор: стекло, пятна света, тинты, кромки, прогрессивный блюр | структуру и поведение компонента |
-| OS | отклик на нажатие, «назад», оверскролл, хаптики, можно ли блюр | внешний вид |
 
 ## Base и Expressive
 
@@ -43,24 +41,24 @@ Components            кнопки, инпуты, карточки… — тол
 
 ## Примеры продуктов
 
-| Продукт | Brand | Style | OS |
+| Продукт | Brand | Style | Platform |
 |---|---|---|---|
-| Pool, веб, мощный ноутбук | EMCD | Expressive | Desktop web |
+| Pool, веб, мощный ноутбук | EMCD | Expressive | Web |
 | Pool, App на iPhone | EMCD | Expressive | iOS |
 | Pool, App на слабом Android | EMCD | Base (откат) | Android |
-| Monitoring | EMCD | Expressive | Desktop web |
-| Firmware, сайт, WL B2B | EMCD | Base | по устройству |
-| Geometria | Geometria | Base (может стать Expressive) | по устройству |
-| WL-клиент | WL Default + свой акцент | Base | по устройству |
+| Monitoring | EMCD | Expressive | Web |
+| Firmware, сайт, WL B2B | EMCD | Base | Web / Mobile web / iOS / Android |
+| Geometria | Geometria | Base (может стать Expressive) | Web / Mobile web / iOS / Android |
+| WL-клиент | WL Default + свой акцент | Base | Web / Mobile web / iOS / Android |
 
 ## В Figma
 
-Режим оси выбирается на фрейме или странице (панель Variables → режимы коллекций). По умолчанию: EMCD · Dark · Web · Base · Desktop web.
+Режим оси выбирается на фрейме или странице (панель Variables → режимы коллекций). По умолчанию: EMCD · Dark · Web · Base. Viewport — только ширина (узкое окно десктопа не становится мобильным вебом).
 
 ## В коде
 
-Веб: атрибуты на `<html>` — `data-brand`, `data-theme`, `data-platform`, `data-style`, `data-os`, `data-perf`; CSS из `build/css/index.css`. `perf-low.css` сам откатывает Expressive в Base при слабом рендере.
-Flutter: `build/json/<brand>.<theme>.json` (Base), `<brand>.<theme>.expressive.json`, `os.<платформа>.json`.
+Веб: атрибуты на `<html>` — `data-brand`, `data-theme`, `data-platform` (web · mobile-web · site), `data-style`, `data-perf`; CSS из `build/css/index.css`. `perf-low.css` сам откатывает Expressive в Base при слабом рендере.
+Flutter: `build/json/<brand>.<theme>.<ios|android>.json` (Base) и `….expressive.json`.
 
 ## Поток изменений
 

@@ -2,9 +2,9 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-[data-platform="site"] {
-  --touch-is-coarse: false;
-  --touch-is-fine: true;
+[data-platform="mobile-web"] {
+  --touch-is-coarse: true;
+  --touch-is-fine: false;
   --os-press-feedback: highlight;
   --os-scroll-overscroll: none;
   --os-nav-back: button;
@@ -31,7 +31,7 @@
   --control-padding-x-lg: var(--dimension-x1);
   --control-padding-x-xl: var(--dimension-x1-25);
   --control-gap: var(--dimension-x0-5);
-  --touch-min: var(--dimension-x1-5);
+  --touch-min: var(--dimension-x2-75);
   --icon-size-sm: var(--dimension-x1);
   --icon-size-md: var(--dimension-x1-25);
   --icon-size-lg: var(--dimension-x1-5);
@@ -41,12 +41,12 @@
   --icon-size-nav: var(--dimension-x1-5);
   --icon-stroke-regular: var(--stroke-1-5);
   --icon-stroke-strong: var(--stroke-2);
-  --list-item-height: var(--dimension-x3-5);
-  --nav-header-height: var(--dimension-x4-5);
+  --list-item-height: var(--dimension-x3);
+  --nav-header-height: var(--dimension-x4);
   --nav-bar-height: var(--dimension-x3-5);
-  --card-padding: var(--dimension-x1-5);
-  --card-gap: var(--dimension-x1);
-  --modal-padding: var(--dimension-x2);
+  --card-padding: var(--dimension-x1);
+  --card-gap: var(--dimension-x0-75);
+  --modal-padding: var(--dimension-x1-5);
   --border-width-default: var(--stroke-1);
   --border-width-focus: var(--stroke-2);
   --border-width-focus-ring: var(--dimension-x0-25);
@@ -55,7 +55,7 @@
   --effect-blur-glass-lg: var(--blur-32);
   --effect-blur-edge: var(--blur-24);
   --effect-blur-backdrop: var(--blur-8);
-  --layout-edge-fade: var(--dimension-x3);
+  --layout-edge-fade: var(--dimension-x1-5);
   --focus-offset: var(--dimension-x0);
   --motion-duration-feedback: var(--duration-fast);
   --motion-duration-enter: var(--duration-base);

@@ -86,15 +86,15 @@
   "touch": {
     "min": {
       "$type": "dimension",
-      "$value": "{dimension.x1-5}"
+      "$value": "{dimension.x2-75}"
     },
     "is-coarse": {
       "$type": "boolean",
-      "$value": false
+      "$value": true
     },
     "is-fine": {
       "$type": "boolean",
-      "$value": true
+      "$value": false
     }
   },
   "icon": {
@@ -142,13 +142,13 @@
   "list": {
     "item-height": {
       "$type": "dimension",
-      "$value": "{dimension.x3-5}"
+      "$value": "{dimension.x3}"
     }
   },
   "nav": {
     "header-height": {
       "$type": "dimension",
-      "$value": "{dimension.x4-5}"
+      "$value": "{dimension.x4}"
     },
     "bar-height": {
       "$type": "dimension",
@@ -158,17 +158,17 @@
   "card": {
     "padding": {
       "$type": "dimension",
-      "$value": "{dimension.x1-5}"
+      "$value": "{dimension.x1}"
     },
     "gap": {
       "$type": "dimension",
-      "$value": "{dimension.x1}"
+      "$value": "{dimension.x0-75}"
     }
   },
   "modal": {
     "padding": {
       "$type": "dimension",
-      "$value": "{dimension.x2}"
+      "$value": "{dimension.x1-5}"
     }
   },
   "radius": {
@@ -248,7 +248,7 @@
   "layout": {
     "edge-fade": {
       "$type": "dimension",
-      "$value": "{dimension.x3}"
+      "$value": "{dimension.x1-5}"
     }
   },
   "focus": {

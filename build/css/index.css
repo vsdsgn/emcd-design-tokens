@@ -7,14 +7,12 @@
 @import "./theme-dark.css";
 @import "./theme-light.css";
 @import "./platform-web.css";
-@import "./platform-app.css";
+@import "./platform-android.css";
+@import "./platform-ios.css";
+@import "./platform-mobile-web.css";
 @import "./platform-site.css";
 @import "./style-base.css";
 @import "./style-expressive.css";
-@import "./os-desktop-web.css";
-@import "./os-android.css";
-@import "./os-ios.css";
-@import "./os-mobile-web.css";
 @import "./viewport.css";
 @import "./type-fluid.css";
 @import "./perf-low.css";

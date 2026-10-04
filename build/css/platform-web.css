@@ -5,6 +5,13 @@
 :root, [data-platform="web"] {
   --touch-is-coarse: false;
   --touch-is-fine: true;
+  --os-press-feedback: highlight;
+  --os-scroll-overscroll: none;
+  --os-nav-back: button;
+  --os-haptic-level: none;
+  --os-material-blur: true;
+  --os-picker-native: false;
+  --os-dialog-native: false;
   --space-none: var(--dimension-x0);
   --space-3xs: var(--dimension-x0-125);
   --space-2xs: var(--dimension-x0-25);

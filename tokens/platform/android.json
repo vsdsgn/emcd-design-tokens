@@ -86,15 +86,15 @@
   "touch": {
     "min": {
       "$type": "dimension",
-      "$value": "{dimension.x1-5}"
+      "$value": "{dimension.x2-75}"
     },
     "is-coarse": {
       "$type": "boolean",
-      "$value": false
+      "$value": true
     },
     "is-fine": {
       "$type": "boolean",
-      "$value": true
+      "$value": false
     }
   },
   "icon": {
@@ -105,11 +105,11 @@
       },
       "md": {
         "$type": "dimension",
-        "$value": "{dimension.x1-25}"
+        "$value": "{dimension.x1-5}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "{dimension.x1-5}"
+        "$value": "{dimension.x1-75}"
       },
       "xl": {
         "$type": "dimension",
@@ -117,11 +117,11 @@
       },
       "inline": {
         "$type": "dimension",
-        "$value": "{dimension.x1}"
+        "$value": "{dimension.x1-25}"
       },
       "control": {
         "$type": "dimension",
-        "$value": "{dimension.x1-25}"
+        "$value": "{dimension.x1-5}"
       },
       "nav": {
         "$type": "dimension",
@@ -131,7 +131,7 @@
     "stroke": {
       "regular": {
         "$type": "dimension",
-        "$value": "{stroke.1-5}"
+        "$value": "{stroke.1-7}"
       },
       "strong": {
         "$type": "dimension",
@@ -148,7 +148,7 @@
   "nav": {
     "header-height": {
       "$type": "dimension",
-      "$value": "{dimension.x4-5}"
+      "$value": "{dimension.x3-5}"
     },
     "bar-height": {
       "$type": "dimension",
@@ -158,17 +158,17 @@
   "card": {
     "padding": {
       "$type": "dimension",
-      "$value": "{dimension.x1-5}"
+      "$value": "{dimension.x1}"
     },
     "gap": {
       "$type": "dimension",
-      "$value": "{dimension.x1}"
+      "$value": "{dimension.x0-75}"
     }
   },
   "modal": {
     "padding": {
       "$type": "dimension",
-      "$value": "{dimension.x2}"
+      "$value": "{dimension.x1}"
     }
   },
   "radius": {
@@ -229,26 +229,26 @@
       },
       "glass-md": {
         "$type": "dimension",
-        "$value": "{blur.16}"
+        "$value": "{blur.12}"
       },
       "glass-lg": {
         "$type": "dimension",
-        "$value": "{blur.32}"
+        "$value": "{blur.24}"
       },
       "edge": {
         "$type": "dimension",
-        "$value": "{blur.24}"
+        "$value": "{blur.16}"
       },
       "backdrop": {
         "$type": "dimension",
-        "$value": "{blur.8}"
+        "$value": "{blur.4}"
       }
     }
   },
   "layout": {
     "edge-fade": {
       "$type": "dimension",
-      "$value": "{dimension.x3}"
+      "$value": "{dimension.x2}"
     }
   },
   "focus": {
@@ -273,7 +273,7 @@
       },
       "overlay": {
         "$type": "duration",
-        "$value": "{duration.base}"
+        "$value": "{duration.slow}"
       }
     },
     "easing": {
@@ -303,25 +303,25 @@
     "scroll": {
       "overscroll": {
         "$type": "string",
-        "$value": "none"
+        "$value": "stretch"
       }
     },
     "nav": {
       "back": {
         "$type": "string",
-        "$value": "button"
+        "$value": "button + system-back"
       }
     },
     "haptic": {
       "level": {
         "$type": "string",
-        "$value": "none"
+        "$value": "basic"
       }
     },
     "material": {
       "blur": {
         "$type": "boolean",
-        "$value": true
+        "$value": false
       }
     },
     "picker": {
