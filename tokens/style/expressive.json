@@ -21,7 +21,7 @@
       },
       "blur": {
         "$type": "dimension",
-        "$value": "{effect.blur.glass-sm}"
+        "$value": "{effect.blur.glass-md}"
       }
     },
     "regular": {
@@ -31,7 +31,7 @@
       },
       "blur": {
         "$type": "dimension",
-        "$value": "{effect.blur.glass-md}"
+        "$value": "{effect.blur.glass-lg}"
       }
     },
     "thick": {
@@ -53,7 +53,7 @@
     "ambient": {
       "color": {
         "$type": "color",
-        "$value": "{brand.accent.glow-strong}"
+        "$value": "{glow.brand}"
       },
       "blur": {
         "$type": "dimension",
@@ -81,20 +81,24 @@
       },
       "attention": {
         "$type": "color",
-        "$value": "{color.alpha.amber.40}"
+        "$value": "{glow.attention}"
       },
       "error": {
         "$type": "color",
-        "$value": "{color.alpha.red.40}"
+        "$value": "{glow.error}"
       },
       "success": {
         "$type": "color",
-        "$value": "{color.alpha.green.40}"
+        "$value": "{glow.success}"
       },
       "brand": {
         "$type": "color",
-        "$value": "{brand.accent.glow-strong}"
+        "$value": "{glow.brand}"
       }
+    },
+    "tint-end": {
+      "$type": "color",
+      "$value": "{brand.accent.tint-end}"
     }
   },
   "edge": {

@@ -52,15 +52,15 @@
     },
     "glass-thin": {
       "$type": "color",
-      "$value": "{color.alpha.neutral-900.64}"
+      "$value": "{color.alpha.neutral-900.80}"
     },
     "glass-regular": {
       "$type": "color",
-      "$value": "{color.alpha.neutral-900.76}"
+      "$value": "{color.alpha.neutral-900.88}"
     },
     "glass-thick": {
       "$type": "color",
-      "$value": "{color.alpha.neutral-900.88}"
+      "$value": "{color.alpha.neutral-900.92}"
     }
   },
   "text": {
@@ -561,6 +561,22 @@
     "neutral": {
       "$type": "color",
       "$value": "{color.alpha.white.16}"
+    },
+    "brand": {
+      "$type": "color",
+      "$value": "{brand.accent.glow-strong}"
+    },
+    "attention": {
+      "$type": "color",
+      "$value": "{color.alpha.amber.24}"
+    },
+    "error": {
+      "$type": "color",
+      "$value": "{color.alpha.red.24}"
+    },
+    "success": {
+      "$type": "color",
+      "$value": "{color.alpha.green.24}"
     }
   }
 }

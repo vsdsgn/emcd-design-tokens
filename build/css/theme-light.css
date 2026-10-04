@@ -17,8 +17,8 @@
   --surface-overlay: var(--color-alpha-black-48);
   --surface-glass: var(--color-alpha-white-80);
   --surface-nested: var(--color-neutral-50);
-  --surface-glass-thin: var(--color-alpha-white-64);
-  --surface-glass-regular: var(--color-alpha-white-80);
+  --surface-glass-thin: var(--color-alpha-white-80);
+  --surface-glass-regular: var(--color-alpha-white-88);
   --surface-glass-thick: var(--color-alpha-white-92);
   --text-primary: var(--color-neutral-950);
   --text-secondary: var(--color-neutral-600);
@@ -94,8 +94,8 @@
   --scrollbar-thumb: var(--color-alpha-black-24);
   --scrollbar-thumb-hover: var(--color-alpha-black-48);
   --fade-edge: var(--color-neutral-0);
-  --shadow-key: var(--color-alpha-black-12);
-  --shadow-ambient: var(--color-alpha-black-8);
+  --shadow-key: var(--color-alpha-black-8);
+  --shadow-ambient: var(--color-alpha-black-4);
   --shadow-strong: var(--color-alpha-black-24);
   --data-1: var(--color-violet-500);
   --data-2: var(--color-blue-500);
@@ -107,7 +107,10 @@
   --data-8: var(--color-lime-800);
   --fixed-light: var(--color-neutral-0);
   --fixed-dark: var(--color-neutral-950);
-  --glow-neutral: var(--color-alpha-black-8);
+  --glow-neutral: var(--color-alpha-black-4);
+  --glow-attention: var(--color-alpha-amber-16);
+  --glow-error: var(--color-alpha-red-16);
+  --glow-success: var(--color-alpha-green-16);
   --text-on-accent: var(--brand-accent-on-solid);
   --text-on-highlight: var(--brand-highlight-on-solid);
   --text-accent: var(--brand-accent-fg-on-light);
@@ -129,4 +132,5 @@
   --control-border-hover: var(--brand-accent-fg-on-light);
   --control-border-focus: var(--brand-accent-solid);
   --control-checked: var(--brand-accent-solid);
+  --glow-brand: var(--brand-accent-tint);
 }

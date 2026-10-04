@@ -19,6 +19,7 @@
   --light-status-error: var(--color-alpha-black-0);
   --light-status-success: var(--color-alpha-black-0);
   --light-status-brand: var(--color-alpha-black-0);
+  --light-tint-end: var(--color-alpha-black-0);
   --edge-highlight: var(--color-alpha-black-0);
   --material-thin-fill: var(--surface-default);
   --material-regular-fill: var(--surface-default);
