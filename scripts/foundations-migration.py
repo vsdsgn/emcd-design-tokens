@@ -5,7 +5,7 @@ docs/migration/foundations-ramps.csv  — примитивы: было (до OKL
 Запуск: python3 scripts/foundations-migration.py"""
 import csv, json, math, re, subprocess, io
 R = __import__('pathlib').Path(__file__).resolve().parent.parent
-D = json.load(open(R/'build/json/emcd.dark.json')); L = json.load(open(R/'build/json/emcd.light.json'))
+D = json.load(open(R/'build/json/emcd.dark.ios.json')); L = json.load(open(R/'build/json/emcd.light.ios.json'))
 camel = lambda t: re.sub(r'[/-](\w)', lambda m: m.group(1).upper(), t.strip())
 def lin(c): c/=255; return c/12.92 if c<=0.04045 else ((c+0.055)/1.055)**2.4
 def parse(h):

@@ -131,3 +131,33 @@ Stepper,DS Web,Step Symbol · Step Trail · Step Text - Horizontal,Type | State 
 Divider,DS App,divider text --1.0,—,—,Orientation | Label,Horizontal/Vertical | On/Off,
 Code input,Web App,Безопасность → «Введи код из пуш уведомления» (4 ячейки),макет,—,Length | State,4/6 | Default/Error/Success/Disabled,доработка: 6 цифр, ошибка, лимит попыток, таймер повторной отправки
 Code cell,Web App,ячейка кода 69×70,макет,—,Size | State,L/M | Empty/Focus/Filled/Error/Success/Disabled,
+Button,DS Web,baseButton,Type,Primary|Secondary base|Secondary accent|Stroke base|Stroke accent|Error|Success|Link|Text|Text accent|white,Type,Primary|Secondary|Secondary accent|Outline|Tertiary accent|Link|Error|Tertiary error|Inverted,Stroke base→Outline; Text accent→Tertiary accent; white→Inverted; Stroke accent и Success — не переносим (редко); Link/Tertiary — на ревью (дублируют)
+Button,DS Web,baseButton,Size,Large|Small,Size,S|M|L|XL,"Small 32→S, Large 48→L; M 40 и XL 56 — новые по шкале"
+Button,DS Web,baseButton,Has left icon / Has rIght icon / Has text,bool,Icon left / Icon right / Label,bool / text,без текста → Icon button
+Button,DS Web,baseButton,Active,No|Yes,State,Default|Hover|Pressed|Disabled,"+ Focus ring, Loading — новое"
+Icon button,DS Web,baseButton (Has text=false) / .button circle,Type,как у Button,Type,Primary|Secondary|Outline|Ghost|Ghost accent|Inverted,Ghost — самая частая; размеры S/M/L/XL
+Checkbox,DS Web,baseCheckbox with text,status,default|active|intermediate,Status,Off|On|Indeterminate,1:1
+Checkbox,DS Web,baseCheckbox with text,disable / danger / size,bool / bool / md|sm,State / Danger / —,Disabled / Off|On / размер из Platform,secondary не переносим; цвета → control/*
+Radio,DS Web,baseRadio with text,active / disable / danger,bool,Status / State / Danger,Off|On / Disabled / Off|On,1:1; secondary не переносим
+Toggle,DS Web,baseToggle with text,active / disable / size,bool / bool / md|sm,Status / State / Size,Off|On / Disabled / M|S,danger не переносим (ошибка → откат + Toast)
+Input,DS Web,input,type,text input|multi select|single select|number,—,—,select → Select / Select compact; number → Input + Input addon / Stepper
+Input,DS Web,input,size,large|small,Size,M|L|XL,"small 40→M, large 48→L; XL 56 — новое"
+Input,DS Web,input,state,default|disabled|filled|error|skeleton|loading|hover|active,State,Default|Hover|Focus|Filled|Error|Disabled|Read-only|Loading|Skeleton,active→Focus; Read-only — новое; слоты Leading/Inline/Trailing
+Select,DS Web,Selector small / Dropdown (Type=Net|Wallet|Coins…),Type,Default|Inactive,State,Default|Hover|Open|Filled|Error|Disabled|Loading|Skeleton,поле формы = Input + Chevron; компактный — Select compact
+Input addon / Max,DS Web,кнопка Max в input суммы,—,—,—,—,button; hit area fine/coarse
+Input addon / Stepper,DS Web,input type=number (−/+),—,—,—,—,Icon button Ghost S ×2; role=spinbutton
+Input addon / Unit · Chevron · Counter,DS Web,suffix / arrow / +N в input,—,—,—,—,слоты trailing/inline
+Tab,DS Web,"base tab item, tab item",active / size,bool / —,Selected / Size,Off|On / S|M|L|XL,+ State Hover/Pressed/Disabled/Skeleton
+Segment,DS Web,"base segmented picker item / text, / icon only",active,bool,Selected / State / Tone,Off|On / Default|Hover|Pressed|Disabled / Neutral|Accent|Success|Danger,только внутри Segmented
+Tab bar item,DS App,нижняя навигация,active,bool,Selected,Off|On,"+ Badge dot, Focus ring"
+Tab bar,DS App,нижняя навигация,—,—,Safe area,bool,мобильный веб — та же схема
+Top bar,DS App,шапка экрана,—,—,Back / Title / Actions,bool / text / slot,Expressive: material/thin + прогрессивный блюр
+Page header,DS Web,widget Navigation header,—,—,Size,Large|Compact,"Breadcrumbs, Tabs (slot), Actions (slot)"
+Shell,DS Web / DS App,sidebar / default + widget Navigation header; каркасы App,—,—,Layout,Large|Compact,новое как компонент: каркас экрана
+Legend swatch,DS Web,маркеры легенды графиков,—,—,Marker / Series,Dot|Line / 1–8,серия не только цветом
+Side panel,Web App,детали воркера/выплаты,—,—,Size,M|L,вместо модалки поверх таблицы
+Spinner,DS Web,ic-loader,—,—,Size,S|M|L,Loading у действий
+Skeleton,DS Web,skeleton (стиль заливки),—,—,Shape,Text|Title|Circle|Rect|Button|Input|Chip,бегущий блик; pulse при reduced motion
+Counter,DS Web,Badge counter,status,neutral|danger,Tone / Size,Neutral|Accent|Danger / S|M,Accent — новое
+Status,DS Web,status dots в таблицах воркеров,—,—,Tone / Size,Success|Warning|Danger|Info|Neutral / S|M,не только цветом: точка + подпись
+Progress,—,—,—,—,Tone / Size,Accent|Success|Warning|Danger / S|M,новое
