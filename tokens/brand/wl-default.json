@@ -112,6 +112,10 @@
       "glow-strong": {
         "$type": "color",
         "$value": "{color.alpha.violet.40}"
+      },
+      "tint-end": {
+        "$type": "color",
+        "$value": "{color.alpha.violet.0}"
       }
     },
     "highlight": {

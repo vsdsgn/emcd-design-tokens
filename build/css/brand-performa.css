@@ -31,6 +31,7 @@
   --brand-accent-tint: var(--color-alpha-yellow-16);
   --brand-accent-glow: var(--color-alpha-yellow-24);
   --brand-accent-glow-strong: var(--color-alpha-yellow-40);
+  --brand-accent-tint-end: var(--color-alpha-yellow-0);
   --brand-highlight-100: var(--color-violet-100);
   --brand-highlight-300: var(--color-violet-300);
   --brand-highlight-500: var(--color-violet-500);

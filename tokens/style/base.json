@@ -95,6 +95,10 @@
         "$type": "color",
         "$value": "{color.alpha.black.0}"
       }
+    },
+    "tint-end": {
+      "$type": "color",
+      "$value": "{color.alpha.black.0}"
     }
   },
   "edge": {

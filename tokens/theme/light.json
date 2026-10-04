@@ -52,11 +52,11 @@
     },
     "glass-thin": {
       "$type": "color",
-      "$value": "{color.alpha.white.64}"
+      "$value": "{color.alpha.white.80}"
     },
     "glass-regular": {
       "$type": "color",
-      "$value": "{color.alpha.white.80}"
+      "$value": "{color.alpha.white.88}"
     },
     "glass-thick": {
       "$type": "color",
@@ -492,11 +492,11 @@
   "shadow": {
     "key": {
       "$type": "color",
-      "$value": "{color.alpha.black.12}"
+      "$value": "{color.alpha.black.8}"
     },
     "ambient": {
       "$type": "color",
-      "$value": "{color.alpha.black.8}"
+      "$value": "{color.alpha.black.4}"
     },
     "strong": {
       "$type": "color",
@@ -560,7 +560,23 @@
   "glow": {
     "neutral": {
       "$type": "color",
-      "$value": "{color.alpha.black.8}"
+      "$value": "{color.alpha.black.4}"
+    },
+    "brand": {
+      "$type": "color",
+      "$value": "{brand.accent.tint}"
+    },
+    "attention": {
+      "$type": "color",
+      "$value": "{color.alpha.amber.16}"
+    },
+    "error": {
+      "$type": "color",
+      "$value": "{color.alpha.red.16}"
+    },
+    "success": {
+      "$type": "color",
+      "$value": "{color.alpha.green.16}"
     }
   }
 }
