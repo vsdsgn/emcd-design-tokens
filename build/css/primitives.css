@@ -259,6 +259,15 @@
   --color-alpha-yellow-16: rgba(242, 221, 15, 0.16);
   --color-alpha-yellow-24: rgba(242, 221, 15, 0.24);
   --color-alpha-yellow-40: rgba(242, 221, 15, 0.4);
+  --color-alpha-amber-16: rgba(245, 158, 11, 0.16);
+  --color-alpha-amber-24: rgba(245, 158, 11, 0.24);
+  --color-alpha-amber-40: rgba(245, 158, 11, 0.4);
+  --color-alpha-red-16: rgba(229, 57, 53, 0.16);
+  --color-alpha-red-24: rgba(229, 57, 53, 0.24);
+  --color-alpha-red-40: rgba(229, 57, 53, 0.4);
+  --color-alpha-green-16: rgba(67, 160, 71, 0.16);
+  --color-alpha-green-24: rgba(67, 160, 71, 0.24);
+  --color-alpha-green-40: rgba(67, 160, 71, 0.4);
   --color-yellow-50: #f9f8ea;
   --color-yellow-100: #f8f4d3;
   --color-yellow-150: #f6f1bf;

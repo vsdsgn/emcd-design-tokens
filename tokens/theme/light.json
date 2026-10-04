@@ -544,5 +544,11 @@
       "$type": "boolean",
       "$value": false
     }
+  },
+  "glow": {
+    "neutral": {
+      "$type": "color",
+      "$value": "{color.alpha.black.8}"
+    }
   }
 }

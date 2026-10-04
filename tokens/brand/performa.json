@@ -108,6 +108,10 @@
       "glow": {
         "$type": "color",
         "$value": "{color.alpha.yellow.24}"
+      },
+      "glow-strong": {
+        "$type": "color",
+        "$value": "{color.alpha.yellow.40}"
       }
     },
     "highlight": {
