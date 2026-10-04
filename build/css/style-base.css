@@ -9,7 +9,7 @@
   --material-thin-blur: 0px;
   --material-regular-blur: 0px;
   --material-thick-blur: 0px;
-  --material-edge-blur: 0rem;
+  --material-edge-blur: 0px;
   --light-ambient-blur: 0px;
   --light-accent-blur: 0px;
   --light-ambient-color: var(--color-alpha-black-0);
