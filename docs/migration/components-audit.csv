@@ -1,6 +1,6 @@
 page,component,variants,interactive,focus_ring,motion,touch_target,rules_block,migration_row,issues,priority
-Shell,Nav item,6,да,НЕТ,есть,ок (36 Web),НЕТ,есть,State Active → Selected (как у Tab bar item),P1
-Shell,Tab bar item,2,да,НЕТ,есть,ок,НЕТ,НЕТ,,P1
+Shell,Nav item,6,да,есть (2026-10-04),есть,ок (36 Web),НЕТ,есть,State Active → Selected (как у Tab bar item); State Active → Selected — сделано 2026-10-04,P1
+Shell,Tab bar item,2,да,есть (2026-10-04),есть,ок,НЕТ,НЕТ,,P1
 Shell,Sidebar,2,контейнер,—,есть,—,НЕТ,есть,,P3
 Shell,Page header,2,контейнер,—,есть,—,НЕТ,НЕТ,,P3
 Shell,Shell,2,контейнер,—,есть,—,НЕТ,НЕТ,,P3
@@ -12,11 +12,11 @@ Actions,Icon button,96,да,есть,есть,S32 < 44 в App — нужен hit
 Inputs,Checkbox,21,да,есть,есть,ок,НЕТ,НЕТ,"ось Status (Off/On/Indeterminate) — в Radio/Toggle Status Off/On, ок",P2
 Inputs,Radio,14,да,есть,есть,ок,НЕТ,НЕТ,,P2
 Inputs,Toggle,16,да,есть,есть,ок,НЕТ,НЕТ,16 фреймов без auto-layout (knob) — допустимо,P3
-Inputs,Input,54,да,есть,НЕТ,ок,НЕТ,НЕТ,"State Active = фокус, в Input amount/Code cell он называется Focus — унифицировать; нет перехода Default→Active",P1
-Inputs,Select,24,да,НЕТ,есть,ок,есть,НЕТ,"нет Focus ring, хотя у Select compact есть",P1
+Inputs,Input,54,да,есть,НЕТ,ок,НЕТ,НЕТ,"State Active = фокус, в Input amount/Code cell он называется Focus — унифицировать; нет перехода Default→Active; State Active → Focus — сделано 2026-10-04",P1
+Inputs,Select,24,да,есть (2026-10-04),есть,ок,есть,НЕТ,"нет Focus ring, хотя у Select compact есть",P1
 Inputs,Select compact,4,да,есть,НЕТ,ок,есть,есть,,P2
-Inputs,Input amount,8,да,НЕТ,НЕТ,ок,НЕТ,есть,State Focus vs Active в Input,P1
-Inputs,Code cell,12,да,НЕТ,НЕТ,ок,НЕТ,есть,State Empty/Focus/Filled — не как в Input,P2
+Inputs,Input amount,8,да,есть (2026-10-04),НЕТ,ок,НЕТ,есть,State Focus vs Active в Input,P1
+Inputs,Code cell,12,да,есть (2026-10-04),НЕТ,ок,НЕТ,есть,State Empty/Focus/Filled — не как в Input,P2
 Inputs,Code input,8,да,—,НЕТ,ок,НЕТ,есть,нет анимации ошибки (shake) и успеха,P2
 Inputs,Input addon / Max,1,да,НЕТ,—,27×20 < 24 по ширине? проверить hit area,НЕТ,НЕТ,,P2
 Inputs,Input addon / Stepper,1,да,НЕТ,есть,ок,НЕТ,НЕТ,,P2
@@ -25,20 +25,20 @@ Tabs,Tab,36,да,есть,есть,ок,есть,НЕТ,,P2
 Tabs,Tabs,4,контейнер,—,есть,—,НЕТ,есть,,P3
 Tabs,Segment,32,да,есть,есть,S24 — hit area в App,НЕТ,НЕТ,нет Pressed (у Tab/Chip есть),P2
 Tabs,Segmented,8,контейнер,—,есть,—,есть,есть,,P3
-Tabs,Chip,24,да,есть,есть,ок,есть,есть,,P3
+Tabs,Chip,24,да,есть,есть,ок,есть,есть,в фокусе брендовая обводка control/border/focus + кольцо — сделано 2026-10-04,P3
 Data,Stat card,2,нет,—,—,—,НЕТ,есть,,P3
 Data,Table header cell,8,да (сортировка),НЕТ,НЕТ,ок,НЕТ,есть,нет Hover; State Skeleton/Default (порядок наоборот),P1
 Data,Table row,6,да,НЕТ,есть,ок,НЕТ,есть,единые стили + tabular-nums (из очереди),P1
 Data,Table cell / * (13 наборов),87,частично,НЕТ у Toggle/Star/More,частично,ок,НЕТ,есть,tabular-nums в числовых ячейках,P1
 Data,Table,1,контейнер,—,есть,—,есть,есть,,P2
-Data,List item,32,да,НЕТ,есть,ок,НЕТ,есть,State только Default/Hover — нет Pressed/Disabled/Selected,P1
-Data,Legend item,4,да,НЕТ,НЕТ,высота 10 — нужен hit area,НЕТ,есть,State Active → Selected,P1
+Data,List item,32,да,есть (2026-10-04),есть,ок,НЕТ,есть,State только Default/Hover — нет Pressed/Disabled/Selected,P1
+Data,Legend item,4,да,есть (2026-10-04),НЕТ,высота 10 — нужен hit area,НЕТ,есть,State Active → Selected; State Active → Selected — сделано 2026-10-04,P1
 Data,Legend swatch,16,нет,—,—,—,НЕТ,НЕТ,,P3
 Data,Chart plot,23,да (hover),—,НЕТ,—,НЕТ,есть,нет текстовой альтернативы/описания для скринридера в описании,P2
 Data,Chart card · tooltip · crosshair · metric · axis label,22,частично,—,частично,—,НЕТ,есть,,P2
-Data,Chip cell,12,да,НЕТ,есть,ок,НЕТ,есть,статус только цветом — нужен второй признак (иконка/штриховка) для a11y,P1
+Data,Chip cell,12,да,есть (2026-10-04),есть,ок,НЕТ,есть,статус только цветом — нужен второй признак (иконка/штриховка) для a11y,P1
 Data,Chip map,1,да,—,есть,—,НЕТ,есть,"Normal спокойный, цвет только у аномалий (из очереди)",P1
-Data,Accordion,12,да,НЕТ,НЕТ,ок,НЕТ,есть,нет Disabled; нет анимации раскрытия,P1
+Data,Accordion,12,да,есть (2026-10-04),НЕТ,ок,НЕТ,есть,нет Disabled; нет анимации раскрытия,P1
 Data,Divider,3,нет,—,—,—,НЕТ,есть,,P3
 Data,Slider,6,да,НЕТ,НЕТ,ползунок проверить ≥24/44,НЕТ,есть,нет состояний ползунка (Hover/Pressed/Disabled),P1
 Data,Avatar · Avatar group,18,нет,—,—,—,НЕТ,есть,,P3
