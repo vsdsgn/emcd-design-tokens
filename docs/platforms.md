@@ -11,7 +11,7 @@ Platform: **Web** (десктоп) · **Mobile web** · **iOS** · **Android**. 
 | `os/press/feedback` | highlight | highlight | highlight | highlight | один отклик для всех: подсветка + `motion/scale/press`; ripple не используем |
 | `os/scroll/overscroll` | none | none | bounce | stretch | системный по умолчанию, не переопределяем; в вебе — браузер |
 | `os/nav/back` | button | button | button + edge-swipe | button + system-back | кнопка «назад» в шапке всегда; жесты — дополнительно (Android predictive back) |
-| `os/haptic/level` | none | none | full | basic | Android: только selection / light / medium, уведомления маппятся на них, без своих паттернов вибрации |
+| `os/haptic/level` | none | basic (web-haptics) | full | basic | Android: только selection / light / medium, уведомления маппятся на них, без своих паттернов вибрации |
 | `os/material/blur` | да | да | да | **нет** | на Android стекло Expressive → сплошная заливка, остальной декор остаётся (уточнить у разработки) |
 | `os/picker/native` | нет | нет | нет | нет | пикеры из DS везде |
 | `os/dialog/native` | нет | нет | нет | нет | алерты — Modal из DS (кроме системных разрешений) |
@@ -38,4 +38,4 @@ Platform: **Web** (десктоп) · **Mobile web** · **iOS** · **Android**. 
 | `haptic/warning` | warning | medium | предупреждение, опасное действие |
 | `haptic/error` | error | medium | ошибка |
 
-Web и Mobile web — `none`.
+Mobile web — базовый набор как прогрессивное улучшение через библиотеку web-haptics (haptics.lochie.me): Android Chrome — `navigator.vibrate`, iOS Safari — приём библиотеки; проверять её актуальную матрицу поддержки. Web (десктоп) — `none`.
