@@ -1,16 +1,10 @@
 # Платформы: десктоп-веб, мобильный веб, iOS, Android
 
-App на Flutter, UI почти одинаковый, но у трёх мобильных паттернов разные конвенции и ограничения. Чтобы не костылить Android, все расхождения — явные, в коллекции **OS** (Foundations), а не решения «по месту».
+App на Flutter, UI почти одинаковый, но у трёх мобильных паттернов разные конвенции и ограничения. Чтобы не костылить Android, все расхождения — явные, в коллекции **Platform** (Foundations, группа `os/*`), а не решения «по месту».
 
-| Коллекция | Отвечает за |
-|---|---|
-| Platform (Web / App / Site) | плотность и размеры: контролы, отступы, радиусы, блюры, motion |
-| Viewport (Compact / …) | ширина экрана |
-| **OS** (Desktop web / Mobile web / iOS / Android) | поведение и системные конвенции |
+Platform: **Web** (десктоп) · **Mobile web** · **iOS** · **Android** · **Site**. Плотность и поведение в одной оси. Mobile web = значения Web + сенсорные (`touch/*` как в App). Viewport — только ширина.
 
-Мобильный веб = Platform Web + Viewport Compact + OS Mobile web. App = Platform App + OS iOS или Android.
-
-## Токены OS (черновик)
+## Поведение: `os/*` в Platform (черновик, Site = как Web)
 
 | Токен | Desktop web | Mobile web | iOS | Android | Правило |
 |---|---|---|---|---|---|

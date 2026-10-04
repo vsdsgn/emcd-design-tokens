@@ -16,7 +16,7 @@ Base — дефолт. Expressive включается явно и только 
 2. устройство тянет рендер (стекло, background blur, прогрессивный блюр, пятна с layer blur): веб — нет `data-perf="low"` и есть `backdrop-filter`; Flutter — устройство не в списке слабых, по решению разработки;
 3. у пользователя не включено снижение прозрачности.
 
-Иначе — Base, даже в pool. CSS страхует сам: `perf-low.css` при `[data-perf="low"]`, `prefers-reduced-transparency` и отсутствии `backdrop-filter` подставляет значения Base поверх Expressive. Flutter: по умолчанию `<brand>.<theme>.json` (Base), `*.expressive.json` — только при выполнении условий.
+Иначе — Base, даже в pool. CSS страхует сам: `perf-low.css` при `[data-perf="low"]`, `prefers-reduced-transparency` и отсутствии `backdrop-filter` подставляет значения Base поверх Expressive. Flutter: по умолчанию `<brand>.<theme>.json` (Base), `<brand>.<theme>.<ios|android>.expressive.json` — только при выполнении условий.
 
 Прогрессивный блюр у краёв прокрутки — декор: `material/edge-blur` (Base 0). В Base у края остаётся только фейд `fade/edge`.
 

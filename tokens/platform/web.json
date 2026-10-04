@@ -292,5 +292,49 @@
         "$value": "{scale.press}"
       }
     }
+  },
+  "os": {
+    "press": {
+      "feedback": {
+        "$type": "string",
+        "$value": "highlight"
+      }
+    },
+    "scroll": {
+      "overscroll": {
+        "$type": "string",
+        "$value": "none"
+      }
+    },
+    "nav": {
+      "back": {
+        "$type": "string",
+        "$value": "button"
+      }
+    },
+    "haptic": {
+      "level": {
+        "$type": "string",
+        "$value": "none"
+      }
+    },
+    "material": {
+      "blur": {
+        "$type": "boolean",
+        "$value": true
+      }
+    },
+    "picker": {
+      "native": {
+        "$type": "boolean",
+        "$value": false
+      }
+    },
+    "dialog": {
+      "native": {
+        "$type": "boolean",
+        "$value": false
+      }
+    }
   }
 }
