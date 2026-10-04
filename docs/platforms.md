@@ -2,9 +2,9 @@
 
 App на Flutter, UI почти одинаковый, но у трёх мобильных паттернов разные конвенции и ограничения. Чтобы не костылить Android, все расхождения — явные, в коллекции **Platform** (Foundations, группа `os/*`), а не решения «по месту».
 
-Platform: **Web** (десктоп) · **Mobile web** · **iOS** · **Android** · **Site**. Плотность и поведение в одной оси. Mobile web = значения Web + сенсорные (`touch/*` как в App). Viewport — только ширина.
+Platform: **Web** (десктоп) · **Mobile web** · **iOS** · **Android**. Сайт = Web. Плотность и поведение в одной оси. Mobile web = значения Web + сенсорные (`touch/*` как в App). Viewport — только ширина.
 
-## Поведение: `os/*` в Platform (черновик, Site = как Web)
+## Поведение: `os/*` в Platform (черновик)
 
 | Токен | Desktop web | Mobile web | iOS | Android | Правило |
 |---|---|---|---|---|---|
@@ -26,3 +26,16 @@ Platform: **Web** (десктоп) · **Mobile web** · **iOS** · **Android** �
 6. Мобильный веб: `100dvh`, `env(safe-area-inset-*)`, без хаптиков (iOS Safari не поддерживает), свой оверскролл не делаем — конфликт с pull-to-refresh браузера.
 
 Открыто: список того, что сейчас костылится на Android (вопрос к разработке, OPEN-QUESTIONS).
+
+## Хаптики: `haptic/*`
+
+| Токен | iOS | Android | Где |
+|---|---|---|---|
+| `haptic/selection` | selection | selection | табы, сегменты, тумблер, чекбокс, пикеры, шаг слайдера |
+| `haptic/press` | light | light | главное действие, подтверждение |
+| `haptic/drag` | medium | medium | долгое нажатие, начало перетаскивания, порог pull-to-refresh |
+| `haptic/success` | success | light | успешный результат |
+| `haptic/warning` | warning | medium | предупреждение, опасное действие |
+| `haptic/error` | error | medium | ошибка |
+
+Web и Mobile web — `none`.

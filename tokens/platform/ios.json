@@ -336,5 +336,31 @@
         "$value": false
       }
     }
+  },
+  "haptic": {
+    "selection": {
+      "$type": "string",
+      "$value": "selection"
+    },
+    "press": {
+      "$type": "string",
+      "$value": "light"
+    },
+    "drag": {
+      "$type": "string",
+      "$value": "medium"
+    },
+    "success": {
+      "$type": "string",
+      "$value": "success"
+    },
+    "warning": {
+      "$type": "string",
+      "$value": "warning"
+    },
+    "error": {
+      "$type": "string",
+      "$value": "error"
+    }
   }
 }

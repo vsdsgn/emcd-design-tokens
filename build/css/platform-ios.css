@@ -12,6 +12,12 @@
   --os-material-blur: true;
   --os-picker-native: false;
   --os-dialog-native: false;
+  --haptic-selection: selection;
+  --haptic-press: light;
+  --haptic-drag: medium;
+  --haptic-success: success;
+  --haptic-warning: warning;
+  --haptic-error: error;
   --space-none: var(--dimension-x0);
   --space-3xs: var(--dimension-x0-125);
   --space-2xs: var(--dimension-x0-25);

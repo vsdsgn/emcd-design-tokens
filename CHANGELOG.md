@@ -10,6 +10,7 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+- Platform: Site mode removed (site = Web). Haptics `haptic/selection|press|drag|success|warning|error` (iOS full, Android basic, web none). Build: `contrast-more.css` (prefers-contrast: more — focus ring = border/focus, stronger borders, no decor).
 - Platform: modes Web · iOS (was App) · Site · Mobile web · Android; behaviour tokens `os/*` (press feedback, overscroll, back, haptics, material blur, native pickers/dialogs) live here. Flutter JSON now per OS: `<brand>.<theme>.<ios|android>[.expressive].json`. Separate OS collection removed.
 - Style collection (Foundations): modes Base (default) / Expressive. Base — all products except EMCD mining pool and WL fallback; Expressive — pool decorations (glass, glow spots, brand tints, gradient edges). 10 tokens `style/*`, new `color/alpha/{violet,electric-blue,yellow}/*`, Brand `accent/tint|glow`, Theme `border/glass`. Build: `data-style`, `build/css/style-*.css`, Flutter `*.expressive.json`. docs/style.md.
 - Focus: pale 4 px ring flush to the edge. New `border/focus-ring` (Theme; brand 200 light / 800 dark), `border/width/focus-ring` (Platform, 4), Brand `accent/focus-ring-on-light|dark`. `border/focus` now brand 500 / 400 (was lime / neutral) — stroke of bordered controls in focus. `focus/offset` = 0. `radius/focus-ring(-sm)` kept: Figma ring frame outer radius = object radius + 4.

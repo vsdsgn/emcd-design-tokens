@@ -105,6 +105,21 @@ ${['[data-perf="low"]'].join(', ')} {
 }
 `);
 
+// High contrast (prefers-contrast: more): focus ring = solid brand border colour (passes 3:1), stronger borders,
+// tertiary text → secondary, no decor (Base). Forced colors: components keep a transparent outline so the system draws focus.
+writeFileSync('build/css/contrast-more.css', `/* prefers-contrast: more */
+@media (prefers-contrast: more) {
+  :root {
+    --border-focus-ring: var(--border-focus);
+    --border-subtle: var(--border-default);
+    --border-default: var(--border-strong);
+    --text-tertiary: var(--text-secondary);
+    --icon-tertiary: var(--icon-secondary);
+    ${baseStyle}
+  }
+}
+`);
+
 // Default layer (:root) must come first, otherwise it overrides [data-*] selectors of equal specificity.
 const defFirst = (arr, def) => [def, ...arr.filter((x) => x !== def)];
 const order = ['root', 'primitives',
@@ -112,7 +127,7 @@ const order = ['root', 'primitives',
   ...defFirst(themes, DEFAULT.theme).map((t) => `theme-${t}`),
   ...defFirst(platforms, DEFAULT.platform).map((p) => `platform-${p}`),
   ...defFirst(styles, DEFAULT.style).map((s) => `style-${s}`),
-  'viewport', 'type-fluid', 'perf-low'];
+  'viewport', 'type-fluid', 'perf-low', 'contrast-more'];
 writeFileSync('build/css/index.css', order.map((f) => `@import "./${f}.css";`).join('\n') + '\n');
 
 mkdirSync('build/json', { recursive: true });
