@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru" data-brand="emcd" data-theme="dark" data-platform="web" data-style="base">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DS 2.0 · cross-browser fixture</title>
+<link rel="stylesheet" href="../../build/css/index.css">
+<style>
+  /* Test-only consumer CSS: shows how components are expected to read tokens. */
+  body { margin:0; background:var(--bg-base); color:var(--text-primary);
+         font-family:var(--brand-font-family-text); font-size:var(--type-body-md-size); line-height:var(--type-body-md-line-height); }
+  .page { position:relative; padding:24px; display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); overflow:hidden; min-height:100vh; min-height:100dvh; }
+  .blob { position:absolute; inset:-20% auto auto -10%; width:60%; aspect-ratio:1; border-radius:50%;
+          background:var(--light-ambient-color); filter:blur(var(--light-ambient-blur)); pointer-events:none; }
+  h1 { grid-column:1/-1; margin:0; font-family:var(--brand-font-family-display); font-size:var(--type-heading-xl-size); line-height:var(--type-heading-xl-line-height); }
+  .card { position:relative; background:var(--surface-default); border:var(--border-width-default) solid var(--border-subtle);
+          border-radius:var(--radius-surface); padding:16px; display:grid; gap:12px; box-shadow:var(--shadow-ambient); }
+  .glass { background:var(--material-regular-fill); -webkit-backdrop-filter:blur(var(--material-regular-blur)); backdrop-filter:blur(var(--material-regular-blur));
+           box-shadow:inset 0 1px 0 var(--edge-highlight), var(--shadow-key); border-color:var(--edge-hairline); }
+  .nested { background:var(--surface-nested); border-radius:var(--radius-inner); padding:12px; }
+  .muted { color:var(--text-secondary); } .tert { color:var(--text-tertiary); }
+  .btn { appearance:none; border:0; cursor:pointer; font:inherit; font-weight:var(--font-weight-medium);
+         height:var(--control-height-md); padding:0 var(--control-padding-x-md); border-radius:var(--radius-control);
+         min-height:max(var(--control-height-md), var(--touch-min, 24px));
+         transition:transform var(--motion-duration-feedback) var(--motion-easing-standard), background-color var(--motion-duration-feedback) var(--motion-easing-standard); }
+  .btn:active { transform:scale(var(--motion-scale-press)); }
+  .primary { background:var(--action-primary-default); color:var(--text-on-accent); }
+  .primary:hover { background:var(--action-primary-hover); }
+  .secondary { background:var(--action-secondary-default); color:var(--text-primary); }
+  .btn:focus-visible, .btn.force-focus { outline:none; box-shadow:0 0 0 var(--border-width-focus-ring) var(--border-focus-ring); }
+  .input { height:var(--control-height-md); padding:0 12px; border-radius:var(--radius-control); font:inherit; color:var(--text-primary);
+           background:var(--control-surface-default); border:var(--border-width-default) solid var(--control-border-default); }
+  .input:focus-visible, .input.force-focus { outline:none; border-color:var(--border-focus); box-shadow:0 0 0 var(--border-width-focus-ring) var(--border-focus-ring); }
+  .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .status { display:inline-flex; gap:6px; align-items:center; padding:2px 8px; border-radius:var(--radius-chip); background:var(--surface-nested); }
+  .ok { color:var(--text-success); } .err { color:var(--text-danger); }
+  .skeleton { height:12px; border-radius:6px; background:linear-gradient(90deg,var(--surface-nested),var(--surface-hover),var(--surface-nested)); background-size:200% 100%; animation:sh 1.4s linear infinite; }
+  @keyframes sh { to { background-position:-200% 0; } }
+  @media (forced-colors: active) { .btn { border:1px solid ButtonText; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="blob" aria-hidden="true"></div>
+  <h1>Pool · 1 248 TH/s</h1>
+  <section class="card">
+    <strong>Surface L1 · Base</strong>
+    <span class="muted">Secondary text</span><span class="tert">Tertiary text</span>
+    <div class="nested">L2 nested</div>
+    <div class="row"><button class="btn primary">Вывести</button><button class="btn secondary">Отмена</button></div>
+  </section>
+  <section class="card glass">
+    <strong>Material regular (glass)</strong>
+    <span class="muted">Стекло только в Expressive</span>
+    <div class="row"><span class="status ok">● Активен</span><span class="status err">▲ Оффлайн</span></div>
+    <div class="skeleton"></div><div class="skeleton" style="width:60%"></div>
+  </section>
+  <section class="card">
+    <strong>Focus</strong>
+    <div class="row"><button class="btn primary force-focus">Кнопка в фокусе</button></div>
+    <input class="input force-focus" value="Инпут в фокусе" aria-label="test">
+  </section>
+  <section class="card" data-theme="light" id="nested-light">
+    <strong>Вложенная светлая тема</strong>
+    <span class="muted">data-theme="light" на карточке</span>
+    <div class="row"><button class="btn primary">Primary</button></div>
+  </section>
+  <section class="card" data-brand="geometria" id="nested-geo">
+    <strong>Вложенный бренд Geometria</strong>
+    <span class="muted">data-brand на карточке, тема от html</span>
+    <div class="row"><button class="btn primary">Primary</button></div>
+  </section>
+</div>
+</body>
+</html>
