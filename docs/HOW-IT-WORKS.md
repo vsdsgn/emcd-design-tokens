@@ -11,7 +11,7 @@ Primitives            сырые значения: цвета (рампы 50–9
    ↓ ссылаются
 Brand                 чей продукт      EMCD · Geometria · WL Default · (Performa — эксперимент)
 Theme                 светлая/тёмная   Light · Dark
-Platform              где работает     Web · Mobile web · iOS · Android · Site  (плотность + поведение)
+Platform              где работает     Web · Mobile web · iOS · Android  (плотность + поведение)
 Viewport              ширина           Compact · …
 Style                 сколько декора   Base (по умолчанию) · Expressive
    ↓ используют
@@ -47,7 +47,7 @@ Components            кнопки, инпуты, карточки… — тол
 | Pool, App на iPhone | EMCD | Expressive | iOS |
 | Pool, App на слабом Android | EMCD | Base (откат) | Android |
 | Monitoring | EMCD | Expressive | Web |
-| Firmware, сайт, WL B2B | EMCD | Base | Web / Mobile web / iOS / Android |
+| Firmware, WL B2B | EMCD | Base | Web / Mobile web / iOS / Android |
 | Geometria | Geometria | Base (может стать Expressive) | Web / Mobile web / iOS / Android |
 | WL-клиент | WL Default + свой акцент | Base | Web / Mobile web / iOS / Android |
 
@@ -57,7 +57,7 @@ Components            кнопки, инпуты, карточки… — тол
 
 ## В коде
 
-Веб: атрибуты на `<html>` — `data-brand`, `data-theme`, `data-platform` (web · mobile-web · site), `data-style`, `data-perf`; CSS из `build/css/index.css`. `perf-low.css` сам откатывает Expressive в Base при слабом рендере.
+Веб: атрибуты на `<html>` — `data-brand`, `data-theme`, `data-platform` (web · mobile-web), `data-style`, `data-perf`; CSS из `build/css/index.css`. `perf-low.css` сам откатывает Expressive в Base при слабом рендере.
 Flutter: `build/json/<brand>.<theme>.<ios|android>.json` (Base) и `….expressive.json`.
 
 ## Поток изменений
@@ -76,3 +76,7 @@ Figma Foundations → публикация (вручную) → экспорт �
 | Состояние работ | `docs/HANDOFF.md` |
 | Вопросы и отложенное | `docs/OPEN-QUESTIONS.md` |
 | Миграция legacy → DS 2.0, аудит | `docs/migration/` |
+
+## Сайт и лендинги
+
+Сайт — это Web. Берёт базу (Foundations + Components) и поверх верстает как нужно, особенно лендинги. Отдельной платформы Site нет.
