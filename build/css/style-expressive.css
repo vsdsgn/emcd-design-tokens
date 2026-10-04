@@ -16,6 +16,7 @@
   --material-thick-fill: var(--surface-glass-thick);
   --material-thick-blur: var(--effect-blur-glass-lg);
   --material-scrim: var(--surface-overlay);
+  --material-edge-blur: var(--effect-blur-edge);
   --light-accent-color: var(--brand-accent-glow-strong);
   --light-tint: var(--brand-accent-tint);
   --light-status-neutral: var(--glow-neutral);

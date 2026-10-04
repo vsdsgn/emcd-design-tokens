@@ -4,10 +4,21 @@
 
 | Режим | Где | Что |
 |---|---|---|
-| **Base** (по умолчанию) | все продукты, кроме pool и Monitoring: Firmware, WL B2B, сайт, Geometria (бренд поверх Base), fallback для WL-клиентов | чистые плоские поверхности, обычные обводки, без свечения, стекла и тинтов |
+| **Base** (по умолчанию везде, откат для всего) | все продукты, кроме pool и Monitoring: Firmware, WL B2B, сайт, Geometria (бренд поверх Base), fallback для WL-клиентов | чистые плоские поверхности, обычные обводки, без свечения, стекла и тинтов |
 | **Expressive** | EMCD mining pool (Web App, App) и Monitoring | стекло, световые пятна, брендовые тинты, градиентные обводки, свечение — как сейчас в pool, причёсано на токены |
 
 Style не зависит от Brand: любое сочетание допустимо (EMCD + Base в Monitoring, WL Default + Base как fallback, EMCD + Expressive в pool). Geometria сейчас на Base и может включить Expressive (декор подхватит её бренд) или получить свой режим.
+
+## Когда включается Expressive
+
+Base — дефолт. Expressive включается явно и только если выполнены все условия:
+1. продукт — pool или Monitoring;
+2. устройство тянет рендер (стекло, background blur, прогрессивный блюр, пятна с layer blur): веб — нет `data-perf="low"` и есть `backdrop-filter`; Flutter — устройство не в списке слабых, по решению разработки;
+3. у пользователя не включено снижение прозрачности.
+
+Иначе — Base, даже в pool. CSS страхует сам: `perf-low.css` при `[data-perf="low"]`, `prefers-reduced-transparency` и отсутствии `backdrop-filter` подставляет значения Base поверх Expressive. Flutter: по умолчанию `<brand>.<theme>.json` (Base), `*.expressive.json` — только при выполнении условий.
+
+Прогрессивный блюр у краёв прокрутки — декор: `material/edge-blur` (Base 0). В Base у края остаётся только фейд `fade/edge`.
 
 ## Токены
 

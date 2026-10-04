@@ -87,18 +87,21 @@ html { font-size: 100%; }
 @media (min-width: 480em) { html { font-size: 150%; } }   /* ≥ 7680px */
 `);
 
-// Low-performance / reduced-transparency layer: no blur, glass becomes opaque, edges keep only the fade.
+// Low-performance / reduced-transparency layer: no blur, glass becomes opaque, edges keep only the fade,
+// and Expressive falls back to Base (Base is the default; Expressive only on capable devices).
+const baseStyle = (() => { const c = readFileSync('build/css/style-base.css', 'utf8'); return c.slice(c.indexOf('{') + 1, c.lastIndexOf('}')).trim().replace(/\n\s*/g, ' '); })();
 writeFileSync('build/css/perf-low.css', `/* Lite mode: old phones, low-end Android, reduced transparency, no backdrop-filter support. */
 ${['[data-perf="low"]'].join(', ')} {
   --effect-blur-glass-sm: 0px; --effect-blur-glass-md: 0px; --effect-blur-glass-lg: 0px;
   --effect-blur-edge: 0px; --effect-blur-backdrop: 0px;
   --surface-glass: var(--surface-raised);
+  ${baseStyle}
 }
 @media (prefers-reduced-transparency: reduce) {
-  :root { --effect-blur-glass-sm: 0px; --effect-blur-glass-md: 0px; --effect-blur-glass-lg: 0px; --effect-blur-edge: 0px; --effect-blur-backdrop: 0px; --surface-glass: var(--surface-raised); }
+  :root { --effect-blur-glass-sm: 0px; --effect-blur-glass-md: 0px; --effect-blur-glass-lg: 0px; --effect-blur-edge: 0px; --effect-blur-backdrop: 0px; --surface-glass: var(--surface-raised); ${baseStyle} }
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  :root { --surface-glass: var(--surface-raised); }
+  :root { --surface-glass: var(--surface-raised); ${baseStyle} }
 }
 `);
 
