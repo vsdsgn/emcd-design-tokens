@@ -1,0 +1,46 @@
+{
+  "os": {
+    "press": {
+      "feedback": {
+        "$type": "string",
+        "$value": "highlight"
+      }
+    },
+    "scroll": {
+      "overscroll": {
+        "$type": "string",
+        "$value": "stretch"
+      }
+    },
+    "nav": {
+      "back": {
+        "$type": "string",
+        "$value": "button + system-back"
+      }
+    },
+    "haptic": {
+      "level": {
+        "$type": "string",
+        "$value": "basic"
+      }
+    },
+    "material": {
+      "blur": {
+        "$type": "boolean",
+        "$value": false
+      }
+    },
+    "picker": {
+      "native": {
+        "$type": "boolean",
+        "$value": false
+      }
+    },
+    "dialog": {
+      "native": {
+        "$type": "boolean",
+        "$value": false
+      }
+    }
+  }
+}
