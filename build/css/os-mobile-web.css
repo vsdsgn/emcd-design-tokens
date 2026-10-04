@@ -1,0 +1,13 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-os="mobile-web"] {
+  --os-press-feedback: highlight;
+  --os-scroll-overscroll: none;
+  --os-nav-back: button;
+  --os-haptic-level: none;
+  --os-material-blur: true;
+  --os-picker-native: false;
+  --os-dialog-native: false;
+}
