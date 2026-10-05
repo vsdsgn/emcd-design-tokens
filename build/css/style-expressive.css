@@ -1,8 +1,8 @@
 /**
  * Do not edit directly, this file was auto-generated.
  */
-/* Applies only where prefers-reduced-transparency is supported and off. Elsewhere: Base. docs/browser-support.md */
-@media (prefers-reduced-transparency: no-preference) {
+/* Modern engines only (unprefixed backdrop-filter: Chromium 76+, Firefox 103+, Safari 18+). Elsewhere: Base. docs/browser-support.md */
+@supports (backdrop-filter: blur(1px)) {
 [data-style="expressive"], [data-style="expressive"] [data-brand]:not([data-style]), [data-style="expressive"] [data-theme]:not([data-style]), [data-style="expressive"] [data-platform]:not([data-style]) {
   --decor-light: true;
   --decor-tint: true;

@@ -18,8 +18,8 @@
 |---|---|---|
 | Chromium 131 (Chrome, Yandex, Edge, Samsung, Opera, WebView) | контейнер, headless | ✓ все проверки; эмуляция contrast / transparency / motion / forced colors |
 | WebKit 2.52 (движок Safari, Linux-сборка) | контейнер, WebKitGTK | ✓ значения токенов 1:1 с Chromium, ширины ✓; режимы ОС не эмулируются |
-| Firefox 155 (Gecko) | Mac, Playwright | ✓ все проверки; Expressive выкл → Base (как задумано) |
-| WebKit 26.6 (Safari) | Mac, Playwright | ✓ все проверки; Expressive выкл → Base. Живой Safari / iOS — открыть фикстуру руками |
+| Firefox 155 (Gecko) | Mac, Playwright | ✓ все проверки; Expressive вкл |
+| WebKit 26.6 (Safari) | Mac, Playwright | ✓ все проверки; Expressive вкл. Живой Safari / iOS — открыть фикстуру руками |
 | Chromium 153 | Mac, Playwright | ✓ все проверки; Expressive вкл |
 | Старые и «специфические» | статический анализ (caniuse, doiuse) | таблица ниже |
 
@@ -51,9 +51,13 @@
 | **Работает** — пол поддержки | Chrome / Edge 109+ (последний на Windows 7/8.1), Firefox 115+ (ESR), Safari / iOS 15.4+ (iPhone 7 и старше застряли на 15.x), Samsung 21+ | Base, без поломок; это `browserslist` в package.json, `npm run test:compat` валит сборку при выходе за пол |
 | Не поддерживаем | ниже пола, Opera Mini, UC / QQ / Baidu / KaiOS старые | токены могут не работать (нет CSS-переменных / clamp) |
 
-## Expressive: только где видим настройку прозрачности
+## Expressive: в современных движках (решение 2026-10-05)
 
-Блок `style-expressive.css` целиком внутри `@media (prefers-reduced-transparency: no-preference)`. Медиазапрос знают только Chromium 118+ (Chrome, Edge, Yandex, Opera 104+, Android WebView, Samsung 25+). Safari (macOS, iOS) и Firefox (только за флагом) его не знают → правило игнорируется → **Base** на десктопе и в мобильном вебе, даже с `data-style="expressive"`. Проверено: WebKit отдаёт Base, Chromium — Expressive. В JS: `matchMedia('(prefers-reduced-transparency: no-preference)').matches`. Когда Safari/Firefox добавят поддержку — Expressive включится у них сам, без правок.
+Блок `style-expressive.css` целиком внутри `@supports (backdrop-filter: blur(1px))`. Без префикса `backdrop-filter` есть в Chrome / Edge / Yandex / Opera / WebView 76+, Firefox 103+, Safari и iOS 18+ — это и есть отсечка «не старый браузер». Safari ≤ 17 (iPhone до XS, старые Mac без обновлений) получает Base.
+
+Снижение прозрачности: Chromium 118+ сообщает настройку → `perf-low.css` возвращает Base. Safari и Firefox её не сообщают, поэтому в продукте нужен переключатель «Упрощённое оформление» (`data-style="base"` или `data-perf="low"`). Повышенный контраст (`prefers-contrast: more`) снимает декор во всех трёх движках.
+
+Mac, Playwright 2026-10-05: Chromium 153, Firefox 155, WebKit 26.6 — Expressive включён во всех, значения токенов совпадают 1:1 во всех 48 режимах (включая Expressive).
 
 ## Наблюдения по рендеру
 
