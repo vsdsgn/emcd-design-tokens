@@ -21,7 +21,7 @@ Contrast of semantic text/icon/action pairs is checked against WCAG 2.2 AA (4.5:
 ```
 figma/export-*.json   raw export of Figma variables (compact)
 tokens/**             W3C DTCG token files, one file per collection mode
-build/css/            CSS custom properties, one file per layer + index.css
+build/css/            CSS custom properties, one file per layer + index.css (dev) + ds.css / ds.min.css (one-file bundle)
 build/json/           fully resolved flat tokens per brand × theme (App, Compact) for Flutter
 scripts/              figma-to-dtcg.mjs (export → DTCG), build.mjs (Style Dictionary v4)
 ```
@@ -29,7 +29,8 @@ scripts/              figma-to-dtcg.mjs (export → DTCG), build.mjs (Style Dict
 ## Use (web)
 
 ```html
-<link rel="stylesheet" href="build/css/index.css">
+<script src="build/js/perf.js"></script>            <!-- perf guard, before CSS -->
+<link rel="stylesheet" href="build/css/ds.min.css"> <!-- prod: one file; index.css = dev -->
 <html data-brand="geometria" data-theme="light" data-platform="web">
 ```
 

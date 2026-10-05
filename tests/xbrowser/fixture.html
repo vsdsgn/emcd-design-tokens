@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>DS 2.0 · cross-browser fixture</title>
-<link rel="stylesheet" href="../../build/css/index.css">
+<script>/* ?css=ds.min.css swaps the token bundle (tests) */document.write('<link rel="stylesheet" href="../../build/css/' + (new URLSearchParams(location.search).get('css') || 'index.css').replace(/[^a-z.-]/g, '') + '">');</script>
 <style>
   /* Test-only consumer CSS: shows how components are expected to read tokens. */
   body { margin:0; background:var(--bg-base); color:var(--text-primary);

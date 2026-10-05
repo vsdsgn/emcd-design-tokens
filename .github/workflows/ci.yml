@@ -1,0 +1,31 @@
+# Tokens CI: build is committed and up to date, CSS stays within the browser floor,
+# tokens render the same in Chromium / Firefox / WebKit, perf guard works. Docs: docs/browser-support.md, docs/performance.md.
+name: tokens
+on:
+  push: { branches: [main] }
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Build is up to date
+        run: npm run build && git diff --exit-code -- build || (echo "::error::build/ differs from tokens — run npm run build and commit" && exit 1)
+      - name: Browser floor (browserslist)
+        run: npm run test:compat
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - name: Cross-browser tokens
+        run: npm run test:browsers
+      - name: Performance & perf guard (Chromium)
+        run: npm run test:perf -- chromium
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-and-perf-results
+          path: |
+            tests/xbrowser/out/
+            tests/perf/out/

@@ -22,7 +22,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 1. Этот файл (файлы, правила, приёмы).
 2. `docs/OPEN-QUESTIONS.md` — **текущий этап** (чеклист), парковка, вопросы к Стефану.
 3. `docs/HOW-IT-WORKS.md` — как устроена система (оси Brand · Theme · Platform · Viewport · Style).
-4. По теме задачи: `style.md` + `visual-language.md` (Base/Expressive, декор), `platforms.md` (Web / Mobile web / iOS / Android, хаптики), `components.md` (правила, a11y, фокус), `effects.md`, `motion.md`, `a11y-report.md`, `browser-support.md` (браузеры, тест `npm run test:browsers`), `migration/`.
+4. По теме задачи: `style.md` + `visual-language.md` (Base/Expressive, декор), `platforms.md` (Web / Mobile web / iOS / Android, хаптики), `components.md` (правила, a11y, фокус), `effects.md`, `motion.md`, `a11y-report.md`, `browser-support.md` (браузеры, тест `npm run test:browsers`), `performance.md` (загрузка, кадры, перф-гард, `npm run test:perf`), `migration/`.
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
 
@@ -37,6 +37,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - **Сайт = Web**: берёт базу, лендинги верстают поверх как хотят. Платформы Site нет.
 - **Иконки**: один набор DS (каркас Lucide); Expressive добавляет обработку слоями (свечение активного), не отдельный набор. Логотипы монет — контент, одинаковы в обоих режимах.
 - **Скоуп темы/бренда = все четыре `data-*` на одном элементе** + свои `color`/фон (вложенный `data-brand` без `data-theme` не пересчитывает семантику).
+- **Веб в проде**: `ds.min.css` одним файлом + перф-гард `build/js/perf.js` в `<head>` до CSS; гард ставит `data-perf="low"` по сети / памяти / медленным кадрам (все браузеры). CI: `.github/workflows/ci.yml`.
 - **Браузеры**: минимум Chrome/Edge 109, Firefox 115, Safari/iOS 15.4, Samsung 21 (`browserslist` в package.json, `npm run test:compat`); полная поддержка — Baseline Widely available. docs/browser-support.md.
 - **Статус никогда не только цветом** (danger ↔ success путаются при дейтеранопии) — иконка или подпись рядом.
 

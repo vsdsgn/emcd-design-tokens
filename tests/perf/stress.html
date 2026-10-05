@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru" data-brand="emcd" data-theme="dark" data-platform="web" data-style="base">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DS 2.0 · perf stress page</title>
+<script>/* ?css=ds.min.css&style=expressive&perf=low */(function () {
+  const q = new URLSearchParams(location.search), r = document.documentElement;
+  if (q.get('style')) r.dataset.style = q.get('style'); if (q.get('perf')) r.dataset.perf = q.get('perf');
+  if (q.get('guard')) document.write('<script src="../../build/js/perf.js"><\/script>');
+  document.write('<link rel="stylesheet" href="../../build/css/' + (q.get('css') || 'index.css').replace(/[^a-z.-]/g, '') + '">');
+})();</script>
+<style>
+  /* Pool-dashboard-like load: sticky glass header, ambient light, ~40 cards (a third glass), 80-row table, shimmer. */
+  body { margin:0; background:var(--bg-base); color:var(--text-primary); font-family:var(--brand-font-family-text); font-size:var(--type-body-md-size); }
+  .light { position:fixed; width:70vw; aspect-ratio:1; border-radius:50%; pointer-events:none; z-index:0;
+           background:var(--light-ambient-color); filter:blur(var(--light-ambient-blur)); }
+  .l1 { top:-30vw; left:-20vw; } .l2 { bottom:-40vw; right:-25vw; }
+  header { position:sticky; top:0; z-index:2; display:flex; gap:12px; align-items:center; padding:12px 24px;
+           background:var(--material-regular-fill); -webkit-backdrop-filter:blur(var(--material-regular-blur)); backdrop-filter:blur(var(--material-regular-blur));
+           box-shadow:inset 0 -1px 0 var(--edge-hairline); }
+  main { position:relative; z-index:1; padding:24px; display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); }
+  .card { background:var(--surface-default); border:1px solid var(--border-subtle); border-radius:var(--radius-surface); padding:16px; display:grid; gap:8px; box-shadow:var(--shadow-ambient); }
+  .glass { background:var(--material-thin-fill); -webkit-backdrop-filter:blur(var(--material-thin-blur)); backdrop-filter:blur(var(--material-thin-blur)); box-shadow:inset 0 1px 0 var(--edge-highlight), var(--shadow-key); }
+  .num { font-size:var(--type-heading-lg-size); font-weight:600; }
+  .muted { color:var(--text-secondary); }
+  .glow { box-shadow:0 0 var(--light-accent-blur) var(--light-status-brand); }
+  .bar { height:6px; border-radius:3px; background:var(--surface-nested); overflow:hidden; } .bar i { display:block; height:100%; background:var(--action-primary-default); }
+  .sk { height:10px; border-radius:5px; background:linear-gradient(90deg,var(--surface-nested),var(--surface-hover),var(--surface-nested)); background-size:200% 100%; animation:sh 1.4s linear infinite; }
+  @keyframes sh { to { background-position:-200% 0; } }
+  table { grid-column:1/-1; width:100%; border-collapse:collapse; background:var(--surface-default); border-radius:var(--radius-surface); overflow:hidden; }
+  td, th { padding:10px 12px; border-bottom:1px solid var(--border-subtle); text-align:left; } th { position:sticky; top:56px; background:var(--material-thick-fill); -webkit-backdrop-filter:blur(var(--material-thick-blur)); backdrop-filter:blur(var(--material-thick-blur)); }
+</style>
+</head>
+<body>
+<div class="light l1"></div><div class="light l2"></div>
+<header><strong>EMCD Pool</strong><span class="muted">BTC · 1 248 TH/s</span></header>
+<main id="m"></main>
+<script>
+  const m = document.getElementById('m'); let h = '';
+  for (let i = 0; i < 40; i++) h += `<section class="card${i % 3 === 0 ? ' glass' : ''}${i % 7 === 0 ? ' glow' : ''}"><span class="muted">Воркер ${i + 1}</span><span class="num">${(Math.random() * 200).toFixed(1)} TH/s</span><div class="bar"><i style="width:${20 + (i * 13) % 80}%"></i></div>${i % 5 === 0 ? '<div class="sk"></div>' : ''}</section>`;
+  h += '<table><thead><tr><th>Время</th><th>Хешрейт</th><th>Начислено</th><th>Статус</th></tr></thead><tbody>';
+  for (let i = 0; i < 80; i++) h += `<tr><td>${String(i % 24).padStart(2, '0')}:00</td><td>${(100 + i).toFixed(1)} TH/s</td><td>0.000${(i * 37) % 999} BTC</td><td>${i % 9 ? 'Активен' : 'Оффлайн'}</td></tr>`;
+  m.innerHTML = h + '</tbody></table>';
+  // Frame-time probe: scrolls the page with rAF and records frame intervals.
+  window.__scrollTest = (ms = 3000) => new Promise((done) => {
+    const max = document.documentElement.scrollHeight - innerHeight, t0 = performance.now(), d = [];
+    let last = t0;
+    const step = (t) => { d.push(t - last); last = t; const k = (t - t0) / ms;
+      scrollTo(0, max * (k < .5 ? k * 2 : 2 - k * 2));
+      if (t - t0 < ms) requestAnimationFrame(step); else { d.shift(); d.sort((a, b) => a - b);
+        const q = (p) => d[Math.min(d.length - 1, Math.floor(d.length * p))];
+        done({ frames: d.length, fps: +(1000 / (d.reduce((a, b) => a + b, 0) / d.length)).toFixed(1), p50: +q(.5).toFixed(1), p95: +q(.95).toFixed(1),
+               slow: +(100 * d.filter((x) => x > 25).length / d.length).toFixed(1) }); } };
+    requestAnimationFrame(step);
+  });
+</script>
+</body>
+</html>

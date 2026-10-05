@@ -10,6 +10,7 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+- Performance (2026-10-05): `build/css/ds.css` / `ds.min.css` — one-file bundle (59 KB, ~8 KB gzip; on 3G CSS ready 1.0 s vs 2.6 s with the @import chain). `build/js/perf.js` — perf guard: sets `data-perf="low"` from Save-Data, 2G/3G, low memory, or ≥30% slow frames during the first scroll (all browsers, remembered 7 days); `emcdPerf.set()` for a user setting. `npm run test:perf` (stress page, network & CPU emulation), CI workflow `.github/workflows/ci.yml`. docs/performance.md.
 - Build: nested scopes — theme/platform re-evaluated under nested `[data-brand]`, style under nested brand/theme/platform; `scope.css` sets text colour on nested `[data-theme]`/`[data-brand]`. Style: `decor/nav-expressive`, `decor/nav-base`.
 - Components (Figma): Button types → Primary · Secondary · Secondary error · Error · Tertiary · Tertiary outline · Text · Text error · Inverted; Icon button aligned. New: Pagination (+ item), Scrollbar, Page indicator (+ dot), Step progress (+ segment), Nav icon, Skip link. Motion: transitions for Select compact, Input amount, Code cell, chart axis/plot, Pagination item; motion specs in overlay/feedback descriptions.
 - Icons (Figma): 105 of 121 redrawn on Lucide 1.52; old glyphs archived («🗄 Glyphs before Lucide»). Kept: logos, file-csv/xls/excel/pdf, mining-coin, profile-status-star.
