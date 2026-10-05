@@ -311,6 +311,18 @@
     "noto-sans-arabic": {
       "$type": "fontFamily",
       "$value": "Noto Sans Arabic"
+    },
+    "inter": {
+      "$type": "fontFamily",
+      "$value": "Inter"
+    },
+    "noto-sans-devanagari": {
+      "$type": "fontFamily",
+      "$value": "Noto Sans Devanagari"
+    },
+    "noto-sans-jp": {
+      "$type": "fontFamily",
+      "$value": "Noto Sans JP"
     }
   },
   "letter-spacing": {

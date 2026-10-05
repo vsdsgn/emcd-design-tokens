@@ -29,7 +29,7 @@ StyleDictionary.registerTransform({
   transform: (t) => px(t.$value),
 });
 // Brand fonts are web fonts: without a generic fallback a failed or blocked load renders the browser default (Times).
-const SANS_FALLBACK = "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";
+const SANS_FALLBACK = "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Sans Arabic', 'Noto Sans Devanagari', 'IBM Plex Sans Thai', 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif";
 const MONO_FALLBACK = "ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace";
 StyleDictionary.registerTransform({
   name: 'emcd/font/fallback', type: 'value', transitive: true,
