@@ -71,6 +71,7 @@
 
 ## Вопросы к Стефану
 
+- [ ] **Button — документация** (Playground, фрейм «Button — варианты»): матрица Type × Size × State, блок свойств (Focus ring, Loading, иконки), поверхности L0/L1/L2 × Light/Dark. Кольцо фокуса и зоны нажатия растягиваются по кнопке. Ждёт публикации Foundations → привязать `action/accent/*`, `action/danger-subtle/*`, `action/danger/pressed`, `action/inverse/pressed` и тексты `accent/on-subtle`, `status/danger/on-subtle`. Вопрос: нужны ли все три danger-типа (Error, Secondary error, Text error) и Inverted? В тёмной теме Tertiary на L2 слабый (правило «контрол на уровень выше подложки» — L3).
 - [ ] **Button · from legacy** (Playground, 144 варианта, API как у Button 2.0) — на ревью. Отличия от Button 2.0 намеренные: M уже 12 (14 → 12; Button 2.0 подтянет после обновления библиотеки), Tertiary outline на 2 px уже — обводка не раздвигает кнопку, как в legacy. После ок: заменить Button 2.0 (имя «Button», перевести инстансы), удалить «Button · legacy». Затем так же остальные компоненты.
 - [x] ~~**Пилот переноса Button**~~ (1:1) — Стефан 2026-10-05: Small = 32, ориентир — значения 2.0; брать legacy как основу и дорабатывать до 2.0. Было: (DS Web baseButton → «Button · legacy», Playground)** — 44 варианта 1:1, свойства как в legacy, legacy-переменных 0. Значения вне шкалы / на решение:
   - Small высота 36 (10 + 16 + 10) — 36 нет в шкале;

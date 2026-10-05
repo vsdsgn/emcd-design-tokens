@@ -39,6 +39,8 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 ## Принятые правила (не нарушать)
 
+- **Имена размеров (2026-10-05)**: значение одинаково везде → цифра в px (`dimension/N`, `space/N`, `stroke/N`, `font-size/N`, `line-height/N`, `blur/N`); зависит от бренда/платформы → sm/md/lg/xl (= варианты S/M/L/XL) или роль (`radius/control`, `border/width/focus`); rem в именах нет (`dimension/x0-375` → `dimension/6`, code syntax `--dimension-6` — major, предупредить разработку).
+- **Подложки контролов видны на L0–L2 в обеих темах** (≥ 1.2:1 к фону). Тонированные кнопки — альфа бренда/красного 16 / 24 / 32% (`action/accent/*`, `action/danger-subtle/*`), текст на них — `accent/on-subtle`, `status/danger/on-subtle` (AA на 32%). У каждого типа свой Pressed.
 - **Шкала размеров** (2026-10-05): 2 4 6 8 10 12 16 20 24 28 32 40 48 56 64 — без нечётных и дробных; отступы `space/N` (числовые), радиусы по ролям; обводки 0.5 / 1, фокус 2, кольцо 4. Исключение — радиус кольца фокуса (радиус + 4).
 - **DSP** (docs/dsp.md): `Status:` первой строкой описания; всё на переменных (семантика — примитивы размеров не публикуются); code syntax WEB у каждой переменной; переименование/удаление = major, только через `deprecated`; после публикации Foundations — VPN + плагин DSP Export.
 
