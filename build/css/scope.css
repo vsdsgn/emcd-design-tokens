@@ -1,0 +1,2 @@
+/* A nested [data-theme] / [data-brand] takes its own text colour. Background stays with components. */
+[data-theme], [data-brand] { color: var(--text-primary); }

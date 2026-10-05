@@ -11,6 +11,14 @@
     "material": {
       "$type": "boolean",
       "$value": false
+    },
+    "nav-expressive": {
+      "$type": "boolean",
+      "$value": false
+    },
+    "nav-base": {
+      "$type": "boolean",
+      "$value": true
     }
   },
   "material": {

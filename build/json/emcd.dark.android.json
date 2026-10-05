@@ -290,6 +290,8 @@
   "decorLight": false,
   "decorTint": false,
   "decorMaterial": false,
+  "decorNavExpressive": false,
+  "decorNavBase": true,
   "materialThinFill": "#111111",
   "materialThinBlur": 0,
   "materialRegularFill": "#111111",

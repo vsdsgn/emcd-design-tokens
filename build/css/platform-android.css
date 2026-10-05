@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-[data-platform="android"] {
+[data-platform="android"], [data-platform="android"] [data-brand]:not([data-platform]) {
   --touch-is-coarse: true;
   --touch-is-fine: false;
   --os-press-feedback: highlight;

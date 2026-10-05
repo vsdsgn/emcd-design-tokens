@@ -18,8 +18,9 @@
 |---|---|---|
 | Chromium 131 (Chrome, Yandex, Edge, Samsung, Opera, WebView) | контейнер, headless | ✓ все проверки; эмуляция contrast / transparency / motion / forced colors |
 | WebKit 2.52 (движок Safari, Linux-сборка) | контейнер, WebKitGTK | ✓ значения токенов 1:1 с Chromium, ширины ✓; режимы ОС не эмулируются |
-| Firefox (Gecko) | — | реальный прогон не делали: в контейнере нет сборки. Запустить на Mac: `npm run test:browsers -- firefox` |
-| Реальный Safari macOS / iOS | — | на Mac: `npm run test:browsers -- webkit` (Playwright WebKit) + ручная проверка в Safari |
+| Firefox 155 (Gecko) | Mac, Playwright | ✓ все проверки; Expressive выкл → Base (как задумано) |
+| WebKit 26.6 (Safari) | Mac, Playwright | ✓ все проверки; Expressive выкл → Base. Живой Safari / iOS — открыть фикстуру руками |
+| Chromium 153 | Mac, Playwright | ✓ все проверки; Expressive вкл |
 | Старые и «специфические» | статический анализ (caniuse, doiuse) | таблица ниже |
 
 ## Найдено и исправлено в сборке (build.mjs)

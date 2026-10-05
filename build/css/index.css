@@ -11,6 +11,7 @@
 @import "./platform-mobile-web.css";
 @import "./style-base.css";
 @import "./style-expressive.css";
+@import "./scope.css";
 @import "./viewport.css";
 @import "./type-fluid.css";
 @import "./perf-low.css";

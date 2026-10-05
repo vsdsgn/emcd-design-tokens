@@ -3,10 +3,12 @@
  */
 /* Applies only where prefers-reduced-transparency is supported and off. Elsewhere: Base. docs/browser-support.md */
 @media (prefers-reduced-transparency: no-preference) {
-[data-style="expressive"] {
+[data-style="expressive"], [data-style="expressive"] [data-brand]:not([data-style]), [data-style="expressive"] [data-theme]:not([data-style]), [data-style="expressive"] [data-platform]:not([data-style]) {
   --decor-light: true;
   --decor-tint: true;
   --decor-material: true;
+  --decor-nav-expressive: true;
+  --decor-nav-base: false;
   --light-ambient-blur: 160px;
   --light-accent-blur: 16px;
   --edge-highlight: var(--color-alpha-white-32);

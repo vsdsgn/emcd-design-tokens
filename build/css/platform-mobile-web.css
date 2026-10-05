@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-[data-platform="mobile-web"] {
+[data-platform="mobile-web"], [data-platform="mobile-web"] [data-brand]:not([data-platform]) {
   --touch-is-coarse: true;
   --touch-is-fine: false;
   --os-press-feedback: highlight;

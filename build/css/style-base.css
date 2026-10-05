@@ -2,10 +2,12 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-:root, [data-style="base"] {
+:root, [data-style="base"], [data-brand]:not([data-style]), [data-style="base"] [data-brand]:not([data-style]), [data-theme]:not([data-style]), [data-style="base"] [data-theme]:not([data-style]), [data-platform]:not([data-style]), [data-style="base"] [data-platform]:not([data-style]) {
   --decor-light: false;
   --decor-tint: false;
   --decor-material: false;
+  --decor-nav-expressive: false;
+  --decor-nav-base: true;
   --material-thin-blur: 0px;
   --material-regular-blur: 0px;
   --material-thick-blur: 0px;
