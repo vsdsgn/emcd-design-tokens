@@ -12,7 +12,9 @@
     "icons": "node scripts/export-icons.mjs",
     "test:browsers": "node tests/xbrowser/run.mjs",
     "test:compat": "node tests/xbrowser/compat.mjs",
-    "test:perf": "node tests/perf/run.mjs"
+    "test:perf": "node tests/perf/run.mjs",
+    "test:ios": "node tests/devices/ios.mjs",
+    "test:android": "node tests/devices/android.mjs"
   },
   "files": [
     "tokens",
