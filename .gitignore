@@ -4,3 +4,4 @@ node_modules/
 .venv/
 tests/xbrowser/out/
 tests/perf/out/
+tests/devices/out/
