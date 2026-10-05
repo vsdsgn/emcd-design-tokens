@@ -13,6 +13,7 @@
 | Проект библиотек (Figma) | team 893076494660910422, folder 663842200 |
 | Репо | https://github.com/vsdsgn/emcd-design-tokens (локально ~/Projects/emcd-design-tokens) |
 | План, решения, задачи (Claude Doc) | https://claude.ai/code/artifact/67766546-a8b7-4ac9-9a64-b5e521f0ef45 |
+| DSP / playbook (код из Figma, VPN) | https://ds-playground.pv2.org · репо multigeo/ds-playground — правила: `docs/dsp.md` |
 | Анализ продуктов (Claude Doc) | https://claude.ai/code/artifact/18d13abb-e234-467c-beba-4e3550066c04 |
 
 Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Site J6PbCXVOYcc65AalmMwABr · Icons vfeP94JBhNpcHWzgY4XPhV · Performa XfgcRWqVIFMfiBbESe76wN · Web App az9dcH60FMprvAVxpKdJ9k · App YhZrWgdAIbCB94eev15OFl · Monitoring kY3VUdBinylsci3KoLWwLC · Firmware oo1OKEZcesVVcADpWDH9VC · WL B2B oN07CJPpmwLyNxKifnOZLE · Geometria Web 1pkAsixhTAWk9ZL2uNjcmm · Geometria App UthnopDYfoHTWu3dgF7u2i
@@ -26,11 +27,17 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
 
-## Где мы (2026-10-04)
+## Где мы (2026-10-05)
+
+2026-10-05: аудит по правилам DSP (docs/dsp.md). Foundations и Icons чистые; Components — статусы и цвета у всех, ~3 000 размеров привязано к семантике, ~1 700 ждут новых токенов (решение Стефана). Стефан: «сначала докрутить всю базу», дальше по шагам.
+
+## Раньше (2026-10-04)
 
 Этап: **Base DS 2.0 готова к ревью** — чеклист в OPEN-QUESTIONS. Сделано: фокус (новое кольцо у всех интерактивных компонентов), 13-шаговые рампы, Style (Base/Expressive, роли декора) и страница «🌗 Visual language», Platform = Web · iOS · Mobile web · Android (поведение `os/*`, хаптики `haptic/*`), `perf-low.css` и `contrast-more.css`, a11y-проверка токенов. В работе: компоненты по аудиту (зоны нажатия, состояния, motion, «не только цветом», описания, строки миграции). Foundations — ждут публикации. 2026-10-05: кросс-браузерный прогон (Chromium + WebKit, статический анализ старых) — 6 исправлений в сборке, отчёт `docs/browser-support.md`.
 
 ## Принятые правила (не нарушать)
+
+- **DSP** (docs/dsp.md): `Status:` первой строкой описания; всё на переменных (семантика — примитивы размеров не публикуются); code syntax WEB у каждой переменной; переименование/удаление = major, только через `deprecated`; после публикации Foundations — VPN + плагин DSP Export.
 
 - **Base — по умолчанию и откат для всего.** Expressive — только pool и Monitoring и только на мощных устройствах без снижения прозрачности; в вебе — в современных движках (Chromium 76+, Firefox 103+, Safari / iOS 18+), старые → Base; в продукте нужен переключатель «Упрощённое оформление». Декор — слоями внутри тех же компонентов, через роли Style (`decor/*`, `material/*`, `light/*`, `edge/*`), не руками. Бюджет экрана — visual-language.md.
 - **Новая идея по ходу этапа**: быстро и ничего не ломает → делаем сразу; иначе → парковка в OPEN-QUESTIONS.
