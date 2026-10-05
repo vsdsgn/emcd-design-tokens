@@ -1,7 +1,8 @@
 /**
  * Do not edit directly, this file was auto-generated.
  */
-
+/* Applies only where prefers-reduced-transparency is supported and off. Elsewhere: Base. docs/browser-support.md */
+@media (prefers-reduced-transparency: no-preference) {
 [data-style="expressive"] {
   --decor-light: true;
   --decor-tint: true;
@@ -28,4 +29,5 @@
   --edge-accent: var(--brand-accent-500);
   --light-ambient-color: var(--glow-brand);
   --light-status-brand: var(--glow-brand);
+}
 }

@@ -14,9 +14,9 @@ Style не зависит от Brand: любое сочетание допуст
 Base — дефолт. Expressive включается явно и только если выполнены все условия:
 1. продукт — pool или Monitoring;
 2. устройство тянет рендер (стекло, background blur, прогрессивный блюр, пятна с layer blur): веб — нет `data-perf="low"` и есть `backdrop-filter`; Flutter — устройство не в списке слабых, по решению разработки;
-3. у пользователя не включено снижение прозрачности.
+3. браузер **видит** настройку снижения прозрачности и она выключена (`prefers-reduced-transparency: no-preference`). Сейчас это только Chromium 118+ (Chrome, Edge, Yandex, Opera, Android WebView, Samsung 25+). Safari (macOS и iOS) и Firefox настройку не отдают → у них всегда Base, на десктопе и в мобильном вебе (решение 2026-10-05). В JS то же условие: `matchMedia('(prefers-reduced-transparency: no-preference)').matches`.
 
-Иначе — Base, даже в pool. CSS страхует сам: `perf-low.css` при `[data-perf="low"]`, `prefers-reduced-transparency` и отсутствии `backdrop-filter` подставляет значения Base поверх Expressive. Flutter: по умолчанию `<brand>.<theme>.json` (Base), `<brand>.<theme>.<ios|android>.expressive.json` — только при выполнении условий.
+Иначе — Base, даже в pool. CSS страхует сам: блок Expressive в `style-expressive.css` целиком лежит внутри `@media (prefers-reduced-transparency: no-preference)`, поэтому `data-style="expressive"` в Safari/Firefox просто не срабатывает; `perf-low.css` при `[data-perf="low"]`, `prefers-reduced-transparency` и отсутствии `backdrop-filter` подставляет значения Base поверх Expressive. Flutter: по умолчанию `<brand>.<theme>.json` (Base), `<brand>.<theme>.<ios|android>.expressive.json` — только при выполнении условий.
 
 Прогрессивный блюр у краёв прокрутки — декор: `material/edge-blur` (Base 0). В Base у края остаётся только фейд `fade/edge`.
 

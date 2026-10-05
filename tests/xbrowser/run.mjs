@@ -43,6 +43,11 @@ for (const name of run) {
   const tag = `${name} ${r.ua.match(/(Chrome|Firefox|Version)\/[\d.]+/)?.[0] || ''}`;
   check(!Object.keys(r.empty).length, `${tag}: unresolved tokens ${Object.keys(r.empty).slice(0, 5).join(', ')}`);
   check(/sans-serif|system-ui/.test(r.misc.bodyFont), `${tag}: brand font has no generic fallback (${r.misc.bodyFont})`);
+  // Expressive only where prefers-reduced-transparency is detectable (Chromium 118+); elsewhere Base.
+  const ex = await load({}, false, { style: 'expressive' });
+  check(ex.misc.rtSupported ? ex.misc.glass.blur !== '0px' : ex.misc.glass.blur === '0px',
+    `${tag}: Expressive gating wrong (detectable=${ex.misc.rtSupported}, glass blur ${ex.misc.glass.blur})`);
+  console.log(`  ${tag}: Expressive ${ex.misc.rtSupported ? 'on' : 'off → Base'}`);
   check(r.nested.geoPrimaryAction !== r.nested.htmlPrimaryAction, `${tag}: nested [data-brand] without [data-theme] keeps the outer brand's semantic tokens`, true);
 
   const cm = await load({ contrast: 'more' }, false, { style: 'expressive' });
@@ -76,7 +81,7 @@ const norm = (s) => s.replace(/"/g, "'").replace(/\s/g, '').toLowerCase().replac
 const names = Object.keys(snaps);
 for (const other of names.slice(1)) {
   const a = snaps[names[0]], b = snaps[other]; let n = 0, ex = '';
-  for (const k in a) for (const p in a[k]) if (norm(a[k][p]) !== norm(b[k][p])) { n++; ex ||= `${k} ${p}: ${a[k][p]} ≠ ${b[k][p]}`; }
+  for (const k in a) if (!k.endsWith('/expressive')) for (const p in a[k]) if (norm(a[k][p]) !== norm(b[k][p])) { n++; ex ||= `${k} ${p}: ${a[k][p]} ≠ ${b[k][p]}`; }
   check(!n, `${names[0]} vs ${other}: ${n} token values differ (e.g. ${ex})`);
 }
 writeFileSync(join(OUT, 'result.json'), JSON.stringify({ fails, warns }, null, 2));
