@@ -7,6 +7,8 @@
 <script>/* ?css=ds.min.css&style=expressive&perf=low */(function () {
   const q = new URLSearchParams(location.search), r = document.documentElement;
   if (q.get('style')) r.dataset.style = q.get('style'); if (q.get('perf')) r.dataset.perf = q.get('perf');
+  // ?burn=40 — each frame wastes N ms of main thread: a deterministic «slow device» for guard tests on fast machines.
+  if (q.get('burn')) { const n = +q.get('burn'); (function b() { const t = performance.now(); while (performance.now() - t < n); requestAnimationFrame(b); })(); }
   if (q.get('guard')) document.write('<script src="../../build/js/perf.js"><\/script>');
   document.write('<link rel="stylesheet" href="../../build/css/' + (q.get('css') || 'index.css').replace(/[^a-z.-]/g, '') + '">');
 })();</script>

@@ -61,22 +61,24 @@ for (const name of pick.length ? pick : Object.keys(engines)) {
       if (g.perf !== expect) fails.push(`guard on ${net}: data-perf=${g.perf} (${g.reason}), expected ${expect}`);
     }
     await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 0, downloadThroughput: -1, uploadThroughput: -1 });
-    // Slow frames: CPU 6× + Expressive → guard switches to low during the first scroll and remembers it.
     await page.evaluate(() => localStorage.clear());
-    await cdp.send('Emulation.setCPUThrottlingRate', { rate: 6 });
-    await page.goto(`${BASE}?css=ds.min.css&style=expressive&guard=1`, { waitUntil: 'load' });
+  }
+
+  // Frame-based guard — the only signal in Safari / Firefox, so test it in every engine.
+  await page.goto(BASE); await page.evaluate(() => localStorage.clear());
+    // Slow frames (each frame burns 40 ms — same on any hardware) + Expressive → guard switches to low and remembers it.
+    await page.evaluate(() => localStorage.clear());
+    await page.goto(`${BASE}?css=ds.min.css&style=expressive&guard=1&burn=40`, { waitUntil: 'load' });
     await page.waitForTimeout(1300); await page.evaluate(() => window.__scrollTest(3000));
     let g = await page.evaluate(() => ({ perf: document.documentElement.getAttribute('data-perf'), reason: emcdPerf.reason() }));
-    result.guard.push({ case: 'CPU 6× scroll', ...g }); if (g.perf !== 'low') fails.push(`guard on slow frames: data-perf=${g.perf} (${g.reason})`);
+    result.guard.push({ case: `${name} slow frames`, ...g }); if (g.perf !== 'low') fails.push(`guard on slow frames: data-perf=${g.perf} (${g.reason})`);
     await page.goto(`${BASE}?css=ds.min.css&style=expressive&guard=1`, { waitUntil: 'load' });
     g = await page.evaluate(() => ({ perf: document.documentElement.getAttribute('data-perf'), reason: emcdPerf.reason() }));
-    result.guard.push({ case: 'next visit', ...g }); if (g.reason !== 'frames-saved') fails.push(`guard did not remember slow frames (${g.reason})`);
+    result.guard.push({ case: `${name} next visit`, ...g }); if (g.reason !== 'frames-saved') fails.push(`guard did not remember slow frames (${g.reason})`);
     await page.evaluate(() => emcdPerf.set('high')); await page.reload({ waitUntil: 'load' });
     g = await page.evaluate(() => ({ perf: document.documentElement.getAttribute('data-perf'), reason: emcdPerf.reason() }));
-    result.guard.push({ case: 'user set high', ...g }); if (g.perf !== null) fails.push(`user setting ignored (${g.reason})`);
-    await page.evaluate(() => localStorage.clear());
-    await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
-  }
+    result.guard.push({ case: `${name} user high`, ...g }); if (g.perf !== null) fails.push(`user setting ignored (${g.reason})`);
+  await page.evaluate(() => localStorage.clear());
 
   for (const cpu of cdp ? [1, 4, 6] : [1]) {
     if (cdp) await cdp.send('Emulation.setCPUThrottlingRate', { rate: cpu });
@@ -95,6 +97,6 @@ if (result.load.length) { console.log('\nLOAD          net   css         files  
   for (const r of result.load) console.log(`${r.engine.split(' ')[0].padEnd(13)} ${r.net.padEnd(5)} ${r.css.padEnd(11)} ${String(r.files).padStart(5)} ${String(r.kb).padStart(4)} ${String(r.cssReady).padStart(8)}ms ${String(r.fcp).padStart(5)}ms`); }
 console.log('\nRENDER        cpu  mode                     fps   p50   p95  >25ms%');
 for (const r of result.render) console.log(`${r.engine.split(' ')[0].padEnd(13)} ${r.cpu.padEnd(4)} ${r.mode.padEnd(24)} ${String(r.fps).padStart(5)} ${String(r.p50).padStart(5)} ${String(r.p95).padStart(5)} ${String(r.slow).padStart(6)}`);
-if (result.guard.length) { console.log('\nGUARD'); for (const g of result.guard) console.log(`  ${g.case.padEnd(16)} data-perf=${g.perf} (${g.reason})`); }
+if (result.guard.length) { console.log('\nGUARD'); for (const g of result.guard) console.log(`  ${g.case.padEnd(24)} data-perf=${g.perf} (${g.reason})`); }
 fails.forEach((f) => console.log('✗ ' + f)); console.log(fails.length ? `${fails.length} failed` : 'perf guard checks passed');
 process.exit(fails.length ? 1 : 0);
