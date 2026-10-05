@@ -148,11 +148,11 @@
       "family": {
         "text": {
           "$type": "fontFamily",
-          "$value": "{font-family.ibm-plex-sans}"
+          "$value": "{font-family.inter}"
         },
         "display": {
           "$type": "fontFamily",
-          "$value": "{font-family.ibm-plex-sans}"
+          "$value": "{font-family.inter}"
         },
         "mono": {
           "$type": "fontFamily",

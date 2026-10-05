@@ -56,6 +56,25 @@
                slow: +(100 * d.filter((x) => x > 25).length / d.length).toFixed(1) }); } };
     requestAnimationFrame(step);
   });
+  // ?report=<device>: after load, scroll 3 s, collect what matters on a real device / simulator, POST /report, show a summary.
+  const rep = new URLSearchParams(location.search).get('report');
+  if (rep) addEventListener('load', () => setTimeout(async () => {
+    const root = document.documentElement, hdr = getComputedStyle(document.querySelector('header'));
+    const probe = document.createElement('div'); probe.style.cssText = 'position:fixed;inset:0;pointer-events:none;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);height:100dvh;visibility:hidden'; document.body.appendChild(probe);
+    const ps = getComputedStyle(probe);
+    const scroll = await window.__scrollTest(3000);
+    const r = { device: rep, at: new Date().toISOString(), ua: navigator.userAgent, viewport: [innerWidth, innerHeight], dpr: devicePixelRatio,
+      backdropFilter: CSS.supports('backdrop-filter', 'blur(1px)'), webkitBackdrop: CSS.supports('-webkit-backdrop-filter', 'blur(1px)'),
+      headerBlur: hdr.backdropFilter || hdr.webkitBackdropFilter, decorMaterial: getComputedStyle(root).getPropertyValue('--decor-material').trim(),
+      perf: root.getAttribute('data-perf'), perfReason: root.getAttribute('data-perf-reason'),
+      safeArea: [ps.paddingTop, ps.paddingRight, ps.paddingBottom, ps.paddingLeft], dvh: ps.height, scroll,
+      media: Object.fromEntries(['(prefers-reduced-transparency: reduce)', '(prefers-reduced-motion: reduce)', '(prefers-contrast: more)', '(hover: hover)', '(pointer: coarse)'].map((q) => [q, matchMedia(q).matches])) };
+    try { await fetch('/report', { method: 'POST', body: JSON.stringify(r) }); } catch (e) {}
+    scrollTo(0, 0);
+    const box = document.createElement('pre'); box.style.cssText = 'position:fixed;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:9;margin:0;padding:8px;font:11px/1.35 ui-monospace,monospace;white-space:pre-wrap;background:rgba(0,0,0,.8);color:#fff;border-radius:8px';
+    box.textContent = `${rep}\nExpressive: ${r.decorMaterial === 'true' ? 'ON' : 'OFF → Base'} · header blur ${r.headerBlur}\nperf: ${r.perf || '—'} (${r.perfReason}) · ${scroll.fps} fps, slow ${scroll.slow}%\nsafe-area ${r.safeArea.join(' ')} · 100dvh=${r.dvh} · vp ${r.viewport.join('×')}`;
+    document.body.appendChild(box);
+  }, 1500));
 </script>
 </body>
 </html>
