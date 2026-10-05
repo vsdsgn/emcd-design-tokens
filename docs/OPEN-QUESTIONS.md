@@ -23,6 +23,7 @@
 6. [~] Проверка в старых и специфичных браузерах (просьба разработки): старый Safari iOS 15–16, Android WebView / старый Chromium, Samsung Internet, Firefox ESR, Яндекс Браузер. Проверяем: fallback без `backdrop-filter`, `perf-low`, `contrast-more`, `:focus-visible`, `dvh`/safe-area, кольцо фокуса, web-haptics. Можно отдельным чатом. — 2026-10-05: прогон сделан (Chromium 131, WebKit 2.52, caniuse/Baseline для старых), отчёт docs/browser-support.md, тесты `npm run test:browsers` / `test:compat`. Осталось: Firefox и реальный Safari на Mac; web-haptics и safe-area/`dvh` — на устройствах.
 7. [ ] Ревью Стефана → правки.
 8. [ ] **Починить по итогам браузерного прогона (решаем в основном чате DS):** (а) вложенный `data-brand` без `data-theme` не пересчитывает семантику — Geometria-карточка с фиолетовой Primary (важно для превью WL в админке, Storybook); (б) вложенная тема не задаёт `color`/фон — белый текст на белой карточке; (в) `light/ambient` через `filter: blur(160px)` → `radial-gradient` (дешевле, без полос в WebKit). Детали — docs/browser-support.md.
+9. [ ] **Интерфейсный шрифт — заменить Roobert PRO на бесплатный** (Inter или другой из Google Fonts; решение Стефана 2026-10-05, решаем в основном чате DS): выбор шрифта, кегли/межстрочные под него, Figma Foundations + `font-family/*`, лицензия и подключение в вебе/Flutter. Сейчас за брендовым шрифтом в CSS стоит системный стек ОС (Apple — SF, Windows — Segoe UI, Android — Roboto) — это только запасной вариант, не выбор.
 
 ## Парковка (после этапа)
 
