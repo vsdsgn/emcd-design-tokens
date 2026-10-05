@@ -10,6 +10,7 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+- Devices (2026-10-05): `npm run test:ios` (Safari in every iOS Simulator runtime) and `npm run test:android` (Chrome on an emulator via adb); stress page self-reports (`?report=`). iOS 17.5 → Base, 18.3+ → Expressive; Android 16 with software GPU → guard switches to Base on first scroll.
 - Fonts: WL Default → Inter; CSS sans fallback stack starts with Inter, then system, then Noto per script (Arabic, Devanagari, IBM Plex Sans Thai, Noto Sans JP). New primitives font-family/inter, noto-sans-devanagari, noto-sans-jp.
 - Performance (2026-10-05): `build/css/ds.css` / `ds.min.css` — one-file bundle (59 KB, ~8 KB gzip; on 3G CSS ready 1.0 s vs 2.6 s with the @import chain). `build/js/perf.js` — perf guard: sets `data-perf="low"` from Save-Data, 2G/3G, low memory, or ≥30% slow frames during the first scroll (all browsers, remembered 7 days); `emcdPerf.set()` for a user setting. `npm run test:perf` (stress page, network & CPU emulation), CI workflow `.github/workflows/ci.yml`. docs/performance.md.
 - Build: nested scopes — theme/platform re-evaluated under nested `[data-brand]`, style under nested brand/theme/platform; `scope.css` sets text colour on nested `[data-theme]`/`[data-brand]`. Style: `decor/nav-expressive`, `decor/nav-base`.
