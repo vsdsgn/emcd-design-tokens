@@ -161,3 +161,4 @@ Skeleton,DS Web,skeleton (стиль заливки),—,—,Shape,Text|Title|Ci
 Counter,DS Web,Badge counter,status,neutral|danger,Tone / Size,Neutral|Accent|Danger / S|M,Accent — новое
 Status,DS Web,status dots в таблицах воркеров,—,—,Tone / Size,Success|Warning|Danger|Info|Neutral / S|M,не только цветом: точка + подпись
 Progress,—,—,—,—,Tone / Size,Accent|Success|Warning|Danger / S|M,новое
+Pagination,—,не найдена в legacy и продуктах,—,—,Type / Size,Pages|Compact / S|M,новое; Pagination item: State Default|Hover|Pressed|Selected|Disabled

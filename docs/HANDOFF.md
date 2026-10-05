@@ -53,7 +53,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - **Hit area** ≥ `touch/min` (Web 24, App 44); в коде max(размер, touch/min).
 - **Input**: лейбл виден всегда; внутри только плейсхолдер-подсказка; Above по умолчанию, On border — только суммы/калькулятор в виджетах.
 - **Skeleton** всегда с бегущим бликом (pulse — только при reduced motion). Loading у действий, Skeleton у данных.
-- **Иконки**: обводки, толщина `icon/stroke/regular` (Web 1.5 / App 1.7), масса по keylines, простые глифы — своя шкала (plus 14, close 12, chevron 12, arrows 14). Remix не используем; новые — по каркасу Lucide; Iconly — добавка вручную.
+- **Иконки**: обводки, толщина `icon/stroke/regular` (Web 1.5 / App 1.7), масса по keylines, простые глифы — своя шкала (plus 14, close 12, chevron 12, arrows 14). Remix и Iconly не используем; все иконки (и наши оригинальные) — на каркасе Lucide в нашем характере.
 - **Права**: библиотеки редактирует только Stephane; разработка — viewer + свой PAT.
 - **Changelog**: CHANGELOG.md (SemVer), в Figma Publish — одна строка с версией.
 
