@@ -49,3 +49,13 @@ DSP — https://ds-playground.pv2.org (только из VPN), репо `multige
   - обводка 2 не у фокуса (71), 3 (12), 1.5 (5);
   - дробные (7.84, 19.6, 27.44 — масштаб Pressed у Floating button) — переделать на целые.
 - **Icons** (121 компонент): все `icon/*`, обводка и цвет привязаны — чисто.
+
+## Решения Стефана 2026-10-05 и что сделано
+
+- **Шкала размеров**: 2 4 6 8 10 12 16 20 24 28 32 40 48 56 64. Нечётных и дробных нет. 14 → 12.
+- **Обводки**: база 0.5 (`border/width/hairline`) или 1 (`border/width/default`); фокус 2 (`border/width/focus`); кольцо фокуса 4 (`border/width/focus-ring`, оставили). Вне фокуса 2 → `border/width/strong`; графики → `chart/stroke` (2).
+- **Имена шкалы — числовые**: `space/2 … space/64` (`var(--space-6)`), значения в rem. Старые `space/3xs…3xl` — Deprecated (описание «→ space/N»), не удаляем, пока на них есть привязки.
+- **Радиусы — по ролям** (зависят от бренда, числовые имена не подходят): добавлены `radius/2xs` (2) и `radius/control-xs` (EMCD/WL 6, Geometria 2) для Checkbox. Радиус кольца фокуса = радиус объекта + 4 — осознанное исключение из шкалы (14 и т. п. только в Figma, в CSS кольцо — box-shadow).
+- `control/padding-x/md`: 14 → 12 (Button M и др.).
+- Сделано в Components без публикации: круги и капсулы (радиус = половина короткой стороны) → `radius/chip` (76 + 48 ранее), скелетон 5 → капсула, Tooltip 9 → 8, дробные Floating button → целые, File upload 1.5 → 1.
+- **После публикации Foundations** (новые переменные видны в Components только после неё): перепривязать `space/<размер>` → `space/N`; привязать gap/padding 6·10·20·28·40, 14 → 12; радиусы 2 → `radius/2xs`, Checkbox → `radius/control-xs`; обводки: Code cell (фокус) → focus, Avatar статус 2 → 1, Slider thumb 3 → strong (2), графики → `chart/stroke`.
