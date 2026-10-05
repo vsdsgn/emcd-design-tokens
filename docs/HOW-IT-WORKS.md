@@ -57,7 +57,7 @@ Components            кнопки, инпуты, карточки… — тол
 
 ## В коде
 
-Веб: атрибуты на `<html>` — `data-brand`, `data-theme`, `data-platform` (web · mobile-web), `data-style`, `data-perf`; CSS из `build/css/index.css`. `perf-low.css` сам откатывает Expressive в Base при слабом рендере.
+Веб: атрибуты на `<html>` — `data-brand`, `data-theme`, `data-platform` (web · mobile-web), `data-style`, `data-perf`; CSS в проде — `build/css/ds.min.css` (один файл, ~8 КБ gzip), для разработки — `build/css/index.css`; в `<head>` до CSS — перф-гард `build/js/perf.js` (docs/performance.md). `perf-low.css` сам откатывает Expressive в Base при слабом рендере.
 Flutter: `build/json/<brand>.<theme>.<ios|android>.json` (Base) и `….expressive.json`.
 
 ## Поток изменений

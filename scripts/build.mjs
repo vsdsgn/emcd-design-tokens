@@ -184,6 +184,19 @@ const order = ['root', 'primitives',
   'scope', 'viewport', 'type-fluid', 'perf-low', 'contrast-more', 'motion-reduced'];
 writeFileSync('build/css/index.css', order.map((f) => `@import "./${f}.css";`).join('\n') + '\n');
 
+// One-file bundle: index.css is an @import chain (the browser loads 19 files one after another, slow on a weak network).
+// ds.css = same layers, same order, one request; ds.min.css = comments and whitespace stripped. index.css stays for dev.
+{
+  const body = order.map((f) => readFileSync(`build/css/${f}.css`, 'utf8').replace(/\/\*\*[\s\S]*?\*\/\n?/, '').trim()).join('\n\n');
+  writeFileSync('build/css/ds.css', `/* EMCD DS 2.0 tokens — all layers in one file. Generated, do not edit. */\n${body}\n`);
+  const min = body.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{};:,>])\s*/g, '$1').replace(/;}/g, '}').trim();
+  writeFileSync('build/css/ds.min.css', min + '\n');
+}
+
+// Runtime perf guard (sets data-perf="low" on weak device / network / slow frames) — docs/performance.md.
+mkdirSync('build/js', { recursive: true });
+writeFileSync('build/js/perf.js', readFileSync('runtime/perf.js', 'utf8'));
+
 mkdirSync('build/json', { recursive: true });
 for (const b of brands) for (const th of themes) for (const st of styles) for (const os of ['ios', 'android']) {
   await new StyleDictionary({

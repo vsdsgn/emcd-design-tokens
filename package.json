@@ -11,7 +11,8 @@
     "all": "npm run convert && npm run build",
     "icons": "node scripts/export-icons.mjs",
     "test:browsers": "node tests/xbrowser/run.mjs",
-    "test:compat": "node tests/xbrowser/compat.mjs"
+    "test:compat": "node tests/xbrowser/compat.mjs",
+    "test:perf": "node tests/perf/run.mjs"
   },
   "files": [
     "tokens",

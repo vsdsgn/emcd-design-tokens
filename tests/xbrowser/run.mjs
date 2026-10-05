@@ -31,15 +31,21 @@ for (const name of run) {
   let browser; try { browser = await engines[name].launch(opts); } catch (e) { warns.push(`${name}: not launched (${e.message.split('\n')[0]})`); continue; }
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   const cdp = name === 'chromium' ? await page.context().newCDPSession(page) : null;
-  const load = async (media = {}, rt = false, attrs = {}) => {
+  const load = async (media = {}, rt = false, attrs = {}, css = '') => {
     await page.emulateMedia({ reducedMotion: 'no-preference', forcedColors: 'none', contrast: 'no-preference', ...media });
     if (cdp) await cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-transparency', value: rt ? 'reduce' : '' }] });
-    await page.goto(URL); await page.addScriptTag({ content: probe });
+    await page.goto(URL + (css ? `?css=${css}` : '')); await page.addScriptTag({ content: probe });
     await page.evaluate((a) => Object.entries(a).forEach(([k, v]) => (document.documentElement.dataset[k] = v)), attrs);
     return page.evaluate(() => window.__probe());
   };
   const r = await load();
   snaps[name] = r.snapshot;
+  // One-file bundles must give exactly the same tokens as the @import chain.
+  for (const css of ['ds.css', 'ds.min.css']) {
+    const b = await load({}, false, {}, css); let n = 0;
+    for (const k in r.snapshot) for (const p in r.snapshot[k]) if (r.snapshot[k][p].replace(/\s/g, '') !== b.snapshot[k][p].replace(/\s/g, '')) n++;
+    check(!n, `${name}: ${css} differs from index.css in ${n} token values`);
+  }
   const tag = `${name} ${r.ua.match(/(Chrome|Firefox|Version)\/[\d.]+/)?.[0] || ''}`;
   check(!Object.keys(r.empty).length, `${tag}: unresolved tokens ${Object.keys(r.empty).slice(0, 5).join(', ')}`);
   check(/sans-serif|system-ui/.test(r.misc.bodyFont), `${tag}: brand font has no generic fallback (${r.misc.bodyFont})`);

@@ -13,7 +13,7 @@ Style не зависит от Brand: любое сочетание допуст
 
 Base — дефолт. Expressive включается явно и только если выполнены все условия:
 1. продукт — pool или Monitoring;
-2. устройство тянет рендер (стекло, background blur, прогрессивный блюр, пятна с layer blur): веб — нет `data-perf="low"` и есть `backdrop-filter`; Flutter — устройство не в списке слабых, по решению разработки;
+2. устройство тянет рендер (стекло, background blur, прогрессивный блюр, пятна с layer blur): веб — нет `data-perf="low"` (его ставит перф-гард `build/js/perf.js` по сети, памяти и реальным кадрам — docs/performance.md) и есть `backdrop-filter`; Flutter — устройство не в списке слабых, по решению разработки;
 3. современный движок (есть `backdrop-filter` без префикса: Chrome / Edge / Yandex 76+, Firefox 103+, Safari / iOS 18+). Старые движки (Safari ≤ 17 и т. п.) → Base. Снижение прозрачности учитываем там, где браузер его сообщает (Chromium 118+); Safari и Firefox его не сообщают — для них в продукте переключатель «Упрощённое оформление» (`data-style="base"`). Решение 2026-10-05 (заменило «Expressive только где видна настройка»).
 
 Иначе — Base, даже в pool. CSS страхует сам: блок Expressive в `style-expressive.css` целиком внутри `@supports (backdrop-filter: blur(1px))` — в старых движках `data-style="expressive"` не срабатывает; `perf-low.css` при `[data-perf="low"]`, `prefers-reduced-transparency` и отсутствии `backdrop-filter` подставляет значения Base поверх Expressive. Flutter: по умолчанию `<brand>.<theme>.json` (Base), `<brand>.<theme>.<ios|android>.expressive.json` — только при выполнении условий.
