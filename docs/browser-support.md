@@ -24,7 +24,7 @@
 
 ## Найдено и исправлено в сборке (build.mjs)
 
-1. **Шрифт без запасного семейства.** `'Roobert PRO'` один: если веб-шрифт не загрузился (блокировщик, медленная сеть, Turbo/лайт-режимы), браузер рисует Times. Теперь у каждого семейства — системный стек (`system-ui … sans-serif`, моно — `ui-monospace … monospace`). Flutter JSON не меняется.
+1. **Шрифт без запасного семейства.** `'Roobert PRO'` один: если веб-шрифт не загрузился (блокировщик, медленная сеть, Turbo/лайт-режимы), браузер рисует Times. Теперь у каждого семейства — системный стек ОС (Apple — SF, Windows — Segoe UI, Android — Roboto; это запасной вариант, сам интерфейсный шрифт меняем — OPEN-QUESTIONS п. 9) (`system-ui … sans-serif`, моно — `ui-monospace … monospace`). Flutter JSON не меняется.
 2. **`prefers-contrast: more` склеивал обводки.** `--border-subtle: var(--border-default)` + `--border-default: var(--border-strong)` в одном правиле → subtle = default = strong (#7a7a7a). Теперь значения берутся из слоя темы по отдельности (subtle → 700/200, default → 500). Добавлено: `control/border/default` → strong (обводка инпута 8% белого была невидима в режиме контраста).
 3. **Reduced motion не было в CSS**, хотя motion.md его обещал. Новый слой `motion-reduced.css`: `prefers-reduced-motion: reduce` и `[data-motion="reduced"]` → длительности 0.01 мс (не 0 — чтобы `transitionend` срабатывал), `scale/press` = 1.
 4. **Forced colors (Windows «Контрастные темы»)**: `border/focus` и `border/focus-ring` → системный `Highlight`. Кольцо на `box-shadow` в этом режиме браузер убирает — у компонентов обязателен `outline: 2px solid transparent` (правило уже в components.md).
