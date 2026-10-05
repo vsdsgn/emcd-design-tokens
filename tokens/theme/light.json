@@ -506,35 +506,35 @@
   "data": {
     "1": {
       "$type": "color",
-      "$value": "{color.violet.500}"
+      "$value": "{color.blue.500}"
     },
     "2": {
       "$type": "color",
-      "$value": "{color.blue.500}"
+      "$value": "{color.yellow.700}"
     },
     "3": {
       "$type": "color",
-      "$value": "{color.emerald.500}"
+      "$value": "{color.rose.500}"
     },
     "4": {
       "$type": "color",
-      "$value": "{color.amber.500}"
+      "$value": "{color.amber.600}"
     },
     "5": {
       "$type": "color",
-      "$value": "{color.fuchsia.500}"
+      "$value": "{color.emerald.600}"
     },
     "6": {
       "$type": "color",
-      "$value": "{color.cyan.500}"
+      "$value": "{color.fuchsia.500}"
     },
     "7": {
       "$type": "color",
-      "$value": "{color.rose.500}"
+      "$value": "{color.orange.500}"
     },
     "8": {
       "$type": "color",
-      "$value": "{color.lime.800}"
+      "$value": "{color.teal.600}"
     }
   },
   "fixed": {
