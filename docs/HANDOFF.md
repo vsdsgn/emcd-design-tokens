@@ -84,9 +84,11 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 ## Технические приёмы (Figma Plugin API)
 
+- **После каждой публикации Foundations / Icons — принять обновление в Components** (Assets → библиотеки → Updates → Update all). Иначе ранее импортированные переменные и компоненты остаются на старых значениях (белый L1, сплошной Disabled, иконки-группы). Плагином это не делается: `importVariableByKeyAsync` для уже импортированной переменной отдаёт ту же старую копию.
+
 - **Старые подписки на переменные** (найдено 2026-10-05): в Components узлы были привязаны к старым копиям тех же переменных (тот же key, другой id, например `…/34:3` вместо `…/122:104`) — они отдавали старые значения (Disabled в тёмной = сплошной #1a1a1a). Проверка: `importVariableByKeyAsync(key).id !== boundId` → перепривязать. Прогнано по всем мастерам Components (~19 000 привязок). Перед сверкой цветов — всегда этот прогон; `variable.resolveForConsumer(node)` показывает реальное значение в контексте.
 - **Disabled текст и иконки** — альфа (свет black 40, тёмн. white 32): ~2.6:1 на любом уровне.
-- **Safe area**: рамка `safe area` (область содержимого внутри отступов), зелёная `status/success/solid` 16%, видимость ← свойство Show safe area.
+- **Safe area** (свойство Show safe area, зелёный `status/success/solid` 16%): `safe area · outer` — внешняя обводка толщиной `control/safe-margin` (Web 8, касание 12) = минимальное расстояние до соседей на канвасе; `safe area · content` — область содержимого внутри отступов (зависит от контента).
 - **Скрытые дети инстансов**: в use_figma ставить `figma.skipInvisibleInstanceChildren = false`, иначе findAll не видит скрытые иконки/спиннеры.
 - **Старые подписки и у компонентов** (иконки): `importComponentByKeyAsync(main.key).id !== main.id` → swapComponent.
 - **Зоны нажатия**: рамки `hit area · fine/coarse` (видимость ← `touch/is-*`), внутри `hit area · overlay` — только пунктир без заливки, видимость ← свойство Show hit area; зона может выходить за компонент (`clipsContent=false`).
