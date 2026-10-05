@@ -8,7 +8,10 @@ window.__probe = function () {
   for (const s of document.styleSheets) walk(s);
   const all = [...names].sort();
   const root = document.documentElement;
-  const axes = { brand:['emcd','geometria','wl-default','performa'], theme:['dark','light'], platform:['web','mobile-web','ios','android'], style:['base','expressive'] };
+  const sels = []; const walkSel = (rules) => { for (const r of rules) { if (r.styleSheet) { try { walkSel(r.styleSheet.cssRules); } catch (e) {} } if (r.cssRules) walkSel(r.cssRules); if (r.selectorText) sels.push(r.selectorText); } };
+  for (const sh of document.styleSheets) { try { walkSel(sh.cssRules); } catch (e) {} }
+  const found = (a) => [...new Set(sels.flatMap((t) => [...t.matchAll(new RegExp(`\\[data-${a}="([a-z-]+)"\\]`, 'g'))].map((m) => m[1])))];
+  const axes = { brand:found('brand'), theme:['dark','light'], platform:['web','mobile-web','ios','android'], style:['base','expressive'] };
   const empty = {}; const snapshot = {};
   for (const b of axes.brand) for (const t of axes.theme) for (const p of axes.platform) for (const s of axes.style) {
     root.dataset.brand=b; root.dataset.theme=t; root.dataset.platform=p; root.dataset.style=s;
