@@ -132,7 +132,7 @@ Divider,DS App,divider text --1.0,—,—,Orientation | Label,Horizontal/Vertica
 Code input,Web App,Безопасность → «Введи код из пуш уведомления» (4 ячейки),макет,—,Length | State,4/6 | Default/Error/Success/Disabled,доработка: 6 цифр, ошибка, лимит попыток, таймер повторной отправки
 Code cell,Web App,ячейка кода 69×70,макет,—,Size | State,L/M | Empty/Focus/Filled/Error/Success/Disabled,
 Button,DS Web,baseButton,Type,Primary|Secondary base|Secondary accent|Stroke base|Stroke accent|Error|Success|Link|Text|Text accent|white,Type,Primary|Secondary|Secondary accent|Outline|Tertiary accent|Link|Error|Tertiary error|Inverted,Stroke base→Outline; Text accent→Tertiary accent; white→Inverted; Stroke accent и Success — не переносим (редко); Link/Tertiary — на ревью (дублируют)
-Button,DS Web,baseButton,Size,Large|Small,Size,S|M|L|XL,"Small 32→S, Large 48→L; M 40 и XL 56 — новые по шкале"
+Button,DS Web,baseButton,Size,Large|Small,Size,S|M|L|XL,"Small 36→S 32 (−4), Large 56→XL 56; M 40 и L 48 — новые по шкале (проверено по формам 2026-10-04)"
 Button,DS Web,baseButton,Has left icon / Has rIght icon / Has text,bool,Icon left / Icon right / Label,bool / text,без текста → Icon button
 Button,DS Web,baseButton,Active,No|Yes,State,Default|Hover|Pressed|Disabled,"+ Focus ring, Loading — новое"
 Icon button,DS Web,baseButton (Has text=false) / .button circle,Type,как у Button,Type,Primary|Secondary|Outline|Ghost|Ghost accent|Inverted,Ghost — самая частая; размеры S/M/L/XL
