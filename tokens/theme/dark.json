@@ -36,7 +36,7 @@
     },
     "disabled": {
       "$type": "color",
-      "$value": "{color.neutral.850}"
+      "$value": "{color.alpha.white.8}"
     },
     "overlay": {
       "$type": "color",
@@ -223,15 +223,15 @@
     "secondary": {
       "default": {
         "$type": "color",
-        "$value": "{color.neutral.850}"
+        "$value": "{color.alpha.white.8}"
       },
       "hover": {
         "$type": "color",
-        "$value": "{color.neutral.800}"
+        "$value": "{color.alpha.white.12}"
       },
       "pressed": {
         "$type": "color",
-        "$value": "{color.neutral.700}"
+        "$value": "{color.alpha.white.16}"
       }
     },
     "tertiary": {
@@ -260,7 +260,7 @@
     },
     "disabled": {
       "$type": "color",
-      "$value": "{color.neutral.850}"
+      "$value": "{color.alpha.white.8}"
     },
     "success": {
       "default": {
@@ -393,7 +393,7 @@
       },
       "disabled": {
         "$type": "color",
-        "$value": "{color.alpha.white.4}"
+        "$value": "{color.alpha.white.8}"
       }
     },
     "border": {
@@ -415,7 +415,7 @@
       },
       "disabled": {
         "$type": "color",
-        "$value": "{color.alpha.white.4}"
+        "$value": "{color.alpha.white.8}"
       }
     },
     "checked": {
@@ -452,7 +452,7 @@
     },
     "segment-track": {
       "$type": "color",
-      "$value": "{color.alpha.white.4}"
+      "$value": "{color.alpha.white.8}"
     },
     "segment": {
       "$type": "color",
@@ -460,7 +460,7 @@
     },
     "segment-hover": {
       "$type": "color",
-      "$value": "{color.alpha.white.4}"
+      "$value": "{color.alpha.white.12}"
     }
   },
   "skeleton": {
