@@ -36,6 +36,7 @@ window.__probe = function () {
     contrast: { subtle: v(root,'--border-subtle'), def: v(root,'--border-default'), strong: v(root,'--border-strong'), ring: v(root,'--border-focus-ring'), focus: v(root,'--border-focus'), tert: v(root,'--text-tertiary'), sec: v(root,'--text-secondary') },
     motion: { feedback: v(root,'--motion-duration-feedback'), press: v(root,'--motion-scale-press') },
     glass: (()=>{ root.dataset.style='expressive'; const g=getComputedStyle(document.querySelector('.glass')); const r={bg:g.backgroundColor, bf:g.backdropFilter||g.webkitBackdropFilter, fill:v(root,'--material-regular-fill'), blur:v(root,'--material-regular-blur')}; root.dataset.style='base'; return r; })(),
+    rtSupported: matchMedia('(prefers-reduced-transparency: no-preference)').matches || matchMedia('(prefers-reduced-transparency: reduce)').matches,
     fontsLoaded: [...document.fonts].map(f=>f.family+':'+f.status),
     fontCheck: ['Roobert PRO','PP Neue Montreal','IBM Plex Sans'].map(f=>f+':'+document.fonts.check(`16px "${f}"`)),
   };

@@ -10,14 +10,26 @@
     "build": "node scripts/build.mjs",
     "all": "npm run convert && npm run build",
     "icons": "node scripts/export-icons.mjs",
-    "test:browsers": "node tests/xbrowser/run.mjs"
+    "test:browsers": "node tests/xbrowser/run.mjs",
+    "test:compat": "node tests/xbrowser/compat.mjs"
   },
   "files": [
     "tokens",
     "build"
   ],
   "devDependencies": {
+    "doiuse": "^6.0.6",
     "playwright": "^1.63.0",
+    "postcss": "^8.5.28",
     "style-dictionary": "^4.3.0"
-  }
+  },
+  "browserslist": [
+    "chrome >= 109",
+    "edge >= 109",
+    "firefox >= 115",
+    "safari >= 15.4",
+    "ios_saf >= 15.4",
+    "samsung >= 21",
+    "opera >= 95"
+  ]
 }
