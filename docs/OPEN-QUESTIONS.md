@@ -69,7 +69,7 @@
   - Найдено: «отсутствующие» 10 монет майнинга есть в legacy Icons старым поколением `ic_*` (FB, CAU, DINGO, JKC, PEP, BEL, LKY, BONK, ALPH); BCH — `ic_bitcoin_cash_bch` в другой библиотеке. Ошибка legacy: в Icons под именем `ic_bitcoin_btc` лежит зелёный BCH — в Components заменён на `smbl-bitcoin-btc` (68 инстансов).
   - Официальные логотипы монет — поискать и принести.
 - [x] ~~Минимальные версии браузеров~~ — 2026-10-05: два уровня по Baseline + statcounter, см. docs/browser-support.md.
-- [x] ~~Expressive без детекта прозрачности~~ — 2026-10-05: Expressive только там, где браузер видит настройку (Chromium 118+); Safari и Firefox — Base, и на десктопе, и в мобильном вебе.
+- [x] ~~Expressive в Safari/Firefox~~ — 2026-10-05 (пересмотрено): Expressive во всех современных движках (Chromium 76+, Firefox 103+, Safari / iOS 18+), старые → Base. Нужен переключатель «Упрощённое оформление» в продукте — Safari/Firefox не сообщают «Понижение прозрачности».
 
 ## Отложено (сделаем позже)
 

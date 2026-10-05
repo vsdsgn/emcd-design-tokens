@@ -63,13 +63,14 @@ for (const b of brands) await cssLayer({ name: `brand-${b}`, sources: [...prim, 
 for (const th of themes) await cssLayer({ name: `theme-${th}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/theme/${th}.json`], own: `theme/${th}.json`, selector: scoped('theme', th, DEFAULT.theme, ['brand']) });
 for (const p of platforms) await cssLayer({ name: `platform-${p}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/platform/${p}.json`], own: `platform/${p}.json`, selector: scoped('platform', p, DEFAULT.platform, ['brand']) });
 for (const s of styles) await cssLayer({ name: `style-${s}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/theme/${DEFAULT.theme}.json`, `${T}/platform/${DEFAULT.platform}.json`, `${T}/style/${s}.json`], own: `style/${s}.json`, selector: scoped('style', s, DEFAULT.style, ['brand', 'theme', 'platform']) });
-// Expressive only where the browser can tell us the user has NOT asked for less transparency.
-// prefers-reduced-transparency exists in Chromium 118+ (Chrome, Edge, Yandex, Opera, WebView, Samsung 25+);
-// Safari and Firefox don't know it → the whole block is ignored there and the page stays Base (degraded by design).
+// Expressive only in modern engines: gate = unprefixed backdrop-filter (Chrome/Edge/Yandex 76+, Firefox 103+, Safari / iOS 18+).
+// Older engines (Safari ≤ 17, old WebViews) stay Base. Users who asked for less transparency still get Base where the
+// browser reports it (Chromium 118+): perf-low.css @media (prefers-reduced-transparency: reduce) comes later and wins.
+// Safari/Firefox don't report that setting → product offers its own «Упрощённое оформление» toggle (data-style="base").
 {
   const f = `build/css/style-expressive.css`, c = readFileSync(f, 'utf8');
   const head = c.match(/^\/\*\*[\s\S]*?\*\/\n/)?.[0] || '';
-  writeFileSync(f, `${head}/* Applies only where prefers-reduced-transparency is supported and off. Elsewhere: Base. docs/browser-support.md */\n@media (prefers-reduced-transparency: no-preference) {\n${c.slice(head.length).trim()}\n}\n`);
+  writeFileSync(f, `${head}/* Modern engines only (unprefixed backdrop-filter: Chromium 76+, Firefox 103+, Safari 18+). Elsewhere: Base. docs/browser-support.md */\n@supports (backdrop-filter: blur(1px)) {\n${c.slice(head.length).trim()}\n}\n`);
 }
 for (const v of viewports) await cssLayer({ name: `viewport-${v}`, sources: [...prim, `${T}/viewport/${v}.json`], own: `viewport/${v}.json`, selector: ':root' });
 
