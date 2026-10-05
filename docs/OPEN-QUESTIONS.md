@@ -8,7 +8,7 @@
 - Performa — убрана из DS (бренд, токены, сборка). Была только донором решений.
 - WL = EMCD Base на фоллбеках; свой бренд клиента → темизация как Geometria (режим Brand).
 - Яркие WL-акценты и фокус — подумать, показать разные примеры (парковка).
-- Кнопки — переделка (в работе): Secondary accent → Secondary (+ Secondary error); старые Secondary и Outline → третьего порядка (Tertiary, Tertiary outline); Tertiary + Link → один текстовый стиль Text (фиолетовый и красный); убрать лишние состояния и те, что сливаются с фоном; Icon button — те же стили, что у Button.
+- Кнопки — переделка (сделано 2026-10-04, на ревью): Secondary accent → Secondary (+ Secondary error); старые Secondary и Outline → третьего порядка (Tertiary, Tertiary outline); Tertiary + Link → один текстовый стиль Text (фиолетовый и красный); убрать лишние состояния и те, что сливаются с фоном; Icon button — те же стили, что у Button.
 - Проверить все компоненты на соответствие формам Legacy.
 
 ## Текущий этап: Base DS 2.0 готова к ревью
@@ -58,7 +58,7 @@
 - [ ] Craftwork MCP/skills: в этом чате не подключены (в каталоге коннекторов claude.ai их нет). Подключить как custom connector или смотреть рефы из Claude Code.
 
 - [x] ~~**Палитра графиков для дальтоников**~~ — решено 2026-10-04 (без бренда, см. выше): сейчас первые 4 цвета путаются (ΔE 2.5). Безопасный порядок: violet · lime · teal · amber (ΔE ≥ 10), дальше путаются при любом наборе → для 5+ серий подписи и штрихи. Ок использовать лайм в графиках (он «редкий супер-акцент»)? Без лайма: violet · yellow · teal · orange (ΔE 9). `scripts/chart-palette-cvd.py`.
-- [ ] На ревью: Selected у List item; Hover/Pressed ползунка Slider; кнопки (Link = Tertiary, Disabled на фонах).
+- [ ] На ревью: Selected у List item; Hover/Pressed ползунка Slider; новые кнопки (Button и Icon button); отличия от legacy-форм — кегль контролов 16→14, радиус Modal 16→24 и Sheet 12→24, Avatar 44→56, Counter 10→12 (`migration/legacy-forms-check.md`).
 
 ## Отложено (сделаем позже)
 
