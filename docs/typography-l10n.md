@@ -80,7 +80,7 @@
 
 ## Шрифты (решение 2026-10-05)
 
-- **Base / fallback для всех — Inter** (OFL): WL Default на Inter; в CSS за брендовым шрифтом всегда идёт Inter, затем системный стек и Noto по письменностям: Noto Sans Arabic, Noto Sans Devanagari, IBM Plex Sans Thai, Noto Sans JP.
+- **Base / fallback для всех — Inter + Noto по письменностям, если и они не загрузились — системный шрифт** (решение 2026-10-05). IBM Plex Mono — только цифры и таблицы в отдельных случаях (Numeric). Inter (OFL): WL Default на Inter; в CSS за брендовым шрифтом всегда идёт Inter, затем системный стек и Noto по письменностям: Noto Sans Arabic, Noto Sans Devanagari, IBM Plex Sans Thai, Noto Sans JP.
 - EMCD — Roobert PRO (вопрос замены на бесплатный открыт); Geometria — PP Neue Montreal, как в продукте (в брендбуке BB+ указан Onest — расхождение; проверить коммерческую лицензию Pangram Pangram).
 - Inter покрывает латиницу (вкл. вьетнамский, турецкий), кириллицу (вкл. казахский, украинский), греческий. Не покрывает арабскую, деванагари, тайскую, японскую — их закрывает Noto в стеке (так задумано и у самого Noto: семья из отдельных шрифтов по письменностям).
 
