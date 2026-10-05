@@ -10,6 +10,7 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+- Buttons: neutral fills `action/secondary/*` and `action/disabled` are translucent (black 4–12 % light / white 8–16 % dark) so they never blend with L0/L1/L2; dark: segment track/hover, control disabled surface/border, surface/disabled raised to white 8–12 %. Components: Button types → Primary · Secondary (accent soft) · Secondary error · Error · Tertiary (ex Secondary) · Tertiary outline (ex Outline) · Text (ex Tertiary accent + Link) · Text error · Inverted; Icon button aligned (Primary · Secondary · Tertiary · Tertiary outline · Ghost · Text · Text error · Inverted).
 - Chart palette `data/1–8`: non-brand, CVD-aware order — blue · yellow · rose · amber · emerald · fuchsia · orange · teal (light 500–700 for 3:1, dark 300). Brand Performa removed (own DS in another unit).
 - Platform: Site mode removed (site = Web). Haptics `haptic/selection|press|drag|success|warning|error` (iOS full, Android basic, web none). Build: `contrast-more.css` (prefers-contrast: more — focus ring = border/focus, stronger borders, no decor).
 - Platform: modes Web · iOS (was App) · Site · Mobile web · Android; behaviour tokens `os/*` (press feedback, overscroll, back, haptics, material blur, native pickers/dialogs) live here. Flutter JSON now per OS: `<brand>.<theme>.<ios|android>[.expressive].json`. Separate OS collection removed.

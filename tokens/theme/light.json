@@ -223,15 +223,15 @@
     "secondary": {
       "default": {
         "$type": "color",
-        "$value": "{color.neutral.100}"
+        "$value": "{color.alpha.black.4}"
       },
       "hover": {
         "$type": "color",
-        "$value": "{color.neutral.150}"
+        "$value": "{color.alpha.black.8}"
       },
       "pressed": {
         "$type": "color",
-        "$value": "{color.neutral.200}"
+        "$value": "{color.alpha.black.12}"
       }
     },
     "tertiary": {
@@ -260,7 +260,7 @@
     },
     "disabled": {
       "$type": "color",
-      "$value": "{color.neutral.100}"
+      "$value": "{color.alpha.black.8}"
     },
     "success": {
       "default": {
