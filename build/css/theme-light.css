@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-[data-theme="light"] {
+[data-theme="light"], [data-theme="light"] [data-brand]:not([data-theme]) {
   --mode-is-light: true;
   --mode-is-dark: false;
   --bg-base: var(--color-neutral-0);

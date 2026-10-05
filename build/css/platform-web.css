@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-:root, [data-platform="web"] {
+:root, [data-platform="web"], [data-brand]:not([data-platform]), [data-platform="web"] [data-brand]:not([data-platform]) {
   --touch-is-coarse: false;
   --touch-is-fine: true;
   --os-press-feedback: highlight;

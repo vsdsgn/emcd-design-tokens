@@ -49,12 +49,20 @@ async function cssLayer({ name, sources, own, selector }) {
   }).buildAllPlatforms();
 }
 const sel = (attr, v, def) => (v === def ? `:root, [data-${attr}="${v}"]` : `[data-${attr}="${v}"]`);
+// Layers that depend on other axes are re-declared where those axes change (custom properties inherit
+// already-computed values). A nested [data-brand] without its own data-theme re-evaluates the theme layer
+// of the nearest themed ancestor. Limitation: with alternating nested themes the later-declared theme wins.
+const scoped = (attr, v, def, deps) => {
+  const s = v === def ? [':root', `[data-${attr}="${v}"]`] : [`[data-${attr}="${v}"]`];
+  for (const d of deps) { if (v === def) s.push(`[data-${d}]:not([data-${attr}])`); s.push(`[data-${attr}="${v}"] [data-${d}]:not([data-${attr}])`); }
+  return s.join(', ');
+};
 
 await cssLayer({ name: 'primitives', sources: prim, own: 'primitives/', selector: ':root' });
 for (const b of brands) await cssLayer({ name: `brand-${b}`, sources: [...prim, `${T}/brand/${b}.json`], own: `brand/${b}.json`, selector: sel('brand', b, DEFAULT.brand) });
-for (const th of themes) await cssLayer({ name: `theme-${th}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/theme/${th}.json`], own: `theme/${th}.json`, selector: sel('theme', th, DEFAULT.theme) });
-for (const p of platforms) await cssLayer({ name: `platform-${p}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/platform/${p}.json`], own: `platform/${p}.json`, selector: sel('platform', p, DEFAULT.platform) });
-for (const s of styles) await cssLayer({ name: `style-${s}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/theme/${DEFAULT.theme}.json`, `${T}/platform/${DEFAULT.platform}.json`, `${T}/style/${s}.json`], own: `style/${s}.json`, selector: sel('style', s, DEFAULT.style) });
+for (const th of themes) await cssLayer({ name: `theme-${th}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/theme/${th}.json`], own: `theme/${th}.json`, selector: scoped('theme', th, DEFAULT.theme, ['brand']) });
+for (const p of platforms) await cssLayer({ name: `platform-${p}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/platform/${p}.json`], own: `platform/${p}.json`, selector: scoped('platform', p, DEFAULT.platform, ['brand']) });
+for (const s of styles) await cssLayer({ name: `style-${s}`, sources: [...prim, `${T}/brand/${DEFAULT.brand}.json`, `${T}/theme/${DEFAULT.theme}.json`, `${T}/platform/${DEFAULT.platform}.json`, `${T}/style/${s}.json`], own: `style/${s}.json`, selector: scoped('style', s, DEFAULT.style, ['brand', 'theme', 'platform']) });
 // Expressive only where the browser can tell us the user has NOT asked for less transparency.
 // prefers-reduced-transparency exists in Chromium 118+ (Chrome, Edge, Yandex, Opera, WebView, Samsung 25+);
 // Safari and Firefox don't know it → the whole block is ignored there and the page stays Base (degraded by design).
@@ -161,13 +169,18 @@ writeFileSync('build/css/motion-reduced.css', `/* Reduced motion: docs/motion.md
 [data-motion="reduced"], [data-motion="reduced"] [data-platform] { ${reduced} }
 `);
 
+// Nested theme/brand scopes re-set the text colour (inherited colour was computed by the outer theme).
+writeFileSync('build/css/scope.css', `/* A nested [data-theme] / [data-brand] takes its own text colour. Background stays with components. */
+[data-theme], [data-brand] { color: var(--text-primary); }
+`);
+
 // Default layer (:root) must come first, otherwise it overrides [data-*] selectors of equal specificity.
 const order = ['root', 'primitives',
   ...defFirst(brands, DEFAULT.brand).map((b) => `brand-${b}`),
   ...defFirst(themes, DEFAULT.theme).map((t) => `theme-${t}`),
   ...defFirst(platforms, DEFAULT.platform).map((p) => `platform-${p}`),
   ...defFirst(styles, DEFAULT.style).map((s) => `style-${s}`),
-  'viewport', 'type-fluid', 'perf-low', 'contrast-more', 'motion-reduced'];
+  'scope', 'viewport', 'type-fluid', 'perf-low', 'contrast-more', 'motion-reduced'];
 writeFileSync('build/css/index.css', order.map((f) => `@import "./${f}.css";`).join('\n') + '\n');
 
 mkdirSync('build/json', { recursive: true });
