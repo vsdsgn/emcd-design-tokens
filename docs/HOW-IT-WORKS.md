@@ -9,7 +9,7 @@
 ```
 Primitives            сырые значения: цвета (рампы 50–950, альфы), шкала размеров
    ↓ ссылаются
-Brand                 чей продукт      EMCD · Geometria · WL Default · (Performa — эксперимент)
+Brand                 чей продукт      EMCD · Geometria · WL Default
 Theme                 светлая/тёмная   Light · Dark
 Platform              где работает     Web · Mobile web · iOS · Android  (плотность + поведение)
 Viewport              ширина           Compact · …
@@ -17,7 +17,7 @@ Style                 сколько декора   Base (по умолчани�
    ↓ используют
 Components            кнопки, инпуты, карточки… — только семантические токены, никаких hex и чисел
    ↓
-Продуктовые библиотеки (позже)   уникальное pool, Monitoring
+(всё уникальное продуктов — тоже в Components; отдельные продуктовые либы не заводим)
 ```
 
 Оси не зависят друг от друга: меняешь одну — остальные не трогаются.
@@ -49,7 +49,7 @@ Components            кнопки, инпуты, карточки… — тол
 | Monitoring | EMCD | Expressive | Web |
 | Firmware, WL B2B | EMCD | Base | Web / Mobile web / iOS / Android |
 | Geometria | Geometria | Base (может стать Expressive) | Web / Mobile web / iOS / Android |
-| WL-клиент | WL Default + свой акцент | Base | Web / Mobile web / iOS / Android |
+| WL-клиент | WL Default (= EMCD Base на фоллбеках); свой бренд → отдельный режим Brand, как Geometria | Base | Web / Mobile web / iOS / Android |
 
 ## В Figma
 
