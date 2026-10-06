@@ -13,7 +13,7 @@
 | Проект библиотек (Figma) | team 893076494660910422, folder 663842200 |
 | Репо | https://github.com/vsdsgn/emcd-design-tokens (локально ~/Projects/emcd-design-tokens) |
 | План, решения, задачи (Claude Doc) | https://claude.ai/code/artifact/67766546-a8b7-4ac9-9a64-b5e521f0ef45 |
-| DSP / playbook (код из Figma, VPN) | https://ds-playground.pv2.org · репо multigeo/ds-playground — правила: `docs/dsp.md` |
+| DSP / playbook (код из Figma, VPN) | https://ds-playground.pv2.org — смотрит Стефан на сайте; репо multigeo/ds-playground и прод (ui-emcd-web) ведёт разработчик, мы не клонируем. Правила: `docs/dsp.md` |
 | Анализ продуктов (Claude Doc) | https://claude.ai/code/artifact/18d13abb-e234-467c-beba-4e3550066c04 |
 
 Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Site J6PbCXVOYcc65AalmMwABr · Icons vfeP94JBhNpcHWzgY4XPhV · Performa XfgcRWqVIFMfiBbESe76wN · Web App az9dcH60FMprvAVxpKdJ9k · App YhZrWgdAIbCB94eev15OFl · Monitoring kY3VUdBinylsci3KoLWwLC · Firmware oo1OKEZcesVVcADpWDH9VC · WL B2B oN07CJPpmwLyNxKifnOZLE · Geometria Web 1pkAsixhTAWk9ZL2uNjcmm · Geometria App UthnopDYfoHTWu3dgF7u2i
