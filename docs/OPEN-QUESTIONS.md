@@ -71,7 +71,7 @@
 
 ## Вопросы к Стефану
 
-- [ ] **Figma, руками (Plugin API не даёт):** во всех текстовых стилях Foundations — Ligatures off + Contextual alternates off; в 7 стилях `Tabular/*` — Numbers: Tabular figures. Стили Tabular созданы (решение: на уровне Foundations, 2026-10-05).
+- [ ] **Figma, руками (Plugin API не даёт):** во всех текстовых стилях Foundations — Ligatures off + Contextual alternates off; в 7 стилях `Tabular/*` (теперь Inter) — Numbers → Spacing: Tabular. У Roobert PRO tnum нет. Проверить tnum у PP Neue Montreal (Geometria) — если есть, font/family/numeric для Geometria → PP Neue Montreal. Стили Tabular созданы (решение: на уровне Foundations, 2026-10-05).
 - [ ] Переименовать моно-стили `Numeric/*` → `Mono/*` (по смыслу — адреса, хэши, ID)? Сейчас имя путается с Tabular.
 
 - [ ] **Button — чистая борда готова** (страница «🔘 Button»). Следующий шаг после ок: заменить Button 2.0 (имя «Button», перевести инстансы в файле, опубликовать; API для DSP: Type × Tone — major, предупредить), затем Icon button по тому же шаблону.

@@ -5,4 +5,4 @@
   font-variant-ligatures: none;
   font-feature-settings: var(--font-features-ui);
 }
-[data-numeric="tabular"] { font-variant-numeric: tabular-nums; font-feature-settings: var(--font-features-tabular); }
+[data-numeric="tabular"] { font-family: var(--font-family-numeric, "Inter", system-ui, sans-serif); font-variant-numeric: tabular-nums; font-feature-settings: var(--font-features-tabular); }
