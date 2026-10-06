@@ -14,6 +14,7 @@
 | Репо | https://github.com/vsdsgn/emcd-design-tokens (локально ~/Projects/emcd-design-tokens) |
 | План, решения, задачи (Claude Doc) | https://claude.ai/code/artifact/ARTIFACT_ID_REDACTED |
 | DSP / playbook (код из Figma, VPN) | https://DSP_HOST_REDACTED — смотрит Стефан на сайте; репо ORG_REDACTED/ds-playground и прод (ui-emcd-web) ведёт разработчик, мы не клонируем. Правила: `docs/dsp.md` |
+| Как вносить изменения | `docs/how-to-change.md` (+ Figma: Components «📖 Как устроено», Foundations «📖 Как вносить изменения») |
 | Анализ продуктов (Claude Doc) | https://claude.ai/code/artifact/ARTIFACT_ID_REDACTED |
 
 Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS Site FIGMA_FILE_KEY_REDACTED · Icons FIGMA_FILE_KEY_REDACTED · Performa FIGMA_FILE_KEY_REDACTED · Web App FIGMA_FILE_KEY_REDACTED · App FIGMA_FILE_KEY_REDACTED · Monitoring FIGMA_FILE_KEY_REDACTED · Firmware FIGMA_FILE_KEY_REDACTED · WL B2B FIGMA_FILE_KEY_REDACTED · Geometria Web FIGMA_FILE_KEY_REDACTED · Geometria App FIGMA_FILE_KEY_REDACTED
@@ -111,7 +112,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 - **Safe area** (свойство Show safe area, зелёный `status/success/solid` 12%): `safe area · outer` — внешняя обводка толщиной `control/safe-margin` (Web 8, касание 12) = минимальное расстояние до соседей на канвасе; `safe area · content` — область содержимого внутри отступов (зависит от контента).
 - **Скрытые дети инстансов**: в use_figma ставить `figma.skipInvisibleInstanceChildren = false`, иначе findAll не видит скрытые иконки/спиннеры.
 - **Старые подписки и у компонентов** (иконки): `importComponentByKeyAsync(main.key).id !== main.id` → swapComponent.
-- **Зона нажатия — один слой `hit area`** (план, после публикации Foundations): высота ← `control/hit-height/{sm,md,lg,xl,inline}` = max(высота контрола, touch/min) — Web 32/40/48/56/24, касание 44/44/48/56/44; по вертикали по центру, по ширине растягивается. Вместо двух слоёв fine/coarse (Figma не умеет max(), поэтому было два слоя по платформам).
+- **Зона нажатия — два слоя** `hit area · web` (видимость ← touch/is-fine, минимум 24) и `hit area · app` (← touch/is-coarse, минимум 44): зона = max(размер компонента, `touch/min`). Figma не считает max() — поэтому два слоя; в коде один псевдоэлемент с `min-width/min-height: var(--touch-min)`. Токены control/hit-height/* заводили и удалили.
 - **Кольца фокуса и обрезка**: рамки борды, набор и варианты — clipsContent = false (кольцо выходит на 6 px).
 - **Зоны нажатия (было)**: рамки `hit area · fine/coarse` (видимость ← `touch/is-*`), внутри `hit area · overlay` — заливка 12%, видимость ← свойство Show hit area; зона может выходить за компонент (`clipsContent=false`).
 
