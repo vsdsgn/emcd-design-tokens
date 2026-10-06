@@ -1,8 +1,6 @@
 /* Interface OpenType features. Form controls do not inherit font by default: components set font-feature-settings: var(--font-features-ui). */
 :root {
   --font-features-ui: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
-  --font-features-tabular: "liga" 0, "clig" 0, "calt" 0, "dlig" 0, "tnum" 1;
   font-variant-ligatures: none;
   font-feature-settings: var(--font-features-ui);
 }
-[data-numeric="tabular"] { font-family: var(--font-family-numeric, "Inter", system-ui, sans-serif); font-variant-numeric: tabular-nums; font-feature-settings: var(--font-features-tabular); }

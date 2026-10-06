@@ -176,15 +176,13 @@ writeFileSync('build/css/scope.css', `/* A nested [data-theme] / [data-brand] ta
 `);
 
 // Interface type: no ligatures / contextual alternates ("->" stays "->", "1x2" stays "1x2", wallet addresses and amounts stay literal).
-// Numbers in tables, amounts, timers: tabular figures (columns do not jump). docs/typography-l10n.md.
+// Numbers that must align (tables, amounts): Numeric styles (IBM Plex Mono). docs/typography-l10n.md.
 writeFileSync('build/css/type-features.css', `/* Interface OpenType features. Form controls do not inherit font by default: components set font-feature-settings: var(--font-features-ui). */
 :root {
   --font-features-ui: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
-  --font-features-tabular: "liga" 0, "clig" 0, "calt" 0, "dlig" 0, "tnum" 1;
   font-variant-ligatures: none;
   font-feature-settings: var(--font-features-ui);
 }
-[data-numeric="tabular"] { font-family: var(--font-family-numeric, "Inter", system-ui, sans-serif); font-variant-numeric: tabular-nums; font-feature-settings: var(--font-features-tabular); }
 `);
 
 // Default layer (:root) must come first, otherwise it overrides [data-*] selectors of equal specificity.
