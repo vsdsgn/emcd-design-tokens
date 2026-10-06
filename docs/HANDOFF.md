@@ -84,11 +84,13 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 ## Технические приёмы (Figma Plugin API)
 
+- **Черновики на Playground — с префиксом `_`** (не публикуются): `_Button · legacy`, `_Button · from legacy`. 2026-10-05 Components случайно опубликован с ними (draft) — в DSP MR их игнорировать; при следующей публикации исчезнут из библиотеки.
+
 - **После каждой публикации Foundations / Icons — принять обновление в Components** (Assets → библиотеки → Updates → Update all). Иначе ранее импортированные переменные и компоненты остаются на старых значениях (белый L1, сплошной Disabled, иконки-группы). Плагином это не делается: `importVariableByKeyAsync` для уже импортированной переменной отдаёт ту же старую копию.
 
 - **Старые подписки на переменные** (найдено 2026-10-05): в Components узлы были привязаны к старым копиям тех же переменных (тот же key, другой id, например `…/34:3` вместо `…/122:104`) — они отдавали старые значения (Disabled в тёмной = сплошной #1a1a1a). Проверка: `importVariableByKeyAsync(key).id !== boundId` → перепривязать. Прогнано по всем мастерам Components (~19 000 привязок). Перед сверкой цветов — всегда этот прогон; `variable.resolveForConsumer(node)` показывает реальное значение в контексте.
 - **Disabled текст и иконки** — альфа black 40 / white 40 (~2.7 и 3.0–3.6:1 на любом уровне); подложка Disabled = 8%, как Default (не заметнее активной).
-- **Сглаживание углов 60% (iOS squircle)** — из legacy; в Figma у всех скруглённых слоёв компонента одинаково, включая кольцо фокуса. Код: Flutter (iOS и Android) — `SmoothRectangleBorder` (пакет figma_squircle, smoothing 0.6); Web — обычный `border-radius` (на радиусах 10–12 разница ≈ 1 px), позже прогрессивно `corner-shape: squircle` (Chromium 139+). Решение Стефана — ждём.
+- **Сглаживание углов 60% (iOS squircle)** — из legacy; в Figma у всех скруглённых слоёв компонента одинаково, включая кольцо фокуса. Код: Flutter (iOS и Android) — `SmoothRectangleBorder` (пакет figma_squircle, smoothing 0.6); Web — обычный `border-radius` (на радиусах 10–12 разница ≈ 1 px), позже прогрессивно `corner-shape: squircle` (Chromium 139+). Принято Стефаном 2026-10-05.
 - **Hit area** — красная заливка 12% (`status/danger/solid`), без пунктира.
 - **Safe area** (свойство Show safe area, зелёный `status/success/solid` 12%): `safe area · outer` — внешняя обводка толщиной `control/safe-margin` (Web 8, касание 12) = минимальное расстояние до соседей на канвасе; `safe area · content` — область содержимого внутри отступов (зависит от контента).
 - **Скрытые дети инстансов**: в use_figma ставить `figma.skipInvisibleInstanceChildren = false`, иначе findAll не видит скрытые иконки/спиннеры.
