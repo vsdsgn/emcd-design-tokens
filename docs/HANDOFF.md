@@ -31,6 +31,12 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 ## Где мы (2026-10-06)
 
+**Зоны в контролах выбора исправлены:** hit area у Checkbox / Radio / Toggle — вся строка (контрол + подпись), по высоте ≥ 24 Web / 44 касание; safe area outer подогнана к компоненту (после Control Left/Right съезжала). Проверено рендером на 5 компонентах, Web и iOS.
+**Tooltip:** на борде — раздел «Темы и уровни» (все 8 вариантов на L0–L3, Light / Dark); варианты упорядочены Placement × Tone.
+**Input → страница «🟠 Input»** (draft) с бордой: матрица State (9) × Label position × Size, поверхности L0–L3, правила. `control/border/hover` — нейтральный 24% (был бренд — Hover выглядел как Focus).
+Дальше: Select, Select compact, Textarea — тем же порядком; затем Chip, Tabs, Segmented.
+
+
 **Аудит токенов во всех компонентах (2026-10-06):** сырых цветов, отступов, gap, скруглений и толщин обводок в мастерах библиотеки — 0. Сделано: текстовые токены на фигурах → иконочные пары (85: индикаторы, шаги слайдера, точка статуса, спиннер, home indicator); text/danger в обводке → control/border/error; 283 отступа + 270 gap + 35 толщин привязаны к шкале; 88 отступов 14 → space/12 (решение «14 → 12»); бары графика r2 → radius/2xs, скелетоны r6 → radius/control-xs; модули QR-заглушки → fixed/dark / fixed/light. **Scopes расширены** там, где перекрёстное использование легитимно: status/*/solid → +STROKE_COLOR, border/* → +SHAPE_FILL/FRAME_FILL (разделители, индикаторы), data/*, control/checked|track|knob, skeleton/*, surface/level-*, action/disabled → +STROKE_COLOR, icon/* → +TEXT_FILL. Рамки наборов вариантов (служебные) в проверку не входят.
 **Checkbox / Radio / Toggle:** ось **Control = Left / Right** (контрол слева или справа от текста по вёрстке; по умолчанию Checkbox и Radio — Left, Toggle — Right). **Disabled у контролов** — как у кнопок: `control/track-disabled` и `control/surface/disabled` 8%, `control/knob-disabled` 40% (было 4% и #fafafa — в светлой сливалось). Ползунку Toggle — тень Elevation/1 (белый ползунок на светлой дорожке).
 
