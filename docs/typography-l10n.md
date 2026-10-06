@@ -132,12 +132,10 @@ Components → страница «🌍 Locale stress test»: кнопки, по�
 
 ## OpenType: интерфейс без лигатур (решение 2026-10-05)
 
-Интерфейсный текст — буквально то, что набрано: `->` остаётся `->`, `1x2` — `1x2`, адреса кошельков, хэши и суммы не подменяются глифами.
+Интерфейсный текст — буквально то, что набрано: `->` остаётся `->`, `1x2` — `1x2`, адреса, хэши и суммы не подменяются глифами.
 
-- **Выключено везде:** `liga` (стандартные лигатуры), `clig`, `calt` (контекстные замены: стрелки, ×, выравнивание двоеточий у Inter), `dlig`.
-- **Табличные цифры (`tnum`)** — в таблицах, суммах, балансах, таймерах, хэшрейте: колонки не прыгают при смене значений.
-- **Web:** `build/css/type-features.css` — на `:root` `font-variant-ligatures: none` и `font-feature-settings: var(--font-features-ui)`; для цифр `[data-numeric="tabular"]` или `font-feature-settings: var(--font-features-tabular)`. Поля ввода и кнопки шрифт не наследуют — в компонентах `font-feature-settings: var(--font-features-ui)` явно.
-- **Flutter:** в базовом `TextStyle` — `fontFeatures: [FontFeature.disable('liga'), FontFeature.disable('clig'), FontFeature.disable('calt'), FontFeature.disable('dlig')]`; для чисел добавить `FontFeature.tabularFigures()`.
-- **Figma:** в Plugin API свойства OpenType только для чтения — выставляется руками в текстовых стилях Foundations: Type details → Details → Ligatures: выкл (Standard + Contextual alternates) — во всех; Numbers: Tabular figures — в стилях `Tabular/*`.
-- **У Roobert PRO нет табличных цифр** (в Figma → Details → Numbers нет Spacing). Поэтому числа с tnum — шрифтом `font/family/numeric` (брендовый токен; EMCD, WL — Inter; Geometria — Inter, пока не проверены tnum у PP Neue Montreal). Slashed zero у Roobert есть.
-- **Какой стиль для чисел:** `Tabular/*` (font/family/numeric + tnum) — суммы, балансы, таблицы, таймеры, хэшрейт — по умолчанию; `Numeric/*` (IBM Plex Mono) — особые случаи: адреса, хэши, ID транзакций, где важно посимвольное выравнивание и различие 0/O. Состав Tabular: Display LG, Heading MD, Body MD, Body SM, Label MD, Label SM, Caption.
+- **Выключено везде:** `liga`, `clig`, `calt`, `dlig`.
+- **Web:** `build/css/type-features.css` — на `:root` `font-variant-ligatures: none` и `font-feature-settings: var(--font-features-ui)`. Поля ввода и кнопки шрифт не наследуют — в компонентах `font-feature-settings: var(--font-features-ui)` явно.
+- **Flutter:** в базовом `TextStyle` — `fontFeatures: [FontFeature.disable('liga'), FontFeature.disable('clig'), FontFeature.disable('calt'), FontFeature.disable('dlig')]`.
+- **Figma:** выставлено руками в текстовых стилях Foundations (Details → Letterforms → Ligatures off) — Стефан, 2026-10-05.
+- **Цифры, которые должны стоять ровно** (таблицы, суммы в колонках): стили `Numeric/*` (IBM Plex Mono). Отдельных «табличных» стилей нет: у Roobert PRO нет tnum, решили не плодить стили (2026-10-05).
