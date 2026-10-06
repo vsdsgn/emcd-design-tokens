@@ -163,3 +163,22 @@ Legacy: старые имена компонента
 
 Анимация: **всегда бегущий блик** (shimmer) поверх `skeleton/base`, слева направо, 1.2 с, все скелетоны экрана синхронно. Статичных скелетонов не делаем. Исключение — `prefers-reduced-motion`: блик не бежит, вместо него мягкая пульсация прозрачности; спиннер — пульсацией.
 A11y: контейнер `aria-busy="true"`, для читалки — `role="status"` «Загрузка…».
+
+## Модель состояний — одна для всех компонентов (2026-10-06)
+
+Один механизм на одну задачу. Компонент выбирает свою **группу**, дальше всё по правилу группы.
+
+| Группа | Компоненты | Hover | Pressed | Disabled | Selected |
+|---|---|---|---|---|---|
+| **Плашка** (есть фон или форма нажатия) | Button, Icon button, Chip, Segment, Menu item, List item, Accordion, Nav item, Pagination item, Date cell, Multiselect option, Table row / header cell, Floating button, Select compact, File upload, Scrollbar | слой `state/layer` × `state/hover` 6 % поверх фона | тот же слой × `state/pressed` 10 % (+ масштаб 0.96 у кнопок) | плашка `action/disabled` / `control/surface/disabled` 8 %, текст и иконки `*/disabled` 40 %, обводка `control/border/disabled`; без Hover | `accent/subtle` + `text/accent` (тинт); сплошная заливка — только выбранная дата и отмеченный контрол |
+| На тёмной / цветной плашке (Inverted, выбранный Chip, Primary) | — | слой `state/layer-inverse` (белый в светлой теме) | то же | как выше | — |
+| **Поле** | Input, Select, Textarea, Input amount, Code input, Password field | обводка `control/border/hover` (нейтральная) | нет | как выше | Focus — обводка `control/border/focus` + кольцо |
+| **Контрол выбора** | Checkbox, Radio, Toggle | слой на коробочке / круге / дорожке 6 % | 10 % + 0.96 | 8 % / ползунок 40 % | `control/checked` |
+| **Текстовый** | Tab, Breadcrumb, Text-кнопка, ссылка, Legend item | текст к `text/primary` (или `text/accent-hover`) | `text/accent-pressed` / подчёркивание | `text/disabled` | индикатор `border/accent` / `text/primary` |
+
+Правила:
+- Слой — первый ребёнок плашки, растянут, скругление = скругление плашки. В коде один `::before` с `background: var(--state-layer); opacity: var(--state-hover)`.
+- Токены `action/tertiary/hover|pressed`, `surface/hover|active`, `control/segment-hover`, `action/secondary/hover` в компонентах **не используются** (оставлены для обратной совместимости кода, кандидаты в deprecated).
+- Вложенные компоненты в Disabled-варианте переключаются в свой Disabled (Toggle в ячейке таблицы и т. п.), иконки — `icon/disabled`.
+- Иконка в плашке следует цвету подписи (выбранный Chip — `icon/inverse`).
+- Токен фокуса (`border/focus`, `border/focus-ring`) — только для фокуса, не для выбора.
