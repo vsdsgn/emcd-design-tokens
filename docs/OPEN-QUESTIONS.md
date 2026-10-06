@@ -71,6 +71,8 @@
 
 ## Вопросы к Стефану
 
+- [ ] **Figma: выключить лигатуры в 20 текстовых стилях Foundations** (руками: Type details → Details → Ligatures off, Contextual alternates off) — Plugin API не даёт. Нужны ли отдельные стили для чисел с Tabular figures (Label/MD · Tabular и т. п.)?
+
 - [ ] **Button — чистая борда готова** (страница «🔘 Button»). Следующий шаг после ок: заменить Button 2.0 (имя «Button», перевести инстансы в файле, опубликовать; API для DSP: Type × Tone — major, предупредить), затем Icon button по тому же шаблону.
 
 - [x] ~~**Схлопнуть цветные типы кнопок осью Tone?**~~ — да (Стефан 2026-10-05), сделано. Type: Primary · Secondary (тинт) · Tertiary · Tertiary outline · Text · Inverted × Tone: Accent · Danger (у Primary, Secondary, Text). Error → Primary+Danger, Secondary error → Secondary+Danger, Text error → Text+Danger. Тинт-подложка у Secondary остаётся.

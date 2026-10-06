@@ -175,13 +175,25 @@ writeFileSync('build/css/scope.css', `/* A nested [data-theme] / [data-brand] ta
 [data-theme], [data-brand] { color: var(--text-primary); }
 `);
 
+// Interface type: no ligatures / contextual alternates ("->" stays "->", "1x2" stays "1x2", wallet addresses and amounts stay literal).
+// Numbers in tables, amounts, timers: tabular figures (columns do not jump). docs/typography-l10n.md.
+writeFileSync('build/css/type-features.css', `/* Interface OpenType features. Form controls do not inherit font by default: components set font-feature-settings: var(--font-features-ui). */
+:root {
+  --font-features-ui: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
+  --font-features-tabular: "liga" 0, "clig" 0, "calt" 0, "dlig" 0, "tnum" 1;
+  font-variant-ligatures: none;
+  font-feature-settings: var(--font-features-ui);
+}
+[data-numeric="tabular"] { font-variant-numeric: tabular-nums; font-feature-settings: var(--font-features-tabular); }
+`);
+
 // Default layer (:root) must come first, otherwise it overrides [data-*] selectors of equal specificity.
 const order = ['root', 'primitives',
   ...defFirst(brands, DEFAULT.brand).map((b) => `brand-${b}`),
   ...defFirst(themes, DEFAULT.theme).map((t) => `theme-${t}`),
   ...defFirst(platforms, DEFAULT.platform).map((p) => `platform-${p}`),
   ...defFirst(styles, DEFAULT.style).map((s) => `style-${s}`),
-  'scope', 'viewport', 'type-fluid', 'perf-low', 'contrast-more', 'motion-reduced'];
+  'scope', 'type-features', 'viewport', 'type-fluid', 'perf-low', 'contrast-more', 'motion-reduced'];
 writeFileSync('build/css/index.css', order.map((f) => `@import "./${f}.css";`).join('\n') + '\n');
 
 // One-file bundle: index.css is an @import chain (the browser loads 19 files one after another, slow on a weak network).
