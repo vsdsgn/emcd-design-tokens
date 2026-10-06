@@ -64,7 +64,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 - **Одна задача — один способ.** У каждого варианта — жёсткое правило применения; блок «Когда использовать / Когда нет / Правила / Не делаем» в описании каждого компонента.
 - **Отталкиваться от текущих продуктов** (цвета, состояния, типы) — сначала замер legacy, потом решение.
-- **Уровни поверхностей (2026-10-05, новое)**: `surface/level-0…3` — последний L3, только системные примитивы: светлая neutral/0 · 100 · 150 · 200 (#fff · #f5f5f5 · #eee · #e0e0e0), тёмная neutral/950 · 850 · 800 · 700 (#0a0a0a · #1a1a1a · #232323 · #2d2d2d). Своих промежуточных шагов в рампе не заводим. Уровни отделяются подложкой, не обводкой (обводка — свойство карточки, не уровня). `bg/base`, `surface/default`, `surface/nested` — Deprecated-алиасы на level-0/1/2. Контрол — на уровень выше подложки.
+- **Уровни поверхностей (2026-10-05, новое)**: `surface/level-0…3` — последний L3, только системные примитивы: светлая neutral/0 · 100 · 150 · 200 (#fff · #f5f5f5 · #ececec · #e0e0e0; 150 подтянут с #eee 2026-10-06 — шаги 1.09 / 1.07 / 1.12), тёмная neutral/950 · 850 · 800 · 700 (#0a0a0a · #1a1a1a · #232323 · #2d2d2d). Своих промежуточных шагов в рампе не заводим. Уровни отделяются подложкой, не обводкой (обводка — свойство карточки, не уровня). `bg/base`, `surface/default`, `surface/nested` — Deprecated-алиасы на level-0/1/2. Контрол — на уровень выше подложки.
 - **Примитивы цвета — одна структура (2026-10-05)**: все 18 сплошных рамп (включая neutral) — 13 шагов 50 100 150 200 300 400 500 600 700 800 850 900 950 (150/850 — мелкая ступень у краёв для уровней); `color/white`, `color/black` отдельно (было neutral/0, /1000); все alpha-семейства — 13 шагов 4 8 12 16 24 32 40 48 56 64 72 80 88; `/0` (полностью прозрачный того же оттенка) — только где есть градиент: black, violet, electric-blue. Полушагов (450, 550, 10, 20, 76, 92) нет. Переименования примитивов — major для кода (`--color-neutral-0` → `--color-white`).
 - **Текст по иерархии — альфа**: primary — сплошной (950 / 50); secondary 72%, tertiary 56% (AA на L0–L3), disabled 40% (black в светлой, white в тёмной). Так же icon/*.
 - **Button: Type × Tone** — Type: Primary · Secondary · Tertiary · Tertiary outline · Text · Inverted; Tone: Default · Danger (у Primary, Secondary, Text). Было: Error, Secondary error, Text error.
@@ -75,7 +75,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
   - цветной текст и иконки (Text, Secondary, ссылки) — ближайшая к 500 ступень с контрастом ≥ 4.5 на L0: светлая — бренд 500, красный 600; тёмная — бренд 400, красный 500; текст · hover — +1 ступень (600 / 300);
   - `prefers-contrast: more` — цветной текст ещё на ступень дальше (бренд 600 / 300, красный 700 / 400) — `contrast-more.css`;
   - кольцо фокуса — светлее кнопки: свет 150, тёмн. 300; **зазор 2 px** до компонента (`focus/offset` = 2, CSS `outline-offset`), обводка 4 наружу; в Figma рамка кольца = компонент + 2 с каждой стороны, радиус = радиус контрола + 2 (`radius/focus-ring` EMCD 14 / Geo 8, `-sm` 12 / 6);
-  - Secondary — только на L0–L1; текст Secondary = `text/accent` / `text/danger` (не on-subtle).
+  - Secondary — только на L0–L1; Primary — на L0–L2 (тёмная L3: заливка < 3:1); текст Secondary = `text/accent` / `text/danger` (не on-subtle).
   - Брендовые роли: `accent/solid` 500, `solid-hover` 600, `solid-pressed` 700, `fg-on-light` 500, `fg-on-dark` 400, `fg-strong-on-light` 600, `fg-strong-on-dark` 300, `focus-ring-on-light` 150, `focus-ring-on-dark` 300.
 - **Иконки — один слой `glyph`** (все 121; у file-csv/pdf/xls ещё `glyph · fill`). Иначе при замене иконки в инстансе цвет переносится не на все векторы.
 - **Статус компонента — эмодзи в названии страницы** (2026-10-05): 🟠 draft · 🟡 beta · 🟢 stable · 🔴 deprecated; совпадает со строкой `Status:` в описании (DSP) и бейджем на борде. Легенда — на странице «📖 Как устроено». Button — 🟡 beta.
@@ -111,7 +111,9 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - **Safe area** (свойство Show safe area, зелёный `status/success/solid` 12%): `safe area · outer` — внешняя обводка толщиной `control/safe-margin` (Web 8, касание 12) = минимальное расстояние до соседей на канвасе; `safe area · content` — область содержимого внутри отступов (зависит от контента).
 - **Скрытые дети инстансов**: в use_figma ставить `figma.skipInvisibleInstanceChildren = false`, иначе findAll не видит скрытые иконки/спиннеры.
 - **Старые подписки и у компонентов** (иконки): `importComponentByKeyAsync(main.key).id !== main.id` → swapComponent.
-- **Зоны нажатия**: рамки `hit area · fine/coarse` (видимость ← `touch/is-*`), внутри `hit area · overlay` — заливка 12%, видимость ← свойство Show hit area; зона может выходить за компонент (`clipsContent=false`).
+- **Зона нажатия — один слой `hit area`** (план, после публикации Foundations): высота ← `control/hit-height/{sm,md,lg,xl,inline}` = max(высота контрола, touch/min) — Web 32/40/48/56/24, касание 44/44/48/56/44; по вертикали по центру, по ширине растягивается. Вместо двух слоёв fine/coarse (Figma не умеет max(), поэтому было два слоя по платформам).
+- **Кольца фокуса и обрезка**: рамки борды, набор и варианты — clipsContent = false (кольцо выходит на 6 px).
+- **Зоны нажатия (было)**: рамки `hit area · fine/coarse` (видимость ← `touch/is-*`), внутри `hit area · overlay` — заливка 12%, видимость ← свойство Show hit area; зона может выходить за компонент (`clipsContent=false`).
 
 - Слоты: `component.createSlot()` создаёт SLOT-узел + свойство; слот можно вложить в frame; пустой слот не схлопывается → нужен BOOLEAN «Show …» на visible.
 - Spread-тени на фреймах рисуются только при `clipsContent=true`.
