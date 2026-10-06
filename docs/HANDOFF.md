@@ -31,6 +31,11 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 ## Где мы (2026-10-06)
 
+**Поля и выбор — страницы и борды (🟠 draft):** Select (+ Select compact), Textarea, Input amount, Code input (+ Code cell), Password field, File upload (+ file), Calendar (+ Date cell), Multiselect (+ menu, option), Tabs (+ Tab), Segmented (+ Segment), Chip — у каждого своя страница «🟠 …» и борда общим сборщиком: шапка со статусом, матрица (строки — State / Selected; колонки — остальные оси, переносятся блоками; подписи осей в столбик), поверхности L0–L3 Light / Dark, правила из описаний. Эти компоненты уже на legacy-основе в 2.0 и прошли аудит токенов — пересборка не нужна; правки по ревью Стефана.
+**Tab, Segment, Chip** — добавлены стандартные зоны: hit area · web (24) / · app (44), safe area, свойства Show hit area / Show safe area (у Segment заменены старые fine / coarse). Tab реагирует цветом текста (правило Text: в светлой темнее, в тёмной светлее), Segment — подложкой (surface/active, control/segment-hover).
+**Осталось перевести в такой формат:** Data (таблицы, списки, графики, Accordion, Slider, Avatar, Stepper, Pagination…), Crypto (Amount, Address, Transaction…), Overlays (Menu, Toast, Modal, Sheet, Side panel), Feedback (Spinner, Skeleton, Badge, Status, Alert, Banner, Progress, Empty state…), Shell & Layout (Nav, Sidebar, Tab bar, Header, Breadcrumbs…), Floating button.
+
+
 **Зоны в контролах выбора исправлены:** hit area у Checkbox / Radio / Toggle — вся строка (контрол + подпись), по высоте ≥ 24 Web / 44 касание; safe area outer подогнана к компоненту (после Control Left/Right съезжала). Проверено рендером на 5 компонентах, Web и iOS.
 **Tooltip:** на борде — раздел «Темы и уровни» (все 8 вариантов на L0–L3, Light / Dark); варианты упорядочены Placement × Tone.
 **Input → страница «🟠 Input»** (draft) с бордой: матрица State (9) × Label position × Size, поверхности L0–L3, правила. `control/border/hover` — нейтральный 24% (был бренд — Hover выглядел как Focus).
