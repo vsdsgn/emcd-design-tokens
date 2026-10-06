@@ -71,6 +71,8 @@
 
 ## Вопросы к Стефану
 
+- [ ] **Схлопнуть цветные типы кнопок осью Tone?** Type: Primary · Secondary (тинт) · Tertiary · Tertiary outline · Text · Inverted × Tone: Accent · Danger (у Primary, Secondary, Text). Error → Primary+Danger, Secondary error → Secondary+Danger, Text error → Text+Danger. Тинт-подложка у Secondary остаётся.
+
 - [ ] **После публикации Foundations + Icons**: в Button привязать `action/accent/*`, `action/danger-subtle/*`, `action/danger/pressed`, `action/inverse/pressed`, тексты `accent/on-subtle` / `status/danger/on-subtle`; перекрасить `glyph` иконок по типу/состоянию; поверхности в доке → L0–L4; проверить фокус в тёмной.
 - [ ] Курсоры в документации компонентов (pointer / not-allowed / progress) — по желанию Стефана, позже.
 - [ ] **Button — документация** (Playground, фрейм «Button — варианты»): матрица Type × Size × State, блок свойств (Focus ring, Loading, иконки), поверхности L0/L1/L2 × Light/Dark. Кольцо фокуса и зоны нажатия растягиваются по кнопке. Ждёт публикации Foundations → привязать `action/accent/*`, `action/danger-subtle/*`, `action/danger/pressed`, `action/inverse/pressed` и тексты `accent/on-subtle`, `status/danger/on-subtle`. Вопрос: нужны ли все три danger-типа (Error, Secondary error, Text error) и Inverted? В тёмной теме Tertiary на L2 слабый (правило «контрол на уровень выше подложки» — L3).
