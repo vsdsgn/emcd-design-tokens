@@ -73,7 +73,7 @@
 
 - [x] ~~Лигатуры в текстовых стилях Foundations~~ — выключил Стефан 2026-10-05.
 
-- [ ] **Button — чистая борда готова** (страница «🔘 Button»). Следующий шаг после ок: заменить Button 2.0 (имя «Button», перевести инстансы в файле, опубликовать; API для DSP: Type × Tone — major, предупредить), затем Icon button по тому же шаблону.
+- [ ] **Button — 🟡 beta** (страница «🟡 Button»). Внешняя safe area привязана к `control/safe-margin`. Ждёт публикации Foundations: текст/иконка Secondary · Danger → `action/danger-subtle/on`. Следующий шаг после ок: заменить Button 2.0 (имя «Button», перевести инстансы в файле, опубликовать; API для DSP: Type × Tone — major, предупредить), затем Icon button по тому же шаблону.
 
 - [x] ~~**Схлопнуть цветные типы кнопок осью Tone?**~~ — да (Стефан 2026-10-05), сделано. Type: Primary · Secondary (тинт) · Tertiary · Tertiary outline · Text · Inverted × Tone: Accent · Danger (у Primary, Secondary, Text). Error → Primary+Danger, Secondary error → Secondary+Danger, Text error → Text+Danger. Тинт-подложка у Secondary остаётся.
 
