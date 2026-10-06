@@ -14,6 +14,7 @@
 | Репо | https://github.com/vsdsgn/emcd-design-tokens (локально ~/Projects/emcd-design-tokens) |
 | План, решения, задачи (Claude Doc) | https://claude.ai/code/artifact/67766546-a8b7-4ac9-9a64-b5e521f0ef45 |
 | DSP / playbook (код из Figma, VPN) | https://ds-playground.pv2.org — смотрит Стефан на сайте; репо multigeo/ds-playground и прод (ui-emcd-web) ведёт разработчик, мы не клонируем. Правила: `docs/dsp.md` |
+| Демо Button (живой код на токенах) | https://claude.ai/artifact/QemNjVgKuDXHC4K9hgaYg5 — тема / бренд / платформа / уровень, все типы × тоны × размеры × состояния; токены сняты из Foundations 2026-10-06 |
 | Как вносить изменения | `docs/how-to-change.md` (+ Figma: Components «📖 Как устроено», Foundations «📖 Как вносить изменения») |
 | Анализ продуктов (Claude Doc) | https://claude.ai/code/artifact/18d13abb-e234-467c-beba-4e3550066c04 |
 
