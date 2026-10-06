@@ -28,6 +28,10 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
 
+## Где мы (2026-10-06)
+
+Button заменён: новый компонент «Button» (страница «🟡 Button», 🟡 beta, Type × Tone × Size × State) — все инстансы в Components переведены (Error → Primary · Danger, Text error → Text · Danger); старый — «Button · deprecated» в 🗄 Archive, удалить в следующей версии. Ждёт: публикации Components, предупреждения разработки (major: ось Tone), отметки борды Ready for dev. Дальше — Icon button по тому же шаблону, затем иконки по брендам.
+
 ## Где мы (2026-10-05)
 
 Почему DS 2.0 не 1:1 с legacy: компоненты рисовались заново по замерам (±4 px), другое внутреннее устройство (gap вместо padding рамки Label), накопились «решения DS 2.0» (размеры S–XL, переименования типов, кегли). Переходим на перенос legacy-компонентов с пересадкой на токены. Пилот Button — на ревью.
@@ -75,9 +79,10 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
   - заливка Default — ближайшая к 500 ступень, где белый текст ≥ 4.5 (бренд 500, красный 600), одинаково в обеих темах; Hover / Pressed — +1 / +2 ступени вглубь (бренд 600 / 700, красный 700 / 800);
   - цветной текст и иконки (Text, Secondary, ссылки) — ближайшая к 500 ступень с контрастом ≥ 4.5 на L0: светлая — бренд 500, красный 600; тёмная — бренд 400, красный 500; текст · hover — +1 ступень (600 / 300);
   - `prefers-contrast: more` — цветной текст ещё на ступень дальше (бренд 600 / 300, красный 700 / 400) — `contrast-more.css`;
-  - кольцо фокуса — светлее кнопки: свет 150, тёмн. 300; **зазор 2 px** до компонента (`focus/offset` = 2, CSS `outline-offset`), обводка 4 наружу; в Figma рамка кольца = компонент + 2 с каждой стороны, радиус = радиус контрола + 2 (`radius/focus-ring` EMCD 14 / Geo 8, `-sm` 12 / 6);
+  - кольцо фокуса — **полупрозрачный бренд 500**: свет 48%, тёмн. 56% (контраст ~2:1 на L0–L3 в обеих темах; было сплошное 150 / 300 — в светлой терялось, в тёмной резало); **зазор 2 px** до компонента (`focus/offset` = 2, CSS `outline-offset`), обводка 4 наружу; в Figma рамка кольца = компонент + 2 с каждой стороны, радиус = радиус контрола + 2 (`radius/focus-ring` EMCD 14 / Geo 8, `-sm` 12 / 6);
   - Secondary — только на L0–L1; Primary — на L0–L2 (тёмная L3: заливка < 3:1); текст Secondary = `text/accent` / `text/danger` (не on-subtle).
-  - Брендовые роли: `accent/solid` 500, `solid-hover` 600, `solid-pressed` 700, `fg-on-light` 500, `fg-on-dark` 400, `fg-strong-on-light` 600, `fg-strong-on-dark` 300, `focus-ring-on-light` 150, `focus-ring-on-dark` 300.
+  - Брендовые роли: `accent/solid` 500, `solid-hover` 600, `solid-pressed` 700, `fg-on-light` 500, `fg-on-dark` 400, `fg-strong-on-light` 600, `fg-strong-on-dark` 300, `focus-ring-on-light` alpha 48, `focus-ring-on-dark` alpha 56.
+  - Hover / Pressed — «дальше от фона»: нейтральные подложки в светлой темнеют, в тёмной светлеют (альфа чёрного / белого); цветные заливки темнеют в обеих темах; Inverted — к фону (дальше некуда).
 - **Иконки — один слой `glyph`** (все 121; у file-csv/pdf/xls ещё `glyph · fill`). Иначе при замене иконки в инстансе цвет переносится не на все векторы.
 - **Статус компонента — эмодзи в названии страницы** (2026-10-05): 🟠 draft · 🟡 beta · 🟢 stable · 🔴 deprecated; совпадает со строкой `Status:` в описании (DSP) и бейджем на борде. Легенда — на странице «📖 Как устроено». Button — 🟡 beta.
   - draft — дизайн в работе, никуда не брать; beta — дизайн готов, **в разработку и макеты**, правки ещё возможны (предупреждаем разработку); stable — сделан в коде (Vue, при необходимости Flutter), сверен с макетом (варианты, темы, платформы, фокус, зоны, контраст), есть на реальном экране, борда без открытых вопросов, ок Стефана; после stable API меняется только через deprecated + major; deprecated — не брать.
@@ -107,7 +112,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - **Старые подписки на переменные** (найдено 2026-10-05): в Components узлы были привязаны к старым копиям тех же переменных (тот же key, другой id, например `…/34:3` вместо `…/122:104`) — они отдавали старые значения (Disabled в тёмной = сплошной #1a1a1a). Проверка: `importVariableByKeyAsync(key).id !== boundId` → перепривязать. Прогнано по всем мастерам Components (~19 000 привязок). Перед сверкой цветов — всегда этот прогон; `variable.resolveForConsumer(node)` показывает реальное значение в контексте.
 - **Disabled текст и иконки** — альфа black 40 / white 40 (~2.7 и 3.0–3.6:1 на любом уровне); подложка Disabled = 8%, как Default (не заметнее активной).
 - **Сглаживание углов 60% (iOS squircle)** — из legacy; в Figma у всех скруглённых слоёв компонента одинаково, включая кольцо фокуса. Код: Flutter (iOS и Android) — `SmoothRectangleBorder` (пакет figma_squircle, smoothing 0.6); Web — обычный `border-radius` (на радиусах 10–12 разница ≈ 1 px), позже прогрессивно `corner-shape: squircle` (Chromium 139+). Принято Стефаном 2026-10-05.
-- **Hit area / Safe area** — цвет токеном (`status/danger/solid` / `status/success/solid`), прозрачность — слоем 12% (прозрачность заливки сбрасывается при перепривязке).
+- **Hit area / Safe area** — цвет токеном (`status/danger/solid` / `status/success/solid`), прозрачность — слоем 20% (прозрачность заливки сбрасывается при перепривязке).
 - **Text / Text · Danger** — inline (по бокам 4 px — `space/4`): без подложки, без отступов и фиксированной высоты (высота = строка), Hover/Pressed — подчёркивание, иконки `icon/size/inline`, зона нажатия выходит за текст.
 - **Safe area** (свойство Show safe area, зелёный `status/success/solid` 12%): `safe area · outer` — внешняя обводка толщиной `control/safe-margin` (Web 8, касание 12) = минимальное расстояние до соседей на канвасе; `safe area · content` — область содержимого внутри отступов (зависит от контента).
 - **Скрытые дети инстансов**: в use_figma ставить `figma.skipInvisibleInstanceChildren = false`, иначе findAll не видит скрытые иконки/спиннеры.
