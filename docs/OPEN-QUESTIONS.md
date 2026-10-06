@@ -71,7 +71,7 @@
 
 ## Вопросы к Стефану
 
-- [ ] **Схлопнуть цветные типы кнопок осью Tone?** Type: Primary · Secondary (тинт) · Tertiary · Tertiary outline · Text · Inverted × Tone: Accent · Danger (у Primary, Secondary, Text). Error → Primary+Danger, Secondary error → Secondary+Danger, Text error → Text+Danger. Тинт-подложка у Secondary остаётся.
+- [x] ~~**Схлопнуть цветные типы кнопок осью Tone?**~~ — да (Стефан 2026-10-05), сделано. Type: Primary · Secondary (тинт) · Tertiary · Tertiary outline · Text · Inverted × Tone: Accent · Danger (у Primary, Secondary, Text). Error → Primary+Danger, Secondary error → Secondary+Danger, Text error → Text+Danger. Тинт-подложка у Secondary остаётся.
 
 - [ ] **После публикации Foundations + Icons**: в Button привязать `action/accent/*`, `action/danger-subtle/*`, `action/danger/pressed`, `action/inverse/pressed`, тексты `accent/on-subtle` / `status/danger/on-subtle`; перекрасить `glyph` иконок по типу/состоянию; поверхности в доке → L0–L4; проверить фокус в тёмной.
 - [ ] Курсоры в документации компонентов (pointer / not-allowed / progress) — по желанию Стефана, позже.
