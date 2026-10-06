@@ -184,7 +184,7 @@ writeFileSync('build/css/type-features.css', `/* Interface OpenType features. Fo
   font-variant-ligatures: none;
   font-feature-settings: var(--font-features-ui);
 }
-[data-numeric="tabular"] { font-variant-numeric: tabular-nums; font-feature-settings: var(--font-features-tabular); }
+[data-numeric="tabular"] { font-family: var(--font-family-numeric, "Inter", system-ui, sans-serif); font-variant-numeric: tabular-nums; font-feature-settings: var(--font-features-tabular); }
 `);
 
 // Default layer (:root) must come first, otherwise it overrides [data-*] selectors of equal specificity.
