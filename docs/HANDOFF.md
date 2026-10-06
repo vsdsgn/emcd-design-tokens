@@ -31,6 +31,13 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 ## Где мы (2026-10-06)
 
+**Контролы выбора из legacy (🟠 draft, страницы «🟠 Checkbox», «🟠 Radio», «🟠 Toggle»)** — по методу «legacy-основа → 2.0»:
+- **Checkbox** (legacy baseCheckbox: коробочка 20, r 6 = `radius/control-xs`, подпись через 12): Status Off · On · Indeterminate × Tone Default · Danger × Size M (16/24) · S (14/20) × State — 48. Off-обводка — `border/strong` (≥ 3:1, WCAG 1.4.11), On — `control/checked` + `icon/check` / `icon/minus` (`icon/on-accent`), Danger — `control/border/error` / `action/danger/default`.
+- **Radio** (legacy baseRadio: круг 20, точка 8): Status Off · On × Tone × Size × State — 32; Off-обводка `border/strong`.
+- **Toggle** (legacy baseToggle: дорожка 48×28 / 40×24, ползунок 20 / 16, отступ 4; подпись слева): Status × Size × State — 16; `control/track` / `control/checked` / `control/knob`; переключение — ползунок 200 мс, haptic/selection; в прототипе клик переключает.
+- Общее: слой state/layer 6/10% на коробочке / круге / дорожке, Pressed 0.96; кольцо фокуса вокруг контрола (зазор 2); зоны нажатия web 24 / app 44 вокруг контрола (кликается вся строка); safe area; Label / Description / Focus ring / Show hit area / Show safe area; Danger 2.0 → ось Tone. Старые 2.0 → deprecated в 🗄 Archive; инстансы переведены (Checkbox 52, Radio 2, Toggle 5; старые Checkbox/Radio → Size S).
+
+
 **Tooltip перенесён из legacy (🟠 draft, страница «🟠 Tooltip»)** — legacy «base tooltip»: Placement Top / Bottom / Left / Right (сторона от элемента; уголок смотрит на элемент) × Tone Neutral (surface/raised + border/default, text/primary) / Accent (бренд, белый текст); пузырь r16 + сглаживание 60%, отступы 10/16, Label/MD, max-width 320 (текст переносится), тень Elevation/2 · S. Уголок — служебный набор `_Tooltip arrow` (Neutral / Accent): вектор из legacy + маска 1 px на стыке (контур одной линией); одна булева форма невозможна — пузырь тянется по тексту, уголок растянулся бы. Ориентация уголка — трансформацией инстанса. Тот же уголок — в тултипе Icon button. **Позиционирование:** по умолчанию Top; не помещается → Bottom; у бокового края / в rail → Right/Left; сдвиг ≥ control/safe-margin от края экрана, уголок над центром элемента, ≥ 16 от угла пузыря; отступ острия 4 px; код — Floating UI (offset 13, flip, shift, arrow). **Время:** появление через 500 мс, между соседними элементами за 300 мс — сразу; по фокусу — сразу; Esc закрывает; enter 200 мс / exit 120 мс. App — по тапу на «i». Старый Tooltip 2.0 → deprecated в 🗄 Archive (2 инстанса переведены). Борда: варианты, 4 сценария позиционирования, правила.
 
 
