@@ -74,7 +74,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
   - заливка Default — ближайшая к 500 ступень, где белый текст ≥ 4.5 (бренд 500, красный 600), одинаково в обеих темах; Hover / Pressed — +1 / +2 ступени вглубь (бренд 600 / 700, красный 700 / 800);
   - цветной текст и иконки (Text, Secondary, ссылки) — ближайшая к 500 ступень с контрастом ≥ 4.5 на L0: светлая — бренд 500, красный 600; тёмная — бренд 400, красный 500; текст · hover — +1 ступень (600 / 300);
   - `prefers-contrast: more` — цветной текст ещё на ступень дальше (бренд 600 / 300, красный 700 / 400) — `contrast-more.css`;
-  - кольцо фокуса — светлее кнопки: свет 150, тёмн. 300;
+  - кольцо фокуса — светлее кнопки: свет 150, тёмн. 300; **зазор 2 px** до компонента (`focus/offset` = 2, CSS `outline-offset`), обводка 4 наружу; в Figma рамка кольца = компонент + 2 с каждой стороны, радиус = радиус контрола + 2 (`radius/focus-ring` EMCD 14 / Geo 8, `-sm` 12 / 6);
   - Secondary — только на L0–L1; текст Secondary = `text/accent` / `text/danger` (не on-subtle).
   - Брендовые роли: `accent/solid` 500, `solid-hover` 600, `solid-pressed` 700, `fg-on-light` 500, `fg-on-dark` 400, `fg-strong-on-light` 600, `fg-strong-on-dark` 300, `focus-ring-on-light` 150, `focus-ring-on-dark` 300.
 - **Иконки — один слой `glyph`** (все 121; у file-csv/pdf/xls ещё `glyph · fill`). Иначе при замене иконки в инстансе цвет переносится не на все векторы.
