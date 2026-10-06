@@ -13,7 +13,7 @@
 | Проект библиотек (Figma) | team FIGMA_TEAM_ID_REDACTED, folder FIGMA_TEAM_ID_REDACTED |
 | Репо | https://github.com/vsdsgn/emcd-design-tokens (локально ~/Projects/emcd-design-tokens) |
 | План, решения, задачи (Claude Doc) | https://claude.ai/code/artifact/ARTIFACT_ID_REDACTED |
-| DSP / playbook (код из Figma, VPN) | https://DSP_HOST_REDACTED · репо ORG_REDACTED/ds-playground — правила: `docs/dsp.md` |
+| DSP / playbook (код из Figma, VPN) | https://DSP_HOST_REDACTED — смотрит Стефан на сайте; репо ORG_REDACTED/ds-playground и прод (ui-emcd-web) ведёт разработчик, мы не клонируем. Правила: `docs/dsp.md` |
 | Анализ продуктов (Claude Doc) | https://claude.ai/code/artifact/ARTIFACT_ID_REDACTED |
 
 Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS Site FIGMA_FILE_KEY_REDACTED · Icons FIGMA_FILE_KEY_REDACTED · Performa FIGMA_FILE_KEY_REDACTED · Web App FIGMA_FILE_KEY_REDACTED · App FIGMA_FILE_KEY_REDACTED · Monitoring FIGMA_FILE_KEY_REDACTED · Firmware FIGMA_FILE_KEY_REDACTED · WL B2B FIGMA_FILE_KEY_REDACTED · Geometria Web FIGMA_FILE_KEY_REDACTED · Geometria App FIGMA_FILE_KEY_REDACTED
