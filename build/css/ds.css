@@ -1213,6 +1213,15 @@ html { font-size: 100%; }
 /* A nested [data-theme] / [data-brand] takes its own text colour. Background stays with components. */
 [data-theme], [data-brand] { color: var(--text-primary); }
 
+/* Interface OpenType features. Form controls do not inherit font by default: components set font-feature-settings: var(--font-features-ui). */
+:root {
+  --font-features-ui: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
+  --font-features-tabular: "liga" 0, "clig" 0, "calt" 0, "dlig" 0, "tnum" 1;
+  font-variant-ligatures: none;
+  font-feature-settings: var(--font-features-ui);
+}
+[data-numeric="tabular"] { font-variant-numeric: tabular-nums; font-feature-settings: var(--font-features-tabular); }
+
 :root {
   --layout-columns: 4;
   --layout-content-max: 37.5rem;

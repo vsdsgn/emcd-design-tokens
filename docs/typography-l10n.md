@@ -129,3 +129,13 @@ Components → страница «🌍 Locale stress test»: кнопки, по�
 ## Figma ↔ Crowdin
 
 Источник строк — код (i18n-ключи) и Crowdin, не Figma. Живую синхронизацию не строим. Связка нужна в двух местах: (1) контекст переводчикам — скриншоты экранов из Figma в Crowdin; (2) превью перевода нужного экрана в Figma для проверки длины и вёрстки. Обе задачи закрывает официальный плагин Crowdin для Figma — проверить на одном экране.
+
+## OpenType: интерфейс без лигатур (решение 2026-10-05)
+
+Интерфейсный текст — буквально то, что набрано: `->` остаётся `->`, `1x2` — `1x2`, адреса кошельков, хэши и суммы не подменяются глифами.
+
+- **Выключено везде:** `liga` (стандартные лигатуры), `clig`, `calt` (контекстные замены: стрелки, ×, выравнивание двоеточий у Inter), `dlig`.
+- **Табличные цифры (`tnum`)** — в таблицах, суммах, балансах, таймерах, хэшрейте: колонки не прыгают при смене значений.
+- **Web:** `build/css/type-features.css` — на `:root` `font-variant-ligatures: none` и `font-feature-settings: var(--font-features-ui)`; для цифр `[data-numeric="tabular"]` или `font-feature-settings: var(--font-features-tabular)`. Поля ввода и кнопки шрифт не наследуют — в компонентах `font-feature-settings: var(--font-features-ui)` явно.
+- **Flutter:** в базовом `TextStyle` — `fontFeatures: [FontFeature.disable('liga'), FontFeature.disable('clig'), FontFeature.disable('calt'), FontFeature.disable('dlig')]`; для чисел добавить `FontFeature.tabularFigures()`.
+- **Figma:** в Plugin API свойства OpenType только для чтения — выставляется руками в каждом текстовом стиле Foundations: Type details → Details → Ligatures: выкл (Standard + Contextual alternates), Numbers: Tabular — только у стилей для чисел.
