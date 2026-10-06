@@ -146,8 +146,11 @@ const contrastBlock = (th) => {
     --control-border-default: ${themeVal(th, '--border-strong')};
     --text-tertiary: ${themeVal(th, '--text-secondary')};
     --icon-tertiary: ${themeVal(th, '--icon-secondary')};
-    --text-danger: var(--color-red-${th === 'dark' ? '300' : '700'});
-    --icon-danger: var(--color-red-${th === 'dark' ? '300' : '700'});
+    --text-danger: var(--color-red-${th === 'dark' ? '400' : '700'});
+    --icon-danger: var(--color-red-${th === 'dark' ? '400' : '700'});
+    --text-accent: var(--brand-accent-${th === 'dark' ? '300' : '600'});
+    --icon-accent: var(--brand-accent-${th === 'dark' ? '300' : '600'});
+    --text-link: var(--brand-accent-${th === 'dark' ? '300' : '600'});
   }`;
 };
 writeFileSync('build/css/contrast-more.css', `/* prefers-contrast: more */

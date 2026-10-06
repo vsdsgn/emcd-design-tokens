@@ -1474,8 +1474,11 @@ html { font-size: 100%; }
     --control-border-default: var(--color-neutral-500);
     --text-tertiary: var(--color-neutral-400);
     --icon-tertiary: var(--color-neutral-400);
-    --text-danger: var(--color-red-300);
-    --icon-danger: var(--color-red-300);
+    --text-danger: var(--color-red-400);
+    --icon-danger: var(--color-red-400);
+    --text-accent: var(--brand-accent-300);
+    --icon-accent: var(--brand-accent-300);
+    --text-link: var(--brand-accent-300);
   }
   [data-theme="light"] {
     --border-focus-ring: var(--border-focus);
@@ -1486,6 +1489,9 @@ html { font-size: 100%; }
     --icon-tertiary: var(--color-neutral-600);
     --text-danger: var(--color-red-700);
     --icon-danger: var(--color-red-700);
+    --text-accent: var(--brand-accent-600);
+    --icon-accent: var(--brand-accent-600);
+    --text-link: var(--brand-accent-600);
   }
   :root, [data-style] { --decor-light: false; --decor-tint: false; --decor-material: false; --decor-nav-expressive: false; --decor-nav-base: true; --material-thin-blur: 0px; --material-regular-blur: 0px; --material-thick-blur: 0px; --material-edge-blur: 0px; --light-ambient-blur: 0px; --light-accent-blur: 0px; --light-ambient-color: var(--color-alpha-black-0); --light-accent-color: var(--color-alpha-black-0); --light-tint: var(--color-alpha-black-0); --light-status-neutral: var(--color-alpha-black-0); --light-status-attention: var(--color-alpha-black-0); --light-status-error: var(--color-alpha-black-0); --light-status-success: var(--color-alpha-black-0); --light-status-brand: var(--color-alpha-black-0); --light-tint-end: var(--color-alpha-black-0); --edge-highlight: var(--color-alpha-black-0); --material-thin-fill: var(--surface-default); --material-regular-fill: var(--surface-default); --material-thick-fill: var(--surface-raised); --material-scrim: var(--surface-overlay); --edge-hairline: var(--border-subtle); --edge-accent: var(--border-subtle); }
 }
