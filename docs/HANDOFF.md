@@ -31,6 +31,10 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 ## Где мы (2026-10-06)
 
+**Аудит токенов во всех компонентах (2026-10-06):** сырых цветов, отступов, gap, скруглений и толщин обводок в мастерах библиотеки — 0. Сделано: текстовые токены на фигурах → иконочные пары (85: индикаторы, шаги слайдера, точка статуса, спиннер, home indicator); text/danger в обводке → control/border/error; 283 отступа + 270 gap + 35 толщин привязаны к шкале; 88 отступов 14 → space/12 (решение «14 → 12»); бары графика r2 → radius/2xs, скелетоны r6 → radius/control-xs; модули QR-заглушки → fixed/dark / fixed/light. **Scopes расширены** там, где перекрёстное использование легитимно: status/*/solid → +STROKE_COLOR, border/* → +SHAPE_FILL/FRAME_FILL (разделители, индикаторы), data/*, control/checked|track|knob, skeleton/*, surface/level-*, action/disabled → +STROKE_COLOR, icon/* → +TEXT_FILL. Рамки наборов вариантов (служебные) в проверку не входят.
+**Checkbox / Radio / Toggle:** ось **Control = Left / Right** (контрол слева или справа от текста по вёрстке; по умолчанию Checkbox и Radio — Left, Toggle — Right). **Disabled у контролов** — как у кнопок: `control/track-disabled` и `control/surface/disabled` 8%, `control/knob-disabled` 40% (было 4% и #fafafa — в светлой сливалось). Ползунку Toggle — тень Elevation/1 (белый ползунок на светлой дорожке).
+
+
 **Input** — не пересобираем: 2.0 уже на legacy-основе (подпись в разрыве рамки, XL 56 / r 12 / отступы 16, helper 12) и со слотами Leading / Inline / Trailing (Plugin API не создаёт SLOT-свойства — пересборка их потеряет). Дорабатываем на месте по правилам 2.0. **Глобально перепривязаны устаревшие токены** в мастерах Components (~1900): space/3xs…3xl → space/2…64, bg/base → surface/level-0, surface/default → surface/level-1, surface/nested → surface/level-2 (значения те же).
 **Где Стефан оставляет задачи на ревью:** в Figma — текстовый слой / стикер с префиксом «📝» прямо на борде компонента (я нахожу их скриптом, делаю, меняю префикс на «✅»); Figma-комментарии мне недоступны.
 
