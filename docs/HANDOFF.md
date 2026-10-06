@@ -69,7 +69,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - **Текст по иерархии — альфа**: primary — сплошной (950 / 50); secondary 72%, tertiary 56% (AA на L0–L3), disabled 40% (black в светлой, white в тёмной). Так же icon/*.
 - **Button: Type × Tone** — Type: Primary · Secondary · Tertiary · Tertiary outline · Text · Inverted; Tone: Default · Danger (у Primary, Secondary, Text). Было: Error, Secondary error, Text error.
 - **Обводки и плашки — полупрозрачные** (2026-10-05): контраст к своему уровню одинаков на L0–L4 в обеих темах. Ступени: плашка ~1.2 / hover ~1.33 / pressed ~1.5; `border/subtle` ~1.2 (black 8 / white 8), `border/default` и `control/border/default` ~1.3 (12 / 10), `border/strong` ≥ 3:1 (48 / 40). Цветные тинты в тёмной теме плотнее (бренд и красный 24/32/40 против 16/24/32). `status/*/subtle` ~1.2, `status/*/border` ~1.6 (warning в светлой — сплошной amber 500). Текст на плашках `*/on-subtle` — свет 800, тёмн. 200 (AA ≥ 4.5 на всех уровнях). `surface/hover/active` — альфа 8 / 12. Сплошные нейтральные обводки и плашки не используем: на L3–L4 они сливаются.
-- **Кольцо фокуса в тёмной теме** — бренд 600 (было 800: на L3–L4 не видно). Светлая — бренд 200.
+- **Кольцо фокуса** — бледное: светлая бренд 150, тёмная бренд 700 (решение Стефана 2026-10-05; было 200 / 600).
 - **Иконки — один слой `glyph`** (все 121; у file-csv/pdf/xls ещё `glyph · fill`). Иначе при замене иконки в инстансе цвет переносится не на все векторы.
 - **Шаблон документации компонента** (образец — страница «🔘 Button» в Components, фрейм «Button — борда» 259:3: шапка со статусом → варианты → свойства Light/Dark → Text в строке → зоны → поверхности L0–L3 → правила колонками из описания): матрица вариантов с подписями (строки — Type, колонки — Size × State); свойства в Light и Dark; зоны нажатия Web vs касание (свойство Show hit area); поверхности L0–L4 в обеих темах; правила (Когда какой / Размер / Правила / Не делаем) — тот же текст в описании компонента (DSP). Курсоры — позже.
 - **Уровни поверхностей (до 2026-10-05)**: L0 `bg/base` #0a0a0a · L1 `surface/default` #111 (карточка) · L2 `surface/nested` #1a1a1a · L3 hover #232323. Контрол на уровень выше подложки; Secondary — только на L1. `surface/raised` — поповеры.
@@ -87,6 +87,8 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 ## Технические приёмы (Figma Plugin API)
 
+- **Сетку вариантов на борде «🔘 Button» выравнивал Стефан** — скрипты не переставляют варианты (менять размеры — с сохранением x/y).
+
 - **Черновики — с префиксом `_`** (не публикуются): `_Button · from legacy` (живёт на странице «🔘 Button»; `_Button · legacy` и старая дока Playground удалены). 2026-10-05 Components случайно опубликован с ними (draft) — в DSP MR их игнорировать; при следующей публикации исчезнут из библиотеки.
 
 - **После каждой публикации Foundations / Icons — принять обновление в Components** (Assets → библиотеки → Updates → Update all). Иначе ранее импортированные переменные и компоненты остаются на старых значениях (белый L1, сплошной Disabled, иконки-группы). Плагином это не делается: `importVariableByKeyAsync` для уже импортированной переменной отдаёт ту же старую копию.
@@ -95,7 +97,8 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - **Disabled текст и иконки** — альфа black 40 / white 40 (~2.7 и 3.0–3.6:1 на любом уровне); подложка Disabled = 8%, как Default (не заметнее активной).
 - **Сглаживание углов 60% (iOS squircle)** — из legacy; в Figma у всех скруглённых слоёв компонента одинаково, включая кольцо фокуса. Код: Flutter (iOS и Android) — `SmoothRectangleBorder` (пакет figma_squircle, smoothing 0.6); Web — обычный `border-radius` (на радиусах 10–12 разница ≈ 1 px), позже прогрессивно `corner-shape: squircle` (Chromium 139+). Принято Стефаном 2026-10-05.
 - **Hit area / Safe area** — цвет токеном (`status/danger/solid` / `status/success/solid`), прозрачность — слоем 12% (прозрачность заливки сбрасывается при перепривязке).
-- **Text / Text error** — inline: без подложки, без отступов и фиксированной высоты (высота = строка), Hover/Pressed — подчёркивание, иконки `icon/size/inline`, зона нажатия выходит за текст.
+- **Secondary · Danger** — текст/иконка `action/danger-subtle/on` (свет red-700, тёмн. red-300; ярче on-subtle 800/200): Default AA на L0–L3, Hover/Pressed на L3 ≥ 3.8.
+- **Text / Text error** — inline (по бокам 2 px — `space/2`): без подложки, без отступов и фиксированной высоты (высота = строка), Hover/Pressed — подчёркивание, иконки `icon/size/inline`, зона нажатия выходит за текст.
 - **Safe area** (свойство Show safe area, зелёный `status/success/solid` 12%): `safe area · outer` — внешняя обводка толщиной `control/safe-margin` (Web 8, касание 12) = минимальное расстояние до соседей на канвасе; `safe area · content` — область содержимого внутри отступов (зависит от контента).
 - **Скрытые дети инстансов**: в use_figma ставить `figma.skipInvisibleInstanceChildren = false`, иначе findAll не видит скрытые иконки/спиннеры.
 - **Старые подписки и у компонентов** (иконки): `importComponentByKeyAsync(main.key).id !== main.id` → swapComponent.
