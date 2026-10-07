@@ -20,10 +20,10 @@
 | Menu / Menu item | Dropdown / Dropdown item | ✓ 2026-10-07 | ✓ | ✓ | ✓ | строка 44 + плашка ховера с отступом 4 (r8), обёртка pad 8, иконка 24, разделитель с отступом 16, **чекбокс справа** (как legacy); иконки в legacy — акцентные (вопрос) |
 | Multiselect option | Dropdown item | — | — | — | — | ⛔ deprecated → Menu item (Checkbox = true); 5 инстансов заменены, мастер в Archive |
 | Select, Multiselect | input + Dropdown | | | | | далее |
-| Chip | baseChip / base, vertical | | | | | далее |
-| Tabs | base tabbar, tab item | | | | | |
-| Segmented | base segmented picker | | | | | |
-| Badge (+Counter, Status) | base badge * | | | | | |
+| Chip | baseChip / base, vertical | ✓ 2026-10-07 | ✓ | ✓ | ✓ | M: 16/24, отступ 16; S: 12; мета `text/tertiary`, на выбранном — `text/inverse-secondary` (новый токен); вертикальный: иконка по свойству. Высоты 40/32 вместо 44/36 — шкала DS 2.0 |
+| Tabs | base tabbar, tab item | ✓ 2026-10-07 | ✓ | ✓ | ✓ | legacy 60 → L 56 (16/24, индикатор 3); невыбранная `text/tertiary`; gap L/XL 24 |
+| Segmented | base segmented picker | ✓ 2026-10-07 | ✓ | ✓ | ✓ | legacy lg = XL (56, r16/12, отступ 24), sm ≈ L; радиус дорожки = сегмент + 4; невыбранный `text/tertiary`; вес Medium вместо SemiBold — стиль Label |
+| Badge (+Counter, Status) | base badge * | ✓ 2026-10-07 | ✓ | ✓ | ✓ | нейтральный Subtle — `text/tertiary`; отступ L 12 (legacy 14 — правило «14 → 12»), S lh 16 (18); Subtle-тона на `status/*/on-subtle` 200 (legacy: бренд 300, ошибка — сплошной красный, контраст ниже) |
 | Toast | base notification | | | | | |
 | Alert / Banner | baseCard / banner, base Banner --2.0 | | | | | |
 | Modal | base modal header / footer | | | | | |
@@ -38,3 +38,5 @@
 | Legend item | .legends | | | | | |
 | Sidebar / Nav item | sidebar, Sidebar item | | | | | |
 | Sheet, Divider, Tab bar, Top bar | DS App | | | | | |
+
+**Иконки меню:** в legacy пункты меню с фиолетовыми иконками; оставляем нейтральные (Стефан 2026-10-07: «пока так же»).
