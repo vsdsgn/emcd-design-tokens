@@ -35,8 +35,8 @@
 | Stepper | Step Symbol / Trail / Text | ✓ 2026-10-07 (Symbol, Step) | ✓ | — | ◐ | Step symbol: Default — нейтральный круг + рамка, номер 14/20 `text/tertiary`; Current — кольцо `border/accent` без заливки, номер `text/primary`; Success — `surface/active` + галочка `icon/tertiary` (legacy Checked; было зелёным). Step: подпись Default `text/tertiary`. Trail не сверялся; борда не пересобрана |
 | Progress circle | baseCircleLoader | ◐ 2026-10-07 | ✓ | — | — | дорожка `action/secondary/default` (legacy #1a1a1a); legacy — только 24, у нас S/M/L 24/48/72 с подписью % |
 | Table | .table / raw, column title, cell base | ✓ 2026-10-07 | ✓ | ✓ | ✓ (раздел Table проверен) | текст ячеек и заголовков 14/20 (legacy 14/21; было 16/24), описания `text/tertiary`, заголовок 40, gap 6; колонки строки = колонкам шапки (Адрес Fill, Статус 140, ⋯ 48), текст ячеек — одна строка с «…». Отступы оставлены 2.0 (строка 8 + ячейка 12): legacy 32 + 0/12 не помещается в таблицу 800. Неактивный заголовок — `text/tertiary` (legacy #4d4d4d не проходит контраст). Иконочные ячейки (⋯, Icon, Star, Toggle, Buttons) — без min 80 |
-| Legend item | .legends | | | | | |
-| Sidebar / Nav item | sidebar, Sidebar item | ✓ 2026-10-07 | ✓ | ✓ | ✓ | высота 40, подпись и иконка `*/primary`, выбранный — нейтральная плашка `action/secondary/default` + индикатор 2 × 20 `accent/solid` слева (как legacy); Sidebar — дальше |
+| Legend item | .legends | ✓ 2026-10-07 | ✓ | ✓ | ✓ | маркер — вертикальная полоска 2 × 16 (новый вариант Legend swatch Marker = Bar), подпись 14/20 Medium: Default `text/tertiary`, Hover `text/secondary`, Selected `text/primary` |
+| Sidebar / Nav item | sidebar, Sidebar item | ✓ 2026-10-07 | ✓ | ✓ | ✓ | Nav item: высота 40, подпись и иконка `*/primary`, выбранный — нейтральная плашка + индикатор 2 × 20 `accent/solid` слева. Sidebar: фон `surface/default` (legacy #111), ширина 240 (legacy 238 + поля 12) |
 | Sheet, Divider, Tab bar, Top bar | DS App | | | | | |
 
 **Иконки меню:** в legacy пункты меню с фиолетовыми иконками; оставляем нейтральные (Стефан 2026-10-07: «пока так же»).
