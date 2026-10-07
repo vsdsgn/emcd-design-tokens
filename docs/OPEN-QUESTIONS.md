@@ -73,6 +73,8 @@
 
 ## Вопросы к Стефану
 
+- [ ] **Публикация Foundations (2026-10-07):** начертание во всех стилях привязано к `font-weight/*` (ревью Button), новый `radius/focus-ring-lg` (= radius/lg + 2, для кольца Card). После публикации: Components → Update all, привязать кольцо Card к `radius/focus-ring-lg`. Радиусы колец в Geometria: подобраны по значениям EMCD — проверить, что у Geo кольцо = радиус + 2 (иначе нужны токены «кольцо для каждого радиуса»).
+
 - [ ] **Публикация (утро 2026-10-07):** Foundations (accent 600, Disabled 8/40, 19 токенов size/*) → Components: Update all → `scripts/figma/bind-sizes.plugin.js` → публикация Components. DSP: новые `--size-*`, `--layout-min-viewport` — minor; цвет `--text-accent` в светлой 500 → 600 — визуальное изменение, предупредить.
 - [ ] **Дальше по карте legacy → 2.0 (следующий чат):** Select compact — legacy «Selector small» уже 1:1 (36, r10, pad 8, gap 16 / 6, иконка 24, шеврон 16); докрутка: зоны старого образца (`hit area · fine/coarse`) → web/app + Show hit area / safe area, ось Size. Menu / Menu item — legacy «Dropdown / Dropdown item» совпадает по сетке (обёртка pad 8 r12 + обводка, пункт 44 pad 10/12, r8); перенести из legacy: чекбокс мультивыбора **справа** (в 2.0 слева), левый слот 32 под монету/символ, подпись группы 12/18 Medium, скроллбар 4 px. Затем Multiselect (legacy multiselect_input, Dropdown wrapper: Default / Scroll / With divider / Not found), Chip, Tabs, Segmented, Badge… Code cell: добавить Hover (нет State=Default — другая схема вариантов).
 - [ ] Кандидаты в deprecated (после перевода компонентов на слой больше не используются): `action/tertiary/hover|pressed`, `surface/hover|active`, `control/segment-hover`, `action/secondary/hover` — проверить в коде (DSP) перед удалением.
