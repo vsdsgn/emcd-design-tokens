@@ -174,7 +174,7 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 | На тёмной / цветной плашке (Inverted, выбранный Chip, Primary) | — | слой `state/layer-inverse` (белый в светлой теме) | то же | как выше | — |
 | **Поле** | Input, Select, Textarea, Input amount, Code input, Password field | обводка `control/border/hover` (нейтральная) | нет | как выше | Focus — обводка `control/border/focus` + кольцо |
 | **Контрол выбора** | Checkbox, Radio, Toggle | слой на коробочке / круге / дорожке 6 % | 10 % + 0.96 | 8 % / ползунок 40 % | `control/checked` |
-| **Навигация** | Tab, Nav item | слой / цвет текста | — | `*/disabled` | индикатор `accent/solid` (Tab — снизу, Nav item — слева 2 × 20) + нейтральная плашка у Nav item; без тинта бренда |
+| **Навигация** | Tab, Nav item | слой / цвет текста | — | `*/disabled` | индикатор `border/accent` (Tab — снизу, Nav item — слева 2 × 20) + нейтральная плашка у Nav item; без тинта бренда |
 | **Текстовый** | Tab, Breadcrumb, Text-кнопка, ссылка, Legend item | текст к `text/primary` (или `text/accent-hover`) | `text/accent-pressed` / подчёркивание | `text/disabled` | индикатор `border/accent` / `text/primary` |
 
 Правила:
@@ -183,3 +183,9 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 - Вложенные компоненты в Disabled-варианте переключаются в свой Disabled (Toggle в ячейке таблицы и т. п.), иконки — `icon/disabled`.
 - Иконка в плашке следует цвету подписи (выбранный Chip — `icon/inverse`).
 - Токен фокуса (`border/focus`, `border/focus-ring`) — только для фокуса, не для выбора.
+
+
+## Кольцо фокуса и начертание — общее правило (2026-10-07, по ревью Button)
+
+- **Кольцо фокуса** у всех компонентов строится одинаково: слой `focus ring`, обводка OUTSIDE `border/width/focus-ring` (4) цветом `border/focus-ring`, зазор = `focus/offset` (2) от цели. Цель — корень компонента; у полей — сам field; у Menu item — плашка с отступом 4. Радиус кольца = радиус цели + 2 (`radius/focus-ring-sm`, `radius/focus-ring`, `radius/focus-ring-lg`, `radius/control-sm` для 8, `radius/full`). Figma не умеет привязать смещение слоя к переменной, поэтому зазор 2 проверяет `scripts/figma/audit.plugin.js`; в коде — `outline-offset: var(--focus-offset)`, `border-radius: calc(var(--radius) + var(--focus-offset))`.
+- **Начертание** задаётся только стилем текста; все 20 стилей Foundations привязаны к `font-weight/regular|medium|semibold|bold`. Текст без стиля в мастерах — ошибка аудита.
