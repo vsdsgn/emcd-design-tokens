@@ -5,3 +5,4 @@ node_modules/
 tests/xbrowser/out/
 tests/perf/out/
 tests/devices/out/
+claude-ds/out/
