@@ -30,8 +30,8 @@
 | Empty state | empty state | ✓ 2026-10-07 | ✓ | ✓ | ✓ | карточка с рамкой `border/default` r16, описание `text/tertiary`; заголовок Bold (legacy SemiBold) — стиль Heading |
 | List item | List | ✓ 2026-10-07 | ✓ | ✓ | ✓ | вторичный текст `text/tertiary`, отступ иконка → текст 16 |
 | Accordion | baseAccordion | ✓ 2026-10-07 | ✓ | ✓ | ✓ | шеврон 20 без подложки, раскрытый: 12 до текста / 32 снизу (L), тело Body/LG `text/tertiary`; зоны пересобраны; Disabled-шеврон `icon/disabled`; борда: Свойства и зоны, Поверхности L0–L3, ряд Pressed в матрице. ⚠️ мастер пересоздан из копии — **ключ библиотеки сменился** |
-| Slider | base slider | ◐ 2026-10-07 | ✓ | ✓ | ✓ | подписи `text/tertiary`; осталось: точки шагов 6 (legacy) вместо 4, радиус дорожки 12 |
-| Avatar | base avatar | ◐ 2026-10-07 | ✓ | ✓ | ✓ | буквы `text/tertiary`; legacy 36 / 44 против 40 / 56 — шкала DS 2.0, иконка L 20 (у нас 24) |
+| Slider | base slider | ✓ 2026-10-07 | ✓ | ✓ | ✓ | дорожка 18 r12 `action/secondary/default`, точки шагов 6 (на заливке — `text/on-accent`, вне — `icon/tertiary`), ползунок с кольцом бренда 2, подпись / шаги / описание 14/20 `text/tertiary`; зоны стандартные (по дорожке); борда: Свойства и зоны, Поверхности. Описание и шаги legacy #4d4d4d — у нас tertiary (контраст) |
+| Avatar | base avatar | ✓ 2026-10-07 | ✓ | — (не интерактивный) | ✓ | размеры 1:1 legacy: XS 20 · S 28 · M 36 · L 44 (было 32/40/56), инициалы S 14/20, M/L 16/24 `text/tertiary`, фон `surface/active` (#232323), иконки 16/20/20; Avatar group: нахлёст −4/−6/−8 |
 | Stepper | Step Symbol / Trail / Text | | | | | |
 | Progress circle | baseCircleLoader | | | | | |
 | Table | .table | | | | | |
