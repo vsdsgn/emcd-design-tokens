@@ -15,6 +15,7 @@
 | План, решения, задачи (Claude Doc) | https://claude.ai/code/artifact/67766546-a8b7-4ac9-9a64-b5e521f0ef45 |
 | DSP / playbook (код из Figma, VPN) | https://ds-playground.pv2.org — смотрит Стефан на сайте; репо multigeo/ds-playground и прод (ui-emcd-web) ведёт разработчик, мы не клонируем. Правила: `docs/dsp.md` |
 | Демо Button (живой код на токенах) | https://claude.ai/artifact/QemNjVgKuDXHC4K9hgaYg5 — тема / бренд / платформа / уровень, все типы × тоны × размеры × состояния; токены сняты из Foundations 2026-10-06 |
+| Claude DS (Design System для Claude Design) | https://claude.ai/artifact/W2TgpSUQWd4Vb6FPLA75JJ — синхронизируется из репо по «обнови Claude DS» (`scripts/claude-ds.mjs`). `docs/claude-ds.md` |
 | Как вносить изменения | `docs/how-to-change.md` (+ Figma: Components «📖 Как устроено», Foundations «📖 Как вносить изменения») |
 | Анализ продуктов (Claude Doc) | https://claude.ai/code/artifact/18d13abb-e234-467c-beba-4e3550066c04 |
 
@@ -29,13 +30,17 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
 
+## Где мы (2026-10-07)
+
+**Claude DS синхронизируется из репо** (docs/claude-ds.md). Значения токенов — из `build/json`, статусы — `claude-ds/status.json`, перенесённые компоненты — `claude-ds/components/` (пока Button); подписи токенов и проза README живут в артефакте и сохраняются. Синхронизация — «обнови Claude DS». Первая — 2026-10-07 с 0992491: значения не менялись, +24 токена, статусы в карточках (Button 🟡 beta по beta-спеке, 26 — 🟠 draft «в макеты не брать»). **После утренней публикации Foundations → экспорт → `npm run all` → «обнови Claude DS»** — придут `surface-level-*`, `action-accent-*`, `state-layer`.
+
 ## Где мы (2026-10-06)
 
 **Ночная пачка (2026-10-06/07) — «система, а не ui kit»:**
 - **Foundations (не опубликовано):** цветной текст в светлой вернул на 600 (`accent/fg-on-light` → accent/600, `text/accent-hover` 700, `text/accent-pressed` 800) — 500 не проходил AA на L1+ и у Geo на L0. Добавлено 19 токенов размеров в Platform: `layout/min-viewport` 320 и `size/*` (button, field, text/measure, menu, tooltip, popover, toast, modal sm/md/lg, sheet, side-panel, card, chip, badge, table-cell) — docs/sizing.md.
 - **Единая модель состояний** (docs/components.md → «Модель состояний»): Hover/Pressed на всех плашках — слой `state/layer` 6/10 % (переведены Chip, Segment, List item, Accordion, Nav item, Pagination item, Date cell, Multiselect option, Table row / header cell, Select compact, File upload, Scrollbar; на тёмных плашках — `state/layer-inverse`); добавлены недостающие Pressed (Date cell, Multiselect option, Nav item ×2, Accordion ×4, Table header cell ×6, Table row ×2, Select compact) с восстановленными свойствами и прототипом; Hover у Input amount (нейтральная обводка). Баги: Floating button Hover/Pressed, File upload Disabled, ячейки таблицы Disabled (вложенные Toggle / кнопки → Disabled, иконки → icon/disabled), Chip — иконка следует подписи, Chip cell — выбор `border/accent` вместо токена фокуса. Nav icon — legacy-переменные перепривязаны.
 - **Min/max** проставлены в мастерах (сырыми числами до публикации): Button 64 (кроме Text), поля 160, Menu 160–320, Toast ≤ 400 (было 416), Modal 560, Sheet ≤ 640, Alert / Banner / Stat card ≥ 280, Notification ≤ 400, Chip ≤ 240 и Badge ≤ 160 с обрезкой «…», таблица ≥ 80. После публикации — `scripts/figma/bind-sizes.plugin.js`.
-- **Порядок публикации:** Foundations → в Components Update all → bind-sizes → проверить борды.
+- **Порядок публикации:** Foundations → в Components Update all → bind-sizes → проверить борды → экспорт → `npm run all` → «обнови Claude DS».
 
 
 **Checkbox / Radio / Toggle — ось Control починена (2026-10-06, вечер).** Была сломана: клоны вариантов второй позиции (Checkbox/Radio Right, Toggle Left) не меняли порядок (insertChild(iT) в том же родителе — no-op, нужен iT+1) и потеряли все componentPropertyReferences (Label, Description, Show-свойства, Focus ring, зоны) — свойства в них не работали. Исправлено: порядок control/text, ссылки перенесены с парного варианта (576), у Right — space-between + `space/12` справа у text (минимальный зазор; при Fill контрол прижат к краю, при Hug — как раньше), зоны — constraints STRETCH. На бордах — раздел «Расположение в контексте» (форма Left / настройки Right, Fill).
@@ -106,6 +111,7 @@ Button заменён: новый компонент «Button» (страниц�
 - **Имена размеров (2026-10-05)**: значение одинаково везде → цифра в px (`dimension/N`, `space/N`, `stroke/N`, `font-size/N`, `line-height/N`, `blur/N`); зависит от бренда/платформы → sm/md/lg/xl (= варианты S/M/L/XL) или роль (`radius/control`, `border/width/focus`); rem в именах нет (`dimension/x0-375` → `dimension/6`, code syntax `--dimension-6` — major, предупредить разработку).
 - **Подложки контролов видны на L0–L2 в обеих темах** (≥ 1.2:1 к фону). Тонированные кнопки — альфа бренда/красного 16 / 24 / 32% (`action/accent/*`, `action/danger-subtle/*`), текст на них — `accent/on-subtle`, `status/danger/on-subtle` (AA на 32%). У каждого типа свой Pressed.
 - **Шкала размеров** (2026-10-05): 2 4 6 8 10 12 16 20 24 28 32 40 48 56 64 — без нечётных и дробных; отступы `space/N` (числовые), радиусы по ролям; обводки 0.5 / 1, фокус 2, кольцо 4. Исключение — радиус кольца фокуса (радиус + 4).
+- **Claude DS** (docs/claude-ds.md): токены, статусы и перенесённые компоненты — только из репо; синхронизация после публикации Foundations и после смены статуса компонента («обнови Claude DS»). Статус в `claude-ds/status.json` меняем вместе с эмодзи страницы в Figma; компонент в 🟡 beta → переносим в `claude-ds/components/`.
 - **DSP** (docs/dsp.md): `Status:` первой строкой описания; всё на переменных (семантика — примитивы размеров не публикуются); code syntax WEB у каждой переменной; переименование/удаление = major, только через `deprecated`; после публикации Foundations — VPN + плагин DSP Export.
 
 - **Base — по умолчанию и откат для всего.** Expressive — только pool и Monitoring и только на мощных устройствах без снижения прозрачности; в вебе — в современных движках (Chromium 76+, Firefox 103+, Safari / iOS 18+), старые → Base; в продукте нужен переключатель «Упрощённое оформление». Декор — слоями внутри тех же компонентов, через роли Style (`decor/*`, `material/*`, `light/*`, `edge/*`), не руками. Бюджет экрана — visual-language.md.

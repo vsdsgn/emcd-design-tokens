@@ -8,6 +8,7 @@
   "scripts": {
     "convert": "node scripts/figma-to-dtcg.mjs",
     "build": "node scripts/build.mjs",
+    "claude-ds": "node scripts/claude-ds.mjs",
     "all": "npm run convert && npm run build",
     "icons": "node scripts/export-icons.mjs",
     "test:browsers": "node tests/xbrowser/run.mjs",

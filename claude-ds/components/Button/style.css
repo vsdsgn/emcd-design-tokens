@@ -1,0 +1,51 @@
+/* Button — 🟡 beta (Figma «🟡 Button»: Type × Tone × Size × State).
+   Токены DS 2.0 с запасными значениями: до экспорта Foundations в репо часть имён ещё старые. */
+.emcd-btn { --h: 40px; --px: 12px; --r: var(--radius-control); --fs: 14px; --lh: 20px;
+  --bg: transparent; --fg: var(--text-primary);
+  --layer: var(--state-layer, var(--text-primary)); --layer-hover: 0.06; --layer-pressed: 0.10;
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 6px; vertical-align: middle;
+  height: var(--h); padding: 0 var(--px); border: 0; border-radius: var(--r); margin: 0;
+  font: 500 var(--fs)/var(--lh) var(--font-sans); font-feature-settings: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
+  background: var(--bg); color: var(--fg); max-width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  cursor: pointer; -webkit-tap-highlight-color: transparent; outline: none; text-decoration: none;
+  transition: transform var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)), color 120ms cubic-bezier(.2,0,0,1); }
+.emcd-btn > * { position: relative; z-index: 1; }
+.emcd-btn svg { width: 20px; height: 20px; flex: none; }
+/* Hover / Pressed — слой «краски» темы: в светлой кнопка темнее, в тёмной светлее. Одно правило на все типы. */
+.emcd-btn::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--layer); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-btn:hover::before { opacity: var(--layer-hover); }
+.emcd-btn:active::before { opacity: var(--layer-pressed); }
+.emcd-btn:active { transform: scale(var(--motion-scale-press, 0.96)); }
+/* Фокус: кольцо 4 px, зазор 2 px, повторяет скругление */
+.emcd-btn:focus-visible { outline: 4px solid var(--border-focus-ring); outline-offset: 2px; }
+/* Зона нажатия = max(размер, touch-min) */
+.emcd-btn::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: max(100%, var(--touch-min, 24px)); height: max(100%, var(--touch-min, 24px)); }
+.emcd-btn--s { --h: 32px; --px: 10px; --r: var(--radius-control-sm); }
+.emcd-btn--l { --h: 48px; --px: 16px; --fs: 16px; --lh: 24px; }
+.emcd-btn--xl { --h: 56px; --px: 20px; --fs: 16px; --lh: 24px; }
+.emcd-btn--l svg, .emcd-btn--xl svg { width: 24px; height: 24px; }
+.emcd-btn--s svg { width: 16px; height: 16px; }
+/* Type × Tone */
+.emcd-btn--primary { --bg: var(--action-primary-default); --fg: var(--fixed-light); }
+.emcd-btn--primary.emcd-btn--danger, .emcd-btn--error { --bg: var(--action-danger-default); --fg: var(--fixed-light); }
+.emcd-btn--secondary { --bg: var(--action-accent-default, var(--accent-subtle)); --fg: var(--text-accent); }
+.emcd-btn--secondary.emcd-btn--danger, .emcd-btn--secondary-error { --bg: var(--action-danger-subtle-default, var(--status-danger-subtle)); --fg: var(--text-danger); }
+.emcd-btn--tertiary { --bg: var(--action-secondary-default); --fg: var(--text-primary); }
+.emcd-btn--outline { --bg: transparent; --fg: var(--text-primary); box-shadow: inset 0 0 0 1px var(--border-default); }
+.emcd-btn--inverted { --bg: var(--action-inverse-default); --fg: var(--text-inverse); --layer: var(--state-layer-inverse, var(--text-inverse)); }
+.emcd-btn--text { --bg: transparent; --fg: var(--text-accent); --fg-hover: var(--text-accent-hover, var(--text-link-hover)); --fg-pressed: var(--text-accent-pressed, var(--text-link-hover));
+  height: auto; padding: 0 4px; gap: 4px; --r: var(--radius-xs, 4px); max-width: none; }
+.emcd-btn--text.emcd-btn--danger, .emcd-btn--text-error { --bg: transparent; --fg: var(--text-danger); --fg-hover: var(--text-danger-hover, var(--text-danger)); --fg-pressed: var(--text-danger-pressed, var(--text-danger));
+  height: auto; padding: 0 4px; gap: 4px; --r: var(--radius-xs, 4px); max-width: none; }
+.emcd-btn--text::before, .emcd-btn--text-error::before { display: none; }
+.emcd-btn--text:hover, .emcd-btn--text-error:hover { color: var(--fg-hover); text-decoration: underline; }
+.emcd-btn--text:active, .emcd-btn--text-error:active { color: var(--fg-pressed); transform: none; }
+/* Disabled / Loading */
+.emcd-btn:disabled { cursor: not-allowed; --fg: var(--text-disabled); transform: none; }
+.emcd-btn:disabled:not(.emcd-btn--text):not(.emcd-btn--text-error):not(.emcd-btn--outline) { --bg: var(--action-disabled); }
+.emcd-btn--outline:disabled { box-shadow: inset 0 0 0 1px var(--border-subtle); }
+.emcd-btn:disabled::before { opacity: 0 !important; }
+.emcd-btn[aria-busy="true"] { cursor: progress; }
+@media (prefers-reduced-motion: reduce) { .emcd-btn, .emcd-btn::before { transition: none; } .emcd-btn:active { transform: none; } }

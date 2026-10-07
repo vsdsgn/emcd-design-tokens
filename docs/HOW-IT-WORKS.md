@@ -62,7 +62,7 @@ Flutter: `build/json/<brand>.<theme>.<ios|android>.json` (Base) и `….expressi
 
 ## Поток изменений
 
-Figma Foundations → публикация (вручную) → экспорт переменных в `figma/export-*.json` → `npm run all` → `tokens/**` (DTCG) → `build/**` → git push. Компоненты получают изменения после публикации Foundations и принятия обновлений в Components.
+Figma Foundations → публикация (вручную) → экспорт переменных в `figma/export-*.json` → `npm run all` → `tokens/**` (DTCG) → `build/**` → git push → «обнови Claude DS» (артефакт для Claude Design, docs/claude-ds.md). Компоненты получают изменения после публикации Foundations и принятия обновлений в Components.
 
 ## Где что лежит
 
@@ -73,6 +73,7 @@ Figma Foundations → публикация (вручную) → экспорт �
 | Платформы и OS | `docs/platforms.md` |
 | Эффекты, лёгкий режим | `docs/effects.md` |
 | Motion | `docs/motion.md` |
+| Claude DS (Claude Design) | `docs/claude-ds.md` |
 | Состояние работ | `docs/HANDOFF.md` |
 | Вопросы и отложенное | `docs/OPEN-QUESTIONS.md` |
 | Миграция legacy → DS 2.0, аудит | `docs/migration/` |

@@ -10,6 +10,7 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+- Claude DS (2026-10-07): Design System artifact for Claude Design synced from the repo — `scripts/claude-ds.mjs --base <artifact project/>` merges token values from `build/json`, statuses from `claude-ds/status.json` and repo-owned components from `claude-ds/components/`, keeping usage notes and README prose; idempotent. Button rewritten to the beta spec. docs/claude-ds.md.
 - Components (Figma): Textarea, Breadcrumbs (+ item), Datepicker (Date cell, Calendar Single/Range), Multiselect (option, menu with search, field), Address (Short/Full, copy, QR) + Address QR card, Amount, Locale stress test page, long-text fixes (max widths, truncation, wrapping errors). Design System artifact: 19 components in HTML/CSS on tokens.
 - Devices (2026-10-05): `npm run test:ios` (Safari in every iOS Simulator runtime) and `npm run test:android` (Chrome on an emulator via adb); stress page self-reports (`?report=`). iOS 17.5 → Base, 18.3+ → Expressive; Android 16 with software GPU → guard switches to Base on first scroll.
 - Fonts: WL Default → Inter; CSS sans fallback stack starts with Inter, then system, then Noto per script (Arabic, Devanagari, IBM Plex Sans Thai, Noto Sans JP). New primitives font-family/inter, noto-sans-devanagari, noto-sans-jp.
