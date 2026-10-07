@@ -37,6 +37,9 @@
 | Table | .table / raw, column title, cell base | ✓ 2026-10-07 | ✓ | ✓ | ✓ (раздел Table проверен) | текст ячеек и заголовков 14/20 (legacy 14/21; было 16/24), описания `text/tertiary`, заголовок 40, gap 6; колонки строки = колонкам шапки (Адрес Fill, Статус 140, ⋯ 48), текст ячеек — одна строка с «…». Отступы оставлены 2.0 (строка 8 + ячейка 12): legacy 32 + 0/12 не помещается в таблицу 800. Неактивный заголовок — `text/tertiary` (legacy #4d4d4d не проходит контраст). Иконочные ячейки (⋯, Icon, Star, Toggle, Buttons) — без min 80 |
 | Legend item | .legends | ✓ 2026-10-07 | ✓ | ✓ | ✓ | маркер — вертикальная полоска 2 × 16 (новый вариант Legend swatch Marker = Bar), подпись 14/20 Medium: Default `text/tertiary`, Hover `text/secondary`, Selected `text/primary` |
 | Sidebar / Nav item | sidebar, Sidebar item | ✓ 2026-10-07 | ✓ | ✓ | ✓ | Nav item: высота 40, подпись и иконка `*/primary`, выбранный — нейтральная плашка + индикатор 2 × 20 `accent/solid` слева. Sidebar: фон `surface/default` (legacy #111), ширина 240 (legacy 238 + поля 12) |
-| Sheet, Divider, Tab bar, Top bar | DS App | | | | | |
+| Tab bar / Tab bar item | DS App --2.0-- tabbar | ✓ 2026-10-07 | ✓ | ✓ | ◐ | фон `bg/base` (legacy #0a0a0a), невыбранные подпись / иконка `*/tertiary`, иконка выбранного 24 (была 20 в экземпляре). Подпись 12/16 — legacy 10 px ниже минимума шкалы |
+| Top bar | DS App navigation bar | ◐ 2026-10-07 | ✓ | ✓ | — | фон `bg/base`; остальное не сверялось |
+| Divider | DS App divider text / layout | ✓ | ✓ | — | — | совпадает (#d0d0d0 7 % ≈ `border/subtle` 8 %) |
+| Sheet | DS App bottom sheet menu | — | ✓ | ✓ | — | разные паттерны: legacy — плавающая карточка-меню (отступ 16, r12, рамка, #111, заголовок капсом 12), 2.0 — шторка на всю ширину; решить, нужен ли Type = Menu как в legacy |
 
 **Иконки меню:** в legacy пункты меню с фиолетовыми иконками; оставляем нейтральные (Стефан 2026-10-07: «пока так же»).
