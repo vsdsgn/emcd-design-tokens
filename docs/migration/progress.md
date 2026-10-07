@@ -32,8 +32,8 @@
 | Accordion | baseAccordion | ✓ 2026-10-07 | ✓ | ✓ | ✓ | шеврон 20 без подложки, раскрытый: 12 до текста / 32 снизу (L), тело Body/LG `text/tertiary`; зоны пересобраны; Disabled-шеврон `icon/disabled`; борда: Свойства и зоны, Поверхности L0–L3, ряд Pressed в матрице. ⚠️ мастер пересоздан из копии — **ключ библиотеки сменился** |
 | Slider | base slider | ✓ 2026-10-07 | ✓ | ✓ | ✓ | дорожка 18 r12 `action/secondary/default`, точки шагов 6 (на заливке — `text/on-accent`, вне — `icon/tertiary`), ползунок с кольцом бренда 2, подпись / шаги / описание 14/20 `text/tertiary`; зоны стандартные (по дорожке); борда: Свойства и зоны, Поверхности. Описание и шаги legacy #4d4d4d — у нас tertiary (контраст) |
 | Avatar | base avatar | ✓ 2026-10-07 | ✓ | — (не интерактивный) | ✓ | размеры 1:1 legacy: XS 20 · S 28 · M 36 · L 44 (было 32/40/56), инициалы S 14/20, M/L 16/24 `text/tertiary`, фон `surface/active` (#232323), иконки 16/20/20; Avatar group: нахлёст −4/−6/−8 |
-| Stepper | Step Symbol / Trail / Text | | | | | |
-| Progress circle | baseCircleLoader | | | | | |
+| Stepper | Step Symbol / Trail / Text | ✓ 2026-10-07 (Symbol, Step) | ✓ | — | ◐ | Step symbol: Default — нейтральный круг + рамка, номер 14/20 `text/tertiary`; Current — кольцо `border/accent` без заливки, номер `text/primary`; Success — `surface/active` + галочка `icon/tertiary` (legacy Checked; было зелёным). Step: подпись Default `text/tertiary`. Trail не сверялся; борда не пересобрана |
+| Progress circle | baseCircleLoader | ◐ 2026-10-07 | ✓ | — | — | дорожка `action/secondary/default` (legacy #1a1a1a); legacy — только 24, у нас S/M/L 24/48/72 с подписью % |
 | Table | .table | | | | | |
 | Legend item | .legends | | | | | |
 | Sidebar / Nav item | sidebar, Sidebar item | ✓ 2026-10-07 | ✓ | ✓ | ✓ | высота 40, подпись и иконка `*/primary`, выбранный — нейтральная плашка `action/secondary/default` + индикатор 2 × 20 `accent/solid` слева (как legacy); Sidebar — дальше |
