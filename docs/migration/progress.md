@@ -40,7 +40,7 @@
 | Tab bar / Tab bar item | DS App --2.0-- tabbar | ✓ 2026-10-07 | ✓ | ✓ | ◐ | фон `bg/base` (legacy #0a0a0a), невыбранные подпись / иконка `*/tertiary`, иконка выбранного 24 (была 20 в экземпляре). Подпись 12/16 — legacy 10 px ниже минимума шкалы |
 | Top bar | DS App navigation bar | ◐ 2026-10-07 | ✓ | ✓ | — | фон `bg/base`; остальное не сверялось |
 | Divider | DS App divider text / layout | ✓ | ✓ | — | — | совпадает (#d0d0d0 7 % ≈ `border/subtle` 8 %) |
-| Sheet | DS App bottom sheet menu | ✓ 2026-10-07 (Type = Menu) | ✓ | ✓ | ◐ | Type = Menu = legacy bottom sheet menu: плавающая карточка (поля 16, r12, рамка `border/subtle`), корень прозрачный, заголовок группы капсом `text/tertiary`, пункты Menu item M: поля 20, иконка 32, gap 16. Подложка `surface/raised` (legacy #111). Подписи пунктов 16/24 как в Menu (legacy-шторка 14/21) |
+| Sheet | DS App bottom sheet menu | ✓ 2026-10-07 | ✓ | ✓ | ✓ | **оба типа — плавающая карточка** (Стефан 2026-10-07): обёртка прозрачная, поля 16 / снизу 34, карточка r12 + рамка `border/subtle`, подложка `material/thick/fill` (у Menu было `surface/level-1` — унифицировано). Default: ручка по центру, шапка / Body / Footer внутри карточки. Menu: пункты Menu item M, поля 20, иконка 32, заголовок группы капсом |
 
 **Иконки меню:** в legacy пункты меню с фиолетовыми иконками; оставляем нейтральные (Стефан 2026-10-07: «пока так же»).
 
