@@ -45,3 +45,5 @@
 **Иконки меню:** в legacy пункты меню с фиолетовыми иконками; оставляем нейтральные (Стефан 2026-10-07: «пока так же»).
 
 **Матрицы:** ряды Pressed (Select compact, Date cell, Nav item, Table header cell, Table row, Floating button) поставлены под колонки Hover с подписью «State = Pressed» (2026-10-07).
+
+**Борды (2026-10-07):** добавлен раздел «Свойства и зоны» (Web / iOS: обычный, кольцо фокуса, зоны) — Chip, Segment, Menu item, Tab, Select compact, List item, Nav item; «Темы» → «Поверхности L0–L3» — List item, Badge, Banner, Empty state. Menu item: мастер лежал на странице вне борды, матрица была пустой — перенесён в «Матрица · Menu item» и разложен по подписям. Проверены глазами: Accordion, Slider, Avatar, Modal, Table, Stepper, Progress, Chip, Menu. **Не просмотрены целиком:** Tabs, Segmented, Badge, Toast, Alert, Banner, Empty state, List item, Select, Sidebar.

@@ -33,7 +33,8 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 ## Где мы (2026-10-07)
 
 **Перенос draft → legacy 1:1 → Foundations идёт по `docs/migration/progress.md`** (метод, статус по каждому компоненту, намеренные отличия). Сделано: Select compact, Menu / Menu item, Chip, Tabs, Segmented, Badge, Toast, Alert, Banner, Empty state, List item, Accordion, Slider, Avatar, Nav item, Modal, Step symbol / Step, Progress circle (дорожка). Multiselect option → deprecated (Menu item с чекбоксом справа). Новый токен `text/inverse-secondary` (опубликован).
-**Осталось:** Table, Legend item, Sidebar, Sheet, Divider, Tab bar, Top bar; Step trail; борды Stepper / Progress circle; ряд Pressed без подписи в матрицах (Date cell, Nav item, Table header cell, Table row, Select compact, Input amount — добавлены 2026-10-06 внизу набора); пройти борды всех изменённых компонентов глазами.
+**Сделано позже 2026-10-07:** Table, Legend item, Sidebar, Tab bar, Top bar (фон), Sheet Type = Menu, Step trail, борды Stepper / Progress, ряды Pressed в матрицах, «Свойства и зоны» / «Поверхности» на 11 бордах.
+**Осталось:** просмотреть глазами борды Tabs, Segmented, Badge, Toast, Alert, Banner, Empty state, List item, Select, Sidebar; Top bar сверить с legacy navigation bar целиком; Input amount — ряд Hover в матрице.
 **⚠️ Борды:** мастер компонента лежит внутри раздела «Варианты / <Имя>» борды — такой раздел не удалять (Accordion 2026-10-07 пересоздан из копии, ключ библиотеки новый, Стефан согласился). `scripts/figma/board.plugin.js` теперь такие разделы не трогает; сравнения — рамки `_compare · <Имя>` слева от борды.
 
 
