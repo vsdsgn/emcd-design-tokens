@@ -24,19 +24,19 @@
 | Tabs | base tabbar, tab item | ✓ 2026-10-07 | ✓ | ✓ | ✓ | legacy 60 → L 56 (16/24, индикатор 3); невыбранная `text/tertiary`; gap L/XL 24 |
 | Segmented | base segmented picker | ✓ 2026-10-07 | ✓ | ✓ | ✓ | legacy lg = XL (56, r16/12, отступ 24), sm ≈ L; радиус дорожки = сегмент + 4; невыбранный `text/tertiary`; вес Medium вместо SemiBold — стиль Label |
 | Badge (+Counter, Status) | base badge * | ✓ 2026-10-07 | ✓ | ✓ | ✓ | нейтральный Subtle — `text/tertiary`; отступ L 12 (legacy 14 — правило «14 → 12»), S lh 16 (18); Subtle-тона на `status/*/on-subtle` 200 (legacy: бренд 300, ошибка — сплошной красный, контраст ниже) |
-| Toast | base notification | | | | | |
-| Alert / Banner | baseCard / banner, base Banner --2.0 | | | | | |
+| Toast | base notification | ✓ 2026-10-07 | ✓ | ✓ | ✓ | отступы 20 / снизу 24, gap 20, описание `text/tertiary`, иконка статуса в цвете тона (`icon/success|warning|danger|info`) |
+| Alert / Banner | baseCard / banner, base Banner --2.0 | ✓ 2026-10-07 | ✓ | ✓ | ✓ | Banner: рамка 1 px цвета тона, описание `text/primary`; Alert Neutral (= legacy Info): описание `text/tertiary`. Цвета текста на тинте — `on-subtle` 200 (legacy: сплошной цвет, контраст ниже); Info (синий) — сверх legacy |
 | Modal | base modal header / footer | | | | | |
-| Empty state | empty state | | | | | |
-| List item | List | | | | | |
-| Accordion | baseAccordion | | | | | |
-| Slider | base slider | | | | | |
-| Avatar | base avatar | | | | | |
+| Empty state | empty state | ✓ 2026-10-07 | ✓ | ✓ | ✓ | карточка с рамкой `border/default` r16, описание `text/tertiary`; заголовок Bold (legacy SemiBold) — стиль Heading |
+| List item | List | ✓ 2026-10-07 | ✓ | ✓ | ✓ | вторичный текст `text/tertiary`, отступ иконка → текст 16 |
+| Accordion | baseAccordion | ◐ 2026-10-07 | ✓ | ✓ | ✓ | тело `text/tertiary`; осталось: шеврон без кружка 20 (legacy), тело 16/24 и отступ снизу 32 в L |
+| Slider | base slider | ◐ 2026-10-07 | ✓ | ✓ | ✓ | подписи `text/tertiary`; осталось: точки шагов 6 (legacy) вместо 4, радиус дорожки 12 |
+| Avatar | base avatar | ◐ 2026-10-07 | ✓ | ✓ | ✓ | буквы `text/tertiary`; legacy 36 / 44 против 40 / 56 — шкала DS 2.0, иконка L 20 (у нас 24) |
 | Stepper | Step Symbol / Trail / Text | | | | | |
 | Progress circle | baseCircleLoader | | | | | |
 | Table | .table | | | | | |
 | Legend item | .legends | | | | | |
-| Sidebar / Nav item | sidebar, Sidebar item | | | | | |
+| Sidebar / Nav item | sidebar, Sidebar item | ✓ 2026-10-07 | ✓ | ✓ | ✓ | высота 40, подпись и иконка `*/primary`, выбранный — нейтральная плашка `action/secondary/default` + индикатор 2 × 20 `accent/solid` слева (как legacy); Sidebar — дальше |
 | Sheet, Divider, Tab bar, Top bar | DS App | | | | | |
 
 **Иконки меню:** в legacy пункты меню с фиолетовыми иконками; оставляем нейтральные (Стефан 2026-10-07: «пока так же»).
