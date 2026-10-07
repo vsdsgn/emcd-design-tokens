@@ -174,6 +174,7 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 | На тёмной / цветной плашке (Inverted, выбранный Chip, Primary) | — | слой `state/layer-inverse` (белый в светлой теме) | то же | как выше | — |
 | **Поле** | Input, Select, Textarea, Input amount, Code input, Password field | обводка `control/border/hover` (нейтральная) | нет | как выше | Focus — обводка `control/border/focus` + кольцо |
 | **Контрол выбора** | Checkbox, Radio, Toggle | слой на коробочке / круге / дорожке 6 % | 10 % + 0.96 | 8 % / ползунок 40 % | `control/checked` |
+| **Навигация** | Tab, Nav item | слой / цвет текста | — | `*/disabled` | индикатор `accent/solid` (Tab — снизу, Nav item — слева 2 × 20) + нейтральная плашка у Nav item; без тинта бренда |
 | **Текстовый** | Tab, Breadcrumb, Text-кнопка, ссылка, Legend item | текст к `text/primary` (или `text/accent-hover`) | `text/accent-pressed` / подчёркивание | `text/disabled` | индикатор `border/accent` / `text/primary` |
 
 Правила:
