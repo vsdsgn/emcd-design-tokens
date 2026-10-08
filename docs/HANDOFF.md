@@ -1,6 +1,6 @@
 # DS 2.0 — передача контекста (handoff)
 
-Документ для нового чата / нового исполнителя. Обновлено: 2026-10-05.
+Документ для нового чата / нового исполнителя. Обновлено: 2026-10-08.
 
 ## Файлы
 
@@ -29,6 +29,18 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 4. По теме задачи: `style.md` + `visual-language.md` (Base/Expressive, декор), `platforms.md` (Web / Mobile web / iOS / Android, хаптики), `components.md` (правила, a11y, фокус), `effects.md`, `motion.md`, `a11y-report.md`, `browser-support.md` (браузеры, тест `npm run test:browsers`), `performance.md` (загрузка, кадры, перф-гард, `npm run test:perf`), `migration/`.
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
+
+## Где мы (2026-10-08)
+
+**Components = только атомы и молекулы (Atomic design).** Решение Стефана 2026-10-08.
+- Отклонён и удалён перезапуск «копии legacy 1:1 → токены» (страницы 🧱, ~140 наборов `_L · …`): «совершенно не так, как я хотел». Удалены и рамки `_compare · …` (legacy-сравнения) на страницах компонентов.
+- Удалены организмы: страницы Modal, Sheet (+ Filter sheet), Side panel, Transaction, Empty state (+ Status screen), Header (Top bar, Page header, Site header, Balance widget), Shell (+ Site footer), Stat card; компоненты Calendar, Multiselect menu, Menu, Address QR, Payout summary, Coin stats bar, Sidebar, Tab bar, Table, Table row, Chart card, Chart plot, Chip map.
+- Страницы переименованы по оставшемуся: Date cell, Menu item, Key-value row, Nav item, Tab bar item, Table cell, Chart parts, Chip cell.
+- **Атомы:** Button, Icon button, Checkbox, Radio, Toggle, Badge, Counter, Status, Divider, Avatar, Progress / circle / Spinner, Skeleton, Chip, Tab, Segment, Scrollbar, Page dot, Floating button, Amount, Card, Skip link, Nav icon, Code cell, Date cell, Chip cell, Step symbol / trail, Chart axis label / crosshair, Legend swatch.
+- **Молекулы:** Input (+ addons), Select, Select compact, Textarea, Input amount, Code input, Password field, File upload, Multiselect (поле), Tabs, Segmented, Menu item, Tooltip, Toast, Alert, Banner, Notification, List item, Accordion, Slider, Avatar group, Stepper / Step, Pagination, Page indicator, Step progress, Breadcrumbs, Nav item, Tab bar item, Address, Key-value row, Table header cell + ячейки, Chart tooltip / metric, Legend item.
+- Пограничные (оставлены, ждут слова Стефана): Toast, Alert, Banner, Notification, Card (молекулы), Amount, Floating button (атомы).
+- Инстансы удалённых организмов остались на служебных страницах (📐 Шаблоны экранов, Locale stress test, Expressive preview, Ревью, Playground) — не трогал. 🗄 Archive не трогал. Восстановление — история версий Figma (до 2026-10-08).
+- Claude DS (артефакт) ещё содержит удалённые организмы — синхронизировать по «обнови Claude DS».
 
 ## Где мы (2026-10-07)
 

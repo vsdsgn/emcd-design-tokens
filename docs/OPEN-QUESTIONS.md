@@ -73,6 +73,8 @@
 
 ## Вопросы к Стефану
 
+- [ ] **Atomic design (2026-10-08):** пограничные — Toast, Alert, Banner, Notification, Card оставлены как молекулы; Amount, Floating button — атомы. Убрать что-то из них? Удалять ли инстансы удалённых организмов на служебных страницах (Шаблоны экранов, stress test, Expressive preview, Ревью, Playground)? Что дальше по базе — какой следующий шаг вместо отклонённых копий legacy?
+
 - [ ] **Публикация Foundations (2026-10-07):** начертание во всех стилях привязано к `font-weight/*` (ревью Button), новый `radius/focus-ring-lg` (= radius/lg + 2, для кольца Card). После публикации: Components → Update all, привязать кольцо Card к `radius/focus-ring-lg`. Радиусы колец в Geometria: подобраны по значениям EMCD — проверить, что у Geo кольцо = радиус + 2 (иначе нужны токены «кольцо для каждого радиуса»).
 
 - [ ] **Публикация (утро 2026-10-07):** Foundations (accent 600, Disabled 8/40, 19 токенов size/*) → Components: Update all → `scripts/figma/bind-sizes.plugin.js` → публикация Components. DSP: новые `--size-*`, `--layout-min-viewport` — minor; цвет `--text-accent` в светлой 500 → 600 — визуальное изменение, предупредить.
