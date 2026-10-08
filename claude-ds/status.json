@@ -11,6 +11,7 @@
     "Chip": "draft",
     "FileUpload": "draft",
     "FloatingButton": "draft",
+    "IconButton": "beta",
     "Input": "draft",
     "ListItem": "draft",
     "Modal": "deprecated",
