@@ -40,7 +40,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - **Молекулы:** Input (+ addons), Select, Select compact, Textarea, Input amount, Code input, Password field, File upload, Multiselect (поле), Tabs, Segmented, Menu item, Tooltip, Toast, Alert, Banner, Notification, List item, Accordion, Slider, Avatar group, Stepper / Step, Pagination, Page indicator, Step progress, Breadcrumbs, Nav item, Tab bar item, Address, Key-value row, Table header cell + ячейки, Chart tooltip / metric, Legend item.
 - Пограничные (оставлены, ждут слова Стефана): Toast, Alert, Banner, Notification, Card (молекулы), Amount, Floating button (атомы).
 - Инстансы удалённых организмов остались на служебных страницах (📐 Шаблоны экранов, Locale stress test, Expressive preview, Ревью, Playground) — не трогал. 🗄 Archive не трогал. Восстановление — история версий Figma (до 2026-10-08).
-- Claude DS (артефакт) ещё содержит удалённые организмы — синхронизировать по «обнови Claude DS».
+- Claude DS синхронизирован 2026-10-08 с 07ce432: Modal, Status screen, Table, Transaction → 🔴 deprecated (файлы в артефакте остались — удалить только с ок Стефана); Icon button → 🟡 beta в status.json.
 
 ## Где мы (2026-10-07)
 
