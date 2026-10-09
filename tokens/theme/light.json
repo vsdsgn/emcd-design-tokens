@@ -130,11 +130,11 @@
     },
     "warning": {
       "$type": "color",
-      "$value": "{color.amber.700}"
+      "$value": "{color.amber.800}"
     },
     "info": {
       "$type": "color",
-      "$value": "{color.blue.600}"
+      "$value": "{color.blue.700}"
     },
     "on-warning": {
       "$type": "color",
@@ -200,11 +200,11 @@
     },
     "warning": {
       "$type": "color",
-      "$value": "{color.amber.700}"
+      "$value": "{color.amber.800}"
     },
     "info": {
       "$type": "color",
-      "$value": "{color.blue.600}"
+      "$value": "{color.blue.700}"
     }
   },
   "border": {

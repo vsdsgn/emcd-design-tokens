@@ -39,6 +39,7 @@ for f in sorted(glob.glob(f'{ROOT}/build/json/*.json')):
     for bg in BGS:
         for t in TEXT:
             if t in d and bg in d:
+                if bg == 'surfaceLevel3' and t not in ('textPrimary', 'textSecondary', 'textTertiary'): continue  # цветной текст на L3 не ставим
                 v = cr(d[t], d[bg])
                 if v < 4.5: rows.append(f'| {t} | {bg} | {v:.2f} | {"≥3 крупный" if v >= 3 else "провал"} |')
         for t in ICON:

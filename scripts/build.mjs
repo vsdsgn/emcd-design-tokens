@@ -137,6 +137,17 @@ writeFileSync('build/css/perf-low.css', `/* Lite mode: old phones, low-end Andro
 // through var(--border-default): a chained override would collapse subtle → default → strong into one colour.
 // Forced colors: focus uses system colours; components must also keep a transparent outline (box-shadow is removed).
 const themeVal = (th, name) => (readFileSync(`build/css/theme-${th}.css`, 'utf8').match(new RegExp(`\\s${name}:\\s*([^;]+);`)) || [])[1];
+// Цветной текст и иконки при prefers-contrast: more — та же ступень рампы на шаг дальше от фона (одно правило для всех цветов).
+const COLORED = ['text-accent', 'text-link', 'icon-accent', 'text-danger', 'icon-danger', 'text-success', 'icon-success', 'text-warning', 'icon-warning', 'text-info', 'icon-info'];
+const SHIFT_STEPS = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'];
+const moreStep = (v, th) => {
+  const fg = (v || '').match(/var\(--brand-accent-fg-on-(light|dark)\)/);
+  if (fg) v = (readFileSync('build/css/brand-emcd.css', 'utf8').match(new RegExp(`--brand-accent-fg-on-${fg[1]}:\\s*([^;]+);`)) || [])[1];
+  const m = (v || '').match(/var\(--(.+)-(\d+)\)/);
+  if (!m) return v;
+  const i = SHIFT_STEPS.indexOf(m[2]);
+  return `var(--${m[1]}-${SHIFT_STEPS[Math.max(0, Math.min(SHIFT_STEPS.length - 1, i + (th === 'dark' ? -1 : 1)))]})`;
+};
 const contrastBlock = (th) => {
   const sel = th === DEFAULT.theme ? `:root, [data-theme="${th}"]` : `[data-theme="${th}"]`;
   return `  ${sel} {
@@ -146,11 +157,7 @@ const contrastBlock = (th) => {
     --control-border-default: ${themeVal(th, '--border-strong')};
     --text-tertiary: ${themeVal(th, '--text-secondary')};
     --icon-tertiary: ${themeVal(th, '--icon-secondary')};
-    --text-danger: var(--color-red-${th === 'dark' ? '400' : '700'});
-    --icon-danger: var(--color-red-${th === 'dark' ? '400' : '700'});
-    --text-accent: var(--brand-accent-${th === 'dark' ? '300' : '600'});
-    --icon-accent: var(--brand-accent-${th === 'dark' ? '300' : '600'});
-    --text-link: var(--brand-accent-${th === 'dark' ? '300' : '600'});
+${COLORED.map((n) => `    --${n}: ${moreStep(themeVal(th, `--${n}`), th)};`).join('\n')}
   }`;
 };
 writeFileSync('build/css/contrast-more.css', `/* prefers-contrast: more */

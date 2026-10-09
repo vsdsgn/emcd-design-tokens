@@ -28,8 +28,8 @@
   --text-inverse: var(--color-white);
   --text-danger: var(--color-red-600);
   --text-success: var(--color-green-700);
-  --text-warning: var(--color-amber-700);
-  --text-info: var(--color-blue-600);
+  --text-warning: var(--color-amber-800);
+  --text-info: var(--color-blue-700);
   --text-on-warning: var(--color-neutral-950);
   --text-danger-hover: var(--color-red-700);
   --text-danger-pressed: var(--color-red-800);
@@ -41,8 +41,8 @@
   --icon-inverse: var(--color-white);
   --icon-danger: var(--color-red-600);
   --icon-success: var(--color-green-700);
-  --icon-warning: var(--color-amber-700);
-  --icon-info: var(--color-blue-600);
+  --icon-warning: var(--color-amber-800);
+  --icon-info: var(--color-blue-700);
   --border-subtle: var(--color-alpha-black-8);
   --border-default: var(--color-alpha-black-12);
   --border-strong: var(--color-alpha-black-48);
