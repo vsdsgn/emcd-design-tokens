@@ -2,39 +2,28 @@
 
 ## Текущий этап (с 2026-10-09): Этап 1 — Token Migration & Mapping
 
-Бриф Стефана 2026-10-09. Foundations и компоненты не меняем до ок. Таблица — одна: Foundations «🔁 Migration · legacy → DS 2.0» (28:3) ← `docs/migration/foundations-color.csv`.
+Бриф Стефана 2026-10-09. Таблица одна: Foundations «🔁 Migration · legacy → DS 2.0» (28:3) ← `docs/migration/color-map.csv` → `scripts/color-migration.py`. Foundations-переменные без ок Стефана не меняем.
 
 Чеклист:
-1. [ ] Ок Стефана: (а) точка восстановления Components (≈ 2026-10-06/07) окончательная, решение 2026-10-08 «только атомы и молекулы» снято; (б) что значит «без визуальных изменений» при уже принятых Δ DS 2.0 (см. К1).
-2. [ ] Экспорт Foundations → `npm run all` (сборка от 2026-10-06, без `surface/level-*`, `state/layer`, `size/*`).
-3. [ ] Ок на 10 образцовых строк (ниже) → новые колонки во всей таблице.
-4. [ ] Скан потребителей legacy-переменных (DS Web, DS App, Web App, App, Monitoring, Firmware, WL B2B, Geo) → колонка Impact, решения Split / Merge.
-5. [ ] Перегенерировать csv + рамку 28:3; проверка: 0 устаревших целей, у каждой Δ — ссылка на решение, Before/After на L0–L3.
-6. [ ] Claude DS: status.json Modal / StatusScreen / Table / Transaction → draft (как в Figma) + «обнови Claude DS» — после п. 1(а).
+1. [x] Точка восстановления Components окончательная; изменения Foundations (уровни и др.) остаются — Стефан 2026-10-09.
+2. [x] Экспорт Foundations → `npm run all` — 2026-10-09.
+3. [x] Таблица с новыми колонками (Примитив, Action, Статус, Решение, Потребители, Контраст) — 96 строк, ок Стефана «хоть на 30 строк», «по таблице сам разберись».
+4. [~] Скан потребителей: DS Web, DS App, Web App ✓; Monitoring 8 / 27; **осталось** App, Firmware, WL B2B, Geometria Web / App, MiningBox.
+5. [ ] **П1 — контраст цветного текста на L1–L3** (на решение, Foundations): `text/danger` тёмн. red/500 → 400 (L0–L3 6.2 → 4.7); `text/warning` свет. amber/700 → 800 (7.3 → 5.6); `text/info` свет. blue/600 → 700 (6.8 → 5.1); `text/accent` на L3 4.3 — правило «цветной текст на L3 не ставим» (или accent 700 / 300). То же для `icon/*`.
+6. [ ] Conflict-строки: Core `Background/Color accent`, `Background/Color focus`, локальная `Color › border` (Web App, Monitoring) — посмотреть экраны; `Back [Primary] 2` (DS App) — значение.
+7. [ ] Deprecate без потребителей (accent soft / bold / background, Color 6 / 7 [Back], Error disabled) — подтвердить после скана оставшихся продуктов.
+8. [x] Claude DS — синхронизирован 2026-10-09 (7acf9d0).
 
-Конфликты (на решение):
-- **К1.** «Интерфейсы не меняются» ↔ уже принятые значения DS 2.0: на 2026-10-04 Δ в 25 из 66 строк, после — уровни L0–L3, текст альфой 72/56/40, обводки альфой, слой состояний 6/10, Disabled 8/40, accent 600. Предложение: принятые Δ оставить, в таблице помечать «Δ принято (дата)»; parity-палитру DS Future не возвращать. Новые Δ — только отдельным предложением.
-- **К2.** Бриф ссылается на DS Future + Vault как на текущее; рабочая система с 2026-10-03 — Foundations / Icons / Components + репо. Vault — история.
-- **К3.** Blueprint v1.0 ↔ текущие решения: Button «REBUILD API» → сделано иначе (Type × Tone, сохраняем); Badge / Input / Tabs «rebuild» → сейчас сохраняем и докручиваем; Tooltip / Coachmark split → не делали (Tooltip только Web, App — Sheet); Switch → Toggle; Semantic.Metric Web/App → Platform ×4; Header / Shell / Product nav в базовой библиотеке ↔ «Patterns» блюпринта.
-- **К4.** Обводки контролов без общего правила: Button Tertiary outline — `border/default` (~1.3:1, одинаково во всех состояниях, вкл. Disabled), Checkbox / Radio Off — `border/strong` (≥ 3:1), поля — `control/border/default`. Предложение (этап 3, не сейчас): «обводка — единственный признак контрола → border/strong; иначе control/border/*; border/* — только контейнеры и разделители».
-- **К5.** Схема контрактов (15 разделов) ↔ текущие описания (Когда / Когда нет / Правила / Не делаем, A11y, Движение) и борды: нет Events, Code projection, Testing, Migration; статус «experimental» ↔ draft.
+Решено по конфликтам (2026-10-09): К1 принятые Δ остаются («Δ принято» со ссылкой на решение); К2 Vault — история; К3 текущие решения важнее блюпринта; К4 → `components.md` «Модель обводок»; К5 → `docs/component-contract.md`.
 
-Образцовые строки (Dark; legacy только тёмный; «≈» — альфа на L0 #0a0a0a):
+## Следующий этап — Этап 2: Component Token Migration (готовим)
 
-| Legacy | Сейчас в таблице | Target | Before → After | Action | Статус |
-|---|---|---|---|---|---|
-| Color 1/7 [Back] #0a0a0a | bg/base | surface/level-0 | = | Keep (цель переименовать) | = |
-| Color 2/6 [Back] #111 | surface/default «=» | surface/level-1 | #111 → #1a1a1a | Keep | Δ принято 10-06, в таблице ошибочно «=» |
-| Color 3 [Back] #1a1a1a | surface/raised | вложенная → level-2 #202020; поповер → surface/raised #1a1a1a | Δ / = | Split | нужен скан |
-| Color 35 [Back] #232323 | surface/hover (сплошной) | hover → state/layer 6% (≈#191919); плашка → level-3 #262626 | Δ | Split + Deprecate surface/hover | нужен скан |
-| Color 2 [Text] #d0d0d0 | text/secondary #a3a3a3 | text/secondary white 72% | → ≈#bababa | Keep | Δ принято 10-05, «Стало» устарело |
-| Color 3 #a3a3a3 + Color 4 #7a7a7a [Text] | оба text/tertiary | text/tertiary white 56% | → ≈#939393 | Merge 2 → 1 | решение: нужен ли muted |
-| Brand fill hover #6724b1 | action/primary/hover #642db4 | state/layer 6% поверх action/primary/default | Δ | Deprecate action/primary/hover (сейчас 600) | проверить DSP |
-| Brand disable #2c0754 | action/disabled #1a1a1a | action/disabled white 8% | → ≈#1e1e1e | Keep | Δ принято, значение устарело |
-| Error back #350a09 + back 2 #480f0e | status/danger/subtle #3c0807 | status/danger/subtle red 24% | → ≈#3e1514 | Merge 2 → 1 | нужен скан back 2 |
-| accent soft #f6fe9e / accent bold #9d8701 | highlight/solid #ebff00 (ΔE 50–57) | не сливать | — | Conflict | скан, затем Split или Deprecate |
-
-Новые колонки: Primitive (цепочка алиасов) · Theme L/D · Action · Impact (потребители) · Решение (дата / правило) · Статус (= / ≈ / Δ принято / Δ открыто / Conflict).
+Перепривязка без визуальных изменений, кроме принятых Δ. Из аудита обводок (2026-10-09):
+- = (значения совпадают): Button Tertiary outline, Icon button outline, Chip — `border/default` → `control/border/default`; Chip Disabled `border/subtle` → `control/border/disabled`; File upload Default `border/default` → `control/border/default`.
+- Δ (Disabled 12 → 8 % по правилу Disabled): Button / Icon button outline Disabled → `control/border/disabled`.
+- Δ открыто: File upload Hover `border/accent` → `control/border/hover` (accent оставить у Dragging); Code cell Success `status/success/solid` → `status/success/border`; Banner — обводка `status/*/solid` → `status/*/border`?
+- Сырые примитивы на экранах продуктов (Web App ~4,5 тыс. `Neutral/*`) — по роли слоя, на тестовых копиях экранов.
+- Тест-стенд: копии насыщенных экранов Mining Web / App → до / после.
 
 ## Решения Стефана 2026-10-04
 

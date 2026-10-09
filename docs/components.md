@@ -189,3 +189,22 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 
 - **Кольцо фокуса** у всех компонентов строится одинаково: слой `focus ring`, обводка OUTSIDE `border/width/focus-ring` (4) цветом `border/focus-ring`, зазор = `focus/offset` (2) от цели. Цель — корень компонента; у полей — сам field; у Menu item — плашка с отступом 4. Радиус кольца = радиус цели + 2 (`radius/focus-ring-sm`, `radius/focus-ring`, `radius/focus-ring-lg`, `radius/control-sm` для 8, `radius/full`). Figma не умеет привязать смещение слоя к переменной, поэтому зазор 2 проверяет `scripts/figma/audit.plugin.js`; в коде — `outline-offset: var(--focus-offset)`, `border-radius: calc(var(--radius) + var(--focus-offset))`.
 - **Начертание** задаётся только стилем текста; все 20 стилей Foundations привязаны к `font-weight/regular|medium|semibold|bold`. Текст без стиля в мастерах — ошибка аудита.
+
+
+## Модель обводок — одна для всех компонентов (2026-10-09)
+
+Обводка выбирается по **роли**, а не по виду. Hover / Pressed обводку не меняют (кроме полей) — состояние даёт слой `state/layer`.
+
+| Роль | Компоненты | Default | Hover | Focus | Error | Disabled | Selected |
+|---|---|---|---|---|---|---|---|
+| **Контейнер / разделитель** | Card, Menu, Toast, Modal, Sheet, Side panel, Tooltip, Tabs (линия), строки таблиц, Key-value row, Chart card | `border/subtle` (разделитель) или `border/default` (контейнер с обводкой) | — | — | — | — | — |
+| **Поле** | Input, Select, Textarea, Input amount, Code input / cell, Password field, File upload | `control/border/default` | `control/border/hover` | `control/border/focus` + кольцо | `control/border/error` | `control/border/disabled` | — |
+| **Контрол с обводкой** | Button · Tertiary outline, Icon button outline, Chip | `control/border/default` | слой, обводка та же | только кольцо | — | `control/border/disabled` | у Chip — плашка, без обводки |
+| **Граница = единственный признак** (WCAG 1.4.11, ≥ 3:1) | Checkbox, Radio (Off) | `border/strong` | слой | кольцо | `control/border/error` | `control/border/disabled` | `control/checked` (заливка) |
+| **Индикатор выбора / текущего** | Date cell · Today, Chip cell · Selected, Step · Current, Tab, Nav item | — | — | — | — | — | `border/accent` / `control/checked` |
+| **Статус** | Alert, Banner, Code cell · Success | `status/*/border` | — | — | — | — | — |
+
+Правила:
+- `border/*` — только контейнеры, разделители, индикаторы. Контролы — `control/border/*`. Токены фокуса — только для фокуса.
+- Сплошные `status/*/solid` в обводке не используем — для обводки есть `status/*/border`.
+- Перепривязка компонентов под эту модель — этап 2 (список и Δ — OPEN-QUESTIONS).

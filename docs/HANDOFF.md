@@ -30,18 +30,28 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
 
-## Где мы (2026-10-09) — Components восстановлен, новый план этапов
+## Где мы сейчас — Этап 1 · Token Migration & Mapping (с 2026-10-09)
 
-**Стефан восстановил Components из истории версий — это новая отправная точка.** Проверено скриптом:
-- Components ≈ состояние **ночи 2026-10-06/07**: 60 страниц компонентов снова на месте (Modal, Sheet, Header, Shell, Table, Chart, Stat card…), страниц 🧱 и `_L ·` нет. Есть: Checkbox ось Control с рабочими ссылками, Tooltip 24 варианта (Arrow), Input со слотами. **Нет** переносов 2026-10-07 по `migration/progress.md` (Select compact — ещё старые зоны fine/coarse и 5 вариантов) → progress.md описывает состояние, которого в файле нет. Решение 2026-10-08 «только атомы и молекулы» — отменено восстановлением (уточнить у Стефана).
-- Foundations **не откатывался**: есть всё 2026-10-07 (`surface/level-*`, `state/layer`, `size/*`, `text/inverse-secondary`, `radius/focus-ring-lg`). Репо отстаёт: `build/json` от 2026-10-06 08:25 — level/state/size в сборке нет.
-- Живая таблица миграции цветов — Foundations «🔁 Migration · legacy → DS 2.0» (рамка 28:3) ← `docs/migration/foundations-color.csv` (66 строк, от 2026-10-04): цели и «Стало» устарели (bg/base, surface/default, сплошные hover/active, text/secondary #a3a3a3). Старая таблица DS Future `8sTpzlYqcgipiDL58yd70l` / 32976:2 — оторвана от страницы (parent = null), это история.
-- Vault `Work/EMCD/future-ds-*.md` (2026-09-18…23) — эпоха DS Future, до DS 2.0. Источник знаний, не текущее состояние.
-- Claude DS рассинхронизирован: Modal, StatusScreen, Table, Transaction в `claude-ds/status.json` = deprecated, в Figma снова 🟠. Синк — после подтверждения точки восстановления.
+Хронология: … 2026-10-06 (точка восстановления Components) → 2026-10-07 / 08 (отменено восстановлением, в истории) → **2026-10-09 этап 1** → этап 2 → этап 3. Решения Стефана 2026-10-09: точка восстановления окончательная (решение 10-08 «только атомы и молекулы» снято); все изменения Foundations остаются, особенно уровни L0–L3.
 
-**Новый порядок (бриф Стефана 2026-10-09):** Этап 1 Token Migration & Mapping (таблица legacy → DS 2.0, без визуальных изменений интерфейсов) → Этап 2 Component Token Migration (перепривязка, без улучшений, проверка на экранах Mining) → Этап 3 Component System Evolution (контракты по схеме 15 разделов из Vault, usage, motion, a11y). Card / Widgets / Layout — только в плане. Сейчас: ничего не менять в Foundations и компонентах до ок; сначала 5–10 строк таблицы на согласование. Карта состояния, конфликты и строки — в OPEN-QUESTIONS → «Этап 1».
+**Три этапа (бриф 2026-10-09):**
+1. **Token Migration & Mapping** — таблица legacy → DS 2.0, без визуальных изменений интерфейсов. ← сейчас
+2. **Component Token Migration** — перепривязка компонентов к токенам без улучшений, проверка на экранах Mining.
+3. **Component System Evolution** — контракты (`docs/component-contract.md`), usage, motion, a11y. Card / Widgets / Layout — только в плане.
 
-## Где мы (2026-10-08)
+**Сделано 2026-10-09:**
+- Состояние: Components ≈ ночь 06→07.10 (60 страниц, организмы на месте; переносов 07.10 из `migration/progress.md` нет — это история). Foundations не откатывались.
+- Экспорт Foundations → `figma/export-*.json` → `npm run all` (сборка была от 05–06.10): +уровни, `state/layer`, `space/N`, `size/*`, текст альфой. Экспорт делает Claude сам (use_figma → файлы → `npm run all`), публиковать Foundations для этого не нужно.
+- **Таблица миграции** пересобрана: источник `docs/migration/color-map.csv` (соответствия + решения, правится руками) + `legacy-usage.csv` (скан потребителей) → `python3 scripts/color-migration.py` → `docs/migration/foundations-color.csv` → рамка Foundations «🔁 Migration · legacy → DS 2.0» (28:3, живые переменные на L0 Light / Dark). 96 строк: Web·App, App, Core-алиасы и сырые примитивы, локальные дубли продуктов, Site.
+- Скан потребителей: мастера DS Web / DS App, экраны Web App целиком, Monitoring 8 / 27 страниц. App, Firmware, WL B2B, Geo — ещё не сканировали.
+- `scripts/a11y-check.py` проверяет L0–L3 (было bgBase / surfaceDefault / surfaceRaised) → П1 в OPEN-QUESTIONS.
+- Claude DS синхронизирован 2026-10-09 с 7acf9d0: все компоненты draft (как в Figma), +35 / 61 изменённых токенов.
+- `components.md` → «Модель обводок» (К4); `component-contract.md` — схема контрактов (К5).
+
+## История (новые сверху)
+
+
+### 2026-10-08 — ⚠ отменено восстановлением Components 2026-10-09 (история)
 
 **Components = только атомы и молекулы (Atomic design).** Решение Стефана 2026-10-08.
 - Отклонён и удалён перезапуск «копии legacy 1:1 → токены» (страницы 🧱, ~140 наборов `_L · …`): «совершенно не так, как я хотел». Удалены и рамки `_compare · …` (legacy-сравнения) на страницах компонентов.
@@ -53,7 +63,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - Инстансы удалённых организмов остались на служебных страницах (📐 Шаблоны экранов, Locale stress test, Expressive preview, Ревью, Playground) — не трогал. 🗄 Archive не трогал. Восстановление — история версий Figma (до 2026-10-08).
 - Claude DS синхронизирован 2026-10-08 с 07ce432: Modal, Status screen, Table, Transaction → 🔴 deprecated (файлы в артефакте остались — удалить только с ок Стефана); Icon button → 🟡 beta в status.json.
 
-## Где мы (2026-10-07)
+### 2026-10-07 — ⚠ переносы в Components отменены восстановлением; изменения Foundations остались
 
 **Перенос draft → legacy 1:1 → Foundations идёт по `docs/migration/progress.md`** (метод, статус по каждому компоненту, намеренные отличия). Сделано: Select compact, Menu / Menu item, Chip, Tabs, Segmented, Badge, Toast, Alert, Banner, Empty state, List item, Accordion, Slider, Avatar, Nav item, Modal, Step symbol / Step, Progress circle (дорожка). Multiselect option → deprecated (Menu item с чекбоксом справа). Новый токен `text/inverse-secondary` (опубликован).
 **Сделано позже 2026-10-07:** Table, Legend item, Sidebar, Tab bar, Top bar (фон), Sheet Type = Menu, Step trail, борды Stepper / Progress, ряды Pressed в матрицах, «Свойства и зоны» / «Поверхности» на 11 бордах.
@@ -63,7 +73,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 **Claude DS синхронизируется из репо** (docs/claude-ds.md). Значения токенов — из `build/json`, статусы — `claude-ds/status.json`, перенесённые компоненты — `claude-ds/components/` (пока Button); подписи токенов и проза README живут в артефакте и сохраняются. Синхронизация — «обнови Claude DS». Первая — 2026-10-07 с 0992491: значения не менялись, +24 токена, статусы в карточках (Button 🟡 beta по beta-спеке, 26 — 🟠 draft «в макеты не брать»). **После утренней публикации Foundations → экспорт → `npm run all` → «обнови Claude DS»** — придут `surface-level-*`, `action-accent-*`, `state-layer`.
 
-## Где мы (2026-10-06)
+### 2026-10-06 — ← точка восстановления Components (≈ конец дня 06→07.10)
 
 **Ночная пачка (2026-10-06/07) — «система, а не ui kit»:**
 - **Foundations (не опубликовано):** цветной текст в светлой вернул на 600 (`accent/fg-on-light` → accent/600, `text/accent-hover` 700, `text/accent-pressed` 800) — 500 не проходил AA на L1+ и у Geo на L0. Добавлено 19 токенов размеров в Platform: `layout/min-viewport` 320 и `size/*` (button, field, text/measure, menu, tooltip, popover, toast, modal sm/md/lg, sheet, side-panel, card, chip, badge, table-cell) — docs/sizing.md.
@@ -125,13 +135,13 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 
 Button заменён: новый компонент «Button» (страница «🟡 Button», 🟡 beta, Type × Tone × Size × State) — все инстансы в Components переведены (Error → Primary · Danger, Text error → Text · Danger); старый — «Button · deprecated» в 🗄 Archive, удалить в следующей версии. Ждёт: публикации Components, предупреждения разработки (major: ось Tone), отметки борды Ready for dev. Дальше — Icon button по тому же шаблону, затем иконки по брендам.
 
-## Где мы (2026-10-05)
+### 2026-10-05
 
 Почему DS 2.0 не 1:1 с legacy: компоненты рисовались заново по замерам (±4 px), другое внутреннее устройство (gap вместо padding рамки Label), накопились «решения DS 2.0» (размеры S–XL, переименования типов, кегли). Переходим на перенос legacy-компонентов с пересадкой на токены. Пилот Button — на ревью.
 
 2026-10-05: аудит по правилам DSP (docs/dsp.md). Foundations и Icons чистые; Components — статусы и цвета у всех, ~3 000 размеров привязано к семантике, ~1 700 ждут новых токенов (решение Стефана). Стефан: «сначала докрутить всю базу», дальше по шагам.
 
-## Раньше (2026-10-04)
+### 2026-10-04
 
 Этап: **Base DS 2.0 готова к ревью** — чеклист в OPEN-QUESTIONS. Сделано: фокус (новое кольцо у всех интерактивных компонентов), 13-шаговые рампы, Style (Base/Expressive, роли декора) и страница «🌗 Visual language», Platform = Web · iOS · Mobile web · Android (поведение `os/*`, хаптики `haptic/*`), `perf-low.css` и `contrast-more.css`, a11y-проверка токенов. В работе: компоненты по аудиту (зоны нажатия, состояния, motion, «не только цветом», описания, строки миграции). Foundations — ждут публикации. 2026-10-05: кросс-браузерный прогон (Chromium + WebKit, статический анализ старых) — 6 исправлений в сборке, отчёт `docs/browser-support.md`.
 
