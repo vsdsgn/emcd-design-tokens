@@ -2,11 +2,11 @@
   "layout": {
     "margin": {
       "$type": "dimension",
-      "$value": "{dimension.x2-5}"
+      "$value": "{dimension.40}"
     },
     "gutter": {
       "$type": "dimension",
-      "$value": "{dimension.x1-5}"
+      "$value": "{dimension.24}"
     },
     "columns": {
       "$type": "number",
@@ -24,7 +24,7 @@
   "space": {
     "section": {
       "$type": "dimension",
-      "$value": "{dimension.x4}"
+      "$value": "{dimension.64}"
     }
   },
   "type": {

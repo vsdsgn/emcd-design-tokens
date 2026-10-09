@@ -3,6 +3,7 @@
  */
 
 [data-brand="wl-default"] {
+  --brand-radius-focus-ring-lg: 1.125rem;
   --brand-accent-50: var(--color-violet-50);
   --brand-accent-100: var(--color-violet-100);
   --brand-accent-150: var(--color-violet-150);
@@ -16,22 +17,17 @@
   --brand-accent-850: var(--color-violet-850);
   --brand-accent-900: var(--color-violet-900);
   --brand-accent-950: var(--color-violet-950);
-  --brand-accent-on-solid: var(--color-neutral-0);
+  --brand-accent-on-solid: var(--color-white);
   --brand-accent-solid: var(--color-violet-500);
-  --brand-accent-solid-hover: var(--color-violet-700);
-  --brand-accent-solid-pressed: var(--color-violet-800);
-  --brand-accent-fg-on-light: var(--color-violet-600);
-  --brand-accent-fg-on-dark: var(--color-violet-400);
-  --brand-accent-fg-strong-on-light: var(--color-violet-850);
-  --brand-accent-fg-strong-on-dark: var(--color-violet-300);
   --brand-accent-focus-on-light: var(--color-violet-500);
   --brand-accent-focus-on-dark: var(--color-violet-400);
-  --brand-accent-focus-ring-on-light: var(--color-violet-200);
-  --brand-accent-focus-ring-on-dark: var(--color-violet-800);
+  --brand-accent-focus-ring-on-light: var(--color-alpha-violet-48);
+  --brand-accent-focus-ring-on-dark: var(--color-alpha-violet-56);
   --brand-accent-tint: var(--color-alpha-violet-16);
   --brand-accent-glow: var(--color-alpha-violet-24);
   --brand-accent-glow-strong: var(--color-alpha-violet-40);
   --brand-accent-tint-end: var(--color-alpha-violet-0);
+  --brand-accent-tint-strong: var(--color-alpha-violet-32);
   --brand-highlight-100: var(--color-lime-100);
   --brand-highlight-300: var(--color-lime-300);
   --brand-highlight-500: var(--color-lime-500);
@@ -41,15 +37,23 @@
   --brand-font-family-text: var(--font-family-inter);
   --brand-font-family-display: var(--font-family-inter);
   --brand-font-family-mono: var(--font-family-ibm-plex-mono);
-  --brand-radius-xs: var(--dimension-x0-25);
-  --brand-radius-sm: var(--dimension-x0-5);
-  --brand-radius-md: var(--dimension-x0-75);
-  --brand-radius-lg: var(--dimension-x1);
-  --brand-radius-xl: var(--dimension-x1-5);
-  --brand-radius-2xl: var(--dimension-x2);
-  --brand-radius-none: var(--dimension-x0);
+  --brand-radius-xs: var(--dimension-4);
+  --brand-radius-sm: var(--dimension-8);
+  --brand-radius-md: var(--dimension-12);
+  --brand-radius-lg: var(--dimension-16);
+  --brand-radius-xl: var(--dimension-24);
+  --brand-radius-2xl: var(--dimension-32);
+  --brand-radius-none: var(--dimension-0);
   --brand-radius-full: var(--dimension-full);
-  --brand-radius-control-sm: var(--dimension-x0-625);
-  --brand-radius-focus-ring-sm: var(--dimension-x0-875);
-  --brand-radius-focus-ring: var(--dimension-x1);
+  --brand-radius-control-sm: var(--dimension-10);
+  --brand-radius-focus-ring-sm: var(--dimension-12);
+  --brand-radius-focus-ring: var(--dimension-14);
+  --brand-radius-2xs: var(--dimension-2);
+  --brand-radius-control-xs: var(--dimension-6);
+  --brand-accent-solid-hover: var(--brand-accent-600);
+  --brand-accent-solid-pressed: var(--brand-accent-700);
+  --brand-accent-fg-on-light: var(--brand-accent-600);
+  --brand-accent-fg-on-dark: var(--brand-accent-400);
+  --brand-accent-fg-strong-on-light: var(--brand-accent-600);
+  --brand-accent-fg-strong-on-dark: var(--brand-accent-300);
 }

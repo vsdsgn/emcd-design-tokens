@@ -6,9 +6,9 @@
   --layout-columns: 12;
   --layout-content-max: 100rem;
   --layout-breakpoint-min: 1600;
-  --layout-margin: var(--dimension-x3);
-  --layout-gutter: var(--dimension-x2);
-  --space-section: var(--dimension-x5);
+  --layout-margin: var(--dimension-48);
+  --layout-gutter: var(--dimension-32);
+  --space-section: var(--dimension-80);
   --type-display-lg-size: var(--font-size-64);
   --type-display-lg-line-height: var(--line-height-72);
   --type-display-md-size: var(--font-size-56);

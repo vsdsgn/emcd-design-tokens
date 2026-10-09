@@ -1,67 +1,97 @@
-source,legacy_token,legacy_light,legacy_dark,ds2_token,ds2_light,ds2_dark,dE_light,dE_dark,status,contrast_on_bg_light_dark,note
-Web·App,Color 1 [Back],,#0a0a0a,bg/base,#ffffff,#0a0a0a,,0.0,=,,
-Web·App,Color 7 [Back],,#0a0a0a,bg/base,#ffffff,#0a0a0a,,0.0,=,,
-Web·App,Color 2 [Back],,#111111,surface/default,#ffffff,#111111,,0.0,=,,
-Web·App,Color 6 [Back],,#111111,surface/default,#ffffff,#111111,,0.0,=,,
-Web·App,Color 3 [Back],,#1a1a1a,surface/raised,#ffffff,#1a1a1a,,0.0,=,,
-Web·App,Color 35 [Back],,#232323,surface/hover,#f5f5f5,#232323,,0.0,=,,
-Web·App,Color 4 [Back],,#2d2d2d,surface/active,#eeeeee,#2d2d2d,,0.0,=,,
-Web·App,Disabled / Inactive [Back],,#1a1a1a,surface/disabled,#f5f5f5,#1a1a1a,,0.0,=,,
-Web·App,Color 1 [Text],,#fafafa,text/primary,#0a0a0a,#fafafa,,0.0,=,19.8 / 19.0,
-Web·App,Color 2 [Text],,#d0d0d0,text/secondary,#4d4d4d,#a3a3a3,,16.5,Δ,8.5 / 7.8,
-Web·App,Color 3 [Text],,#a3a3a3,text/tertiary,#6b6b6b,#8b8b8b,,9.1,Δ,5.3 / 5.8,
-Web·App,Color 4 [Text],,#7a7a7a,text/tertiary,#6b6b6b,#8b8b8b,,6.6,≈,5.3 / 5.8,
-Web·App,Color 5 [Text],,#4d4d4d,text/disabled,#a3a3a3,#4d4d4d,,0.0,=,2.5 / 2.3,
-Web·App,Brand,,#8f42ff,action/primary/default,#8f42ff,#8f42ff,,0.0,=,,button fill; for text use text/accent
-Web·App,Brand fill hover,,#6724b1,action/primary/hover,#642db4,#642db4,,3.7,≈,,hover is violet/600
-Web·App,Brand hover,,#ac63fc,text/accent,#7a38db,#ac65fb,,1.7,=,6.1 / 5.7,accent text and links on dark
-Web·App,Brand light,,#c18afd,text/link-hover,#411c79,#c18afe,,0.5,=,12.6 / 7.9,
-Web·App,Brand disable,,#2c0754,action/disabled,#f5f5f5,#1a1a1a,,51.4,Δ,,disabled is neutral now
-Web·App,Error / Red [Main],,#e53935,status/danger/solid,#c4302c,#e53935,,0.0,=,,
-Web·App,Error hover / Red [Hover],,#be2f2b,action/danger/default,#c4302c,#e53935,,13.7,Δ,,danger button red/600 (white text 5.8:1)
-Web·App,Error disabled / Red [Disabled],,#972421,action/disabled,#f5f5f5,#1a1a1a,,61.5,Δ,,disabled is neutral
-Web·App,Error back / Red [Back],,#350a09,status/danger/subtle,#fff4f4,#3c0807,,4.7,≈,,
-Web·App,Error back 2 / Red [Back] 2,,#480f0e,status/danger/subtle,#fff4f4,#3c0807,,5.2,≈,,
-Web·App,Error secondary text,,#be2f2b,text/danger,#c4302c,#ef625e,,18.3,Δ,5.5 / 6.2,контраст до AA (было 3.4:1)
-Web·App,Success / Green [Main],,#43a047,status/success/solid,#38883b,#43a047,,0.0,=,,
-Web·App,Success hover / Green [Hover],,#38823b,status/success/solid,#38883b,#43a047,,14.4,Δ,,no separate hover
-Web·App,Success back / Green [Back],,#112412,status/success/subtle,#f0faf1,#09250a,,6.2,≈,,
-Web·App,Success back 2,,#173318,status/success/subtle,#f0faf1,#09250a,,6.5,≈,,
-Web·App,Success secondary text,,#38823b,text/success,#2b6e2e,#64b168,,17.5,Δ,6.2 / 7.6,контраст до AA (было 4.2:1)
-Web·App,Attention / Orange [Main],,#f59e0b,status/warning/solid,#f59e0b,#f59e0b,,0.0,=,,
-Web·App,Attention hover,,#c68009,status/warning/solid,#f59e0b,#f59e0b,,17.5,Δ,,
-Web·App,Attention back / Orange [back],,#221601,status/warning/subtle,#fdf6eb,#2d1900,,6.6,≈,,
-Web·App,Attention back 2,,#3a2502,status/warning/subtle,#fdf6eb,#2d1900,,9.1,Δ,,
-Web·App,Attention secondary text,,#976207,text/warning,#a36700,#f59e0b,,35.9,Δ,4.7 / 9.2,контраст до AA (было 3.8:1)
-Web·App,accent base,,#ebff00,highlight/solid,#ebff00,#ebff00,,0.0,=,,text on it: text/on-highlight
-Web·App,accent soft,,#f6fe9e,highlight/solid,#ebff00,#ebff00,,49.5,Δ,,clarify usage
-Web·App,accent bold,,#9d8701,highlight/solid,#ebff00,#ebff00,,56.8,Δ,,clarify usage
-Web·App,accent background,,#231f00,highlight/subtle,#f9fcd5,#3d4300,,25.2,Δ,,
-Web·App,theme · surface/base,,#d0d0d0,action/tertiary/hover,#0000000a,#ffffff14,,16.5,≈α,,translucent layer
-Web·App,theme · divider/base,,#d0d0d0,border/subtle,#eeeeee,#232323,,69.8,≈α,,divider is opaque now
-Site,text/neutral/base,#000000,#f5f5f5,text/primary,#0a0a0a,#fafafa,2.7,1.7,≈,19.8 / 19.0,
-Site,text/neutral/nbold-1,#7a7a7a,#b9b9b9,text/secondary,#4d4d4d,#a3a3a3,18.5,8.2,Δ,8.5 / 7.8,контраст до AA (было 4.3:1)
-Site,text/neutral/nbold-2,#a3a3a3,#a3a3a3,text/tertiary,#6b6b6b,#8b8b8b,21.8,9.1,Δ,5.3 / 5.8,контраст до AA (было 2.5:1)
-Site,text/neutral/nbold-3,#b9b9b9,#7a7a7a,text/disabled,#a3a3a3,#4d4d4d,8.2,18.5,Δ,2.5 / 2.3,
-Site,text/neutral/nbold-4,#e0e0e0,#1a1a1a,text/disabled,#a3a3a3,#4d4d4d,22.2,23.5,Δ,2.5 / 2.3,almost invisible text — revisit
-Site,text/fixed/white,,#ffffff,fixed/light,#ffffff,#ffffff,,0.0,=,,
-Site,text/fixed/black,,#000000,fixed/dark,#0a0a0a,#0a0a0a,,2.7,≈,,
-Site,icon/neutral/base,#000000,#ffffff,icon/primary,#0a0a0a,#fafafa,2.7,1.7,≈,19.8 / 19.0,
-Site,icon/neutral/nbold-1,#7a7a7a,#f5f5f5,icon/secondary,#4d4d4d,#a3a3a3,18.5,29.5,Δ,8.5 / 7.8,
-Site,icon/neutral/nbold-2,#a3a3a3,#e0e0e0,icon/tertiary,#6b6b6b,#8b8b8b,21.8,31.3,Δ,5.3 / 5.8,контраст до AA (было 2.5:1)
-Site,icon/neutral/nbold-3 · nbold-4,#b9b9b9,#e0e0e0,icon/disabled,#a3a3a3,#4d4d4d,8.2,56.4,Δ,2.5 / 2.3,
-Site,icon/fixed/white · black,#ffffff,#000000,fixed/light · fixed/dark,#ffffff,#0a0a0a,0.0,2.7,≈,,
-Site,icon/brand/base,,#8f42ff,icon/accent,#7a38db,#ac65fb,,22.5,Δ,6.1 / 5.7,violet/600 light / 400 dark
-Site,icon/brand/bold-1,#7f30d6,#ac63fc,icon/accent,#7a38db,#ac65fb,3.3,1.7,≈,6.1 / 5.7,
-Site,border/neutral/nbold-1,#e0e0e0,#2d2d2d,border/default,#e0e0e0,#2d2d2d,0.0,0.0,=,,
-Site,border/neutral/nbold-2,#f5f5f5,#1a1a1a,border/subtle,#eeeeee,#232323,2.4,4.5,≈,,
-Site,border/neutral/basic,#000000,#f5f5f5,border/inverse,#0a0a0a,#ffffff,2.7,3.5,≈,,
-Site,background/neutral/basic,#ffffff,#0a0a0a,bg/base,#ffffff,#0a0a0a,0.0,0.0,=,,
-Site,background/neutral/bold-1,#eeeeee,#1a1a1a,surface/hover,#f5f5f5,#232323,2.4,4.5,≈,,
-Site,background/neutral/bold-2,#e0e0e0,#232323,surface/active,#eeeeee,#2d2d2d,4.9,4.8,≈,,
-Site,background/neutral/bold-3,#0a0a0a,#ffffff,bg/inverse,#0a0a0a,#ffffff,0.0,0.0,=,,
-Site,background/brand/basic,,#8f42ff,action/primary/default,#8f42ff,#8f42ff,,0.0,=,,
-Site,background/brand/bold-1,#7f30d6,#ac63fc,action/primary/hover,#642db4,#642db4,15.9,24.0,Δ,,
-Site,background/brand/nbasic-1,#f5ecff,#380d66,accent/subtle,#f9f4ff,#240e46,4.9,18.7,Δ,,
-Site,text/brand/base,,#8f42ff,text/accent,#7a38db,#ac65fb,,22.5,Δ,6.1 / 5.7,violet/600 light / 400 dark — contrast
-Site,text/brand/bold-1,#7f30d6,#ac63fc,text/accent,#7a38db,#ac65fb,3.3,1.7,≈,6.1 / 5.7,
+source,legacy,role,before_light,before_dark,target,chain_light,chain_dark,after_light,after_dark,on_l0_light,on_l0_dark,dE_light,dE_dark,action,status,decision,impact,min_contrast_L0_L3_light_dark,note
+Web·App,Color 1 [Back],фон страницы,,#0a0a0a,surface/level-0,white,neutral/950,#ffffff,#0a0a0a,#ffffff,#0a0a0a,,0.0,Keep,=,,DS Web 94 · DS App 165 · Web App 2 240 · Monitoring* 3 969,,
+Web·App,Color 7 [Back],,,#0a0a0a,surface/level-0,white,neutral/950,#ffffff,#0a0a0a,#ffffff,#0a0a0a,,0.0,Deprecate,=,Этап 1: 0 потребителей,0,,дубль Color 1
+Web·App,Color 2 [Back],карточка,,#111111,surface/level-1,neutral/100,neutral/850,#f5f5f5,#1a1a1a,#f5f5f5,#1a1a1a,,4.2,Keep,≈,Уровни L0–L3 (05–06.10),DS Web 98 · DS App 67 · Web App 3 874 · Monitoring* 3 486,,
+Web·App,Color 6 [Back],,,#111111,surface/level-1,neutral/100,neutral/850,#f5f5f5,#1a1a1a,#f5f5f5,#1a1a1a,,4.2,Deprecate,≈,Этап 1: 0 потребителей,0,,дубль Color 2
+Web·App,Color 3 [Back],вложенная плашка / контрол на карточке,,#1a1a1a,surface/level-2,neutral/150,neutral/800,#ececec,#202020,#ececec,#202020,,3.0,Split,≈,Уровни L0–L3 (05–06.10),DS Web 304 · DS App 205 · Web App 10 126 · Monitoring* 12 037,,контрол на уровень выше подложки
+Web·App,Color 3 [Back],поповер / меню,,#1a1a1a,surface/raised,white,neutral/850,#ffffff,#1a1a1a,#ffffff,#1a1a1a,,0.0,Split,=,,DS Web 304 · DS App 205 · Web App 10 126 · Monitoring* 12 037,,
+Web·App,Color 35 [Back],hover,,#232323,state/layer@6,black,white,#0000000f,#ffffff0f,#f0f0f0,#181818,,5.5,Split,≈,Слой состояний 6/10 % (06.10),DS Web 214 · DS App 187 · Web App 4 810 · Monitoring* 3 597,,
+Web·App,Color 35 [Back],плашка (бейдж / трек),,#232323,surface/level-3,neutral/200,neutral/700,#e0e0e0,#262626,#e0e0e0,#262626,,1.4,Split,=,Уровни L0–L3 (05–06.10),DS Web 214 · DS App 187 · Web App 4 810 · Monitoring* 3 597,,
+Web·App,Color 4 [Back],pressed,,#2d2d2d,state/layer@10,black,white,#0000001a,#ffffff1a,#e5e5e5,#232323,,4.8,Split,≈,Слой состояний 6/10 % (06.10),DS Web 51 · DS App 42 · Web App 1 340 · Monitoring* 2 929,,
+Web·App,Color 4 [Back],дорожка (toggle / slider / progress),,#2d2d2d,control/track,alpha/black/12,alpha/white/16,#0000001f,#ffffff29,#e0e0e0,#313131,,1.9,Split,=,Обводки и плашки альфой (05.10),DS Web 51 · DS App 42 · Web App 1 340 · Monitoring* 2 929,,
+Web·App,Disabled / Inactive [Back],,,#1a1a1a,control/surface/disabled,alpha/black/8,alpha/white/8,#00000014,#ffffff14,#ebebeb,#1d1d1d,,1.5,Merge,=,Disabled 8 / 40 % (06.10),DS Web 19 · Web App 320 · Monitoring* 585,,
+Web·App,Color 1 [Text],,,#fafafa,text/primary,neutral/950,neutral/50,#0a0a0a,#fafafa,#0a0a0a,#fafafa,,0.0,Keep,=,,DS Web 418 · DS App 399 · Web App 19 262 · Monitoring* 19 040,15.0 / 14.5,
+Web·App,Color 2 [Text],,,#d0d0d0,text/secondary,alpha/black/72,alpha/white/72,#000000b8,#ffffffb8,#474747,#bbbbbb,,7.6,Merge,≈,Этап 1: почти не используется,DS Web 1 · Web App 22,8.1 / 8.6,сливается со ступенью Color 3
+Web·App,Color 3 [Text],,,#a3a3a3,text/secondary,alpha/black/72,alpha/white/72,#000000b8,#ffffffb8,#474747,#bbbbbb,,8.9,Keep,Δ принято,Текст альфой 72/56/40 (05.10),DS Web 57 · DS App 62 · Web App 3 735 · Monitoring* 980,8.1 / 8.6,было → tertiary; обе используемые ступени (3 и 4) сохраняем
+Web·App,Color 4 [Text],,,#7a7a7a,text/tertiary,alpha/black/56,alpha/white/56,#0000008f,#ffffff8f,#707070,#939393,,9.7,Keep,Δ принято,Текст альфой 72/56/40 (05.10),DS Web 195 · DS App 226 · Web App 11 014 · Monitoring* 11 191,4.6 / 5.8,
+Web·App,Color 5 [Text],,,#4d4d4d,text/disabled,alpha/black/40,alpha/white/40,#00000066,#ffffff66,#999999,#6c6c6c,,12.9,Keep,Δ принято,Disabled 8 / 40 % (06.10),DS Web 66 · DS App 18 · Web App 3 225 · Monitoring* 5 636,2.8 / 3.7,
+Web·App,Brand,заливка,,#8f42ff,action/primary/default,accent/solid → violet/500,accent/solid → violet/500,#8f42ff,#8f42ff,#8f42ff,#8f42ff,,0.0,Split,=,,DS Web 237 · DS App 106 · Web App 3 280 · Monitoring* 1 362,,
+Web·App,Brand,отмеченный контрол,,#8f42ff,control/checked,accent/solid → violet/500,accent/solid → violet/500,#8f42ff,#8f42ff,#8f42ff,#8f42ff,,0.0,Split,=,,DS Web 237 · DS App 106 · Web App 3 280 · Monitoring* 1 362,,
+Web·App,Brand,текст / иконка,,#8f42ff,text/accent,accent/fg-on-light → accent/600 → violet/600,accent/fg-on-dark → accent/400 → violet/400,#7a38db,#ac65fb,#7a38db,#ac65fb,,22.5,Split,Δ принято,Цветной текст ≥ 4.5 (06.10),DS Web 237 · DS App 106 · Web App 3 280 · Monitoring* 1 362,4.7 / 4.3 ⚠,
+Web·App,Brand fill hover,,,#6724b1,action/primary/default+layer@6,accent/solid → violet/500,accent/solid → violet/500,#873ef0,#964dff,#873ef0,#964dff,,25.2,Deprecate,Δ принято,Слой состояний 6/10 % (06.10),DS Web 17 · DS App 6 · Web App 17 · Monitoring* 3,,action/primary/hover — кандидат deprecated
+Web·App,Brand hover,,,#ac63fc,text/accent,accent/fg-on-light → accent/600 → violet/600,accent/fg-on-dark → accent/400 → violet/400,#7a38db,#ac65fb,#7a38db,#ac65fb,,1.7,Merge,=,,DS Web 3 · DS App 1 · Web App 81 · Monitoring* 49,4.7 / 4.3 ⚠,
+Web·App,Brand light,,,#c18afd,text/link-hover,accent/fg-strong-on-light → accent/600 → violet/600,accent/fg-strong-on-dark → accent/300 → violet/300,#7a38db,#c18afe,#7a38db,#c18afe,,0.5,Keep,=,,DS Web 1 · Web App 90,4.7 / 6.0,
+Web·App,Brand disable,,,#2c0754,action/disabled,alpha/black/8,alpha/white/8,#00000014,#ffffff14,#ebebeb,#1d1d1d,,51.4,Merge,Δ принято,Disabled 8 / 40 % (06.10),DS Web 15 · DS App 22 · Web App 171 · Monitoring* 13,,
+Web·App,Error / Red [Main],,,#e53935,status/danger/solid,red/600,red/500,#c4302c,#e53935,#c4302c,#e53935,,0.0,Keep,=,,DS Web 67 · DS App 67 · Web App 837 · Monitoring* 2 230,,
+Web·App,Error hover / Red [Hover],кнопка danger,,#be2f2b,action/danger/default,red/600,red/600,#c4302c,#c4302c,#c4302c,#c4302c,,2.3,Keep,=,Цветной текст ≥ 4.5 (06.10),DS Web 13 · Web App 2 · Monitoring* 2,,белый текст ≥ 4.5
+Web·App,Error disabled / Red [Disabled],,,#972421,action/disabled,alpha/black/8,alpha/white/8,#00000014,#ffffff14,#ebebeb,#1d1d1d,,60.9,Merge,Δ принято,Disabled 8 / 40 % (06.10),0,,
+Web·App,Error back / Red [Back],,,#350a09,status/danger/subtle,alpha/red/16,alpha/red/24,#e5393529,#e539353d,#fbdfdf,#3e1514,,4.6,Merge,≈,status/*/subtle альфой (05.10),DS Web 18 · DS App 22 · Web App 10,,
+Web·App,Error back 2 / Red [Back] 2,,,#480f0e,status/danger/subtle,alpha/red/16,alpha/red/24,#e5393529,#e539353d,#fbdfdf,#3e1514,,8.4,Merge,Δ принято,status/*/subtle альфой (05.10),DS App 20 · Web App 29 · Monitoring* 9,,
+Web·App,Error secondary text / Red [Secondary text],,,#be2f2b,text/danger,red/600,red/500,#c4302c,#e53935,#c4302c,#e53935,,13.7,Keep,Δ принято,Цветной текст ≥ 4.5 (06.10),DS Web 2 · DS App 3,4.2 / 3.6 ⚠,см. П1 (контраст на L1–L3)
+Web·App,Success / Green [Main],,,#43a047,status/success/solid,green/600,green/500,#38883b,#43a047,#38883b,#43a047,,0.0,Keep,=,,DS Web 82 · DS App 48 · Web App 1 071 · Monitoring* 20 763,,
+Web·App,Success hover / Green [Hover],,,#38823b,action/success/default+layer@6,green/600,green/500,#358038,#4ea652,#358038,#4ea652,,14.6,Deprecate,Δ принято,Слой состояний 6/10 % (06.10),DS Web 3 · Web App 2,,
+Web·App,Success back / Green [Back],,,#112412,status/success/subtle,alpha/green/24,alpha/green/16,#43a0473d,#43a04729,#d2e8d3,#132214,,3.3,Merge,≈,status/*/subtle альфой (05.10),DS Web 20 · DS App 22 · Web App 34,,
+Web·App,Success back 2 / Green [Back] 2,,,#173318,status/success/subtle,alpha/green/24,alpha/green/16,#43a0473d,#43a04729,#d2e8d3,#132214,,12.0,Merge,Δ принято,status/*/subtle альфой (05.10),DS Web 2 · DS App 18 · Web App 123,,
+Web·App,Success secondary text / Green [Secondary text],,,#38823b,text/success,green/700,green/400,#2b6e2e,#64b168,#2b6e2e,#64b168,,17.5,Keep,Δ принято,Цветной текст ≥ 4.5 (06.10),DS Web 3 · DS App 1,4.7 / 5.8,
+Web·App,Attention / Orange [Main],,,#f59e0b,status/warning/solid,amber/500,amber/500,#f59e0b,#f59e0b,#f59e0b,#f59e0b,,0.0,Keep,=,,DS Web 23 · DS App 24 · Web App 1 819 · Monitoring* 2 180,,
+Web·App,Attention hover,,,#c68009,status/warning/solid+layer@6,amber/500,amber/500,#e7950a,#f6a419,#e7950a,#f6a419,,17.5,Deprecate,Δ принято,Слой состояний 6/10 % (06.10),Web App 2,,
+Web·App,Attention back / Orange [back],,,#221601,status/warning/subtle,alpha/amber/32,alpha/amber/12,#f59e0b52,#f59e0b1f,#fce0b1,#271c0a,,3.0,Merge,≈,status/*/subtle альфой (05.10),DS Web 18 · DS App 22 · Web App 141,,
+Web·App,Attention back 2 / Orange [back] 2,,,#3a2502,status/warning/subtle,alpha/amber/32,alpha/amber/12,#f59e0b52,#f59e0b1f,#fce0b1,#271c0a,,12.8,Merge,Δ принято,status/*/subtle альфой (05.10),DS App 18 · Web App 53,,
+Web·App,Attention secondary text / Orange [secondary text],,,#976207,text/warning,amber/700,amber/500,#a36700,#f59e0b,#a36700,#f59e0b,,35.9,Keep,Δ принято,Цветной текст ≥ 4.5 (06.10),DS Web 3 · DS App 1,3.5 / 7.0 ⚠,
+Web·App,accent base,,,#ebff00,highlight/solid,highlight/500 → lime/500,highlight/500 → lime/500,#ebff00,#ebff00,#ebff00,#ebff00,,0.0,Keep,=,,DS Web 12 · Web App 39 · Monitoring* 4,,текст на нём — text/on-highlight
+Web·App,accent soft,,,#f6fe9e,—,,,,,,,,,Deprecate,—,Этап 1: 0 потребителей,0,,
+Web·App,accent bold,,,#9d8701,—,,,,,,,,,Deprecate,—,Этап 1: 0 потребителей,0,,
+Web·App,accent background,,,#231f00,highlight/subtle,highlight/100 → lime/100,highlight/900 → lime/900,#f9fcd5,#3d4300,#f9fcd5,#3d4300,,25.2,Deprecate,Δ принято,Этап 1: 0 потребителей,0,,цель — если найдётся потребитель
+Web·App,theme · surface/base,обводка плашек и карточек,,#d0d0d012,border/subtle,alpha/black/8,alpha/white/8,#00000014,#ffffff14,#ebebeb,#1d1d1d,,2.5,Split,≈,Обводки и плашки альфой (05.10),DS Web 334 · DS App 417 · Web App 2 634 · Monitoring* 1 240,,
+Web·App,theme · surface/base,граница контрола (checkbox / radio),,#d0d0d012,border/strong,alpha/black/48,alpha/white/40,#0000007a,#ffffff66,#858585,#6c6c6c,,37.4,Split,Δ принято,WCAG 1.4.11,DS Web 334 · DS App 417 · Web App 2 634 · Monitoring* 1 240,,граница — единственный признак контрола → ≥ 3:1
+Web·App,theme · divider/base,,,#d0d0d012,border/subtle,alpha/black/8,alpha/white/8,#00000014,#ffffff14,#ebebeb,#1d1d1d,,2.5,Keep,≈,Обводки и плашки альфой (05.10),DS Web 99 · DS App 92 · Web App 1 032 · Monitoring* 239,,
+App,Back [Primary] 2,бейдж brand,,,accent/subtle,accent/tint → alpha/violet/16,accent/glow → alpha/violet/24,#8f42ff29,#8f42ff3d,#ede1ff,#2a1745,,,Keep,—,,DS App 18,,значение в DS App уточнить
+Core,Alias · Background/Color default,,,#0a0a0a,surface/level-0,white,neutral/950,#ffffff,#0a0a0a,#ffffff,#0a0a0a,,0.0,Merge,=,,Web App 36,,
+Core,Alias · Background/Shade color default,,,#232323,surface/level-3,neutral/200,neutral/700,#e0e0e0,#262626,#e0e0e0,#262626,,1.4,Merge,=,Уровни L0–L3 (05–06.10),Web App 299 · Monitoring* 15,,
+Core,Alias · Divider/Color default,,,#232323,border/subtle,alpha/black/8,alpha/white/8,#00000014,#ffffff14,#ebebeb,#1d1d1d,,2.9,Merge,≈,Обводки и плашки альфой (05.10),Web App 106 · Monitoring* 128,,
+Core,Alias · Monochrome/Color default,,,#fafafa,icon/primary,neutral/950,neutral/50,#0a0a0a,#fafafa,#0a0a0a,#fafafa,,0.0,Merge,=,,DS App 15 · Web App 8,15.0 / 14.5,
+Core,Alias · Monochrome/Color disable,заливка disabled,,#232323,action/disabled,alpha/black/8,alpha/white/8,#00000014,#ffffff14,#ebebeb,#1d1d1d,,2.9,Merge,≈,Disabled 8 / 40 % (06.10),Web App 162 · Monitoring* 48,,
+Core,Alias · Text/Color disable,,,,text/disabled,alpha/black/40,alpha/white/40,#00000066,#ffffff66,#999999,#6c6c6c,,,Merge,—,,Web App 22,2.8 / 3.7,значение не снято
+Core,Alias · Text/Color secondary default,,,,text/secondary,alpha/black/72,alpha/white/72,#000000b8,#ffffffb8,#474747,#bbbbbb,,,Merge,—,,Web App 14,8.1 / 8.6,значение не снято
+Core,Alias · Brand/Color default,,,,action/primary/default,accent/solid → violet/500,accent/solid → violet/500,#8f42ff,#8f42ff,#8f42ff,#8f42ff,,,Merge,—,,DS App 1 · Web App 1,,значение не снято
+Core,Alias · Brand/Color disable,,,,action/disabled,alpha/black/8,alpha/white/8,#00000014,#ffffff14,#ebebeb,#1d1d1d,,,Merge,—,Disabled 8 / 40 % (06.10),Web App 10,,значение не снято
+Core,Alias · Success/Color default,,,,status/success/solid,green/600,green/500,#38883b,#43a047,#38883b,#43a047,,,Merge,—,,Web App 1,,значение не снято
+Core,Alias · Background/Color accent,,,,—,,,,,,,,,Conflict,Conflict,,Web App 3,,роль не ясна — смотреть экраны
+Core,Alias · Background/Color focus,,,,—,,,,,,,,,Conflict,Conflict,,Web App 22,,роль не ясна — смотреть экраны
+Core,Basic color · Neutral/* напрямую,сырые примитивы на экранах,,,по роли слоя,,,,,,,,,Rebind,этап 2,,DS Web 18 · DS App 13 · Web App 4 534 · Monitoring* 12,,этап 2 — перепривязка по роли
+Core,Basic color · Green / Red / Amber/* напрямую,бейджи / транзакции,,,status/*/subtle | solid,,,,,,,,,Rebind,этап 2,,DS App 50 · Web App 40 · Monitoring* 110,,этап 2
+Core,Basic color · Yellow/500,,,#ebff00,highlight/solid,highlight/500 → lime/500,highlight/500 → lime/500,#ebff00,#ebff00,#ebff00,#ebff00,,0.0,Rebind,этап 2,,Web App 28,,
+Product,Monitoring · pallete/violet/200,,,#8e42ff,action/primary/default,accent/solid → violet/500,accent/solid → violet/500,#8f42ff,#8f42ff,#8f42ff,#8f42ff,,0.3,Deprecate,=,,Monitoring* 4,,локальный дубль Brand
+Product,Monitoring · pallete/red/200,,,#e53733,status/danger/solid,red/600,red/500,#c4302c,#e53935,#c4302c,#e53935,,1.0,Deprecate,=,,Monitoring* 45,,локальный дубль
+Product,Monitoring · pallete/orange/200,,,#f59f0b,status/warning/solid,amber/500,amber/500,#f59e0b,#f59e0b,#f59e0b,#f59e0b,,0.6,Deprecate,=,,Monitoring* 45,,локальный дубль
+Product,Monitoring · pallete/green/300,,,#45a148,status/success/solid,green/600,green/500,#38883b,#43a047,#38883b,#43a047,,0.5,Deprecate,=,,Monitoring* 45,,локальный дубль
+Product,Monitoring · Collection 1/Color 1 [Text],,,#fafafa,text/primary,neutral/950,neutral/50,#0a0a0a,#fafafa,#0a0a0a,#fafafa,,0.0,Deprecate,=,,Monitoring* 78,15.0 / 14.5,локальный дубль
+Product,Web App · Text Color 3,,,,text/secondary,alpha/black/72,alpha/white/72,#000000b8,#ffffffb8,#474747,#bbbbbb,,,Deprecate,—,,Web App 4,8.1 / 8.6,локальный дубль
+Product,Color · border (Web App / Monitoring),,,,—,,,,,,,,,Conflict,Conflict,,Web App 6 · Monitoring* 64,,в DS Web / App такого нет — уточнить источник
+Site,text/neutral/base,,#000000,#f5f5f5,text/primary,neutral/950,neutral/50,#0a0a0a,#fafafa,#0a0a0a,#fafafa,2.7,1.7,Keep,≈,,не сканировали,15.0 / 14.5,
+Site,text/neutral/nbold-1,,#7a7a7a,#b9b9b9,text/secondary,alpha/black/72,alpha/white/72,#000000b8,#ffffffb8,#474747,#bbbbbb,21.1,0.7,Keep,Δ принято,Текст альфой 72/56/40 (05.10),не сканировали,8.1 / 8.6,
+Site,text/neutral/nbold-2,,#a3a3a3,#a3a3a3,text/tertiary,alpha/black/56,alpha/white/56,#0000008f,#ffffff8f,#707070,#939393,19.8,6.1,Keep,Δ принято,Текст альфой 72/56/40 (05.10),не сканировали,4.6 / 5.8,
+Site,text/neutral/nbold-3,,#b9b9b9,#7a7a7a,text/disabled,alpha/black/40,alpha/white/40,#00000066,#ffffff66,#999999,#6c6c6c,11.9,5.6,Keep,Δ принято,Disabled 8 / 40 % (06.10),не сканировали,2.8 / 3.7,
+Site,text/neutral/nbold-4,,#e0e0e0,#1a1a1a,text/disabled,alpha/black/40,alpha/white/40,#00000066,#ffffff66,#999999,#6c6c6c,26.0,36.4,Merge,Δ принято,Disabled 8 / 40 % (06.10),не сканировали,2.8 / 3.7,почти невидимый текст
+Site,text/fixed/white,,#ffffff,#ffffff,fixed/light,white,white,#ffffff,#ffffff,#ffffff,#ffffff,0.0,0.0,Keep,=,,не сканировали,,
+Site,text/fixed/black,,#000000,#000000,fixed/dark,neutral/950,neutral/950,#0a0a0a,#0a0a0a,#0a0a0a,#0a0a0a,2.7,2.7,Keep,≈,,не сканировали,,
+Site,icon/neutral/base,,#000000,#ffffff,icon/primary,neutral/950,neutral/50,#0a0a0a,#fafafa,#0a0a0a,#fafafa,2.7,1.7,Keep,≈,,не сканировали,15.0 / 14.5,
+Site,icon/neutral/nbold-1,,#7a7a7a,#f5f5f5,icon/secondary,alpha/black/72,alpha/white/72,#000000b8,#ffffffb8,#474747,#bbbbbb,21.1,20.7,Keep,Δ принято,Текст альфой 72/56/40 (05.10),не сканировали,8.1 / 8.6,
+Site,icon/neutral/nbold-2,,#a3a3a3,#e0e0e0,icon/tertiary,alpha/black/56,alpha/white/56,#0000008f,#ffffff8f,#707070,#939393,19.8,28.2,Keep,Δ принято,Текст альфой 72/56/40 (05.10),не сканировали,4.6 / 5.8,
+Site,icon/neutral/nbold-3 · nbold-4,,#b9b9b9,#e0e0e0,icon/disabled,alpha/black/40,alpha/white/40,#00000066,#ffffff66,#999999,#6c6c6c,11.9,43.5,Merge,Δ принято,Disabled 8 / 40 % (06.10),не сканировали,2.8 / 3.7,
+Site,icon/fixed/white,,#ffffff,#ffffff,fixed/light,white,white,#ffffff,#ffffff,#ffffff,#ffffff,0.0,0.0,Keep,=,,не сканировали,,
+Site,icon/fixed/black,,#000000,#000000,fixed/dark,neutral/950,neutral/950,#0a0a0a,#0a0a0a,#0a0a0a,#0a0a0a,2.7,2.7,Keep,≈,,не сканировали,,
+Site,icon/brand/base,,#8f42ff,#8f42ff,icon/accent,accent/fg-on-light → accent/600 → violet/600,accent/fg-on-dark → accent/400 → violet/400,#7a38db,#ac65fb,#7a38db,#ac65fb,13.7,22.5,Keep,Δ принято,Цветной текст ≥ 4.5 (06.10),не сканировали,4.7 / 4.3,
+Site,icon/brand/bold-1,,#7f30d6,#ac63fc,icon/accent,accent/fg-on-light → accent/600 → violet/600,accent/fg-on-dark → accent/400 → violet/400,#7a38db,#ac65fb,#7a38db,#ac65fb,3.3,1.7,Merge,≈,Цветной текст ≥ 4.5 (06.10),не сканировали,4.7 / 4.3,
+Site,border/neutral/nbold-1,,#e0e0e0,#2d2d2d,border/default,alpha/black/12,alpha/white/12,#0000001f,#ffffff1f,#e0e0e0,#282828,0.0,2.4,Keep,≈,Обводки и плашки альфой (05.10),не сканировали,,
+Site,border/neutral/nbold-2,,#f5f5f5,#1a1a1a,border/subtle,alpha/black/8,alpha/white/8,#00000014,#ffffff14,#ebebeb,#1d1d1d,3.5,1.5,Keep,≈,Обводки и плашки альфой (05.10),не сканировали,,
+Site,border/neutral/basic,,#000000,#f5f5f5,border/inverse,neutral/950,white,#0a0a0a,#ffffff,#0a0a0a,#ffffff,2.7,3.5,Keep,≈,,не сканировали,,
+Site,background/neutral/basic,,#ffffff,#0a0a0a,surface/level-0,white,neutral/950,#ffffff,#0a0a0a,#ffffff,#0a0a0a,0.0,0.0,Keep,=,,не сканировали,,
+Site,background/neutral/bold-1,,#eeeeee,#1a1a1a,surface/level-1,neutral/100,neutral/850,#f5f5f5,#1a1a1a,#f5f5f5,#1a1a1a,2.4,0.0,Keep,≈,Уровни L0–L3 (05–06.10),не сканировали,,
+Site,background/neutral/bold-2,,#e0e0e0,#232323,surface/level-3,neutral/200,neutral/700,#e0e0e0,#262626,#e0e0e0,#262626,0.0,1.4,Keep,=,Уровни L0–L3 (05–06.10),не сканировали,,
+Site,background/neutral/bold-3,,#0a0a0a,#ffffff,bg/inverse,neutral/950,white,#0a0a0a,#ffffff,#0a0a0a,#ffffff,0.0,0.0,Keep,=,,не сканировали,,
+Site,background/brand/basic,,#8f42ff,#8f42ff,action/primary/default,accent/solid → violet/500,accent/solid → violet/500,#8f42ff,#8f42ff,#8f42ff,#8f42ff,0.0,0.0,Keep,=,,не сканировали,,
+Site,background/brand/bold-1,hover заливки,#7f30d6,#ac63fc,action/primary/default+layer@6,accent/solid → violet/500,accent/solid → violet/500,#873ef0,#964dff,#873ef0,#964dff,8.4,14.9,Deprecate,Δ принято,Слой состояний 6/10 % (06.10),не сканировали,,
+Site,background/brand/nbasic-1,,#f5ecff,#380d66,accent/subtle,accent/tint → alpha/violet/16,accent/glow → alpha/violet/24,#8f42ff29,#8f42ff3d,#ede1ff,#2a1745,6.7,24.8,Keep,Δ открыто,,не сканировали,,
+Site,text/brand/base,,#8f42ff,#8f42ff,text/accent,accent/fg-on-light → accent/600 → violet/600,accent/fg-on-dark → accent/400 → violet/400,#7a38db,#ac65fb,#7a38db,#ac65fb,13.7,22.5,Keep,Δ принято,Цветной текст ≥ 4.5 (06.10),не сканировали,4.7 / 4.3 ⚠,
+Site,text/brand/bold-1,,#7f30d6,#ac63fc,text/accent,accent/fg-on-light → accent/600 → violet/600,accent/fg-on-dark → accent/400 → violet/400,#7a38db,#ac65fb,#7a38db,#ac65fb,3.3,1.7,Merge,≈,Цветной текст ≥ 4.5 (06.10),не сканировали,4.7 / 4.3 ⚠,

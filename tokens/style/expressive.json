@@ -21,46 +21,6 @@
       "$value": false
     }
   },
-  "material": {
-    "thin": {
-      "fill": {
-        "$type": "color",
-        "$value": "{surface.glass-thin}"
-      },
-      "blur": {
-        "$type": "dimension",
-        "$value": "{effect.blur.glass-md}"
-      }
-    },
-    "regular": {
-      "fill": {
-        "$type": "color",
-        "$value": "{surface.glass-regular}"
-      },
-      "blur": {
-        "$type": "dimension",
-        "$value": "{effect.blur.glass-lg}"
-      }
-    },
-    "thick": {
-      "fill": {
-        "$type": "color",
-        "$value": "{surface.glass-thick}"
-      },
-      "blur": {
-        "$type": "dimension",
-        "$value": "{effect.blur.glass-lg}"
-      }
-    },
-    "scrim": {
-      "$type": "color",
-      "$value": "{surface.overlay}"
-    },
-    "edge-blur": {
-      "$type": "dimension",
-      "$value": "{effect.blur.edge}"
-    }
-  },
   "light": {
     "ambient": {
       "color": {
@@ -70,16 +30,6 @@
       "blur": {
         "$type": "dimension",
         "$value": "160px"
-      }
-    },
-    "accent": {
-      "color": {
-        "$type": "color",
-        "$value": "{brand.accent.glow-strong}"
-      },
-      "blur": {
-        "$type": "dimension",
-        "$value": "16px"
       }
     },
     "tint": {
@@ -108,6 +58,16 @@
         "$value": "{glow.brand}"
       }
     },
+    "accent": {
+      "blur": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "color": {
+        "$type": "color",
+        "$value": "{brand.accent.glow-strong}"
+      }
+    },
     "tint-end": {
       "$type": "color",
       "$value": "{brand.accent.tint-end}"
@@ -125,6 +85,46 @@
     "highlight": {
       "$type": "color",
       "$value": "{color.alpha.white.32}"
+    }
+  },
+  "material": {
+    "regular": {
+      "blur": {
+        "$type": "dimension",
+        "$value": "{effect.blur.glass-lg}"
+      },
+      "fill": {
+        "$type": "color",
+        "$value": "{surface.glass-regular}"
+      }
+    },
+    "thin": {
+      "fill": {
+        "$type": "color",
+        "$value": "{surface.glass-thin}"
+      },
+      "blur": {
+        "$type": "dimension",
+        "$value": "{effect.blur.glass-md}"
+      }
+    },
+    "thick": {
+      "fill": {
+        "$type": "color",
+        "$value": "{surface.glass-thick}"
+      },
+      "blur": {
+        "$type": "dimension",
+        "$value": "{effect.blur.glass-lg}"
+      }
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": "{surface.overlay}"
+    },
+    "edge-blur": {
+      "$type": "dimension",
+      "$value": "{effect.blur.edge}"
     }
   }
 }
