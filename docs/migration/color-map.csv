@@ -1,0 +1,97 @@
+source,legacy_token,role,legacy_light,legacy_dark,target,action,decision,note
+Web·App,Color 1 [Back],фон страницы,,#0a0a0a,surface/level-0,Keep,,
+Web·App,Color 7 [Back],,,#0a0a0a,surface/level-0,Deprecate,Этап 1: 0 потребителей,дубль Color 1
+Web·App,Color 2 [Back],карточка,,#111111,surface/level-1,Keep,D-levels,
+Web·App,Color 6 [Back],,,#111111,surface/level-1,Deprecate,Этап 1: 0 потребителей,дубль Color 2
+Web·App,Color 3 [Back],вложенная плашка / контрол на карточке,,#1a1a1a,surface/level-2,Split,D-levels,контрол на уровень выше подложки
+Web·App,Color 3 [Back],поповер / меню,,#1a1a1a,surface/raised,Split,,
+Web·App,Color 35 [Back],hover,,#232323,state/layer@6,Split,D-state,
+Web·App,Color 35 [Back],плашка (бейдж / трек),,#232323,surface/level-3,Split,D-levels,
+Web·App,Color 4 [Back],pressed,,#2d2d2d,state/layer@10,Split,D-state,
+Web·App,Color 4 [Back],дорожка (toggle / slider / progress),,#2d2d2d,control/track,Split,D-alpha,
+Web·App,Disabled / Inactive [Back],,,#1a1a1a,control/surface/disabled,Merge,D-disabled,
+Web·App,Color 1 [Text],,,#fafafa,text/primary,Keep,,
+Web·App,Color 2 [Text],,,#d0d0d0,text/secondary,Merge,Этап 1: почти не используется,сливается со ступенью Color 3
+Web·App,Color 3 [Text],,,#a3a3a3,text/secondary,Keep,D-alpha-text,было → tertiary; обе используемые ступени (3 и 4) сохраняем
+Web·App,Color 4 [Text],,,#7a7a7a,text/tertiary,Keep,D-alpha-text,
+Web·App,Color 5 [Text],,,#4d4d4d,text/disabled,Keep,D-disabled,
+Web·App,Brand,заливка,,#8f42ff,action/primary/default,Split,,
+Web·App,Brand,отмеченный контрол,,#8f42ff,control/checked,Split,,
+Web·App,Brand,текст / иконка,,#8f42ff,text/accent,Split,D-contrast,
+Web·App,Brand fill hover,,,#6724b1,action/primary/default+layer@6,Deprecate,D-state,action/primary/hover — кандидат deprecated
+Web·App,Brand hover,,,#ac63fc,text/accent,Merge,,
+Web·App,Brand light,,,#c18afd,text/link-hover,Keep,,
+Web·App,Brand disable,,,#2c0754,action/disabled,Merge,D-disabled,
+Web·App,Error / Red [Main],,,#e53935,status/danger/solid,Keep,,
+Web·App,Error hover / Red [Hover],кнопка danger,,#be2f2b,action/danger/default,Keep,D-contrast,белый текст ≥ 4.5
+Web·App,Error disabled / Red [Disabled],,,#972421,action/disabled,Merge,D-disabled,
+Web·App,Error back / Red [Back],,,#350a09,status/danger/subtle,Merge,D-status-subtle,
+Web·App,Error back 2 / Red [Back] 2,,,#480f0e,status/danger/subtle,Merge,D-status-subtle,
+Web·App,Error secondary text / Red [Secondary text],,,#be2f2b,text/danger,Keep,D-contrast,см. П1 (контраст на L1–L3)
+Web·App,Success / Green [Main],,,#43a047,status/success/solid,Keep,,
+Web·App,Success hover / Green [Hover],,,#38823b,action/success/default+layer@6,Deprecate,D-state,
+Web·App,Success back / Green [Back],,,#112412,status/success/subtle,Merge,D-status-subtle,
+Web·App,Success back 2 / Green [Back] 2,,,#173318,status/success/subtle,Merge,D-status-subtle,
+Web·App,Success secondary text / Green [Secondary text],,,#38823b,text/success,Keep,D-contrast,
+Web·App,Attention / Orange [Main],,,#f59e0b,status/warning/solid,Keep,,
+Web·App,Attention hover,,,#c68009,status/warning/solid+layer@6,Deprecate,D-state,
+Web·App,Attention back / Orange [back],,,#221601,status/warning/subtle,Merge,D-status-subtle,
+Web·App,Attention back 2 / Orange [back] 2,,,#3a2502,status/warning/subtle,Merge,D-status-subtle,
+Web·App,Attention secondary text / Orange [secondary text],,,#976207,text/warning,Keep,D-contrast,
+Web·App,accent base,,,#ebff00,highlight/solid,Keep,,текст на нём — text/on-highlight
+Web·App,accent soft,,,#f6fe9e,,Deprecate,Этап 1: 0 потребителей,
+Web·App,accent bold,,,#9d8701,,Deprecate,Этап 1: 0 потребителей,
+Web·App,accent background,,,#231f00,highlight/subtle,Deprecate,Этап 1: 0 потребителей,цель — если найдётся потребитель
+Web·App,theme · surface/base,обводка плашек и карточек,,#d0d0d012,border/subtle,Split,D-alpha,
+Web·App,theme · surface/base,граница контрола (checkbox / radio),,#d0d0d012,border/strong,Split,WCAG 1.4.11,граница — единственный признак контрола → ≥ 3:1
+Web·App,theme · divider/base,,,#d0d0d012,border/subtle,Keep,D-alpha,
+App,Back [Primary] 2,бейдж brand,,,accent/subtle,Keep,,значение в DS App уточнить
+Core,Alias · Background/Color default,,,#0a0a0a,surface/level-0,Merge,,
+Core,Alias · Background/Shade color default,,,#232323,surface/level-3,Merge,D-levels,
+Core,Alias · Divider/Color default,,,#232323,border/subtle,Merge,D-alpha,
+Core,Alias · Monochrome/Color default,,,#fafafa,icon/primary,Merge,,
+Core,Alias · Monochrome/Color disable,заливка disabled,,#232323,action/disabled,Merge,D-disabled,
+Core,Alias · Text/Color disable,,,,text/disabled,Merge,,значение не снято
+Core,Alias · Text/Color secondary default,,,,text/secondary,Merge,,значение не снято
+Core,Alias · Brand/Color default,,,,action/primary/default,Merge,,значение не снято
+Core,Alias · Brand/Color disable,,,,action/disabled,Merge,D-disabled,значение не снято
+Core,Alias · Success/Color default,,,,status/success/solid,Merge,,значение не снято
+Core,Alias · Background/Color accent,,,,,Conflict,,роль не ясна — смотреть экраны
+Core,Alias · Background/Color focus,,,,,Conflict,,роль не ясна — смотреть экраны
+Core,Basic color · Neutral/* напрямую,сырые примитивы на экранах,,,по роли слоя,Rebind,,этап 2 — перепривязка по роли
+Core,Basic color · Green / Red / Amber/* напрямую,бейджи / транзакции,,,status/*/subtle | solid,Rebind,,этап 2
+Core,Basic color · Yellow/500,,,#ebff00,highlight/solid,Rebind,,
+Product,Monitoring · pallete/violet/200,,,#8e42ff,action/primary/default,Deprecate,,локальный дубль Brand
+Product,Monitoring · pallete/red/200,,,#e53733,status/danger/solid,Deprecate,,локальный дубль
+Product,Monitoring · pallete/orange/200,,,#f59f0b,status/warning/solid,Deprecate,,локальный дубль
+Product,Monitoring · pallete/green/300,,,#45a148,status/success/solid,Deprecate,,локальный дубль
+Product,Monitoring · Collection 1/Color 1 [Text],,,#fafafa,text/primary,Deprecate,,локальный дубль
+Product,Web App · Text Color 3,,,,text/secondary,Deprecate,,локальный дубль
+Product,Color · border (Web App / Monitoring),,,,,Conflict,,в DS Web / App такого нет — уточнить источник
+Site,text/neutral/base,,#000000,#f5f5f5,text/primary,Keep,,
+Site,text/neutral/nbold-1,,#7a7a7a,#b9b9b9,text/secondary,Keep,D-alpha-text,
+Site,text/neutral/nbold-2,,#a3a3a3,#a3a3a3,text/tertiary,Keep,D-alpha-text,
+Site,text/neutral/nbold-3,,#b9b9b9,#7a7a7a,text/disabled,Keep,D-disabled,
+Site,text/neutral/nbold-4,,#e0e0e0,#1a1a1a,text/disabled,Merge,D-disabled,почти невидимый текст
+Site,text/fixed/white,,#ffffff,#ffffff,fixed/light,Keep,,
+Site,text/fixed/black,,#000000,#000000,fixed/dark,Keep,,
+Site,icon/neutral/base,,#000000,#ffffff,icon/primary,Keep,,
+Site,icon/neutral/nbold-1,,#7a7a7a,#f5f5f5,icon/secondary,Keep,D-alpha-text,
+Site,icon/neutral/nbold-2,,#a3a3a3,#e0e0e0,icon/tertiary,Keep,D-alpha-text,
+Site,icon/neutral/nbold-3 · nbold-4,,#b9b9b9,#e0e0e0,icon/disabled,Merge,D-disabled,
+Site,icon/fixed/white,,#ffffff,#ffffff,fixed/light,Keep,,
+Site,icon/fixed/black,,#000000,#000000,fixed/dark,Keep,,
+Site,icon/brand/base,,#8f42ff,#8f42ff,icon/accent,Keep,D-contrast,
+Site,icon/brand/bold-1,,#7f30d6,#ac63fc,icon/accent,Merge,D-contrast,
+Site,border/neutral/nbold-1,,#e0e0e0,#2d2d2d,border/default,Keep,D-alpha,
+Site,border/neutral/nbold-2,,#f5f5f5,#1a1a1a,border/subtle,Keep,D-alpha,
+Site,border/neutral/basic,,#000000,#f5f5f5,border/inverse,Keep,,
+Site,background/neutral/basic,,#ffffff,#0a0a0a,surface/level-0,Keep,,
+Site,background/neutral/bold-1,,#eeeeee,#1a1a1a,surface/level-1,Keep,D-levels,
+Site,background/neutral/bold-2,,#e0e0e0,#232323,surface/level-3,Keep,D-levels,
+Site,background/neutral/bold-3,,#0a0a0a,#ffffff,bg/inverse,Keep,,
+Site,background/brand/basic,,#8f42ff,#8f42ff,action/primary/default,Keep,,
+Site,background/brand/bold-1,hover заливки,#7f30d6,#ac63fc,action/primary/default+layer@6,Deprecate,D-state,
+Site,background/brand/nbasic-1,,#f5ecff,#380d66,accent/subtle,Keep,,
+Site,text/brand/base,,#8f42ff,#8f42ff,text/accent,Keep,D-contrast,
+Site,text/brand/bold-1,,#7f30d6,#ac63fc,text/accent,Merge,D-contrast,

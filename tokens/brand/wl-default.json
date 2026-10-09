@@ -55,7 +55,7 @@
       },
       "on-solid": {
         "$type": "color",
-        "$value": "{color.neutral.0}"
+        "$value": "{color.white}"
       },
       "solid": {
         "$type": "color",
@@ -63,27 +63,27 @@
       },
       "solid-hover": {
         "$type": "color",
-        "$value": "{color.violet.700}"
+        "$value": "{brand.accent.600}"
       },
       "solid-pressed": {
         "$type": "color",
-        "$value": "{color.violet.800}"
+        "$value": "{brand.accent.700}"
       },
       "fg-on-light": {
         "$type": "color",
-        "$value": "{color.violet.600}"
+        "$value": "{brand.accent.600}"
       },
       "fg-on-dark": {
         "$type": "color",
-        "$value": "{color.violet.400}"
+        "$value": "{brand.accent.400}"
       },
       "fg-strong-on-light": {
         "$type": "color",
-        "$value": "{color.violet.850}"
+        "$value": "{brand.accent.600}"
       },
       "fg-strong-on-dark": {
         "$type": "color",
-        "$value": "{color.violet.300}"
+        "$value": "{brand.accent.300}"
       },
       "focus-on-light": {
         "$type": "color",
@@ -95,11 +95,11 @@
       },
       "focus-ring-on-light": {
         "$type": "color",
-        "$value": "{color.violet.200}"
+        "$value": "{color.alpha.violet.48}"
       },
       "focus-ring-on-dark": {
         "$type": "color",
-        "$value": "{color.violet.800}"
+        "$value": "{color.alpha.violet.56}"
       },
       "tint": {
         "$type": "color",
@@ -116,6 +116,10 @@
       "tint-end": {
         "$type": "color",
         "$value": "{color.alpha.violet.0}"
+      },
+      "tint-strong": {
+        "$type": "color",
+        "$value": "{color.alpha.violet.32}"
       }
     },
     "highlight": {
@@ -163,31 +167,31 @@
     "radius": {
       "xs": {
         "$type": "dimension",
-        "$value": "{dimension.x0-25}"
+        "$value": "{dimension.4}"
       },
       "sm": {
         "$type": "dimension",
-        "$value": "{dimension.x0-5}"
+        "$value": "{dimension.8}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "{dimension.x0-75}"
+        "$value": "{dimension.12}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "{dimension.x1}"
+        "$value": "{dimension.16}"
       },
       "xl": {
         "$type": "dimension",
-        "$value": "{dimension.x1-5}"
+        "$value": "{dimension.24}"
       },
       "2xl": {
         "$type": "dimension",
-        "$value": "{dimension.x2}"
+        "$value": "{dimension.32}"
       },
       "none": {
         "$type": "dimension",
-        "$value": "{dimension.x0}"
+        "$value": "{dimension.0}"
       },
       "full": {
         "$type": "dimension",
@@ -195,15 +199,27 @@
       },
       "control-sm": {
         "$type": "dimension",
-        "$value": "{dimension.x0-625}"
+        "$value": "{dimension.10}"
       },
       "focus-ring-sm": {
         "$type": "dimension",
-        "$value": "{dimension.x0-875}"
+        "$value": "{dimension.12}"
       },
       "focus-ring": {
         "$type": "dimension",
-        "$value": "{dimension.x1}"
+        "$value": "{dimension.14}"
+      },
+      "2xs": {
+        "$type": "dimension",
+        "$value": "{dimension.2}"
+      },
+      "control-xs": {
+        "$type": "dimension",
+        "$value": "{dimension.6}"
+      },
+      "focus-ring-lg": {
+        "$type": "dimension",
+        "$value": "18px"
       }
     }
   }

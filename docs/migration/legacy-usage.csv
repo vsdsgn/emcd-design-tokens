@@ -1,0 +1,78 @@
+key,ds_web,ds_app,web_app,monitoring
+Color 1 [Back],94,165,2240,3969
+Color 2 [Back],98,67,3874,3486
+Color 3 [Back],304,205,10126,12037
+Color 35 [Back],214,187,4810,3597
+Color 4 [Back],51,42,1340,2929
+Disabled [Back],19,0,320,585
+Inactive [Back],0,0,0,0
+Color 1 [Text],418,399,19262,19040
+Color 2 [Text],1,0,22,0
+Color 3 [Text],57,62,3735,980
+Color 4 [Text],195,226,11014,11191
+Color 5 [Text],66,18,3225,5636
+Brand,237,106,3280,1362
+Brand fill hover,17,6,17,3
+Brand hover,3,1,81,49
+Brand light,1,0,90,0
+Brand disable,15,22,171,13
+Error,67,2,830,2230
+Red [Main],0,65,7,0
+Error hover,13,0,2,2
+Red [Hover],0,0,0,0
+Error disabled,0,0,0,0
+Red [Disabled],0,0,0,0
+Error back,18,1,10,0
+Red [Back],0,21,0,0
+Error back 2,0,0,10,0
+Red [Back] 2,0,20,19,9
+Error secondary text,2,0,0,0
+Red [Secondary text],0,3,0,0
+Success,82,2,1065,20763
+Green [Main],0,46,6,0
+Success hover,3,0,2,0
+Green [Hover],0,0,0,0
+Success back,20,1,34,0
+Green [Back],0,21,0,0
+Success back 2,2,0,123,0
+Green [Back] 2,0,18,0,0
+Success secondary text,3,0,0,0
+Green [Secondary text],0,1,0,0
+Attention,23,2,1767,2180
+Orange [Main],0,22,52,0
+Attention hover,0,0,2,0
+Attention back,18,1,139,0
+Orange [back],0,21,2,0
+Attention back 2,0,0,40,0
+Orange [back] 2,0,18,13,0
+Attention secondary text,3,0,0,0
+Orange [secondary text],0,1,0,0
+accent base,12,0,39,4
+accent soft,0,0,0,0
+accent bold,0,0,0,0
+accent background,0,0,0,0
+surface/base,334,417,2634,1240
+divider/base,99,92,1032,239
+Back [Primary] 2,0,18,0,0
+Alias · Background/Color default,0,0,36,0
+Alias · Background/Shade color default,0,0,299,15
+Alias · Divider/Color default,0,0,106,128
+Alias · Monochrome/Color default,0,15,8,0
+Alias · Monochrome/Color disable,0,0,162,48
+Alias · Text/Color disable,0,0,22,0
+Alias · Text/Color secondary default,0,0,14,0
+Alias · Brand/Color default,0,1,1,0
+Alias · Brand/Color disable,0,0,10,0
+Alias · Success/Color default,0,0,1,0
+Alias · Background/Color accent,0,0,3,0
+Alias · Background/Color focus,0,0,22,0
+Basic color · Neutral/* напрямую,18,13,4534,12
+Basic color · Green / Red / Amber/* напрямую,0,50,40,110
+Basic color · Yellow/500,0,0,28,0
+Monitoring · pallete/violet/200,0,0,0,4
+Monitoring · pallete/red/200,0,0,0,45
+Monitoring · pallete/orange/200,0,0,0,45
+Monitoring · pallete/green/300,0,0,0,45
+Monitoring · Collection 1/Color 1 [Text],0,0,0,78
+Web App · Text Color 3,0,0,4,0
+Color · border (Web App / Monitoring),0,0,6,64

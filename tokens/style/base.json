@@ -21,58 +21,8 @@
       "$value": true
     }
   },
-  "material": {
-    "thin": {
-      "fill": {
-        "$type": "color",
-        "$value": "{surface.default}"
-      },
-      "blur": {
-        "$type": "dimension",
-        "$value": "0px"
-      }
-    },
-    "regular": {
-      "fill": {
-        "$type": "color",
-        "$value": "{surface.default}"
-      },
-      "blur": {
-        "$type": "dimension",
-        "$value": "0px"
-      }
-    },
-    "thick": {
-      "fill": {
-        "$type": "color",
-        "$value": "{surface.raised}"
-      },
-      "blur": {
-        "$type": "dimension",
-        "$value": "0px"
-      }
-    },
-    "scrim": {
-      "$type": "color",
-      "$value": "{surface.overlay}"
-    },
-    "edge-blur": {
-      "$type": "dimension",
-      "$value": "0px"
-    }
-  },
   "light": {
     "ambient": {
-      "color": {
-        "$type": "color",
-        "$value": "{color.alpha.black.0}"
-      },
-      "blur": {
-        "$type": "dimension",
-        "$value": "0px"
-      }
-    },
-    "accent": {
       "color": {
         "$type": "color",
         "$value": "{color.alpha.black.0}"
@@ -108,6 +58,16 @@
         "$value": "{color.alpha.black.0}"
       }
     },
+    "accent": {
+      "blur": {
+        "$type": "dimension",
+        "$value": "0px"
+      },
+      "color": {
+        "$type": "color",
+        "$value": "{color.alpha.black.0}"
+      }
+    },
     "tint-end": {
       "$type": "color",
       "$value": "{color.alpha.black.0}"
@@ -125,6 +85,46 @@
     "highlight": {
       "$type": "color",
       "$value": "{color.alpha.black.0}"
+    }
+  },
+  "material": {
+    "regular": {
+      "blur": {
+        "$type": "dimension",
+        "$value": "0px"
+      },
+      "fill": {
+        "$type": "color",
+        "$value": "{surface.default}"
+      }
+    },
+    "thin": {
+      "fill": {
+        "$type": "color",
+        "$value": "{surface.default}"
+      },
+      "blur": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
+    },
+    "thick": {
+      "fill": {
+        "$type": "color",
+        "$value": "{surface.raised}"
+      },
+      "blur": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": "{surface.overlay}"
+    },
+    "edge-blur": {
+      "$type": "dimension",
+      "$value": "0px"
     }
   }
 }

@@ -4,7 +4,14 @@
 
 ## emcd.dark.android
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textDanger | surfaceLevel1 | 4.12 | ≥3 крупный |
+| textDanger | surfaceLevel2 | 3.85 | ≥3 крупный |
+| textAccent | surfaceLevel3 | 4.33 | ≥3 крупный |
+| textLink | surfaceLevel3 | 4.33 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 3.58 | ≥3 крупный |
+| textDanger | surfaceRaised | 4.12 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -61,7 +68,14 @@
 
 ## emcd.dark.ios
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textDanger | surfaceLevel1 | 4.12 | ≥3 крупный |
+| textDanger | surfaceLevel2 | 3.85 | ≥3 крупный |
+| textAccent | surfaceLevel3 | 4.33 | ≥3 крупный |
+| textLink | surfaceLevel3 | 4.33 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 3.58 | ≥3 крупный |
+| textDanger | surfaceRaised | 4.12 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -118,7 +132,15 @@
 
 ## emcd.light.android
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textWarning | surfaceLevel1 | 4.28 | ≥3 крупный |
+| textInfo | surfaceLevel1 | 4.49 | ≥3 крупный |
+| textWarning | surfaceLevel2 | 3.95 | ≥3 крупный |
+| textInfo | surfaceLevel2 | 4.14 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 4.18 | ≥3 крупный |
+| textWarning | surfaceLevel3 | 3.54 | ≥3 крупный |
+| textInfo | surfaceLevel3 | 3.71 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -173,7 +195,15 @@
 
 ## emcd.light.ios
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textWarning | surfaceLevel1 | 4.28 | ≥3 крупный |
+| textInfo | surfaceLevel1 | 4.49 | ≥3 крупный |
+| textWarning | surfaceLevel2 | 3.95 | ≥3 крупный |
+| textInfo | surfaceLevel2 | 4.14 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 4.18 | ≥3 крупный |
+| textWarning | surfaceLevel3 | 3.54 | ≥3 крупный |
+| textInfo | surfaceLevel3 | 3.71 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -228,7 +258,12 @@
 
 ## geometria.dark.android
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textDanger | surfaceLevel1 | 4.12 | ≥3 крупный |
+| textDanger | surfaceLevel2 | 3.85 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 3.58 | ≥3 крупный |
+| textDanger | surfaceRaised | 4.12 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -285,7 +320,12 @@
 
 ## geometria.dark.ios
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textDanger | surfaceLevel1 | 4.12 | ≥3 крупный |
+| textDanger | surfaceLevel2 | 3.85 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 3.58 | ≥3 крупный |
+| textDanger | surfaceRaised | 4.12 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -342,7 +382,17 @@
 
 ## geometria.light.android
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textWarning | surfaceLevel1 | 4.28 | ≥3 крупный |
+| textInfo | surfaceLevel1 | 4.49 | ≥3 крупный |
+| textWarning | surfaceLevel2 | 3.95 | ≥3 крупный |
+| textInfo | surfaceLevel2 | 4.14 | ≥3 крупный |
+| textAccent | surfaceLevel3 | 4.32 | ≥3 крупный |
+| textLink | surfaceLevel3 | 4.32 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 4.18 | ≥3 крупный |
+| textWarning | surfaceLevel3 | 3.54 | ≥3 крупный |
+| textInfo | surfaceLevel3 | 3.71 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -397,7 +447,17 @@
 
 ## geometria.light.ios
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textWarning | surfaceLevel1 | 4.28 | ≥3 крупный |
+| textInfo | surfaceLevel1 | 4.49 | ≥3 крупный |
+| textWarning | surfaceLevel2 | 3.95 | ≥3 крупный |
+| textInfo | surfaceLevel2 | 4.14 | ≥3 крупный |
+| textAccent | surfaceLevel3 | 4.32 | ≥3 крупный |
+| textLink | surfaceLevel3 | 4.32 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 4.18 | ≥3 крупный |
+| textWarning | surfaceLevel3 | 3.54 | ≥3 крупный |
+| textInfo | surfaceLevel3 | 3.71 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -452,7 +512,14 @@
 
 ## wl-default.dark.android
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textDanger | surfaceLevel1 | 4.12 | ≥3 крупный |
+| textDanger | surfaceLevel2 | 3.85 | ≥3 крупный |
+| textAccent | surfaceLevel3 | 4.33 | ≥3 крупный |
+| textLink | surfaceLevel3 | 4.33 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 3.58 | ≥3 крупный |
+| textDanger | surfaceRaised | 4.12 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -509,7 +576,14 @@
 
 ## wl-default.dark.ios
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textDanger | surfaceLevel1 | 4.12 | ≥3 крупный |
+| textDanger | surfaceLevel2 | 3.85 | ≥3 крупный |
+| textAccent | surfaceLevel3 | 4.33 | ≥3 крупный |
+| textLink | surfaceLevel3 | 4.33 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 3.58 | ≥3 крупный |
+| textDanger | surfaceRaised | 4.12 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -566,7 +640,15 @@
 
 ## wl-default.light.android
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textWarning | surfaceLevel1 | 4.28 | ≥3 крупный |
+| textInfo | surfaceLevel1 | 4.49 | ≥3 крупный |
+| textWarning | surfaceLevel2 | 3.95 | ≥3 крупный |
+| textInfo | surfaceLevel2 | 4.14 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 4.18 | ≥3 крупный |
+| textWarning | surfaceLevel3 | 3.54 | ≥3 крупный |
+| textInfo | surfaceLevel3 | 3.71 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 
@@ -621,7 +703,15 @@
 
 ## wl-default.light.ios
 
-Контраст: всё проходит.
+| Токен | Фон | Контраст | Итог |
+|---|---|---|---|
+| textWarning | surfaceLevel1 | 4.28 | ≥3 крупный |
+| textInfo | surfaceLevel1 | 4.49 | ≥3 крупный |
+| textWarning | surfaceLevel2 | 3.95 | ≥3 крупный |
+| textInfo | surfaceLevel2 | 4.14 | ≥3 крупный |
+| textDanger | surfaceLevel3 | 4.18 | ≥3 крупный |
+| textWarning | surfaceLevel3 | 3.54 | ≥3 крупный |
+| textInfo | surfaceLevel3 | 3.71 | ≥3 крупный |
 
 **Дальтонизм, статусы:** 
 

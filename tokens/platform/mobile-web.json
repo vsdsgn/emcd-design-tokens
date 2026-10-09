@@ -1,92 +1,156 @@
 {
   "space": {
+    "2": {
+      "$type": "dimension",
+      "$value": "{dimension.2}"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "{dimension.4}"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "{dimension.6}"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "{dimension.8}"
+    },
+    "10": {
+      "$type": "dimension",
+      "$value": "{dimension.10}"
+    },
+    "12": {
+      "$type": "dimension",
+      "$value": "{dimension.12}"
+    },
+    "16": {
+      "$type": "dimension",
+      "$value": "{dimension.16}"
+    },
+    "20": {
+      "$type": "dimension",
+      "$value": "{dimension.20}"
+    },
+    "24": {
+      "$type": "dimension",
+      "$value": "{dimension.24}"
+    },
+    "28": {
+      "$type": "dimension",
+      "$value": "{dimension.28}"
+    },
+    "32": {
+      "$type": "dimension",
+      "$value": "{dimension.32}"
+    },
+    "40": {
+      "$type": "dimension",
+      "$value": "{dimension.40}"
+    },
+    "48": {
+      "$type": "dimension",
+      "$value": "{dimension.48}"
+    },
+    "56": {
+      "$type": "dimension",
+      "$value": "{dimension.56}"
+    },
+    "64": {
+      "$type": "dimension",
+      "$value": "{dimension.64}"
+    },
     "none": {
       "$type": "dimension",
-      "$value": "{dimension.x0}"
+      "$value": "{dimension.0}"
     },
     "3xs": {
       "$type": "dimension",
-      "$value": "{dimension.x0-125}"
+      "$value": "{dimension.2}"
     },
     "2xs": {
       "$type": "dimension",
-      "$value": "{dimension.x0-25}"
+      "$value": "{dimension.4}"
     },
     "xs": {
       "$type": "dimension",
-      "$value": "{dimension.x0-5}"
+      "$value": "{dimension.8}"
     },
     "sm": {
       "$type": "dimension",
-      "$value": "{dimension.x0-75}"
+      "$value": "{dimension.12}"
     },
     "md": {
       "$type": "dimension",
-      "$value": "{dimension.x1}"
+      "$value": "{dimension.16}"
     },
     "lg": {
       "$type": "dimension",
-      "$value": "{dimension.x1-5}"
+      "$value": "{dimension.24}"
     },
     "xl": {
       "$type": "dimension",
-      "$value": "{dimension.x2}"
+      "$value": "{dimension.32}"
     },
     "2xl": {
       "$type": "dimension",
-      "$value": "{dimension.x3}"
+      "$value": "{dimension.48}"
     },
     "3xl": {
       "$type": "dimension",
-      "$value": "{dimension.x4}"
+      "$value": "{dimension.64}"
     }
   },
   "control": {
     "height": {
       "sm": {
         "$type": "dimension",
-        "$value": "{dimension.x2}"
+        "$value": "{dimension.32}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "{dimension.x2-5}"
+        "$value": "{dimension.40}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "{dimension.x3}"
+        "$value": "{dimension.48}"
       },
       "xl": {
         "$type": "dimension",
-        "$value": "{dimension.x3-5}"
+        "$value": "{dimension.56}"
       }
     },
     "padding-x": {
       "sm": {
         "$type": "dimension",
-        "$value": "{dimension.x0-625}"
+        "$value": "{dimension.10}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "{dimension.x0-875}"
+        "$value": "{dimension.12}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "{dimension.x1}"
+        "$value": "{dimension.16}"
       },
       "xl": {
         "$type": "dimension",
-        "$value": "{dimension.x1-25}"
+        "$value": "{dimension.20}"
       }
     },
     "gap": {
       "$type": "dimension",
-      "$value": "{dimension.x0-5}"
+      "$value": "{dimension.8}"
+    },
+    "safe-margin": {
+      "$type": "dimension",
+      "$value": "{dimension.12}"
     }
   },
   "touch": {
     "min": {
       "$type": "dimension",
-      "$value": "{dimension.x2-75}"
+      "$value": "{dimension.44}"
     },
     "is-coarse": {
       "$type": "boolean",
@@ -101,31 +165,31 @@
     "size": {
       "sm": {
         "$type": "dimension",
-        "$value": "{dimension.x1}"
+        "$value": "{dimension.16}"
       },
       "md": {
         "$type": "dimension",
-        "$value": "{dimension.x1-25}"
+        "$value": "{dimension.20}"
       },
       "lg": {
         "$type": "dimension",
-        "$value": "{dimension.x1-5}"
+        "$value": "{dimension.24}"
       },
       "xl": {
         "$type": "dimension",
-        "$value": "{dimension.x2}"
+        "$value": "{dimension.32}"
       },
       "inline": {
         "$type": "dimension",
-        "$value": "{dimension.x1}"
+        "$value": "{dimension.16}"
       },
       "control": {
         "$type": "dimension",
-        "$value": "{dimension.x1-25}"
+        "$value": "{dimension.20}"
       },
       "nav": {
         "$type": "dimension",
-        "$value": "{dimension.x1-5}"
+        "$value": "{dimension.24}"
       }
     },
     "stroke": {
@@ -142,33 +206,33 @@
   "list": {
     "item-height": {
       "$type": "dimension",
-      "$value": "{dimension.x3}"
+      "$value": "{dimension.48}"
     }
   },
   "nav": {
     "header-height": {
       "$type": "dimension",
-      "$value": "{dimension.x4}"
+      "$value": "{dimension.64}"
     },
     "bar-height": {
       "$type": "dimension",
-      "$value": "{dimension.x3-5}"
+      "$value": "{dimension.56}"
     }
   },
   "card": {
     "padding": {
       "$type": "dimension",
-      "$value": "{dimension.x1}"
+      "$value": "{dimension.16}"
     },
     "gap": {
       "$type": "dimension",
-      "$value": "{dimension.x0-75}"
+      "$value": "{dimension.12}"
     }
   },
   "modal": {
     "padding": {
       "$type": "dimension",
-      "$value": "{dimension.x1-5}"
+      "$value": "{dimension.24}"
     }
   },
   "radius": {
@@ -203,6 +267,10 @@
     "focus-ring": {
       "$type": "dimension",
       "$value": "{brand.radius.focus-ring}"
+    },
+    "focus-ring-lg": {
+      "$type": "dimension",
+      "$value": "{brand.radius.focus-ring-lg}"
     }
   },
   "border": {
@@ -217,7 +285,15 @@
       },
       "focus-ring": {
         "$type": "dimension",
-        "$value": "{dimension.x0-25}"
+        "$value": "{dimension.4}"
+      },
+      "hairline": {
+        "$type": "dimension",
+        "$value": "{stroke.0-5}"
+      },
+      "strong": {
+        "$type": "dimension",
+        "$value": "{stroke.2}"
       }
     }
   },
@@ -248,13 +324,17 @@
   "layout": {
     "edge-fade": {
       "$type": "dimension",
-      "$value": "{dimension.x1-5}"
+      "$value": "{dimension.24}"
+    },
+    "min-viewport": {
+      "$type": "dimension",
+      "$value": "320px"
     }
   },
   "focus": {
     "offset": {
       "$type": "dimension",
-      "$value": "{dimension.x0}"
+      "$value": "{dimension.2}"
     }
   },
   "motion": {
@@ -361,6 +441,122 @@
     "error": {
       "$type": "string",
       "$value": "medium"
+    }
+  },
+  "chart": {
+    "stroke": {
+      "$type": "dimension",
+      "$value": "{stroke.2}"
+    }
+  },
+  "state": {
+    "hover": {
+      "$type": "dimension",
+      "$value": "6px"
+    },
+    "pressed": {
+      "$type": "dimension",
+      "$value": "10px"
+    }
+  },
+  "size": {
+    "button": {
+      "min": {
+        "$type": "dimension",
+        "$value": "64px"
+      }
+    },
+    "field": {
+      "min": {
+        "$type": "dimension",
+        "$value": "160px"
+      },
+      "max": {
+        "$type": "dimension",
+        "$value": "480px"
+      }
+    },
+    "text": {
+      "measure": {
+        "$type": "dimension",
+        "$value": "640px"
+      }
+    },
+    "menu": {
+      "min": {
+        "$type": "dimension",
+        "$value": "160px"
+      },
+      "max": {
+        "$type": "dimension",
+        "$value": "320px"
+      }
+    },
+    "tooltip": {
+      "max": {
+        "$type": "dimension",
+        "$value": "320px"
+      }
+    },
+    "popover": {
+      "max": {
+        "$type": "dimension",
+        "$value": "360px"
+      }
+    },
+    "toast": {
+      "max": {
+        "$type": "dimension",
+        "$value": "400px"
+      }
+    },
+    "modal": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "400px"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "560px"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "720px"
+      }
+    },
+    "sheet": {
+      "max": {
+        "$type": "dimension",
+        "$value": "640px"
+      }
+    },
+    "side-panel": {
+      "$type": "dimension",
+      "$value": "400px"
+    },
+    "card": {
+      "min": {
+        "$type": "dimension",
+        "$value": "280px"
+      }
+    },
+    "chip": {
+      "max": {
+        "$type": "dimension",
+        "$value": "240px"
+      }
+    },
+    "badge": {
+      "max": {
+        "$type": "dimension",
+        "$value": "160px"
+      }
+    },
+    "table-cell": {
+      "min": {
+        "$type": "dimension",
+        "$value": "80px"
+      }
     }
   }
 }

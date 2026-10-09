@@ -14,20 +14,20 @@
     "IconButton": "beta",
     "Input": "draft",
     "ListItem": "draft",
-    "Modal": "deprecated",
+    "Modal": "draft",
     "Notification": "draft",
     "Pagination": "draft",
     "PasswordField": "draft",
     "Radio": "draft",
     "Segmented": "draft",
     "Select": "draft",
-    "StatusScreen": "deprecated",
-    "Table": "deprecated",
+    "StatusScreen": "draft",
+    "Table": "draft",
     "Tabs": "draft",
     "Textarea": "draft",
     "Toast": "draft",
     "Toggle": "draft",
     "Tooltip": "draft",
-    "Transaction": "deprecated"
+    "Transaction": "draft"
   }
 }
