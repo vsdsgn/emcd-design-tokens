@@ -1,6 +1,6 @@
 # DS 2.0 — передача контекста (handoff)
 
-Документ для нового чата / нового исполнителя. Обновлено: 2026-10-08.
+Документ для нового чата / нового исполнителя. Обновлено: 2026-10-09.
 
 ## Файлы
 
@@ -29,6 +29,17 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 4. По теме задачи: `style.md` + `visual-language.md` (Base/Expressive, декор), `platforms.md` (Web / Mobile web / iOS / Android, хаптики), `components.md` (правила, a11y, фокус), `effects.md`, `motion.md`, `a11y-report.md`, `browser-support.md` (браузеры, тест `npm run test:browsers`), `performance.md` (загрузка, кадры, перф-гард, `npm run test:perf`), `migration/`.
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
+
+## Где мы (2026-10-09) — Components восстановлен, новый план этапов
+
+**Стефан восстановил Components из истории версий — это новая отправная точка.** Проверено скриптом:
+- Components ≈ состояние **ночи 2026-10-06/07**: 60 страниц компонентов снова на месте (Modal, Sheet, Header, Shell, Table, Chart, Stat card…), страниц 🧱 и `_L ·` нет. Есть: Checkbox ось Control с рабочими ссылками, Tooltip 24 варианта (Arrow), Input со слотами. **Нет** переносов 2026-10-07 по `migration/progress.md` (Select compact — ещё старые зоны fine/coarse и 5 вариантов) → progress.md описывает состояние, которого в файле нет. Решение 2026-10-08 «только атомы и молекулы» — отменено восстановлением (уточнить у Стефана).
+- Foundations **не откатывался**: есть всё 2026-10-07 (`surface/level-*`, `state/layer`, `size/*`, `text/inverse-secondary`, `radius/focus-ring-lg`). Репо отстаёт: `build/json` от 2026-10-06 08:25 — level/state/size в сборке нет.
+- Живая таблица миграции цветов — Foundations «🔁 Migration · legacy → DS 2.0» (рамка 28:3) ← `docs/migration/foundations-color.csv` (66 строк, от 2026-10-04): цели и «Стало» устарели (bg/base, surface/default, сплошные hover/active, text/secondary #a3a3a3). Старая таблица DS Future `8sTpzlYqcgipiDL58yd70l` / 32976:2 — оторвана от страницы (parent = null), это история.
+- Vault `Work/EMCD/future-ds-*.md` (2026-09-18…23) — эпоха DS Future, до DS 2.0. Источник знаний, не текущее состояние.
+- Claude DS рассинхронизирован: Modal, StatusScreen, Table, Transaction в `claude-ds/status.json` = deprecated, в Figma снова 🟠. Синк — после подтверждения точки восстановления.
+
+**Новый порядок (бриф Стефана 2026-10-09):** Этап 1 Token Migration & Mapping (таблица legacy → DS 2.0, без визуальных изменений интерфейсов) → Этап 2 Component Token Migration (перепривязка, без улучшений, проверка на экранах Mining) → Этап 3 Component System Evolution (контракты по схеме 15 разделов из Vault, usage, motion, a11y). Card / Widgets / Layout — только в плане. Сейчас: ничего не менять в Foundations и компонентах до ок; сначала 5–10 строк таблицы на согласование. Карта состояния, конфликты и строки — в OPEN-QUESTIONS → «Этап 1».
 
 ## Где мы (2026-10-08)
 
