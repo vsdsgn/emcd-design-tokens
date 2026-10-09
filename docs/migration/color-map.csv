@@ -24,7 +24,7 @@ Web·App,Brand light,,,#c18afd,text/link-hover,Keep,,
 Web·App,Brand disable,,,#2c0754,action/disabled,Merge,D-disabled,
 Web·App,Error / Red [Main],,,#e53935,status/danger/solid,Keep,,
 Web·App,Error hover / Red [Hover],кнопка danger,,#be2f2b,action/danger/default,Keep,D-contrast,белый текст ≥ 4.5
-Web·App,Error disabled / Red [Disabled],,,#972421,action/disabled,Merge,D-disabled,
+Web·App,Error disabled / Red [Disabled],,,#972421,action/disabled,Merge,D-disabled,есть в App (6)
 Web·App,Error back / Red [Back],,,#350a09,status/danger/subtle,Merge,D-status-subtle,
 Web·App,Error back 2 / Red [Back] 2,,,#480f0e,status/danger/subtle,Merge,D-status-subtle,
 Web·App,Error secondary text / Red [Secondary text],,,#be2f2b,text/danger,Keep,D-contrast,см. П1 (контраст на L1–L3)
@@ -52,6 +52,9 @@ Core,Alias · Divider/Color default,,,#232323,border/subtle,Merge,D-alpha,
 Core,Alias · Monochrome/Color default,,,#fafafa,icon/primary,Merge,,
 Core,Alias · Monochrome/Color disable,заливка disabled,,#232323,action/disabled,Merge,D-disabled,
 Core,Alias · Text/Color disable,,,,text/disabled,Merge,,значение не снято
+Core,Alias · Text/Color primary default,,,,text/primary,Merge,,значение не снято
+Core,Alias · Text/Color primary invert default,,,,text/inverse,Merge,,значение не снято
+Core,Alias · Background/Shade color hover,,,,state/layer@6,Merge,D-state,значение не снято
 Core,Alias · Text/Color secondary default,,,,text/secondary,Merge,,значение не снято
 Core,Alias · Brand/Color default,,,,action/primary/default,Merge,,значение не снято
 Core,Alias · Brand/Color disable,,,,action/disabled,Merge,D-disabled,значение не снято

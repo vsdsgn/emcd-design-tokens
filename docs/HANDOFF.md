@@ -43,7 +43,7 @@ Legacy: DS Web JNNaqYwsSSVYUZSwZHKc6q · DS App BPkXyq9M44BXOiUDCrmlJs · DS Sit
 - Состояние: Components ≈ ночь 06→07.10 (60 страниц, организмы на месте; переносов 07.10 из `migration/progress.md` нет — это история). Foundations не откатывались.
 - Экспорт Foundations → `figma/export-*.json` → `npm run all` (сборка была от 05–06.10): +уровни, `state/layer`, `space/N`, `size/*`, текст альфой. Экспорт делает Claude сам (use_figma → файлы → `npm run all`), публиковать Foundations для этого не нужно.
 - **Таблица миграции** пересобрана: источник `docs/migration/color-map.csv` (соответствия + решения, правится руками) + `legacy-usage.csv` (скан потребителей) → `python3 scripts/color-migration.py` → `docs/migration/foundations-color.csv` → рамка Foundations «🔁 Migration · legacy → DS 2.0» (28:3, живые переменные на L0 Light / Dark). 96 строк: Web·App, App, Core-алиасы и сырые примитивы, локальные дубли продуктов, Site.
-- Скан потребителей: мастера DS Web / DS App, экраны Web App целиком, Monitoring 8 / 27 страниц. App, Firmware, WL B2B, Geo — ещё не сканировали.
+- Скан потребителей: мастера DS Web / DS App, экраны Web App и App целиком, Monitoring 8 / 27 страниц. Firmware, WL B2B, Geo, MiningBox — ещё нет. Сканер — use_figma: `page.loadAsync()` по страницам, `boundVariables.fills|strokes` → имя переменной и коллекции, 45–50 с на вызов (Web App — 2 вызова).
 - `scripts/a11y-check.py` проверяет L0–L3 (было bgBase / surfaceDefault / surfaceRaised) → П1 в OPEN-QUESTIONS.
 - Claude DS синхронизирован 2026-10-09 с 7acf9d0: все компоненты draft (как в Figma), +35 / 61 изменённых токенов.
 - `components.md` → «Модель обводок» (К4); `component-contract.md` — схема контрактов (К5).
