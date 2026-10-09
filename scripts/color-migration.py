@@ -78,17 +78,17 @@ for r in csv.DictReader(open(R/'docs/migration/color-map.csv')):
     base = re.sub(r'@\d+$', '', t.split('+layer@')[0])
     if real and base.split('/')[0] in ('text', 'icon') and 'inverse' not in base and 'on-' not in base:
         lim = 3 if base.startswith('icon') or 'disabled' in base else 4.5
-        mins = [min(cr(T[camel(base)], bg) for bg in LV(T)) for T in (L, D)]
+        mins = [min(cr(T[camel(base)], bg) for bg in (LV(T) if base in ('text/primary', 'text/secondary', 'text/tertiary', 'icon/primary', 'icon/secondary', 'icon/tertiary') else LV(T)[:3])) for T in (L, D)]  # цветной текст — L0–L2 (на L3 не ставим)
         con = f"{mins[0]:.1f} / {mins[1]:.1f}" + (' ⚠' if min(mins) < lim and 'disabled' not in base else '')
     row = dict(source=r['source'], legacy=r['legacy_token'], role=r['role'], before_light=bl, before_dark=bd, target=t or '—',
                chain_light=chain(base, 0) if real else '', chain_dark=chain(base, 1) if real else '',
                after_light=al or '', after_dark=ad or '', on_l0_light=onl, on_l0_dark=ond, dE_light=del_, dE_dark=ded,
                action=act, status=st, decision=DEC.get(dec, dec), impact=impact(r['source'], r['legacy_token']),
-               min_contrast_L0_L3_light_dark=con, note=r['note'])
+               min_contrast_light_dark=con, note=r['note'])
     rows.append(row); js.append(row)
 with open(R/'docs/migration/foundations-color.csv', 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
 json.dump(js, open(R/'build/migration-color.json', 'w'), ensure_ascii=False)
 from collections import Counter
 print(len(rows), 'rows;', dict(Counter(x['status'] for x in rows)), dict(Counter(x['action'] for x in rows)))
-print('contrast ⚠:', [x['target'] for x in rows if '⚠' in x['min_contrast_L0_L3_light_dark']])
+print('contrast ⚠:', [x['target'] for x in rows if '⚠' in x['min_contrast_light_dark']])

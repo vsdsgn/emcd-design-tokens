@@ -122,11 +122,11 @@
     },
     "danger": {
       "$type": "color",
-      "$value": "{color.red.500}"
+      "$value": "{color.red.400}"
     },
     "success": {
       "$type": "color",
-      "$value": "{color.green.400}"
+      "$value": "{color.green.500}"
     },
     "warning": {
       "$type": "color",
@@ -150,11 +150,11 @@
     },
     "danger-hover": {
       "$type": "color",
-      "$value": "{color.red.400}"
+      "$value": "{color.red.300}"
     },
     "danger-pressed": {
       "$type": "color",
-      "$value": "{color.red.300}"
+      "$value": "{color.red.200}"
     },
     "inverse-secondary": {
       "$type": "color",
@@ -192,11 +192,11 @@
     },
     "danger": {
       "$type": "color",
-      "$value": "{color.red.500}"
+      "$value": "{color.red.400}"
     },
     "success": {
       "$type": "color",
-      "$value": "{color.green.400}"
+      "$value": "{color.green.500}"
     },
     "warning": {
       "$type": "color",
