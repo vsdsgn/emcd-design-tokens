@@ -8,10 +8,10 @@
 1. [x] Точка восстановления Components окончательная; изменения Foundations (уровни и др.) остаются — Стефан 2026-10-09.
 2. [x] Экспорт Foundations → `npm run all` — 2026-10-09.
 3. [x] Таблица с новыми колонками (Примитив, Action, Статус, Решение, Потребители, Контраст) — 96 строк, ок Стефана «хоть на 30 строк», «по таблице сам разберись».
-4. [~] Скан потребителей: DS Web, DS App, Web App ✓; Monitoring 8 / 27; **осталось** App, Firmware, WL B2B, Geometria Web / App, MiningBox.
+4. [~] Скан потребителей: DS Web, DS App, Web App, App ✓; Monitoring 8 / 27; **осталось** Firmware, WL B2B, Geometria Web / App, MiningBox. В App нашлись ещё 3 Core-алиаса (Text primary / primary invert, Shade hover) — добавлены.
 5. [ ] **П1 — контраст цветного текста на L1–L3** (на решение, Foundations): `text/danger` тёмн. red/500 → 400 (L0–L3 6.2 → 4.7); `text/warning` свет. amber/700 → 800 (7.3 → 5.6); `text/info` свет. blue/600 → 700 (6.8 → 5.1); `text/accent` на L3 4.3 — правило «цветной текст на L3 не ставим» (или accent 700 / 300). То же для `icon/*`.
-6. [ ] Conflict-строки: Core `Background/Color accent`, `Background/Color focus`, локальная `Color › border` (Web App, Monitoring) — посмотреть экраны; `Back [Primary] 2` (DS App) — значение.
-7. [ ] Deprecate без потребителей (accent soft / bold / background, Color 6 / 7 [Back], Error disabled) — подтвердить после скана оставшихся продуктов.
+6. [ ] Conflict-строки: Core `Background/Color accent`, `Background/Color focus` (App 110 — важно), локальная `Color › border` (Web App, Monitoring) — посмотреть экраны; `Back [Primary] 2` (DS App) — значение.
+7. [ ] Deprecate без потребителей (accent soft / bold / background, Color 6 / 7 [Back]) — подтвердить после скана оставшихся продуктов.
 8. [x] Claude DS — синхронизирован 2026-10-09 (7acf9d0).
 
 Решено по конфликтам (2026-10-09): К1 принятые Δ остаются («Δ принято» со ссылкой на решение); К2 Vault — история; К3 текущие решения важнее блюпринта; К4 → `components.md` «Модель обводок»; К5 → `docs/component-contract.md`.

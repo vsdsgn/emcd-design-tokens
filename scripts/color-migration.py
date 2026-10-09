@@ -52,10 +52,10 @@ usage = {r['key']: r for r in csv.DictReader(open(R/'docs/migration/legacy-usage
 def impact(src, tok):
     if src == 'Site': return 'не сканировали'
     keys = {'Disabled / Inactive [Back]': ['Disabled [Back]', 'Inactive [Back]']}.get(tok) or ([tok] if tok in usage else [k.strip() for k in tok.replace('theme · ', '').split(' / ')])
-    s = {c: sum(int(usage[k][c]) for k in keys if k in usage) for c in ('ds_web', 'ds_app', 'web_app', 'monitoring')}
+    s = {c: sum(int(usage[k][c]) for k in keys if k in usage) for c in ('ds_web', 'ds_app', 'web_app', 'app', 'monitoring')}
     if not any(k in usage for k in keys): return '0' if src in ('Web·App', 'App') else 'нет данных'
     if not any(s.values()): return '0'
-    lab_ = {'ds_web': 'DS Web', 'ds_app': 'DS App', 'web_app': 'Web App', 'monitoring': 'Monitoring*'}
+    lab_ = {'ds_web': 'DS Web', 'ds_app': 'DS App', 'web_app': 'Web App', 'app': 'App', 'monitoring': 'Monitoring*'}
     return ' · '.join(f"{lab_[c]} {s[c]:,}".replace(',', ' ') for c in s if s[c])
 rows, js = [], []
 for r in csv.DictReader(open(R/'docs/migration/color-map.csv')):
@@ -76,7 +76,7 @@ for r in csv.DictReader(open(R/'docs/migration/color-map.csv')):
     else: st = 'Δ принято' if dec.startswith('D-') or dec.startswith('WCAG') or dec.startswith('Этап') else 'Δ открыто'
     con = ''
     base = re.sub(r'@\d+$', '', t.split('+layer@')[0])
-    if real and base.split('/')[0] in ('text', 'icon'):
+    if real and base.split('/')[0] in ('text', 'icon') and 'inverse' not in base and 'on-' not in base:
         lim = 3 if base.startswith('icon') or 'disabled' in base else 4.5
         mins = [min(cr(T[camel(base)], bg) for bg in LV(T)) for T in (L, D)]
         con = f"{mins[0]:.1f} / {mins[1]:.1f}" + (' ⚠' if min(mins) < lim and 'disabled' not in base else '')
