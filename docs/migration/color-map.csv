@@ -45,6 +45,7 @@ Web·App,accent background,,,#231f00,highlight/subtle,Deprecate,Этап 1: 0 п
 Web·App,theme · surface/base,обводка плашек и карточек,,#d0d0d012,border/subtle,Split,D-alpha,
 Web·App,theme · surface/base,граница контрола (checkbox / radio),,#d0d0d012,border/strong,Split,WCAG 1.4.11,граница — единственный признак контрола → ≥ 3:1
 Web·App,theme · divider/base,,,#d0d0d012,border/subtle,Keep,D-alpha,
+Web·App,Main [Primary],сайт,,,action/primary/default,Merge,,значение уточнить (Website)
 App,Back [Primary] 2,бейдж brand,,,accent/subtle,Keep,,значение в DS App уточнить
 Core,Alias · Background/Color default,,,#0a0a0a,surface/level-0,Merge,,
 Core,Alias · Background/Shade color default,,,#232323,surface/level-3,Merge,D-levels,
@@ -64,6 +65,52 @@ Core,Alias · Background/Color focus,,,,,Conflict,,роль не ясна — с
 Core,Basic color · Neutral/* напрямую,сырые примитивы на экранах,,,по роли слоя,Rebind,,этап 2 — перепривязка по роли
 Core,Basic color · Green / Red / Amber/* напрямую,бейджи / транзакции,,,status/*/subtle | solid,Rebind,,этап 2
 Core,Basic color · Yellow/500,,,#ebff00,highlight/solid,Rebind,,
+Core,Alias · Inactive/Color default,,,,action/disabled,Merge,D-disabled,значение не снято
+WL B2B,WL B2B · pallete/gray/0,текст,#1a1a1a,,text/primary,Merge,,локальная палитра WL (Day)
+WL B2B,WL B2B · pallete/gray/50,,#242424,,text/primary,Merge,,
+WL B2B,WL B2B · pallete/gray/300,вторичный текст / плейсхолдер,#999999,,text/tertiary,Merge,D-alpha-text,роль подтвердить на экранах
+WL B2B,WL B2B · pallete/gray/400,,#b4b4b4,,text/disabled,Merge,D-disabled,роль подтвердить (disabled или иконки)
+WL B2B,WL B2B · pallete/gray/500,,#cbcbcb,,control/border/hover,Merge,D-alpha,роль подтвердить
+WL B2B,WL B2B · pallete/gray/600,обводка,#dedede,,border/default,Merge,D-alpha,
+WL B2B,WL B2B · pallete/gray/700,,#ececec,,surface/level-2,Merge,D-levels,
+WL B2B,WL B2B · pallete/gray/800,фон,#f7f7f7,,surface/level-1,Merge,D-levels,
+WL B2B,WL B2B · pallete/gray/900,,#fdfdfd,,surface/level-0,Merge,,
+WL B2B,WL B2B · pallete/white/900,,#ffffff,,surface/level-0,Merge,,
+WL B2B,WL B2B · pallete/violet/200,,#8e42ff,,action/primary/default,Merge,,
+WL B2B,WL B2B · pallete/*-300 (9 серий графиков),графики,,,data/1…8,Rebind,,этап 2: серии по порядку; 9-я — подписи / штрихи
+WL B2B,WL B2B · pallete/red/200,,#e53733,,status/danger/solid,Merge,,
+WL B2B,WL B2B · pallete/orange/200,,#f59f0b,,status/warning/solid,Merge,,
+WL B2B,WL B2B · pallete/green/300,,#45a148,,status/success/solid,Merge,,
+WL B2B,WL B2B · pallete/*-600…800 (тинты),тинты статусов / тегов,,,status/*/subtle,Rebind,,этап 2: по роли
+Geo,Geo · S/Text/Primary,,#181818,#ffffff,text/primary,Merge,,локальная коллекция Geometria Web (Collection 1)
+Geo,Geo · S/Text/Tertiary,,#71727c,#71727c,text/tertiary,Merge,D-alpha-text,
+Geo,Geo · S/Text/Placeholder,,#a2a2a2,#a2a2a2,text/tertiary,Merge,D-alpha-text,
+Geo,Geo · C/Input/Placeholder,,#a2a2a2,,text/tertiary,Merge,D-alpha-text,
+Geo,Geo · S/Text/Link,,#1470ff,#1470ff,text/link,Merge,D-contrast,
+Geo,Geo · S/Border/Primary,,#ececec,#1f1f1f,border/subtle,Merge,D-alpha,
+Geo,Geo · S/Border/Secondary,,#c4c4c4,#282828,border/default,Merge,D-alpha,
+Geo,Geo · S/Border/Link,,#1470ff,#1470ff,border/accent,Merge,,
+Geo,Geo · S/Background/Primary,,#ffffff,#181818,surface/level-0,Merge,D-levels,
+Geo,Geo · S/Background/Secondary,,#fafafa,#1f1f1f,surface/level-1,Merge,D-levels,
+Geo,Geo · S/Background/Tertiary,,#ececec,#282828,surface/level-2,Merge,D-levels,
+Geo,Geo · C/Input/Border,,#ececec,,control/border/default,Merge,D-alpha,
+Geo,Geo · C/Input/Background-White,,#fafafa,,control/surface/default,Merge,,
+Geo,Geo · C/Input/Text,,#181818,,text/primary,Merge,,
+Geo,Geo · C/Input/Icon,,#5a5a5a,,icon/secondary,Merge,D-alpha-text,
+Geo,Geo · C/Button/Primary/Background,,#1470ff,,action/primary/default,Merge,D-contrast,Geo accent/solid = 600 (белый текст ≥ 4.5)
+Geo,Geo · C/Button/Primary/Text,,#ffffff,,text/on-accent,Merge,,
+Geo,Geo · C/Button/Tertiary/Background,,#ececec,,action/secondary/default,Merge,D-alpha,Button · Tertiary
+Geo,Geo · C/Button/Tertiary/Text,,#181818,,text/primary,Merge,,
+Geo,Geo · C/Button/Tertiary/Icon,,#5a5a5a,,icon/secondary,Merge,D-alpha-text,
+Geo,Geo · S/Icon/Tertiary,,#5a5a5a,#a2a2a2,icon/secondary,Merge,D-alpha-text,
+Geo,Geo · S/Icon/Quantertiary,,#a2a2a2,#a2a2a2,icon/tertiary,Merge,D-alpha-text,
+Geo,Geo · S/Icon/Quinary,,#1470ff,#1470ff,icon/accent,Merge,D-contrast,
+Geo,Geo · C/Logo/Fill,,#181818,,icon/primary,Merge,,логотип — контент; проверить
+Geo,Geo · S/Status/Success,,#009945,#009945,status/success/solid,Merge,,статусы системные — у Geo был брендовый зелёный
+Geo,Geo · S/Status/Danger,,#ff5f6e,#ff5f6e,status/danger/solid,Merge,,статусы системные
+Geo,Geo · C/Modal/Overlay,,#00000080,,surface/overlay,Merge,,
+Geo,Geo · Pallete/Semantic/* (копия legacy Color),,,,как строки Web·App,Deprecate,,локальная копия — мапится как legacy
+Geo,Geo · Variable collection/* (Black / Green / Bright white / Electric Blue),,,,по роли слоя,Rebind,,этап 2
 Product,Monitoring · pallete/violet/200,,,#8e42ff,action/primary/default,Deprecate,,локальный дубль Brand
 Product,Monitoring · pallete/red/200,,,#e53733,status/danger/solid,Deprecate,,локальный дубль
 Product,Monitoring · pallete/orange/200,,,#f59f0b,status/warning/solid,Deprecate,,локальный дубль

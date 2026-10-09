@@ -9,6 +9,8 @@ import csv, json, math, re
 from pathlib import Path
 R = Path(__file__).resolve().parent.parent
 L = json.load(open(R/'build/json/emcd.light.ios.json')); D = json.load(open(R/'build/json/emcd.dark.ios.json'))
+EL, ED = L, D
+GL = json.load(open(R/'build/json/geometria.light.ios.json')); GD = json.load(open(R/'build/json/geometria.dark.ios.json'))
 camel = lambda t: re.sub(r'[/-](\w)', lambda m: m.group(1).upper(), t)
 DEC = {'D-levels': 'Уровни L0–L3 (05–06.10)', 'D-state': 'Слой состояний 6/10 % (06.10)', 'D-disabled': 'Disabled 8 / 40 % (06.10)',
        'D-alpha-text': 'Текст альфой 72/56/40 (05.10)', 'D-alpha': 'Обводки и плашки альфой (05.10)', 'D-contrast': 'Цветной текст ≥ 4.5 (06.10)',
@@ -16,12 +18,12 @@ DEC = {'D-levels': 'Уровни L0–L3 (05–06.10)', 'D-state': 'Слой с�
 # chains from Figma export (Theme Light/Dark, Brand = EMCD)
 ex = {c['c']: c for f in sorted((R/'figma').glob('export-*.json')) for c in json.load(open(f))}
 idx = {k: {r[0]: r[2] for r in c['v']} for k, c in ex.items()}
-def chain(name, mode):
+def chain(name, mode, brand=0):
     out, coll, n = [], 'T', name
     for _ in range(8):
         v = idx[coll].get(n)
         if v is None: return ''
-        if isinstance(v, list): v = v[{'T': mode, 'B': 0}.get(coll, 0)]
+        if isinstance(v, list): v = v[{'T': mode, 'B': brand}.get(coll, 0)]
         if isinstance(v, str) and v.startswith('@'):
             coll, n = v[1:].split(':', 1); out.append(n.removeprefix('color/')); continue
         break
@@ -50,15 +52,16 @@ def val(T, target):
     return T.get(camel(target))
 usage = {r['key']: r for r in csv.DictReader(open(R/'docs/migration/legacy-usage.csv'))}
 def impact(src, tok):
-    if src == 'Site': return 'не сканировали'
     keys = {'Disabled / Inactive [Back]': ['Disabled [Back]', 'Inactive [Back]']}.get(tok) or ([tok] if tok in usage else [k.strip() for k in tok.replace('theme · ', '').split(' / ')])
-    s = {c: sum(int(usage[k][c]) for k in keys if k in usage) for c in ('ds_web', 'ds_app', 'web_app', 'app', 'monitoring')}
-    if not any(k in usage for k in keys): return '0' if src in ('Web·App', 'App') else 'нет данных'
+    s = {c: sum(int(usage[k][c]) for k in keys if k in usage) for c in ('ds_web', 'ds_app', 'ds_site', 'web_app', 'app', 'monitoring', 'firmware', 'wl_b2b', 'geo_web', 'website')}
+    if not any(k in usage for k in keys): return '0' if src in ('Web·App', 'App', 'Site') else 'нет данных'
     if not any(s.values()): return '0'
-    lab_ = {'ds_web': 'DS Web', 'ds_app': 'DS App', 'web_app': 'Web App', 'app': 'App', 'monitoring': 'Monitoring*'}
+    lab_ = {'ds_web': 'DS Web', 'ds_app': 'DS App', 'web_app': 'Web App', 'app': 'App', 'monitoring': 'Monitoring*', 'firmware': 'Firmware', 'wl_b2b': 'WL B2B', 'geo_web': 'Geo Web', 'ds_site': 'DS Site', 'website': 'Сайт'}
     return ' · '.join(f"{lab_[c]} {s[c]:,}".replace(',', ' ') for c in s if s[c])
 rows, js = [], []
 for r in csv.DictReader(open(R/'docs/migration/color-map.csv')):
+    L, D = (GL, GD) if r['source'] == 'Geo' else (EL, ED)  # Geometria — свой бренд
+    BI = 1 if r['source'] == 'Geo' else 0
     t = r['target']; real = t and not t.startswith('по роли') and '|' not in t and val(L, t) is not None
     al = val(L, t) if real else ''; ad = val(D, t) if real else ''
     l0l, l0d = L['surfaceLevel0'], D['surfaceLevel0']
@@ -81,7 +84,7 @@ for r in csv.DictReader(open(R/'docs/migration/color-map.csv')):
         mins = [min(cr(T[camel(base)], bg) for bg in (LV(T) if base in ('text/primary', 'text/secondary', 'text/tertiary', 'icon/primary', 'icon/secondary', 'icon/tertiary') else LV(T)[:3])) for T in (L, D)]  # цветной текст — L0–L2 (на L3 не ставим)
         con = f"{mins[0]:.1f} / {mins[1]:.1f}" + (' ⚠' if min(mins) < lim and 'disabled' not in base else '')
     row = dict(source=r['source'], legacy=r['legacy_token'], role=r['role'], before_light=bl, before_dark=bd, target=t or '—',
-               chain_light=chain(base, 0) if real else '', chain_dark=chain(base, 1) if real else '',
+               chain_light=chain(base, 0, BI) if real else '', chain_dark=chain(base, 1, BI) if real else '',
                after_light=al or '', after_dark=ad or '', on_l0_light=onl, on_l0_dark=ond, dE_light=del_, dE_dark=ded,
                action=act, status=st, decision=DEC.get(dec, dec), impact=impact(r['source'], r['legacy_token']),
                min_contrast_light_dark=con, note=r['note'])

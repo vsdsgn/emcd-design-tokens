@@ -1,81 +1,147 @@
-key,ds_web,ds_app,web_app,app,monitoring
-Color 1 [Back],94,165,2240,1383,3969
-Color 2 [Back],98,67,3874,1508,3486
-Color 3 [Back],304,205,10126,2561,12037
-Color 35 [Back],214,187,4810,2001,3597
-Color 4 [Back],51,42,1340,532,2929
-Disabled [Back],19,0,320,9,585
-Inactive [Back],0,0,0,21,0
-Color 1 [Text],418,399,19262,4771,19040
-Color 2 [Text],1,0,22,2,0
-Color 3 [Text],57,62,3735,767,980
-Color 4 [Text],195,226,11014,2726,11191
-Color 5 [Text],66,18,3225,417,5636
-Brand,237,106,3280,786,1362
-Brand fill hover,17,6,17,14,3
-Brand hover,3,1,81,47,49
-Brand light,1,0,90,68,0
-Brand disable,15,22,171,103,13
-Error,67,2,830,34,2230
-Red [Main],0,65,7,61,0
-Error hover,13,0,2,0,2
-Red [Hover],0,0,0,0,0
-Error disabled,0,0,0,0,0
-Red [Disabled],0,0,0,6,0
-Error back,18,1,10,1,0
-Red [Back],0,21,0,0,0
-Error back 2,0,0,10,1,0
-Red [Back] 2,0,20,19,95,9
-Error secondary text,2,0,0,0,0
-Red [Secondary text],0,3,0,0,0
-Success,82,2,1065,111,20763
-Green [Main],0,46,6,98,0
-Success hover,3,0,2,0,0
-Green [Hover],0,0,0,0,0
-Success back,20,1,34,0,0
-Green [Back],0,21,0,2,0
-Success back 2,2,0,123,0,0
-Green [Back] 2,0,18,0,2,0
-Success secondary text,3,0,0,0,0
-Green [Secondary text],0,1,0,0,0
-Attention,23,2,1767,125,2180
-Orange [Main],0,22,52,253,0
-Attention hover,0,0,2,0,0
-Attention back,18,1,139,53,0
-Orange [back],0,21,2,58,0
-Attention back 2,0,0,40,14,0
-Orange [back] 2,0,18,13,71,0
-Attention secondary text,3,0,0,0,0
-Orange [secondary text],0,1,0,5,0
-accent base,12,0,39,10,4
-accent soft,0,0,0,0,0
-accent bold,0,0,0,0,0
-accent background,0,0,0,0,0
-surface/base,334,417,2634,1127,1240
-divider/base,99,92,1032,680,239
-Back [Primary] 2,0,18,0,0,0
-Alias · Background/Color default,0,0,36,11,0
-Alias · Background/Shade color default,0,0,299,30,15
-Alias · Divider/Color default,0,0,106,152,128
-Alias · Monochrome/Color default,0,15,8,99,0
-Alias · Monochrome/Color disable,0,0,162,150,48
-Alias · Text/Color disable,0,0,22,1,0
-Alias · Text/Color secondary default,0,0,14,153,0
-Alias · Brand/Color default,0,1,1,50,0
-Alias · Brand/Color disable,0,0,10,3,0
-Alias · Success/Color default,0,0,1,9,0
-Alias · Background/Color accent,0,0,3,2,0
-Alias · Background/Color focus,0,0,22,110,0
-Basic color · Neutral/* напрямую,18,13,4534,391,12
-Basic color · Green / Red / Amber/* напрямую,0,50,40,836,110
-Basic color · Yellow/500,0,0,28,28,0
-Monitoring · pallete/violet/200,0,0,0,0,4
-Monitoring · pallete/red/200,0,0,0,0,45
-Monitoring · pallete/orange/200,0,0,0,0,45
-Monitoring · pallete/green/300,0,0,0,0,45
-Monitoring · Collection 1/Color 1 [Text],0,0,0,0,78
-Web App · Text Color 3,0,0,4,0,0
-Color · border (Web App / Monitoring),0,0,6,0,64
-Alias · Text/Color primary default,0,0,0,40,0
-Alias · Background/Shade color hover,0,0,0,1,0
-Alias · Text/Color primary invert default,0,0,0,1,0
+key,ds_web,ds_app,ds_site,web_app,app,monitoring,firmware,wl_b2b,geo_web,website
+Color 1 [Back],94,165,0,2240,1383,3969,20,202,24,685
+Color 2 [Back],98,67,0,3874,1508,3486,95,10,80,1002
+Color 3 [Back],304,205,21,10126,2561,12037,200,38,99,4887
+Color 35 [Back],214,187,5,4810,2001,3597,130,20,89,1149
+Color 4 [Back],51,42,0,1340,532,2929,2,0,0,240
+Disabled [Back],19,0,0,320,9,585,6,0,37,279
+Inactive [Back],0,0,0,0,21,0,0,0,0,0
+Color 1 [Text],418,399,15,19262,4771,19040,367,172,588,10625
+Color 2 [Text],1,0,0,22,2,0,0,0,0,0
+Color 3 [Text],57,62,0,3735,767,980,5,39,58,356
+Color 4 [Text],195,226,0,11014,2726,11191,564,90,156,8172
+Color 5 [Text],66,18,0,3225,417,5636,71,0,61,855
+Brand,237,106,9,3280,786,1362,38,245,40,3640
+Brand fill hover,17,6,0,17,14,3,0,1,0,0
+Brand hover,3,1,0,81,47,49,3,26,0,62
+Brand light,1,0,0,90,68,0,0,1,0,33
+Brand disable,15,22,0,171,103,13,0,1,31,0
+Error,67,2,0,830,34,2230,34,41,7,406
+Red [Main],0,65,0,7,61,0,0,0,0,67
+Error hover,13,0,0,2,0,2,0,1,0,0
+Red [Hover],0,0,0,0,0,0,0,0,0,0
+Error disabled,0,0,0,0,0,0,0,0,0,0
+Red [Disabled],0,0,0,0,6,0,0,0,0,0
+Error back,18,1,0,10,1,0,0,5,0,0
+Red [Back],0,21,0,0,0,0,0,0,0,0
+Error back 2,0,0,0,10,1,0,0,0,0,0
+Red [Back] 2,0,20,0,19,95,9,0,0,0,0
+Error secondary text,2,0,0,0,0,0,0,0,0,0
+Red [Secondary text],0,3,0,0,0,0,0,0,0,0
+Success,82,2,0,1065,111,20763,49,61,0,254
+Green [Main],0,46,0,6,98,0,0,0,0,17
+Success hover,3,0,0,2,0,0,0,0,0,0
+Green [Hover],0,0,0,0,0,0,0,0,0,0
+Success back,20,1,0,34,0,0,0,4,0,0
+Green [Back],0,21,0,0,2,0,0,0,0,0
+Success back 2,2,0,0,123,0,0,0,0,6,24
+Green [Back] 2,0,18,0,0,2,0,0,0,0,0
+Success secondary text,3,0,0,0,0,0,384,0,0,0
+Green [Secondary text],0,1,0,0,0,0,0,0,0,0
+Attention,23,2,0,1767,125,2180,11,48,28,991
+Orange [Main],0,22,0,52,253,0,0,0,0,80
+Attention hover,0,0,0,2,0,0,1,0,0,0
+Attention back,18,1,0,139,53,0,0,0,0,0
+Orange [back],0,21,0,2,58,0,0,0,0,0
+Attention back 2,0,0,0,40,14,0,0,0,0,0
+Orange [back] 2,0,18,0,13,71,0,0,0,0,42
+Attention secondary text,3,0,0,0,0,0,0,0,0,0
+Orange [secondary text],0,1,0,0,5,0,0,0,0,0
+accent base,12,0,0,39,10,4,0,0,0,14
+accent soft,0,0,0,0,0,0,0,0,0,0
+accent bold,0,0,0,0,0,0,0,0,0,0
+accent background,0,0,0,0,0,0,0,0,0,0
+surface/base,334,417,0,2634,1127,1240,6,29,77,526
+divider/base,99,92,0,1032,680,239,20,46,46,105
+Back [Primary] 2,0,18,0,0,0,0,0,0,0,0
+Alias · Background/Color default,0,0,0,36,11,0,0,0,0,0
+Alias · Background/Shade color default,0,0,0,299,30,15,0,0,0,0
+Alias · Divider/Color default,0,0,0,106,152,128,0,0,0,8
+Alias · Monochrome/Color default,0,15,0,8,99,0,0,0,9,605
+Alias · Monochrome/Color disable,0,0,0,162,150,48,0,0,0,116
+Alias · Text/Color disable,0,0,0,22,1,0,0,0,0,0
+Alias · Text/Color secondary default,0,0,0,14,153,0,0,0,0,6
+Alias · Brand/Color default,0,1,0,1,50,0,0,0,0,0
+Alias · Brand/Color disable,0,0,0,10,3,0,0,0,0,0
+Alias · Success/Color default,0,0,0,1,9,0,0,0,0,0
+Alias · Background/Color accent,0,0,0,3,2,0,0,0,0,0
+Alias · Background/Color focus,0,0,0,22,110,0,0,0,0,15
+Basic color · Neutral/* напрямую,18,13,48,4534,391,12,0,9574,102,39622
+Basic color · Green / Red / Amber/* напрямую,0,50,0,40,836,110,0,459,36,21
+Basic color · Yellow/500,0,0,0,28,28,0,0,21,0,0
+Monitoring · pallete/violet/200,0,0,0,0,0,4,0,0,0,0
+Monitoring · pallete/red/200,0,0,0,0,0,45,0,0,0,65
+Monitoring · pallete/orange/200,0,0,0,0,0,45,0,0,0,65
+Monitoring · pallete/green/300,0,0,0,0,0,45,0,0,0,65
+Monitoring · Collection 1/Color 1 [Text],0,0,0,0,0,78,0,0,0,9
+Web App · Text Color 3,0,0,0,4,0,0,0,0,0,0
+Color · border (Web App / Monitoring),0,0,0,6,0,64,10,0,5,37
+Alias · Text/Color primary default,0,0,0,0,40,0,0,0,10,11
+Alias · Background/Shade color hover,0,0,0,0,1,0,0,0,0,0
+Alias · Text/Color primary invert default,0,0,0,0,1,0,0,0,0,0
+Alias · Inactive/Color default,0,0,0,0,0,0,0,153,193,0
+WL B2B · pallete/gray/0,0,0,0,0,0,0,0,15215,0,0
+WL B2B · pallete/gray/50,0,0,0,0,0,0,0,538,0,0
+WL B2B · pallete/gray/300,0,0,0,0,0,0,0,3926,0,0
+WL B2B · pallete/gray/400,0,0,0,0,0,0,0,2264,0,0
+WL B2B · pallete/gray/500,0,0,0,0,0,0,0,711,0,0
+WL B2B · pallete/gray/600,0,0,0,0,0,0,0,2904,0,0
+WL B2B · pallete/gray/700,0,0,0,0,0,0,0,3278,0,0
+WL B2B · pallete/gray/800,0,0,0,0,0,0,0,11261,0,0
+WL B2B · pallete/gray/900,0,0,0,0,0,0,0,392,0,0
+WL B2B · pallete/white/900,0,0,0,0,0,0,0,3378,0,0
+WL B2B · pallete/violet/200,0,0,0,0,0,0,0,1891,0,0
+WL B2B · pallete/*-300 (9 серий графиков),0,0,0,0,0,0,0,20933,0,0
+WL B2B · pallete/red/200,0,0,0,0,0,0,0,741,0,0
+WL B2B · pallete/orange/200,0,0,0,0,0,0,0,1073,0,0
+WL B2B · pallete/green/300,0,0,0,0,0,0,0,1351,0,0
+WL B2B · pallete/*-600…800 (тинты),0,0,0,0,0,0,0,1707,0,0
+Geo · S/Text/Primary,0,0,0,0,0,0,0,0,8793,0
+Geo · S/Text/Tertiary,0,0,0,0,0,0,0,0,7590,0
+Geo · S/Border/Primary,0,0,0,0,0,0,0,0,3998,0
+Geo · S/Background/Primary,0,0,0,0,0,0,0,0,3453,0
+Geo · C/Input/Border,0,0,0,0,0,0,0,0,2549,0
+Geo · C/Input/Background-White,0,0,0,0,0,0,0,0,2472,0
+Geo · C/Button/Tertiary/Background,0,0,0,0,0,0,0,0,2152,0
+Geo · C/Logo/Fill,0,0,0,0,0,0,0,0,2050,0
+Geo · S/Background/Tertiary,0,0,0,0,0,0,0,0,1984,0
+Geo · S/Text/Link,0,0,0,0,0,0,0,0,1903,0
+Geo · S/Background/Secondary,0,0,0,0,0,0,0,0,1733,0
+Geo · S/Icon/Quantertiary,0,0,0,0,0,0,0,0,1380,0
+Geo · C/Button/Tertiary/Icon,0,0,0,0,0,0,0,0,1095,0
+Geo · C/Button/Tertiary/Text,0,0,0,0,0,0,0,0,976,0
+Geo · C/Button/Primary/Background,0,0,0,0,0,0,0,0,738,0
+Geo · S/Icon/Tertiary,0,0,0,0,0,0,0,0,737,0
+Geo · C/Input/Text,0,0,0,0,0,0,0,0,652,0
+Geo · S/Status/Success,0,0,0,0,0,0,0,0,600,0
+Geo · S/Status/Danger,0,0,0,0,0,0,0,0,563,0
+Geo · S/Icon/Quinary,0,0,0,0,0,0,0,0,498,0
+Geo · C/Input/Icon,0,0,0,0,0,0,0,0,495,0
+Geo · C/Button/Primary/Text,0,0,0,0,0,0,0,0,426,0
+Geo · S/Border/Link,0,0,0,0,0,0,0,0,420,0
+Geo · C/Input/Placeholder,0,0,0,0,0,0,0,0,379,0
+Geo · S/Border/Secondary,0,0,0,0,0,0,0,0,308,0
+Geo · C/Modal/Overlay,0,0,0,0,0,0,0,0,286,0
+Geo · S/Text/Placeholder,0,0,0,0,0,0,0,0,234,0
+Geo · Pallete/Semantic/* (копия legacy Color),0,0,0,0,0,0,0,0,2334,0
+Geo · Variable collection/* (Black / Green / Bright white / Electric Blue),0,0,0,0,0,0,0,0,442,0
+text/neutral/base,0,0,159,0,0,0,0,0,0,37
+background/neutral/bold-1,0,0,72,0,0,0,0,0,0,0
+border/neutral/nbold-1,0,0,30,0,0,0,0,0,0,14
+text/neutral/nbold-2,0,0,25,0,0,0,0,0,0,30
+border/neutral/basic,0,0,24,0,0,0,0,0,0,0
+background/neutral/bold-3,0,0,24,0,0,0,0,0,0,0
+background/brand/basic,0,0,18,0,0,0,0,0,0,0
+text/neutral/nbold-4,0,0,16,0,0,0,0,0,0,27
+background/neutral/basic,0,0,15,0,0,0,0,0,0,4
+text/neutral/nbold-1,0,0,14,0,0,0,0,0,0,16
+icon/brand/base,0,0,12,0,0,0,0,0,0,0
+background/brand/nbasic-1,0,0,12,0,0,0,0,0,0,0
+icon/brand/bold-1,0,0,12,0,0,0,0,0,0,0
+background/brand/bold-1,0,0,12,0,0,0,0,0,0,0
+background/neutral/bold-2,0,0,12,0,0,0,0,0,0,0
+border/neutral/nbold-2,0,0,6,0,0,0,0,0,0,6
+text/fixed/white,0,0,3,0,0,0,0,0,0,0
+text/brand/base,0,0,3,0,0,0,0,0,0,0
+icon/neutral/base,0,0,0,0,0,0,0,0,0,8
+Main [Primary],0,0,0,0,0,0,0,0,0,34
