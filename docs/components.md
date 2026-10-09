@@ -198,13 +198,13 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 | Роль | Компоненты | Default | Hover | Focus | Error | Disabled | Selected |
 |---|---|---|---|---|---|---|---|
 | **Контейнер / разделитель** | Card, Menu, Toast, Modal, Sheet, Side panel, Tooltip, Tabs (линия), строки таблиц, Key-value row, Chart card | `border/subtle` (разделитель) или `border/default` (контейнер с обводкой) | — | — | — | — | — |
-| **Поле** | Input, Select, Textarea, Input amount, Code input / cell, Password field, File upload | `control/border/default` | `control/border/hover` | `control/border/focus` + кольцо | `control/border/error` | `control/border/disabled` | — |
-| **Контрол с обводкой** | Button · Tertiary outline, Icon button outline, Chip | `control/border/default` | слой, обводка та же | только кольцо | — | `control/border/disabled` | у Chip — плашка, без обводки |
+| **Поле** | Input, Select, Textarea, Input amount, Code input / cell, Password field, File upload | `control/border/default` | `control/border/hover` | `control/border/focus` + кольцо | `control/border/error`; Success (Code cell) — `status/success/solid` (сплошной, как Error) | `control/border/disabled` | File upload · Dragging — `border/accent` (зона сброса) |
+| **Контрол с обводкой** | Button · Tertiary outline, Icon button outline, Chip | `control/border/default` | слой, обводка та же | только кольцо | — | Button / Icon button — обводка та же, бледнеет текст (Стефан 09.10); Chip — `control/border/disabled` | у Chip — плашка, без обводки |
 | **Граница = единственный признак** (WCAG 1.4.11, ≥ 3:1) | Checkbox, Radio (Off) | `border/strong` | слой | кольцо | `control/border/error` | `control/border/disabled` | `control/checked` (заливка) |
 | **Индикатор выбора / текущего** | Date cell · Today, Chip cell · Selected, Step · Current, Tab, Nav item | — | — | — | — | — | `border/accent` / `control/checked` |
 | **Статус** | Alert, Banner, Code cell · Success | `status/*/border` | — | — | — | — | — |
 
 Правила:
 - `border/*` — только контейнеры, разделители, индикаторы. Контролы — `control/border/*`. Токены фокуса — только для фокуса.
-- Сплошные `status/*/solid` в обводке не используем — для обводки есть `status/*/border`.
+- Состояние поля (Error, Success) — сплошной цвет: полупрозрачный слишком светлый (Стефан 09.10). Контейнеры со статусом (Alert, Banner) — `status/*/border` (на решении, доска на 🧪 Playground).
 - Перепривязка компонентов под эту модель — этап 2 (список и Δ — OPEN-QUESTIONS).

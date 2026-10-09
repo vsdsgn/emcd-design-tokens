@@ -8,8 +8,8 @@
 1. [x] Точка восстановления Components окончательная; изменения Foundations (уровни и др.) остаются — Стефан 2026-10-09.
 2. [x] Экспорт Foundations → `npm run all` — 2026-10-09.
 3. [x] Таблица с новыми колонками (Примитив, Action, Статус, Решение, Потребители, Контраст) — 96 строк, ок Стефана «хоть на 30 строк», «по таблице сам разберись».
-4. [~] Скан потребителей: DS Web, DS App, Web App, App ✓; Monitoring 8 / 27; **осталось** Firmware, WL B2B, Geometria Web / App, MiningBox. В App нашлись ещё 3 Core-алиаса (Text primary / primary invert, Shade hover) — добавлены.
-5. [ ] **П1 — контраст цветного текста на L1–L3** (на решение, Foundations): `text/danger` тёмн. red/500 → 400 (L0–L3 6.2 → 4.7); `text/warning` свет. amber/700 → 800 (7.3 → 5.6); `text/info` свет. blue/600 → 700 (6.8 → 5.1); `text/accent` на L3 4.3 — правило «цветной текст на L3 не ставим» (или accent 700 / 300). То же для `icon/*`.
+4. [~] Скан потребителей: DS Web, DS App, DS Site, Web App, App, Firmware, WL B2B, Geometria Web, сайт (Website EMCD + USA) ✓ (2026-10-09); Monitoring 8 / 27; **осталось** Geometria App, MiningBox (нет ссылки). Landings — переменных нет, всё сырыми цветами. WL B2B — своя локальная палитра `pallete` (~70 тыс. привязок), Geometria Web — своя локальная коллекция `Collection 1` (116 токенов, ~50 тыс.); сайт — в основном сырые `Neutral/*` (~40 тыс.). Таблица — 146 строк. В App нашлись ещё 3 Core-алиаса (Text primary / primary invert, Shade hover) — добавлены.
+5. [x] **П1 — контраст цветного текста** — сделано 2026-10-09 (ок Стефана «ок, только системность»): правило «ближайшая к 500 ступень с ≥ 4.5 на L0–L2, на L3 цветной текст не ставим» для всех цветов, contrast-more — +1 ступень от темы. Стефан опубликовал и обновил Components; «некоторые места не нравятся» — ждём, какие. Было предложение: (на решение, Foundations): `text/danger` тёмн. red/500 → 400 (L0–L3 6.2 → 4.7); `text/warning` свет. amber/700 → 800 (7.3 → 5.6); `text/info` свет. blue/600 → 700 (6.8 → 5.1); `text/accent` на L3 4.3 — правило «цветной текст на L3 не ставим» (или accent 700 / 300). То же для `icon/*`.
 6. [ ] Conflict-строки: Core `Background/Color accent`, `Background/Color focus` (App 110 — важно), локальная `Color › border` (Web App, Monitoring) — посмотреть экраны; `Back [Primary] 2` (DS App) — значение.
 7. [ ] Deprecate без потребителей (accent soft / bold / background, Color 6 / 7 [Back]) — подтвердить после скана оставшихся продуктов.
 8. [x] Claude DS — синхронизирован 2026-10-09 (7acf9d0).
@@ -20,8 +20,7 @@
 
 Перепривязка без визуальных изменений, кроме принятых Δ. Из аудита обводок (2026-10-09):
 - = (значения совпадают): Button Tertiary outline, Icon button outline, Chip — `border/default` → `control/border/default`; Chip Disabled `border/subtle` → `control/border/disabled`; File upload Default `border/default` → `control/border/default`.
-- Δ (Disabled 12 → 8 % по правилу Disabled): Button / Icon button outline Disabled → `control/border/disabled`.
-- Δ открыто: File upload Hover `border/accent` → `control/border/hover` (accent оставить у Dragging); Code cell Success `status/success/solid` → `status/success/border`; Banner — обводка `status/*/solid` → `status/*/border`?
+- Доска «_На решение · обводки (этап 2)» на 🧪 Playground в Components, номера 1–13. Решено 09.10: № 2 Code cell Success — оставить сплошной (полупрозрачный слишком светлый); № 13 Button outline Disabled — не менять. На решении: № 1 File upload Hover → нейтральный; № 3–6 Banner → `status/*/border`. № 7–12 — без визуальных изменений.
 - Сырые примитивы на экранах продуктов (Web App ~4,5 тыс. `Neutral/*`) — по роли слоя, на тестовых копиях экранов.
 - Тест-стенд: копии насыщенных экранов Mining Web / App → до / после.
 
