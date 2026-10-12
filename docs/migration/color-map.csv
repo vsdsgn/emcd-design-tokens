@@ -109,8 +109,33 @@ Geo,Geo · C/Logo/Fill,,#181818,,icon/primary,Merge,,логотип — конт
 Geo,Geo · S/Status/Success,,#009945,#009945,status/success/solid,Merge,,статусы системные — у Geo был брендовый зелёный
 Geo,Geo · S/Status/Danger,,#ff5f6e,#ff5f6e,status/danger/solid,Merge,,статусы системные
 Geo,Geo · C/Modal/Overlay,,#00000080,,surface/overlay,Merge,,
-Geo,Geo · Pallete/Semantic/* (копия legacy Color),,,,как строки Web·App,Deprecate,,локальная копия — мапится как legacy
+Geo,Geo · Pallete/Semantic/* (копия legacy Color),,,,как строки Geo App,Deprecate,,локальная копия — значения Geo (светлые); мапится как строки Geo App
 Geo,Geo · Variable collection/* (Black / Green / Bright white / Electric Blue),,,,по роли слоя,Rebind,,этап 2
+Geo App,Geo App · Pallete/Color 1 [Back],,#ffffff,,surface/level-0,Merge,,локальная Pallete (копия legacy Color в светлой Geo-версии)
+Geo App,Geo App · Pallete/Color 2 [Back],,#fafafa,,surface/level-1,Merge,D-levels,
+Geo App,Geo App · Pallete/Color 3 [Back],,#ececec,,surface/level-2,Merge,D-levels,
+Geo App,Geo App · Pallete/Color 35 [Back],,#a5a5a5,,,Conflict,,серый #a5a5a5 как фон — роль не ясна
+Geo App,Geo App · Pallete/Color 4 [Back],,#858690,,,Conflict,,роль не ясна
+Geo App,Geo App · Pallete/Inactive [Back],,#282828,,,Conflict,,тёмный в светлой теме — роль не ясна
+Geo App,Geo App · Pallete/Color 1 [Text],,#181818,,text/primary,Merge,,
+Geo App,Geo App · Pallete/Color 2 [Text],,#c4c4c4,,text/disabled,Merge,D-disabled,
+Geo App,Geo App · Pallete/Color 3 [Text],,#858690,,text/tertiary,Merge,D-alpha-text,⚠ у Geo Color 3 светлее Color 4 — обратный порядок EMCD; мапим по значению
+Geo App,Geo App · Pallete/Color 4 [Text],,#5a5a5a,,text/secondary,Merge,D-alpha-text,⚠ то же: Color 4 = вторичный
+Geo App,Geo App · Pallete/Color 5 [Text],,#282828,,text/primary,Merge,,⚠ у EMCD Color 5 = disabled; одно имя — разные роли
+Geo App,Geo App · Pallete/Brand,,#1470ff,,action/primary/default,Merge,D-contrast,Geo accent/solid = 600
+Geo App,Geo App · Pallete/Brand fill hover,,#65a6ff,,action/primary/default+layer@6,Deprecate,D-state,
+Geo App,Geo App · Pallete/Brand hover,,#3a8dff,,text/accent,Merge,D-contrast,
+Geo App,Geo App · Pallete/Brand disable,,#0c4399,,action/disabled,Merge,D-disabled,
+Geo App,Geo App · Pallete/Brand light,,#bcd9ff,,accent/subtle,Merge,,
+Geo App,Geo App · Pallete/Red [Main],,#ff5f6e,,status/danger/solid,Merge,,статусы системные
+Geo App,Geo App · Pallete/Orange [Main],,#f59e0b,,status/warning/solid,Merge,,
+Geo App,Geo App · Pallete/Orange [secondary text],,#976207,,text/warning,Merge,D-contrast,
+Geo App,Geo App · Pallete/Green [Main],,#63f282,,status/success/solid,Merge,,статусы системные — у Geo был брендовый зелёный
+Geo App,Geo App · Pallete/Green [Hover],,#00cc5c,,action/success/default+layer@6,Deprecate,D-state,
+Geo App,Geo App · Pallete/Green [Secondary text],,#009945,,text/success,Merge,D-contrast,
+Geo App,Geo App · Pallete/accent base,,#1470ff,,,Conflict,,у Geo «accent» = бренд (синий); у EMCD — лайм (highlight)
+Geo App,Geo App · Pallete/accent soft,,#bcd9ff,,accent/subtle,Merge,,
+Geo App,Geo App · Pallete/accent bold,,#105acc,,action/primary/default,Merge,,
 Product,Monitoring · pallete/violet/200,,,#8e42ff,action/primary/default,Deprecate,,локальный дубль Brand
 Product,Monitoring · pallete/red/200,,,#e53733,status/danger/solid,Deprecate,,локальный дубль
 Product,Monitoring · pallete/orange/200,,,#f59f0b,status/warning/solid,Deprecate,,локальный дубль

@@ -53,15 +53,15 @@ def val(T, target):
 usage = {r['key']: r for r in csv.DictReader(open(R/'docs/migration/legacy-usage.csv'))}
 def impact(src, tok):
     keys = {'Disabled / Inactive [Back]': ['Disabled [Back]', 'Inactive [Back]']}.get(tok) or ([tok] if tok in usage else [k.strip() for k in tok.replace('theme · ', '').split(' / ')])
-    s = {c: sum(int(usage[k][c]) for k in keys if k in usage) for c in ('ds_web', 'ds_app', 'ds_site', 'web_app', 'app', 'monitoring', 'firmware', 'wl_b2b', 'geo_web', 'website')}
+    s = {c: sum(int(usage[k][c]) for k in keys if k in usage) for c in ('ds_web', 'ds_app', 'ds_site', 'web_app', 'app', 'monitoring', 'firmware', 'wl_b2b', 'geo_web', 'geo_app', 'website')}
     if not any(k in usage for k in keys): return '0' if src in ('Web·App', 'App', 'Site') else 'нет данных'
     if not any(s.values()): return '0'
-    lab_ = {'ds_web': 'DS Web', 'ds_app': 'DS App', 'web_app': 'Web App', 'app': 'App', 'monitoring': 'Monitoring', 'firmware': 'Firmware', 'wl_b2b': 'WL B2B', 'geo_web': 'Geo Web', 'ds_site': 'DS Site', 'website': 'Сайт'}
+    lab_ = {'ds_web': 'DS Web', 'ds_app': 'DS App', 'web_app': 'Web App', 'app': 'App', 'monitoring': 'Monitoring', 'firmware': 'Firmware', 'wl_b2b': 'WL B2B', 'geo_web': 'Geo Web', 'geo_app': 'Geo App', 'ds_site': 'DS Site', 'website': 'Сайт'}
     return ' · '.join(f"{lab_[c]} {s[c]:,}".replace(',', ' ') for c in s if s[c])
 rows, js = [], []
 for r in csv.DictReader(open(R/'docs/migration/color-map.csv')):
-    L, D = (GL, GD) if r['source'] == 'Geo' else (EL, ED)  # Geometria — свой бренд
-    BI = 1 if r['source'] == 'Geo' else 0
+    L, D = (GL, GD) if r['source'] in ('Geo', 'Geo App') else (EL, ED)  # Geometria — свой бренд
+    BI = 1 if r['source'] in ('Geo', 'Geo App') else 0
     t = r['target']; real = t and not t.startswith('по роли') and '|' not in t and val(L, t) is not None
     al = val(L, t) if real else ''; ad = val(D, t) if real else ''
     l0l, l0d = L['surfaceLevel0'], D['surfaceLevel0']
