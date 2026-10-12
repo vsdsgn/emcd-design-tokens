@@ -1,8 +1,8 @@
 source,legacy_token,role,legacy_light,legacy_dark,target,action,decision,note
 Web·App,Color 1 [Back],фон страницы,,#0a0a0a,surface/level-0,Keep,,
-Web·App,Color 7 [Back],,,#0a0a0a,surface/level-0,Deprecate,Этап 1: 0 потребителей,дубль Color 1
+Web·App,Color 7 [Back],,,#0a0a0a,surface/level-0,Merge,,дубль Color 1; есть в Monitoring (5)
 Web·App,Color 2 [Back],карточка,,#111111,surface/level-1,Keep,D-levels,
-Web·App,Color 6 [Back],,,#111111,surface/level-1,Deprecate,Этап 1: 0 потребителей,дубль Color 2
+Web·App,Color 6 [Back],,,#111111,surface/level-1,Merge,D-levels,дубль Color 2; есть в Monitoring (10)
 Web·App,Color 3 [Back],вложенная плашка / контрол на карточке,,#1a1a1a,surface/level-2,Split,D-levels,контрол на уровень выше подложки
 Web·App,Color 3 [Back],поповер / меню,,#1a1a1a,surface/raised,Split,,
 Web·App,Color 35 [Back],hover,,#232323,state/layer@6,Split,D-state,
@@ -24,7 +24,7 @@ Web·App,Brand light,,,#c18afd,text/link-hover,Keep,,
 Web·App,Brand disable,,,#2c0754,action/disabled,Merge,D-disabled,
 Web·App,Error / Red [Main],,,#e53935,status/danger/solid,Keep,,
 Web·App,Error hover / Red [Hover],кнопка danger,,#be2f2b,action/danger/default,Keep,D-contrast,белый текст ≥ 4.5
-Web·App,Error disabled / Red [Disabled],,,#972421,action/disabled,Merge,D-disabled,есть в App (6)
+Web·App,Error disabled / Red [Disabled],,,#972421,action/disabled,Merge,D-disabled,есть в App (6) и Monitoring (4)
 Web·App,Error back / Red [Back],,,#350a09,status/danger/subtle,Merge,D-status-subtle,
 Web·App,Error back 2 / Red [Back] 2,,,#480f0e,status/danger/subtle,Merge,D-status-subtle,
 Web·App,Error secondary text / Red [Secondary text],,,#be2f2b,text/danger,Keep,D-contrast,см. П1 (контраст на L1–L3)
@@ -116,6 +116,7 @@ Product,Monitoring · pallete/red/200,,,#e53733,status/danger/solid,Deprecate,,�
 Product,Monitoring · pallete/orange/200,,,#f59f0b,status/warning/solid,Deprecate,,локальный дубль
 Product,Monitoring · pallete/green/300,,,#45a148,status/success/solid,Deprecate,,локальный дубль
 Product,Monitoring · Collection 1/Color 1 [Text],,,#fafafa,text/primary,Deprecate,,локальный дубль
+Product,Monitoring · Variables/Theme/* (внешний UI-кит),text-primary / action-selected / text-secondary / primary-main …,,,по роли слоя,Rebind,,стороннего кита — перепривязать на этапе 2
 Product,Web App · Text Color 3,,,,text/secondary,Deprecate,,локальный дубль
 Product,Color · border (Web App / Monitoring),,,,,Conflict,,в DS Web / App такого нет — уточнить источник
 Site,text/neutral/base,,#000000,#f5f5f5,text/primary,Keep,,

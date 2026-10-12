@@ -56,7 +56,7 @@ def impact(src, tok):
     s = {c: sum(int(usage[k][c]) for k in keys if k in usage) for c in ('ds_web', 'ds_app', 'ds_site', 'web_app', 'app', 'monitoring', 'firmware', 'wl_b2b', 'geo_web', 'website')}
     if not any(k in usage for k in keys): return '0' if src in ('Web·App', 'App', 'Site') else 'нет данных'
     if not any(s.values()): return '0'
-    lab_ = {'ds_web': 'DS Web', 'ds_app': 'DS App', 'web_app': 'Web App', 'app': 'App', 'monitoring': 'Monitoring*', 'firmware': 'Firmware', 'wl_b2b': 'WL B2B', 'geo_web': 'Geo Web', 'ds_site': 'DS Site', 'website': 'Сайт'}
+    lab_ = {'ds_web': 'DS Web', 'ds_app': 'DS App', 'web_app': 'Web App', 'app': 'App', 'monitoring': 'Monitoring', 'firmware': 'Firmware', 'wl_b2b': 'WL B2B', 'geo_web': 'Geo Web', 'ds_site': 'DS Site', 'website': 'Сайт'}
     return ' · '.join(f"{lab_[c]} {s[c]:,}".replace(',', ' ') for c in s if s[c])
 rows, js = [], []
 for r in csv.DictReader(open(R/'docs/migration/color-map.csv')):
