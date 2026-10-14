@@ -49,3 +49,13 @@
 ## Agent-ready: что берём для самой DS 2.0
 
 Arc и Planes отдают агентам `llms.txt` и markdown на каждый компонент. У нас описания компонентов в Figma уже устроены так же (когда / когда нет / правила / A11y / поиск / legacy). План: выгружать их скриптом в `docs/components/<name>.md` + `llms.txt` в репо — это вход для Claude Design и для Claude Code при вёрстке.
+
+## Токены и движение (2026-10-14)
+
+| Источник | Для чего у нас |
+|---|---|
+| DTCG Format Module 2025.10 (designtokens.org) | целевой формат `tokens/**`: цвет со `colorSpace`, `{value, unit}`, cubicBezier массивом, transition — парковка в OPEN-QUESTIONS |
+| Open Props (open-props.style) | референс имён motion-токенов: ~70 кривых, 21 анимация — сверять, когда расширяем `motion/*` (этап 3); значения наши |
+| Design Token Kit, Terrazzo `tz lint` | валидация DTCG и поиск дублей в CI — после перехода на 2025.10 |
+| TokensBrücke (Figma → DTCG 2025.10) | эталон вывода easing / motion при переходе; наш экспорт не заменяет |
+| Design Compass Plus (отчёт 2026-10-14) | AI-native DS: Intention · Data · Execution, короткий `design.md`, правила выбора паттерна (Tabs, Select, Text field, Button) — вход для этапа 3 |
