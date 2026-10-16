@@ -58,4 +58,6 @@ Arc и Planes отдают агентам `llms.txt` и markdown на кажды
 | Open Props (open-props.style) | референс имён motion-токенов: ~70 кривых, 21 анимация — сверять, когда расширяем `motion/*` (этап 3); значения наши |
 | Design Token Kit, Terrazzo `tz lint` | валидация DTCG и поиск дублей в CI — после перехода на 2025.10 |
 | TokensBrücke (Figma → DTCG 2025.10) | эталон вывода easing / motion при переходе; наш экспорт не заменяет |
+| Springs Studio (springs.studio) | генератор spring → easing / duration с экспортом CSS / JSON — сверять кривые, когда расширяем `motion/*` (этап 3) |
+| Balsa UI (balsa-ui.com) | DS и исходники компонентов для агентов — ещё один образец agent-ready упаковки, как Arc / Planes (этап 3, Claude DS) |
 | Design Compass Plus (отчёт 2026-10-14) | AI-native DS: Intention · Data · Execution, короткий `design.md`, правила выбора паттерна (Tabs, Select, Text field, Button) — вход для этапа 3 |

@@ -76,7 +76,7 @@ for r in csv.DictReader(open(R/'docs/migration/color-map.csv')):
     elif worst is None: st = '—'
     elif worst <= 2.3: st = '='
     elif worst <= 8: st = '≈'
-    else: st = 'Δ принято' if dec.startswith('D-') or dec.startswith('WCAG') or dec.startswith('Этап') else 'Δ открыто'
+    else: st = 'Δ принято' if dec.startswith(('D-', 'WCAG', 'Этап', 'Компонент')) else 'Δ открыто'  # Компонент X 2.0 — значение задаёт принятый компонент
     con = ''
     base = re.sub(r'@\d+$', '', t.split('+layer@')[0])
     if real and base.split('/')[0] in ('text', 'icon') and 'inverse' not in base and 'on-' not in base:
