@@ -2,6 +2,12 @@
 
 Документ для нового чата / нового исполнителя. Обновлено: 2026-10-14.
 
+## Где работать (2026-10-16)
+
+- **Мак** (`~/Projects/emcd-design-tokens`): claude.ai + Desktop Commander в Claude Desktop. Работает, только пока открыт Claude Desktop.
+- **VPS** `user@SERVER_HOST_REDACTED` (`~/Projects/emcd-design-tokens`, node 22, сборка воспроизводится 1:1): Claude Code + Remote Control → приложение Claude (вкладка Code) и claude.ai/code. Запуск: `ds-claude` (tmux-сессия `ds`, имя `emcd-ds-vps`), стоп — `ds-claude stop`. Правила агента — `CLAUDE.md`. Нужно: `claude auth login`, push-доступ к GitHub, Figma MCP.
+- Из claude.ai на VPS сейчас — через Desktop Commander мака по `ssh` (ключ `~/.ssh/stephane_vps_automation`). Прямой коннектор Remote Desktop Commander (`https://mcp.desktopcommander.app/mcp`) — нужны права на свои коннекторы в аккаунте.
+
 ## Файлы
 
 | Что | Ссылка |
