@@ -25,7 +25,25 @@ Platform: **Web** (десктоп) · **Mobile web** · **iOS** · **Android**. 
 5. Edge-to-edge: системные отступы через safe area / insets, не магические числа.
 6. Мобильный веб: `100dvh`, `env(safe-area-inset-*)`, без хаптиков (iOS Safari не поддерживает), свой оверскролл не делаем — конфликт с pull-to-refresh браузера.
 
-Открыто: список того, что сейчас костылится на Android (вопрос к разработке, OPEN-QUESTIONS).
+## Что костылится в App на Android — разбор сборки 2.43.0 (862), 2026-10-16
+
+Разбор APK (манифест, нативный код MainActivity, ресурсы, строки Dart). Flutter, Impeller не отключён (Vulkan по умолчанию), minSdk 28, target 36.
+
+| # | Что | Как сделано сейчас | Что значит для DS |
+|---|---|---|---|
+| 1 | **Хаптики** | свой канал `emcd.flutter/haptic`: ручные вибрации `VibrationEffect.createOneShot` 10–28 мс, амплитуда 110–255 (light / medium / heavy / selection); параллельно в Dart — стандартный `HapticFeedback.*` | `haptic/*` маппить на системные эффекты Android (`performHapticFeedback` / `VibrationEffect.EFFECT_TICK / CLICK / HEAVY_CLICK`), а не на свои длительности — они ощущаются по-разному на разных моторах. Один путь вместо двух. |
+| 2 | **Шрифт: Regular подменён Medium** | в FontManifest вес 400 у Roobert PRO указывает на файл Medium; Regular-файла в сборке нет | весь «обычный» текст в App на 1 ступень жирнее макетов. Добавить Regular (или перейти на Inter / Onest по решению). |
+| 3 | **Inter — три оптических кегля в одном семействе** | Inter_18pt / 24pt / 28pt с одинаковыми весами (700 трижды), нет 400 | Flutter берёт файл произвольно; один файл на вес (или variable Inter с `opsz`). |
+| 4 | **Системные панели** | устаревший `setSystemUiVisibility(LAYOUT_STABLE · LAYOUT_FULLSCREEN)` в onResume + `navigationBarColor` | target 36 → edge-to-edge на Android 15+ принудительно; отступы — только через safe area (`os/*`, `control/safe-margin`), без ручной перекраски панелей. |
+| 5 | **Блюр** | пакет `progressive_blur` (свой шейдер) + `BackdropFilter`; ограничений по устройству нет | Expressive-блюр уже в проде без деграда → подключить границы `config/perf-tiers.json`. |
+| 6 | **Скелетоны** | свой shimmer-шейдер («Failed to load shimmer shader» — есть путь без него) | правило DS: блик + pulse при reduced motion; проверить фолбэк, когда шейдер не загрузился. |
+| 7 | **Скругления** | `cornerSmoothing` (figma_squircle) | совпадает с правилом DS (сглаживание 60 %). ✓ |
+| 8 | **Иконки** | 433 SVG + свой шрифт `EMCDIcons.ttf` (1,8 КБ, несколько глифов) | иконочный шрифт уже есть — решение «пока SVG» = свести к одному способу. |
+| 9 | **Клавиатура** | `adjustResize` | ок; поля у нижнего края — проверить с edge-to-edge. |
+| 10 | Прочее | FLAG_SECURE на паузе (скрывает экран в «недавних»); `largeHeap`; тестовый `golden_toolkit` с Roboto в релизе; GIF из `time_picker_spinner_pop_up` 3,2 МБ | не DS — передать разработке как гигиену. |
+
+Не видно из сборки (нужна разработка): межстрочный / `leadingDistribution`, жест «назад» (predictive back), оверскролл — по коду стандартный stretch Android.
+
 
 ## Хаптики: `haptic/*`
 

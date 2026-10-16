@@ -1,0 +1,21 @@
+{
+  "_comment": "Границы «мощного устройства» для Expressive. Один источник для веба (build/js/perf.js) и Flutter (build/json/perf-tiers.json). Меняем только здесь → npm run all. docs/performance.md → «Мощное устройство».",
+  "version": "2026-10-16",
+  "web": {
+    "slowFrameMs": 25,
+    "slowShare": 0.3,
+    "sampleFrames": 90,
+    "sampleMs": 1500,
+    "minFrames": 5,
+    "memLow": 2,
+    "memMid": 4,
+    "coresMid": 4
+  },
+  "app": {
+    "alwaysBase": ["reduceTransparency", "lowPowerMode", "thermalSerious", "isLowRamDevice", "emulator"],
+    "ios": { "minRamGb": 4, "minOs": 17 },
+    "android": { "minRamGb": 6, "minApi": 31, "minMediaPerformanceClass": 33, "fallbackMinCores": 8, "requireVulkan": true },
+    "runtime": { "slowFrameShare": 0.3, "frameBudgetFactor": 1.5, "sampleSeconds": 3, "rememberDays": 7 },
+    "userSettingWins": true
+  }
+}

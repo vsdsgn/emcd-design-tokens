@@ -1,6 +1,6 @@
 # DS 2.0 — передача контекста (handoff)
 
-Документ для нового чата / нового исполнителя. Обновлено: 2026-10-14.
+Документ для нового чата / нового исполнителя. Обновлено: 2026-10-16.
 
 ## Где работать (2026-10-16)
 
@@ -44,6 +44,15 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 1. **Token Migration & Mapping** — таблица legacy → DS 2.0, без визуальных изменений интерфейсов. ← сейчас
 2. **Component Token Migration** — перепривязка компонентов к токенам без улучшений, проверка на экранах Mining.
 3. **Component System Evolution** — контракты (`docs/component-contract.md`), usage, motion, a11y. Card / Widgets / Layout — только в плане.
+
+**Сделано 2026-10-16:**
+- Хвосты этапа 1: Geo Inactive → Deprecate; Monitoring `Color › border` = обводки карточек → `border/subtle`; `Back [Primary] 2` = Pressed tinted-бейджа (предложение в OPEN-QUESTIONS). Таблица (CSV + рамка 28:3) обновлена точечно.
+- Доски на 🧪 Playground (Components): «_На решение · обводки v2 (этап 2)» (586:4154) и «_WL · яркие акценты» (590:6555).
+- Banner: legacy Web — цветная рамка, legacy App — тонированная заливка; 2.0 у Banner / Toast иконки статуса нейтральные — на решение.
+- Geo → Onest в Foundations (не опубликовано): примитив `font-family/onest`, Brand Geometria text / display.
+- `config/perf-tiers.json` — границы «мощного устройства» (веб + Flutter), `build.mjs` вставляет их в `perf.js` и пишет `build/json/perf-tiers.json`; docs/performance.md.
+- `components.md` → «Цвет суммы в истории»; `platforms.md` → разбор Android-сборки 862.
+- Технический переезд (этап 2): VPS + Claude Code, `color-map.csv` как машинное правило, перепривязка копий экранов по странице, до / после, боевые файлы — после ок.
 
 **Сделано 2026-10-14:** конфликты таблицы миграции разобраны по экранам App / Web App / Geo App, Deprecate accent soft / bold / background подтверждён (пункты 6–7 этапа 1) — 181 строка, Conflict 0, рамка 28:3 обновлена точечно (клон строки-шаблона + свотчи на живых переменных). Решение «Компонент X 2.0» в `color-map.csv` = Δ принято. Тяжёлые страницы Monitoring сканер use_figma не тянет (обрыв соединения) — по 1 странице или на тест-стенде. Новые инструменты → `references.md` и парковка.
 

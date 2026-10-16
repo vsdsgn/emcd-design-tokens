@@ -8,7 +8,7 @@
  * emcdPerf.set('low' | 'high' | 'auto'). */
 (function () {
   var KEY = 'emcd-ds-perf', DAY = 864e5, root = document.documentElement;
-  var T = { slowFrameMs: 25, slowShare: 0.3, sampleFrames: 90, sampleMs: 1500, minFrames: 5, memLow: 2, memMid: 4, coresMid: 4 };
+  var T = {"slowFrameMs":25,"slowShare":0.3,"sampleFrames":90,"sampleMs":1500,"minFrames":5,"memLow":2,"memMid":4,"coresMid":4};
   function read() { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } }
   function save(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} }
   function apply(level, reason) {

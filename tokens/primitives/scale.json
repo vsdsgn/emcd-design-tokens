@@ -323,6 +323,10 @@
     "noto-sans-jp": {
       "$type": "fontFamily",
       "$value": "Noto Sans JP"
+    },
+    "onest": {
+      "$type": "fontFamily",
+      "$value": "Onest"
     }
   },
   "letter-spacing": {

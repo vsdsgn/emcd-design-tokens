@@ -217,9 +217,14 @@ writeFileSync('build/css/index.css', order.map((f) => `@import "./${f}.css";`).j
 
 // Runtime perf guard (sets data-perf="low" on weak device / network / slow frames) — docs/performance.md.
 mkdirSync('build/js', { recursive: true });
-writeFileSync('build/js/perf.js', readFileSync('runtime/perf.js', 'utf8'));
+// Thresholds come from config/perf-tiers.json (one source for web and Flutter).
+const perfTiers = JSON.parse(readFileSync('config/perf-tiers.json', 'utf8'));
+const perfSrc = readFileSync('runtime/perf.js', 'utf8').replace(/var T = \{[^}]*\};/, 'var T = ' + JSON.stringify(perfTiers.web) + ';');
+if (!perfSrc.includes(JSON.stringify(perfTiers.web))) throw new Error('perf.js: thresholds not injected');
+writeFileSync('build/js/perf.js', perfSrc);
 
 mkdirSync('build/json', { recursive: true });
+writeFileSync('build/json/perf-tiers.json', JSON.stringify({ version: perfTiers.version, ...perfTiers.app }, null, 2) + '\n');
 for (const b of brands) for (const th of themes) for (const st of styles) for (const os of ['ios', 'android']) {
   await new StyleDictionary({
     log: quiet,

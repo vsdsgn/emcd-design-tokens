@@ -152,11 +152,11 @@
       "family": {
         "text": {
           "$type": "fontFamily",
-          "$value": "{font-family.pp-neue-montreal}"
+          "$value": "{font-family.onest}"
         },
         "display": {
           "$type": "fontFamily",
-          "$value": "{font-family.pp-neue-montreal}"
+          "$value": "{font-family.onest}"
         },
         "mono": {
           "$type": "fontFamily",

@@ -33,8 +33,8 @@
   --brand-highlight-700: var(--color-electric-green-700);
   --brand-highlight-900: var(--color-electric-green-900);
   --brand-highlight-on-solid: var(--color-neutral-950);
-  --brand-font-family-text: var(--font-family-pp-neue-montreal);
-  --brand-font-family-display: var(--font-family-pp-neue-montreal);
+  --brand-font-family-text: var(--font-family-onest);
+  --brand-font-family-display: var(--font-family-onest);
   --brand-font-family-mono: var(--font-family-ibm-plex-mono);
   --brand-radius-xs: var(--dimension-2);
   --brand-radius-sm: var(--dimension-4);

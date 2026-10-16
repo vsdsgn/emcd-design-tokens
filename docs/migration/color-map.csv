@@ -123,7 +123,7 @@ Geo App,Geo App · Pallete/Color 35 [Back],иконка,#a5a5a5,,icon/tertiary,S
 Geo App,Geo App · Pallete/Color 35 [Back],обводка счётчика в табах,#a5a5a5,,border/default,Split,Компонент Tabs 2.0,экраны 2026-10-14: tabs/x — counter
 Geo App,Geo App · Pallete/Color 4 [Back],"лейбл, описание, вторичное значение",#858690,,text/tertiary,Split,D-alpha-text,"экраны 2026-10-14: имя [Back], роль — текст (поля, строки выплат); = Geo Color 3 [Text]"
 Geo App,Geo App · Pallete/Color 4 [Back],иконка,#858690,,icon/tertiary,Split,D-alpha-text,"экраны 2026-10-14: chevron, поиск, стрелки списков"
-Geo App,Geo App · Pallete/Inactive [Back],"иконка, обводка таба",#282828,,icon/primary,Merge,,экраны 2026-10-14: только (old)-страницы — иконки Iconly и обводка Period selector
+Geo App,Geo App · Pallete/Inactive [Back],"иконка, обводка таба",#282828,,,Deprecate,Этап 1: только (old)-страницы,2026-10-16: только (old)-страницы; в актуальных (Auth/Statistics/Workers/Payouts/Profile) Period selector на Color 1 / Color 3 [Back] — не мигрируем
 Geo App,Geo App · Pallete/Color 1 [Text],,#181818,,text/primary,Merge,,
 Geo App,Geo App · Pallete/Color 2 [Text],,#c4c4c4,,text/disabled,Merge,D-disabled,
 Geo App,Geo App · Pallete/Color 3 [Text],,#858690,,text/tertiary,Merge,D-alpha-text,⚠ у Geo Color 3 светлее Color 4 — обратный порядок EMCD; мапим по значению
@@ -151,8 +151,8 @@ Product,Monitoring · pallete/green/300,,,#45a148,status/success/solid,Deprecate
 Product,Monitoring · Collection 1/Color 1 [Text],,,#fafafa,text/primary,Deprecate,,локальный дубль
 Product,Monitoring · Variables/Theme/* (внешний UI-кит),text-primary / action-selected / text-secondary / primary-main …,,,по роли слоя,Rebind,,стороннего кита — перепривязать на этапе 2
 Product,Web App · Text Color 3,,,,text/secondary,Deprecate,,локальный дубль
-Product,Color · border (Web App / Monitoring),"обводка плашек, карточек, навбара",,#d0d0d012,border/subtle,Split,D-alpha,= theme · surface/base (#d0d0d0 7 %); библиотека-источник не опубликована; экраны 2026-10-14: Web App История 2025 — навбар и карточки
-Product,Color · border (Web App / Monitoring),граница контрола,,#d0d0d012,border/strong,Split,WCAG 1.4.11,как theme · surface/base — проверить на тест-стенде этапа 2 (Monitoring 255)
+Product,Color · border (Web App / Monitoring),"обводка плашек, карточек, навбара",,#d0d0d012,border/subtle,Split,D-alpha,= theme · surface/base (#d0d0d0 7 %); библиотека-источник не опубликована; экраны 2026-10-14: Web App История 2025 — навбар и карточки; 2026-10-16 Monitoring 187/255 проверено (площадка, отчёты, детали устройства, устройства) — все обводки карточек r12
+Product,Color · border (Web App / Monitoring),граница контрола,,#d0d0d012,border/strong,Split,WCAG 1.4.11,как theme · surface/base; в Monitoring контролов с этой обводкой не найдено (2026-10-16) — только Web App / Firmware / сайт, сверить на тест-стенде
 Site,text/neutral/base,,#000000,#f5f5f5,text/primary,Keep,,
 Site,text/neutral/nbold-1,,#7a7a7a,#b9b9b9,text/secondary,Keep,D-alpha-text,
 Site,text/neutral/nbold-2,,#a3a3a3,#a3a3a3,text/tertiary,Keep,D-alpha-text,
