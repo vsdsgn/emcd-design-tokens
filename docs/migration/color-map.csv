@@ -21,7 +21,7 @@ Web·App,Brand,текст / иконка,,#8f42ff,text/accent,Split,D-contrast,
 Web·App,Brand fill hover,,,#6724b1,action/primary/default+layer@6,Deprecate,D-state,action/primary/hover — кандидат deprecated
 Web·App,Brand hover,,,#ac63fc,text/accent,Merge,,
 Web·App,Brand light,,,#c18afd,text/link-hover,Keep,,
-Web·App,Brand disable,,,#2c0754,action/disabled,Merge,D-disabled,
+Web·App,Brand disable,,,#2c0754,action/disabled,Split,D-disabled,"2026-10-16: в бейджах DS App (Default tinted Badge RTL / primary) → accent/subtle"
 Web·App,Error / Red [Main],,,#e53935,status/danger/solid,Keep,,
 Web·App,Error hover / Red [Hover],кнопка danger,,#be2f2b,action/danger/default,Keep,D-contrast,белый текст ≥ 4.5
 Web·App,Error disabled / Red [Disabled],,,#972421,action/disabled,Merge,D-disabled,есть в App (6) и Monitoring (4)
@@ -46,7 +46,7 @@ Web·App,theme · surface/base,обводка плашек и карточек,,
 Web·App,theme · surface/base,граница контрола (checkbox / radio),,#d0d0d012,border/strong,Split,WCAG 1.4.11,граница — единственный признак контрола → ≥ 3:1
 Web·App,theme · divider/base,,,#d0d0d012,border/subtle,Keep,D-alpha,
 Web·App,Main [Primary],сайт,,,action/primary/default,Merge,,значение уточнить (Website)
-App,Back [Primary] 2,бейдж brand,,#380d66,accent/subtle,Keep,,значение снято 2026-10-14: #380d66 — Badge RTL / primary (DS App)
+App,Back [Primary] 2,Pressed бейджа brand,,#380d66,,Deprecate,D-state,"2026-10-16: 18/18 — Pressed tinted Badge RTL / primary (DS App); Pressed везде слоем state/layer"
 Core,Alias · Background/Color default,,,#0a0a0a,surface/level-0,Merge,,
 Core,Alias · Background/Shade color default,,,#232323,surface/level-3,Merge,D-levels,
 Core,Alias · Divider/Color default,,,#232323,border/subtle,Merge,D-alpha,

@@ -55,6 +55,11 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 2. **Component Token Migration** — перепривязка компонентов к токенам без улучшений, проверка на экранах Mining.
 3. **Component System Evolution** — контракты (`docs/component-contract.md`), usage, motion, a11y. Card / Widgets / Layout — только в плане.
 
+**Сделано 2026-10-16 (вечер):**
+- 📋 Карта компонентов (Components, 2-я страница) + `docs/migration/components-inventory.csv` — 114 строк: legacy Web / App → 2.0, уровень по Frost, решение. Решения Стефана: аддоны → слоты Input; List item / Table cell — один компонент со слотами; Toast / Banner → один Alert (Placement); продуктовые виджеты вынесены в 🗄 Archive.
+- Hover / Pressed везде слоем (`components.md`); `Back [Primary] 2` → Deprecate, `Brand disable` → Split (бейджи → `accent/subtle`).
+- Порядок: этап 1 (цвета) → «Состав DS» (карта) → этап 2 только по «Ядру» → пересборка (слияния, слоты, Card / Coachmark / группы).
+
 **Сделано 2026-10-16:**
 - Хвосты этапа 1: Geo Inactive → Deprecate; Monitoring `Color › border` = обводки карточек → `border/subtle`; `Back [Primary] 2` = Pressed tinted-бейджа (предложение в OPEN-QUESTIONS). Таблица (CSV + рамка 28:3) обновлена точечно.
 - Доски на 🧪 Playground (Components): «_На решение · обводки v2 (этап 2)» (586:4154) и «_WL · яркие акценты» (590:6555).

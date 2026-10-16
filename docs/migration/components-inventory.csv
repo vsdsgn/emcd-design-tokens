@@ -1,0 +1,115 @@
+ds2,figma_set,level_now,level_ds2,decision,target,legacy_ds_web,legacy_ds_app,note
+Button,Button,—,атом,Ядро,,baseButton,"Button, button small/xsmall, Links",small/xsmall → Size S; Links → Type Text
+Icon button,Icon button,—,атом,Ядро,,.action,.action,
+Floating button,Floating button,молекула,атом,Ядро,,—,"button float / main, inside",уровень → атом
+Checkbox,Checkbox,—,атом,Ядро,,baseCheckbox (+ with text),checkbox,
+Radio,Radio,—,атом,Ядро,,baseRadio (+ with text),radio,
+Toggle,Toggle,—,атом,Ядро,,baseToggle (+ with text),toggle,
+Chip,Chip,атом,атом,Ядро,,baseChip --1.5,—,
+Badge,Badge,атом,атом,Ядро,,base badge ×6 тонов,Badge RTL ×5,
+Counter,Counter,атом,атом,Ядро,,base badge counter,badge status,сюда же Input addon / Counter
+Status,Status,атом,атом,Ядро,,base badge status,—,точка + подпись
+Avatar,Avatar,атом,атом,Ядро,,base avatar / single,"avatar, .coin",
+Divider,Divider,атом,атом,Ядро,,base divider layout / text,divider layout / text,
+Spinner,Spinner,атом,атом,Ядро,,—,—,
+Progress circle,Progress circle,атом,атом,Ядро,,baseCircleLoader,baseProgressCircle,
+Progress,Progress,атом,атом,Ядро,,—,Progress,
+Skeleton,Skeleton,атом,атом,Ядро,,—,— (shimmer в коде),
+Scrollbar,Scrollbar,атом,атом,Ядро,,"base scrollbar, scroll controller",—,только Web
+Tab,Tab,атом,атом,Ядро,,base tab item,//Tab,часть Tabs
+Segment,Segment,атом,атом,Ядро,,segmented picker item,—,часть Segmented
+Page dot,Page dot,атом,атом,Ядро,,—,—,часть Page indicator
+Amount,Amount,атом,атом,Ядро,,—,summ,формат суммы по локали
+Skip link,Skip link,атом,атом,Ядро,,—,—,"Web, доступность"
+Date cell,Date cell,атом,атом,Ядро,,PeriodGridItem,—,часть Calendar
+Breadcrumb item,Breadcrumb item,атом,атом,Ядро,,—,—,часть Breadcrumbs
+Pagination item,Pagination item,атом,атом,Ядро,,—,—,часть Pagination
+Tab bar item,Tab bar item,атом,атом,Ядро,,—,tabbar item,часть Tab bar
+Step symbol,Step symbol,молекула,атом,Ядро,,Step Symbol,—,уровень → атом
+Step trail,Step trail,молекула,атом,Ядро,,Step Trail,—,уровень → атом
+Step segment,Step segment,атом,атом,Слить,Progress (Type = Segmented),—,—,сегментный прогресс = вид Progress
+Nav icon,Nav icon · вынесено из DS,атом,—,Вынести,Icons (иконки разделов + Style),—,—,"46 вариантов, 0 использований; это иконки, не компонент; вынесено 16.10 (🗄 Archive)"
+Input addon / Unit,Input addon / Unit,атом,—,Разбить,текст в слоте Inline → в слот Leading / Trailing Input,—,—,аддон = готовый атом в слоте
+Input addon / Max,Input addon / Max,атом,—,Разбить,Button · Text · S → в слот Leading / Trailing Input,—,—,
+Input addon / Chevron,Input addon / Chevron,атом,—,Разбить,Icon (chevron) → в слот Leading / Trailing Input,—,—,
+Input addon / Stepper,Input addon / Stepper,атом,—,Разбить,2 × Icon button · Ghost · S → в слот Leading / Trailing Input,—,—,
+Input addon / Counter,Input addon / Counter,атом,—,Слить,Counter → в слот Leading / Trailing Input,—,—,дубль Counter
+Input addon / Clear,Input addon / Clear,—,—,Разбить,Icon button · Ghost · S → в слот Leading / Trailing Input,—,—,
+Input addon / Icon,Input addon / Icon,—,—,Разбить,Icon → в слот Leading / Trailing Input,—,—,
+Card,,—,атом,Добавить,,"Card, Surface",—,контейнер: уровень + радиус + отступ + обводка; в 2.0 нет
+Coin stack,,—,—,Слить,Avatar group (Type = Coin),base coinstack ×4,—,стопка монет = группа аватаров
+Logo,,—,—,Вынести,Icons / бренд-ассеты,base EMCD Logo,logo-app-emcd,
+Overlay (затемнение),,—,—,Вынести,токен scrim,base overlay,overlay,"не компонент, а токен"
+Input,Input,—,молекула,Ядро,,"input (поле, с подписью)",input / text line,Leading / Trailing — слоты Figma с предпочтительными атомами; в коде — named slots (Vue) / параметры-виджеты (Flutter)
+Password field,Password field,молекула,—,Слить,Input (Trailing: показать) + список требований,—,input / password,одна задача — поле ввода
+Search,,—,—,Слить,"Input (Leading: search, Trailing: Clear)",Search (в Dropdown),input-search,отдельный компонент не нужен
+Textarea,Textarea,молекула,молекула,Ядро,,—,—,
+Select,Select,молекула,молекула,Ядро,,Dropdown (поле),"input / single select, coin selector",coin selector = Select со слотом Leading
+Select compact,Select compact,молекула,молекула,Проверить,Select (Size S) или оставить для тулбаров,Selector small,—,нужно правило отличия от Select
+Multiselect,Multiselect,молекула,—,Слить,Select (Multiple) + Menu с Checkbox,multiselect_input,—,одна задача — выбор из списка
+Multiselect option,Multiselect option,атом,—,Удалить,Menu item (Checkbox справа),Selectable list item,—,уже решено 07.10
+Input amount,Input amount,молекула,организм,Паттерн,Input + Select монеты + Button Max + Slider,widget Input amount,"input amount, amount slider","сборка из атомов, не отдельный контрол"
+Code input,Code input,молекула,молекула,Ядро,,—,—,
+Code cell,Code cell,атом,атом,Ядро,,—,—,
+File upload,File upload,организм,молекула,Ядро,,—,—,уровень → молекула
+File upload · file,File upload · file,молекула,молекула,Проверить,List item (Leading: файл),—,—,0 использований
+Tabs,Tabs,молекула,молекула,Ядро,,base tabbar --1.5,"tabs / fill, fix",
+Segmented,Segmented,молекула,молекула,Ядро,,segmented picker group,—,
+Menu item,Menu item,—,молекула,Ядро,,Dropdown item,"bottom sheet item, menu",
+List item,List item,молекула,молекула,Разбить,"1 компонент: Leading / Trailing — слоты Figma (только атомы DS), Lines 1–3",List (Left / Content / Right),"List RTL ×5, baseList / sum",64 варианта → слоты
+Key-value row,Key-value row,молекула,—,Слить,List item (Trailing: значение),—,sum list item,дубль List item
+Tooltip,Tooltip,—,молекула,Ядро,,base tooltip,tooltip,
+Coachmark (tooltip tour),,—,молекула,Добавить,,base tooltip tour,"tooltip tour, Onboarding tooltip",онбординг; в 2.0 нет
+Toast,Toast,молекула,—,Слить,Alert (Placement = Floating),base notification,—,решение 16.10: один компонент сообщений
+Alert,Alert,молекула,молекула,Ядро,,baseCard / banner,"Alert, informer",один компонент сообщений: Placement Inline / Page / Floating · Tone ×5 · действие · закрыть (решение 16.10)
+Banner,Banner,организм,—,Слить,Alert (Placement = Page),base Banner --2.0,banner-info,решение 16.10; вид — борда обводок
+Notification,Notification,молекула,—,Слить,List item (лента уведомлений),—,Card / Notification,решение 16.10
+Breadcrumbs,Breadcrumbs,молекула,молекула,Ядро,,—,—,
+Pagination,Pagination,молекула,молекула,Ядро,,—,—,
+Page indicator,Page indicator,молекула,молекула,Ядро,,base carousel indicator,—,
+Step progress,Step progress,молекула,—,Слить,Progress (Type = Segmented),—,—,
+Step,Step,молекула,молекула,Ядро,,Step Text,—,часть Stepper
+Stepper,Stepper,молекула,молекула,Ядро,,Stepper H / V,—,
+Accordion,Accordion,молекула,молекула,Ядро,,baseAccordion --1.5,Accordion,
+Slider,Slider,молекула,молекула,Ядро,,base slider,Slider element,
+Avatar group,Avatar group,атом,молекула,Ядро,,base avatar / group line,avatar group line,уровень → молекула; + Coin stack
+Address,Address,молекула,молекула,Ядро,,—,—,адрес + копировать
+Nav item,Nav item,молекула,молекула,Ядро,,Sidebar item,—,
+Radio group / Checkbox group,,—,молекула,Добавить,,—,Radiogroup,"подпись группы, ошибка, направление"
+Table header cell,Table header cell,молекула,молекула,Ядро,,table / column title,—,
+Table cell (13 типов),Table cell / Text,атом,молекула,Разбить,"1 Table cell: Content — слот (Text, Avatar + Text, Badge, Toggle, Icon button…), Align, Density",table / cell base,—,13 наборов → 1
+Table row,Table row,молекула,молекула,Проверить,,table / raw,—,0 использований
+Legend item,Legend item,молекула,молекула,Ядро,,legends,—,Charts
+Legend swatch,Legend swatch,атом,атом,Ядро,,—,—,Charts
+Chart axis label,Chart axis label,атом,атом,Ядро,,—,—,Charts
+Chart tooltip,Chart tooltip,молекула,молекула,Ядро,,layout / tooltip,—,Charts
+Chart crosshair,Chart crosshair,молекула,атом,Ядро,,data pointer,—,Charts
+Chart metric,Chart metric,молекула,—,Слить,Stat card,—,—,дубль Stat card
+Stat card,Stat card,молекула,молекула,Ядро,,stat card (widget Graph),—,
+Transaction,Transaction,молекула,—,Паттерн,List item + Amount + Status,—,txn-card-history,строка истории операций
+Balance widget,Balance widget · вынесено из DS,молекула,—,Вынести,продукт Mining (шаблон),—,—,виджет продукта; вынесено 16.10 (🗄 Archive)
+Chip cell,Chip cell · вынесено из DS,молекула,—,Вынести,продукт Monitoring,—,—,часть карты воркеров; вынесено 16.10 (🗄 Archive)
+Menu,Menu,организм,организм,Ядро,,Dropdown,"menu, bottom sheet menu",
+Multiselect menu,Multiselect menu,организм,—,Слить,Menu (Search + Checkbox),Dropdown wrapper,—,
+Modal,Modal,организм,организм,Ядро,,base modal header / footer / content,Modal header / footer / content,
+Sheet,Sheet,организм,организм,Ядро,,—,bottom sheet,
+Filter sheet,Filter sheet,организм,—,Паттерн,Sheet + контент фильтров,—,Filter bottom sheet,
+Side panel,Side panel,организм,организм,Ядро,,—,—,
+Calendar,Calendar,организм,организм,Ядро,,"DataPicker / DateRange.Panel, PeriodGrid, PeriodPresets",—,+ поле диапазона и пресеты — проверить
+Table,Table,организм,организм,Ядро,,"table, .table / layout",—,
+Empty state,Empty state,организм,молекула,Ядро,,empty state,empty state,уровень → молекула
+Status screen,Status screen,организм,—,Паттерн,шаблон экрана (Empty state + Key-value),—,"Status screen, Success screen",
+Sidebar,Sidebar,организм,организм,Ядро,,widget Sidebar,—,
+Tab bar,Tab bar,организм,организм,Ядро,,—,tabbar,
+Top bar,Top bar,организм,организм,Ядро,,navigation header,navigation bar,
+Page header,Page header,организм,организм,Проверить,,—,—,нужно ли отдельно от Top bar
+Chart card,Chart card,организм,организм,Ядро,,bar widget,—,Charts
+Chart plot,Chart plot,организм,организм,Ядро,,graphics,—,Charts
+Address QR,Address QR,организм,—,Паттерн,Address + QR,—,—,0 использований
+Payout summary,Payout summary · вынесено из DS,организм,—,Вынести,продукт Mining,—,—,вынесено 16.10 (🗄 Archive)
+Coin stats bar,Coin stats bar · вынесено из DS,организм,—,Вынести,продукт Mining,—,—,вынесено 16.10 (🗄 Archive)
+Chip map,Chip map · вынесено из DS,организм,—,Вынести,продукт Monitoring,—,—,вынесено 16.10 (🗄 Archive)
+Site header,Site header · вынесено из DS,организм,—,Вынести,сайт (верстает сам),—,—,вынесено 16.10 (🗄 Archive)
+Site footer,Site footer · вынесено из DS,организм,—,Вынести,сайт (верстает сам),—,—,вынесено 16.10 (🗄 Archive)
+Shell,Shell · вынесено из DS,организм,—,Вынести,шаблоны экранов,—,—,"раскладка, не компонент; вынесено 16.10 (🗄 Archive)"
+Payment card,,—,—,Вынести,продукт (карта),Payment Card (пусто),Payment Card,не Mining
