@@ -27,6 +27,16 @@
 
 Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS Site FIGMA_FILE_KEY_REDACTED · Icons FIGMA_FILE_KEY_REDACTED · Performa FIGMA_FILE_KEY_REDACTED · Web App FIGMA_FILE_KEY_REDACTED · App FIGMA_FILE_KEY_REDACTED · Monitoring FIGMA_FILE_KEY_REDACTED · Firmware FIGMA_FILE_KEY_REDACTED · WL B2B FIGMA_FILE_KEY_REDACTED · Geometria Web FIGMA_FILE_KEY_REDACTED · Geometria App FIGMA_FILE_KEY_REDACTED
 
+## Где что лежит в Figma (уборка 2026-10-16)
+
+Метки страниц и досок во всех файлах: без метки — рабочее; 🟠 / 🟡 / 🟢 / 🔴 — статус компонента; 📝 — ждёт решения Стефана; ⏸ — отложено; 🧪 — тесты; 🗄 — архив (внизу, после `---`, не трогаем).
+
+- **Foundations:** 📖 Как вносить изменения · 🔁 Migration (таблица этапа 1) · 🌗 Visual language · 🎨 Ramps · — архив: Effects demo, Шрифт · кандидаты.
+- **Icons:** Icons (библиотека) · 📝 Selection 2 · 📝 Symbols · selection · ⏸ Brand character ×2 · — архив: аудиты, Selection 1, Mass, Remix, Symbols audit, Glyphs before Lucide.
+- **Illustrations:** Status (один лист).
+- **Components:** 📖 Как устроено · страницы компонентов со статусом · 🧪 Playground · на решение (только живые доски 📝) · 🧪 Тест · локали · 🧪 Тест · длинный текст · — 🗄 Archive (deprecated-компоненты) · 🗄 Старые доски (старый Playground, Actions / Inputs, Ревью v0.1, Migration table, Шаблоны экранов, Expressive preview).
+- Удалены только пустые страницы (категории Shell & Layout … Media & Promo, Page 1). Новая доска «на решение» → в 🧪 Playground с 📝; после решения → 🗄 Старые доски.
+
 ## Начало нового чата — прочитать по порядку
 
 1. Этот файл (файлы, правила, приёмы).
