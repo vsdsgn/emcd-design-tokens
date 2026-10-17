@@ -1,12 +1,16 @@
 # DS 2.0 — передача контекста (handoff)
 
-Документ для нового чата / нового исполнителя. Обновлено: 2026-10-16.
+Документ для нового чата / нового исполнителя. Обновлено: 2026-10-17.
 
-## Где работать (2026-10-16)
+## Где работать (решение Стефана 2026-10-17)
 
-- **Мак** (`~/Projects/emcd-design-tokens`): claude.ai + Desktop Commander в Claude Desktop. Работает, только пока открыт Claude Desktop.
-- **VPS** `user@SERVER_HOST_REDACTED` (`~/Projects/emcd-design-tokens`, node 22, сборка воспроизводится 1:1): Claude Code + Remote Control → приложение Claude (вкладка Code) и claude.ai/code. Запуск: `ds-claude` (tmux-сессия `ds`, имя `emcd-ds-vps`), стоп — `ds-claude stop`. Правила агента — `CLAUDE.md`. Нужно: `claude auth login`, push-доступ к GitHub, Figma MCP.
-- Из claude.ai на VPS сейчас — через Desktop Commander мака по `ssh` (ключ `~/.ssh/stephane_vps_automation`). Прямой коннектор Remote Desktop Commander (`https://mcp.desktopcommander.app/mcp`) — нужны права на свои коннекторы в аккаунте.
+- **Основное место — VPS** `user@SERVER_HOST_REDACTED`, репо **`/srv/emcd-design-tokens`** (владелец — отдельный пользователь (не root), не root; node 22, сборка воспроизводится 1:1). Claude Code + Remote Control «emcd-ds-vps» → приложение Claude (вкладка Code) и claude.ai/code с любого устройства.
+  - Сервис пользователя systemd `~/.config/systemd/user/emcd-ds-vps.service`: linger включён — стартует при загрузке VPS, перезапускается при падении, перед стартом делает `git pull --ff-only`.
+  - Управление (без root и sudo): `ds-claude` — запустить и показать статус · `ds-claude restart` · `ds-claude stop` · `ds-claude logs`.
+  - Правила агента — `CLAUDE.md`. Push — deploy key VPS (запись). Figma MCP в сессии подключает Стефан через `/mcp`.
+- **Мак** (`~/Projects/emcd-design-tokens`) — только `git pull`, не второй пишущий клон. claude.ai + Desktop Commander на Маке — запасной путь.
+- Удалены 2026-10-17: клоны `~/Projects/emcd-design-tokens` и `/root/emcd-design-tokens` на VPS; root-сессия Remote Control «EMCD DS» не перезапускается.
+- Репо `vsdsgn/emcd-design-tokens` пока остаётся публичным (решение Стефана 2026-10-17).
 
 ## Файлы
 

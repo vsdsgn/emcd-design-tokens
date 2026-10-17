@@ -34,7 +34,7 @@ out = ['# A11y-отчёт по токенам', '', 'Сгенерировано 
 fails = []
 for f in sorted(glob.glob(f'{ROOT}/build/json/*.json')):
     name = os.path.basename(f)[:-5]
-    if name.startswith('os.') or name.endswith('.expressive'): continue
+    if name.startswith('os.') or name.endswith('.expressive') or name == 'perf-tiers': continue
     d = json.load(open(f)); rows = []
     for bg in BGS:
         for t in TEXT:
