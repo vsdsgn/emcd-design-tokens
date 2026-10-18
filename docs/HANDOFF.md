@@ -70,7 +70,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 **Дальше (компоненты, 2026-10-18):**
 1. ~~Разнести общую борду контролов~~ — сделано 2026-10-18: «Checkbox / Radio / Toggle — борда · шаблон v3» на своих страницах (637:3477 / 637:5458 / 637:7393), общая убрана в 🗄 Старые доски. Ждёт ревью Стефана; старые «… — борда» (v2) на страницах ещё не архивированы; мелочь: чип `icon/on-accent` вылезает за карточку анатомии, таблица размеров не на всю ширину.
-2. Chip — борда по шаблону.
+2. ~~Chip — борда по шаблону~~ — сделано 2026-10-18: «Chip — борда · шаблон v3» (641:2170, страница Chip; старая «Chip — борда» 355:34252 не архивирована). Ждёт ревью. Открыто: обводка Off у Chip/контролов `control/border/default` ≈ 1.3:1 — в чек-листе a11y подпись + форма как признак, решить, нужен ли ≥ 3:1.
 3. Атомы по карте: Icon button, Badge (сломан; с иконкой и без), Counter, Status, Avatar (аватар / монета / символ, размеры), Divider (гор. / верт. / пунктир), Spinner (+ Progress circle → один), Progress, Skeleton (правила по компонентам), Scrollbar, Tab, Segment, Page dot, Pagination item + Date cell, Breadcrumb item, Tab bar item, Step symbol, Card (новый), Code cell, Legend swatch, Chart crosshair, Nav icon (с duotone у активного).
 4. Desktop Commander на Маке виснет на записи — коммиты через VPS (Claude Code «emcd-ds-vps»).
 
