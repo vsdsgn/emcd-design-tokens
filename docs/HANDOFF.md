@@ -1,6 +1,6 @@
 # DS 2.0 — передача контекста (handoff)
 
-Документ для нового чата / нового исполнителя. Обновлено: 2026-10-17.
+Документ для нового чата / нового исполнителя. Обновлено: 2026-10-18.
 
 ## Где работать (решение Стефана 2026-10-17)
 
@@ -58,6 +58,21 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 1. **Token Migration & Mapping** — таблица legacy → DS 2.0, без визуальных изменений интерфейсов. ← сейчас
 2. **Component Token Migration** — перепривязка компонентов к токенам без улучшений, проверка на экранах Mining.
 3. **Component System Evolution** — контракты (`docs/component-contract.md`), usage, motion, a11y. Card / Widgets / Layout — только в плане.
+
+**Сделано 2026-10-18 (компоненты — контролы, Chip):**
+- Шаблон доски компонента v3 — Components → 📖 → «📐 Шаблон доски компонента · v3» (разделы 00–11, «всегда» / «по типу», доп. блоки, правила подачи, порядок подготовки). Эталоны: «Button — борда · шаблон v3», «Tooltip — борда · шаблон v3».
+- Контролы (Checkbox, Radio, Toggle): обводка Off → `control/border/default` (disabled / error — свои), фокус «зазор 2 + кольцо 2», радиус +4; S: подпись 14/20, отступ 8 (коробка 20 — решено оставить); тень ползунка Toggle убрана (Base плоский, Expressive — позже).
+- Новые: Checkbox group, Radio group, Toggle group (Direction · Size · State Default/Error/Disabled · Show label/helper · Label/Helper). Отступы группы 12 (M) / 8 (S).
+- Chip: обводка Off и Disabled — `control/border/default` (не пропадает), брендовая «focus border» удалена, кольцо фокуса 2+2 с радиусом +4, On Hover/Pressed — `action/inverse/default` + `state/layer-inverse`.
+- Борда «Контролы выбора — борда · шаблон v3» (страница Checkbox) — временно общая.
+
+**Решения Стефана 2026-10-18:** коробка Checkbox / Radio 20 в обоих размерах — ок · борды отдельные на каждый компонент (разнести общую на Checkbox / Radio / Toggle) · Control Left/Right: пока Checkbox и Radio слева, Toggle справа, свойство оставляем · дальше по карте компонентов: атомы → молекулы → организмы → виджеты → лейауты (карту при необходимости обновить).
+
+**Дальше (компоненты, 2026-10-18):**
+1. Разнести общую борду контролов на 3 борды (+ группы в каждой).
+2. Chip — борда по шаблону.
+3. Атомы по карте: Icon button, Badge (сломан; с иконкой и без), Counter, Status, Avatar (аватар / монета / символ, размеры), Divider (гор. / верт. / пунктир), Spinner (+ Progress circle → один), Progress, Skeleton (правила по компонентам), Scrollbar, Tab, Segment, Page dot, Pagination item + Date cell, Breadcrumb item, Tab bar item, Step symbol, Card (новый), Code cell, Legend swatch, Chart crosshair, Nav icon (с duotone у активного).
+4. Desktop Commander на Маке виснет на записи — коммиты через VPS (Claude Code «emcd-ds-vps»).
 
 **Сделано 2026-10-16 (вечер):**
 - 📋 Карта компонентов (Components, 2-я страница) + `docs/migration/components-inventory.csv` — 114 строк: legacy Web / App → 2.0, уровень по Frost, решение. Решения Стефана: аддоны → слоты Input; List item / Table cell — один компонент со слотами; Toast / Banner → один Alert (Placement); продуктовые виджеты вынесены в 🗄 Archive.
