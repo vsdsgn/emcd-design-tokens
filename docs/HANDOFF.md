@@ -69,7 +69,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 **Решения Стефана 2026-10-18:** коробка Checkbox / Radio 20 в обоих размерах — ок · борды отдельные на каждый компонент (разнести общую на Checkbox / Radio / Toggle) · Control Left/Right: пока Checkbox и Radio слева, Toggle справа, свойство оставляем · дальше по карте компонентов: атомы → молекулы → организмы → виджеты → лейауты (карту при необходимости обновить).
 
 **Дальше (компоненты, 2026-10-18):**
-1. Разнести общую борду контролов на 3 борды (+ группы в каждой).
+1. ~~Разнести общую борду контролов~~ — сделано 2026-10-18: «Checkbox / Radio / Toggle — борда · шаблон v3» на своих страницах (637:3477 / 637:5458 / 637:7393), общая убрана в 🗄 Старые доски. Ждёт ревью Стефана; старые «… — борда» (v2) на страницах ещё не архивированы; мелочь: чип `icon/on-accent` вылезает за карточку анатомии, таблица размеров не на всю ширину.
 2. Chip — борда по шаблону.
 3. Атомы по карте: Icon button, Badge (сломан; с иконкой и без), Counter, Status, Avatar (аватар / монета / символ, размеры), Divider (гор. / верт. / пунктир), Spinner (+ Progress circle → один), Progress, Skeleton (правила по компонентам), Scrollbar, Tab, Segment, Page dot, Pagination item + Date cell, Breadcrumb item, Tab bar item, Step symbol, Card (новый), Code cell, Legend swatch, Chart crosshair, Nav icon (с duotone у активного).
 4. Desktop Commander на Маке виснет на записи — коммиты через VPS (Claude Code «emcd-ds-vps»).
