@@ -1,6 +1,6 @@
 # DS 2.0 — передача контекста (handoff)
 
-Документ для нового чата / нового исполнителя. Обновлено: 2026-10-18.
+Документ для нового чата / нового исполнителя. Обновлено: 2026-10-19.
 
 ## Где работать (решение Стефана 2026-10-17)
 
@@ -68,18 +68,46 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 **Решения Стефана 2026-10-18:** коробка Checkbox / Radio 20 в обоих размерах — ок · борды отдельные на каждый компонент (разнести общую на Checkbox / Radio / Toggle) · Control Left/Right: пока Checkbox и Radio слева, Toggle справа, свойство оставляем · дальше по карте компонентов: атомы → молекулы → организмы → виджеты → лейауты (карту при необходимости обновить).
 
-**Дальше (компоненты, 2026-10-18):**
-1. ~~Разнести общую борду контролов~~ — сделано 2026-10-18: «Checkbox / Radio / Toggle — борда · шаблон v3» на своих страницах (637:3477 / 637:5458 / 637:7393), общая убрана в 🗄 Старые доски. Ждёт ревью Стефана; старые «… — борда» (v2) на страницах ещё не архивированы; мелочь: чип `icon/on-accent` вылезает за карточку анатомии, таблица размеров не на всю ширину.
-2. ~~Chip — борда по шаблону~~ — сделано 2026-10-18: «Chip — борда · шаблон v3» (641:2170, страница Chip; старая «Chip — борда» 355:34252 не архивирована). Решение Стефана 2026-10-18: **Chip Vertical убран** (8 вариантов и ось Layout удалены из набора «Chip» 47:364, остался Size × Selected × State = 16; baseChip / vertical из legacy не переносим). Ждёт ревью. Открыто: обводка Off у Chip/контролов `control/border/default` ≈ 1.3:1 — в чек-листе a11y подпись + форма как признак, решить, нужен ли ≥ 3:1.
-3. **Борды v3 готовы (2026-10-18):** Checkbox 637:3477, Radio 637:5458, Toggle 637:7393, Chip 641:2170, Icon button 644:63703 (+ Button 619:6305, Tooltip 622:894). Старые борды v2 этих компонентов — в 🗄 Старые доски, мастера вынесены на корень страниц. Правило Стефана: на страницах компонентов только новые борды; остальные старые архивируем по мере пересборки. Метод: клон борды Chip (641:2170) как каркас → swapComponent и замена текстов. Ловушки: ошибка в use_figma откатывает весь вызов; children — frozen-массив; после swap вернуть FIXED размер по мастеру. Chip Vertical убран (решение Стефана).
-3. **Группа 4 (2026-10-18):** Badge 648:932, Counter 648:69632, Status 648:70847, Divider 648:71630, Avatar 648:72444, Tab 649:2507 — борды v3, старые v2 в 🗄. Починено: Badge — глифы иконки/крестика/стрелки берут цвет подписи (были чёрные на Solid). Открыто: Tab Hover/Pressed — см. «Решения 2026-10-19 (г)»; нужны ли типы Avatar «монета/символ» (сейчас Image); Avatar group — борды нет; у глифов Badge привязаны text-переменные (проверить scopes DSP). Ловушки: после swapComponent тексты-оверрайды переезжают (Divider показывал «Работает») — сбрасывать; инстансы после swap фиксировать по высоте мастера.
-3. **Segment 651:1084** — борда v3 (старая Segmented v2 в 🗄; мастера Segmented и Segment на корне страницы; у выбранного Hover/Pressed нет — так в компоненте; Segmented как молекула — борды нет). Решение Стефана нужно: «Spinner + Progress circle → один» (из плана) — склеивать ли, до решения не трогал.
-3. **Решения Стефана 2026-10-19:** (а) **Card — атом-шаблон**, гибкий: слои-основы, градации радиусов и отступов; жёстких заголовков / слотов / отступов нет — их задают виджеты и организмы поверх Card. Сделано: мастер `Card` 664:73999 (страница 🟠 Card; Level 1–3 × Radius Surface 24 · Container 16 · Inner 8 × Padding S12 · M16 · L24 × Border On/Off, один слот `content`), борда 664:74000, статус draft. (б) **Nav icon — не компонент** (иконки в Icons): по умолчанию выделение активного как в iOS (в базу); для Expressive — иконки как в сайдбаре Web, а на мобилке мульти-кнопка с буквой E (смотреть в мобильных макетах); Android-стиль не берём. (в) **Badge L = 32** (сделано в мастере: S 20 · M 24 · L 32; борда обновлена). (г) **Tab:** Hover и Pressed нужны; меняется цвет текста, возможно появляется полоска под текстом — не решено (сейчас Off Hover = text/primary вместо text/secondary, Pressed = Hover, у On без изменений; прежняя запись «Hover = Default» неверна); ждёт просмотра. (д) Spinner/Progress circle и обводка Off — ждут просмотра бордов.
-3. **Группы 5–8 (2026-10-18), борды v3:** Segment 651:1084, Progress 653:108, Skeleton 654:108, Scrollbar 655:108, Page dot 655:69270, Legend swatch 655:69958, Step symbol 655:70881, Chart crosshair 655:71709, Avatar group 655:72464, Spinner 655:73980, Progress circle 655:74790, Code cell 656:108, Pagination item 657:903, Date cell 658:903, Breadcrumb item 658:72470, Tab bar item 658:74273; молекулы: Tabs 658:76360, Segmented 658:78623. Старые v2 Progress/Skeleton/Scrollbar/Page indicator/Segmented/Tabs — в 🗄; на страницах Chart, Stepper, Code input старые борды остаются до молекул. Spinner и Progress circle оставлены раздельными — склейка ждёт решения. Card собран 2026-10-19 (664:73999), Nav icon — не компонент (см. «Решения 2026-10-19»).
-**Конструктор бордов:** библиотека лежит текстом в Figma — Playground «🧪 Playground · на решение», слой `_builder-lib v2` (id 654:69301): `new (async function(){}).constructor('figma', text)(figma)` → `build(set, pageId, name, defProps, cfgFn, scaf)`; каркас неинтерактивный — борда Status 648:70847, интерактивный — Segment 651:1084 (scaf={id:"651:1084",page:"355:33993",drop:[7]}, ix s06:6 s09:7 s10:8 s11:9, секции s04/s05 строит fillStates). Ошибка внутри use_figma откатывает весь вызов; после swapComponent фиксировать размер инстанса по мастеру и сбрасывать текстовые оверрайды (Divider показывал «Работает»).
-**Открытые решения Стефана (остаток после 2026-10-19):** Tab — полоска и разведение Pressed; склейка Spinner + Progress circle; типы Avatar «монета/символ» (ждёт прохода «Symbols · selection» в Icons); у глифов Badge привязаны text-переменные (scopes DSP); обводка Off у Chip/контролов ≈ 1.3:1.
-3. Атомы по карте (остались): Avatar group, Spinner/Progress, Skeleton, Scrollbar, Page dot, Pagination item + Date cell, Breadcrumb item, Tab bar item, Step symbol, Card, Code cell, Legend swatch, Chart crosshair, Nav icon. (ранее в списке: Badge (сломан; с иконкой и без), Counter, Status, Avatar (аватар / монета / символ, размеры), Divider (гор. / верт. / пунктир), Spinner (+ Progress circle → один), Progress, Skeleton (правила по компонентам), Scrollbar, Tab, Segment, Page dot, Pagination item + Date cell, Breadcrumb item, Tab bar item, Step symbol, Card (новый), Code cell, Legend swatch, Chart crosshair, Nav icon (с duotone у активного).
-4. Desktop Commander на Маке виснет на записи — коммиты через VPS (Claude Code «emcd-ds-vps»).
+## Компоненты · состояние на 2026-10-19 (сборка бордов v3)
+
+Правило Стефана: **одна борда на компонент по шаблону v3; на страницах компонентов только новые борды**, старые v2 — в 🗄 Старые доски (мастера компонентов лежат на корне страницы).
+
+**Борды v3 (все ждут ревью Стефана; смотреть первыми — Checkbox / Radio / Toggle и Chip: они задают шаблон):**
+
+| Группа | Борды (id) |
+|---|---|
+| Эталоны | Button 619:6305 · Tooltip 622:894 |
+| Контролы | Checkbox 637:3477 · Radio 637:5458 · Toggle 637:7393 |
+| Chip, Icon button | Chip 641:2170 · Icon button 644:63703 |
+| Метки | Badge 648:932 · Counter 648:69632 · Status 648:70847 · Divider 648:71630 · Avatar 648:72444 |
+| Навигация | Tab 649:2507 · Segment 651:1084 |
+| Загрузка | Progress 653:108 · Skeleton 654:108 · Spinner 655:73980 · Progress circle 655:74790 |
+| Части | Scrollbar 655:108 · Page dot 655:69270 · Legend swatch 655:69958 · Step symbol 655:70881 · Chart crosshair 655:71709 · Avatar group 655:72464 · Code cell 656:108 |
+| Атомы-части интерактивные | Pagination item 657:903 · Date cell 658:903 · Breadcrumb item 658:72470 · Tab bar item 658:74273 |
+| Card | мастер `Card` 664:73999 + борда 664:74000 (страница 🟠 Card) |
+| Молекулы | Tabs 658:76360 · Segmented 658:78623 |
+
+**Решения Стефана (2026-10-18 / 19):**
+- Коробка Checkbox / Radio 20 в обоих размерах — ок; Control Left/Right: Checkbox и Radio слева, Toggle справа, свойство оставляем.
+- **Chip Vertical убран** (из набора «Chip» 47:364 удалены 8 вариантов и ось Layout, осталось Size × Selected × State = 16).
+- **Card — атом-шаблон**, гибкий: слои-основы, градации радиусов и отступов. Свойства: Level 1–3 (`surface/level-*`) × Radius Surface 24 · Container 16 · Inner 8 × Padding S12 · M16 · L24 × Border On/Off, один слот `content`. Заголовки, слоты header/footer, жёсткие отступы задают виджеты и организмы поверх Card.
+- **Nav icon — не компонент** (иконки в Icons). По умолчанию выделение активного как в iOS (в базу). Expressive: иконки как в сайдбаре Web, на мобилке мульти-кнопка с буквой E (смотреть в мобильных макетах); Android-стиль не берём.
+- **Badge L = 32** (S 20 · M 24 · L 32) — сделано в мастере.
+- Tab: Hover и Pressed нужны; меняется цвет текста, возможно полоска под текстом. Сейчас Off Hover = `text/primary` (было `text/secondary`), Pressed = Hover, у On без изменений. Решение по полоске и Pressed — на ревью.
+
+**Открыто (ждёт Стефана):**
+1. Tab — полоска и разведение Pressed.
+2. Склейка Spinner + Progress circle (из плана) — до решения раздельны.
+3. Типы Avatar «монета / символ»: сейчас Text · Icon · Image; нужен проход «Symbols · selection» и «Selection 2» в Icons (страницы 📝 в файле Icons).
+4. У глифов Badge (иконка / крестик / стрелка) цвет привязан к text-переменным — проверить scopes DSP или завести icon-токены.
+5. Обводка Off у Chip и контролов ≈ 1.3:1 (`control/border/default`): оставить или требовать ≥ 3:1.
+6. Правка Badge L делалась в мастере; Counter M — кегль не сверялся.
+
+**Что ещё не сделано:** молекулы (Input, Select, List item, Table, Alert, Toast, Modal и остальные из карты, ~40); организмы, виджеты, лейауты; старые борды на страницах Chart, Stepper, Code input остаются до сборки их молекул; Avatar group — только атом, без «монета / символ».
+
+**Конструктор бордов** — текстом в Figma: Playground «🧪 Playground · на решение», слой `_builder-lib v2` (id 654:69301). Вызов: `new (async function(){}).constructor('figma', text)(figma)` → `build(set, pageId, name, defProps, cfgFn, scaf)`. Каркас неинтерактивный — борда Status 648:70847 (8 разделов); интерактивный — Segment 651:1084 (`scaf={id:"651:1084",page:"355:33993",drop:[7]}`, `ix {s06:6,s09:7,s10:8,s11:9}`, секции «Состояния» и «Зоны» строит `fillStates`). Ловушки: ошибка внутри `use_figma` откатывает весь вызов; `children` — frozen-массив; после `swapComponent` вернуть инстансу фиксированный размер мастера и сбросить текстовые оверрайды (Divider показывал «Работает»); `swap` на HUG схлопывает высоту (Badge, Counter, Chip).
+
+**Desktop Commander на Маке** иногда зависает на 4 минуты, обычно после долгой работы в Figma без обращений к нему; помогает любой запрос в Claude Desktop. Если не отвечает — коммиты через VPS.
 
 **Сделано 2026-10-16 (вечер):**
 - 📋 Карта компонентов (Components, 2-я страница) + `docs/migration/components-inventory.csv` — 114 строк: legacy Web / App → 2.0, уровень по Frost, решение. Решения Стефана: аддоны → слоты Input; List item / Table cell — один компонент со слотами; Toast / Banner → один Alert (Placement); продуктовые виджеты вынесены в 🗄 Archive.
