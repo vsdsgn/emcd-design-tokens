@@ -102,6 +102,11 @@
 
 ## Вопросы к Стефану
 
+- [x] **Решено 26.10:** кольцо фокуса (нейтральное) — оставить; токен нейтральной точки Status — заведён и опубликован (`status/neutral/solid`); эталон таблицы — «Размеры» у Button; Badge — отдельная иконка справа не нужна; motion Progress — 200 мс enter + standard; Code cell и Scrollbar — движение как есть; Avatar, Divider, Card, Legend swatch — без «Движения»; Skeleton — `skeleton/base` 8 % alpha, виден на L0–L3.
+- [ ] **Нужен DSP-экспорт Foundations** (новый токен `status/neutral/solid`, изменённый `skeleton/base`) и **Publish Components** (мастера: скругления L/XL, Dot, Divider Style, Card Level 0, Chip Trailing icon, Avatar, Tab bar item, Step symbol; реакции прототипов).
+- [ ] **Прототипы «Движение»:** посмотреть в Present на странице «🧪 Прототипы · Движение» (Button, Icon button, Checkbox, Radio, Toggle, Chip, Tab, Segment); API воспроизведение не проверяет.
+- [ ] **Правила «Предложение, подтвердить»:** Divider · Dotted (раздел 03), Card · Level 0 (03), Chip · Trailing icon (03) — подтвердить или поправить формулировки.
+
 - [x] Status: один компонент или Dot + Text — решено 19.10: Status использует отдельный атом Dot (пробуем).
 - [x] Badge / Counter — разные компоненты, развести (не сделано).
 - [x] Progress bar / Progress circle — разные компоненты.
