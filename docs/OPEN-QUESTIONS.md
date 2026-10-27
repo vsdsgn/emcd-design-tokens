@@ -102,6 +102,13 @@
 
 ## Вопросы к Стефану
 
+- [x] **Решено 27.10:** long — без обрезки у кнопок и подобных (max-width + подгонка текста), обрезка только в инпутах / селектах / списках; Tab bar — без длинных и обрезанных подписей; максимальная ширина Button — 280 px; Badge — иконка справа любая, отдельное свойство не нужно; бирманский — не режим в Figma; language stress и long text совместить с бордами после молекул и организмов.
+- [ ] **Баланс отступов у Chip и Badge** (иконка слева / справа уже на 4 px): ось вариантов «Icons» (Badge 156, Chip 64) или оставить симметрию. Button сделан.
+- [ ] **Максимальные ширины** остальных кнопок и подобных: Chip 240 (в мастере), Badge 160 при label 112, Tab, Segment, Status — задать значения.
+- [ ] **Двустрочные кнопки (заголовок / подзаголовок)** для особых случаев; **кнопки с бейджами внутри и снаружи** — молекула или организм (Button + Badge / Counter).
+- [ ] **Армянский, сингальский, амхарский** в Figma не рисуются — проверять в коде.
+- [ ] **Выноски на превью:** проверить расстановку на Icon button, Radio, Chip, Badge, Counter, Status, Tab, Segment, Progress; у Button 5 (слой состояния) и 6 (кольцо) слева и справа от кнопки.
+
 - [x] **Решено 26.10:** кольцо фокуса (нейтральное) — оставить; токен нейтральной точки Status — заведён и опубликован (`status/neutral/solid`); эталон таблицы — «Размеры» у Button; Badge — отдельная иконка справа не нужна; motion Progress — 200 мс enter + standard; Code cell и Scrollbar — движение как есть; Avatar, Divider, Card, Legend swatch — без «Движения»; Skeleton — `skeleton/base` 8 % alpha, виден на L0–L3.
 - [ ] **Нужен DSP-экспорт Foundations** (новый токен `status/neutral/solid`, изменённый `skeleton/base`) и **Publish Components** (мастера: скругления L/XL, Dot, Divider Style, Card Level 0, Chip Trailing icon, Avatar, Tab bar item, Step symbol; реакции прототипов).
 - [ ] **Прототипы «Движение»:** посмотреть в Present на странице «🧪 Прототипы · Движение» (Button, Icon button, Checkbox, Radio, Toggle, Chip, Tab, Segment); API воспроизведение не проверяет.
