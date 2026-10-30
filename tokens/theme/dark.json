@@ -86,11 +86,11 @@
     },
     "secondary": {
       "$type": "color",
-      "$value": "{color.alpha.white.72}"
+      "$value": "{color.alpha.white.80}"
     },
     "tertiary": {
       "$type": "color",
-      "$value": "{color.alpha.white.56}"
+      "$value": "{color.alpha.white.72}"
     },
     "disabled": {
       "$type": "color",
@@ -122,19 +122,19 @@
     },
     "danger": {
       "$type": "color",
-      "$value": "{color.red.400}"
+      "$value": "{color.red.150}"
     },
     "success": {
       "$type": "color",
-      "$value": "{color.green.500}"
+      "$value": "{color.green.150}"
     },
     "warning": {
       "$type": "color",
-      "$value": "{color.amber.500}"
+      "$value": "{color.amber.200}"
     },
     "info": {
       "$type": "color",
-      "$value": "{color.blue.400}"
+      "$value": "{color.blue.150}"
     },
     "on-warning": {
       "$type": "color",
@@ -172,7 +172,7 @@
     },
     "tertiary": {
       "$type": "color",
-      "$value": "{color.alpha.white.56}"
+      "$value": "{color.alpha.white.64}"
     },
     "disabled": {
       "$type": "color",
@@ -192,11 +192,11 @@
     },
     "danger": {
       "$type": "color",
-      "$value": "{color.red.400}"
+      "$value": "{color.red.300}"
     },
     "success": {
       "$type": "color",
-      "$value": "{color.green.500}"
+      "$value": "{color.green.400}"
     },
     "warning": {
       "$type": "color",
@@ -244,7 +244,7 @@
     },
     "strong": {
       "$type": "color",
-      "$value": "{color.alpha.white.40}"
+      "$value": "{color.alpha.white.64}"
     },
     "accent": {
       "$type": "color",
@@ -252,7 +252,7 @@
     },
     "focus": {
       "$type": "color",
-      "$value": "{color.alpha.white.56}"
+      "$value": "{color.alpha.white.64}"
     },
     "inverse": {
       "$type": "color",

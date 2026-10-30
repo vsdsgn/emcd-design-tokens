@@ -15,8 +15,8 @@ jobs:
       - run: npm ci
       - name: Build is up to date
         run: npm run build && git diff --exit-code -- build || (echo "::error::build/ differs from tokens — run npm run build and commit" && exit 1)
-      - name: A11y report (WCAG + APCA, report only; add --strict to apca-check once the report shows no pairs below the hard floor)
-        run: npm run a11y
+      - name: A11y (WCAG report + APCA --strict: text/* Lc >= 45, icons / border/strong / border/focus Lc >= 30)
+        run: python3 scripts/a11y-check.py && python3 scripts/apca-check.py --strict
       - name: Browser floor (browserslist)
         run: npm run test:compat
       - run: npx playwright install --with-deps chromium firefox webkit
