@@ -133,6 +133,11 @@
   --text-accent-hover: var(--brand-accent-300);
   --text-accent-pressed: var(--brand-accent-200);
   --icon-on-accent: var(--brand-accent-on-solid);
+  --icon-on-subtle-success: var(--status-success-on-subtle);
+  --icon-on-subtle-warning: var(--status-warning-on-subtle);
+  --icon-on-subtle-danger: var(--status-danger-on-subtle);
+  --icon-on-subtle-info: var(--status-info-on-subtle);
+  --icon-on-warning: var(--text-on-warning);
   --border-accent: var(--brand-accent-solid);
   --border-focus-ring: var(--border-focus);
   --action-primary-default: var(--brand-accent-solid);
@@ -151,6 +156,7 @@
   --text-link: var(--brand-accent-fg-on-dark);
   --text-link-hover: var(--brand-accent-fg-strong-on-dark);
   --icon-accent: var(--brand-accent-fg-on-dark);
+  --icon-on-subtle-accent: var(--accent-on-subtle);
   --action-primary-hover: var(--brand-accent-solid-hover);
   --action-primary-pressed: var(--brand-accent-solid-pressed);
 }

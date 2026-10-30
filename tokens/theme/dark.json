@@ -205,6 +205,32 @@
     "info": {
       "$type": "color",
       "$value": "{color.blue.400}"
+    },
+    "on-subtle": {
+      "accent": {
+        "$type": "color",
+        "$value": "{accent.on-subtle}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{status.success.on-subtle}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{status.warning.on-subtle}"
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{status.danger.on-subtle}"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{status.info.on-subtle}"
+      }
+    },
+    "on-warning": {
+      "$type": "color",
+      "$value": "{text.on-warning}"
     }
   },
   "border": {

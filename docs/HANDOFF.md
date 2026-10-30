@@ -107,7 +107,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 **Открыто:**
 1. Banner — решено: «как Toast», нейтральная обводка (этап 2).
 2. Выбор символов и иконок пересобран: Icons → «📝 Выбор v2 · Символы» / «· Иконки» (свойство «Решение» на карточках) — проходит Стефан. После — Avatar «монета / символ» и структура библиотек (рекомендация в OPEN-QUESTIONS).
-3. Привязать глифы Badge к `icon/*` (в Components).
+3. Глифы Badge → `icon/*`: токены `icon/on-subtle/*` и `icon/on-warning` заведены в Foundations 2026-10-30 (экспорт в репо сделан). Ждёт Publish Foundations (Стефан) → Update all в Components → перепривязка 63 глифов и разведение Badge / Counter.
 4. Counter M — кегль не сверялся; правка Badge L делалась в мастере.
 
 **Статус порядка работ (конец чата 2, 2026-10-19):** п. 1 — вёрстка бордов сделана, добор по разделам 03–12 глазами; п. 2 — Tabs, Segmented, Avatar group слиты в атомные борды (раздел «13 · Группа» на Tab и Segment, «07» на Avatar), старые борды в 🗄 Archive; Badge / Counter развести — решение «да», не сделано; п. 3 — сделано: Step symbol, Avatar Image, Tab bar item, Status Neutral, Divider Dotted, Card Level 0, Chip Trailing icon и превью, Skeleton блик (диагональ, 3 %), Avatar group непрозрачный, раздел «08 · Движение» на 18 бордах, скругления L/XL у Button и Icon button, атом Dot; не сделано: полный набор блоков по образцу Button на всех бордах (Правила, Доступность, Код, Локали), единые таблицы, выноски на превью, Floating/sticky, safe/hit, обводка стеков по фону; п. 4 — страницы Figma сгруппированы; п. 5 (Plex) и п. 6 — не начаты. Правки мастеров (Avatar, Tab bar item, Step symbol, Button, Icon button, Divider, Card, Chip, Skeleton, Status / Dot) попадут в продукты после Publish Components.
