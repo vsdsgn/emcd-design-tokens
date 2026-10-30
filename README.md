@@ -10,8 +10,9 @@ Source of truth today: Figma file **◆ EMCD DS 2.0 — Foundations** (https://w
 | Primitives | Primitives · Color, Primitives · Scale | — | `color.*`, `dimension.*`, `font-size.*` … |
 | Brand | Brand | EMCD · Geometria · WL Default | `brand.*` |
 | Theme | Theme | Light · Dark | `bg.*`, `surface.*`, `text.*`, `action.*`, `status.*` … |
-| Platform | Platform | Web · App · Site | `control.*`, `icon.size.*`, `space.*`, `radius.control` … |
+| Platform | Platform | Web · Mobile web · iOS · Android | `control.*`, `icon.size.*`, `space.*`, `radius.control` … |
 | Viewport | Viewport | Compact · Medium · Expanded · Large · XLarge | `layout.*`, `type.*`, `space.section` |
+| Style | Style | Base · Expressive | `decor.*`, `material.*`, `light.*`, `edge.*` |
 
 Primitives are private: products use Theme / Platform / Viewport tokens only.
 Contrast of semantic text/icon/action pairs is checked against WCAG 2.2 AA (4.5:1 text, 3:1 control borders).
@@ -22,7 +23,7 @@ Contrast of semantic text/icon/action pairs is checked against WCAG 2.2 AA (4.5:
 figma/export-*.json   raw export of Figma variables (compact)
 tokens/**             W3C DTCG token files, one file per collection mode
 build/css/            CSS custom properties, one file per layer + index.css (dev) + ds.css / ds.min.css (one-file bundle)
-build/json/           fully resolved flat tokens per brand × theme (App, Compact) for Flutter
+build/json/           fully resolved flat tokens per brand × theme × ios|android (+ .expressive) for Flutter; perf-tiers.json
 scripts/              figma-to-dtcg.mjs (export → DTCG), build.mjs (Style Dictionary v4)
 ```
 
@@ -31,10 +32,10 @@ scripts/              figma-to-dtcg.mjs (export → DTCG), build.mjs (Style Dict
 ```html
 <script src="build/js/perf.js"></script>            <!-- perf guard, before CSS -->
 <link rel="stylesheet" href="build/css/ds.min.css"> <!-- prod: one file; index.css = dev -->
-<html data-brand="geometria" data-theme="light" data-platform="web">
+<html data-brand="geometria" data-theme="light" data-platform="web" data-style="base">
 ```
 
-Defaults on `:root`: brand `emcd`, theme `dark`, platform `web`. Viewport switches automatically by media queries
+Defaults on `:root`: brand `emcd`, theme `dark`, platform `web`, style `base`. Brands: `emcd`, `geometria`, `wl-default`; platforms: `web`, `mobile-web`, `ios`, `android`. Viewport switches automatically by media queries
 (600 / 840 / 1200 / 1600 px).
 
 ## Units and adaptivity (320×640 → 8K)
@@ -56,8 +57,11 @@ TV (10-foot UI: remote, focus, reading distance) will be a separate Platform mod
 
 1. Change variables in Figma Foundations.
 2. Re-export (Claude + Figma MCP for now, a sync plugin later) into `figma/export-*.json`.
-3. `npm run all` → review the diff in `tokens/` and `build/` → open a PR.
-4. After merge, publish the Figma library manually.
+3. `npm run all` → review the diff in `tokens/` and `build/` → commit to `main` (CI checks that `build/` is up to date; no PRs so far).
+4. Publish the Figma libraries manually (Foundations, then Components → Update all), then DSP Export (VPN) — `docs/dsp.md`.
+5. «обнови Claude DS» — `docs/claude-ds.md`.
+
+Where the work happens and what is current: `docs/HANDOFF.md`, `docs/OPEN-QUESTIONS.md`.
 
 Reverse direction (git → Figma) is planned via a custom Figma plugin.
 

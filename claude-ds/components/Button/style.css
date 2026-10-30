@@ -17,8 +17,8 @@
 .emcd-btn:hover::before { opacity: var(--layer-hover); }
 .emcd-btn:active::before { opacity: var(--layer-pressed); }
 .emcd-btn:active { transform: scale(var(--motion-scale-press, 0.96)); }
-/* Фокус: кольцо 4 px, зазор 2 px, повторяет скругление */
-.emcd-btn:focus-visible { outline: 4px solid var(--border-focus-ring); outline-offset: 2px; }
+/* Фокус: нейтральное кольцо 2 px, зазор 2 px, повторяет скругление */
+.emcd-btn:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
 /* Зона нажатия = max(размер, touch-min) */
 .emcd-btn::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
   width: max(100%, var(--touch-min, 24px)); height: max(100%, var(--touch-min, 24px)); }
