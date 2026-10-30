@@ -64,6 +64,9 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
   - Символы: в legacy-библиотеке иконок 9 из 10 «отсутствующих» монет уже есть под префиксом `ic_*` (Alephium, Pepecoin, Junkcoin, Lucky, Canxium, Dingocoin, Bonk, Fractal Bitcoin, Bellscoin) → переименовать в `smbl-*`; нет только Bitcoin Cash. Доски выбора v2 в файле Icons («📝 Выбор v2 · Символы» — 296 карточек, «· Иконки» — 131), свойство «Решение» на карточке; ждут прохода Стефана (в иконках есть косячные, устаревшие, цвета — список будет). Старые Selection 2 и Symbols · selection остаются до конца прохода.
   - Структура библиотек (рекомендация, ждёт ок): Icons / Symbols / Illustrations (+ логотипы брендов).
   - Кандидаты в 🟡 beta (ждут решения Стефана, статусы не менять): Chip, Badge, Counter, Tab, Segment, Input, Textarea, Checkbox, Radio, Toggle, Status, Tab bar item, Breadcrumb item. Не проверено: контраст, Light/Dark × L0–L3, Disabled вложенных, длинный текст. Хвост: у индикатора Tab 24 варианта с непривязанным радиусом 1 px.
+  - Непривязанное к токенам (разбор 2026-10-30): gap у Chart и Floating button; углы (радиусы) у Date cell. Значения и целевые переменные — выяснить при привязке.
+  - Список исключений — осознанные значения без токена: Card content, столбики Chart, Sheet 34 px. Каждое записать с причиной и не считать ошибкой при проверке «всё на переменных» (правило DSP №2).
+  - Идея: токен `os/safe-area/bottom` (нижняя безопасная зона ОС, для Sheet, Floating button, Tab bar) — решить, нужен ли, и в какой коллекции.
   - Порядок дальше: молекулы Select → Input amount → Password field → File upload → Multiselect → Menu → List item.
 
 ## Где мы сейчас — Этап 1 · Token Migration & Mapping (с 2026-10-09; закрыт, оставлено как история)
