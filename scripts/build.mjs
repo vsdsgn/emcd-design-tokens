@@ -197,13 +197,21 @@ writeFileSync('build/css/type-features.css', `/* Interface OpenType features. Fo
 }
 `);
 
+// Surface context (Figma «Surface context», modes L0–L3): --surface-current = surface level of the container the component sits on.
+// Set data-surface="0|1|2|3" on a container; default L0. Needs theme scope above (it aliases --surface-level-N).
+{
+  const lv = readdirSync(join(T, 'surface')).filter((f) => /^l\d\.json$/.test(f)).sort();
+  const rule = (f) => { const n = f.slice(1, 2); const ref = JSON.parse(readFileSync(join(T, 'surface', f), 'utf8')).surface.current.$value.replace(/^\{surface\.([a-z0-9-]+)\}$/, 'var(--surface-$1)'); return `${n === '0' ? ':root, ' : ''}[data-surface="${n}"] { --surface-current: ${ref}; }`; };
+  writeFileSync('build/css/surface-context.css', `/**\n * Generated from tokens/surface/*.json (Figma «Surface context»). Do not edit.\n */\n${lv.map(rule).join('\n')}\n`);
+}
+
 // Default layer (:root) must come first, otherwise it overrides [data-*] selectors of equal specificity.
 const order = ['root', 'primitives',
   ...defFirst(brands, DEFAULT.brand).map((b) => `brand-${b}`),
   ...defFirst(themes, DEFAULT.theme).map((t) => `theme-${t}`),
   ...defFirst(platforms, DEFAULT.platform).map((p) => `platform-${p}`),
   ...defFirst(styles, DEFAULT.style).map((s) => `style-${s}`),
-  'scope', 'type-features', 'viewport', 'type-fluid', 'perf-low', 'contrast-more', 'motion-reduced'];
+  'surface-context', 'scope', 'type-features', 'viewport', 'type-fluid', 'perf-low', 'contrast-more', 'motion-reduced'];
 writeFileSync('build/css/index.css', order.map((f) => `@import "./${f}.css";`).join('\n') + '\n');
 
 // One-file bundle: index.css is an @import chain (the browser loads 19 files one after another, slow on a weak network).

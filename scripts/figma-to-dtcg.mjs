@@ -17,6 +17,7 @@ const LAYERS = {
   PL: { dir: 'platform', file: (m) => slug(m), prefix: [] },
   VP: { dir: 'viewport', file: (m) => slug(m), prefix: [] },
   ST: { dir: 'style', file: (m) => slug(m), prefix: [] },
+  SC: { dir: 'surface', file: (m) => slug(m), prefix: [] }, // Surface context: surface/current per level L0–L3
 };
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');

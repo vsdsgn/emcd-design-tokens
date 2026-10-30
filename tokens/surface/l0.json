@@ -1,0 +1,8 @@
+{
+  "surface": {
+    "current": {
+      "$type": "color",
+      "$value": "{surface.level-0}"
+    }
+  }
+}

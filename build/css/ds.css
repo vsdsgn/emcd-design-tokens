@@ -1518,6 +1518,11 @@ html { font-size: 100%; }
 }
 }
 
+:root, [data-surface="0"] { --surface-current: var(--surface-level-0); }
+[data-surface="1"] { --surface-current: var(--surface-level-1); }
+[data-surface="2"] { --surface-current: var(--surface-level-2); }
+[data-surface="3"] { --surface-current: var(--surface-level-3); }
+
 /* A nested [data-theme] / [data-brand] takes its own text colour. Background stays with components. */
 [data-theme], [data-brand] { color: var(--text-primary); }
 

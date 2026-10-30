@@ -13,6 +13,7 @@ Source of truth today: Figma file **◆ EMCD DS 2.0 — Foundations** (https://w
 | Platform | Platform | Web · Mobile web · iOS · Android | `control.*`, `icon.size.*`, `space.*`, `radius.control` … |
 | Viewport | Viewport | Compact · Medium · Expanded · Large · XLarge | `layout.*`, `type.*`, `space.section` |
 | Style | Style | Base · Expressive | `decor.*`, `material.*`, `light.*`, `edge.*` |
+| Surface context | Surface context | L0 · L1 · L2 · L3 | `surface.current` — surface level under the component; `data-surface="0..3"` on a container |
 
 Primitives are private: products use Theme / Platform / Viewport tokens only.
 Contrast of semantic text/icon/action pairs is checked against WCAG 2.2 AA (4.5:1 text, 3:1 control borders).
