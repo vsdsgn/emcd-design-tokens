@@ -110,7 +110,8 @@
 ## Правки 2026-10-30 (отчёт разработчика, подробности — HANDOFF «Состояние на 2026-10-30»)
 
 - [x] Button на переменных (отступы, gap, min-width; Text → `space/4`); Input paddingTop / notch на `space/8` / `space/2`; Badge → `icon/*`, счётчик вынесен в Counter; Brand `radius/focus-ring-lg` code syntax; web code syntax у `surface/current` и у 5 прежних переменных.
-- [ ] Publish Foundations + Components, затем повторный DSP Export (VPN) — Стефан.
+- [x] Publish Foundations + Components — Стефан (2026-10-30).
+- [ ] Повторный DSP Export (VPN) — делает разработчик; после «Отправлено» записать дату в HANDOFF.
 - [ ] Хвост: у Brand `radius/focus-ring-lg` (EMCD, WL) значение 18 — в примитивах нет `dimension/18`; у индикатора Tab 24 варианта с радиусом 1 px без привязки.
 - [ ] Символы: переименовать 9 монет `ic_*` → `smbl-*` в legacy-библиотеке (нет только Bitcoin Cash); проход Стефана по доскам выбора v2 («Символы» 296, «Иконки» 131).
 - [ ] Привязать к переменным: gap у Chart и Floating button; углы у Date cell.
