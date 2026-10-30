@@ -93,7 +93,7 @@
   --radius-focus-ring-lg: var(--brand-radius-focus-ring-lg);
   --border-width-default: var(--stroke-1);
   --border-width-focus: var(--stroke-2);
-  --border-width-focus-ring: var(--dimension-4);
+  --border-width-focus-ring: var(--stroke-2);
   --border-width-hairline: var(--stroke-0-5);
   --border-width-strong: var(--stroke-2);
   --effect-blur-glass-sm: var(--blur-8);

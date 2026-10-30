@@ -46,6 +46,7 @@
   --border-subtle: var(--color-alpha-black-8);
   --border-default: var(--color-alpha-black-12);
   --border-strong: var(--color-alpha-black-48);
+  --border-focus: var(--color-alpha-black-56);
   --border-inverse: var(--color-neutral-950);
   --border-glass: var(--color-alpha-black-8);
   --action-secondary-default: var(--color-alpha-black-8);
@@ -82,6 +83,7 @@
   --status-info-subtle: var(--color-alpha-blue-24);
   --status-info-border: var(--color-alpha-blue-40);
   --status-info-on-subtle: var(--color-blue-800);
+  --status-neutral-solid: var(--color-alpha-black-48);
   --control-surface-default: var(--color-white);
   --control-surface-hover: var(--color-white);
   --control-surface-disabled: var(--color-alpha-black-8);
@@ -99,7 +101,7 @@
   --control-segment-track: var(--color-alpha-black-4);
   --control-segment: var(--color-white);
   --control-segment-hover: var(--color-alpha-black-4);
-  --skeleton-base: var(--color-neutral-100);
+  --skeleton-base: var(--color-alpha-black-8);
   --skeleton-shimmer: var(--color-neutral-50);
   --scrollbar-thumb: var(--color-alpha-black-24);
   --scrollbar-thumb-hover: var(--color-alpha-black-48);
@@ -132,8 +134,7 @@
   --text-accent-pressed: var(--brand-accent-800);
   --icon-on-accent: var(--brand-accent-on-solid);
   --border-accent: var(--brand-accent-solid);
-  --border-focus: var(--brand-accent-focus-on-light);
-  --border-focus-ring: var(--brand-accent-focus-ring-on-light);
+  --border-focus-ring: var(--border-focus);
   --action-primary-default: var(--brand-accent-solid);
   --action-accent-default: var(--brand-accent-tint);
   --action-accent-hover: var(--brand-accent-glow);
@@ -143,7 +144,7 @@
   --accent-subtle: var(--brand-accent-tint);
   --accent-subtle-hover: var(--brand-accent-glow);
   --accent-on-subtle: var(--brand-accent-800);
-  --control-border-focus: var(--brand-accent-focus-on-light);
+  --control-border-focus: var(--border-focus);
   --control-checked: var(--brand-accent-solid);
   --glow-brand: var(--brand-accent-tint);
   --text-accent: var(--brand-accent-fg-on-light);

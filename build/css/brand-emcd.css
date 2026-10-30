@@ -37,6 +37,10 @@
   --brand-font-family-text: var(--font-family-roobert-pro);
   --brand-font-family-display: var(--font-family-roobert-pro);
   --brand-font-family-mono: var(--font-family-ibm-plex-mono);
+  --brand-font-family-fallback-arabic: var(--font-family-noto-sans-arabic);
+  --brand-font-family-fallback-devanagari: var(--font-family-noto-sans-devanagari);
+  --brand-font-family-fallback-thai: var(--font-family-ibm-plex-sans-thai);
+  --brand-font-family-fallback-japanese: var(--font-family-noto-sans-jp);
   --brand-radius-xs: var(--dimension-4);
   --brand-radius-sm: var(--dimension-8);
   --brand-radius-md: var(--dimension-12);

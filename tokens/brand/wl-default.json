@@ -161,6 +161,22 @@
         "mono": {
           "$type": "fontFamily",
           "$value": "{font-family.ibm-plex-mono}"
+        },
+        "fallback-arabic": {
+          "$type": "fontFamily",
+          "$value": "{font-family.noto-sans-arabic}"
+        },
+        "fallback-devanagari": {
+          "$type": "fontFamily",
+          "$value": "{font-family.noto-sans-devanagari}"
+        },
+        "fallback-thai": {
+          "$type": "fontFamily",
+          "$value": "{font-family.ibm-plex-sans-thai}"
+        },
+        "fallback-japanese": {
+          "$type": "fontFamily",
+          "$value": "{font-family.noto-sans-jp}"
         }
       }
     },

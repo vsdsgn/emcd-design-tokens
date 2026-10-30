@@ -226,7 +226,7 @@
     },
     "focus": {
       "$type": "color",
-      "$value": "{brand.accent.focus-on-dark}"
+      "$value": "{color.alpha.white.56}"
     },
     "inverse": {
       "$type": "color",
@@ -234,7 +234,7 @@
     },
     "focus-ring": {
       "$type": "color",
-      "$value": "{brand.accent.focus-ring-on-dark}"
+      "$value": "{border.focus}"
     },
     "glass": {
       "$type": "color",
@@ -451,6 +451,12 @@
         "$type": "color",
         "$value": "{color.blue.200}"
       }
+    },
+    "neutral": {
+      "solid": {
+        "$type": "color",
+        "$value": "{color.alpha.white.40}"
+      }
     }
   },
   "control": {
@@ -479,7 +485,7 @@
       },
       "focus": {
         "$type": "color",
-        "$value": "{brand.accent.focus-on-dark}"
+        "$value": "{border.focus}"
       },
       "error": {
         "$type": "color",
@@ -538,7 +544,7 @@
   "skeleton": {
     "base": {
       "$type": "color",
-      "$value": "{color.neutral.800}"
+      "$value": "{color.alpha.white.8}"
     },
     "shimmer": {
       "$type": "color",

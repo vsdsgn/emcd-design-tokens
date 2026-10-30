@@ -285,7 +285,7 @@
       },
       "focus-ring": {
         "$type": "dimension",
-        "$value": "{dimension.4}"
+        "$value": "{stroke.2}"
       },
       "hairline": {
         "$type": "dimension",
