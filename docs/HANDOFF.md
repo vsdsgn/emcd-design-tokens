@@ -105,8 +105,8 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 **Решено 2026-10-30:** Tab Hover / Pressed — серая полоска (`border/subtle` / `border/default`), текст не акцентный · обводка Off у Chip и контролов (~1.3:1) остаётся, отклонение от WCAG 1.4.11 осознанное · Spinner и Progress circle — разные компоненты · глифы Badge → `icon/*` · Button + Badge — молекула · правила Dotted / Level 0 / Trailing icon ведёт Claude · DSP Export делает разработчик.
 
 **Открыто:**
-1. Banner (3 варианта, доска «_На решение · обводки v2» на 🧪 Playground) — Стефан смотрит; по умолчанию «как Toast».
-2. Avatar «монета / символ» — пока Text · Icon · Image; проход по «📝 Symbols · selection» / «📝 Selection 2» в Icons — парковка.
+1. Banner — решено: «как Toast», нейтральная обводка (этап 2).
+2. Выбор символов и иконок пересобран: Icons → «📝 Выбор v2 · Символы» / «· Иконки» (свойство «Решение» на карточках) — проходит Стефан. После — Avatar «монета / символ» и структура библиотек (рекомендация в OPEN-QUESTIONS).
 3. Привязать глифы Badge к `icon/*` (в Components).
 4. Counter M — кегль не сверялся; правка Badge L делалась в мастере.
 
