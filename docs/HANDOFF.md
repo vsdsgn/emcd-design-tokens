@@ -52,7 +52,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 ## Состояние на 2026-10-30
 
-- **Токены:** экспорт Foundations в репо актуален (30.10, `3051524`): `status/neutral/solid`, `skeleton/base` 8 %, нейтральный фокус, fallback-шрифты. Foundations опубликованы 26.10, **Components опубликованы Стефаном 30.10**. Claude DS синхронизирован 2026-10-30 (токены, нейтральный фокус; статусы без изменений — Button и Icon button 🟡, остальные 🟠). Не сделано: **DSP Export** (плагин, VPN).
+- **Токены:** экспорт Foundations в репо актуален (30.10, `df4aecb`, с APCA-правками): `status/neutral/solid`, `skeleton/base` 8 %, нейтральный фокус, fallback-шрифты. Foundations опубликованы 26.10, **Components опубликованы Стефаном 30.10**. Claude DS синхронизирован 2026-10-30 повторно после APCA-правок (`df4aecb`, версия артефакта 35: 16 токенов изменено, 6 добавлено — `icon-on-subtle-*`, `icon-on-warning`); статусы без изменений — Button и Icon button 🟡, остальные 🟠. Не сделано: **DSP Export** (плагин, VPN).
 - **Этап 1** закрыт (таблица миграции, 181 строка, Conflict 0). Идёт этап 3 по карте компонентов: борды v3 (атомы готовы к ревью, молекулы — Input v3 в работе), подробности — `docs/CHANGELOG-components.md`.
 - **Версия:** тег только `v0.2.0` (01.10); с тех пор major-изменения имён — перед тегом предупредить разработку.
 - **Что ждёт Стефана:** вопросы в `docs/OPEN-QUESTIONS.md` («Вопросы к Стефану»), ревью бордов v3, DSP Export.
