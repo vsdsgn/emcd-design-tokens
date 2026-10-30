@@ -117,6 +117,7 @@
 - [ ] Привязать к переменным: gap у Chart и Floating button; углы у Date cell.
 - [ ] Список исключений (значения без токена осознанно): Card content, столбики Chart, Sheet 34 px — записать причины.
 - [ ] Идея: токен `os/safe-area/bottom` — решить, нужен ли (Sheet, Floating button, Tab bar).
+- [ ] **Контраст APCA (решение 2026-10-30: уровни по ролям, WCAG база).** Тёмная тема: `text/accent`, `link`, `danger`, `success` на L0 — Lc 38–43 при WCAG 5.7–6.2; `text/secondary` 65, `text/tertiary` 44; `border/strong` 25–29. Light — 10 пар на 1–10 пунктов ниже уровня. Решаем токенами, предложение — `docs/apca-token-proposal.md` (применять в Figma Foundations, потом экспорт). `--strict` в CI включаем, когда отчёт покажет ноль пар ниже жёсткого порога (text/* < 45, icon/*, border/strong, border/focus < 30).
 - [ ] Структура библиотек Icons / Symbols / Illustrations (+ логотипы брендов) — ждёт ок.
 - [ ] Кандидаты в 🟡 beta (решает Стефан): Chip, Badge, Counter, Tab, Segment, Input, Textarea, Checkbox, Radio, Toggle, Status, Tab bar item, Breadcrumb item. Не проверено: контраст, Light/Dark × L0–L3, Disabled вложенных, длинный текст.
 

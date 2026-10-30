@@ -67,6 +67,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
   - Непривязанное к токенам (разбор 2026-10-30): gap у Chart и Floating button; углы (радиусы) у Date cell. Значения и целевые переменные — выяснить при привязке.
   - Список исключений — осознанные значения без токена: Card content, столбики Chart, Sheet 34 px. Каждое записать с причиной и не считать ошибкой при проверке «всё на переменных» (правило DSP №2).
   - Идея: токен `os/safe-area/bottom` (нижняя безопасная зона ОС, для Sheet, Floating button, Tab bar) — решить, нужен ли, и в какой коллекции.
+  - **Контраст: APCA принят (решение Стефана 2026-10-30).** WCAG 2.2 остаётся базой и блокирует; APCA — целевой уровень по ролям токенов (text 75, tertiary 60, иконки / border/strong / focus 45; placeholder и disabled 30). Стандарт — `docs/a11y-contrast-standard.md`; проверка `npm run a11y` (`scripts/a11y-check.py` + `scripts/apca-check.py`), отчёты `docs/a11y-report.md` и `docs/apca-report.md`. Сейчас ниже уровня: dark 52 пары на набор, light 10; WCAG 0. Лечим токенами — `docs/apca-token-proposal.md`.
   - Порядок дальше: молекулы Select → Input amount → Password field → File upload → Multiselect → Menu → List item.
 
 ## Где мы сейчас — Этап 1 · Token Migration & Mapping (с 2026-10-09; закрыт, оставлено как история)

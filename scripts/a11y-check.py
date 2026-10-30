@@ -30,7 +30,7 @@ def de(a, b): return 100 * math.dist(oklab(a), oklab(b))
 TEXT = ['textPrimary', 'textSecondary', 'textTertiary', 'textAccent', 'textLink', 'textDanger', 'textSuccess', 'textWarning', 'textInfo']
 ICON = ['iconPrimary', 'iconSecondary', 'iconTertiary', 'iconAccent', 'iconDanger', 'iconSuccess', 'iconWarning', 'iconInfo', 'borderStrong', 'borderFocus']
 BGS = ['surfaceLevel0', 'surfaceLevel1', 'surfaceLevel2', 'surfaceLevel3', 'surfaceRaised']
-out = ['# A11y-отчёт по токенам', '', 'Сгенерировано `scripts/a11y-check.py` из `build/json` (Base). WCAG 2.2: текст ≥ 4.5:1, крупный текст и графика/UI ≥ 3:1. Дальтонизм — симуляция Machado 2009 (полная форма), различимость пары — ΔE OKLab×100; < 8 — путаются, 8–15 — на грани.', '']
+out = ['# A11y-отчёт по токенам', '', 'Сгенерировано `scripts/a11y-check.py` из `build/json` (Base). WCAG 2.2: текст ≥ 4.5:1, крупный текст и графика/UI ≥ 3:1. Дальтонизм — симуляция Machado 2009 (полная форма), различимость пары — ΔE OKLab×100; < 8 — путаются, 8–15 — на грани.', '', 'APCA (вторая метрика, уровни по ролям) — см. `docs/apca-report.md`; стандарт — `docs/a11y-contrast-standard.md`.', '']
 fails = []
 for f in sorted(glob.glob(f'{ROOT}/build/json/*.json')):
     name = os.path.basename(f)[:-5]

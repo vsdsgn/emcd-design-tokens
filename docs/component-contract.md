@@ -31,7 +31,7 @@
 - **3 Anatomy → Spacing, Safe zones, Hit areas** — схема с замерами (визуально обязательно).
 - **6 Content → Content constraints, Edge cases**: длинный текст, 19 языков (RTL, тайский, CJK), пустое значение, 200 % текста, обрезка.
 - **8 Behavior → Motion spec** (токены `motion/*`, reduced motion), **Responsive** (min / max по `size/*`, 320 px), **Composition rules** (что можно класть внутрь, с чем рядом).
-- **14 Acceptance** — «готово» только когда: все варианты × оси × свойства переключаются и работают; Light / Dark × L0–L3; Web / касание (зоны); фокус и кольцо; контраст ≥ AA; Disabled вложенных; длинный текст; инстансы в Components не сломаны; описание = борда.
+- **14 Acceptance** — «готово» только когда: все варианты × оси × свойства переключаются и работают; Light / Dark × L0–L3; Web / касание (зоны); фокус и кольцо; контраст: WCAG 2.2 + APCA по таблице ролей (`docs/a11y-contrast-standard.md`); Disabled и placeholder — по уровню Lc 30; пара «токен + стиль» без нужного Lc не публикуется; Disabled вложенных; длинный текст; инстансы в Components не сломаны; описание = борда.
 
 ## Статусы и ворота
 
