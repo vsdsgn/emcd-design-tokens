@@ -1,6 +1,6 @@
 # Claude DS — дизайн-система в Claude Design
 
-Артефакт «EMCD DS 2.0»: https://claude.ai/artifact/ARTIFACT_ID_REDACTED (тип Design System; Claude Design берёт его в любом чате, Settings → Design systems).
+Артефакт «EMCD DS 2.0»: (ссылка в `docs/private/LINKS.md`, не в git) (тип Design System; Claude Design берёт его в любом чате, Settings → Design systems).
 
 **Правило:** значения токенов, статусы и компоненты, перенесённые в репо, приходят только из репо. Руками на странице артефакта их не правим — следующая синхронизация перезапишет.
 

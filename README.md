@@ -1,7 +1,7 @@
 # EMCD Design Tokens · DS 2.0
 
 Tokens for all EMCD products (Mining web app, mobile app on Flutter, site, white-label B2B/B2C, Geometria, Monitoring, Firmware).
-Source of truth today: Figma file **◆ EMCD DS 2.0 — Foundations** (https://www.figma.com/design/FIGMA_FILE_KEY_REDACTED).
+Source of truth today: Figma file **◆ EMCD DS 2.0 — Foundations** (ссылка в закрытом `docs/private/LINKS.md`).
 
 ## Layers
 

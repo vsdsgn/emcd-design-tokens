@@ -9,10 +9,11 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 
-const FILE_KEY = 'FIGMA_FILE_KEY_REDACTED'; // ◆ EMCD DS 2.0 — Icons
 const FRAME_NAME = 'icons/ui';
 if (existsSync('.env')) for (const l of readFileSync('.env', 'utf8').split('\n')) { const m = l.match(/^(\w+)=(.*)$/); if (m) process.env[m[1]] ??= m[2].trim(); }
+const FILE_KEY = process.env.FIGMA_ICONS_FILE_KEY; // ◆ EMCD DS 2.0 — Icons (ключ в .env / docs/private/LINKS.md)
 const TOKEN = process.env.FIGMA_TOKEN;
+if (!FILE_KEY) { console.error('FIGMA_ICONS_FILE_KEY is not set (.env or environment).'); process.exit(1); }
 if (!TOKEN) { console.error('FIGMA_TOKEN is not set (.env or environment).'); process.exit(1); }
 const api = async (p) => { const r = await fetch('https://api.figma.com/v1' + p, { headers: { 'X-Figma-Token': TOKEN } }); if (!r.ok) throw new Error(`${r.status} ${p}`); return r.json(); };
 
@@ -60,5 +61,5 @@ for (const { name } of manifest) {
     outlined++;
   } catch { /* picosvg missing or failed for this icon — web SVG still exported */ }
 }
-writeFileSync('icons/manifest.json', JSON.stringify({ source: `figma:${FILE_KEY}`, count: manifest.length, icons: manifest }, null, 2) + '\n');
+writeFileSync('icons/manifest.json', JSON.stringify({ source: `figma:icons`, count: manifest.length, icons: manifest }, null, 2) + '\n');
 console.log(`Wrote ${manifest.length} web SVGs, ${outlined} Flutter SVGs`);

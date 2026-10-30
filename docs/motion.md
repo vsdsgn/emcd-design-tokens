@@ -37,4 +37,4 @@ CSS: `--motion-duration-*`, `--motion-easing-*`, `--motion-scale-press` (build/c
 
 ## Демо
 
-Живая страница со всеми компонентами, анимациями и переключателями темы / бренда / платформы / reduced motion: https://claude.ai/artifact/ARTIFACT_ID_REDACTED
+Живая страница со всеми компонентами, анимациями и переключателями темы / бренда / платформы / reduced motion: (ссылка в `docs/private/LINKS.md`, не в git)

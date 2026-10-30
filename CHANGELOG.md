@@ -34,7 +34,7 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 - Colour: all chromatic ramps now 13 steps (50–950). Chart hues cyan, teal, emerald, indigo, fuchsia, pink, rose, orange generated in OKLCH (500 anchor; 300/700 shifted slightly). electric-blue/-green: added 150, 850, 950. Geometria `accent/150|850|950` now point to the exact steps.
 
 - Motion tokens: `easing/standard`, `easing/out`, `scale/press` (Primitives · Scale); `motion/duration/feedback|enter|exit|overlay`, `motion/easing/standard|enter`, `motion/scale/press` (Platform; overlay App 320). Converter: duration / cubicBezier / number types. docs/motion.md.
-- Figma: 202 Smart Animate variant transitions; prototype flows (modal → toast, sheet) on Playground. Live demo: https://claude.ai/artifact/ARTIFACT_ID_REDACTED
+- Figma: 202 Smart Animate variant transitions; prototype flows (modal → toast, sheet) on Playground. Live demo: (ссылка в `docs/private/LINKS.md`, не в git)
 - Added (from legacy / products, with improvements): Input amount, Accordion, Slider, Divider, Avatar + Avatar group, Step symbol / Step trail / Step / Stepper, Code cell + Code input (2FA).
 - docs/references.md — supplementary libraries (Arc UI, Componentry, Space UI, Skecher UI, Planes); base remains design-studio + legacy + products.
 

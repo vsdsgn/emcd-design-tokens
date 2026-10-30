@@ -4,7 +4,7 @@
 
 ## Где работать (решение Стефана 2026-10-17)
 
-- **Основное место — VPS** `user@SERVER_HOST_REDACTED`, репо **`/srv/emcd-design-tokens`** (владелец — отдельный пользователь (не root), не root; node 22, сборка воспроизводится 1:1). Claude Code + Remote Control «emcd-ds-vps» → приложение Claude (вкладка Code) и claude.ai/code с любого устройства.
+- **Основное место — VPS** `user@<VPS>` (адрес в `docs/private/LINKS.md`), репо **`/srv/emcd-design-tokens`** (владелец — отдельный пользователь (не root), не root; node 22, сборка воспроизводится 1:1). Claude Code + Remote Control «emcd-ds-vps» → приложение Claude (вкладка Code) и claude.ai/code с любого устройства.
   - Сервис пользователя systemd `~/.config/systemd/user/emcd-ds-vps.service`: linger включён — стартует при загрузке VPS, перезапускается при падении, перед стартом делает `git pull --ff-only`.
   - Управление (без root и sudo): `ds-claude` — запустить и показать статус · `ds-claude restart` · `ds-claude stop` · `ds-claude logs`.
   - Правила агента — `CLAUDE.md`. Push — deploy key VPS (запись). Figma MCP в сессии подключает Стефан через `/mcp`.
@@ -16,18 +16,18 @@
 
 | Что | Ссылка |
 |---|---|
-| Foundations | https://www.figma.com/design/FIGMA_FILE_KEY_REDACTED |
-| Icons (+ доски символов) | https://www.figma.com/design/FIGMA_FILE_KEY_REDACTED |
-| Illustrations (Expressive) | https://www.figma.com/design/FIGMA_FILE_KEY_REDACTED |
-| Components | https://www.figma.com/design/FIGMA_FILE_KEY_REDACTED |
-| Проект библиотек (Figma) | team FIGMA_TEAM_ID_REDACTED, folder FIGMA_TEAM_ID_REDACTED |
+| Foundations | (ссылка в `docs/private/LINKS.md`, не в git) |
+| Icons (+ доски символов) | (ссылка в `docs/private/LINKS.md`, не в git) |
+| Illustrations (Expressive) | (ссылка в `docs/private/LINKS.md`, не в git) |
+| Components | (ссылка в `docs/private/LINKS.md`, не в git) |
+| Проект библиотек (Figma) | (ссылка в `docs/private/LINKS.md`, не в git) |
 | Репо | https://github.com/vsdsgn/emcd-design-tokens (локально ~/Projects/emcd-design-tokens) |
-| План, решения, задачи (Claude Doc) | https://claude.ai/code/artifact/ARTIFACT_ID_REDACTED |
-| DSP / playbook (код из Figma, VPN) | https://DSP_HOST_REDACTED — смотрит Стефан на сайте; репо ORG_REDACTED/ds-playground и прод (ui-emcd-web) ведёт разработчик, мы не клонируем. Правила: `docs/dsp.md` |
-| Демо Button (живой код на токенах) | https://claude.ai/artifact/ARTIFACT_ID_REDACTED — тема / бренд / платформа / уровень, все типы × тоны × размеры × состояния; токены сняты из Foundations 2026-10-06 |
-| Claude DS (Design System для Claude Design) | https://claude.ai/artifact/ARTIFACT_ID_REDACTED — синхронизируется из репо по «обнови Claude DS» (`scripts/claude-ds.mjs`). `docs/claude-ds.md` |
+| План, решения, задачи (Claude Doc) | (ссылка в `docs/private/LINKS.md`, не в git) |
+| DSP / playbook (код из Figma, VPN) | DSP (адрес в `docs/private/LINKS.md`) — смотрит Стефан на сайте; репо ORG_REDACTED/ds-playground и прод (ui-emcd-web) ведёт разработчик, мы не клонируем. Правила: `docs/dsp.md` |
+| Демо Button (живой код на токенах) | (ссылка в `docs/private/LINKS.md`, не в git) — тема / бренд / платформа / уровень, все типы × тоны × размеры × состояния; токены сняты из Foundations 2026-10-06 |
+| Claude DS (Design System для Claude Design) | (ссылка в `docs/private/LINKS.md`, не в git) — синхронизируется из репо по «обнови Claude DS» (`scripts/claude-ds.mjs`). `docs/claude-ds.md` |
 | Как вносить изменения | `docs/how-to-change.md` (+ Figma: Components «📖 Как устроено», Foundations «📖 Как вносить изменения») |
-| Анализ продуктов (Claude Doc) | https://claude.ai/code/artifact/ARTIFACT_ID_REDACTED |
+| Анализ продуктов (Claude Doc) | (ссылка в `docs/private/LINKS.md`, не в git) |
 
 Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS Site FIGMA_FILE_KEY_REDACTED · Icons FIGMA_FILE_KEY_REDACTED · Performa FIGMA_FILE_KEY_REDACTED · Web App FIGMA_FILE_KEY_REDACTED · App FIGMA_FILE_KEY_REDACTED · Monitoring FIGMA_FILE_KEY_REDACTED · Firmware FIGMA_FILE_KEY_REDACTED · WL B2B FIGMA_FILE_KEY_REDACTED · Geometria Web FIGMA_FILE_KEY_REDACTED · Geometria App FIGMA_FILE_KEY_REDACTED
 
