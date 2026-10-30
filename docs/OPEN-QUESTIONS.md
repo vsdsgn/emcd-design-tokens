@@ -68,6 +68,13 @@
 
 ## Парковка (после этапа)
 
+**Источник правды и паритет Figma ↔ код (2026-10-30)**, вернуться после Base:
+- **Источник правды — Figma (сейчас) или код / контракт?** Повод: статья Christine Vallaure «Building an AI-ready design system» (christinevallaure.substack.com/p/building-an-ai-ready-design-system), тезис «код главнее, Figma — зеркало». Сейчас правда — Figma (`dsp.md`, HOW-IT-WORKS).
+- **`GAPS.md` в миграции компонента:** что не выражается в Figma, что решили, что проверить руками. Рядом с `component-contract.md` / `migration/`.
+- **Parity-проверка:** манифест из Figma против манифеста из кода / playground DSP (имена, свойства, значения, дефолты), сравнение скриптом, без ИИ. Встроить в рутину синка и смены статусов.
+- **Code syntax на Figma-переменных и описание, написанное один раз и перенесённое в Figma** — проверить, что это есть. Аудит DSP 2026-10-05: code syntax WEB у всех 720 переменных (`dsp.md`). Описания компонентов пишутся в Figma; выгрузка в доку — пункт «Описания компонентов из Figma → `components-reference.md`» ниже. Проверить новые переменные после 10-05 (`status/neutral/solid`, fallback-шрифты) и обратное направление «описание → Figma».
+- **Nathan Curtis, компонент как данные** (spectacular.systems) — возможный способ закрепить правила применения вариантов (вместе с моделью выбора в `component-contract.md`).
+
 - **Формат токенов → DTCG 2025.10 (2026-10-14, после этапа 2):** сейчас `tokens/**` — черновик DTCG: цвет `"#hex"`, dimension `"320px"`, duration `"0ms"`, cubicBezier строкой CSS; типов `boolean` / `string` (74 токена) в спеке нет. В 2025.10: цвет `{colorSpace, components, hex}` (рампы можно хранить в OKLCH как есть), `{value, unit}`, cubicBezier `[x1, y1, x2, y2]`, тип transition. Менять: `scripts/figma-to-dtcg.mjs` + трансформы `build.mjs` (SD 4.3 → проверить 2025.10 в SD 5); `build/**` для разработки не меняется — проверить диффом. `boolean` / `string` → `$extensions` или оставить вне спеки. Плюс: внешние валидаторы и инструменты читают без адаптеров.
 - **Линт токенов в CI** (после перехода на 2025.10): схема, битые ссылки, дубли значений — Terrazzo `tz lint` или Design Token Kit → `.github/workflows/ci.yml`.
 - **Agent-ready слой DS (отчёт Design Compass, 2026-10-14) → этап 3, вместе с Claude DS (г):** короткий `design.md` (принципы, роли цвета по смыслу, правила выбора паттерна, без исключений) + `docs/components/<name>.md` + `llms.txt` из описаний Figma; токены и компоненты не заменяет. Модель выбора → `component-contract.md` (эвристики автора — сверить с продуктами): Toggle — бинарное, применяется сразу; Segmented — одно из 2–5, сразу; Radio — одно из N в форме, по Submit; Checkbox / Chip — несколько; Select — длинный список; выбранный фильтр не похож на CTA.
