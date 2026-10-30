@@ -107,6 +107,15 @@
 
 Живой список. Закрытое — вычёркивать датой, не удалять.
 
+## Правки 2026-10-30 (отчёт разработчика, подробности — HANDOFF «Состояние на 2026-10-30»)
+
+- [x] Button на переменных (отступы, gap, min-width; Text → `space/4`); Input paddingTop / notch на `space/8` / `space/2`; Badge → `icon/*`, счётчик вынесен в Counter; Brand `radius/focus-ring-lg` code syntax; web code syntax у `surface/current` и у 5 прежних переменных.
+- [ ] Publish Foundations + Components, затем повторный DSP Export (VPN) — Стефан.
+- [ ] Хвост: у Brand `radius/focus-ring-lg` (EMCD, WL) значение 18 — в примитивах нет `dimension/18`; у индикатора Tab 24 варианта с радиусом 1 px без привязки.
+- [ ] Символы: переименовать 9 монет `ic_*` → `smbl-*` в legacy-библиотеке (нет только Bitcoin Cash); проход Стефана по доскам выбора v2 («Символы» 296, «Иконки» 131).
+- [ ] Структура библиотек Icons / Symbols / Illustrations (+ логотипы брендов) — ждёт ок.
+- [ ] Кандидаты в 🟡 beta (решает Стефан): Chip, Badge, Counter, Tab, Segment, Input, Textarea, Checkbox, Radio, Toggle, Status, Tab bar item, Breadcrumb item. Не проверено: контраст, Light/Dark × L0–L3, Disabled вложенных, длинный текст.
+
 ## Вопросы к Стефану
 
 - [x] **Решено 2026-10-30 (чат 3):** Tab Hover / Pressed — серая полоска снизу (`border/subtle` / `border/default`), текст не акцентный (решение 19.10); обводка Off у Chip и контролов (`control/border/default`, ~1.3:1, тот же уровень, что `border/default`) — оставить, отклонение от WCAG 1.4.11 (≥ 3:1 для границы контрола) принято осознанно; Spinner и Progress circle — разные компоненты; глифы Badge → привязать к `icon/*`, не к `text/*` (масштабирование: один слой цвета для всех иконок); Chip / Badge — см. ниже.

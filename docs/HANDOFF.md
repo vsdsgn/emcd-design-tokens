@@ -56,6 +56,15 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 - **Этап 1** закрыт (таблица миграции, 181 строка, Conflict 0). Идёт этап 3 по карте компонентов: борды v3 (атомы готовы к ревью, молекулы — Input v3 в работе), подробности — `docs/CHANGELOG-components.md`.
 - **Версия:** тег только `v0.2.0` (01.10); с тех пор major-изменения имён — перед тегом предупредить разработку.
 - **Что ждёт Стефана:** вопросы в `docs/OPEN-QUESTIONS.md` («Вопросы к Стефану»), ревью бордов v3, DSP Export.
+- **Правки 2026-10-30 (по отчёту разработчика после DSP Export; в Figma, ждут Publish Foundations/Components и повторного DSP Export):**
+  - Button: отступы корня → `space/6, 8, 12, 16` (S, M, L, XL); gap и ширина распорок pad L / pad R → `space/2`; min-width → `size/button/min`. 144 варианта, значения прежние. У `Type=Text` отступ → `space/4`.
+  - Input: 27 paddingTop («Label position = On border») → `space/8`; 48 отступов notch label → `space/2`.
+  - Badge: глифы перепривязаны `text/*` → `icon/*` (117 слоёв: `icon/primary`, `inverse`, `on-accent`, `on-warning`, `on-subtle/*`). Встроенный счётчик убран (слой counter, свойства Counter / Counter value): число в плашке = Label, счётчик = отдельный компонент Counter. Борда Badge перенумерована (выноски 1–5), строка «Counter · Label» убрана. Badge — draft, в продуктах счётчик не использовался.
+  - Foundations: у Brand `radius/focus-ring-lg` code syntax → `var(--brand-radius-focus-ring-lg)` (был дубль с Platform, в CSS получалась самоссылка). Пара Brand/Platform на каждый размер кольца — так задумано, из Platform ничего не удаляем. У Brand `radius/focus-ring-lg` значения EMCD и WL — число 18 (в примитивах нет `dimension/18`) → в хвост. Web code syntax у `surface/current` проставлен (`var(--surface-current)`).
+  - Символы: в legacy-библиотеке иконок 9 из 10 «отсутствующих» монет уже есть под префиксом `ic_*` (Alephium, Pepecoin, Junkcoin, Lucky, Canxium, Dingocoin, Bonk, Fractal Bitcoin, Bellscoin) → переименовать в `smbl-*`; нет только Bitcoin Cash. Доски выбора v2 в файле Icons («📝 Выбор v2 · Символы» — 296 карточек, «· Иконки» — 131), свойство «Решение» на карточке; ждут прохода Стефана (в иконках есть косячные, устаревшие, цвета — список будет). Старые Selection 2 и Symbols · selection остаются до конца прохода.
+  - Структура библиотек (рекомендация, ждёт ок): Icons / Symbols / Illustrations (+ логотипы брендов).
+  - Кандидаты в 🟡 beta (ждут решения Стефана, статусы не менять): Chip, Badge, Counter, Tab, Segment, Input, Textarea, Checkbox, Radio, Toggle, Status, Tab bar item, Breadcrumb item. Не проверено: контраст, Light/Dark × L0–L3, Disabled вложенных, длинный текст. Хвост: у индикатора Tab 24 варианта с непривязанным радиусом 1 px.
+  - Порядок дальше: молекулы Select → Input amount → Password field → File upload → Multiselect → Menu → List item.
 
 ## Где мы сейчас — Этап 1 · Token Migration & Mapping (с 2026-10-09; закрыт, оставлено как история)
 
