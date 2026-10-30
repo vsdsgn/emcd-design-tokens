@@ -26,10 +26,10 @@
   --text-tertiary: var(--color-alpha-black-56);
   --text-disabled: var(--color-alpha-black-40);
   --text-inverse: var(--color-white);
-  --text-danger: var(--color-red-800);
-  --text-success: var(--color-green-850);
-  --text-warning: var(--color-amber-850);
-  --text-info: var(--color-blue-800);
+  --text-danger: var(--color-red-600);
+  --text-success: var(--color-green-700);
+  --text-warning: var(--color-amber-800);
+  --text-info: var(--color-blue-700);
   --text-on-warning: var(--color-neutral-950);
   --text-danger-hover: var(--color-red-700);
   --text-danger-pressed: var(--color-red-800);

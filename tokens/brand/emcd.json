@@ -71,11 +71,11 @@
       },
       "fg-on-light": {
         "$type": "color",
-        "$value": "{brand.accent.800}"
+        "$value": "{brand.accent.600}"
       },
       "fg-on-dark": {
         "$type": "color",
-        "$value": "{brand.accent.150}"
+        "$value": "{brand.accent.400}"
       },
       "fg-strong-on-light": {
         "$type": "color",

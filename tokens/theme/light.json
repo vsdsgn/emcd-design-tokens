@@ -122,19 +122,19 @@
     },
     "danger": {
       "$type": "color",
-      "$value": "{color.red.800}"
+      "$value": "{color.red.600}"
     },
     "success": {
       "$type": "color",
-      "$value": "{color.green.850}"
+      "$value": "{color.green.700}"
     },
     "warning": {
       "$type": "color",
-      "$value": "{color.amber.850}"
+      "$value": "{color.amber.800}"
     },
     "info": {
       "$type": "color",
-      "$value": "{color.blue.800}"
+      "$value": "{color.blue.700}"
     },
     "on-warning": {
       "$type": "color",
