@@ -102,13 +102,13 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 - **Badge L = 32** (S 20 · M 24 · L 32) — сделано в мастере.
 - Tab: Hover и Pressed нужны; меняется цвет текста, возможно полоска под текстом. Сейчас Off Hover = `text/primary` (было `text/secondary`), Pressed = Hover, у On без изменений. Решение по полоске и Pressed — на ревью.
 
-**Открыто (ждёт Стефана):**
-1. Tab — полоска и разведение Pressed.
-2. Склейка Spinner + Progress circle (из плана) — до решения раздельны.
-3. Типы Avatar «монета / символ»: сейчас Text · Icon · Image; нужен проход «Symbols · selection» и «Selection 2» в Icons (страницы 📝 в файле Icons).
-4. У глифов Badge (иконка / крестик / стрелка) цвет привязан к text-переменным — проверить scopes DSP или завести icon-токены.
-5. Обводка Off у Chip и контролов ≈ 1.3:1 (`control/border/default`): оставить или требовать ≥ 3:1.
-6. Правка Badge L делалась в мастере; Counter M — кегль не сверялся.
+**Решено 2026-10-30:** Tab Hover / Pressed — серая полоска (`border/subtle` / `border/default`), текст не акцентный · обводка Off у Chip и контролов (~1.3:1) остаётся, отклонение от WCAG 1.4.11 осознанное · Spinner и Progress circle — разные компоненты · глифы Badge → `icon/*` · Button + Badge — молекула · правила Dotted / Level 0 / Trailing icon ведёт Claude · DSP Export делает разработчик.
+
+**Открыто:**
+1. Banner (3 варианта, доска «_На решение · обводки v2» на 🧪 Playground) — Стефан смотрит; по умолчанию «как Toast».
+2. Avatar «монета / символ» — пока Text · Icon · Image; проход по «📝 Symbols · selection» / «📝 Selection 2» в Icons — парковка.
+3. Привязать глифы Badge к `icon/*` (в Components).
+4. Counter M — кегль не сверялся; правка Badge L делалась в мастере.
 
 **Статус порядка работ (конец чата 2, 2026-10-19):** п. 1 — вёрстка бордов сделана, добор по разделам 03–12 глазами; п. 2 — Tabs, Segmented, Avatar group слиты в атомные борды (раздел «13 · Группа» на Tab и Segment, «07» на Avatar), старые борды в 🗄 Archive; Badge / Counter развести — решение «да», не сделано; п. 3 — сделано: Step symbol, Avatar Image, Tab bar item, Status Neutral, Divider Dotted, Card Level 0, Chip Trailing icon и превью, Skeleton блик (диагональ, 3 %), Avatar group непрозрачный, раздел «08 · Движение» на 18 бордах, скругления L/XL у Button и Icon button, атом Dot; не сделано: полный набор блоков по образцу Button на всех бордах (Правила, Доступность, Код, Локали), единые таблицы, выноски на превью, Floating/sticky, safe/hit, обводка стеков по фону; п. 4 — страницы Figma сгруппированы; п. 5 (Plex) и п. 6 — не начаты. Правки мастеров (Avatar, Tab bar item, Step symbol, Button, Icon button, Divider, Card, Chip, Skeleton, Status / Dot) попадут в продукты после Publish Components.
 

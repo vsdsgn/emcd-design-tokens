@@ -109,18 +109,22 @@
 
 ## Вопросы к Стефану
 
+- [x] **Решено 2026-10-30 (чат 3):** Tab Hover / Pressed — серая полоска снизу (`border/subtle` / `border/default`), текст не акцентный (решение 19.10); обводка Off у Chip и контролов (`control/border/default`, ~1.3:1, тот же уровень, что `border/default`) — оставить, отклонение от WCAG 1.4.11 (≥ 3:1 для границы контрола) принято осознанно; Spinner и Progress circle — разные компоненты; глифы Badge → привязать к `icon/*`, не к `text/*` (масштабирование: один слой цвета для всех иконок); Chip / Badge — см. ниже.
+- [ ] **На просмотр Стефану (2026-10-30):** Banner — доска «_На решение · обводки v2 (этап 2)» на 🧪 Playground (3 варианта; по умолчанию Claude — «как Toast»: surface/raised + border/subtle, статус иконкой цвета тона); Avatar «монета / символ» — не блокирует Base, проход по «📝 Symbols · selection» и «📝 Selection 2» в Icons в парковку, пока три типа Text · Icon · Image.
+
 - [x] **Решено 27.10:** long — без обрезки у кнопок и подобных (max-width + подгонка текста), обрезка только в инпутах / селектах / списках; Tab bar — без длинных и обрезанных подписей; максимальная ширина Button — 280 px; Badge — иконка справа любая, отдельное свойство не нужно; бирманский — не режим в Figma; language stress и long text совместить с бордами после молекул и организмов.
-- [ ] **Баланс отступов у Chip и Badge** (иконка слева / справа уже на 4 px): ось вариантов «Icons» (Badge 156, Chip 64) или оставить симметрию. Button сделан.
-- [ ] **Максимальные ширины** остальных кнопок и подобных: Chip 240 (в мастере), Badge 160 при label 112, Tab, Segment, Status — задать значения.
-- [ ] **Двустрочные кнопки (заголовок / подзаголовок)** для особых случаев; **кнопки с бейджами внутри и снаружи** — молекула или организм (Button + Badge / Counter).
+- [x] **Баланс отступов у Chip и Badge — решено 2026-10-30:** оси Icons нет; со стороны иконки отступ меньше намеренно (в иконке много воздуха — оптическая компенсация), 4 px у края с иконкой.
+- [x] **Максимальные ширины — принято 2026-10-30** (Chip 240, Badge 160 при label 112; Tab, Segment, Status — как в мастерах). Проверить тестами по экранам, платформам, кейсам («🧪 Тест · длинный текст»).
+- [x] **Button + Badge / Counter (внутри и снаружи) — молекула** (решено 2026-10-30).
+- [ ] **Двустрочные кнопки (заголовок / подзаголовок)** — открыто, не срочно.
 - [ ] **Армянский, сингальский, амхарский** в Figma не рисуются — проверять в коде.
 - [ ] **Выноски на превью:** проверить расстановку на Icon button, Radio, Chip, Badge, Counter, Status, Tab, Segment, Progress; у Button 5 (слой состояния) и 6 (кольцо) слева и справа от кнопки.
 
 - [x] **Решено 26.10:** кольцо фокуса (нейтральное) — оставить; токен нейтральной точки Status — заведён и опубликован (`status/neutral/solid`); эталон таблицы — «Размеры» у Button; Badge — отдельная иконка справа не нужна; motion Progress — 200 мс enter + standard; Code cell и Scrollbar — движение как есть; Avatar, Divider, Card, Legend swatch — без «Движения»; Skeleton — `skeleton/base` 8 % alpha, виден на L0–L3.
 - [ ] **(2026-10-30) Code syntax WEB у `surface/current`** (коллекция Surface context) пуст — нужен `var(--surface-current)` до DSP Export (правило 3 `dsp.md`); затем Publish Foundations.
-- [ ] **Нужен DSP-экспорт Foundations** (2026-10-30: экспорт Foundations → репо сделан, Publish Components сделан Стефаном 30.10; осталось: плагин DSP Export с VPN). Токены: новый `status/neutral/solid`, изменённый `skeleton/base`, нейтральный `border/focus`, fallback-шрифты Brand. Мастера в Components: скругления L/XL, Dot, Divider Style, Card Level 0, Chip Trailing icon, Avatar, Tab bar item, Step symbol; реакции прототипов.
+- [ ] **DSP (решение 2026-10-30):** DSP Export делает разработчик, Стефан его не контролирует; наша часть — Publish Foundations / Components в Figma и список изменений для разработки. Список: токены `status/neutral/solid`, `skeleton/base`, нейтральный `border/focus`, fallback-шрифты Brand, `surface/current` (Web code syntax `var(--surface-current)` проставлен 2026-10-30); мастера: скругления L/XL, Dot, Divider Style, Card Level 0, Chip Trailing icon, Avatar, Tab bar item, Step symbol; реакции прототипов.
 - [ ] **Прототипы «Движение»:** посмотреть в Present на странице «🧪 Прототипы · Движение» (Button, Icon button, Checkbox, Radio, Toggle, Chip, Tab, Segment); API воспроизведение не проверяет.
-- [ ] **Правила «Предложение, подтвердить»:** Divider · Dotted (раздел 03), Card · Level 0 (03), Chip · Trailing icon (03) — подтвердить или поправить формулировки.
+- [x] **Правила Divider · Dotted, Card · Level 0, Chip · Trailing icon — решено 2026-10-30:** у Стефана нет ресурса подтверждать, формулировки пишет и ведёт Claude (пометка «предложение»), правки — по ходу ревью.
 
 - [x] Status: один компонент или Dot + Text — решено 19.10: Status использует отдельный атом Dot (пробуем).
 - [x] Badge / Counter — разные компоненты, развести (не сделано).
@@ -134,7 +138,7 @@
   - Badge: перепроверить превью; Counter: правила (где и как, какой цвет); Status: правила; Progress: те же доработки; Spinner: не трогали.
   - Avatar и все стеки / точки статуса: обводка всегда цвета фона, на котором лежат (а не жёсткий токен) — не сделано.
   - Button, Checkbox, Radio, Toggle: после добавления блоков и унификации таблиц отметить «собран».
-- [ ] Остаются: цвет кольца фокуса (Foundations нейтральный 56 % vs правила «бренд»); токен нейтральной точки Status (`status/neutral/solid`, пока `border/strong`); подложка превью Skeleton на борде; правила применения Dotted (Divider), Level 0 (Card), Trailing icon (Chip) — «на ревью»; 300 мс у Progress.
+- [ ] Остаются: подложка превью Skeleton на борде; 300 мс у Progress. (Кольцо фокуса — решено нейтральное; `status/neutral/solid` — заведён; правила Dotted / Level 0 / Trailing icon — см. выше.)
 
 - [x] **(2026-10-19) Кольцо фокуса — цвет: решено 26.10** — оставить нейтральное; HANDOFF и `components.md` обновлены 2026-10-30.
 - [x] **(2026-10-19) Skeleton — блик: решено 19.10** (Стефан: «блик заметнее») → белый градиент со смешиванием Difference, виден на светлой и тёмной (CHANGELOG). Остаётся только вопрос подложки превью на борде: серое на сером.
