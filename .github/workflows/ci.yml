@@ -15,7 +15,7 @@ jobs:
       - run: npm ci
       - name: Build is up to date
         run: npm run build && git diff --exit-code -- build || (echo "::error::build/ differs from tokens — run npm run build and commit" && exit 1)
-      - name: A11y report (WCAG + APCA, report only; --strict is off: coloured text in dark is Lc 38–48 until the designer picks steps)
+      - name: A11y report (WCAG + APCA, report only; --strict is off: coloured text in dark is Lc 44–51 by the half-step decision)
         run: npm run a11y
       - name: Browser floor (browserslist)
         run: npm run test:compat
