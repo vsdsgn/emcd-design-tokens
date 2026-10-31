@@ -7,17 +7,17 @@
     --control-border-default: var(--color-alpha-white-40);
     --text-tertiary: var(--color-alpha-white-72);
     --icon-tertiary: var(--color-alpha-white-72);
-    --text-accent: var(--brand-accent-300);
-    --text-link: var(--brand-accent-300);
-    --icon-accent: var(--brand-accent-300);
-    --text-danger: var(--color-red-300);
-    --icon-danger: var(--color-red-300);
-    --text-success: var(--color-green-400);
-    --icon-success: var(--color-green-400);
-    --text-warning: var(--color-amber-400);
-    --icon-warning: var(--color-amber-400);
-    --text-info: var(--color-blue-300);
-    --icon-info: var(--color-blue-300);
+    --text-accent: var(--brand-accent-50);
+    --text-link: var(--brand-accent-50);
+    --icon-accent: var(--brand-accent-50);
+    --text-danger: var(--color-red-50);
+    --icon-danger: var(--color-red-50);
+    --text-success: var(--color-green-50);
+    --icon-success: var(--color-green-50);
+    --text-warning: var(--color-amber-50);
+    --icon-warning: var(--color-amber-50);
+    --text-info: var(--color-blue-50);
+    --icon-info: var(--color-blue-50);
   }
   [data-theme="light"] {
     --border-focus-ring: var(--border-focus);

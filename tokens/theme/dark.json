@@ -122,19 +122,19 @@
     },
     "danger": {
       "$type": "color",
-      "$value": "{color.red.400}"
+      "$value": "{color.red.350}"
     },
     "success": {
       "$type": "color",
-      "$value": "{color.green.500}"
+      "$value": "{color.green.450}"
     },
     "warning": {
       "$type": "color",
-      "$value": "{color.amber.500}"
+      "$value": "{color.amber.450}"
     },
     "info": {
       "$type": "color",
-      "$value": "{color.blue.400}"
+      "$value": "{color.blue.350}"
     },
     "on-warning": {
       "$type": "color",
@@ -192,19 +192,19 @@
     },
     "danger": {
       "$type": "color",
-      "$value": "{color.red.400}"
+      "$value": "{color.red.350}"
     },
     "success": {
       "$type": "color",
-      "$value": "{color.green.500}"
+      "$value": "{color.green.450}"
     },
     "warning": {
       "$type": "color",
-      "$value": "{color.amber.500}"
+      "$value": "{color.amber.450}"
     },
     "info": {
       "$type": "color",
-      "$value": "{color.blue.400}"
+      "$value": "{color.blue.350}"
     },
     "on-subtle": {
       "accent": {

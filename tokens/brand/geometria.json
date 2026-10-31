@@ -21,6 +21,10 @@
         "$type": "color",
         "$value": "{color.electric-blue.300}"
       },
+      "350": {
+        "$type": "color",
+        "$value": "{color.electric-blue.350}"
+      },
       "400": {
         "$type": "color",
         "$value": "{color.electric-blue.400}"
@@ -75,7 +79,7 @@
       },
       "fg-on-dark": {
         "$type": "color",
-        "$value": "{brand.accent.400}"
+        "$value": "{brand.accent.350}"
       },
       "fg-strong-on-light": {
         "$type": "color",
