@@ -3,6 +3,7 @@
 Формат: дата · что · где. Пишется после каждой группы правок.
 
 ## 2026-10-31 — 2026-11-05
+- **2026-11-05, новые:** Coin (атом, XS–XL, монета сети), Coin stack (2–4), Radio card (карточка-выбор с деталями), Date range field (диапазон дат); борды v3. Input: `Show inline` по умолчанию выкл.
 - **2026-11-05, имя:** объединённый компонент сообщений — **Suggest** (страница «🟠 Suggest», набор Suggest); Toast отдельный. В записи ниже «Banner» = Suggest.
 - **2026-11-05, решение Стефана:** Alert и Banner → один **Banner** (Layout=Card|Strip × Tone=Neutral|Accent|Info|Success|Warning|Danger, слот слева `media/status/*` / логотип / монета, 0–2 кнопки, крестик absolute top-right); Alert deprecated, страница в архиве. **Toast** снова отдельный: Layout=Card (Web) | Header (мобильный) × Tone, иконки `media/status/*`. Название Banner — на подтверждении.
 - (заменено записью выше) **Alert + Toast → Alert:** Layout=Inline | Toast | Header × Tone, нейтральный контейнер, иконка по тону, крестик absolute top-right 8; Header — цветная шапка для мобильного. Toast deprecated, страница в архиве.
