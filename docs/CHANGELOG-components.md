@@ -3,7 +3,8 @@
 Формат: дата · что · где. Пишется после каждой группы правок.
 
 ## 2026-10-31 — 2026-11-05
-- **Alert + Toast → Alert:** Layout=Inline | Toast | Header × Tone, нейтральный контейнер, иконка по тону, крестик absolute top-right 8; Header — цветная шапка для мобильного. Toast deprecated, страница в архиве.
+- **2026-11-05, решение Стефана:** Alert и Banner → один **Banner** (Layout=Card|Strip × Tone=Neutral|Accent|Info|Success|Warning|Danger, слот слева `media/status/*` / логотип / монета, 0–2 кнопки, крестик absolute top-right); Alert deprecated, страница в архиве. **Toast** снова отдельный: Layout=Card (Web) | Header (мобильный) × Tone, иконки `media/status/*`. Название Banner — на подтверждении.
+- (заменено записью выше) **Alert + Toast → Alert:** Layout=Inline | Toast | Header × Tone, нейтральный контейнер, иконка по тону, крестик absolute top-right 8; Header — цветная шапка для мобильного. Toast deprecated, страница в архиве.
 - **Banner:** цветная подложка с кнопками (suggest); глифы по тону, обводка `border/subtle`.
 - **Multiselect option:** строка списка (Leading + Leading · swap, Description + Show description, check справа у Selected). **Multiselect (контейнер):** Display Count | Chips × State.
 - **Table cell · Transaction:** Direction Debit → Unexpected. **Skeleton:** shimmer скрыт в мастерах.
