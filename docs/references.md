@@ -61,3 +61,19 @@ Arc и Planes отдают агентам `llms.txt` и markdown на кажды
 | Springs Studio (springs.studio) | генератор spring → easing / duration с экспортом CSS / JSON — сверять кривые, когда расширяем `motion/*` (этап 3) |
 | Balsa UI (balsa-ui.com) | DS и исходники компонентов для агентов — ещё один образец agent-ready упаковки, как Arc / Planes (этап 3, Claude DS) |
 | Design Compass Plus (отчёт 2026-10-14) | AI-native DS: Intention · Data · Execution, короткий `design.md`, правила выбора паттерна (Tabs, Select, Text field, Button) — вход для этапа 3 |
+
+## Signal (Archetype AI) — archetypeai.io/signal, 2026-11-04
+
+Дизайн-система для Physical AI (потоки сенсорных данных): legibility, hierarchy, composition. Открыта: MIT, npm `@archetypeai/ds-lib-tokens` (+ `ds-ui-svelte-console`, `-labs`, `ds-cli`, 0.21.0), агентские скиллы — github.com/archetypeai/agent-skills. Страница Signal рендерится JS — читали README и `theme.css` пакета. Значения всегда наши; берём приёмы.
+
+| Что у них | Наше состояние | Решение |
+|---|---|---|
+| Агентский слой едет вместе с DS: CLI кладёт в репо проекта `CLAUDE.md`/`AGENTS.md` + `ds-manifest.json`; скиллы apply-ds, build-pattern, аудит a11y; правило «scaffold, don't reinvent» | `CLAUDE.md`, `claude-ds/`; `design.md` / `llms.txt` — в парковке | сверить с парковкой «Agent-ready слой»: `ds-manifest.json` = манифест для parity-проверки |
+| Интервал у **каждого** кегля: line-height в целых px + letter-spacing (чем крупнее, тем плотнее: 0.02em → −0.04em); запрет `leading-*`/`tracking-*` рядом с `text-*` | `letter-spacing/*` и `line-height` есть в Foundations, но парой с кеглем — не проверено | проверить: у каждого `font-size/N` есть пара; запрет «руками» — в `components.md` |
+| `text-2xs` 10 px — нижний предел плотных метаданных, вместо произвольных 10/11 | в шкале 10 не выделен | в парковку: нужен ли пол 10 px (Counter, Chart, Monitoring) |
+| Метрически подогнанные fallback-шрифты (`size-adjust` + ascent/descent override, per-OS базы) + preload 3 начертаний (Book, Medium, Mono Book), `crossorigin` обязателен | `performance.md`: «запасной с `size-adjust`» — только план | **пригодится при замене Roobert (п. 9 прошлого этапа)**: взять метод (`@capsizecss`) |
+| Поверхности: ступень 850, `--table` отдельным токеном (= card сегодня, но могут разойтись), `--table-header` на ступень назад, `--table-section` глубже | L0–L3 с 150/850 уже есть; отдельных table-токенов нет | проверить: нужны ли `surface/table*` отдельно от Card (Table row / Table header cell) |
+| Толщина иконок по роли: default 1 · interactive 1.25 · status 1.5 · emphasis 2 | один `icon/stroke/regular` (Web 1.5 / App 1.7) | в парковку (вместе с «Брендовым характером иконок») |
+| Скроллбар темой на `*` (стандартные `scrollbar-color/width`, без `::-webkit-scrollbar`), токены `scrollbar`, `scrollbar-track`, `scrollbar-width` | токены `scrollbar` в theme есть; в build-слое глобального правила нет | быстрое: проверить `ds.min.css`, добавить правило на `*` |
+| Базовый слой для голых тегов: `span`, `label`, `code`, `a` намеренно без размера (правило элемента перебивает родителя); `a` — только `cursor:pointer` | не описано | в парковку: правило «структурные теги наследуют» для web base layer |
+| Статусы `neutral / good / warning / critical`; радиус интерактивных `--atai-radius-interactive` | `status/*`, `radius/control` | совпадает, ничего не берём |
