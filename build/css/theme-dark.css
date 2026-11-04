@@ -67,11 +67,11 @@
   --action-danger-subtle-default: var(--color-alpha-red-24);
   --action-danger-subtle-hover: var(--color-alpha-red-32);
   --action-danger-subtle-pressed: var(--color-alpha-red-40);
-  --status-danger-solid: var(--color-red-500);
+  --status-danger-solid: var(--color-red-550);
   --status-danger-subtle: var(--color-alpha-red-24);
   --status-danger-border: var(--color-alpha-red-48);
   --status-danger-on-subtle: var(--color-red-200);
-  --status-success-solid: var(--color-green-500);
+  --status-success-solid: var(--color-green-650);
   --status-success-subtle: var(--color-alpha-green-16);
   --status-success-border: var(--color-alpha-green-32);
   --status-success-on-subtle: var(--color-green-200);
@@ -79,7 +79,7 @@
   --status-warning-subtle: var(--color-alpha-amber-12);
   --status-warning-border: var(--color-alpha-amber-24);
   --status-warning-on-subtle: var(--color-amber-200);
-  --status-info-solid: var(--color-blue-500);
+  --status-info-solid: var(--color-blue-600);
   --status-info-subtle: var(--color-alpha-blue-16);
   --status-info-border: var(--color-alpha-blue-32);
   --status-info-on-subtle: var(--color-blue-200);
@@ -101,7 +101,7 @@
   --control-segment-track: var(--color-alpha-white-8);
   --control-segment: var(--color-alpha-white-8);
   --control-segment-hover: var(--color-alpha-white-12);
-  --skeleton-base: var(--color-alpha-white-8);
+  --skeleton-base: var(--color-alpha-white-12);
   --skeleton-shimmer: var(--color-neutral-700);
   --scrollbar-thumb: var(--color-alpha-white-24);
   --scrollbar-thumb-hover: var(--color-alpha-white-48);

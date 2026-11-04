@@ -427,7 +427,7 @@
     "success": {
       "solid": {
         "$type": "color",
-        "$value": "{color.green.600}"
+        "$value": "{color.green.650}"
       },
       "subtle": {
         "$type": "color",

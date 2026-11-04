@@ -10,9 +10,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 7.3 **путаются**
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.9 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 5.3 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 7.7 **путаются**
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 7.8 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -67,9 +67,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 7.3 **путаются**
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.9 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 5.3 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 7.7 **путаются**
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 7.8 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -124,10 +124,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusDangerSolid ↔ statusSuccessSolid — 14.4
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 14.4
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.6 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 4.7 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 10.2
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 4.7 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -179,10 +178,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusDangerSolid ↔ statusSuccessSolid — 14.4
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 14.4
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.6 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 4.7 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 10.2
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 4.7 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -234,9 +232,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 7.3 **путаются**
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.9 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 5.3 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 7.7 **путаются**
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 7.8 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -291,9 +289,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 7.3 **путаются**
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.9 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 5.3 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 7.7 **путаются**
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 7.8 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -348,10 +346,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusDangerSolid ↔ statusSuccessSolid — 14.4
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 14.4
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.6 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 4.7 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 10.2
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 4.7 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -403,10 +400,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusDangerSolid ↔ statusSuccessSolid — 14.4
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 14.4
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.6 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 4.7 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 10.2
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 4.7 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -458,9 +454,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 7.3 **путаются**
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.9 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 5.3 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 7.7 **путаются**
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 7.8 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -515,9 +511,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 7.3 **путаются**
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.9 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 5.3 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 7.7 **путаются**
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 7.8 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -572,10 +568,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusDangerSolid ↔ statusSuccessSolid — 14.4
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 14.4
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.6 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 4.7 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 10.2
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 4.7 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 
@@ -627,10 +622,9 @@ APCA (вторая метрика, уровни по ролям) — см. `docs
 
 **Дальтонизм, статусы:** 
 
-- протанопия: statusDangerSolid ↔ statusSuccessSolid — 14.4
-- протанопия: statusSuccessSolid ↔ statusWarningSolid — 14.4
-- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 2.6 **путаются**
-- тританопия: statusSuccessSolid ↔ statusInfoSolid — 4.7 **путаются**
+- протанопия: statusDangerSolid ↔ statusSuccessSolid — 10.2
+- дейтеранопия: statusDangerSolid ↔ statusSuccessSolid — 4.7 **путаются**
+- тританопия: statusSuccessSolid ↔ statusInfoSolid — 6.7 **путаются**
 
 **Дальтонизм, графики:** 
 

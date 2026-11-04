@@ -71,7 +71,7 @@
   --status-danger-subtle: var(--color-alpha-red-16);
   --status-danger-border: var(--color-alpha-red-40);
   --status-danger-on-subtle: var(--color-red-800);
-  --status-success-solid: var(--color-green-600);
+  --status-success-solid: var(--color-green-650);
   --status-success-subtle: var(--color-alpha-green-24);
   --status-success-border: var(--color-alpha-green-48);
   --status-success-on-subtle: var(--color-green-800);

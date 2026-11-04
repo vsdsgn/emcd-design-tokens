@@ -409,7 +409,7 @@
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "{color.red.500}"
+        "$value": "{color.red.550}"
       },
       "subtle": {
         "$type": "color",
@@ -427,7 +427,7 @@
     "success": {
       "solid": {
         "$type": "color",
-        "$value": "{color.green.500}"
+        "$value": "{color.green.650}"
       },
       "subtle": {
         "$type": "color",
@@ -463,7 +463,7 @@
     "info": {
       "solid": {
         "$type": "color",
-        "$value": "{color.blue.500}"
+        "$value": "{color.blue.600}"
       },
       "subtle": {
         "$type": "color",
@@ -570,7 +570,7 @@
   "skeleton": {
     "base": {
       "$type": "color",
-      "$value": "{color.alpha.white.8}"
+      "$value": "{color.alpha.white.12}"
     },
     "shimmer": {
       "$type": "color",
