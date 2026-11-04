@@ -2,6 +2,14 @@
 
 Формат: дата · что · где. Пишется после каждой группы правок.
 
+## 2026-10-31 — 2026-11-05
+- **Alert + Toast → Alert:** Layout=Inline | Toast | Header × Tone, нейтральный контейнер, иконка по тону, крестик absolute top-right 8; Header — цветная шапка для мобильного. Toast deprecated, страница в архиве.
+- **Banner:** цветная подложка с кнопками (suggest); глифы по тону, обводка `border/subtle`.
+- **Multiselect option:** строка списка (Leading + Leading · swap, Description + Show description, check справа у Selected). **Multiselect (контейнер):** Display Count | Chips × State.
+- **Table cell · Transaction:** Direction Debit → Unexpected. **Skeleton:** shimmer скрыт в мастерах.
+- Страницы по алфавиту внутри АТОМЫ / МОЛЕКУЛЫ / ОРГАНИЗМЫ.
+- **Icons (11-05):** фиат убран из Symbols в архив; Symbols = 26 монет; флаги и логотипы систем → `media/flag/*`, `media/os/*`; страница «🔶 Media» (+ `media/status/*`).
+
 ## 2026-10-19 (чат 2 · пункт 1 порядка работ: починка вёрстки)
 - «12 · Локали и RTL» (Checkbox, Radio, Toggle, Chip, Badge, Status, Tab, Segment, Breadcrumb item, Tab bar item, Button): подпись режима переносится, длинный режим `long` переносит текст внутри карточки (раньше вылезал за край), `ar` прижат вправо, карточки сетки одной высоты. Проверено скриншотом на Checkbox.
 - Таблицы бордов (18 бордов Button … Progress circle): ячейки с превью компонента выровнены влево (раньше центрировались и «плыли» между строками M / S). Матрицы состояний не затронуты (проверено на Checkbox).
