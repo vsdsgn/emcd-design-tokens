@@ -85,7 +85,7 @@ Legacy: старые имена компонента
 
 - У каждого интерактивного элемента есть **доступное имя**: текст подписи или `aria-label` (для кнопок-иконок — обязательно, совпадает с tooltip).
 - Роль и состояние озвучиваются: `aria-pressed`, `aria-expanded`, `aria-selected`, `aria-checked`, `aria-disabled`, `aria-busy` (loading), `aria-invalid` + связанная ошибка (`aria-describedby`).
-- Сообщения (решение 2026-11-05): Toast — поверх экрана, исчезает; Banner (`Layout=Card|Strip` × Tone) — в контексте страницы, остаётся; Alert deprecated; промо-карточки (Sidebar banner, мобильный Banner 343×152) — Card, не системное сообщение.
+- Сообщения (решение 2026-11-05): Toast — поверх экрана, исчезает; Suggest (бывшие Alert и Banner; `Layout=Card|Strip` × Tone, слот слева, 0–2 кнопки) — в контексте страницы, остаётся; Alert deprecated; промо-карточки (Sidebar banner, мобильный Banner 343×152) — Card, не системное сообщение.
 - Динамические сообщения (Toast, ошибки форм, статусы загрузки) — через live region (`role="status"` / `alert`), без перехвата фокуса.
 - Иконки-декорации скрыты от читалок (`aria-hidden`), смысловые — с подписью.
 - Суммы и крипто: читалке отдаётся полная форма («0,00143210 LTC, примерно 64 доллара»), адрес — целиком, а не с многоточием.
@@ -203,7 +203,7 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 | **Контрол с обводкой** | Button · Tertiary outline, Icon button outline, Chip | `control/border/default` | слой, обводка та же | только кольцо | — | Button / Icon button — обводка та же, бледнеет текст (Стефан 09.10); Chip — `control/border/disabled` | у Chip — плашка, без обводки |
 | **Граница = единственный признак** (WCAG 1.4.11, ≥ 3:1) | Checkbox, Radio (Off) | `border/strong` | слой | кольцо | `control/border/error` | `control/border/disabled` | `control/checked` (заливка) |
 | **Индикатор выбора / текущего** | Date cell · Today, Chip cell · Selected, Step · Current, Tab, Nav item | — | — | — | — | — | `border/accent` / `control/checked` |
-| **Статус** | Banner (в т. ч. бывший Alert), Code cell · Success | `status/*/border` | — | — | — | — | — |
+| **Статус** | Suggest (бывшие Alert и Banner), Code cell · Success | `status/*/border` | — | — | — | — | — |
 
 Правила:
 - `border/*` — только контейнеры, разделители, индикаторы. Контролы — `control/border/*`. Токены фокуса — только для фокуса.
