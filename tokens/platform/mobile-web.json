@@ -415,6 +415,24 @@
         "$type": "boolean",
         "$value": false
       }
+    },
+    "safe-area": {
+      "top": {
+        "$type": "dimension",
+        "$value": "0px"
+      },
+      "bottom": {
+        "$type": "dimension",
+        "$value": "0px"
+      },
+      "left": {
+        "$type": "dimension",
+        "$value": "0px"
+      },
+      "right": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
     }
   },
   "haptic": {

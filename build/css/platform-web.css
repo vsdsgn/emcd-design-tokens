@@ -13,6 +13,10 @@
   --os-material-blur: true;
   --os-picker-native: false;
   --os-dialog-native: false;
+  --os-safe-area-top: 0rem;
+  --os-safe-area-bottom: 0rem;
+  --os-safe-area-left: 0rem;
+  --os-safe-area-right: 0rem;
   --haptic-selection: none;
   --haptic-press: none;
   --haptic-drag: none;
