@@ -72,3 +72,4 @@ DSP Export (окно, VPN) делает разработчик. Перед ни�
 
 - **Toast:** `Layout` = Card \| Informer (Informer = Header, мобильный). **Snack — отдельный компонент** (решение Стефана 2026-11-09); значение `Layout=Snack` из Toast уходит (MAJOR для Toast), Snack — новый компонент (MINOR). В Figma вынос ещё не сделан; булево `Snack action` переезжает в Snack.
 - Решено 2026-11-09 (см. `docs/OPEN-QUESTIONS.md`): beta у 13 остаётся; Deprecated-токены помечены; `os/safe-area/*` заведены; слоты и булевы Show filter / Show info / Show more — вариант C (в Figma ещё не сделано).
+- **Table header cell (2026-11-09):** булевы `Filter icon` → `Show filter`, `Info icon` → `Show info` (переименование свойств, MAJOR для кода, который их использовал). Snack вынесен в Figma и опубликован.
