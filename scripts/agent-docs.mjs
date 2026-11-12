@@ -37,7 +37,7 @@ const beta = all.filter((s) => s.status === 'beta');
 const draft = all.filter((s) => s.status === 'draft');
 const other = all.filter((s) => s.status !== 'beta' && s.status !== 'draft');
 const bases = fs.readdirSync('docs/components').filter((f) => f.endsWith('.md')).map((f) => f.replace(/\.md$/, ''))
-  .filter((k) => !beta.some((s) => kebab(s.name) === k)).sort();
+  .filter((k) => !beta.some((s) => kebab(s.name) === k) && !draft.concat(other).some((s) => kebab(s.name) === k)).sort();
 
 // ---------- docs/api.md ----------
 function api(s) {

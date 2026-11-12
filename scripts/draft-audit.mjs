@@ -4,54 +4,13 @@
 //   --check: ничего не пишет, код 1, если файл на диске отличается от сборки (для CI).
 //   Правила — те же, что у audit-parity.plugin.js (DESC, MATRIX, AXES, MINMAX), плюс PROPS, RAW, SERVICE, BOARD из манифеста.
 import fs from 'node:fs';
+import { findings } from './draft-findings.mjs';
 
 const check = process.argv.includes('--check');
 const OUT = 'docs/audit-draft.md';
 const manifest = JSON.parse(fs.readFileSync('docs/ds-manifest.json', 'utf8'));
 const sets = manifest.pages.flatMap((p) => p.sets.map((s) => ({ ...s, level: p.level, page: p.page, boards: p.boards || [], boardMissing: p.boardMissing || [] })));
 const draft = sets.filter((s) => s.status !== 'beta');
-
-const DESC_REQUIRED = ['Когда использовать:', 'Правила:', 'A11y:'];
-const INTERACTIVE = new Set(['Hover', 'Pressed', 'Focus', 'Focused']);
-const BOOL = [['Off', 'On'], ['False', 'True'], ['No', 'Yes']];
-const sameSet = (a, b) => a.length === b.length && a.every((x) => b.includes(x));
-
-function findings(s) {
-  const f = [];
-  // DESC: первая строка — Status, обязательные разделы описания
-  const miss = DESC_REQUIRED.filter((h) => !s.descHeads.includes(h));
-  if (!s.statusFirstLine) miss.unshift('Status: первой строкой');
-  if (miss.length) f.push(['DESC', `нет: ${miss.join(', ')}`]);
-  // MATRIX: вариантов меньше, чем полная матрица осей
-  if (s.variants < s.full) f.push(['MATRIX', `${s.variants} из ${s.full}`]);
-  // AXES: булева ось вместо свойства; Left / Right вместо Start / End
-  for (const [axis, values] of Object.entries(s.axes || {})) {
-    if (BOOL.some((b) => sameSet(values, b))) f.push(['AXES', `\`${axis}\` — булева ось (${values.join(' | ')})`]);
-    if (values.includes('Left') || values.includes('Right')) f.push(['AXES', `\`${axis}\` — Left / Right вместо Start / End`]);
-  }
-  // PROPS: свойство привязано не во всех вариантах
-  const loose = (s.props || []).filter((p) => p.bound < s.variants);
-  if (loose.length) f.push(['PROPS', loose.map((p) => `${p.name} ${p.bound} из ${s.variants}`).join('; ')]);
-  // MINMAX: min / max числом
-  const raw = (s.minmax || []).filter((x) => x.endsWith('RAW')).map((x) => x.replace(' RAW', ''));
-  if (raw.length) f.push(['MINMAX', raw.join(', ')]);
-  // RAW: значения без переменной
-  if (s.rawCount) f.push(['RAW', `${s.rawCount} (напр. ${(s.raw || []).slice(0, 2).map((x) => `\`${x}\``).join(', ')})`]);
-  // SERVICE: у интерактивного набора — кольцо фокуса, зона нажатия, безопасное поле
-  const interactive = Object.values(s.axes || {}).some((v) => v.some((x) => INTERACTIVE.has(x)));
-  if (interactive) {
-    const l = s.layers || {};
-    const no = [];
-    if (!l.ring) no.push('кольца фокуса');
-    if (!l.hitWeb && !l.hitApp && !l.hit) no.push('зоны нажатия');
-    if (!l.safe) no.push('безопасного поля');
-    if (no.length) f.push(['SERVICE', `нет ${no.join(', ')}`]);
-  }
-  // BOARD: борда v3 и её разделы
-  if (!s.boards.some((b) => b.v3)) f.push(['BOARD', 'нет борды v3']);
-  else if (s.boardMissing.length) f.push(['BOARD', `нет разделов ${s.boardMissing.join(', ')}`]);
-  return f;
-}
 
 const LEVELS = [['atom', 'Атомы'], ['molecule', 'Молекулы'], ['organism', 'Организмы']];
 const rows = draft.map((s) => ({ s, f: findings(s) }));

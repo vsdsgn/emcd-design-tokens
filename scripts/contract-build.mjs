@@ -2,16 +2,19 @@
 // назначение, правила, анатомия, поведение, a11y, результаты проверок, миграция). Выход: docs/components/<name>.md.
 // Запуск: node scripts/contract-build.mjs [--date=ГГГГ-ММ-ДД] [--check]
 //   Разделы 1, 4 (оси состояний), 5, 10, 12, 13 собираются из манифеста — поэтому контракт не расходится с Figma.
-//   Пишет только наборы, перечисленные в contract-data.mjs; рукописные контракты (field-base, input, …) не трогает.
+//   Пишет наборы, перечисленные в contract-data.mjs; рукописные контракты (field-base, input, …) не трогает.
+//   Draft: атомы и молекулы не в beta без записи в contract-data — контракт-заготовка из манифеста, выжимки описаний
+//   Figma (scripts/contract-draft-data.txt) и замечаний scripts/draft-findings.mjs. Наборы в Figma не меняет.
 //   --check: ничего не пишет, код 1, если файл на диске отличается от сборки (для CI).
 import fs from 'node:fs';
 import { DATA } from './contract-data.mjs';
+import { findings } from './draft-findings.mjs';
 
 const arg = (k) => (process.argv.find((a) => a.startsWith(`--${k}=`)) || '').slice(k.length + 3);
 const check = process.argv.includes('--check');
 const manifest = JSON.parse(fs.readFileSync('docs/ds-manifest.json', 'utf8'));
 const date = arg('date') || manifest.generated || new Date().toISOString().slice(0, 10);
-const sets = new Map(manifest.pages.flatMap((p) => p.sets.map((s) => [s.name, { ...s, level: p.level, page: p.page, pageId: p.pageId, boards: p.boards || [] }])));
+const sets = new Map(manifest.pages.flatMap((p) => p.sets.map((s) => [s.name, { ...s, level: p.level, page: p.page, pageId: p.pageId, boards: p.boards || [], boardMissing: p.boardMissing || [] }])));
 
 const kebab = (s) => s.replace(/^_/, '').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '').toLowerCase();
 const pascal = (s) => s.replace(/[^\p{L}\p{N}]+/gu, ' ').trim().split(' ').map((w) => w[0].toUpperCase() + w.slice(1)).join('');
@@ -132,16 +135,73 @@ function build(d) {
   return L.join('\n') + '\n';
 }
 
+// ---------- draft ----------
+const TBD = '- Не описано: заполнить при переводе в beta.';
+const DRAFT = new Map(fs.readFileSync('scripts/contract-draft-data.txt', 'utf8').split('\n').filter((l) => l && !l.startsWith('#'))
+  .map((l) => { const [name, what, use, dont, a11y, legacy] = l.split(' | ').map((x) => x.trim()); return [name, { what, use, dont, a11y, legacy }]; }));
+
+function buildDraft(s) {
+  const d = DRAFT.get(s.name) || {};
+  const board = s.boards.find((b) => b.v3);
+  const layers = s.layers || {};
+  const svc = [['кольцо фокуса', layers.ring], ['зона Web', layers.hitWeb], ['зона касания', layers.hitApp], ['безопасное поле', layers.safe]].map(([n, c]) => `${n} ${c || 0}`).join(' · ');
+  const nested = Object.entries(s.nested || {}).map(([n, c]) => `${n === '(icons)' ? 'иконки' : `\`${n}\``} ×${c}`).join(', ');
+  const st = (s.axes || {}).State;
+  const f = findings(s);
+  const L = [];
+  L.push(`# ${s.name} — контракт · draft (${date})`, '');
+  L.push('Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.');
+  L.push('Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.');
+  L.push('При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.', '');
+  L.push('## 1. Identity');
+  L.push(`- Набор: \`${s.name}\`. Status: ${s.status || 'не указан'}. Level: ${s.level}.`);
+  L.push(`- Figma: Components, страница «${s.page}» (\`${s.pageId}\`), ${s.type === 'SET' ? 'набор' : 'компонент'} \`${s.id}\`.`);
+  L.push('', '## 2. Intent');
+  L.push(`- ${d.what || 'Не описано.'}`);
+  L.push(`- Когда использовать: ${d.use || 'не описано'}`);
+  L.push(`- Когда нет: ${d.dont || 'не описано'}`);
+  L.push('- Правило выбора варианта: не описано — заполнить при переводе в beta.');
+  L.push('', '## 3. Anatomy');
+  L.push(`- Слои с токенами: ${code(Object.keys(s.tokens || {}).filter((k) => k !== '(root)' && !SERVICE_LAYERS.test(k))) || '—'}.`);
+  if (nested) L.push(`- Вложено: ${nested}.`);
+  L.push(`- Служебные слои (вариантов из ${s.variants}): ${svc}.`);
+  L.push('', '## 4. States');
+  L.push(st ? `- Ось State: ${st.join(' · ')}. Группа модели состояний (\`docs/components.md\`) — определить при переводе в beta.` : '- Оси State нет.');
+  L.push('', '## 5. Properties', propsBlock(s));
+  L.push('', '## 6. Content / slots', TBD);
+  L.push('', '## 7. Events', TBD);
+  L.push('', '## 8. Behavior', TBD);
+  L.push('', '## 9. Accessibility', d.a11y ? `- ${d.a11y}` : TBD);
+  L.push('', '## 10. Tokens', tokensBlock(s));
+  if (s.rawCount) L.push(`- Значений без переменной: ${s.rawCount}${s.raw && s.raw.length ? ` (напр. ${s.raw.slice(0, 4).map((x) => `\`${x}\``).join(', ')})` : ''}.`);
+  L.push('', '## 11. Platforms', TBD);
+  L.push('', '## 12. Figma projection');
+  L.push(`- ${s.type === 'SET' ? `Набор \`${s.name}\`, вариантов ${s.variants} из ${s.full}` : `Компонент \`${s.name}\``}; оси: ${Object.keys(s.axes || {}).join(', ') || 'нет'}.`);
+  L.push(`- Борда: ${board ? `«${board.name}», разделов ${board.sections.length}` : 'шаблона v3 нет'}.`);
+  L.push(`- Описание: ${s.descLen} знаков, разделы: ${(s.descHeads || []).join(' ') || '—'}`);
+  L.push('', '## 13. Code projection', codeBlock(s, {}));
+  L.push('', `## 14. Acceptance (${date})`);
+  L.push('- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.');
+  L.push(f.length ? '- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:' : '- Замечаний по манифесту нет.');
+  for (const [c, x] of f) L.push(`  - ${c}: ${x}`);
+  L.push('', '## 15. Migration', `- Legacy: ${d.legacy || 'не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах'}`);
+  return L.join('\n') + '\n';
+}
+
+const inData = new Set(DATA.map((d) => d.name));
+const drafts = [...sets.values()].filter((s) => s.status !== 'beta' && s.status !== 'stable' && s.level !== 'organism' && !inData.has(s.name));
+const out = [...DATA.map((d) => [d.name, () => build(d)]), ...drafts.map((s) => [s.name, () => buildDraft(s)])];
+
 let changed = 0;
 fs.mkdirSync('docs/components', { recursive: true });
-for (const d of DATA) {
-  const file = `docs/components/${kebab(d.name)}.md`;
-  const text = build(d);
+for (const [name, make] of out) {
+  const file = `docs/components/${kebab(name)}.md`;
+  const text = make();
   const old = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
   if (old === text) continue;
   changed++;
   if (check) console.log(`✗ ${file}: отличается от сборки — node scripts/contract-build.mjs`);
   else fs.writeFileSync(file, text);
 }
-console.log(`contract-build: наборов ${DATA.length}, ${check ? 'расходится' : 'записано'} ${changed}`);
+console.log(`contract-build: наборов ${DATA.length}, draft ${drafts.length}, ${check ? 'расходится' : 'записано'} ${changed}`);
 process.exit(check && changed ? 1 : 0);
