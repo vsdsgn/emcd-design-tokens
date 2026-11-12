@@ -50,6 +50,11 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
 
+## Состояние на 2026-11-12
+
+- **Бриф для автономного агента:** `docs/agent-brief-ds2.md` (фазы A–E: инвентаризация → базовые служебные компоненты → атомы и молекулы → паритет с кодом → отчёт). Запуск — Claude Code на VPS.
+- **Связь Мак → VPS не работает (2026-11-12):** SSH с Мака на `stephane@<VPS>` и `root@<VPS>` — `Permission denied (publickey)` для всех ключей в `~/.ssh`. Нужно проверить IP в `docs/private/LINKS.md` и добавить ключ Мака в `authorized_keys` на VPS. Пока коммит с Мака (запасной путь).
+
 ## Состояние на 2026-11-09
 
 - **Стефан ответил на все доски «⚑ Решения · от тебя»** (Foundations 1A 2A 3A 4A 5B; Components 1A 2C 3A; Icons 1A 2A 3A) — полный текст в `docs/OPEN-QUESTIONS.md` («Решения Стефана 2026-11-09»). Коротко: WL яркие акценты — правила приняты; `dimension/18` и `os/safe-area/*` — как решено 06.11; шесть Deprecated-токенов → Deprecated сейчас, удаление в следующем major; typography-l10n главнее Редполитики (Confluence пока не правили); beta у 13 остаётся; слоты — Sidebar и Select compact руками, Table header cell и Table cell / Buttons — булевы Show filter / Show info / Show more; сводный промпт для Code — после обработки и Publish; все пять иконок остаются, Symbols и Media в файле Icons на время Base, логотипы систем приняты.
