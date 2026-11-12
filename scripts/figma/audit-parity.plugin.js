@@ -5,7 +5,7 @@
 // COVERAGE (у части вариантов по оси сырой цвет, у соседей токен), PARITY (парные компоненты расходятся),
 // MINMAX (min / max корня числом, без переменной size/*), MATRIX (вариантов меньше произведения осей и в описании нет строки «Матрица:»),
 // DESC (первая строка не Status:, нет Level / «Когда использовать» / A11y), AXES (Left / Right вместо Start / End, булева ось, State не последняя ось),
-// BASE (компонент семьи без вложенной базы; оси надстройки не совпадают с вариантом вложенной базы), BOARD (на странице нет борды v3),
+// BASE (компонент семьи без вложенной базы; оси надстройки не совпадают с вариантом вложенной базы — если у базы такого значения оси нет, база обязана быть Default; оси глифа в слоте базы не совпадают с надстройкой), BOARD (на странице нет борды v3),
 // NESTED (вложен компонент со статусом deprecated или без главного компонента).
 // SERVICE (в наборах из SERVICE_DONE служебный слой не экземпляр _Focus ring / _State layer / _Hit area / _Safe margin).
 // STATE (слой state layer во весь родитель, а радиус привязан к другой переменной, чем у родителя).
@@ -14,7 +14,8 @@
 const PAGES = null; // null = все страницы компонентов; или имена / id страниц: ['Segment', 'Input', '1825:3314'] (по id берутся и наборы с «_»)
 const CHUNK = 0; const CHUNK_SIZE = 18500; // ответ use_figma ≤ 20 KB
 // Семьи: база → кто обязан быть собран на ней (вложенный экземпляр базы). Добавлять по мере появления базовых.
-const FAMILIES = { '_Field base': ['Input', 'Textarea', 'Select', 'Multiselect', 'Password field', 'Date range field', 'Input amount', 'Code input', 'Input · пилот', 'Textarea · пилот'] };
+const FAMILIES = { '_Field base': ['Input', 'Textarea', 'Select', 'Multiselect', 'Password field', 'Date range field', 'Input amount', 'Code input', 'Input · пилот', 'Textarea · пилот'],
+  '_Selection control': ['Checkbox', 'Radio', 'Toggle', 'Checkbox · пилот', 'Radio · пилот', 'Toggle · пилот'] };
 const PAIRS = [['Input', 'Textarea']]; // парные компоненты: добавлять сюда новые пары
 const DEPRECATED = new Set(['action/tertiary/hover', 'action/tertiary/pressed', 'surface/hover', 'surface/active', 'control/segment-hover', 'action/secondary/hover']);
 figma.skipInvisibleInstanceChildren = false;
@@ -23,7 +24,7 @@ const vinfo = async id => { if (!(id in cache)) { const v = await figma.variable
 // Вложенные экземпляры не обходим, кроме служебных слоёв (focus ring, state layer, hit area · overlay, safe area · outer): сам экземпляр проверяем, внутрь не идём.
 const SERVICE = { 'focus ring': '_Focus ring', 'state layer': '_State layer', 'hit area · overlay': '_Hit area', 'safe area · outer': '_Safe margin' };
 // Наборы, уже пересаженные на служебные компоненты (страница _Service layers). Добавлять по мере миграции; для них служебный слой обязан быть экземпляром.
-const SERVICE_DONE = new Set(['_Field base']);
+const SERVICE_DONE = new Set(['_Field base', '_Selection control', '_Checkbox control', '_Radio control', '_Toggle control']);
 const walk = (n, inst, fn) => { if (n.type === 'INSTANCE' && inst) { if (SERVICE[n.name]) fn(n); return; } fn(n); if (n.children) for (const c of n.children) walk(c, true, fn); };
 const SKIP = /hit area|safe area|safe margin|overlay/i;
 const KEY = /^(control|box|track|thumb|dot|mark|check|indicator|pill|body|field)$/i;
@@ -33,7 +34,7 @@ const bySet = {};
 const byId = p => !!PAGES && PAGES.includes(p.id);
 const pages = figma.root.children.slice(2).filter(p => byId(p) || (/^[🟠🟡🟢🔴]/u.test(p.name) && (!PAGES || PAGES.includes(p.name.replace(/^[🟠🟡🟢🔴]\s*/u, '')))));
 const baseOf = {}; for (const [b, list] of Object.entries(FAMILIES)) for (const n of list) baseOf[n] = b;
-const mainSetName = async i => { const m = await i.getMainComponentAsync(); if (!m) return null; return { name: m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.name : m.name, variant: m.name, desc: ((m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.description : m.description) || '') }; };
+const mainSetName = async i => { const m = await i.getMainComponentAsync(); if (!m) return null; return { name: m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.name : m.name, variant: m.name, set: m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent : null, desc: ((m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.description : m.description) || '') }; };
 for (const pg of pages) {
   await figma.setCurrentPageAsync(pg);
   const sets = pg.findAll(n => n.type === 'COMPONENT_SET' && (byId(pg) || !n.name.startsWith('_')));
@@ -64,8 +65,10 @@ for (const pg of pages) {
         if (!m) { add(key, 'NESTED «' + i.name + '» без главного компонента'); continue; }
         if (/^Status:\s*deprecated/.test(m.desc.trim())) add(key, 'NESTED вложен deprecated «' + m.name + '»');
         if (fam && m.name === fam) { hasBase = true; const mv = Object.fromEntries(m.variant.split(', ').map(p => p.split('=')));
-          for (const part of v.name.split(', ')) { const [a, b] = part.split('='); if (a in mv && mv[a] !== b) add(key, 'BASE ось ' + a + ': надстройка ' + b + ', база ' + mv[a] + ' (' + v.name + ')'); }
-          if (!i.isExposedInstance) add(key, 'BASE экземпляр базы не раскрыт (isExposedInstance)'); } }
+          for (const part of v.name.split(', ')) { const [a, b] = part.split('='); if (a in mv && mv[a] !== b && (mv[a] !== 'Default' || (m.set && m.set.children.some(c => c.name.split(', ').includes(a + '=' + b))))) add(key, 'BASE ось ' + a + ': надстройка ' + b + ', база ' + mv[a] + ' (' + v.name + ')'); }
+          if (!i.isExposedInstance) add(key, 'BASE экземпляр базы не раскрыт (isExposedInstance)');
+          for (const g of i.exposedInstances || []) { const gm = await mainSetName(g); if (!gm) continue; const gv = Object.fromEntries(gm.variant.split(', ').map(p => p.split('=')));
+            for (const part of v.name.split(', ')) { const [a, b] = part.split('='); if (a in gv && gv[a] !== b) add(key, 'BASE глиф ' + gm.name + ' ось ' + a + ': надстройка ' + b + ', глиф ' + gv[a] + ' (' + v.name + ')'); } } } }
       if (fam && hasBase) famHit++;
       const nodes = []; walk(v, false, n => nodes.push(n));
       for (const n of nodes) {
