@@ -2,9 +2,18 @@
 // Каждая находка разработки или ручного прохода сначала становится проверкой здесь, потом исправляется.
 // Что ловит: DEPRECATED (токены из списка ниже ещё привязаны), SIZE (ключевые слои без переменной размера),
 // RING (кольцо фокуса не OUTSIDE / толщина и радиус без переменной / виден вне Focus),
-// COVERAGE (у части вариантов по оси сырой цвет, у соседей токен), PARITY (парные компоненты расходятся).
+// COVERAGE (у части вариантов по оси сырой цвет, у соседей токен), PARITY (парные компоненты расходятся),
+// MINMAX (min / max корня числом, без переменной size/*), MATRIX (вариантов меньше произведения осей и в описании нет строки «Матрица:»),
+// DESC (первая строка не Status:, нет Level / «Когда использовать» / A11y), AXES (Left / Right вместо Start / End, булева ось, State не последняя ось),
+// BASE (компонент семьи без вложенной базы; оси надстройки не совпадают с вариантом вложенной базы), BOARD (на странице нет борды v3),
+// NESTED (вложен компонент со статусом deprecated или без главного компонента).
+// STATE (слой state layer во весь родитель, а радиус привязан к другой переменной, чем у родителя).
+// SIZE не считает ширину корня (ширина по умолчанию — не размер компонента).
 // Чего НЕ ловит (проверять руками, см. docs/preflight.md): цвет иконки и подписи, заливка полоски под подписью (notch).
-const PAGES = null; // null = все страницы компонентов; или ['Segment', 'Input']
+const PAGES = null; // null = все страницы компонентов; или имена / id страниц: ['Segment', 'Input', '1825:3314'] (по id берутся и наборы с «_»)
+const CHUNK = 0; const CHUNK_SIZE = 18500; // ответ use_figma ≤ 20 KB
+// Семьи: база → кто обязан быть собран на ней (вложенный экземпляр базы). Добавлять по мере появления базовых.
+const FAMILIES = { '_Field base': ['Input', 'Textarea', 'Select', 'Multiselect', 'Password field', 'Date range field', 'Input amount', 'Code input', 'Input · пилот', 'Textarea · пилот'] };
 const PAIRS = [['Input', 'Textarea']]; // парные компоненты: добавлять сюда новые пары
 const DEPRECATED = new Set(['action/tertiary/hover', 'action/tertiary/pressed', 'surface/hover', 'surface/active', 'control/segment-hover', 'action/secondary/hover']);
 figma.skipInvisibleInstanceChildren = false;
@@ -16,25 +25,55 @@ const KEY = /^(control|box|track|thumb|dot|mark|check|indicator|pill|body|field)
 const rep = {}; const add = (k, msg) => { (rep[k] = rep[k] || new Set()).add(msg); };
 const paintCount = (v) => { let bound = 0, raw = 0; walk(v, false, n => { if (SKIP.test(n.name) || n.visible === false || n.type === 'TEXT') return; for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.visible !== false && p.type === 'SOLID') { if (p.boundVariables && p.boundVariables.color) bound++; else raw++; } }); return { bound, raw }; };
 const bySet = {};
-const pages = figma.root.children.slice(2).filter(p => /^[🟠🟡🟢🔴]/u.test(p.name) && (!PAGES || PAGES.includes(p.name.replace(/^[🟠🟡🟢🔴]\s*/u, ''))));
+const byId = p => !!PAGES && PAGES.includes(p.id);
+const pages = figma.root.children.slice(2).filter(p => byId(p) || (/^[🟠🟡🟢🔴]/u.test(p.name) && (!PAGES || PAGES.includes(p.name.replace(/^[🟠🟡🟢🔴]\s*/u, '')))));
+const baseOf = {}; for (const [b, list] of Object.entries(FAMILIES)) for (const n of list) baseOf[n] = b;
+const mainSetName = async i => { const m = await i.getMainComponentAsync(); if (!m) return null; return { name: m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.name : m.name, variant: m.name, desc: ((m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.description : m.description) || '') }; };
 for (const pg of pages) {
   await figma.setCurrentPageAsync(pg);
-  for (const s of pg.findAll(n => n.type === 'COMPONENT_SET' && !n.name.startsWith('_'))) {
+  const sets = pg.findAll(n => n.type === 'COMPONENT_SET' && (byId(pg) || !n.name.startsWith('_')));
+  if (sets.some(s => !s.name.startsWith('_') && !/· пилот$/.test(s.name)) && !pg.children.some(n => /— борда · шаблон v3/.test(n.name))) add(pg.name.replace(/^[🟠🟡🟢🔴]\s*/u, ''), 'BOARD на странице нет борды «шаблон v3»');
+  for (const s of sets) {
     const key = pg.name.replace(/^[🟠🟡🟢🔴]\s*/u, '') + ' / ' + s.name; bySet[s.name] = s;
     const axes = {}; for (const v of s.children) for (const part of v.name.split(', ')) { const [a, b] = part.split('='); (axes[a] = axes[a] || new Set()).add(b); }
+    const d = (s.description || '').trim(), isBase = s.name.startsWith('_');
+    if (!/^Status:\s*(draft|beta|stable|deprecated)/.test(d)) add(key, 'DESC первая строка не «Status: draft|beta|stable|deprecated»');
+    if (!/(^|\n)Level:/.test(d)) add(key, 'DESC нет строки Level:');
+    if (!isBase && !/Когда использовать/i.test(d)) add(key, 'DESC нет «Когда использовать»');
+    if (!isBase && !/A11y:/.test(d)) add(key, 'DESC нет A11y:');
+    const full = Object.values(axes).reduce((p, x) => p * x.size, 1);
+    if (s.children.length < full && !/(^|\n)Матрица:/.test(d)) add(key, 'MATRIX вариантов ' + s.children.length + ' из ' + full + ', в описании нет строки «Матрица:» с правилом');
+    const order = Object.keys(axes);
+    for (const [a, vals] of Object.entries(axes)) { const vs = [...vals];
+      if (vs.some(x => /^(Left|Right)$/i.test(x)) || /left|right/i.test(a)) add(key, 'AXES ось «' + a + '»: Left / Right, нужно Start / End');
+      if (vs.length <= 2 && vs.every(x => /^(true|false|on|off|yes|no)$/i.test(x))) add(key, 'AXES ось «' + a + '» булева (' + vs.join(' / ') + '): проверить, не свойство ли это'); }
+    if (order.includes('State') && order[order.length - 1] !== 'State') add(key, 'AXES порядок осей: State не последняя (' + order.join(', ') + ')');
+    const fam = baseOf[s.name]; let famHit = 0;
     const sigs = {};
     for (const v of s.children) {
-      sigs[v.name] = paintCount(v); const st = (v.name.match(/State=(\w+)/) || [])[1];
+      sigs[v.name] = paintCount(v); const st = (v.name.match(/State=([\w-]+)/) || [])[1];
+      const vb = v.boundVariables || {}; for (const k of ['minWidth', 'maxWidth', 'minHeight', 'maxHeight']) if (v[k] != null && !vb[k]) add(key, 'MINMAX ' + k + '=' + v[k] + ' числом, нужна переменная size/*');
+      const insts = []; (function w(n) { if (n.type === 'INSTANCE') { insts.push(n); return; } if (n.children) for (const c of n.children) w(c); })(v);
+      let hasBase = false;
+      for (const i of insts) { const m = await mainSetName(i);
+        if (!m) { add(key, 'NESTED «' + i.name + '» без главного компонента'); continue; }
+        if (/^Status:\s*deprecated/.test(m.desc.trim())) add(key, 'NESTED вложен deprecated «' + m.name + '»');
+        if (fam && m.name === fam) { hasBase = true; const mv = Object.fromEntries(m.variant.split(', ').map(p => p.split('=')));
+          for (const part of v.name.split(', ')) { const [a, b] = part.split('='); if (a in mv && mv[a] !== b) add(key, 'BASE ось ' + a + ': надстройка ' + b + ', база ' + mv[a] + ' (' + v.name + ')'); }
+          if (!i.isExposedInstance) add(key, 'BASE экземпляр базы не раскрыт (isExposedInstance)'); } }
+      if (fam && hasBase) famHit++;
       const nodes = []; walk(v, false, n => nodes.push(n));
       for (const n of nodes) {
         if (SKIP.test(n.name)) continue; const b = n.boundVariables || {};
         const ids = []; for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.boundVariables && p.boundVariables.color) ids.push(p.boundVariables.color.id);
         for (const [k, val] of Object.entries(b)) { if (k === 'fills' || k === 'strokes') continue; for (const a of (Array.isArray(val) ? val : [val])) if (a && a.id) ids.push(a.id); }
         for (const id of ids) { const vi = await vinfo(id); if (vi.dep) add(key, 'DEPRECATED ' + vi.n + ' (' + st + ' · ' + n.name + ')'); }
-        if (n.visible !== false && n.type !== 'TEXT' && (n === v || KEY.test(n.name))) for (const [k, sz] of [['width', n.layoutSizingHorizontal], ['height', n.layoutSizingVertical]]) if (sz !== 'FILL' && sz !== 'HUG' && !b[k]) add(key, 'SIZE ' + n.name + '.' + k + ' без переменной');
+        if (n.visible !== false && n.type !== 'TEXT' && (n === v || KEY.test(n.name))) for (const [k, sz] of [['width', n.layoutSizingHorizontal], ['height', n.layoutSizingVertical]]) if (sz !== 'FILL' && sz !== 'HUG' && !b[k] && !(n === v && k === 'width')) add(key, 'SIZE ' + n.name + '.' + k + ' без переменной');
+        if (n.name === 'state layer' && n.parent && n.parent !== v && Math.abs(n.width - n.parent.width) < 1 && Math.abs(n.height - n.parent.height) < 1) { const pb = n.parent.boundVariables || {}; if (pb.topLeftRadius && (!b.topLeftRadius || b.topLeftRadius.id !== pb.topLeftRadius.id)) add(key, 'STATE радиус слоя state layer не равен радиусу «' + n.parent.name + '»'); }
         if (n.name === 'focus ring') { if (n.strokeAlign !== 'OUTSIDE') add(key, 'RING обводка ' + n.strokeAlign + ', нужна OUTSIDE'); if (!b.strokeTopWeight && !b.strokeWeight) add(key, 'RING толщина без переменной'); if (!b.topLeftRadius) add(key, 'RING радиус без переменной'); if (n.visible && st && st !== 'Focus' && st !== 'Default') add(key, 'RING виден в ' + st); }
       }
     }
+    if (fam && famHit < s.children.length) add(key, 'BASE собран не на ' + fam + ' (' + famHit + ' из ' + s.children.length + ' вариантов)');
     for (const a of Object.keys(axes)) { if (axes[a].size < 2) continue; const groups = {};
       for (const v of s.children) { const rest = v.name.split(', ').filter(p => p.split('=')[0] !== a).join(', '); (groups[rest] = groups[rest] || []).push(v.name); }
       for (const names of Object.values(groups)) { if (names.length < 2) continue; const raws = names.map(n => sigs[n].raw); if (Math.max(...raws) > 0 && Math.min(...raws) === 0) add(key, 'COVERAGE ось ' + a + ': у части вариантов сырой цвет (' + names.filter((n, i) => raws[i] > 0).slice(0, 2).join(' | ') + ')'); } }
@@ -72,5 +111,6 @@ for (const [A, B] of PAIRS) { const a = bySet[A], b = bySet[B]; if (!a || !b) co
     for (const nm of Object.keys(la)) if (!lb[nm] && la[nm].visible !== false && /hit area|focus ring|field|helper|label|notch/i.test(nm)) add(A + '↔' + B, 'PARITY слой «' + nm + '» только в ' + A);
     if (la['focus ring'] && lb['focus ring'] && la['focus ring'].strokeAlign !== lb['focus ring'].strokeAlign) add(A + '↔' + B, 'PARITY кольцо: ' + la['focus ring'].strokeAlign + ' ≠ ' + lb['focus ring'].strokeAlign);
     if (la['field'] && lb['field']) for (const k of ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft']) { const x = !!(la['field'].boundVariables && la['field'].boundVariables[k]), y = !!(lb['field'].boundVariables && lb['field'].boundVariables[k]); if (x !== y) add(A + '↔' + B, 'PARITY field.' + k + ': привязка ' + (x ? 'есть только у ' + A : 'есть только у ' + B)); } } }
-const res = {}; let total = 0; for (const [k, v] of Object.entries(rep)) { res[k] = [...v].slice(0, 7); total += v.size; }
-return { sets: Object.keys(bySet).length, withIssues: Object.keys(res).length, issues: total, res };
+const res = {}; let total = 0; const kinds = {}; for (const [k, v] of Object.entries(rep)) { res[k] = [...v].slice(0, 12); total += v.size; for (const m of v) { const t = m.split(' ')[0]; kinds[t] = (kinds[t] || 0) + 1; } }
+const json = JSON.stringify({ sets: Object.keys(bySet).length, withIssues: Object.keys(res).length, issues: total, kinds, res }); const nCh = Math.ceil(json.length / CHUNK_SIZE);
+return 'chunk ' + CHUNK + '/' + nCh + '\n' + json.slice(CHUNK * CHUNK_SIZE, (CHUNK + 1) * CHUNK_SIZE);

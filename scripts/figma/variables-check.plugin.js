@@ -1,15 +1,16 @@
 // «Всё на переменных, кроме реестра» (run via use_figma on Components, read-only).
 // Walks component sets / components of the pages in [FROM, TO) (index in figma.root.children) and reports every value that is
-// not bound to a variable: fill / stroke colour, stroke weight, padding / gap, radius, font size / line height (no text style).
+// not bound to a variable: fill / stroke colour, stroke weight, padding / gap, radius, min / max width / height, font size / line height (no text style).
 // A finding is an exception only when it is listed in docs/exceptions.md (value, where, reason, review date); everything else is a defect.
 // Output: { "<component>": ["fill #hex @layer", "radius 1 @layer", ...] }  (instances are skipped: their masters are checked).
 const FROM = 0, TO = 20;
+const PAGES = []; // id страниц: если задано, FROM / TO и фильтр по эмодзи не действуют (служебные страницы баз «_…»)
 figma.skipInvisibleInstanceChildren = true;
 const rep = {};
 const walk = (n, fn) => { if (n.type === 'INSTANCE') return; fn(n); if (n.children) for (const c of n.children) walk(c, fn); };
 const hex = (c) => '#' + [c.r, c.g, c.b].map((x) => Math.round(x * 255).toString(16).padStart(2, '0')).join('');
-for (const pg of figma.root.children.slice(FROM, TO)) {
-  if (!/^[🟠🟡🟢🔴]/u.test(pg.name)) continue;
+for (const pg of PAGES.length ? figma.root.children.filter((p) => PAGES.includes(p.id)) : figma.root.children.slice(FROM, TO)) {
+  if (!PAGES.length && !/^[🟠🟡🟢🔴]/u.test(pg.name)) continue;
   await figma.setCurrentPageAsync(pg);
   for (const s of pg.findAll((n) => n.type === 'COMPONENT_SET' || (n.type === 'COMPONENT' && n.parent.type !== 'COMPONENT_SET'))) {
     const out = new Set();
@@ -20,6 +21,7 @@ for (const pg of figma.root.children.slice(FROM, TO)) {
       if (n.strokes && n.strokes.length && typeof n.strokeWeight === 'number' && n.strokeWeight && !b.strokeTopWeight && !b.strokeWeight) out.add(`stroke-weight ${n.strokeWeight} @${n.name}`);
       if (n.layoutMode && n.layoutMode !== 'NONE') for (const k of ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft', 'itemSpacing']) if (n[k] && !b[k]) out.add(`${k} ${n[k]} @${n.name}`);
       if (typeof n.cornerRadius === 'number' && n.cornerRadius > 0 && !b.topLeftRadius) out.add(`radius ${n.cornerRadius} @${n.name}`);
+      for (const k of ['minWidth', 'maxWidth', 'minHeight', 'maxHeight']) if (n[k] != null && !b[k]) out.add(`${k} ${n[k]} @${n.name}`);
       if (n.type === 'TEXT' && !n.textStyleId && !(b.fontSize)) out.add(`text ${n.fontSize} @${n.name}`);
     });
     if (out.size) rep[pg.name + ' / ' + s.name] = [...out];

@@ -16,6 +16,8 @@
 
 9. **Иконка в паре с подписью** (скрипт: ICON): в Disabled иконка `icon/disabled`; у Danger (Button, Menu item) `icon/danger`; у `text/secondary` в Tab, Tab bar item, Nav item `icon/secondary`; у Segment иконка парная подписи при каждом Tone (`icon/on-accent` для Accent, Success, Danger). Иконки слева у полей ввода цвет значения не наследуют.
 10. **Кольцо фокуса одного вида** (решение Стефана 2026-11-09): рамка на 2 px больше родителя (`focus/offset`), обводка OUTSIDE, толщина `border/width/focus-ring`, радиус — токен `radius/focus-ring*` под радиус родителя (`control` → `radius/focus-ring`, `control-sm` → `-sm`, `lg` и `container` → `-lg`, `xs` → `-xs`, `inner` и `sm` → `-inner`, `surface` и `xl` → `-surface`, `chip` и `full` → `radius/full`).
+11. **Слой состояния** (скрипт: STATE, с 2026-11-12): `state layer` во весь родитель несёт тот же радиус-токен, что и родитель.
+12. **Семья на общей базе** (скрипт: BASE): компонент из `FAMILIES` собран на вложенном раскрытом экземпляре базы, оси надстройки совпадают с вариантом базы. Min / max числом — MINMAX и `variables-check`.
 
 ## Что скрипт не ловит (проверять руками, чеклист ручного прохода)
 
