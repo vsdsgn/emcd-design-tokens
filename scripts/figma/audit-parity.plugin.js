@@ -4,7 +4,7 @@
 // RING (кольцо фокуса не OUTSIDE / толщина и радиус без переменной / виден вне Focus),
 // COVERAGE (у части вариантов по оси сырой цвет, у соседей токен), PARITY (парные компоненты расходятся),
 // MINMAX (min / max корня числом, без переменной size/*), MATRIX (вариантов меньше произведения осей и в описании нет строки «Матрица:»),
-// DESC (первая строка не Status:, нет Level / «Когда использовать» / A11y), AXES (Left / Right вместо Start / End, булева ось, State не последняя ось),
+// DESC (первая строка не Status:, нет Level / «Когда использовать» / A11y, экранированные сущности &amp; / &quot; / &lt; в тексте), AXES (Left / Right вместо Start / End, булева ось, State не последняя ось),
 // BASE (компонент семьи без вложенной базы; оси надстройки не совпадают с вариантом вложенной базы — если у базы такого значения оси нет, база обязана быть Default; оси глифа в слоте базы не совпадают с надстройкой), BOARD (на странице нет борды v3),
 // NESTED (вложен компонент со статусом deprecated или без главного компонента).
 // SERVICE (в наборах из SERVICE_DONE служебный слой не экземпляр _Focus ring / _State layer / _Hit area / _Safe margin).
@@ -53,6 +53,7 @@ for (const pg of pages) {
     if (!/(^|\n)Level:/.test(d)) add(key, 'DESC нет строки Level:');
     if (!isBase && !/Когда использовать/i.test(d)) add(key, 'DESC нет «Когда использовать»');
     if (!isBase && !/A11y:/.test(d)) add(key, 'DESC нет A11y:');
+    if (/&(amp|quot|lt|gt|#\d+);/.test(d)) add(key, 'DESC в описании экранированные сущности (&amp; / &quot; / &lt;)');
     const full = Object.values(axes).reduce((p, x) => p * x.size, 1);
     if (s.children.length < full && !/(^|\n)Матрица:/.test(d)) add(key, 'MATRIX вариантов ' + s.children.length + ' из ' + full + ', в описании нет строки «Матрица:» с правилом');
     const order = Object.keys(axes);

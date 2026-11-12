@@ -18,6 +18,7 @@
     "test:android": "node tests/devices/android.mjs",
     "exceptions": "node scripts/exceptions-check.mjs",
     "parity": "node scripts/parity.mjs",
+    "contracts": "node scripts/contract-build.mjs",
     "a11y:apca": "python3 scripts/apca-check.py",
     "a11y": "python3 scripts/a11y-check.py && python3 scripts/apca-check.py"
   },

@@ -198,6 +198,20 @@
 - Прозрачность числом: 20 % у `_Hit area` и `_Safe margin`, 56 % у цвета `_Focus ring`. Теперь по одному месту на значение. Кандидат на доску фазы E: завести токены или записать в `docs/exceptions.md`.
 - `audit-parity` обходит только наборы; одиночные компоненты проверяют `audit` и `variables-check`. Расширить, если появятся одиночные не служебные компоненты.
 
+### 2026-11-12 · находки по 18 beta-наборам (правки — с пакетом замены после точки отката; списки — раздел 15 контрактов)
+- Экранированные сущности (`&amp;…quot;`) в описаниях: Breadcrumb item, Button, Checkbox, Radio, Segment, Toggle, Tab bar item. Ловит `audit-parity` (DESC).
+- Мусор в строке «Поиск» (слово в другой раскладке): Badge, Counter, Chip, Status, Tab, Tab bar item. Решить одно правило: раскладка-синоним нужна или нет. Скрипт пока не ловит — добавить проверку после решения.
+- Вариант по умолчанию не по правилу: Badge — Skeleton; Button — S (правило: M в Web); Icon button — Primary S (самый частый — Ghost).
+- Матрица меньше произведения без строки «Матрица:»: Badge 39 / 72, Button 176 / 192, Icon button 240 / 280, Segment 36 / 128, Tab 36 / 40.
+- Loading: свойство у Button, значение State у Icon button (кандидат 3 доски решений).
+- Breadcrumb item: `label` без текстового стиля; max-width 200 в наборе против «до 160» в описании.
+- Tab bar item: радиус `state layer` 12 числом. Tab: `indicator.width` без переменной.
+- Dot (вложен в Status): описание не по шаблону, статуса нет — служебный `_Dot` или draft.
+- Input addon: у Max зоны названы `fine / coarse` (в системе `web / app`), состояний Hover / Pressed / Disabled нет; Stepper собран слоями, а не экземплярами Icon button; Counter дублирует смысл Counter Neutral — нужен ли отдельный компонент.
+- Интерактивный Badge (Close, Chevron, Focus ring) без зон нажатия: это Badge или Chip.
+- Min / max числом (Badge 160, Chip 240, контролы 480, Counter 16 / 20 / 40, Button 64 у части вариантов): значения приняты 30.10, осталось — токены или строка в `docs/exceptions.md`.
+- Соответствие legacy-типов Button новым (Secondary base → Tertiary и т. д.) в `components.csv` выведено из описаний — сверить с разработчиком.
+
 ### 2026-11-12 · фаза A брифа агента (не блокирует, работа идёт)
 - **Version history:** поставить точку отката в Components перед пилотом базы полей (API плагина этого не умеет).
 - **Publish Foundations:** 21 токен от 09.11 (в отчёте было «20» — ошибка счёта, список тот же) не в репо (список — `docs/audit-2026-11-12.md`, раздел 3). После Publish экспорт и сборку делает агент.

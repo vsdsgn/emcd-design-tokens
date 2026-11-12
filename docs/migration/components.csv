@@ -43,7 +43,7 @@ Tabs,DS Web,base tabbar --1.5,adaptive mobile,false|true,Tabs Size,L|M,
 Chip,DS Web,baseChip / base --1.5,size,md|sm,Size,M|S,44 → 40; 36 → 32
 Chip,DS Web,baseChip / base --1.5,active,false|true,Selected,Off|On,
 Chip,DS Web,baseChip / base --1.5,state + disable,default|hover|pressed + true,State,Default|Hover|Pressed|Disabled,
-Chip,DS Web,baseChip / vertical --1.5,(set),—,Layout,Vertical,64×64
+Chip,DS Web,baseChip / vertical --1.5,(set),—,—,не переносим,64×64; вертикальная раскладка убрана 2026-10-18
 Chip,DS Web,baseChip,subtext,bool,Meta,bool,
 Chip,DS Web,baseChip,focus,bool,Focus ring,bool,
 Segmented,DS Web,base segmented picker item / text|icon only,status|color,neutral|brand|danger|success,Tone,Neutral|Accent|Danger|Success,
@@ -131,14 +131,14 @@ Stepper,DS Web,Step Symbol · Step Trail · Step Text - Horizontal,Type | State 
 Divider,DS App,divider text --1.0,—,—,Orientation | Label,Horizontal/Vertical | On/Off,
 Code input,Web App,Безопасность → «Введи код из пуш уведомления» (4 ячейки),макет,—,Length | State,4/6 | Default/Error/Success/Disabled,доработка: 6 цифр, ошибка, лимит попыток, таймер повторной отправки
 Code cell,Web App,ячейка кода 69×70,макет,—,Size | State,L/M | Empty/Focus/Filled/Error/Success/Disabled,
-Button,DS Web,baseButton,Type,Primary|Secondary base|Secondary accent|Stroke base|Stroke accent|Error|Success|Link|Text|Text accent|white,Type,Primary|Secondary|Secondary accent|Outline|Tertiary accent|Link|Error|Tertiary error|Inverted,Stroke base→Outline; Text accent→Tertiary accent; white→Inverted; Stroke accent и Success — не переносим (редко); Link/Tertiary — на ревью (дублируют)
+Button,DS Web,baseButton,Type,Primary|Secondary base|Secondary accent|Stroke base|Stroke accent|Error|Success|Link|Text|Text accent|white,Type + Tone,Primary|Secondary|Tertiary|Tertiary outline|Text|Inverted + Default|Danger,"Secondary base→Tertiary; Secondary accent→Secondary; Stroke base→Tertiary outline; Text accent и Link→Text; Error→Primary + Tone=Danger; white→Inverted; Stroke accent и Success — не переносим; Danger только у Primary, Secondary, Text (обновлено по набору Figma 2026-11-12; соответствие legacy→тип — сверить с разработчиком)"
 Button,DS Web,baseButton,Size,Large|Small,Size,S|M|L|XL,"Small 36→S 32 (−4), Large 56→XL 56; M 40 и L 48 — новые по шкале (проверено по формам 2026-10-04)"
 Button,DS Web,baseButton,Has left icon / Has rIght icon / Has text,bool,Icon left / Icon right / Label,bool / text,без текста → Icon button
 Button,DS Web,baseButton,Active,No|Yes,State,Default|Hover|Pressed|Disabled,"+ Focus ring, Loading — новое"
-Icon button,DS Web,baseButton (Has text=false) / .button circle,Type,как у Button,Type,Primary|Secondary|Outline|Ghost|Ghost accent|Inverted,Ghost — самая частая; размеры S/M/L/XL
+Icon button,DS Web,baseButton (Has text=false) / .button circle,Type,как у Button,Type + Tone,Primary|Secondary|Tertiary|Tertiary outline|Ghost|Text|Inverted + Default|Danger,"Ghost — самая частая; размеры S/M/L/XL; Loading — значение State (обновлено по набору Figma 2026-11-12)"
 Checkbox,DS Web,baseCheckbox with text,status,default|active|intermediate,Status,Off|On|Indeterminate,1:1
-Checkbox,DS Web,baseCheckbox with text,disable / danger / size,bool / bool / md|sm,State / Danger / —,Disabled / Off|On / размер из Platform,secondary не переносим; цвета → control/*
-Radio,DS Web,baseRadio with text,active / disable / danger,bool,Status / State / Danger,Off|On / Disabled / Off|On,1:1; secondary не переносим
+Checkbox,DS Web,baseCheckbox with text,disable / danger / size,bool / bool / md|sm,State / Tone / Size,Disabled / Default|Danger / M|S,secondary не переносим; цвета → control/* (обновлено по набору Figma 2026-11-12)
+Radio,DS Web,baseRadio with text,active / disable / danger,bool,Status / State / Tone,Off|On / Disabled / Default|Danger,1:1; secondary не переносим; Size M|S — новое (обновлено 2026-11-12)
 Toggle,DS Web,baseToggle with text,active / disable / size,bool / bool / md|sm,Status / State / Size,Off|On / Disabled / M|S,danger не переносим (ошибка → откат + Toast)
 Input,DS Web,input,type,text input|multi select|single select|number,—,—,select → Select / Select compact; number → Input + Input addon / Stepper
 Input,DS Web,input,size,large|small,Size,M|L|XL,"small 40→M, large 48→L; XL 56 — новое"

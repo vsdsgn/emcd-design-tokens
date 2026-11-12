@@ -19,6 +19,8 @@ jobs:
         run: npm run exceptions
       - name: Parity Figma manifest ↔ tokens, statuses, code manifest (docs/parity-baseline.json)
         run: npm run parity
+      - name: Component contracts match manifest + contract-data (docs/components)
+        run: npm run contracts -- --check
       - name: A11y report (WCAG + APCA, report only; --strict is off: coloured text in dark is Lc 44–51 by the half-step decision)
         run: npm run a11y
       - name: Browser floor (browserslist)
