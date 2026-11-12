@@ -60,7 +60,7 @@ Legacy: старые имена компонента
 
 ### Фокус
 
-- Видимый фокус (решение Стефана 2026-10-26, нейтральное) — **сплошное кольцо 2 px через зазор 2 px** (`focus/offset`) цвета поверхности; цвет `border/focus-ring` = `border/focus` = нейтральный 56 % (чёрный в светлой, белый в тёмной), одинаков для всех компонентов, вариантов и брендов (фокус — состояние, не intent). Радиус кольца = радиус объекта + 4 (в Figma — рамка `focus ring`).
+- Видимый фокус (решение Стефана 2026-10-26, нейтральное) — **сплошное кольцо** (построение — раздел «Кольцо фокуса», решение 2026-11-09 / 12); цвет `border/focus-ring` = `border/focus` = нейтральный 56 % (чёрный в светлой, белый в тёмной), одинаков для всех компонентов, вариантов и брендов (фокус — состояние, не intent). В Figma — рамка `focus ring`, радиус токеном `radius/focus-ring*`.
 - Объекты с обводкой (инпут, селект, чип, чекбокс) — обводка становится `control/border/focus` (= `border/focus`, нейтральная) + кольцо снаружи; залитые объекты (кнопки, выбранный сегмент, тумблер) — только кольцо.
 - Повышенный контраст (`prefers-contrast: more`): кольцо = `border/focus`, обводки сильнее, декор выключен — слой `contrast-more.css`. Forced colors (Windows): у фокусируемых элементов `outline: 2px solid transparent` — система нарисует свой фокус.
 - Показывается только при управлении с клавиатуры / переключателя / пульта / геймпада / читалки (`:focus-visible`), не при клике мышью или тапе. Браузеры без `:focus-visible` (Safari < 15.4) — см. docs/browser-support.md.
@@ -173,7 +173,7 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 |---|---|---|---|---|---|
 | **Плашка** (есть фон или форма нажатия) | Button, Icon button, Chip, Segment, Menu item, List item, Accordion, Nav item, Pagination item, Date cell, Multiselect option, Table row / header cell, Floating button, Select compact, File upload, Scrollbar | слой `state/layer` × `state/hover` 6 % поверх фона | тот же слой × `state/pressed` 10 % (+ масштаб 0.96 у кнопок) | плашка `action/disabled` / `control/surface/disabled` 8 %, текст и иконки `*/disabled` 40 %, обводка `control/border/disabled`; без Hover | `accent/subtle` + `text/accent` (тинт); сплошная заливка — только выбранная дата и отмеченный контрол |
 | На тёмной / цветной плашке (Inverted, выбранный Chip, Primary) | — | слой `state/layer-inverse` (белый в светлой теме) | то же | как выше | — |
-| **Поле** | Input, Select, Textarea, Input amount, Code input, Password field | обводка `control/border/hover` (нейтральная) | нет | как выше | Focus — обводка `control/border/focus` + кольцо |
+| **Поле** | Input, Select, Textarea, Input amount, Code input, Password field | слой `state/layer` × `state/hover`, обводка остаётся `control/border/default` (решение 2026-10-16) | нет | как выше | Focus — обводка `control/border/focus` + кольцо |
 | **Контрол выбора** | Checkbox, Radio, Toggle | слой на коробочке / круге / дорожке 6 % | 10 % + 0.96 | 8 % / ползунок 40 % | `control/checked` |
 | **Навигация** | Tab, Nav item | слой / цвет текста | — | `*/disabled` | индикатор `border/accent` (Tab — снизу, Nav item — слева 2 × 20) + нейтральная плашка у Nav item; без тинта бренда |
 | **Текстовый** | Tab, Breadcrumb, Text-кнопка, ссылка, Legend item | текст к `text/primary` (или `text/accent-hover`) | `text/accent-pressed` / подчёркивание | `text/disabled` | индикатор `border/accent` / `text/primary` |
@@ -188,18 +188,18 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 
 ## Кольцо фокуса и начертание — общее правило (2026-10-07, по ревью Button)
 
-- **Кольцо фокуса** у всех компонентов строится одинаково: слой `focus ring`, обводка OUTSIDE `border/width/focus-ring` (4) цветом `border/focus-ring`, зазор = `focus/offset` (2) от цели. Цель — корень компонента; у полей — сам field; у Menu item — плашка с отступом 4. Радиус кольца = радиус цели + 2 (`radius/focus-ring-sm`, `radius/focus-ring`, `radius/focus-ring-lg`, `radius/control-sm` для 8, `radius/full`). Figma не умеет привязать смещение слоя к переменной, поэтому зазор 2 проверяет `scripts/figma/audit.plugin.js`; в коде — `outline-offset: var(--focus-offset)`, `border-radius: calc(var(--radius) + var(--focus-offset))`.
+- **Кольцо фокуса** у всех компонентов строится одинаково (решение Стефана 2026-11-09, сделано 2026-11-12; заменяет правило 10-07 «зазор 2, толщина 4»): слой `focus ring` — рамка на 2 px больше цели с каждой стороны, обводка OUTSIDE толщиной `border/width/focus-ring`, цвет `border/focus-ring`. Цель — корень компонента; у полей — сам field; у Menu item — плашка. Радиус токеном по радиусу цели: `radius/control` → `radius/focus-ring`, `control-sm` → `-sm`, `lg` / `container` → `-lg`, `xs` → `-xs`, `sm` / `inner` → `-inner`, `surface` → `-surface`, `chip` → `radius/chip`, цель без радиуса → `radius/2xs`. Исключения (`docs/exceptions.md`): Table header cell и Table row (кольцо внутри строки без смещения), Checkbox (`radius/sm`). Проверка — RING в `scripts/figma/audit-parity.plugin.js`; в коде — `outline-offset: var(--focus-offset)`.
 - **Начертание** задаётся только стилем текста; все 20 стилей Foundations привязаны к `font-weight/regular|medium|semibold|bold`. Текст без стиля в мастерах — ошибка аудита.
 
 
 ## Модель обводок — одна для всех компонентов (2026-10-09)
 
-Обводка выбирается по **роли**, а не по виду. Hover / Pressed обводку не меняют (кроме полей) — состояние даёт слой `state/layer`.
+Обводка выбирается по **роли**, а не по виду. Hover / Pressed обводку не меняют (поля тоже, решение 2026-10-16) — состояние даёт слой `state/layer`.
 
 | Роль | Компоненты | Default | Hover | Focus | Error | Disabled | Selected |
 |---|---|---|---|---|---|---|---|
 | **Контейнер / разделитель** | Card, Menu, Toast, Modal, Sheet, Side panel, Tooltip, Tabs (линия), строки таблиц, Key-value row, Chart card | `border/subtle` (разделитель) или `border/default` (контейнер с обводкой) | — | — | — | — | — |
-| **Поле** | Input, Select, Textarea, Input amount, Code input / cell, Password field, File upload | `control/border/default` | `control/border/hover` | `control/border/focus` + кольцо | `control/border/error`; Success (Code cell) — `status/success/solid` (сплошной, как Error) | `control/border/disabled` | File upload · Dragging — `border/accent` (зона сброса) |
+| **Поле** | Input, Select, Textarea, Input amount, Code input / cell, Password field, File upload | `control/border/default` | слой, обводка та же | `control/border/focus` + кольцо | `control/border/error`; Success (Code cell) — `status/success/solid` (сплошной, как Error) | `control/border/disabled` | File upload · Dragging — `border/accent` (зона сброса) |
 | **Контрол с обводкой** | Button · Tertiary outline, Icon button outline, Chip | `control/border/default` | слой, обводка та же | только кольцо | — | Button / Icon button — обводка та же, бледнеет текст (Стефан 09.10); Chip — `control/border/disabled` | у Chip — плашка, без обводки |
 | **Граница = единственный признак** (WCAG 1.4.11, ≥ 3:1) | Checkbox, Radio (Off) | `border/strong` | слой | кольцо | `control/border/error` | `control/border/disabled` | `control/checked` (заливка) |
 | **Индикатор выбора / текущего** | Date cell · Today, Chip cell · Selected, Step · Current, Tab, Nav item | — | — | — | — | — | `border/accent` / `control/checked` |
