@@ -15,7 +15,8 @@ const PAGES = null; // null = все страницы компонентов; и
 const CHUNK = 0; const CHUNK_SIZE = 18500; // ответ use_figma ≤ 20 KB
 // Семьи: база → кто обязан быть собран на ней (вложенный экземпляр базы). Добавлять по мере появления базовых.
 const FAMILIES = { '_Field base': ['Input', 'Textarea', 'Select', 'Multiselect', 'Password field', 'Date range field', 'Input amount', 'Code input', 'Input · пилот', 'Textarea · пилот'],
-  '_Selection control': ['Checkbox', 'Radio', 'Toggle', 'Checkbox · пилот', 'Radio · пилот', 'Toggle · пилот'] };
+  '_Selection control': ['Checkbox', 'Radio', 'Toggle', 'Checkbox · пилот', 'Radio · пилот', 'Toggle · пилот'],
+  '_List row': ['Menu item', 'Multiselect option', 'List item', 'Menu item · пилот', 'Multiselect option · пилот', 'List item · пилот'] };
 const PAIRS = [['Input', 'Textarea']]; // парные компоненты: добавлять сюда новые пары
 const DEPRECATED = new Set(['action/tertiary/hover', 'action/tertiary/pressed', 'surface/hover', 'surface/active', 'control/segment-hover', 'action/secondary/hover']);
 figma.skipInvisibleInstanceChildren = false;
@@ -24,7 +25,7 @@ const vinfo = async id => { if (!(id in cache)) { const v = await figma.variable
 // Вложенные экземпляры не обходим, кроме служебных слоёв (focus ring, state layer, hit area · overlay, safe area · outer): сам экземпляр проверяем, внутрь не идём.
 const SERVICE = { 'focus ring': '_Focus ring', 'state layer': '_State layer', 'hit area · overlay': '_Hit area', 'safe area · outer': '_Safe margin' };
 // Наборы, уже пересаженные на служебные компоненты (страница _Service layers). Добавлять по мере миграции; для них служебный слой обязан быть экземпляром.
-const SERVICE_DONE = new Set(['_Field base', '_Selection control', '_Checkbox control', '_Radio control', '_Toggle control']);
+const SERVICE_DONE = new Set(['_Field base', '_Selection control', '_Checkbox control', '_Radio control', '_Toggle control', '_List row']);
 const walk = (n, inst, fn) => { if (n.type === 'INSTANCE' && inst) { if (SERVICE[n.name]) fn(n); return; } fn(n); if (n.children) for (const c of n.children) walk(c, true, fn); };
 const SKIP = /hit area|safe area|safe margin|overlay/i;
 const KEY = /^(control|box|track|thumb|dot|mark|check|indicator|pill|body|field)$/i;
@@ -105,7 +106,7 @@ for (const [sname, s] of Object.entries(bySet)) {
     if (real.length) add(key, 'PROPS «' + k.split('#')[0] + '» не привязано у ' + real.length + ' вариантов (напр. ' + real[0].name + ')'); } }
 // ICON: у подписи text/disabled иконка должна быть icon/disabled; у text/danger (Button, Menu item) icon/danger;
 // у text/secondary в Tab, Tab bar item, Nav item (иконка часть подписи) icon/secondary. Иконки полей ввода слева не трогаем.
-const ICON_SECONDARY = new Set(['Tab', 'Tab bar item', 'Nav item']), ICON_DANGER = new Set(['Button', 'Menu item']);
+const ICON_SECONDARY = new Set(['Tab', 'Tab bar item', 'Nav item']), ICON_DANGER = new Set(['Button', 'Menu item', 'Menu item · пилот']);
 const nameOf = async id => (await vinfo(id)).n;
 for (const [sname, s] of Object.entries(bySet)) {
   const pgName = (s.parent && s.parent.type === 'PAGE' ? s.parent.name : '').replace(/^[🟠🟡🟢🔴]\s*/u, ''); const key = (pgName || '?') + ' / ' + sname;

@@ -174,6 +174,16 @@
 - [ ] **4. `Status = Off | On` у Radio и Toggle:** A — оставить осью и добавить в разрешённые в `audit-parity` (рекомендация); B — булево свойство.
 - Парковка: текст 200 % стендом не снят; Menu item, Multiselect option и таблицы рисуют выбор сами — пересадка на глифы на шаге `_List row`; в описании Checkbox «кольцо 4 px, зазор 2» — сверить с правилом кольца (+2 px) при замене.
 
+### 2026-11-12 · пилот _List row (доска «⚑ Пилот _List row», Components, страница `_List row`)
+- [ ] **1. Замена на месте:** A — заменить Menu item, Multiselect option, List item пилотными наборами и перевести потребителей (Dropdown panel, Menu, Select, Multiselect, списки) (рекомендация); B — держать пилоты рядом до конца фазы C; C — не менять. До ответа действует B.
+- [ ] **2. Выбор у Multiselect option:** A — булево Selected (рекомендация: сочетается с Hover / Pressed / Disabled и фокусом); B — оставить `State = Selected`.
+- [ ] **3. Multiselect option и Menu item:** A — слить: строка множественного выбора = Menu item с Show selection, отдельный набор убрать в фазе C (рекомендация: одна задача — один способ); B — оставить два набора.
+- [ ] **4. Имена свойств:** A — как в базе: Label, Show leading + слот Leading, Show selection (рекомендация); B — оставить Title, Leading · swap, Checkbox.
+- [ ] **5. Числа без переменной:** `minHeight 40` у Option, `minWidth 120` текста у List; интервал подпись–описание у Option 2 px, у Menu и List 0. A — токены `size/row/min` = 40, `size/row/content-min` = 120 и интервал `space/2` везде (рекомендация; Publish за Стефаном); B — запись в `docs/exceptions.md`.
+- [ ] **6. Цвет галочки выбора:** A — `icon/accent` везде (рекомендация, в пилоте уже так); B — `icon/primary` везде (как у действующего Multiselect option).
+- [ ] **7. Описание у List:** ось Content у List и Show description у Menu / Option — два способа. A — оставить до фазы C (рекомендация); B — свести к одному свойству в фазе C.
+- Парковка: у Content = Big value длинное значение обрезается без многоточия; Style = Card в Dark на L3 темнее поверхности (`surface/raised` не относительный — нужен вариант от `surface/current`); `Show leading` по умолчанию true (у действующего Menu item слот слева выключен — сверить при замене); Selected и Show selection независимы — правило «вместе не включать» только в описании, скриптом не ловится; текст 200 % стендом не снят.
+
 ### 2026-11-12 · служебные слои (парковка, не блокирует)
 - Прозрачность числом: 20 % у `_Hit area` и `_Safe margin`, 56 % у цвета `_Focus ring`. Теперь по одному месту на значение. Кандидат на доску фазы E: завести токены или записать в `docs/exceptions.md`.
 - `audit-parity` обходит только наборы; одиночные компоненты проверяют `audit` и `variables-check`. Расширить, если появятся одиночные не служебные компоненты.
