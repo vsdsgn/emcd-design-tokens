@@ -1,0 +1,76 @@
+// Расширенный аудит компонентов (read-only). Запуск: Figma → Components → use_figma / плагин, без записи.
+// Каждая находка разработки или ручного прохода сначала становится проверкой здесь, потом исправляется.
+// Что ловит: DEPRECATED (токены из списка ниже ещё привязаны), SIZE (ключевые слои без переменной размера),
+// RING (кольцо фокуса не OUTSIDE / толщина и радиус без переменной / виден вне Focus),
+// COVERAGE (у части вариантов по оси сырой цвет, у соседей токен), PARITY (парные компоненты расходятся).
+// Чего НЕ ловит (проверять руками, см. docs/preflight.md): цвет иконки и подписи, заливка полоски под подписью (notch).
+const PAGES = null; // null = все страницы компонентов; или ['Segment', 'Input']
+const PAIRS = [['Input', 'Textarea']]; // парные компоненты: добавлять сюда новые пары
+const DEPRECATED = new Set(['action/tertiary/hover', 'action/tertiary/pressed', 'surface/hover', 'surface/active', 'control/segment-hover', 'action/secondary/hover']);
+figma.skipInvisibleInstanceChildren = false;
+const cache = {};
+const vinfo = async id => { if (!(id in cache)) { const v = await figma.variables.getVariableByIdAsync(id); const n = v ? v.name : '?'; cache[id] = { n, dep: DEPRECATED.has(n) || (v && /^⚠️ Deprecated/.test(v.description || '')) }; } return cache[id]; };
+const walk = (n, inst, fn) => { if (n.type === 'INSTANCE' && inst) return; fn(n); if (n.children) for (const c of n.children) walk(c, true, fn); };
+const SKIP = /hit area|safe area|safe margin|overlay/i;
+const KEY = /^(control|box|track|thumb|dot|mark|check|indicator|pill|body|field)$/i;
+const rep = {}; const add = (k, msg) => { (rep[k] = rep[k] || new Set()).add(msg); };
+const paintCount = (v) => { let bound = 0, raw = 0; walk(v, false, n => { if (SKIP.test(n.name) || n.visible === false || n.type === 'TEXT') return; for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.visible !== false && p.type === 'SOLID') { if (p.boundVariables && p.boundVariables.color) bound++; else raw++; } }); return { bound, raw }; };
+const bySet = {};
+const pages = figma.root.children.slice(2).filter(p => /^[🟠🟡🟢🔴]/u.test(p.name) && (!PAGES || PAGES.includes(p.name.replace(/^[🟠🟡🟢🔴]\s*/u, ''))));
+for (const pg of pages) {
+  await figma.setCurrentPageAsync(pg);
+  for (const s of pg.findAll(n => n.type === 'COMPONENT_SET' && !n.name.startsWith('_'))) {
+    const key = pg.name.replace(/^[🟠🟡🟢🔴]\s*/u, '') + ' / ' + s.name; bySet[s.name] = s;
+    const axes = {}; for (const v of s.children) for (const part of v.name.split(', ')) { const [a, b] = part.split('='); (axes[a] = axes[a] || new Set()).add(b); }
+    const sigs = {};
+    for (const v of s.children) {
+      sigs[v.name] = paintCount(v); const st = (v.name.match(/State=(\w+)/) || [])[1];
+      const nodes = []; walk(v, false, n => nodes.push(n));
+      for (const n of nodes) {
+        if (SKIP.test(n.name)) continue; const b = n.boundVariables || {};
+        const ids = []; for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.boundVariables && p.boundVariables.color) ids.push(p.boundVariables.color.id);
+        for (const [k, val] of Object.entries(b)) { if (k === 'fills' || k === 'strokes') continue; for (const a of (Array.isArray(val) ? val : [val])) if (a && a.id) ids.push(a.id); }
+        for (const id of ids) { const vi = await vinfo(id); if (vi.dep) add(key, 'DEPRECATED ' + vi.n + ' (' + st + ' · ' + n.name + ')'); }
+        if (n.visible !== false && n.type !== 'TEXT' && (n === v || KEY.test(n.name))) for (const [k, sz] of [['width', n.layoutSizingHorizontal], ['height', n.layoutSizingVertical]]) if (sz !== 'FILL' && sz !== 'HUG' && !b[k]) add(key, 'SIZE ' + n.name + '.' + k + ' без переменной');
+        if (n.name === 'focus ring') { if (n.strokeAlign !== 'OUTSIDE') add(key, 'RING обводка ' + n.strokeAlign + ', нужна OUTSIDE'); if (!b.strokeTopWeight && !b.strokeWeight) add(key, 'RING толщина без переменной'); if (!b.topLeftRadius) add(key, 'RING радиус без переменной'); if (n.visible && st && st !== 'Focus' && st !== 'Default') add(key, 'RING виден в ' + st); }
+      }
+    }
+    for (const a of Object.keys(axes)) { if (axes[a].size < 2) continue; const groups = {};
+      for (const v of s.children) { const rest = v.name.split(', ').filter(p => p.split('=')[0] !== a).join(', '); (groups[rest] = groups[rest] || []).push(v.name); }
+      for (const names of Object.values(groups)) { if (names.length < 2) continue; const raws = names.map(n => sigs[n].raw); if (Math.max(...raws) > 0 && Math.min(...raws) === 0) add(key, 'COVERAGE ось ' + a + ': у части вариантов сырой цвет (' + names.filter((n, i) => raws[i] > 0).slice(0, 2).join(' | ') + ')'); } }
+  }
+}
+// PROPS: свойства компонента (boolean, text, instance swap) не привязаны ни к одному слою в части вариантов.
+// «Мёртвый» вариант: ни одно свойство не привязано (в Figma свойство в нём не работает). Skeleton пропускаем.
+const pathOf = (n, root) => { const parts = []; let c = n; while (c && c !== root) { const sib = c.parent.children.filter(x => x.name === c.name); parts.unshift(c.name + '#' + sib.indexOf(c)); c = c.parent; } return parts.join('/'); };
+const allWalk = (n, fn) => { fn(n); if (n.children) for (const c of n.children) allWalk(c, fn); };
+for (const [sname, s] of Object.entries(bySet)) {
+  const defs = Object.keys(s.componentPropertyDefinitions).filter(k => s.componentPropertyDefinitions[k].type !== 'VARIANT'); if (!defs.length) continue;
+  const have = {}; for (const v of s.children) { const set = new Set(); allWalk(v, n => { const r = n.componentPropertyReferences; if (r) for (const x of Object.values(r)) if (defs.includes(x)) set.add(x); }); have[v.id] = set; }
+  const pgName = (s.parent && s.parent.type === 'PAGE' ? s.parent.name : '').replace(/^[🟠🟡🟢🔴]\s*/u, ''); const key = (pgName || '?') + ' / ' + sname;
+  const dead = s.children.filter(v => have[v.id].size === 0 && !/State=Skeleton/.test(v.name));
+  if (dead.length) add(key, 'PROPS ни одно свойство не привязано у ' + dead.length + ' вариантов (напр. ' + dead[0].name + ')');
+  for (const k of defs) { const lacking = s.children.filter(v => !have[v.id].has(k) && have[v.id].size > 0 && !/State=Skeleton/.test(v.name)); if (!lacking.length || lacking.length === s.children.length) continue;
+    // считаем дефектом только если соседний вариант привязывает это свойство к слою с тем же путём, который есть и в «слепом» варианте
+    const bound = s.children.filter(v => have[v.id].has(k)); if (!bound.length) continue; const ref = bound[0]; const paths = []; allWalk(ref, n => { const r = n.componentPropertyReferences; if (r && Object.values(r).includes(k)) paths.push(pathOf(n, ref)); });
+    const real = lacking.filter(v => paths.some(p => { let t = null; allWalk(v, n => { if (n !== v && pathOf(n, v) === p) t = n; }); return !!t; }));
+    if (real.length) add(key, 'PROPS «' + k.split('#')[0] + '» не привязано у ' + real.length + ' вариантов (напр. ' + real[0].name + ')'); } }
+// ICON: у подписи text/disabled иконка должна быть icon/disabled; у text/danger (Button, Menu item) icon/danger;
+// у text/secondary в Tab, Tab bar item, Nav item (иконка часть подписи) icon/secondary. Иконки полей ввода слева не трогаем.
+const ICON_SECONDARY = new Set(['Tab', 'Tab bar item', 'Nav item']), ICON_DANGER = new Set(['Button', 'Menu item']);
+const nameOf = async id => (await vinfo(id)).n;
+for (const [sname, s] of Object.entries(bySet)) {
+  const pgName = (s.parent && s.parent.type === 'PAGE' ? s.parent.name : '').replace(/^[🟠🟡🟢🔴]\s*/u, ''); const key = (pgName || '?') + ' / ' + sname;
+  for (const v of s.children) { const t = v.findAll(n => n.type === 'TEXT' && /label|title|text|value/i.test(n.name))[0]; if (!t || !t.fills[0] || !t.fills[0].boundVariables || !t.fills[0].boundVariables.color) continue;
+    const lt = await nameOf(t.fills[0].boundVariables.color.id); let want = null;
+    if (lt === 'text/disabled') want = 'icon/disabled'; else if (lt === 'text/danger' && ICON_DANGER.has(sname)) want = 'icon/danger'; else if (lt === 'text/secondary' && ICON_SECONDARY.has(sname)) want = 'icon/secondary'; if (!want) continue;
+    for (const ic of v.findAll(n => /^icon( |$|\/|·)/i.test(n.name) && n.type === 'INSTANCE' && !/swap|wrap/i.test(n.name))) {
+      for (const x of ic.findAll(() => true)) for (const kk of ['strokes', 'fills']) { const arr = x[kk]; if (!Array.isArray(arr)) continue; for (const p of arr) if (p.type === 'SOLID' && p.visible !== false && p.boundVariables && p.boundVariables.color && (await nameOf(p.boundVariables.color.id)) === 'icon/primary') add(key, 'ICON подпись ' + lt + ', иконка icon/primary, нужна ' + want + ' (' + v.name.slice(0, 50) + ')'); } } } }
+for (const [A, B] of PAIRS) { const a = bySet[A], b = bySet[B]; if (!a || !b) continue; const bm = {}; for (const v of b.children) bm[v.name] = v;
+  for (const va of a.children) { const vb = bm[va.name]; if (!vb) continue; const la = {}, lb = {};
+    walk(va, false, n => { la[n.name] = n; }); walk(vb, false, n => { lb[n.name] = n; });
+    for (const nm of Object.keys(la)) if (!lb[nm] && la[nm].visible !== false && /hit area|focus ring|field|helper|label|notch/i.test(nm)) add(A + '↔' + B, 'PARITY слой «' + nm + '» только в ' + A);
+    if (la['focus ring'] && lb['focus ring'] && la['focus ring'].strokeAlign !== lb['focus ring'].strokeAlign) add(A + '↔' + B, 'PARITY кольцо: ' + la['focus ring'].strokeAlign + ' ≠ ' + lb['focus ring'].strokeAlign);
+    if (la['field'] && lb['field']) for (const k of ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft']) { const x = !!(la['field'].boundVariables && la['field'].boundVariables[k]), y = !!(lb['field'].boundVariables && lb['field'].boundVariables[k]); if (x !== y) add(A + '↔' + B, 'PARITY field.' + k + ': привязка ' + (x ? 'есть только у ' + A : 'есть только у ' + B)); } } }
+const res = {}; let total = 0; for (const [k, v] of Object.entries(rep)) { res[k] = [...v].slice(0, 7); total += v.size; }
+return { sets: Object.keys(bySet).length, withIssues: Object.keys(res).length, issues: total, res };
