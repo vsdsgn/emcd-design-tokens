@@ -18,6 +18,7 @@
 10. **Кольцо фокуса одного вида** (решение Стефана 2026-11-09): рамка на 2 px больше родителя (`focus/offset`), обводка OUTSIDE, толщина `border/width/focus-ring`, радиус — токен `radius/focus-ring*` под радиус родителя (`control` → `radius/focus-ring`, `control-sm` → `-sm`, `lg` и `container` → `-lg`, `xs` → `-xs`, `inner` и `sm` → `-inner`, `surface` и `xl` → `-surface`, `chip` и `full` → `radius/full`).
 11. **Слой состояния** (скрипт: STATE, с 2026-11-12): `state layer` во весь родитель несёт тот же радиус-токен, что и родитель.
 12. **Семья на общей базе** (скрипт: BASE): компонент из `FAMILIES` собран на вложенном раскрытом экземпляре базы, оси надстройки совпадают с вариантом базы. Min / max числом — MINMAX и `variables-check`.
+13. **Служебные слои — экземпляры** (скрипт: SERVICE, с 2026-11-12): `focus ring`, `state layer`, `hit area · overlay`, `safe area · outer` — экземпляры `_Focus ring`, `_State layer`, `_Hit area`, `_Safe margin` (страница `_Service layers`). Проверяется у наборов из `SERVICE_DONE`; после пересадки компонента добавить его туда. Контракт: `docs/components/service-layers.md`.
 
 ## Что скрипт не ловит (проверять руками, чеклист ручного прохода)
 

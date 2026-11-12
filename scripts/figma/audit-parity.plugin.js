@@ -7,6 +7,7 @@
 // DESC (первая строка не Status:, нет Level / «Когда использовать» / A11y), AXES (Left / Right вместо Start / End, булева ось, State не последняя ось),
 // BASE (компонент семьи без вложенной базы; оси надстройки не совпадают с вариантом вложенной базы), BOARD (на странице нет борды v3),
 // NESTED (вложен компонент со статусом deprecated или без главного компонента).
+// SERVICE (в наборах из SERVICE_DONE служебный слой не экземпляр _Focus ring / _State layer / _Hit area / _Safe margin).
 // STATE (слой state layer во весь родитель, а радиус привязан к другой переменной, чем у родителя).
 // SIZE не считает ширину корня (ширина по умолчанию — не размер компонента).
 // Чего НЕ ловит (проверять руками, см. docs/preflight.md): цвет иконки и подписи, заливка полоски под подписью (notch).
@@ -19,7 +20,11 @@ const DEPRECATED = new Set(['action/tertiary/hover', 'action/tertiary/pressed', 
 figma.skipInvisibleInstanceChildren = false;
 const cache = {};
 const vinfo = async id => { if (!(id in cache)) { const v = await figma.variables.getVariableByIdAsync(id); const n = v ? v.name : '?'; cache[id] = { n, dep: DEPRECATED.has(n) || (v && /^⚠️ Deprecated/.test(v.description || '')) }; } return cache[id]; };
-const walk = (n, inst, fn) => { if (n.type === 'INSTANCE' && inst) return; fn(n); if (n.children) for (const c of n.children) walk(c, true, fn); };
+// Вложенные экземпляры не обходим, кроме служебных слоёв (focus ring, state layer, hit area · overlay, safe area · outer): сам экземпляр проверяем, внутрь не идём.
+const SERVICE = { 'focus ring': '_Focus ring', 'state layer': '_State layer', 'hit area · overlay': '_Hit area', 'safe area · outer': '_Safe margin' };
+// Наборы, уже пересаженные на служебные компоненты (страница _Service layers). Добавлять по мере миграции; для них служебный слой обязан быть экземпляром.
+const SERVICE_DONE = new Set(['_Field base']);
+const walk = (n, inst, fn) => { if (n.type === 'INSTANCE' && inst) { if (SERVICE[n.name]) fn(n); return; } fn(n); if (n.children) for (const c of n.children) walk(c, true, fn); };
 const SKIP = /hit area|safe area|safe margin|overlay/i;
 const KEY = /^(control|box|track|thumb|dot|mark|check|indicator|pill|body|field)$/i;
 const rep = {}; const add = (k, msg) => { (rep[k] = rep[k] || new Set()).add(msg); };
@@ -64,6 +69,7 @@ for (const pg of pages) {
       if (fam && hasBase) famHit++;
       const nodes = []; walk(v, false, n => nodes.push(n));
       for (const n of nodes) {
+        if (SERVICE[n.name] && SERVICE_DONE.has(s.name)) { const m = n.type === 'INSTANCE' ? await mainSetName(n) : null; if (!m || m.name !== SERVICE[n.name]) add(key, 'SERVICE слой «' + n.name + '» не экземпляр ' + SERVICE[n.name]); }
         if (SKIP.test(n.name)) continue; const b = n.boundVariables || {};
         const ids = []; for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.boundVariables && p.boundVariables.color) ids.push(p.boundVariables.color.id);
         for (const [k, val] of Object.entries(b)) { if (k === 'fills' || k === 'strokes') continue; for (const a of (Array.isArray(val) ? val : [val])) if (a && a.id) ids.push(a.id); }

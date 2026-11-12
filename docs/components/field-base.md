@@ -18,6 +18,7 @@
 - `field` — рамка: слоты `Leading`, `Inline`, `Trailing`; `text` (`caret` + `value`); `notch label` (`border gap` + `notch text`, Label position=On border); `state layer` (Hover); `focus ring`; `hit area · web`, `hit area · app`;
 - `helper row` — `helper` + `counter`;
 - `safe area · outer` — safe margin.
+- Служебные слои `focus ring`, `state layer`, `hit area · overlay`, `safe area · outer` — экземпляры `_Focus ring`, `_State layer`, `_Hit area`, `_Safe margin` (см. `service-layers.md`).
 
 ## 4. States
 Модель состояний — `docs/components.md`. Ось State: Default (плейсхолдер), Hover, Focus, Filled, Error, Disabled, Read-only, Loading, Skeleton.

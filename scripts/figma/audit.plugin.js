@@ -8,7 +8,7 @@
 const PAGES = [];
 figma.skipInvisibleInstanceChildren = false;
 const cache = {}; const vn = async id => { if (!(id in cache)) { const v = await figma.variables.getVariableByIdAsync(id); cache[id] = v ? v.name : '?'; } return cache[id]; };
-const walk = (n, inst, fn) => { if (n.type === 'INSTANCE' && inst) return; fn(n); if (n.children) for (const c of n.children) walk(c, true, fn); };
+const walk = (n, inst, fn) => { if (n.type === 'INSTANCE' && inst) { if (n.name === 'focus ring' || n.name === 'state layer') fn(n); return; } fn(n); if (n.children) for (const c of n.children) walk(c, true, fn); };
 const rep = {};
 const pages = PAGES.length ? figma.root.children.filter(p => PAGES.includes(p.id)) : figma.root.children.slice(2, 59);
 for (const pg of pages) {
