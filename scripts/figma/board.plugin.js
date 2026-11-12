@@ -38,7 +38,7 @@ for (const rk of rowsSeen) { const r = row(24); r.counterAxisAlignItems = 'MIN';
 secV.appendChild(grid);
 // 2. Properties & zones (Web / iOS)
 const plat = await (async () => { const libs = await figma.teamLibrary.getAvailableLibraryVariableCollectionsAsync(); const pl = libs.find(c => c.name === 'Platform' && c.libraryName.includes('Foundations')); const v = await figma.variables.importVariableByKeyAsync((await figma.teamLibrary.getVariablesInLibraryCollectionAsync(pl.key))[0].key); return figma.variables.getVariableCollectionByIdAsync(v.variableCollectionId); })();
-const secP = await section('Свойства', 'Свойства и зоны', OPTS.propsNote || 'Кольцо фокуса; зона нажатия Web 24 / касание 44 (красная), safe area (зелёная). Переключение — свойства Show hit area / Show safe area / Focus ring.');
+const secP = await section('Свойства', 'Свойства и зоны', OPTS.propsNote || 'Кольцо фокуса; зона нажатия Web 24 / касание 44 (красная), safe area (зелёная). Переключение — свойства Show hit area / Safe margin / Focus ring.');
 const base = variants.find(([, p]) => Object.values(p).every(x => /^(Default|Off|M|Neutral|Left|Horizontal|Plain|Text first)$/.test(x) || true))[0];
 const def = (variants.find(([, p]) => (p.State || 'Default') === 'Default') || variants[0])[0];
 const pk = n => Object.keys(defs).find(k => k.startsWith(n + '#'));
@@ -46,7 +46,7 @@ for (const pm of ['Web', 'iOS']) { const r = row(48); const l = await txt(labelT
   const mode = plat.modes.find(m => m.name === pm); r.setExplicitVariableModeForCollection(plat, mode.modeId);
   const a = def.createInstance(); r.appendChild(a);
   if (pk('Focus ring')) { const b = def.createInstance(); b.setProperties({ [pk('Focus ring')]: true }); r.appendChild(b); }
-  if (pk('Show hit area')) { const c = def.createInstance(); const pr = { [pk('Show hit area')]: true }; if (pk('Show safe area')) pr[pk('Show safe area')] = true; c.setProperties(pr); r.appendChild(c); }
+  if (pk('Show hit area')) { const c = def.createInstance(); const pr = { [pk('Show hit area')]: true }; if (pk('Safe margin') || pk('Show safe area')) pr[pk('Safe margin') || pk('Show safe area')] = true; c.setProperties(pr); r.appendChild(c); }
   secP.appendChild(r); }
 // 3. Surfaces L0–L3 (clone reference panels, refill with this component)
 const secS = refSec('Поверхности').clone();
