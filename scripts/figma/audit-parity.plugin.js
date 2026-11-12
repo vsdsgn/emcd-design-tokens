@@ -4,7 +4,7 @@
 // RING (кольцо фокуса не OUTSIDE / толщина и радиус без переменной / виден вне Focus),
 // COVERAGE (у части вариантов по оси сырой цвет, у соседей токен), PARITY (парные компоненты расходятся),
 // MINMAX (min / max корня числом, без переменной size/*), MATRIX (вариантов меньше произведения осей и в описании нет строки «Матрица:»),
-// DESC (первая строка не Status:, нет Level / «Когда использовать» / A11y, экранированные сущности &amp; / &quot; / &lt; в тексте), AXES (Left / Right вместо Start / End, булева ось, State не последняя ось),
+// DESC (первая строка не Status:, нет Level / «Когда использовать» / A11y, экранированные сущности &amp; / &quot; / &lt; в тексте), AXES (Left / Right вместо Start / End, булева ось — кроме `Status = Off | On` у контролов выбора, решение 12.11; State не последняя ось),
 // BASE (компонент семьи без вложенной базы; оси надстройки не совпадают с вариантом вложенной базы — если у базы такого значения оси нет, база обязана быть Default; оси глифа в слоте базы не совпадают с надстройкой), BOARD (на странице нет борды v3),
 // NESTED (вложен компонент со статусом deprecated или без главного компонента).
 // SERVICE (в наборах из SERVICE_DONE служебный слой не экземпляр _Focus ring / _State layer / _Hit area / _Safe margin).
@@ -59,7 +59,7 @@ for (const pg of pages) {
     const order = Object.keys(axes);
     for (const [a, vals] of Object.entries(axes)) { const vs = [...vals];
       if (vs.some(x => /^(Left|Right)$/i.test(x)) || /left|right/i.test(a)) add(key, 'AXES ось «' + a + '»: Left / Right, нужно Start / End');
-      if (vs.length <= 2 && vs.every(x => /^(true|false|on|off|yes|no)$/i.test(x))) add(key, 'AXES ось «' + a + '» булева (' + vs.join(' / ') + '): проверить, не свойство ли это'); }
+      if (a !== 'Status' && vs.length <= 2 && vs.every(x => /^(true|false|on|off|yes|no)$/i.test(x))) add(key, 'AXES ось «' + a + '» булева (' + vs.join(' / ') + '): проверить, не свойство ли это'); }
     if (order.includes('State') && order[order.length - 1] !== 'State') add(key, 'AXES порядок осей: State не последняя (' + order.join(', ') + ')');
     const fam = baseOf[s.name]; let famHit = 0;
     const sigs = {};

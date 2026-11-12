@@ -18,12 +18,17 @@ const rem = (n) => `${+(n / BASE).toFixed(4)}rem`;
 
 // px stays px for hairlines and "infinite" radius; everything else becomes rem.
 const keepPx = (t) => t.path[0] === 'stroke' || t.path[0] === 'blur' || t.path.at(-1).endsWith('blur') || t.path.at(-1) === 'full';
-// state/hover, state/pressed are layer opacity in percent (Figma FLOAT exports as dimension): CSS gets a unitless 0–1 for `opacity`, JSON keeps the percent.
+// state/hover, state/pressed are layer opacity in percent ($type number): CSS gets a unitless 0–1 for `opacity`, JSON keeps the percent.
 const isOpacity = (t) => t.path[0] === 'state' && (t.path[1] === 'hover' || t.path[1] === 'pressed');
 StyleDictionary.registerTransform({
   name: 'emcd/size/rem', type: 'value',
   filter: (t) => t.$type === 'dimension',
-  transform: (t) => (isOpacity(t) ? `${px(t.$value) / 100}` : keepPx(t) ? `${px(t.$value)}px` : rem(px(t.$value))),
+  transform: (t) => (keepPx(t) ? `${px(t.$value)}px` : rem(px(t.$value))),
+});
+StyleDictionary.registerTransform({
+  name: 'emcd/state/opacity', type: 'value',
+  filter: (t) => t.$type === 'number' && isOpacity(t),
+  transform: (t) => `${px(t.$value) / 100}`,
 });
 StyleDictionary.registerTransform({
   name: 'emcd/size/number', type: 'value',
@@ -38,7 +43,7 @@ StyleDictionary.registerTransform({
   filter: (t) => t.$type === 'fontFamily' && t.path[0] === 'font-family',
   transform: (t) => `'${String(t.$value).replace(/'/g, '')}', ${/mono/i.test(t.$value) ? MONO_FALLBACK : SANS_FALLBACK}`,
 });
-const CSS = ['attribute/cti', 'name/kebab', 'color/css', 'emcd/font/fallback', 'emcd/size/rem'];
+const CSS = ['attribute/cti', 'name/kebab', 'color/css', 'emcd/font/fallback', 'emcd/size/rem', 'emcd/state/opacity'];
 const JSONT = ['attribute/cti', 'name/camel', 'color/hex', 'emcd/size/number'];
 const quiet = { verbosity: 'silent', warnings: 'disabled' };
 

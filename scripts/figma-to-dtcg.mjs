@@ -38,7 +38,7 @@ function typeFor(name, t) {
   if (/(^|\/)duration\//.test(name)) return 'duration';
   if (/(^|\/)scale\/press/.test(name)) return 'number';
   if (/^blur\//.test(name) || /^effect\/blur\//.test(name)) return 'dimension';
-  if (/opacity|columns|breakpoint-min/.test(name)) return 'number';
+  if (/opacity|columns|breakpoint-min/.test(name) || /^state\/(hover|pressed)$/.test(name)) return 'number';
   return 'dimension';
 }
 
