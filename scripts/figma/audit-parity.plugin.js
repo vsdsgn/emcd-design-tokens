@@ -8,6 +8,7 @@
 // BASE (компонент семьи без вложенной базы; оси надстройки не совпадают с вариантом вложенной базы — если у базы такого значения оси нет, база обязана быть Default; оси глифа в слоте базы не совпадают с надстройкой), BOARD (на странице нет борды v3),
 // NESTED (вложен компонент со статусом deprecated или без главного компонента).
 // SERVICE (в наборах из SERVICE_DONE служебный слой не экземпляр _Focus ring / _State layer / _Hit area / _Safe margin).
+// OVERLAY (надстройка оверлея из таблицы OVERLAY: нет слоя overlay surface / не тот Kind / слой не во весь корень / у корня своя заливка, тень или clip / радиус корня не равен радиусу поверхности / обводка или отступ корня числом; у базы Material-вариант без блюра или тень не равна Elevation).
 // STATE (слой state layer во весь родитель, а радиус привязан к другой переменной, чем у родителя).
 // SIZE не считает ширину корня (ширина по умолчанию — не размер компонента).
 // Чего НЕ ловит (проверять руками, см. docs/preflight.md): цвет иконки и подписи, заливка полоски под подписью (notch).
@@ -23,9 +24,13 @@ figma.skipInvisibleInstanceChildren = false;
 const cache = {};
 const vinfo = async id => { if (!(id in cache)) { const v = await figma.variables.getVariableByIdAsync(id); const n = v ? v.name : '?'; cache[id] = { n, dep: DEPRECATED.has(n) || (v && /^⚠️ Deprecated/.test(v.description || '')) }; } return cache[id]; };
 // Вложенные экземпляры не обходим, кроме служебных слоёв (focus ring, state layer, hit area · overlay, safe area · outer): сам экземпляр проверяем, внутрь не идём.
-const SERVICE = { 'focus ring': '_Focus ring', 'state layer': '_State layer', 'hit area · overlay': '_Hit area', 'safe area · outer': '_Safe margin' };
+const SERVICE = { 'focus ring': '_Focus ring', 'state layer': '_State layer', 'hit area · overlay': '_Hit area', 'safe area · outer': '_Safe margin', 'overlay surface': '_Overlay surface' };
 // Наборы, уже пересаженные на служебные компоненты (страница _Service layers). Добавлять по мере миграции; для них служебный слой обязан быть экземпляром.
-const SERVICE_DONE = new Set(['_Field base', '_Selection control', '_Checkbox control', '_Radio control', '_Toggle control', '_List row']);
+const SERVICE_DONE = new Set(['_Field base', '_Selection control', '_Checkbox control', '_Radio control', '_Toggle control', '_List row', 'Tooltip · пилот', 'Menu · пилот', 'Dropdown panel · пилот', 'Toast · пилот', 'Modal · пилот', 'Sheet · пилот']);
+// Оверлеи: набор → Kind базы _Overlay surface. При замене действующих наборов добавить их имена без «· пилот».
+const OVERLAY = { 'Tooltip · пилот': 'Tooltip', 'Menu · пилот': 'Popover', 'Dropdown panel · пилот': 'Popover', 'Toast · пилот': 'Toast', 'Modal · пилот': 'Modal', 'Sheet · пилот': 'Sheet' };
+// Тени Material-вариантов базы (стиль эффектов не совмещается с блюром): [key radius, key y, ambient radius, ambient y, ambient spread] = Elevation/2 и Elevation/4, docs/effects.md.
+const OVERLAY_FX = { Popover: [2, 1, 24, 8, -4], Sheet: [6, 2, 56, 24, -8] };
 const walk = (n, inst, fn) => { if (n.type === 'INSTANCE' && inst) { if (SERVICE[n.name]) fn(n); return; } fn(n); if (n.children) for (const c of n.children) walk(c, true, fn); };
 const SKIP = /hit area|safe area|safe margin|overlay/i;
 const KEY = /^(control|box|track|thumb|dot|mark|check|indicator|pill|body|field)$/i;
@@ -70,6 +75,17 @@ for (const pg of pages) {
           if (!i.isExposedInstance) add(key, 'BASE экземпляр базы не раскрыт (isExposedInstance)');
           for (const g of i.exposedInstances || []) { const gm = await mainSetName(g); if (!gm) continue; const gv = Object.fromEntries(gm.variant.split(', ').map(p => p.split('=')));
             for (const part of v.name.split(', ')) { const [a, b] = part.split('='); if (a in gv && gv[a] !== b) add(key, 'BASE глиф ' + gm.name + ' ось ' + a + ': надстройка ' + b + ', глиф ' + gv[a] + ' (' + v.name + ')'); } } } }
+      if (OVERLAY[s.name]) { const o = v.children[0], vbn = v.boundVariables || {};
+        if (!o || o.name !== 'overlay surface' || o.type !== 'INSTANCE') add(key, 'OVERLAY первый слой не «overlay surface» (' + v.name + ')');
+        else { const om = await mainSetName(o); if (om && om.name === '_Overlay surface' && om.variant !== 'Kind=' + OVERLAY[s.name]) add(key, 'OVERLAY ' + om.variant + ', нужен Kind=' + OVERLAY[s.name]);
+          if (o.layoutPositioning !== 'ABSOLUTE' || Math.abs(o.x) > 0.01 || Math.abs(o.y) > 0.01 || Math.abs(o.width - v.width) > 0.01 || Math.abs(o.height - v.height) > 0.01 || o.constraints.horizontal !== 'STRETCH' || o.constraints.vertical !== 'STRETCH') add(key, 'OVERLAY слой overlay surface не во весь корень (' + v.name + ')');
+          const ob = o.boundVariables || {}; for (const k of ['topLeftRadius', 'bottomLeftRadius']) { const a = vbn[k] && vbn[k].id, c = ob[k] && ob[k].id; if (a !== c || (!a && v[k] !== o[k])) add(key, 'OVERLAY ' + k + ' корня не равен радиусу поверхности (' + v.name + ')'); } }
+        if (v.fills.length || v.effects.length || v.clipsContent) add(key, 'OVERLAY у корня своя заливка, тень или clip (' + v.name + ')');
+        if (v.strokes.length && !vbn.strokeTopWeight) add(key, 'OVERLAY толщина обводки корня числом');
+        for (const k of ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft', 'itemSpacing']) if (v[k] > 0 && !vbn[k] && (k !== 'itemSpacing' || v.primaryAxisAlignItems !== 'SPACE_BETWEEN')) add(key, 'OVERLAY ' + k + '=' + v[k] + ' числом'); }
+      if (s.name === '_Overlay surface') { const kd = v.name.replace('Kind=', ''), fx = OVERLAY_FX[kd], sh = v.effects.filter(e => e.type === 'DROP_SHADOW'), bl = v.effects.find(e => e.type === 'BACKGROUND_BLUR');
+        if (fx) { if (!bl || !(bl.boundVariables && bl.boundVariables.radius)) add(key, 'OVERLAY ' + kd + ': нет блюра material/thick/blur'); const got = sh.length === 2 ? [sh[0].radius, sh[0].offset.y, sh[1].radius, sh[1].offset.y, sh[1].spread] : []; if (got.join() !== fx.join() || sh.some(e => !(e.boundVariables && e.boundVariables.color))) add(key, 'OVERLAY ' + kd + ': тень не равна Elevation (' + got.join(' ') + ')'); }
+        else if (!v.effectStyleId) add(key, 'OVERLAY ' + kd + ': тень без стиля Elevation'); }
       if (fam && hasBase) famHit++;
       const nodes = []; walk(v, false, n => nodes.push(n));
       for (const n of nodes) {
@@ -78,7 +94,7 @@ for (const pg of pages) {
         const ids = []; for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.boundVariables && p.boundVariables.color) ids.push(p.boundVariables.color.id);
         for (const [k, val] of Object.entries(b)) { if (k === 'fills' || k === 'strokes') continue; for (const a of (Array.isArray(val) ? val : [val])) if (a && a.id) ids.push(a.id); }
         for (const id of ids) { const vi = await vinfo(id); if (vi.dep) add(key, 'DEPRECATED ' + vi.n + ' (' + st + ' · ' + n.name + ')'); }
-        if (n.visible !== false && n.type !== 'TEXT' && (n === v || KEY.test(n.name))) for (const [k, sz] of [['width', n.layoutSizingHorizontal], ['height', n.layoutSizingVertical]]) if (sz !== 'FILL' && sz !== 'HUG' && !b[k] && !(n === v && k === 'width')) add(key, 'SIZE ' + n.name + '.' + k + ' без переменной');
+        if (n.visible !== false && n.type !== 'TEXT' && (n === v || KEY.test(n.name))) for (const [k, sz] of [['width', n.layoutSizingHorizontal], ['height', n.layoutSizingVertical]]) if (sz !== 'FILL' && sz !== 'HUG' && !b[k] && !(n === v && (k === 'width' || s.name === '_Overlay surface'))) add(key, 'SIZE ' + n.name + '.' + k + ' без переменной');
         if (n.name === 'state layer' && n.parent && n.parent !== v && Math.abs(n.width - n.parent.width) < 1 && Math.abs(n.height - n.parent.height) < 1) { const pb = n.parent.boundVariables || {}; if (pb.topLeftRadius && (!b.topLeftRadius || b.topLeftRadius.id !== pb.topLeftRadius.id)) add(key, 'STATE радиус слоя state layer не равен радиусу «' + n.parent.name + '»'); }
         if (n.name === 'focus ring') { if (n.strokeAlign !== 'OUTSIDE') add(key, 'RING обводка ' + n.strokeAlign + ', нужна OUTSIDE'); if (!b.strokeTopWeight && !b.strokeWeight) add(key, 'RING толщина без переменной'); if (!b.topLeftRadius) add(key, 'RING радиус без переменной'); if (n.visible && st && st !== 'Focus' && st !== 'Default') add(key, 'RING виден в ' + st); }
       }
