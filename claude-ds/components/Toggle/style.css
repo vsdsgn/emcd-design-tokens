@@ -1,0 +1,25 @@
+/* Toggle — 🟡 beta (Figma «🟡 Toggle»: Status × Size × Control × State). Без Tone=Danger: неудача → откат + Toast. */
+.emcd-toggle { --w: 48px; --h: 28px; --knob: 20px; --lh: 24px;
+  display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%; max-width: 480px; box-sizing: border-box;
+  font: 500 16px/24px var(--font-sans); color: var(--text-primary); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.emcd-toggle--s { --w: 40px; --h: 24px; --knob: 16px; --lh: 20px; gap: 8px; font: 500 14px/20px var(--font-sans); }
+/* Control = Left — дорожка перед подписью (по умолчанию — Right, у конца строки) */
+.emcd-toggle--left { flex-direction: row; justify-content: flex-start; width: fit-content; }
+.emcd-toggle__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.emcd-toggle__desc { font: 500 12px/16px var(--font-sans); color: var(--text-secondary); }
+.emcd-toggle input { appearance: none; -webkit-appearance: none; position: relative; flex: none; width: var(--w); height: var(--h); margin: 0; border-radius: var(--radius-chip, 9999px);
+  background-color: var(--control-track); cursor: pointer; outline: none;
+  transition: background-color var(--motion-duration-enter, 200ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-toggle input::after { content: ""; position: absolute; top: calc((var(--h) - var(--knob)) / 2); left: calc((var(--h) - var(--knob)) / 2); width: var(--knob); height: var(--knob); border-radius: 50%; background: var(--control-knob);
+  transition: transform var(--motion-duration-enter, 200ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-toggle input:checked { background-color: var(--control-checked); }
+.emcd-toggle input:checked::after { transform: translateX(calc(var(--w) - var(--h))); }
+/* Hover / Pressed — слой состояний на дорожке 6 % / 10 % */
+.emcd-toggle:hover input:not(:disabled) { background-image: linear-gradient(color-mix(in srgb, var(--state-layer, var(--text-primary)) 6%, transparent) 0 0); }
+.emcd-toggle:active input:not(:disabled) { background-image: linear-gradient(color-mix(in srgb, var(--state-layer, var(--text-primary)) 10%, transparent) 0 0); }
+.emcd-toggle input:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-toggle input:disabled { background-color: var(--control-track-disabled); cursor: not-allowed; }
+.emcd-toggle input:disabled::after { background: var(--control-knob-disabled); }
+.emcd-toggle:has(input:disabled) { cursor: not-allowed; }
+.emcd-toggle:has(input:disabled), .emcd-toggle:has(input:disabled) .emcd-toggle__desc { color: var(--text-disabled); }
+@media (prefers-reduced-motion: reduce) { .emcd-toggle input, .emcd-toggle input::after { transition: none; } }

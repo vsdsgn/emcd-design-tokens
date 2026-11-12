@@ -1,0 +1,32 @@
+/* Chip — 🟡 beta (Figma «🟡 Chip»: Size × Selected × State). Радиус — как у контролов, не pill. */
+.emcd-chip { --h: 32px; --px: 10px; --r: var(--radius-control-sm, 10px); --bg: transparent; --fg: var(--text-primary); --meta: var(--text-secondary);
+  --layer: var(--state-layer, var(--text-primary));
+  all: unset; position: relative; display: inline-flex; align-items: center; gap: 6px; box-sizing: border-box; height: var(--h); padding: 0 var(--px); border-radius: var(--r); vertical-align: middle;
+  border: 1px solid var(--control-border-default); background: var(--bg); color: var(--fg);
+  font: 500 14px/20px var(--font-sans); max-width: 240px; white-space: nowrap; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-chip--m { --h: 40px; --px: 12px; --r: var(--radius-control); }
+.emcd-chip > * { position: relative; z-index: 1; }
+.emcd-chip svg { width: 16px; height: 16px; flex: none; }
+.emcd-chip__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.emcd-chip__meta { flex: none; color: var(--meta); }
+/* Selected = On — инверсия; слой состояний тоже инверсный */
+.emcd-chip[aria-pressed="true"], .emcd-chip--selected { --bg: var(--action-inverse-default); --fg: var(--text-inverse); --meta: var(--text-inverse); --layer: var(--state-layer-inverse, var(--text-inverse)); border-color: transparent; }
+/* Hover / Pressed — слой 6 % / 10 %, Pressed — масштаб 0.96 */
+.emcd-chip::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; background: var(--layer); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-chip:hover::before { opacity: 0.06; }
+.emcd-chip:active::before { opacity: 0.10; }
+.emcd-chip:active { transform: scale(var(--motion-scale-press, 0.96)); }
+.emcd-chip:focus-visible, .emcd-chip:has(.emcd-chip__action:focus-visible) { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+/* Зона нажатия ≥ touch-min */
+.emcd-chip::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 100%; height: max(100%, var(--touch-min, 24px)); }
+/* Remove — только у выбранных фильтров: чип-обёртка <span>, внутри кнопка выбора и отдельная кнопка «Убрать фильтр …» */
+.emcd-chip__action { all: unset; display: inline-flex; align-items: center; gap: 6px; min-width: 0; cursor: pointer; }
+.emcd-chip__remove { all: unset; position: relative; z-index: 2; display: inline-flex; flex: none; margin-right: -2px; border-radius: var(--radius-xs, 4px); cursor: pointer; }
+.emcd-chip__remove::after { content: ""; position: absolute; left: 50%; top: 50%; width: 24px; height: 24px; transform: translate(-50%, -50%); }
+.emcd-chip__remove:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+/* Disabled */
+.emcd-chip:disabled, .emcd-chip[aria-disabled="true"] { --bg: var(--action-disabled); --fg: var(--text-disabled); --meta: var(--text-disabled); border-color: transparent; cursor: not-allowed; transform: none; }
+.emcd-chip:disabled::before, .emcd-chip[aria-disabled="true"]::before { display: none; }
+@media (prefers-reduced-motion: reduce) { .emcd-chip, .emcd-chip::before { transition: none; } .emcd-chip:active { transform: none; } }

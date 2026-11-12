@@ -125,10 +125,11 @@ for (const c of fs.readdirSync(repoComp)) {
   const marked = new RegExp(`/\\* @claude-ds:begin ${c} \\*/[\\s\\S]*?/\\* @claude-ds:end ${c} \\*/\\n*`);
   if (marked.test(css)) css = css.replace(marked, block);
   else {
-    const start = css.search(new RegExp(`^/\\* ${c} \\*/`, 'm'));
+    // заголовок секции: «/* Comp */» или общий «/* Comp & Other */» — блок встаёт на место секции
+    const start = css.search(new RegExp(`^/\\* ${c}( &[^*]*)? \\*/`, 'm'));
     if (start < 0) css += '\n' + block;
     else {
-      const after = css.slice(start + 1).search(/^\/\* [A-Z][A-Za-z ]* \*\/$/m);
+      const after = css.slice(start + 1).search(/^\/\* (@claude-ds:begin )?[A-Z][A-Za-z &()]* \*\/$/m);
       const end = after < 0 ? css.length : start + 1 + after;
       css = css.slice(0, start) + block + css.slice(end);
     }

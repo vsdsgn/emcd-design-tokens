@@ -1,0 +1,22 @@
+<!-- @dsCard group="🟡 Beta" subtitle="Selection · Status × Tone × Size × Control" height=420 -->
+<div class="emcd" style="display:flex;flex-direction:column;gap:16px;padding:20px;background:var(--surface-level-0, var(--bg-base))">
+  <div style="display:flex;flex-wrap:wrap;gap:16px 40px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <label class="emcd-check"><input type="checkbox" id="cb-all"><span class="emcd-check__text"><span>Выбрать все воркеры</span></span></label>
+      <label class="emcd-check"><input type="checkbox" checked><span class="emcd-check__text"><span>Получать уведомления о выплатах</span><span class="emcd-check__desc">Письмо после каждой выплаты</span></span></label>
+      <label class="emcd-check"><input type="checkbox"><span class="emcd-check__text"><span>Показывать нулевые балансы</span></span></label>
+      <label class="emcd-check"><input type="checkbox" disabled><span class="emcd-check__text"><span>Недоступно для субаккаунта</span></span></label>
+      <label class="emcd-check"><input type="checkbox" checked disabled><span class="emcd-check__text"><span>Включено владельцем</span></span></label>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <label class="emcd-check emcd-check--s"><input type="checkbox" checked><span class="emcd-check__text"><span>S — таблицы и плотные списки</span></span></label>
+      <label class="emcd-check emcd-check--s"><input type="checkbox"><span class="emcd-check__text"><span>Подпись 14/20, коробочка та же</span></span></label>
+      <label class="emcd-check emcd-check--danger"><input type="checkbox" aria-invalid="true" aria-describedby="cb-err"><span class="emcd-check__text"><span>Согласен с условиями вывода</span><span class="emcd-check__desc" id="cb-err" style="color:var(--text-danger)">Отметьте, чтобы продолжить</span></span></label>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
+    <label class="emcd-check emcd-check--right"><input type="checkbox" checked><span class="emcd-check__text"><span>Скрывать мелкие остатки</span><span class="emcd-check__desc">Control = Right — строки настроек</span></span></label>
+    <label class="emcd-check emcd-check--right"><input type="checkbox"><span class="emcd-check__text"><span>Показывать сумму в долларах</span></span></label>
+  </div>
+</div>
+<script>document.getElementById("cb-all").indeterminate = true;</script>

@@ -1,0 +1,30 @@
+/* Checkbox — 🟡 beta (Figma «🟡 Checkbox»: Status × Tone × Size × Control × State).
+   Строка .emcd-check (коробочка + подпись + описание) — общая с Radio. */
+.emcd-check { --lh: 24px; display: flex; align-items: flex-start; gap: 12px; width: fit-content; max-width: 480px;
+  font: 500 16px/24px var(--font-sans); color: var(--text-primary); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.emcd-check--s { --lh: 20px; gap: 8px; font: 500 14px/20px var(--font-sans); }
+/* Control = Right — строки настроек: подпись на всю ширину, коробочка у конца */
+.emcd-check--right { flex-direction: row-reverse; justify-content: space-between; width: 100%; }
+.emcd-check__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.emcd-check__desc { font: 500 12px/16px var(--font-sans); color: var(--text-secondary); }
+.emcd-check input { appearance: none; -webkit-appearance: none; position: relative; flex: none; box-sizing: border-box; width: 20px; height: 20px; margin: calc((var(--lh) - 20px) / 2) 0;
+  border-radius: var(--radius-control-xs, 6px); border: 1px solid var(--border-strong); background-color: var(--control-box);
+  display: grid; place-content: center; cursor: pointer; outline: none;
+  transition: background-color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)), border-color 120ms cubic-bezier(.2,0,0,1), transform 120ms cubic-bezier(.2,0,0,1); }
+/* Hover / Pressed — слой состояний на коробочке 6 % / 10 %; Pressed — масштаб 0.96 */
+.emcd-check:hover input:not(:disabled) { background-image: linear-gradient(color-mix(in srgb, var(--state-layer, var(--text-primary)) 6%, transparent) 0 0); }
+.emcd-check:active input:not(:disabled) { background-image: linear-gradient(color-mix(in srgb, var(--state-layer, var(--text-primary)) 10%, transparent) 0 0); transform: scale(var(--motion-scale-press, 0.96)); }
+.emcd-check input:checked, .emcd-check input[type="checkbox"]:indeterminate { background-color: var(--control-checked); border-color: var(--control-checked); }
+.emcd-check input:checked::after { content: ""; width: 10px; height: 6px; box-sizing: border-box; border: 2px solid var(--icon-on-accent, var(--text-on-accent)); border-top: 0; border-right: 0; transform: translateY(-1px) rotate(-45deg); }
+.emcd-check input[type="checkbox"]:indeterminate::after { content: ""; width: 10px; height: 2px; border: 0; border-radius: 1px; background: var(--icon-on-accent, var(--text-on-accent)); transform: none; }
+/* Tone = Danger — ошибка проверки; рядом текст ошибки */
+.emcd-check--danger input { border-color: var(--control-border-error); }
+.emcd-check--danger input:checked, .emcd-check--danger input[type="checkbox"]:indeterminate { background-color: var(--action-danger-default); border-color: var(--action-danger-default); }
+/* Фокус — кольцо на коробочке; зона нажатия — вся строка */
+.emcd-check input:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-check input:disabled { background-color: var(--control-surface-disabled); border-color: var(--control-border-disabled); cursor: not-allowed; }
+.emcd-check input:disabled::after { border-color: var(--text-disabled); }
+.emcd-check input[type="checkbox"]:disabled:indeterminate::after { background: var(--text-disabled); }
+.emcd-check:has(input:disabled) { cursor: not-allowed; }
+.emcd-check:has(input:disabled), .emcd-check:has(input:disabled) .emcd-check__desc { color: var(--text-disabled); }
+@media (prefers-reduced-motion: reduce) { .emcd-check input { transition: none; } .emcd-check:active input { transform: none; } }

@@ -1,0 +1,31 @@
+<!-- @dsCard group="🟡 Beta" subtitle="Inputs · Size × Label position × State" height=584 -->
+<div class="emcd" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 20px;padding:24px 20px 20px;background:var(--surface-level-0, var(--bg-base))">
+  <label class="emcd-field emcd-field--on-border"><span class="emcd-field__label">Адрес</span>
+    <span class="emcd-input"><input placeholder="bc1q…" /></span>
+    <span class="emcd-field__hint">On border · M 40. Только сеть Bitcoin</span></label>
+  <label class="emcd-field"><span class="emcd-field__label">Адрес для вывода</span>
+    <span class="emcd-input"><input value="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" /></span>
+    <span class="emcd-field__hint">Above · M 40</span></label>
+  <label class="emcd-field emcd-field--error"><span class="emcd-field__label">Сумма</span>
+    <span class="emcd-input"><input value="1 250,00" inputmode="decimal" aria-invalid="true" aria-describedby="in-err" /><span class="emcd-input__suffix">USDT</span></span>
+    <span class="emcd-field__hint" id="in-err">Недостаточно средств. Доступно 980,00 USDT</span></label>
+  <label class="emcd-field"><span class="emcd-field__label">Поиск воркера</span>
+    <span class="emcd-input"><span class="emcd-input__leading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg></span><input placeholder="Имя или ID" /></span></label>
+  <label class="emcd-field emcd-field--disabled"><span class="emcd-field__label">Сеть</span>
+    <span class="emcd-input"><input value="TRC20" disabled /></span>
+    <span class="emcd-field__hint">Disabled — сеть задаёт владелец</span></label>
+  <label class="emcd-field emcd-field--readonly"><span class="emcd-field__label">ID аккаунта</span>
+    <span class="emcd-input"><input value="emcd-204815" readonly /></span>
+    <span class="emcd-field__hint">Read-only — можно выделить и скопировать</span></label>
+  <label class="emcd-field"><span class="emcd-field__label">Промокод</span>
+    <span class="emcd-input"><input value="WELCOME" aria-busy="true" /><span class="emcd-input__trailing"><svg class="emcd-field__spinner" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-opacity=".24" stroke-width="2"/><path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></span>
+    <span class="emcd-field__row"><span class="emcd-field__hint">Loading — проверяем</span><span class="emcd-field__counter">7/16</span></span></label>
+  <div class="emcd-field emcd-field--skeleton" aria-hidden="true"><span class="emcd-field__label">Загрузка</span>
+    <span class="emcd-input"><input tabindex="-1" /></span></div>
+  <label class="emcd-field emcd-field--l emcd-field--on-border"><span class="emcd-field__label">Почта</span>
+    <span class="emcd-input"><input value="miner@example.com" type="email" /></span>
+    <span class="emcd-field__hint">L 48 — App и мобильный веб</span></label>
+  <label class="emcd-field emcd-field--xl emcd-field--on-border"><span class="emcd-field__label">Имя</span>
+    <span class="emcd-input"><input placeholder="Как к вам обращаться" /></span>
+    <span class="emcd-field__hint">XL 56 — онбординг, главный шаг</span></label>
+</div>

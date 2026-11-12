@@ -1,0 +1,13 @@
+/* Textarea — 🟡 beta (Figma «🟡 Textarea», надстройка над _Field base: Size × State; подпись только Above).
+   База поля (.emcd-field, подпись, helper, counter, Error / Disabled / Read-only / Skeleton) — в блоке Input. */
+.emcd-textarea { display: block; width: 100%; box-sizing: border-box; min-height: 96px; max-height: calc(8 * var(--lh, 20px) + 20px); padding: 9px var(--px, 12px); margin: 0;
+  resize: none; field-sizing: content; overflow-y: auto; border-radius: var(--r, var(--radius-control-sm, 10px));
+  background-color: var(--control-surface-default); border: 1px solid var(--control-border-default); outline: none;
+  font: 400 var(--fs, 14px)/var(--lh, 20px) var(--font-sans); color: var(--text-primary);
+  transition: border-color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-textarea::placeholder { color: var(--text-tertiary); }
+/* Hover — слой состояний 6 % */
+.emcd-textarea:hover:not(:focus):not(:disabled):not([readonly]) { background-image: linear-gradient(color-mix(in srgb, var(--state-layer, var(--text-primary)) 6%, transparent) 0 0); }
+.emcd-textarea:focus { border-color: var(--control-border-focus); }
+.emcd-textarea:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .emcd-textarea { transition: none; } }

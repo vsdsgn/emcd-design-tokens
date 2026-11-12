@@ -1,0 +1,55 @@
+/* Input — 🟡 beta (Figma «🟡 Input», надстройка над _Field base: Size × Label position × State).
+   Классы .emcd-field* — общая база поля: её же используют Textarea, Password field, Select. */
+.emcd-field { --h: 40px; --px: 12px; --r: var(--radius-control-sm, 10px); --fs: 14px; --lh: 20px;
+  --layer: var(--state-layer, var(--text-primary)); --page: var(--surface-level-0, var(--bg-base));
+  position: relative; display: flex; flex-direction: column; gap: 6px; width: 100%; min-width: 160px; max-width: 480px; }
+.emcd-field--l { --h: 48px; --px: 16px; --r: var(--radius-control); --fs: 16px; --lh: 24px; }
+.emcd-field--xl { --h: 56px; --px: 16px; --r: var(--radius-control); --fs: 16px; --lh: 24px; }
+.emcd-field__label { font: 500 14px/20px var(--font-sans); color: var(--text-secondary); }
+/* Label position = On border: короткая подпись в разрыве рамки */
+.emcd-field--on-border .emcd-field__label { position: absolute; z-index: 2; top: -8px; left: calc(var(--px) - 4px); padding: 0 4px; max-width: calc(100% - 2 * var(--px));
+  font: 500 12px/16px var(--font-sans); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  background: linear-gradient(to bottom, var(--page) 50%, var(--control-surface-default) 50%); }
+.emcd-input { position: relative; display: flex; align-items: center; gap: 6px; min-height: var(--h); box-sizing: border-box; padding: 0 var(--px); border-radius: var(--r);
+  background: var(--control-surface-default); border: 1px solid var(--control-border-default); color: var(--text-primary);
+  transition: border-color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-input > * { position: relative; z-index: 1; }
+/* Hover — слой состояний 6 % поверх фона поля */
+.emcd-input::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--layer); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-input:hover::before { opacity: 0.06; }
+.emcd-input:focus-within::before { opacity: 0; }
+/* Focus — рамка control-border-focus; с клавиатуры ещё кольцо 2 px снаружи с зазором 2 px */
+.emcd-input:focus-within { border-color: var(--control-border-focus); }
+.emcd-input:has(:focus-visible) { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-input input { all: unset; flex: 1; min-width: 0; height: var(--lh); font: 400 var(--fs)/var(--lh) var(--font-sans); color: var(--text-primary); text-overflow: ellipsis; }
+.emcd-input input::placeholder { color: var(--text-tertiary); }
+/* Слоты: leading (иконка, монета) · inline (суффикс, единица) · trailing (действие, спиннер) */
+.emcd-input__leading, .emcd-input__trailing { display: inline-flex; flex: none; color: var(--icon-secondary, var(--text-secondary)); }
+.emcd-input__leading svg, .emcd-input__trailing svg { width: 20px; height: 20px; }
+.emcd-input__trailing { margin-left: 2px; }
+.emcd-input__suffix { flex: none; font: 400 var(--fs)/var(--lh) var(--font-sans); color: var(--text-secondary); }
+/* Helper переносится, Counter прижат к концу */
+.emcd-field__row { display: flex; gap: 8px; align-items: flex-start; }
+.emcd-field__hint { font: 400 12px/16px var(--font-sans); color: var(--text-tertiary); }
+.emcd-field__counter { flex: none; margin-left: auto; font: 400 12px/16px var(--font-sans); font-variant-numeric: tabular-nums; color: var(--text-tertiary); }
+/* Error */
+.emcd-field--error .emcd-input, .emcd-field--error .emcd-textarea { border-color: var(--control-border-error); }
+.emcd-field--error .emcd-field__hint { color: var(--text-danger); }
+/* Disabled */
+.emcd-field--disabled .emcd-input, .emcd-field--disabled .emcd-textarea { background: var(--control-surface-disabled); border-color: var(--control-border-disabled); cursor: not-allowed; }
+.emcd-field--disabled .emcd-input::before { display: none; }
+.emcd-field--disabled :is(input, textarea, .emcd-field__label, .emcd-field__hint, .emcd-field__counter, .emcd-input__suffix, .emcd-input__leading, .emcd-input__trailing) { color: var(--text-disabled); }
+.emcd-field--disabled.emcd-field--on-border .emcd-field__label { background: linear-gradient(to bottom, var(--page) 50%, var(--control-surface-disabled) 50%); }
+/* Read-only: фон как у Disabled, рамка тише, значение читается */
+.emcd-field--readonly .emcd-input, .emcd-field--readonly .emcd-textarea { background: var(--control-surface-disabled); border-color: var(--border-subtle); }
+.emcd-field--readonly .emcd-input::before { display: none; }
+.emcd-field--readonly.emcd-field--on-border .emcd-field__label { background: linear-gradient(to bottom, var(--page) 50%, var(--control-surface-disabled) 50%); }
+/* Loading — спиннер в конце поля */
+.emcd-field__spinner { width: 20px; height: 20px; animation: emcd-field-spin 800ms linear infinite; }
+@keyframes emcd-field-spin { to { transform: rotate(360deg); } }
+/* Skeleton */
+.emcd-field--skeleton .emcd-input, .emcd-field--skeleton .emcd-textarea { background: var(--skeleton-base); border-color: transparent; pointer-events: none; }
+.emcd-field--skeleton .emcd-input > *, .emcd-field--skeleton textarea { visibility: hidden; }
+.emcd-field--skeleton :is(.emcd-field__label, .emcd-field__hint) { width: fit-content; border-radius: var(--radius-xs, 4px); background: var(--skeleton-base); color: transparent; }
+@media (prefers-reduced-motion: reduce) { .emcd-input, .emcd-input::before { transition: none; } .emcd-field__spinner { animation-duration: 0s; } }

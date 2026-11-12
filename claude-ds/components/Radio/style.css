@@ -1,0 +1,7 @@
+/* Radio — 🟡 beta (Figma «🟡 Radio»: Status × Tone × Size × Control × State).
+   Строка, размеры, Control, Tone, состояния и фокус — из блока Checkbox (.emcd-check); здесь только круг и точка. */
+.emcd-check input[type="radio"] { border-radius: 50%; }
+.emcd-check input[type="radio"]:checked::after { width: 8px; height: 8px; border: 0; border-radius: 50%; background: var(--icon-on-accent, var(--text-on-accent)); transform: none; }
+.emcd-check input[type="radio"]:disabled:checked::after { background: var(--text-disabled); }
+.emcd-radio-group { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; border: 0; min-width: 0; max-width: 480px; }
+.emcd-radio-group > legend { padding: 0; margin-bottom: 12px; font: 500 14px/20px var(--font-sans); color: var(--text-secondary); }

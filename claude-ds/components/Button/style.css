@@ -1,4 +1,4 @@
-/* Button — 🟡 beta (Figma «🟡 Button»: Type × Tone × Size × State).
+/* Button — 🟡 beta (Figma «🟡 Button»: Type × Tone × Size × State; Loading — свойство).
    Токены DS 2.0 с запасными значениями: до экспорта Foundations в репо часть имён ещё старые. */
 .emcd-btn { --h: 40px; --px: 12px; --r: var(--radius-control); --fs: 14px; --lh: 20px;
   --bg: transparent; --fg: var(--text-primary);
@@ -29,22 +29,21 @@
 .emcd-btn--s svg { width: 16px; height: 16px; }
 /* Type × Tone */
 .emcd-btn--primary { --bg: var(--action-primary-default); --fg: var(--fixed-light); }
-.emcd-btn--primary.emcd-btn--danger, .emcd-btn--error { --bg: var(--action-danger-default); --fg: var(--fixed-light); }
+.emcd-btn--primary.emcd-btn--danger { --bg: var(--action-danger-default); --fg: var(--fixed-light); }
 .emcd-btn--secondary { --bg: var(--action-accent-default, var(--accent-subtle)); --fg: var(--text-accent); }
-.emcd-btn--secondary.emcd-btn--danger, .emcd-btn--secondary-error { --bg: var(--action-danger-subtle-default, var(--status-danger-subtle)); --fg: var(--text-danger); }
+.emcd-btn--secondary.emcd-btn--danger { --bg: var(--action-danger-subtle-default, var(--status-danger-subtle)); --fg: var(--text-danger); }
 .emcd-btn--tertiary { --bg: var(--action-secondary-default); --fg: var(--text-primary); }
 .emcd-btn--outline { --bg: transparent; --fg: var(--text-primary); box-shadow: inset 0 0 0 1px var(--border-default); }
 .emcd-btn--inverted { --bg: var(--action-inverse-default); --fg: var(--text-inverse); --layer: var(--state-layer-inverse, var(--text-inverse)); }
 .emcd-btn--text { --bg: transparent; --fg: var(--text-accent); --fg-hover: var(--text-accent-hover, var(--text-link-hover)); --fg-pressed: var(--text-accent-pressed, var(--text-link-hover));
   height: auto; padding: 0 4px; gap: 4px; --r: var(--radius-xs, 4px); max-width: none; }
-.emcd-btn--text.emcd-btn--danger, .emcd-btn--text-error { --bg: transparent; --fg: var(--text-danger); --fg-hover: var(--text-danger-hover, var(--text-danger)); --fg-pressed: var(--text-danger-pressed, var(--text-danger));
-  height: auto; padding: 0 4px; gap: 4px; --r: var(--radius-xs, 4px); max-width: none; }
-.emcd-btn--text::before, .emcd-btn--text-error::before { display: none; }
-.emcd-btn--text:hover, .emcd-btn--text-error:hover { color: var(--fg-hover); text-decoration: underline; }
-.emcd-btn--text:active, .emcd-btn--text-error:active { color: var(--fg-pressed); transform: none; }
+.emcd-btn--text.emcd-btn--danger { --fg: var(--text-danger); --fg-hover: var(--text-danger-hover, var(--text-danger)); --fg-pressed: var(--text-danger-pressed, var(--text-danger)); }
+.emcd-btn--text::before { display: none; }
+.emcd-btn--text:hover { color: var(--fg-hover); text-decoration: underline; }
+.emcd-btn--text:active { color: var(--fg-pressed); transform: none; }
 /* Disabled / Loading */
 .emcd-btn:disabled { cursor: not-allowed; --fg: var(--text-disabled); transform: none; }
-.emcd-btn:disabled:not(.emcd-btn--text):not(.emcd-btn--text-error):not(.emcd-btn--outline) { --bg: var(--action-disabled); }
+.emcd-btn:disabled:not(.emcd-btn--text):not(.emcd-btn--outline) { --bg: var(--action-disabled); }
 .emcd-btn--outline:disabled { box-shadow: inset 0 0 0 1px var(--border-subtle); }
 .emcd-btn:disabled::before { opacity: 0 !important; }
 .emcd-btn[aria-busy="true"] { cursor: progress; }

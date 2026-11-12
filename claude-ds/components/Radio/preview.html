@@ -1,0 +1,19 @@
+<!-- @dsCard group="🟡 Beta" subtitle="Selection · Status × Tone × Size × Control" height=330 -->
+<div class="emcd" style="display:flex;flex-direction:column;gap:16px;padding:20px;background:var(--surface-level-0, var(--bg-base))">
+  <div style="display:flex;flex-wrap:wrap;gap:16px 40px">
+    <fieldset class="emcd-radio-group" role="radiogroup"><legend>Выплаты</legend>
+      <label class="emcd-check"><input type="radio" name="pay" checked><span class="emcd-check__text"><span>Ежедневно</span><span class="emcd-check__desc">В 10:00 по Москве</span></span></label>
+      <label class="emcd-check"><input type="radio" name="pay"><span class="emcd-check__text"><span>По порогу</span></span></label>
+      <label class="emcd-check"><input type="radio" name="pay" disabled><span class="emcd-check__text"><span>Вручную (недоступно)</span></span></label>
+    </fieldset>
+    <fieldset class="emcd-radio-group" role="radiogroup" style="gap:8px"><legend>Size = S</legend>
+      <label class="emcd-check emcd-check--s"><input type="radio" name="net" checked><span class="emcd-check__text"><span>TRC20</span></span></label>
+      <label class="emcd-check emcd-check--s"><input type="radio" name="net"><span class="emcd-check__text"><span>ERC20</span></span></label>
+      <label class="emcd-check emcd-check--s emcd-check--danger"><input type="radio" name="err" aria-invalid="true"><span class="emcd-check__text"><span>Tone = Danger</span></span></label>
+    </fieldset>
+  </div>
+  <fieldset class="emcd-radio-group" role="radiogroup" style="max-width:360px"><legend>Control = Right</legend>
+    <label class="emcd-check emcd-check--right"><input type="radio" name="cur" checked><span class="emcd-check__text"><span>Рубли</span></span></label>
+    <label class="emcd-check emcd-check--right"><input type="radio" name="cur"><span class="emcd-check__text"><span>Доллары</span></span></label>
+  </fieldset>
+</div>

@@ -1,0 +1,13 @@
+<!-- @dsCard group="🟡 Beta" subtitle="Inputs · Size × State, подпись только Above" height=360 -->
+<div class="emcd" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;padding:20px;background:var(--surface-level-0, var(--bg-base))">
+  <label class="emcd-field"><span class="emcd-field__label">Комментарий к выводу</span>
+    <textarea class="emcd-textarea" placeholder="Например, назначение платежа" maxlength="280" aria-describedby="ta-cnt"></textarea>
+    <span class="emcd-field__row"><span class="emcd-field__hint">Необязательно. Увидит только поддержка</span><span class="emcd-field__counter" id="ta-cnt">0/280</span></span></label>
+  <label class="emcd-field emcd-field--error"><span class="emcd-field__label">Обращение</span>
+    <textarea class="emcd-textarea" aria-invalid="true" aria-describedby="ta-err">Выплата не пришла</textarea>
+    <span class="emcd-field__row"><span class="emcd-field__hint" id="ta-err">Опишите подробнее: от 20 символов</span><span class="emcd-field__counter">17/1000</span></span></label>
+  <label class="emcd-field emcd-field--disabled"><span class="emcd-field__label">Заметка</span>
+    <textarea class="emcd-textarea" disabled>Изменить может только владелец аккаунта</textarea></label>
+  <label class="emcd-field emcd-field--readonly"><span class="emcd-field__label">Ответ поддержки</span>
+    <textarea class="emcd-textarea" readonly>Выплата отправлена 12 ноября в 10:04. Проверьте адрес в истории операций.</textarea></label>
+</div>

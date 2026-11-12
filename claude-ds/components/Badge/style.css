@@ -1,0 +1,31 @@
+/* Badge — 🟡 beta (Figma «🟡 Badge»: Size × Tone × Style). Неинтерактивная метка; радиус не pill. */
+.emcd-badge { --bg: var(--action-secondary-default); --fg: var(--text-primary);
+  display: inline-flex; align-items: center; gap: 4px; box-sizing: border-box; height: 24px; padding: 0 10px; border-radius: var(--radius-sm, 8px); vertical-align: middle;
+  font: 500 12px/16px var(--font-sans); max-width: 160px; white-space: nowrap; background: var(--bg); color: var(--fg); }
+.emcd-badge__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.emcd-badge svg { width: 12px; height: 12px; flex: none; }
+.emcd-badge__dot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: currentColor; }
+/* Size */
+.emcd-badge--s { height: 20px; padding: 0 8px; }
+.emcd-badge--l { height: 32px; padding: 0 12px; gap: 6px; border-radius: var(--radius-control-sm, 10px); font: 500 14px/20px var(--font-sans); }
+.emcd-badge--l svg { width: 16px; height: 16px; }
+/* Tone × Style=Subtle (по умолчанию) */
+.emcd-badge--accent { --bg: var(--accent-subtle); --fg: var(--accent-on-subtle); }
+.emcd-badge--success { --bg: var(--status-success-subtle); --fg: var(--status-success-on-subtle); }
+.emcd-badge--warning { --bg: var(--status-warning-subtle); --fg: var(--status-warning-on-subtle); }
+.emcd-badge--danger { --bg: var(--status-danger-subtle); --fg: var(--status-danger-on-subtle); }
+.emcd-badge--info { --bg: var(--status-info-subtle); --fg: var(--status-info-on-subtle); }
+/* Tone × Style=Solid — одна главная метка на карточке или экране */
+.emcd-badge--solid { --bg: var(--action-inverse-default); --fg: var(--text-inverse); }
+.emcd-badge--solid.emcd-badge--accent { --bg: var(--control-checked); --fg: var(--text-on-accent); }
+.emcd-badge--solid.emcd-badge--success { --bg: var(--status-success-solid); --fg: var(--text-on-accent); }
+.emcd-badge--solid.emcd-badge--warning { --bg: var(--status-warning-solid); --fg: var(--text-on-warning); }
+.emcd-badge--solid.emcd-badge--danger { --bg: var(--status-danger-solid); --fg: var(--text-on-accent); }
+.emcd-badge--solid.emcd-badge--info { --bg: var(--status-info-solid); --fg: var(--text-on-accent); }
+/* Close / Chevron — только у интерактивного бейджа; Close — отдельная кнопка с aria-label */
+.emcd-badge__close { all: unset; position: relative; display: inline-flex; flex: none; margin-right: -2px; border-radius: var(--radius-xs, 4px); color: inherit; cursor: pointer; }
+.emcd-badge__close::after { content: ""; position: absolute; left: 50%; top: 50%; width: 24px; height: 24px; transform: translate(-50%, -50%); }
+.emcd-badge__close:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+/* Skeleton */
+.emcd-badge--skeleton { --bg: var(--skeleton-base); color: transparent; min-width: 56px; }
+.emcd-badge--skeleton > * { visibility: hidden; }
