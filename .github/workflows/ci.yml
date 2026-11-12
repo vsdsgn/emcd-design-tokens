@@ -23,6 +23,8 @@ jobs:
         run: npm run contracts -- --check
       - name: Agent layer (llms.txt, design.md, docs/api.md) matches manifest
         run: npm run agent-docs -- --check
+      - name: Draft sets audit matches manifest (docs/audit-draft.md)
+        run: npm run draft-audit -- --check
       - name: A11y report (WCAG + APCA, report only; --strict is off: coloured text in dark is Lc 44–51 by the half-step decision)
         run: npm run a11y
       - name: Browser floor (browserslist)
