@@ -40,4 +40,6 @@
 - Структуру компонентов из Figma в код переносим вручную (или с Claude) — генерации из Figma нет. Токены синхронизируются автоматически.
 - Цвета — бренд EMCD; Geometria и WL в артефакте не показаны (в репо это режимы Brand).
 - Пока Foundations не экспортированы, новых имён (`surface-level-*`, `action-accent-*`, `state-layer`, `text-accent-hover`) в `tokens.json` нет; CSS Button держит запасные значения на старые имена.
+- Общая секция старого `bundle.css` (`/* Checkbox & Radio */`) заменяется блоком первого компонента из названия; второй дописывается в конец (Radio опирается на `.emcd-check` из Checkbox).
+- Проверка превью — рендером: headless Chromium, `tokens.json` → CSS-переменные по теме, `bundle.css` + `preview.html`, Light и Dark; смотреть переполнение высоты `height=` из первой строки.
 - CI синхронизацию не проверяет: для неё нужен артефакт (Artifact-инструмент Claude).
