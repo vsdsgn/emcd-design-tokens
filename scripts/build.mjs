@@ -18,10 +18,12 @@ const rem = (n) => `${+(n / BASE).toFixed(4)}rem`;
 
 // px stays px for hairlines and "infinite" radius; everything else becomes rem.
 const keepPx = (t) => t.path[0] === 'stroke' || t.path[0] === 'blur' || t.path.at(-1).endsWith('blur') || t.path.at(-1) === 'full';
+// state/hover, state/pressed are layer opacity in percent (Figma FLOAT exports as dimension): CSS gets a unitless 0–1 for `opacity`, JSON keeps the percent.
+const isOpacity = (t) => t.path[0] === 'state' && (t.path[1] === 'hover' || t.path[1] === 'pressed');
 StyleDictionary.registerTransform({
   name: 'emcd/size/rem', type: 'value',
   filter: (t) => t.$type === 'dimension',
-  transform: (t) => (keepPx(t) ? `${px(t.$value)}px` : rem(px(t.$value))),
+  transform: (t) => (isOpacity(t) ? `${px(t.$value) / 100}` : keepPx(t) ? `${px(t.$value)}px` : rem(px(t.$value))),
 });
 StyleDictionary.registerTransform({
   name: 'emcd/size/number', type: 'value',

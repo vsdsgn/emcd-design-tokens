@@ -19,6 +19,7 @@
     "exceptions": "node scripts/exceptions-check.mjs",
     "parity": "node scripts/parity.mjs",
     "contracts": "node scripts/contract-build.mjs",
+    "agent-docs": "node scripts/agent-docs.mjs",
     "a11y:apca": "python3 scripts/apca-check.py",
     "a11y": "python3 scripts/a11y-check.py && python3 scripts/apca-check.py"
   },

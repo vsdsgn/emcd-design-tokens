@@ -1,0 +1,88 @@
+# EMCD Design System 2.0
+
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-12: beta 20 наборов, draft 94, stable 0.
+
+Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
+Собрано `scripts/agent-docs.mjs` — править там, не здесь.
+
+## Начать отсюда
+
+- [design.md](design.md): принципы, роли цвета, модель состояний, как выбрать компонент
+- [docs/api.md](docs/api.md): ожидаемый API (props) beta-компонентов для Vue и Flutter
+- [docs/HANDOFF.md](docs/HANDOFF.md): текущий этап, принятые правила, что сделано последним
+- [docs/OPEN-QUESTIONS.md](docs/OPEN-QUESTIONS.md): открытые вопросы и парковка идей
+- [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md): как устроены репо, скрипты и проверки
+- [CLAUDE.md](CLAUDE.md): правила работы агента в этом репо
+
+## Токены
+
+- [README.md](README.md): слои токенов, структура, подключение на вебе
+- [tokens/](tokens): исходники W3C DTCG, по файлу на режим коллекции
+- [build/css/ds.min.css](build/css/ds.min.css): CSS-переменные одним файлом (`data-brand`, `data-theme`, `data-platform`, `data-style`, `data-surface`)
+- [build/json/](build/json): плоские токены brand × theme × ios|android (+ expressive) для Flutter
+- [docs/exceptions.md](docs/exceptions.md): единственный список значений без токена
+- [docs/sizing.md](docs/sizing.md), [docs/platforms.md](docs/platforms.md), [docs/style.md](docs/style.md), [docs/motion.md](docs/motion.md), [docs/effects.md](docs/effects.md), [docs/rtl.md](docs/rtl.md), [docs/typography-l10n.md](docs/typography-l10n.md): размеры, платформы, Base / Expressive, движение, эффекты, RTL, типографика и языки
+- [docs/a11y-contrast-standard.md](docs/a11y-contrast-standard.md): контраст (WCAG 2.2 AA, APCA)
+- Сборка: `npm ci && npm run all`
+
+## Компоненты: правила
+
+- [docs/components.md](docs/components.md): одна задача — один способ, свойства и слоты, доступность, уровни поверхностей, модель состояний, обводки
+- [docs/component-contract.md](docs/component-contract.md): схема контракта (15 разделов)
+- [docs/ds-manifest.json](docs/ds-manifest.json): манифест Figma Components — наборы, оси, свойства, токены, статусы
+- [docs/migration/components.csv](docs/migration/components.csv): legacy DS Web / App → DS 2.0
+- [docs/CHANGELOG-components.md](docs/CHANGELOG-components.md): история изменений компонентов
+
+## Компоненты: beta — можно брать
+
+- [Badge](docs/components/badge.md): Неинтерактивная метка статуса или свойства («Активен», «Новое», «−5 %», монета). Нажать нельзя
+- [Counter](docs/components/counter.md): Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус
+- [Breadcrumb item](docs/components/breadcrumb-item.md): Пункт хлебных крошек: ссылка на предыдущий уровень; Current — текущая страница, не ссылка
+- [Button](docs/components/button.md): Кнопка действия. Основа — legacy `baseButton` (DS Web + App), доведена до правил 2.0
+- [Checkbox](docs/components/checkbox.md): Множественный выбор, согласие с условиями, выбор строк таблицы. Основа — legacy `baseCheckbox` (коробочка 20, r 6, подпись через 12)
+- [Chip](docs/components/chip.md): Фильтр или выбор варианта из набора, который видно целиком (сроки «90 / 180 / 360 дней», монеты, статусы в фильтре)
+- [Icon button](docs/components/icon-button.md): Кнопка-иконка: закрыть, «…», копировать, фильтр, обновить. Та же основа, что у Button
+- [Radio](docs/components/radio.md): Один вариант из нескольких (2–5). Основа — legacy `baseRadio` (круг 20, точка 8, подпись через 12)
+- [Segment](docs/components/segment.md): Элемент Segmented. Отдельно не используется
+- [Status](docs/components/status.md): Точка + подпись: состояние объекта (воркер, устройство, сервис, выплата) в строке таблицы, списке, шапке
+- [Tab](docs/components/tab.md): Переключение разделов одного экрана (История: Начисления / Выплаты / Воркеры). Выбранный — подчёркивание
+- [Toggle](docs/components/toggle.md): Переключатель: мгновенно включает настройку, без «Сохранить». Основа — legacy `baseToggle` (дорожка 48×28 / 40×24, ползунок 20 / 16)
+- [Input](docs/components/input.md): одна строка текста или числа
+- [Input addon / Unit](docs/components/input-addon-unit.md): Единицы или валюта в suffix поля (USDT, TH/s, %, kW)
+- [Input addon / Max](docs/components/input-addon-max.md): Кнопка «Max» в suffix поля суммы: подставляет весь доступный остаток
+- [Input addon / Chevron](docs/components/input-addon-chevron.md): Шеврон для Select / Dropdown в trailing-слоте поля
+- [Input addon / Stepper](docs/components/input-addon-stepper.md): Степпер − / + для числового поля
+- [Input addon / Counter](docs/components/input-addon-counter.md): Счётчик «+N» в inline-слоте: сколько ещё значений выбрано в мультиселекте
+- [Textarea](docs/components/textarea.md): текст длиннее одной строки (комментарий, обращение)
+- [Tab bar item](docs/components/tab-bar-item.md): Пункт нижней навигации: иконка 24 + подпись. App и мобильный веб — одна схема
+
+## Базы и служебные слои (в макетах напрямую не используются)
+
+- [field-base](docs/components/field-base.md)
+- [list-row](docs/components/list-row.md)
+- [overlay-surface](docs/components/overlay-surface.md)
+- [selection-control](docs/components/selection-control.md)
+- [service-layers](docs/components/service-layers.md)
+
+## Компоненты: draft — не брать
+
+- атом (22): Amount, Avatar, Chart axis label, Circle timer, Code cell, Coin, Date cell, Divider, Legend swatch, Multiselect option, Overlay, Page dot, Pagination item, Progress, Progress circle, Spinner, Scrollbar, Skeleton, Step segment, Step symbol, Step trail, Tooltip
+- молекула (57): Accordion, Address, Avatar group, Breadcrumbs, Chart crosshair, Chart metric, Chart tooltip, Checkbox group, Code input, Coin stack, Date range field, Floating button, Input addon / Clear, Input addon / Icon, Input amount, Legend item, List item, Menu item, Multiselect, Nav item, Notification, Page indicator, Pagination, Password field, Key-value row, Promo card, Radio card, Radio group, Segmented, Select, Select compact, Snack, Stat card, Step progress, Step, Suggest, Table header cell, Table cell / Text, Table cell / Date time, Table cell / Coin, Table cell / Transaction, Table cell / Image, Table cell / Progress, Table cell / Avatar, Table cell / Badge, Table cell / Toggle, Table cell / Star, Table cell / Icon, Table cell / Buttons, Table cell / More, Table row, Table cell / Status, Tabs, Toast, Toggle group, Tooltip tour, Transaction
+- организм (15): Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, Status screen, File upload, Page header, Menu, Modal, Sidebar, Sheet, Side panel, Tab bar
+- без статуса (3): Card, Dot, _Tooltip arrow
+
+## Проверки
+
+- `npm run parity`: манифест Figma ↔ токены, статусы, манифест кода
+- `npm run contracts -- --check`: контракты ↔ манифест
+- `npm run agent-docs -- --check`: этот файл, design.md и docs/api.md ↔ манифест
+- `npm run exceptions`: значения без токена ↔ docs/exceptions.md
+- `npm run a11y`: контраст семантических пар
+- В Figma: `scripts/figma/audit.plugin.js`, `variables-check.plugin.js`, `audit-parity.plugin.js`
+
+## Дополнительно
+
+- [docs/dev-handoff-2026-11-12.md](docs/dev-handoff-2026-11-12.md): что изменилось для разработки
+- [docs/claude-ds.md](docs/claude-ds.md): дизайн-система для Claude Design
+- [docs/dsp.md](docs/dsp.md): Design System Platform
+- [docs/how-to-change.md](docs/how-to-change.md): как вносить изменения

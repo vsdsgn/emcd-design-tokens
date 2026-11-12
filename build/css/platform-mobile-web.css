@@ -23,8 +23,8 @@
   --haptic-success: light;
   --haptic-warning: medium;
   --haptic-error: medium;
-  --state-hover: 0.375rem;
-  --state-pressed: 0.625rem;
+  --state-hover: 0.06;
+  --state-pressed: 0.1;
   --size-button-min: 4rem;
   --size-field-min: 10rem;
   --size-field-max: 30rem;
