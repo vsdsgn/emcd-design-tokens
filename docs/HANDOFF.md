@@ -53,7 +53,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 ## Состояние на 2026-11-12
 
 - **Бриф для автономного агента:** `docs/agent-brief-ds2.md` (фазы A–E: инвентаризация → базовые служебные компоненты → атомы и молекулы → паритет с кодом → отчёт). Запуск — Claude Code на VPS.
-- **Связь Мак → VPS не работает (2026-11-12):** SSH с Мака на `stephane@<VPS>` и `root@<VPS>` — `Permission denied (publickey)` для всех ключей в `~/.ssh`. Нужно проверить IP в `docs/private/LINKS.md` и добавить ключ Мака в `authorized_keys` на VPS. Пока коммит с Мака (запасной путь).
+- **Связь с VPS (2026-11-12):** с Мака — ключ `~/.ssh/stephane_vps_automation` (IdentitiesOnly), пользователь stephane; другие ключи VPS не принимает. Сервис `emcd-ds-vps` активен, репо на VPS актуально. С телефона — приложение Claude → Code → сессия Remote Control «emcd-ds-vps» или claude.ai/code.
 
 ## Состояние на 2026-11-09
 
