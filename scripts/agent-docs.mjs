@@ -19,14 +19,16 @@ const camel = (s) => { const p = pascal(s); return p[0].toLowerCase() + p.slice(
 const val = (s) => String(s).trim().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '').toLowerCase();
 const SERVICE_PROPS = new Set(['Focus ring', 'Show hit area', 'Safe margin']);
 // Надстройки над базой: свойства живут на вложенном слое базы (exposed), в манифесте у набора их нет — берём список базы.
-// Страницы баз в манифест не входят; список — из docs/components/field-base.md, раздел «5. Properties».
+// Страницы баз в манифест не входят; список — из контракта базы (docs/components/field-base.md, selection-control.md, list-row.md), раздел «5. Properties».
 const T = (name) => ({ name, type: 'TEXT' }), B = (name, def) => ({ name, type: 'BOOLEAN', def }), SL = (name) => ({ name, type: 'SLOT' });
 const BASE_PROPS = {
   '_Field base': [T('Label'), B('Show label', true), T('Value'), T('Helper'), B('Show helper', false), T('Counter'), B('Show counter', false),
     B('Show leading', false), B('Show inline', false), B('Show trailing', false), SL('Leading'), SL('Inline'), SL('Trailing')],
   '_Selection control': [T('Label'), B('Show label', true), T('Description'), B('Show description', false)],
+  '_List row': [T('Label'), T('Description'), B('Show description', false), T('Subvalue'), B('Show leading', true), B('Show trailing', false), SL('Leading'), SL('Trailing'),
+    B('Selected', false), B('Show selection', false), B('Divider', false)],
 };
-const BASE_LAYER = { '_Field base': 'Field', '_Selection control': '_Selection control' };
+const BASE_LAYER = { '_Field base': 'Field', '_Selection control': '_Selection control', '_List row': '_List row' };
 const baseOf = (s) => Object.keys(BASE_PROPS).find((b) => (s.nested || {})[b] === s.variants);
 const LEVEL = { atom: 'атом', molecule: 'молекула', organism: 'организм' };
 const contract = (name) => `docs/components/${kebab(name)}.md`;

@@ -26,7 +26,7 @@ const vinfo = async id => { if (!(id in cache)) { const v = await figma.variable
 // Вложенные экземпляры не обходим, кроме служебных слоёв (focus ring, state layer, hit area · overlay, safe area · outer): сам экземпляр проверяем, внутрь не идём.
 const SERVICE = { 'focus ring': '_Focus ring', 'state layer': '_State layer', 'hit area · overlay': '_Hit area', 'safe area · outer': '_Safe margin', 'overlay surface': '_Overlay surface' };
 // Наборы, уже пересаженные на служебные компоненты (страница _Service layers). Добавлять по мере миграции; для них служебный слой обязан быть экземпляром.
-const SERVICE_DONE = new Set(['_Field base', '_Selection control', '_Checkbox control', '_Radio control', '_Toggle control', '_List row', 'Tooltip · пилот', 'Menu · пилот', 'Dropdown panel · пилот', 'Toast · пилот', 'Modal · пилот', 'Sheet · пилот']);
+const SERVICE_DONE = new Set(['_Field base', '_Selection control', '_Checkbox control', '_Radio control', '_Toggle control', '_List row', 'Menu item', 'Multiselect option', 'List item', 'Tooltip · пилот', 'Menu · пилот', 'Dropdown panel · пилот', 'Toast · пилот', 'Modal · пилот', 'Sheet · пилот']);
 // Оверлеи: набор → Kind базы _Overlay surface. При замене действующих наборов добавить их имена без «· пилот».
 const OVERLAY = { 'Tooltip · пилот': 'Tooltip', 'Menu · пилот': 'Popover', 'Dropdown panel · пилот': 'Popover', 'Toast · пилот': 'Toast', 'Modal · пилот': 'Modal', 'Sheet · пилот': 'Sheet' };
 // Тени Material-вариантов базы (стиль эффектов не совмещается с блюром): [key radius, key y, ambient radius, ambient y, ambient spread] = Elevation/2 и Elevation/4, docs/effects.md.

@@ -7,7 +7,7 @@
 
 - Наборов не в beta: 97 (draft 94, без статуса 3: Card, Dot, _Tooltip arrow).
 - Без замечаний по манифесту: 0.
-- Наборов с замечанием: BOARD — 95, RAW — 78, DESC — 60, MINMAX — 39, PROPS — 18, AXES — 16, SERVICE — 10, MATRIX — 6.
+- Наборов с замечанием: BOARD — 95, RAW — 78, DESC — 60, MINMAX — 38, PROPS — 17, AXES — 16, SERVICE — 10, MATRIX — 6.
 
 Коды: DESC — разделы описания; MATRIX — неполная матрица осей; AXES — булева ось или Left / Right; PROPS — свойство привязано не во всех вариантах (часть — по делу: свойство есть только у вариантов со слотом); MINMAX — min / max числом; RAW — значения без переменной (часть — размеры служебных слоёв); SERVICE — у набора с Hover / Pressed / Focus нет служебных слоёв; BOARD — нет борды v3 или её разделов (у неинтерактивного набора разделы 04 «Состояния», 05 «Зоны» могут быть не нужны — решается при контракте).
 
@@ -27,7 +27,7 @@
 | Divider | Divider | 6 | DESC: нет: Правила:, A11y:<br>MATRIX: 6 из 8<br>AXES: `Label` — булева ось (Off \| On)<br>PROPS: Label text 1 из 6<br>RAW: 11 (напр. `(root):w=320`, `(root):w=1`)<br>BOARD: нет разделов 04, 05, 07, 08, 12 |
 | Dot | Status | 10 | DESC: нет: Status: первой строкой, Когда использовать:, Правила:, A11y:<br>BOARD: нет разделов 05, 07 |
 | Legend swatch | Legend swatch | 16 | RAW: 32 (напр. `(root):w=12`, `(root):h=12`)<br>BOARD: нет разделов 05, 07, 08, 12 |
-| Multiselect option | Multiselect | 5 | MINMAX: minh=40<br>RAW: 20 (напр. `(root):w=280`, `content:gap=2`)<br>BOARD: нет разделов 07, 08 |
+| Multiselect option | Multiselect | 4 | RAW: 4 (напр. `(root):w=280`)<br>BOARD: нет разделов 07, 08 |
 | Overlay | Overlay | 2 | AXES: `Blur` — булева ось (Off \| On)<br>RAW: 4 (напр. `(root):w=480`, `(root):h=320`)<br>BOARD: нет разделов 05, 07, 08, 12 |
 | Page dot | Page dot | 2 | DESC: нет: Когда использовать:, Правила:, A11y:<br>AXES: `Selected` — булева ось (Off \| On)<br>RAW: 4 (напр. `(root):w=6`, `(root):h=6`)<br>BOARD: нет разделов 04, 05, 07, 12 |
 | Pagination item | Pagination item | 10 | DESC: нет: Когда использовать:, Правила:<br>MINMAX: minw=32, minw=40<br>RAW: 40 (напр. `(root):w=32`, `(root):h=32`)<br>BOARD: нет разделов 07, 12 |
@@ -62,8 +62,8 @@
 | Input amount | Input amount | 10 | AXES: `Filled` — булева ось (False \| True)<br>MINMAX: minw=160<br>RAW: 12 (напр. `(root):w=395`, `(root):sw=1`)<br>SERVICE: нет зоны нажатия, безопасного поля<br>BOARD: нет разделов 05, 07, 08 |
 | Key-value row | Payout summary | 3 | DESC: нет: Когда использовать:, Правила:<br>RAW: 4 (напр. `(root):w=360`, `(root):sw=1`)<br>BOARD: нет разделов 05, 07, 08 |
 | Legend item | Legend item | 4 | PROPS: Label 3 из 4; Value 3 из 4; Show value 3 из 4<br>MINMAX: maxw=160<br>RAW: 8 (напр. `hit area · web:w=68`, `hit area · web:h=24`)<br>BOARD: нет разделов 07, 08 |
-| List item | List item | 64 | DESC: нет: Правила:<br>PROPS: Title 48 из 64; Subvalue 16 из 64; Divider 32 из 64<br>RAW: 192 (напр. `(root):w=375`, `hit area · web:w=375`)<br>BOARD: нет разделов 07, 08 |
-| Menu item | Menu item | 16 | DESC: нет: Когда использовать:, Правила:, A11y:<br>RAW: 48 (напр. `(root):w=290`, `hit area · web:w=290`)<br>BOARD: нет разделов 05, 07, 08 |
+| List item | List item | 64 | DESC: нет: Правила:<br>RAW: 64 (напр. `(root):w=375`)<br>BOARD: нет разделов 07, 08 |
+| Menu item | Menu item | 16 | DESC: нет: Когда использовать:, Правила:<br>RAW: 16 (напр. `(root):w=290`)<br>BOARD: нет разделов 05, 07, 08 |
 | Multiselect | Multiselect (контейнер) | 8 | RAW: 17 (напр. `(root):w=320`, `(root):gap=8`)<br>BOARD: нет разделов 05, 07, 08 |
 | Nav item | Nav item | 8 | AXES: `Collapsed` — булева ось (Off \| On)<br>RAW: 32 (напр. `(root):w=218`, `(root):h=36`)<br>BOARD: нет разделов 07, 08 |
 | Notification | Notification | 2 | DESC: нет: Когда использовать:, Правила:<br>MINMAX: maxw=400<br>BOARD: нет разделов 05, 07, 08 |

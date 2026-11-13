@@ -1,9 +1,9 @@
-// Манифест баз и служебных слоёв (read-only): токены наборов на страницах _Field base, _Selection control, _Service layers.
+// Манифест баз и служебных слоёв (read-only): токены наборов на страницах _Field base, _Selection control, _Service layers, _List row.
 // Нужен parity: после замены наборов на месте токены живут в базе и глифах, а не в надстройке.
 // Запуск: Figma MCP use_figma в файле Components. Ответ сохранить как <папка сырья>/bases.json (первую строку с длиной убрать),
 // затем node scripts/manifest-build.mjs <папка сырья>. Новую базу — добавить её страницу в PAGES. Наборы «… · пилот» пропускаются.
 figma.skipInvisibleInstanceChildren = false;
-const PAGES = /^\P{L}*(_Field base|_Selection control|_Service layers)$/u;
+const PAGES = /^\P{L}*(_Field base|_Selection control|_Service layers|_List row)$/u;
 const cache = {}; const vn = async id => { if (!(id in cache)) { const v = await figma.variables.getVariableByIdAsync(id); cache[id] = v ? v.name : '?'; } return cache[id]; };
 const walk = (n, inst, fn) => { if (n.type === 'INSTANCE' && inst) { fn(n); return; } fn(n); if (n.children) for (const c of n.children) walk(c, true, fn); };
 const out = [];

@@ -1,11 +1,11 @@
-# _List row — контракт (2026-11-12)
+# _List row — контракт (2026-11-12, замена на месте 2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, размеры) — ссылками, не повтором.
-Покрывает базу `_List row` и надстройки `Menu item · пилот`, `Multiselect option · пилот`, `List item · пилот`.
+Покрывает базу `_List row` и надстройки Menu item, Multiselect option, List item (заменены на месте 13.11; пилоты `… · пилот` лежат на странице базы до «ок» на удаление).
 
 ## 1. Identity
 - База: `_List row`. Status: beta. Level: base (служебный, имя с «_», не публикуется).
-- Надстройки: `Menu item · пилот` (molecule), `Multiselect option · пилот` (atom), `List item · пилот` (molecule). Status: draft · пилот. Действующие Menu item, Multiselect option, List item не тронуты до ответа на вопрос 1 доски.
+- Надстройки: `Menu item` `407:1987` (molecule, 16), `Multiselect option` `170:1565` (atom, 4), `List item` `82:891` (molecule, 64). Status: draft. Заменены на месте 2026-11-13: в каждом варианте раскрытый экземпляр базы (слой `_List row`), свойства наборов удалены, значения экземпляров перенесены. Пилоты `… · пилот` — на странице `_List row`, удаление ждёт «ок».
 - Figma: Components, страница `_List row`, доска «⚑ Пилот _List row». Платформы: Web, Mobile web, iOS, Android.
 - Решение: Стефан 2026-11-12, «вариант 2» — общая база + надстройки с вложенным раскрытым экземпляром.
 
@@ -68,14 +68,14 @@
 
 | Набор | Оси | Вариантов |
 |---|---|---|
-| `Menu item · пилот` | Size (M, L) × Tone (Default, Danger) × State (4) | 16 |
-| `Multiselect option · пилот` | State (4) | 4 |
-| `List item · пилот` | Size (M, L) × Style (Plain, Card) × Content (4) × State (4) | 64 |
+| `Menu item` | Size (M, L) × Tone (Default, Danger) × State (4) | 16 |
+| `Multiselect option` | State (4) | 4 |
+| `List item` | Size (M, L) × Style (Plain, Card) × Content (4) × State (4) | 64 |
 
 - Оси надстройки менять на корне. Свойства базы (Label, Description, слоты, Selected, Show selection, Divider, Focus ring, зоны) — через раскрытый экземпляр базы.
 - Tone = Danger (Menu item): подпись `text/danger`, иконка Leading `icon/danger` — переопределения в надстройке.
 - Style = Card (List item): фон `surface/raised`, радиус `radius/control`, Divider выключен — переопределения в надстройке.
-- Изменения против действующих: `Title` → `Label`; `Leading · swap` → Show leading + слот Leading; `Checkbox` → Show selection; у Multiselect option `State = Selected` → булево Selected (вопросы 2 и 4 доски).
+- Изменения при замене 13.11 (MAJOR): List item `Title` → `Label`; Multiselect option `Leading` + `Leading · swap` → Show leading + слот Leading, `State = Selected` → булево Selected (вариант удалён, его экземпляры переведены на Default + Selected); Menu item `Checkbox` → Show selection.
 
 ## 6. Content / slots
 - Label обязателен. Описание — одна строка. Суммы — в Trailing, Numeric в коде; длинный адрес — сокращение в середине.
@@ -110,7 +110,7 @@
 Режимы Platform меняют шрифт и зону нажатия (`touch/is-fine` / `touch/is-coarse`); отличий в структуре нет.
 
 ## 12. Figma projection
-- Страница `_List row`: база, три пилотные надстройки, доска.
+- Страница `_List row`: база, три пилота, доска. Действующие наборы — на страницах Menu item, Multiselect, List item.
 - Экземпляр базы в надстройке раскрыт (`isExposedInstance`). Порядок осей базы: Type, Size, Content, State.
 - У свойства замены `Selection control` одно значение по умолчанию на весь набор: менять главный компонент глифа в отдельном варианте базы нельзя — сменится во всех. Disabled-глиф задаёт надстройка вариантным свойством вложенного глифа (21 Disabled-вариант трёх пилотов).
 
@@ -124,6 +124,12 @@
 - Размеры всех 84 вариантов надстроек совпали с действующими наборами (разница 0).
 - Стенд: Light / Dark × EMCD / Geometria / WL Default × Web / iOS / Android / Mobile web × L0–L3; все булевы свойства, слот Trailing, Disabled с глифом, длинный текст, 6 языков — пройден и удалён.
 - Не проверено: текст 200 %; паритет с кодом (кода нет).
+
+## 14a. Замена на месте (2026-11-13)
+- Menu item: 16 вариантов; Multiselect option: 4 варианта (было 5, `State=Selected` удалён); List item: 64 варианта, 98 экземпляров, 41 с перенесёнными значениями, 9 слотов восстановлено, 18 привязок текста к переменным языков возвращено. Размеры экземпляров до / после — разница 0, ошибок 0.
+- `audit` по страницам Menu item, Multiselect, List item, `_List row` — 0. `variables-check` — те же 2 числа базы. `audit-parity` — те же 2 совещательных у базы; у надстроек 0.
+- Описания наборов и борды v3 (разделы 02, 03, 11) приведены к новым именам свойств. Снимки: List item, Dropdown panel — верно.
+- Не сделано: стенд бренды × платформы и текст 200 % у действующих наборов (снят у пилотов); снимки хостов Multiselect, Sheet, Date range panel.
 
 ## 15. Migration
 Legacy: Dropdown item (DS Web), List с Left / Content / Right (DS Web), строки выбора App. Источник формы — действующие Menu item, Multiselect option, List item 2.0: размеры и отступы перенесены без изменений; служебные слои заменены экземплярами; выбор — глиф `_Checkbox control`; цвета иконок приведены к правилу (Danger, Disabled); галочка — `icon/accent`.

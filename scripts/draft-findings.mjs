@@ -4,6 +4,8 @@
 const DESC_REQUIRED = ['Когда использовать:', 'Правила:', 'A11y:'];
 const INTERACTIVE = new Set(['Hover', 'Pressed', 'Focus', 'Focused']);
 const BOOL = [['Off', 'On'], ['False', 'True'], ['No', 'Yes']];
+// Базы: у надстройки с раскрытым экземпляром базы в каждом варианте служебные слои живут в базе (SERVICE не проверяем).
+const BASES = ['_Field base', '_Selection control', '_List row'];
 const sameSet = (a, b) => a.length === b.length && a.every((x) => b.includes(x));
 
 export function findings(s) {
@@ -29,7 +31,8 @@ export function findings(s) {
   if (s.rawCount) f.push(['RAW', `${s.rawCount} (напр. ${(s.raw || []).slice(0, 2).map((x) => `\`${x}\``).join(', ')})`]);
   // SERVICE: у интерактивного набора — кольцо фокуса, зона нажатия, безопасное поле
   const interactive = Object.values(s.axes || {}).some((v) => v.some((x) => INTERACTIVE.has(x)));
-  if (interactive) {
+  const onBase = BASES.some((b) => (s.nested || {})[b] === s.variants);
+  if (interactive && !onBase) {
     const l = s.layers || {};
     const no = [];
     if (!l.ring) no.push('кольца фокуса');

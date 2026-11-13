@@ -17,17 +17,17 @@
    "beta": 20,
    "нет": 3
   },
-  "variants": 1648,
+  "variants": 1647,
   "incompleteMatrix": 11,
-  "propsNotBoundEverywhere": 19,
-  "rawMinMax": 43,
+  "propsNotBoundEverywhere": 18,
+  "rawMinMax": 42,
   "withRawValues": 88,
-  "withFocusRing": 28,
-  "withHitArea": 21,
-  "withSafeMargin": 20,
+  "withFocusRing": 25,
+  "withHitArea": 18,
+  "withSafeMargin": 17,
   "pagesWithoutV3Board": 1,
   "pagesWithFullBoard": 9,
-  "baseSets": 9
+  "baseSets": 10
  },
  "pages": [
   {
@@ -2503,145 +2503,47 @@
      "id": "170:1565",
      "type": "SET",
      "status": "draft",
-     "descLen": 762,
+     "descLen": 1086,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда использовать:",
       "Правила:",
-      "A11y:"
+      "A11y:",
+      "Кольцо фокуса:"
      ],
      "inBoard": false,
      "axes": {
       "State": [
        "Default",
        "Hover",
-       "Selected",
        "Disabled",
        "Pressed"
       ]
      },
-     "variants": 5,
-     "full": 5,
-     "props": [
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Bitcoin (BTC)",
-       "bound": 5
-      },
-      {
-       "name": "Show hit area",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 5
-      },
-      {
-       "name": "Safe margin",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 5
-      },
-      {
-       "name": "Description",
-       "type": "TEXT",
-       "def": "Описание",
-       "bound": 5
-      },
-      {
-       "name": "Show description",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 5
-      },
-      {
-       "name": "Leading",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 5
-      },
-      {
-       "name": "Leading · swap",
-       "type": "INSTANCE_SWAP",
-       "def": "smbl-bitcoin-btc",
-       "bound": 5
-      },
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 5
-      }
-     ],
+     "variants": 4,
+     "full": 4,
+     "props": [],
      "nested": {
-      "smbl-bitcoin-btc": 5,
-      "(icons)": 5
+      "_List row": 4
      },
-     "minmax": [
-      "minh=40 RAW"
-     ],
+     "minmax": [],
      "layers": {
-      "ring": 5,
-      "hitWeb": 5,
-      "hitApp": 5,
-      "hit": 5,
-      "safe": 5
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
      },
-     "rawCount": 20,
+     "rawCount": 4,
      "raw": [
-      "(root):w=280",
-      "content:gap=2",
-      "hit area · web:w=280",
-      "hit area · web:h=40"
+      "(root):w=280"
      ],
      "tokens": {
-      "(root)": [
+      "_List row": [
        "gap:space/12",
        "p:space/12",
        "p:space/8",
-       "r:radius/inner"
-      ],
-      "label": [
-       "f:text/disabled",
-       "f:text/primary",
-       "fontFamily:font/family/text",
-       "fontSize:type/body/md/size",
-       "fontWeight:font-weight/regular",
-       "lineHeight:type/body/md/line-height"
-      ],
-      "description": [
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "check": [
-       "h:icon/size/md",
-       "w:icon/size/md"
-      ],
-      "hit area · web": [
-       "visible:touch/is-fine"
-      ],
-      "hit area · overlay": [
-       "f:status/danger/solid"
-      ],
-      "hit area · app": [
-       "visible:touch/is-coarse"
-      ],
-      "safe area · outer": [
-       "s:status/success/solid",
-       "sw:control/safe-margin"
-      ],
-      "focus ring": [
-       "r:radius/focus-ring-inner",
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "state layer": [
-       "f:state/layer",
-       "o:state/hover",
-       "o:state/pressed",
        "r:radius/inner"
       ]
      },
@@ -7158,17 +7060,19 @@
      "id": "82:891",
      "type": "SET",
      "status": "draft",
-     "descLen": 1212,
+     "descLen": 1610,
      "descHeads": [
       "Status:",
       "Level:",
+      "Code:",
       "Строка списка:",
       "Size:",
       "Суммы —",
       "A11y:",
       "Когда использовать:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Кольцо фокуса:"
      ],
      "inBoard": false,
      "axes": {
@@ -7195,189 +7099,30 @@
      },
      "variants": 64,
      "full": 64,
-     "props": [
-      {
-       "name": "Title",
-       "type": "TEXT",
-       "def": "USDC",
-       "bound": 48
-      },
-      {
-       "name": "Description",
-       "type": "TEXT",
-       "def": "USD Coin",
-       "bound": 64
-      },
-      {
-       "name": "Subvalue",
-       "type": "TEXT",
-       "def": "USDT",
-       "bound": 16
-      },
-      {
-       "name": "Show leading",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 64
-      },
-      {
-       "name": "Show trailing",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 64
-      },
-      {
-       "name": "Divider",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 32
-      },
-      {
-       "name": "Leading",
-       "type": "SLOT",
-       "bound": 64
-      },
-      {
-       "name": "Trailing",
-       "type": "SLOT",
-       "bound": 64
-      },
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 64
-      },
-      {
-       "name": "Show hit area",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 64
-      },
-      {
-       "name": "Safe margin",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 64
-      }
-     ],
+     "props": [],
      "nested": {
-      "smbl-bitcoin-btc": 64
+      "_List row": 64
      },
      "minmax": [],
      "layers": {
-      "ring": 64,
-      "hitWeb": 64,
-      "hitApp": 64,
-      "hit": 64,
-      "safe": 64
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
      },
-     "rawCount": 192,
+     "rawCount": 64,
      "raw": [
-      "(root):w=375",
-      "hit area · web:w=375",
-      "hit area · web:h=76",
-      "hit area · web:h=84",
-      "hit area · web:h=60",
-      "hit area · web:h=68"
+      "(root):w=375"
      ],
      "tokens": {
-      "(root)": [
+      "_List row": [
        "f:surface/raised",
        "gap:space/12",
        "p:control/padding-x/lg",
        "p:space/12",
        "p:space/16",
        "r:radius/control"
-      ],
-      "title": [
-       "f:text/disabled",
-       "f:text/primary",
-       "fontFamily:font/family/display",
-       "fontFamily:font/family/text",
-       "fontSize:type/heading/lg/size",
-       "fontSize:type/heading/xl/size",
-       "fontSize:type/label/lg/size",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/bold",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/heading/lg/line-height",
-       "lineHeight:type/heading/xl/line-height",
-       "lineHeight:type/label/lg/line-height",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "description": [
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
-       "fontSize:type/label/md/size",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height",
-       "lineHeight:type/label/md/line-height",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "1 250.00": [
-       "f:text/disabled",
-       "f:text/primary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "≈ 1 250 $": [
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/md/size",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "divider": [
-       "f:border/subtle"
-      ],
-      "focus ring": [
-       "r:radius/2xs",
-       "r:radius/focus-ring",
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "hit area · web": [
-       "visible:touch/is-fine"
-      ],
-      "hit area · overlay": [
-       "f:status/danger/solid"
-      ],
-      "hit area · app": [
-       "visible:touch/is-coarse"
-      ],
-      "safe area · outer": [
-       "s:status/success/solid",
-       "sw:control/safe-margin"
-      ],
-      "state layer": [
-       "f:state/layer",
-       "o:state/hover",
-       "o:state/pressed",
-       "r:radius/control"
-      ],
-      "value row": [
-       "gap:space/4"
-      ],
-      "subvalue": [
-       "f:text/disabled",
-       "f:text/tertiary",
-       "fontFamily:font/family/display",
-       "fontSize:type/heading/lg/size",
-       "fontSize:type/heading/xl/size",
-       "fontWeight:font-weight/bold",
-       "lineHeight:type/heading/lg/line-height",
-       "lineHeight:type/heading/xl/line-height"
       ]
      },
      "statusFirstLine": true
@@ -7419,7 +7164,7 @@
      "id": "407:1987",
      "type": "SET",
      "status": "draft",
-     "descLen": 778,
+     "descLen": 1233,
      "descHeads": [
       "Status:",
       "Level:",
@@ -7427,8 +7172,10 @@
       "• Leading —",
       "• Trailing —",
       "• M —",
-      "• Checkbox —",
-      "• Tone = Danger —"
+      "• Show selection —",
+      "• Tone = Danger —",
+      "A11y:",
+      "Кольцо фокуса:"
      ],
      "inBoard": false,
      "axes": {
@@ -7449,164 +7196,29 @@
      },
      "variants": 16,
      "full": 16,
-     "props": [
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Добавить воркер",
-       "bound": 16
-      },
-      {
-       "name": "Description",
-       "type": "TEXT",
-       "def": "Описание",
-       "bound": 16
-      },
-      {
-       "name": "Show description",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 16
-      },
-      {
-       "name": "Selected",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 16
-      },
-      {
-       "name": "Show leading",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 16
-      },
-      {
-       "name": "Show trailing",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 16
-      },
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 16
-      },
-      {
-       "name": "Checkbox",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 16
-      },
-      {
-       "name": "Leading",
-       "type": "SLOT",
-       "bound": 16
-      },
-      {
-       "name": "Trailing",
-       "type": "SLOT",
-       "bound": 16
-      },
-      {
-       "name": "Show hit area",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 16
-      },
-      {
-       "name": "Safe margin",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 16
-      }
-     ],
+     "props": [],
      "nested": {
-      "Checkbox": 16,
-      "(icons)": 32
+      "_List row": 16
      },
      "minmax": [],
      "layers": {
-      "ring": 16,
-      "hitWeb": 16,
-      "hitApp": 16,
-      "hit": 16,
-      "safe": 16
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
      },
-     "rawCount": 48,
+     "rawCount": 16,
      "raw": [
-      "(root):w=290",
-      "hit area · web:w=290",
-      "hit area · web:h=44",
-      "hit area · web:h=56"
+      "(root):w=290"
      ],
      "tokens": {
-      "(root)": [
+      "_List row": [
        "gap:space/12",
        "p:space/10",
        "p:space/12",
        "p:space/16",
        "r:radius/sm"
-      ],
-      "state layer": [
-       "f:state/layer",
-       "o:state/hover",
-       "o:state/pressed",
-       "r:radius/sm"
-      ],
-      "checkbox": [
-       "gap:space/8"
-      ],
-      "icon/plus": [
-       "h:icon/size/md",
-       "w:icon/size/md"
-      ],
-      "label": [
-       "f:text/danger",
-       "f:text/disabled",
-       "f:text/primary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height"
-      ],
-      "description": [
-       "f:text/disabled",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "hint": [
-       "f:text/disabled",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/body/md/size",
-       "fontWeight:font-weight/regular",
-       "lineHeight:type/body/md/line-height"
-      ],
-      "selected": [
-       "h:icon/size/md",
-       "w:icon/size/md"
-      ],
-      "focus ring": [
-       "r:radius/focus-ring-inner",
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "hit area · web": [
-       "visible:touch/is-fine"
-      ],
-      "hit area · overlay": [
-       "f:status/danger/solid"
-      ],
-      "hit area · app": [
-       "visible:touch/is-coarse"
-      ],
-      "safe area · outer": [
-       "s:status/success/solid",
-       "sw:control/safe-margin"
       ]
      },
      "statusFirstLine": true
@@ -15237,6 +14849,96 @@
       "text/secondary",
       "touch/is-coarse",
       "touch/is-fine",
+      "type/label/lg/line-height",
+      "type/label/lg/size",
+      "type/label/md/line-height",
+      "type/label/md/size",
+      "type/label/sm/line-height",
+      "type/label/sm/size"
+     ]
+    }
+   ]
+  },
+  {
+   "page": "List row",
+   "pageId": "1855:435",
+   "sets": [
+    {
+     "name": "_List row",
+     "id": "1858:603",
+     "status": "beta",
+     "variants": 44,
+     "axes": {
+      "Type": [
+       "Menu",
+       "Option",
+       "List"
+      ],
+      "Size": [
+       "M",
+       "L"
+      ],
+      "Content": [
+       "Text first",
+       "Description first",
+       "Big value",
+       "Description only"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Pressed",
+       "Disabled"
+      ]
+     },
+     "nested": [
+      "_Checkbox control",
+      "_Focus ring",
+      "_Hit area",
+      "_Safe margin",
+      "_State layer",
+      "smbl-bitcoin-btc"
+     ],
+     "tokens": [
+      "border/focus-ring",
+      "border/subtle",
+      "border/width/focus-ring",
+      "control/padding-x/lg",
+      "control/safe-margin",
+      "font-weight/bold",
+      "font-weight/medium",
+      "font-weight/regular",
+      "font/family/display",
+      "font/family/text",
+      "icon/size/md",
+      "radius/2xs",
+      "radius/focus-ring-inner",
+      "radius/inner",
+      "radius/sm",
+      "size/box",
+      "space/10",
+      "space/12",
+      "space/16",
+      "space/2",
+      "space/4",
+      "space/8",
+      "state/hover",
+      "state/layer",
+      "state/pressed",
+      "status/danger/solid",
+      "status/success/solid",
+      "text/disabled",
+      "text/primary",
+      "text/secondary",
+      "text/tertiary",
+      "touch/is-coarse",
+      "touch/is-fine",
+      "type/body/md/line-height",
+      "type/body/md/size",
+      "type/heading/lg/line-height",
+      "type/heading/lg/size",
+      "type/heading/xl/line-height",
+      "type/heading/xl/size",
       "type/label/lg/line-height",
       "type/label/lg/size",
       "type/label/md/line-height",

@@ -9,6 +9,7 @@
 - **`_Field base`** — `helper row` видна только при Show helper; Skeleton скрывает слоты, подсказку и счётчик.
 - **Password field** — рамка Error 92, глаз по центру (после замены Input).
 - **Checkbox, Radio, Toggle** — наборы заменены на месте: варианты = раскрытый экземпляр `_Selection control`; свойства наборов удалены, значения экземпляров перенесены; ось `Control = Left | Right` → `Control position = Start | End`. MAJOR. Описания (кольцо 2 px, «Когда использовать:», строка «Сборка») и раздел 03 борд v3 обновлены.
+- **Menu item, Multiselect option, List item** — наборы заменены на месте: варианты = раскрытый экземпляр `_List row`; свойства наборов удалены, значения, слоты и привязки языков перенесены. MAJOR: `Title` → `Label` (List item), `Checkbox` → `Show selection` (Menu item), `Leading · swap` → слот Leading и `State = Selected` → булево `Selected` (Multiselect option, вариант удалён, набор переложен). Описания и борды v3 обновлены.
 - Архив: `icon/wallet` возвращён в два экземпляра; у трёх экземпляров Input потеряно содержимое Trailing.
 
 ## 2026-10-31 — 2026-11-05
