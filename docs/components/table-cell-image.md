@@ -50,12 +50,12 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: интервал `space/16`; отступы `space/12`.
+- `корень`: интервал `space/16`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `image`: заливка / цвет `action/secondary/default`; радиус `radius/inner`.
 - `primary`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `secondary`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
-- Min / max корня: minWidth 80 числом.
+- Min / max корня: minWidth 80 size/table-cell/min.
 - Значений без переменной: 6 (напр. `(root):w=300`, `(root):h=80`).
 
 ## 11. Platforms
@@ -77,7 +77,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:, A11y:
-  - MINMAX: minw=80
   - RAW: 6 (напр. `(root):w=300`, `(root):h=80`)
   - BOARD: нет разделов 07, 08
 

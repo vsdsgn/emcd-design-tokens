@@ -91,6 +91,6 @@
 ## 15. Migration
 - DS Web `baseRadio with text`: active → Status Off | On; disable → State=Disabled; danger → Tone=Danger; secondary не переносим.
 
-Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
+Осталось доделать (после пакета правок beta 2026-11-13):
 - max-width подписи 436 в базе — токен `size/*` (публикует Стефан).
 - Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.

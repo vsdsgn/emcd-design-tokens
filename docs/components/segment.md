@@ -25,7 +25,7 @@
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`.
 - Default, Hover, Pressed, Disabled × Selected Off | On.
-- Матрица 36 из 128: тона Accent / Success / Danger — только там, где они видны (выбранный сегмент); полный перечень — в описании набора при замене.
+- Матрица 36 из 128: тона Accent / Success / Danger — только там, где они видны (выбранный сегмент); полный перечень — в строке «Матрица:» описания набора.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 5. Properties
@@ -35,8 +35,8 @@
 |---|---|---|
 | Size | S · M · L · XL | S |
 | Selected | Off · On | Off |
-| State | Default · Hover · Disabled · Pressed | Default |
 | Tone | Neutral · Accent · Success · Danger | Neutral |
+| State | Default · Hover · Disabled · Pressed | Default |
 
 Матрица: 36 из 128.
 
@@ -80,9 +80,9 @@
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Segment`, вариантов 36 из 128; оси: Size, Selected, State, Tone.
+- Набор `Segment`, вариантов 36 из 128; оси: Size, Selected, Tone, State.
 - Борда: «Segment — борда · шаблон v3», разделов 13.
-- Описание: 798 знаков, разделы: Status: Level: Сегмент — Tone: Только внутри Segmented. Поиск: Legacy: Когда использовать: Правила: A11y:
+- Описание: 930 знаков, разделы: Status: Level: Сегмент — Tone: Только внутри Segmented. Поиск: Legacy: Когда использовать: Правила: Матрица: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -94,14 +94,12 @@
 ## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 200 @label` числом.
-- `audit-parity.plugin.js` — DESC: сущности; MATRIX: 36 из 128 без строки «Матрица:»; AXES: Selected булева, State не последняя (Size, Selected, State, Tone).
+- `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
 ## 15. Migration
 - DS Web `base segmented picker item / text | icon only`: status | color neutral | brand | danger | success → Tone; size lg | sm → Size XL | M; active → Selected; icon only → Show label=false.
 
-Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
-- Описание: строка «Матрица:» с перечнем допустимых сочетаний (36 из 128).
-- Порядок осей: State — последней; ось Selected — решение по булевым осям.
-- Убрать экранированные сущности (`&amp;…quot;`) из описания.
+Осталось доделать (после пакета правок beta 2026-11-13):
+- max-width подписи 200 — числом (вложенный слой).

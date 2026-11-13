@@ -74,11 +74,11 @@
 - Remove — отдельная кнопка, `aria-label` «Убрать фильтр …»; Пробел / Enter — выбрать.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/disabled`, `action/inverse/default`; интервал `space/6`; высота `control/height/md`, `control/height/sm`; отступы `control/padding-x/sm`, `space/12`; радиус `radius/control`, `radius/control-sm`; обводка `control/border/default`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `action/disabled`, `action/inverse/default`; интервал `space/6`; высота `control/height/md`, `control/height/sm`; maxw `size/chip/max`; отступы `control/padding-x/sm`, `space/12`; радиус `radius/control`, `radius/control-sm`; обводка `control/border/default`; толщина обводки `border/width/default`.
 - `label`: заливка / цвет `text/disabled`, `text/inverse`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `meta`: заливка / цвет `text/disabled`, `text/inverse`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm`.
-- Min / max корня: maxWidth 240 числом.
+- Min / max корня: maxWidth 240 size/chip/max.
 - Значений без переменной: 32 (напр. `hit area · web:w=84`, `hit area · web:h=32`, `hit area · web:w=82`, `hit area · web:w=88`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -99,8 +99,8 @@
 
 ## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
-- `variables-check.plugin.js` — `maxWidth 240` (корень), `maxWidth 192 @label` числом.
-- `audit-parity.plugin.js` — AXES: ось «Selected» булева (Off / On) — должна быть свойством или именованными значениями; MINMAX: maxWidth=240.
+- `variables-check.plugin.js` — `maxWidth 192 @label` числом (корень — `size/chip/max`).
+- `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
@@ -109,7 +109,5 @@
 - subtext → Meta; focus → Focus ring; `baseChip / vertical` — не переносим.
 - Строка csv «Layout=Vertical» устарела: раскладка убрана 2026-10-18.
 
-Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
-- Ось Selected Off | On — решение Стефана по булевым осям (доска решений).
-- max-width 240 / 192 — переменная или исключение.
-- Мусор «xbg» в строке «Поиск».
+Осталось доделать (после пакета правок beta 2026-11-13):
+- max-width подписи 192 — числом (вложенный слой).

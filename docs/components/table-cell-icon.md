@@ -51,9 +51,9 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: интервал `space/8`; отступы `space/12`.
+- `корень`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
-- Min / max корня: minWidth 80 числом.
+- Min / max корня: minWidth 80 size/table-cell/min.
 - Значений без переменной: 12 (напр. `(root):w=80`, `(root):h=80`).
 
 ## 11. Platforms
@@ -75,7 +75,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:, A11y:
-  - MINMAX: minw=80
   - RAW: 12 (напр. `(root):w=80`, `(root):h=80`)
   - BOARD: нет разделов 07, 08
 

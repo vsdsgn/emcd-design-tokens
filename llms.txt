@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-13: beta 20 наборов, draft 94, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-13: beta 21 наборов, draft 94, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -45,6 +45,7 @@
 - [Radio](docs/components/radio.md): Один вариант из нескольких (2–5). Основа — legacy `baseRadio` (круг 20, точка 8, подпись через 12)
 - [Segment](docs/components/segment.md): Элемент Segmented. Отдельно не используется
 - [Status](docs/components/status.md): Точка + подпись: состояние объекта (воркер, устройство, сервис, выплата) в строке таблицы, списке, шапке
+- [Dot](docs/components/dot.md): не описано
 - [Tab](docs/components/tab.md): Переключение разделов одного экрана (История: Начисления / Выплаты / Воркеры). Выбранный — подчёркивание
 - [Toggle](docs/components/toggle.md): Переключатель: мгновенно включает настройку, без «Сохранить». Основа — legacy `baseToggle` (дорожка 48×28 / 40×24, ползунок 20 / 16)
 - [Input](docs/components/input.md): одна строка текста или числа
@@ -69,7 +70,7 @@
 - атом (22): Amount, Avatar, Chart axis label, Circle timer, Code cell, Coin, Date cell, Divider, Legend swatch, Multiselect option, Overlay, Page dot, Pagination item, Progress, Progress circle, Spinner, Scrollbar, Skeleton, Step segment, Step symbol, Step trail, Tooltip
 - молекула (57): Accordion, Address, Avatar group, Breadcrumbs, Chart crosshair, Chart metric, Chart tooltip, Checkbox group, Code input, Coin stack, Date range field, Floating button, Input addon / Clear, Input addon / Icon, Input amount, Legend item, List item, Menu item, Multiselect, Nav item, Notification, Page indicator, Pagination, Password field, Key-value row, Promo card, Radio card, Radio group, Segmented, Select, Select compact, Snack, Stat card, Step progress, Step, Suggest, Table header cell, Table cell / Text, Table cell / Date time, Table cell / Coin, Table cell / Transaction, Table cell / Image, Table cell / Progress, Table cell / Avatar, Table cell / Badge, Table cell / Toggle, Table cell / Star, Table cell / Icon, Table cell / Buttons, Table cell / More, Table row, Table cell / Status, Tabs, Toast, Toggle group, Tooltip tour, Transaction
 - организм (15): Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, Status screen, File upload, Page header, Menu, Modal, Sidebar, Sheet, Side panel, Tab bar
-- без статуса (3): Card, Dot, _Tooltip arrow
+- без статуса (2): Card, _Tooltip arrow
 
 ## Проверки
 

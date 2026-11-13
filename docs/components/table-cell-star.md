@@ -45,9 +45,9 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: интервал `space/8`; отступы `space/8`.
+- `корень`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/8`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
-- Min / max корня: minWidth 80 числом.
+- Min / max корня: minWidth 80 size/table-cell/min.
 - Значений без переменной: 12 (напр. `(root):w=80`, `(root):h=80`).
 
 ## 11. Platforms
@@ -70,7 +70,6 @@
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:, A11y:
   - AXES: `Active` — булева ось (Off | On)
-  - MINMAX: minw=80
   - RAW: 12 (напр. `(root):w=80`, `(root):h=80`)
   - BOARD: нет разделов 07, 08
 

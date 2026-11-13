@@ -38,7 +38,7 @@
 |---|---|---|
 | Type | Primary · Inverted · Tertiary · Tertiary outline · Text · Secondary | Primary |
 | Tone | Default · Danger | Default |
-| Size | S · M · L · XL | S |
+| Size | S · M · L · XL | M |
 | State | Default · Hover · Pressed · Disabled | Default |
 
 Матрица: 176 из 192.
@@ -86,7 +86,7 @@
 - `pad R`: ширина `space/2`.
 - `icon right`: высота `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`.
 - Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/container`, `radius/control`, `radius/control-sm` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid`; толщина обводки `border/width/default` · `hit area · app`: видимость `touch/is-coarse` · `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-lg`, `radius/focus-ring-sm`, `radius/focus-ring-xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `safe area · content`: заливка / цвет `status/success/solid` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
-- Min / max корня: minWidth 64 size/button/min, minWidth 64 числом.
+- Min / max корня: minWidth 64 size/button/min.
 - Значений без переменной: 352 (напр. `hit area · web:w=65`, `hit area · web:h=32`, `hit area · web:w=69`, `hit area · web:h=40`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -97,7 +97,7 @@
 ## 12. Figma projection
 - Набор `Button`, вариантов 176 из 192; оси: Type, Tone, Size, State.
 - Борда: «Button — борда · шаблон v3», разделов 12.
-- Описание: 4179 знаков, разделы: Status: Level: Кнопка действия. • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted — • Default — • Danger — S 32 —
+- Описание: 4402 знаков, разделы: Status: Level: Кнопка действия. Когда использовать: Матрица: • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted — • Default —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -110,8 +110,8 @@
 
 ## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
-- `variables-check.plugin.js` — `minWidth 64` числом у части вариантов (у остальных — `size/button/min`).
-- `audit-parity.plugin.js` — DESC: нет «Когда использовать», экранированные сущности; MATRIX: 176 из 192 без строки «Матрица:»; MINMAX: minWidth=64 без переменной.
+- `variables-check.plugin.js` — 0 замечаний (min-width — `size/button/min` во всех вариантах).
+- `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
@@ -122,9 +122,5 @@
 - Active No | Yes → State; Focus ring и Loading — новые.
 - Строка Button в `docs/migration/components.csv` обновлена под эти типы 2026-11-12.
 
-Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
-- Вариант по умолчанию Size=S; по правилу — M (Web).
-- min-width 64 привязать к `size/button/min` во всех вариантах.
-- Описание: добавить «Когда использовать:» и «Матрица:» (176 из 192: Danger только у Primary, Secondary, Text).
-- Убрать экранированные сущности (`&amp;…quot;`) из описания.
-- Loading — свойство у Button и значение оси State у Icon button: привести к одному способу.
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Loading — свойство у Button и значение оси State у Icon button: привести к одному способу (ломает экземпляры — решение Стефана).

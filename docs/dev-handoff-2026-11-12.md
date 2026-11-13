@@ -33,6 +33,15 @@
 `control/height/xs`, `control/height/2xl`; `radius/focus-ring-xs`, `radius/focus-ring-inner`, `radius/focus-ring-surface`; `size/badge-height/sm|md|lg`; `size/counter-height/sm|md`; `size/dot/sm|md`; `size/toggle-width/sm|md`, `size/toggle-height/sm|md`; `size/tab-indicator/sm|lg`; `size/tab-bar-item/width`; `size/box`, `size/box-row`.
 До экспорта их нет в `tokens/` и `build/` — в коде не использовать.
 
+## Пакет правок beta 2026-11-13 (не MAJOR)
+
+- Свойства и оси не переименованы, экземпляры не менялись.
+- Вариант по умолчанию в Figma: Button — Size M; Icon button — Type Ghost, Size M; Badge — State Default. Сверить умолчания props в коде (Web: Button `size="m"`, Icon button `type="ghost"`).
+- Кольцо фокуса — 2 px у всех (в описании Icon button было 4).
+- min / max: Button min-width — `size/button/min`; Counter min-width — `size/counter-height/*`; Badge, Chip max-width — `size/badge/max`, `size/chip/max`. Без токена пока: Counter max 40, Tooltip min 58, Toast min 280, список Dropdown panel max-высота 320 (токены появятся со следующей публикацией Foundations).
+- Tooltip: Placement остаётся Top / Bottom / Left / Right.
+- Открыто: Loading — свойство у Button и значение State у Icon button; сведём к свойству (MAJOR) после «ок» Стефана.
+
 ## Новое в Figma (аддитивно, в код пока не идёт)
 
 - **Базы:** `_Field base` (Input, Textarea и вся семья полей), `_Selection control` (Checkbox, Radio, Toggle), `_List row` (Menu item, Multiselect option, List item), `_Overlay surface` (Tooltip, Menu, Dropdown panel, Toast, Modal, Sheet). Контракты — `docs/components/field-base.md`, `selection-control.md`, `list-row.md`, `overlay-surface.md`.

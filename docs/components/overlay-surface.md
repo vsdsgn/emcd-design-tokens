@@ -120,11 +120,11 @@
 - Высоты Toast (3) и Modal (1) в сетке локалей (hi, th, ar) читаются нестабильно между вызовами — ленивая раскладка текста, не изменение.
 - `audit` по страницам шести наборов и базы — 0.
 - `variables-check` — только числа min / max раздела 10 и `itemSpacing 8 @header` у Dropdown panel.
-- `audit-parity` — OVERLAY 0, SERVICE 0, BASE 0. Остаток: MINMAX (Tooltip, Menu, Toast, Sheet — ждут `size/overlay/*`), AXES «Placement: Left / Right» (решение 7), `_Tooltip arrow` — нет Status / Level в описании и высота без переменной.
+- `audit-parity` — OVERLAY 0, SERVICE 0, BASE 0. Остаток на момент замены: MINMAX (Tooltip, Menu, Toast, Sheet), AXES «Placement: Left / Right». Пакет правок beta 13.11: Menu и Sheet привязаны к `size/*`; Tooltip 58, Toast 280, список Dropdown panel 320 — временные исключения (`docs/exceptions.md`); Placement у Tooltip остаётся Left / Right (решение Стефана 09.11, исключение в `audit-parity`), `_Tooltip arrow` — нет Status / Level в описании и высота без переменной.
 - Попутно привязано (было числом): толщина обводки Dropdown panel и Toast, интервал корня Dropdown panel, отступы `empty` у Dropdown panel; интервалы слотов Body / Footer slot у Modal и Header actions / Body у Sheet.
 - Описания наборов = описаниям пилотов: строка «Поверхность — слой overlay surface…», у Tooltip и Modal — «Когда использовать» и A11y. Кавычки в описаниях не ставить: Figma экранирует их (`&quot;`).
 - Борды v3: раздел 11 перечисляет токены без привязки к слою — правка не нужна.
-- Не сделано: стенд бренды × платформы и текст 200 % у действующих наборов (снят у пилотов); снимки хостов (Select, Multiselect, Date range panel и др.); Placement Start / End; токены `size/overlay/*`.
+- Не сделано: стенд бренды × платформы и текст 200 % у действующих наборов (снят у пилотов); снимки хостов (Select, Multiselect, Date range panel и др.); токены `size/tooltip/min`, `size/toast/min`, `size/dropdown-panel/max-height` (завести в Foundations).
 
 ## 15. Migration
 Legacy: base tooltip, Dropdown, base modal (header / footer), шторки App. Источник формы — действующие наборы 2.0: размеры, отступы, свойства перенесены без изменений. Что изменено против действующих:

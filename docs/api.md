@@ -179,6 +179,15 @@
 | `label` | string | — | свойство Label |
 | `showLabel` | boolean | true | свойство Show label |
 
+## Dot
+
+атом · beta · Vue `<DsDot>` · Flutter `DsDot` · контракт `docs/components/dot.md`
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | s \| m | по правилу контракта | ось Size |
+| `tone` | success \| warning \| danger \| info \| neutral | по правилу контракта | ось Tone |
+
 ## Tab
 
 атом · beta · Vue `<DsTab>` · Flutter `DsTab` · контракт `docs/components/tab.md`

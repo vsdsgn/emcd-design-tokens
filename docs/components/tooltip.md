@@ -52,10 +52,10 @@
 - |
 
 ## 10. Tokens
-- `корень`: отступы `space/10`, `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
+- `корень`: maxw `size/tooltip/max`; отступы `space/10`, `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
 - `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; радиус `radius/container`.
 - `text`: заливка / цвет `fixed/light`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- Min / max корня: minWidth 58 числом, maxWidth 320 числом, minHeight 58 числом.
+- Min / max корня: minWidth 58 числом, maxWidth 320 size/tooltip/max, minHeight 58 числом.
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -76,7 +76,7 @@
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:, A11y:
   - AXES: `Placement` — Left / Right вместо Start / End
-  - MINMAX: minw=58, maxw=320, minh=58
+  - MINMAX: minw=58, minh=58
   - BOARD: нет разделов 12
 
 ## 15. Migration

@@ -36,7 +36,7 @@
 | Size | S · M · L | S |
 | Tone | Neutral · Accent · Success · Warning · Danger · Info | Neutral |
 | Style | Subtle · Solid | Subtle |
-| State | Skeleton · Default | Skeleton |
+| State | Skeleton · Default | Default |
 
 Матрица: 39 из 72.
 
@@ -68,11 +68,11 @@
 - Close — отдельная кнопка с `aria-label`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `action/secondary/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/info/solid`, `status/info/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/8`; радиус `radius/control-sm`, `radius/sm`.
+- `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `action/secondary/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/info/solid`, `status/info/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; maxw `size/badge/max`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/8`; радиус `radius/control-sm`, `radius/sm`.
 - `label`: заливка / цвет `accent/on-subtle`, `status/danger/on-subtle`, `status/info/on-subtle`, `status/success/on-subtle`, `status/warning/on-subtle`, `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`, `type/label/sm`.
 - `skeleton bar`: заливка / цвет `skeleton/shimmer`; радиус `radius/xs`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-inner`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring`.
-- Min / max корня: maxWidth 160 числом.
+- Min / max корня: maxWidth 160 size/badge/max.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -91,8 +91,8 @@
 
 ## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
-- `variables-check.plugin.js` — `maxWidth 160` (корень) и `maxWidth 112 @label` числом.
-- `audit-parity.plugin.js` — MATRIX: в описании «Матрица допустимых:», а не строка «Матрица:»; MINMAX: maxWidth=160 без переменной.
+- `variables-check.plugin.js` — `maxWidth 112 @label` числом (корень — `size/badge/max`).
+- `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
@@ -101,9 +101,6 @@
 - size lg | md | sm → Size L | M | S; style tinted | filled → Style Subtle | Solid; state skeleton → State=Skeleton.
 - var `text eraseble` → Close; `text counter` → Counter; `coin` → Icon + Icon · swap (монеты — в Symbols); `next` → Chevron.
 
-Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
-- Вариант по умолчанию — Skeleton; сделать Default.
-- Строку описания «Матрица допустимых:» переименовать в «Матрица:» (ловит MATRIX).
-- max-width 160 / 112 — на переменную или в `docs/exceptions.md` (вопрос min / max токенов).
-- Мусор «,tql;» в строке «Поиск».
-- Кольцо фокуса и свойства Close / Chevron без зон нажатия: решить, интерактивный бейдж — это Badge или Chip.
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Свойства Close / Chevron и кольцо фокуса без зон нажатия: интерактивный бейдж — это Chip; свойства перевести в Deprecated (решение 9 доски, ждёт просмотра Стефана).
+- max-width подписи 112 — числом (вложенный слой).

@@ -55,9 +55,9 @@
 - Число входит в доступное имя родителя («Воркеры, 3 неактивных»); сам счётчик — `aria-hidden`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/secondary/default`, `control/checked`, `status/danger/solid`; высота `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/full`.
+- `корень`: заливка / цвет `action/secondary/default`, `control/checked`, `status/danger/solid`; высота `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/full`.
 - `value`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- Min / max корня: minWidth 16 числом, maxWidth 40 числом, minWidth 20 числом.
+- Min / max корня: minWidth 16 size/counter-height/sm, maxWidth 40 числом, minWidth 20 size/counter-height/md.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -75,14 +75,13 @@
 
 ## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
-- `variables-check.plugin.js` — `minWidth 16` / `20`, `maxWidth 40`, `maxWidth 28 @value` числом.
-- `audit-parity.plugin.js` — MINMAX: minWidth 16, 20 и maxWidth 40 без переменной.
+- `variables-check.plugin.js` — `maxWidth 40` (записанное исключение) и `maxWidth 28 @value` числом; min-width — `size/counter-height/*`.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
 ## 15. Migration
 - DS Web `Badge counter`: status neutral | danger → Tone Neutral | Danger; Accent — новое; размеры S | M.
 
-Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
-- min / max — на переменные (`size/counter-height/*` для min-width) или в `docs/exceptions.md`.
-- Мусор «ctxnxbr» в строке «Поиск» — оставить только если это раскладка-синоним (решить единообразно для всех наборов).
+Осталось доделать (после пакета правок beta 2026-11-13):
+- max-width 40 — временное исключение (`docs/exceptions.md`): завести `size/counter/max` со следующей публикацией Foundations.

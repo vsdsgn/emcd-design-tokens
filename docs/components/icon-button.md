@@ -27,16 +27,16 @@
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`; Pressed — масштаб 0.96; у Ghost и Text подложка — только слой состояния.
 - Default, Hover, Pressed, Disabled, Loading — ось State.
-- Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо 4 px, зазор 2, повторяет скругление.
+- Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо 2 px, зазор 2, повторяет скругление.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Type | Primary · Secondary · Tertiary · Tertiary outline · Ghost · Text · Inverted | Primary |
+| Type | Primary · Secondary · Tertiary · Tertiary outline · Ghost · Text · Inverted | Ghost |
 | Tone | Default · Danger | Default |
-| Size | S · M · L · XL | S |
+| Size | S · M · L · XL | M |
 | State | Default · Hover · Pressed · Disabled · Loading | Default |
 
 Матрица: 240 из 280.
@@ -86,7 +86,7 @@
 ## 12. Figma projection
 - Набор `Icon button`, вариантов 240 из 280; оси: Type, Tone, Size, State.
 - Борда: «Icon button — борда · шаблон v3», разделов 11.
-- Описание: 2195 знаков, разделы: Status: Level: Кнопка-иконка: • Ghost — • Primary — • Secondary — • Text — • Inverted — Квадрат: • Label обязателен: • Тултип — • Hover / Pressed —
+- Описание: 2476 знаков, разделы: Status: Level: Кнопка-иконка: Когда использовать: Матрица: • Ghost — • Primary — • Secondary — • Text — • Inverted — Квадрат: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -99,7 +99,7 @@
 ## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `minWidth 58 @tooltip` числом.
-- `audit-parity.plugin.js` — DESC: нет «Когда использовать», нет «A11y:»; MATRIX: 240 из 280 без строки «Матрица:».
+- `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
@@ -107,7 +107,5 @@
 - DS Web `baseButton` (Has text=false) и `.button circle` → Icon button; типы — как у Button, плюс Ghost (самый частый).
 - Строка Icon button в `docs/migration/components.csv` обновлена под типы Figma 2026-11-12.
 
-Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
-- Описание: «Когда использовать:», «A11y:» (сейчас раздел называется «ДОСТУПНОСТЬ»), «Матрица:».
-- Loading — в оси State, у Button — свойство: один способ.
-- Вариант по умолчанию Type=Primary, Size=S; по правилу самый частый — Ghost.
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Loading — в оси State, у Button — свойство: один способ (ломает экземпляры — решение Стефана).

@@ -44,10 +44,10 @@
 - ячейка role="cell", статус читается текстом подписи; цвет точки дублируется текстом.
 
 ## 10. Tokens
-- `корень`: интервал `space/8`; отступы `space/12`.
+- `корень`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `status`: заливка / цвет `status/success/subtle`; интервал `space/6`, `space/8`; высота `size/badge-height/md`; отступы `control/padding-x/sm`; радиус `radius/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
-- Min / max корня: minWidth 80 числом.
+- Min / max корня: minWidth 80 size/table-cell/min.
 - Значений без переменной: 6 (напр. `(root):w=160`, `(root):h=80`).
 
 ## 11. Platforms
@@ -56,7 +56,7 @@
 ## 12. Figma projection
 - Набор `Table cell / Status`, вариантов 3 из 3; оси: State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 574 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy:
+- Описание: 562 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -68,7 +68,6 @@
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - MINMAX: minw=80
   - RAW: 6 (напр. `(root):w=160`, `(root):h=80`)
   - BOARD: нет разделов 07, 08
 

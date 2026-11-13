@@ -85,7 +85,7 @@
 ## 12. Figma projection
 - Набор `Tab`, вариантов 36 из 40; оси: Size, Selected, State.
 - Борда: «Tab — борда · шаблон v3», разделов 13.
-- Описание: 1216 знаков, разделы: Status: Level: Таб: Когда использовать: Правила: Overflow: A11y: Поиск: Legacy:
+- Описание: 1278 знаков, разделы: Status: Level: Таб: Когда использовать: Правила: Матрица: Overflow: A11y: Поиск: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -97,7 +97,7 @@
 ## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 240 @label` числом.
-- `audit-parity.plugin.js` — MATRIX: 36 из 40 без строки «Матрица:»; AXES: Selected булева; SIZE: `indicator.width` без переменной.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
@@ -105,8 +105,5 @@
 - DS Web `base tab item`, `tab item`: size desktop | mobile → Size L | M (60 → 56, 44 → 48); selected → Selected; state skeleton | default | hover | pressed | disabled → State; focus → Focus ring; counter badge → Counter.
 - `widget Navigation header / .tab` → Size XL / M; `.tabs` в bar widget (30) → Size S (32).
 
-Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
-- Описание: строка «Матрица:» (Skeleton без Selected).
-- `indicator.width` — привязка или исключение.
-- Ось Selected — решение по булевым осям.
-- Мусор «nf,s» в строке «Поиск».
+Осталось доделать (после пакета правок beta 2026-11-13):
+- max-width подписи 240 — числом (вложенный слой).

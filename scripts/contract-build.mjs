@@ -131,7 +131,7 @@ function build(d) {
   L.push(`- \`npm run parity\` — токены набора есть в репо или ждут Publish (\`docs/parity-baseline.json\`); сверка props пропущена: кода нет.`);
   L.push(`- Не проверено: ${d.accept.not || 'стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката)'}.`);
   L.push('', '## 15. Migration', list(d.migration));
-  if (d.todo && d.todo.length) L.push('', 'Правки к замене набора (фаза C, после точки отката и «ок» Стефана):', list(d.todo));
+  if (d.todo && d.todo.length) L.push('', 'Осталось доделать (после пакета правок beta 2026-11-13):', list(d.todo));
   return L.join('\n') + '\n';
 }
 

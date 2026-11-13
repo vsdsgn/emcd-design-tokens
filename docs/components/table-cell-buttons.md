@@ -51,12 +51,12 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: интервал `space/4`; отступы `space/12`.
+- `корень`: интервал `space/4`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `button 1`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `button 2`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `button 3`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
-- Min / max корня: minWidth 80 числом.
+- Min / max корня: minWidth 80 size/table-cell/min.
 - Значений без переменной: 6 (напр. `(root):w=132`, `(root):h=80`).
 
 ## 11. Platforms
@@ -79,7 +79,6 @@
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:, A11y:
   - PROPS: Button 2 2 из 3; Button 3 2 из 3
-  - MINMAX: minw=80
   - RAW: 6 (напр. `(root):w=132`, `(root):h=80`)
   - BOARD: нет разделов 07, 08
 

@@ -94,6 +94,6 @@
 - DS Web `baseCheckbox with text`: status default | active | intermediate → Status Off | On | Indeterminate.
 - disable → State=Disabled; danger → Tone=Danger; size md | sm → Size M | S; secondary не переносим; цвета → `control/*`.
 
-Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
+Осталось доделать (после пакета правок beta 2026-11-13):
 - max-width подписи 436 в базе — токен `size/*` (публикует Стефан).
 - Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.

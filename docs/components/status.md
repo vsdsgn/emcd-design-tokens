@@ -78,13 +78,12 @@
 ## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний (Status и Dot).
 - `variables-check.plugin.js` — `maxWidth 240 @label` числом.
-- `audit-parity.plugin.js` — Status — чисто; вложенный набор Dot: DESC — первая строка не «Status:», нет «Когда использовать», нет «A11y:».
+- `audit-parity.plugin.js` — 0 (2026-11-13), включая Dot.
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
 ## 15. Migration
 - DS Web: status dots в таблицах воркеров → Status; Tone Success | Warning | Danger | Info | Neutral, Size S | M; подпись обязательна.
 
-Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
-- Dot: описание по шаблону (Status, «Когда использовать», A11y) и решение о статусе (служебный `_Dot` или draft).
-- Мусор «cnfnec» в строке «Поиск».
+Осталось доделать (после пакета правок beta 2026-11-13):
+- max-width подписи 240 — числом (вложенный слой).
