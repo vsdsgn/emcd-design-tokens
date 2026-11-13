@@ -17,7 +17,7 @@ const BOOL_OK = { 'Card': ['Border'], 'Coin': ['Network'], 'Divider': ['Label'],
 const RAW_SAMPLE = /^\(root\):[wh]=|^hit area[^:]*:[wh]=/;
 // Сырые значения из реестра docs/exceptions.md (набор → шаблон значения). Строка реестра снята — убрать и отсюда.
 const RAW_OK = {
-  'Coin': /^network:r=/, 'Avatar group': /^\(root\):gap=-/, 'Coin stack': /^\(root\):gap=-/, 'Promo card': /^text:p=96$/,
+  'Coin': /^network:r=/, 'Avatar group': /^\(root\):gap=-/, 'Coin stack': /^\(root\):gap=-/,
   'Chart card': /^track:[wh]=220$/,
   'Scrollbar': /^thumb:h=48$|^thumb:w=48$/, // длина образца бегунка (реестр: ширина / высота образца)
   // временные до токенов прозрачности

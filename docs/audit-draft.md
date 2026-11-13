@@ -6,8 +6,8 @@
 ## Сводка
 
 - Наборов не в beta: 94 (draft 94, без статуса 0: —).
-- Без замечаний по манифесту: 94 (Card, Circle timer, Date cell, Divider, Multiselect option, Overlay, Page dot, Pagination item, Skeleton, _Tooltip arrow, Tooltip, Accordion, Address, Avatar group, Breadcrumbs, Chart axis label, Chart crosshair, Chart metric, Chart tooltip, Checkbox group, Code cell, Code input, Coin, Coin stack, Date range field, Floating button, Input addon / Clear, Input addon / Icon, Input amount, Legend item, Legend swatch, List item, Menu item, Multiselect, Nav item, Notification, Page indicator, Pagination, Password field, Key-value row, Progress, Progress circle, Spinner, Promo card, Radio card, Radio group, Scrollbar, Segmented, Select, Select compact, Snack, Stat card, Step progress, Step segment, Step symbol, Step trail, Step, Suggest, Table header cell, Table cell / Text, Table cell / Date time, Table cell / Coin, Table cell / Transaction, Table cell / Image, Table cell / Progress, Table cell / Avatar, Table cell / Badge, Table cell / Toggle, Table cell / Star, Table cell / Icon, Table cell / Buttons, Table cell / More, Table row, Table cell / Status, Tabs, Toast, Toggle group, Tooltip tour, Transaction, Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, Status screen, File upload, Page header, Menu, Modal, Sidebar, Sheet, Side panel, Tab bar).
-- Наборов с замечанием: .
+- Без замечаний по манифесту: 93 (Card, Circle timer, Date cell, Divider, Multiselect option, Overlay, Page dot, Pagination item, Skeleton, _Tooltip arrow, Tooltip, Accordion, Address, Avatar group, Breadcrumbs, Chart axis label, Chart crosshair, Chart metric, Chart tooltip, Checkbox group, Code cell, Code input, Coin, Coin stack, Date range field, Floating button, Input addon / Clear, Input addon / Icon, Input amount, Legend item, Legend swatch, List item, Menu item, Multiselect, Nav item, Notification, Page indicator, Pagination, Password field, Key-value row, Progress, Progress circle, Spinner, Radio card, Radio group, Scrollbar, Segmented, Select, Select compact, Snack, Stat card, Step progress, Step segment, Step symbol, Step trail, Step, Suggest, Table header cell, Table cell / Text, Table cell / Date time, Table cell / Coin, Table cell / Transaction, Table cell / Image, Table cell / Progress, Table cell / Avatar, Table cell / Badge, Table cell / Toggle, Table cell / Star, Table cell / Icon, Table cell / Buttons, Table cell / More, Table row, Table cell / Status, Tabs, Toast, Toggle group, Tooltip tour, Transaction, Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, Status screen, File upload, Page header, Menu, Modal, Sidebar, Sheet, Side panel, Tab bar).
+- Наборов с замечанием: RAW — 1.
 
 Коды: DESC — разделы описания; MATRIX — неполная матрица осей; AXES — булева ось (кроме осей выбора Status / Selected и списка BOOL_OK) или Left / Right; PROPS — свойство не привязано ни в одном варианте; MINMAX — min / max числом; RAW — значения без переменной (без размеров образца на корне и зоны нажатия; строки реестра docs/exceptions.md — в списке RAW_OK); SERVICE — у набора с Hover / Pressed / Focus нет служебных слоёв; BOARD — нет борды v3 или её разделов (разделы, которых у набора нет по смыслу, перечисляет блок «Не собрано в этой версии» на самой борде).
 
@@ -62,7 +62,7 @@
 | Password field | Password field | 4 | — |
 | Progress | Progress | 8 | — |
 | Progress circle | Progress | 3 | — |
-| Promo card | Promo card | 4 | — |
+| Promo card | Promo card | 4 | RAW: `text:p=96` |
 | Radio card | Radio card | 8 | — |
 | Radio group | Radio group | 12 | — |
 | Scrollbar | Scrollbar | 6 | — |

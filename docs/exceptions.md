@@ -23,7 +23,6 @@
 | `maxWidth` текстового слоя числом (подписи Badge 112, `_Selection control` 436 и др.) | текстовые слои `label` / `description` внутри наборов | Plugin API не привязывает `maxWidth` текстового слоя («invalid field for text node»); значение равно токену `size/*` корня минус отступы и сверяется аудитом; привязка — когда подпись получит фрейм-обёртку | 2027-05-13 |
 | Отрицательный зазор −4 / −6 / −8 | Avatar group (по размерам) | нахлёст аватаров: доля размера аватара, а не шаг шкалы `space/*`; в шкале нет отрицательных значений | 2027-05-13 |
 | Отрицательный зазор −6 / −7 / −10 | Coin stack (по размерам) | нахлёст монет: доля размера монеты, а не шаг шкалы `space/*` | 2027-05-13 |
-| `paddingRight` 96 | Promo card, слой `text`, Size=M | формула: ширина иллюстрации 88 + зазор 8; место под картинку, а не отступ шкалы | 2027-05-13 |
 | `maxWidth` 248 | Stat card, слой `delta row` | формула: `size/card/min` 280 − 2 × отступ 16 | 2027-05-13 |
 | Прозрачность слоя числом: 0.2 (Spinner `track`), 0.5 (Code cell `digit` в Empty / Focus), 0.24 (`halo` в Chart plot и Chart crosshair), 0.72 (Tooltip tour, `step`), 0.35 / 0.45 (Chart plot: `bar` в Hover, `area`) | перечисленные слои | временно: семантических токенов прозрачности в Foundations нет; вопрос о шкале `opacity/*` — в парковке OPEN-QUESTIONS | 2026-12-13 |
 | Ширина / высота образца на корне числом (длина линии, область затемнения, длина дорожки, размер заглушки, область графика, высота панели) | Divider, Overlay, Scrollbar, Skeleton, Chart crosshair, Chart card (`track` 220), Chart plot, Sidebar, Side panel | образец: реальный размер задаёт родитель или данные, в коде значения нет | 2027-05-13 |
@@ -34,3 +33,4 @@
 - 2026-11-13 — всё найденное 06.11 привязано (`scripts/figma/bind-raw.plugin.js`, 231 привязка: `space/N`, `border/width/default`, `icon/stroke/regular`, `border/width/strong`, `chart/stroke`, `radius/control`); остаток, который следует из формулы, записан в реестр выше. `space/96` не заводим: значение — формула Promo card.
 - 2026-11-13 (вечер) — Card `content` привязан (`border/default`, `radius/xs`, `border/width/default`), строка снята; добавлены временные строки второй пачки `size/*` (20 токенов), прозрачности и постоянная строка образцов длины / высоты.
 - 2026-11-13 (ночь) — после Publish Foundations (28 `size/*`) привязано `bind-sizes-extra` (38 min / max) и `bind-dims` (363 размера); временные строки `size/*` сняты.
+- 2026-11-13 (ночь) — Promo card: картинка в потоке (`body` = column + media), `paddingRight` 96 у `text` убран — строка снята.
