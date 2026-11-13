@@ -3,9 +3,11 @@
 //   6 строк Theme × Brand; в строке — ячейки Platform (Web, iOS, Android) на L0, у EMCD ещё L1–L3 на Web;
 //   строка «Текст»: длинный текст и 6 языков в варианте по умолчанию (все TEXT-свойства), ячейка «200 %» — все варианты с удвоенным кеглем,
 //   строка «Свойства»: каждое булево свойство переключено из значения по умолчанию.
+// Возврат: секция, строки и рамки ячеек (cells: имя, x, y, w, h от угла секции) — по ним скриншот секции режется на листы для просмотра.
 // В ячейке — экземпляры всех вариантов. После просмотра скриншотов страницу удалить (REMOVE = true).
 const SETS = ['167:78']; // id наборов (COMPONENT_SET) или отдельных компонентов
 const REMOVE = false; // true — удалить страницу стенда и выйти
+const CLEAR = false; // true — перед сборкой убрать со страницы стенда прежние секции (скриншоты уже сняты)
 const PAGE_NAME = '⚑ Стенд · временный'; const CELL_W = 560;
 const SAMPLES = { long: 'Очень длинный текст, который не помещается в одну строку и должен усечься или перенестись по правилу компонента', de: 'Rechtsschutzversicherungsgesellschaften Auszahlung', ar: 'سحب الأموال إلى المحفظة الخارجية', hi: 'बाहरी वॉलेट में निकासी', th: 'ถอนเงินไปยังกระเป๋าเงินภายนอก', ja: '外部ウォレットへの出金', kk: 'Сыртқы әмиянға қаражат шығару' };
 figma.skipInvisibleInstanceChildren = false;
@@ -13,6 +15,7 @@ let page = figma.root.children.find(p => p.name === PAGE_NAME);
 if (REMOVE) { if (page) page.remove(); return { removed: !!page }; }
 if (!page) { page = figma.createPage(); page.name = PAGE_NAME; }
 await figma.setCurrentPageAsync(page);
+if (CLEAR) for (const ch of [...page.children]) ch.remove();
 const C = {}; const VARS = {};
 for (const c of await figma.teamLibrary.getAvailableLibraryVariableCollectionsAsync()) { const vs = await figma.teamLibrary.getVariablesInLibraryCollectionAsync(c.key); if (!vs.length) continue;
   const pick = n => vs.find(v => v.name === n); const first = await figma.variables.importVariableByKeyAsync(vs[0].key);
@@ -30,7 +33,7 @@ const text = (s, size, style) => { const t = figma.createText(); t.fontName = { 
 const cell = (row, label, modes) => { const c = al('VERTICAL', 12, 16); c.name = label; c.fills = paint(VARS['surface/current']); c.strokes = paint(VARS['border/subtle']); c.strokeWeight = 1;
   for (const [col, m] of Object.entries(modes)) c.setExplicitVariableModeForCollection(C[col], mode(col, m));
   row.appendChild(c); c.appendChild(text(label, 11));
-  const w = al('HORIZONTAL', 16, 0); w.name = 'variants'; w.layoutWrap = 'WRAP'; w.counterAxisSpacing = 16; w.counterAxisAlignItems = 'MIN'; c.appendChild(w); w.resize(CELL_W, 10); w.primaryAxisSizingMode = 'FIXED'; w.counterAxisSizingMode = 'AUTO'; return w; };
+  const w = al('HORIZONTAL', 16, 0); w.name = 'variants'; w.clipsContent = false; w.layoutWrap = 'WRAP'; w.counterAxisSpacing = 16; w.counterAxisAlignItems = 'MIN'; c.appendChild(w); w.resize(CELL_W, 10); w.primaryAxisSizingMode = 'FIXED'; w.counterAxisSizingMode = 'AUTO'; return w; };
 const loadFonts = async n => { for (const t of n.findAll(x => x.type === 'TEXT')) for (const s of t.getStyledTextSegments(['fontName'])) await figma.loadFontAsync(s.fontName); };
 const out = []; const errors = []; let y = 0;
 for (const ch of page.children) y = Math.max(y, ch.y + ch.height + 200);
@@ -48,7 +51,7 @@ for (const id of SETS) {
     rows.push({ name: row.name, id: row.id });
   }
   const trow = al('HORIZONTAL', 16, 0); trow.name = 'Текст'; sec.appendChild(trow);
-  const defs = s.componentPropertyDefinitions; const tprops = Object.keys(defs).filter(k => defs[k].type === 'TEXT');
+  const defs = s.type === 'COMPONENT_SET' || (s.parent && s.parent.type !== 'COMPONENT_SET') ? s.componentPropertyDefinitions : {}; const tprops = Object.keys(defs).filter(k => defs[k].type === 'TEXT');
   for (const [lang, sample] of Object.entries(SAMPLES)) { const w = cell(trow, 'Текст · ' + lang, { Theme: 'Light', Brand: 'EMCD', Platform: 'Web', 'Surface context': 'L0' }); w.resize(360, 10); w.primaryAxisSizingMode = 'FIXED'; w.counterAxisSizingMode = 'AUTO';
     const i = variants[0].createInstance(); w.appendChild(i);
     try { await loadFonts(i); if (tprops.length) i.setProperties(Object.fromEntries(tprops.map(k => [k, sample]))); else for (const t of i.findAll(x => x.type === 'TEXT')) t.characters = sample; } catch (e) { errors.push(s.name + ' ' + lang + ': ' + String(e.message || e).slice(0, 100)); } }
@@ -63,6 +66,6 @@ for (const id of SETS) {
   for (const k of Object.keys(defs).filter(k => defs[k].type === 'BOOLEAN')) { const w = cell(prow, 'Свойство · ' + k.split('#')[0] + ' = ' + (defs[k].defaultValue ? 'Off' : 'On'), { Theme: 'Light', Brand: 'EMCD', Platform: 'Web', 'Surface context': 'L0' });
     for (const v of variants) { const i = v.createInstance(); w.appendChild(i); try { i.setProperties({ [k]: !defs[k].defaultValue }); } catch (e) { errors.push(s.name + ' ' + k + ': ' + String(e.message || e).slice(0, 100)); } } }
   if (prow.children.length) rows.push({ name: 'Свойства', id: prow.id }); else prow.remove();
-  out.push({ set: s.name, section: sec.id, props: Object.entries(defs).map(([k, d]) => k.split('#')[0] + ':' + d.type + '=' + d.defaultValue), w: Math.round(sec.width), h: Math.round(sec.height), rows }); y += sec.height + 200;
+  out.push({ set: s.name, section: sec.id, w: Math.round(sec.width), h: Math.round(sec.height), cells: sec.findAll(n => n.name === 'variants').map(w => { const c = w.parent, a = c.absoluteBoundingBox, b = sec.absoluteBoundingBox; return [c.name, Math.round(a.x - b.x), Math.round(a.y - b.y), Math.round(a.width), Math.round(a.height)]; }) }); y += sec.height + 200;
 }
 return { page: page.id, out, errors: [...new Set(errors)].slice(0, 20) };

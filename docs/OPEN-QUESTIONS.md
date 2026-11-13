@@ -169,6 +169,12 @@
 
 ## Вопросы к Стефану
 
+### 2026-11-13 · стенд draft-наборов (п. 1 — действие, остальное посмотреть)
+1. **Снимок версии Components** перед пакетной правкой дефектов стенда («до правок стенда 13.11») — API его не ставит.
+2. Бэклог `docs/stand-review/DEFECTS.md`: правлю по рекомендации, системно по классам. Главные классы: длинный текст не усекается и ломает раскладку (Table cell / *, Table row, Segmented, Select compact, Stat card, Transaction, Menu item, Step, Snack); вложенные не гаснут в Disabled (Select / Multiselect / Date range field — шеврон, Input amount, Table cell / Avatar, Input addon / Icon); описания говорят Active при оси Selected / Current; Skeleton ниже Default (Accordion, Stat card, Legend item); ширины и высоты корней числом при готовых `size/*`.
+3. На решение (по умолчанию — первый вариант): Toast — длительность по решению 06.11 (5 / 8 с, Danger не закрывается сам), описание поправить; Toggle group — убрать Error из описания (у Toggle ошибки нет, откат + Toast); Tooltip tour — свойство Show skip убрать или оставить с правилом «Пропустить всегда доступен» (оставляю, правило в описание); Table cell / Star — On залитой звездой `icon/accent`; Snack — инверсный тон ссылки для действия на тёмной плашке (нужен токен, заведу — публикуешь ты).
+4. В Dark `surface/raised` совпадает с фоном L1 и темнее L2 / L3 (Tooltip, Toast, Suggest) — вопрос к Foundations: поднять `surface/raised` в Dark выше L3 или держать пузыри на обводке. Рекомендация — поднять (правка токена — с твоего «ок»).
+
 ### 2026-11-13 · перевод draft → beta: пилот Amount и Avatar (посмотреть, не блокирует)
 
 1. Amount и Avatar переведены в beta без отдельного «ок» — по «делай по рекомендациям, гляну потом». Не согласен — вернуть `Status: draft`, эмодзи 🟠 и бейдж борды; контракт останется.

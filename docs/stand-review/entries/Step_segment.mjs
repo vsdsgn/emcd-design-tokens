@@ -1,0 +1,32 @@
+{
+    name: 'Step segment',
+    what: 'Один сегмент полоски Step progress: шаг пройден, текущий или впереди.',
+    use: 'только внутри Step progress — один сегмент на шаг.',
+    dont: 'доля выполнения — Progress; шаги с названиями — Stepper; отдельно в макете не ставится.',
+    rule: [
+      'State: Done — шаг пройден; Current — текущий шаг (ровно один в ряду); Upcoming — шаг впереди.',
+      'Ширина — поровну на все сегменты ряда; высота — `size/track/sm`, не меняется.',
+    ],
+    never: 'сегменты разной ширины в одном ряду; другой цвет или высота; сегмент вне Step progress.',
+    anatomy: ['Корень — полоска: заливка `icon/accent` (Done, Current) или `border/default` (Upcoming), радиус `radius/chip`. Вложенных слоёв и текста нет.'],
+    group: NONE,
+    states: [
+      'Done и Current — акцент, выглядят одинаково: текущий шаг определяется позицией (последний акцентный) и озвучкой Step progress.',
+      'Upcoming — `border/default`.',
+    ],
+    defaults: { State: 'Done' },
+    content: [
+      'Текста нет: длинный текст, языки и 200 % на сегмент не влияют (на стенде без изменений).',
+      'RTL: сам сегмент симметричен; порядок сегментов в ряду зеркалит Step progress.',
+    ],
+    events: ['Нет.'],
+    behavior: ['Статичен. Смену State задаёт Step progress.'],
+    a11y: ['Декоративный — `aria-hidden`; позицию озвучивает Step progress («Шаг 2 из 5»).', 'Done и Current различаются не цветом, а позицией — смысл несёт текст Step progress.'],
+    platforms: PLATFORMS.slice(0, 1),
+    accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячейки — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), 200 %; длинный текст и 6 языков не применимы — текста нет; булевых свойств нет; кода нет — parity props пропущена' },
+    migration: ['Legacy в описании Figma не указан: новый атом для Step progress (State Done | Current | Upcoming).'],
+    todo: [
+      'Ширина 40 и высота 4 корня — числом; высоту привязать к `size/track/sm` (по описанию).',
+      'Акцент — `icon/accent`, у Step symbol и Step trail текущий шаг — `control/checked`: привести семейство Step к одному токену или записать причину.',
+    ],
+  },
