@@ -1,12 +1,12 @@
-# _Selection control — контракт (2026-11-12)
+# _Selection control — контракт (2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, размеры) — ссылками, не повтором.
-Покрывает базу `_Selection control`, глифы `_Checkbox control`, `_Radio control`, `_Toggle control` и надстройки `Checkbox · пилот`, `Radio · пилот`, `Toggle · пилот`.
+Покрывает базу `_Selection control`, глифы `_Checkbox control`, `_Radio control`, `_Toggle control` и сборку надстроек Checkbox, Radio, Toggle (их контракты — `checkbox.md`, `radio.md`, `toggle.md`).
 
 ## 1. Identity
 - База: `_Selection control`. Status: beta. Level: base (служебный, имя с «_», не публикуется).
 - Глифы: `_Checkbox control`, `_Radio control`, `_Toggle control`. Status: beta. Level: base.
-- Надстройки: `Checkbox · пилот`, `Radio · пилот`, `Toggle · пилот`. Status: draft · пилот. Level: atom. Действующие Checkbox, Radio, Toggle (beta) не тронуты до ответа на вопрос 1 доски.
+- Надстройки: Checkbox, Radio, Toggle (beta, atom) — заменены на месте 2026-11-13, собраны от базы. Наборы `Checkbox · пилот`, `Radio · пилот`, `Toggle · пилот` (draft) остаются на странице базы как образец до «ок» Стефана на удаление.
 - Figma: Components, страница `_Selection control`, доска «⚑ Пилот _Selection control». Платформы: Web, Mobile web, iOS, Android.
 - Решение: Стефан 2026-11-12, «вариант 2» — общая база + надстройки с вложенным раскрытым экземпляром.
 
@@ -59,17 +59,17 @@
 
 У каждого глифа булево свойство Focus ring (false).
 
-Надстройки (оси как у действующих наборов; State — последняя):
+Надстройки (State — последняя; у пилотов те же оси):
 
 | Набор | Оси | Вариантов |
 |---|---|---|
-| `Checkbox · пилот` | Status × Tone × Size × Control position × State (4) | 96 |
-| `Radio · пилот` | Status × Tone × Size × Control position × State (4) | 64 |
-| `Toggle · пилот` | Status × Size × Control position × State (4) | 32 |
+| Checkbox | Status × Tone × Size × Control position × State (4) | 96 |
+| Radio | Status × Tone × Size × Control position × State (4) | 64 |
+| Toggle | Status × Size × Control position × State (4) | 32 |
 
 - Оси надстройки менять на корне, не во вложенных слоях. Hover и Pressed надстройки — база в Default, глиф в Hover / Pressed.
 - Свойства базы (Label, Description, зоны) доступны через раскрытый экземпляр базы, Focus ring — через раскрытый слот Control.
-- Изменение против действующих: ось `Control = Left | Right` → `Control position = Start | End` (вопрос 2 доски).
+- Ось положения: `Control position = Start | End` (было `Control = Left | Right`; решение 5 доски 12.11). MAJOR для макетов и кода.
 
 ## 6. Content / slots
 - Подпись обязательна, переносится; контрол остаётся у первой строки. Описание — вторая строка, переносится.
@@ -102,14 +102,15 @@
 Режимы Platform меняют шрифт и высоту зоны нажатия; отличий в структуре нет.
 
 ## 12. Figma projection
-- Страница `_Selection control`: три глифа, база, три пилотные надстройки, доска.
+- Страница `_Selection control`: три глифа, база, три пилотные надстройки, доска. Действующие наборы — на страницах Checkbox, Radio, Toggle.
+- В экземпляре надстройки не HUG слою `_Selection control` ставится Fill — иначе подпись не тянется.
 - Экземпляр базы в надстройке раскрыт (`isExposedInstance`), слот `Control` в базе раскрыт.
 - Порядок осей: Status, Tone, Size, Control position, State.
 
 ## 13. Code projection
 Нет (DSP, Vue, Flutter недоступны — `docs/dsp-check-2026-11-12.md`). Ожидается: общий внутренний компонент строки выбора + три публичных компонента.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-12, пилоты; действующие наборы после замены — в их контрактах)
 - `audit.plugin.js` — 0.
 - `variables-check.plugin.js` — 1: `maxWidth 436 @label` (вопрос 3).
 - `audit-parity.plugin.js` — 4 совещательных: AXES «Status булева (Off / On)» у Radio и Toggle и их глифов (вопрос 4). BASE, SERVICE, MINMAX, DESC, RING — 0.

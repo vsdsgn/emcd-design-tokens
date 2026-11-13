@@ -40,6 +40,12 @@ for (const s of sets) for (const list of Object.values(s.tokens || {})) for (con
   used.get(name).add(s.name);
 }
 
+// базы и служебные слои (manifest.bases): после замены на месте токены живут в них, а не в надстройке
+for (const s of (manifest.bases || []).flatMap((p) => p.sets)) for (const name of s.tokens) {
+  if (!used.has(name)) used.set(name, new Set());
+  used.get(name).add(s.name);
+}
+
 const errors = []; const notes = [];
 const who = (name) => { const a = [...used.get(name)]; return a.slice(0, 4).join(', ') + (a.length > 4 ? ` +${a.length - 4}` : ''); };
 

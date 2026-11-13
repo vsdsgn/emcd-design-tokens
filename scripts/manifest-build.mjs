@@ -1,6 +1,7 @@
 // Сборка docs/ds-manifest.json из ответов scripts/figma/manifest.plugin.js.
 // Вход: папка с файлами <батч>.<кусок>.txt (первая строка «chunk i/N», дальше кусок JSON).
-// Уровень по первой букве батча: A — atom, M — molecule, O — organism. Запуск: node scripts/manifest-build.mjs <папка> [--date=YYYY-MM-DD]
+// Уровень по первой букве батча: A — atom, M — molecule, O — organism. bases.json в той же папке (ответ
+// scripts/figma/manifest-bases.plugin.js) → раздел bases: базы и служебные слои, в подсчёты наборов не входят. Запуск: node scripts/manifest-build.mjs <папка> [--date=YYYY-MM-DD]
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -49,5 +50,8 @@ const summary = {
   pagesWithoutV3Board: list.filter(p => !p.boards.some(b => b.v3)).length,
   pagesWithFullBoard: list.filter(p => p.boardMissing.length === 0).length,
 };
-fs.writeFileSync('docs/ds-manifest.json', JSON.stringify({ generated: date, source: 'Figma Components, scripts/figma/manifest.plugin.js (read-only)', summary, pages: list }, null, 1) + '\n');
+const basesFile = path.join(dir, 'bases.json');
+const bases = fs.existsSync(basesFile) ? JSON.parse(fs.readFileSync(basesFile, 'utf8')).map(p => ({ page: p.page.replace(/^\P{L}+/u, ''), pageId: p.id, sets: p.sets })) : [];
+summary.baseSets = bases.reduce((n, p) => n + p.sets.length, 0);
+fs.writeFileSync('docs/ds-manifest.json', JSON.stringify({ generated: date, source: 'Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)', summary, pages: list, bases }, null, 1) + '\n');
 console.log(JSON.stringify(summary, null, 1));

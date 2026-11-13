@@ -82,11 +82,11 @@
 | `status` | off \| on \| indeterminate | по правилу контракта | ось Status |
 | `tone` | default \| danger | по правилу контракта | ось Tone |
 | `size` | m \| s | по правилу контракта | ось Size |
-| `control` | right \| left | по правилу контракта | ось Control |
-| `label` | string | — | свойство Label |
-| `showLabel` | boolean | true | свойство Show label |
-| `description` | string | — | свойство Description |
-| `showDescription` | boolean | false | свойство Show description |
+| `controlPosition` | start \| end | по правилу контракта | ось Control position |
+| `label` | string | — | свойство Label (слой `_Selection control`, база `_Selection control`) |
+| `showLabel` | boolean | true | свойство Show label (слой `_Selection control`, база `_Selection control`) |
+| `description` | string | — | свойство Description (слой `_Selection control`, база `_Selection control`) |
+| `showDescription` | boolean | false | свойство Show description (слой `_Selection control`, база `_Selection control`) |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
@@ -139,11 +139,11 @@
 | `status` | off \| on | по правилу контракта | ось Status |
 | `tone` | default \| danger | по правилу контракта | ось Tone |
 | `size` | m \| s | по правилу контракта | ось Size |
-| `control` | right \| left | по правилу контракта | ось Control |
-| `label` | string | — | свойство Label |
-| `showLabel` | boolean | true | свойство Show label |
-| `description` | string | — | свойство Description |
-| `showDescription` | boolean | false | свойство Show description |
+| `controlPosition` | start \| end | по правилу контракта | ось Control position |
+| `label` | string | — | свойство Label (слой `_Selection control`, база `_Selection control`) |
+| `showLabel` | boolean | true | свойство Show label (слой `_Selection control`, база `_Selection control`) |
+| `description` | string | — | свойство Description (слой `_Selection control`, база `_Selection control`) |
+| `showDescription` | boolean | false | свойство Show description (слой `_Selection control`, база `_Selection control`) |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
@@ -207,11 +207,11 @@
 |---|---|---|---|
 | `status` | off \| on | по правилу контракта | ось Status |
 | `size` | m \| s | по правилу контракта | ось Size |
-| `control` | left \| right | по правилу контракта | ось Control |
-| `label` | string | — | свойство Label |
-| `showLabel` | boolean | true | свойство Show label |
-| `description` | string | — | свойство Description |
-| `showDescription` | boolean | false | свойство Show description |
+| `controlPosition` | end \| start | по правилу контракта | ось Control position |
+| `label` | string | — | свойство Label (слой `_Selection control`, база `_Selection control`) |
+| `showLabel` | boolean | true | свойство Show label (слой `_Selection control`, база `_Selection control`) |
+| `description` | string | — | свойство Description (слой `_Selection control`, база `_Selection control`) |
+| `showDescription` | boolean | false | свойство Show description (слой `_Selection control`, база `_Selection control`) |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 

@@ -24,7 +24,9 @@ const T = (name) => ({ name, type: 'TEXT' }), B = (name, def) => ({ name, type: 
 const BASE_PROPS = {
   '_Field base': [T('Label'), B('Show label', true), T('Value'), T('Helper'), B('Show helper', false), T('Counter'), B('Show counter', false),
     B('Show leading', false), B('Show inline', false), B('Show trailing', false), SL('Leading'), SL('Inline'), SL('Trailing')],
+  '_Selection control': [T('Label'), B('Show label', true), T('Description'), B('Show description', false)],
 };
+const BASE_LAYER = { '_Field base': 'Field', '_Selection control': '_Selection control' };
 const baseOf = (s) => Object.keys(BASE_PROPS).find((b) => (s.nested || {})[b] === s.variants);
 const LEVEL = { atom: 'атом', molecule: 'молекула', organism: 'организм' };
 const contract = (name) => `docs/components/${kebab(name)}.md`;
@@ -63,7 +65,7 @@ function api(s) {
     if (SERVICE_PROPS.has(p.name) || p.type === 'INSTANCE_SWAP') continue;
     const t = { TEXT: 'string', BOOLEAN: 'boolean', SLOT: 'slot' }[p.type] || p.type;
     const d = p.type === 'BOOLEAN' ? String(p.def === true) : '—';
-    rows.push(`| \`${camel(p.name)}\` | ${t} | ${d} | свойство ${p.name}${base ? ` (слой \`Field\`, база \`${base}\`)` : ''} |`);
+    rows.push(`| \`${camel(p.name)}\` | ${t} | ${d} | свойство ${p.name}${base ? ` (слой \`${BASE_LAYER[base]}\`, база \`${base}\`)` : ''} |`);
   }
   if (rows.length) L.push('| Prop | Тип / значения | По умолчанию | В Figma |', '|---|---|---|---|', ...rows, '');
   else L.push('Props нет.', '');

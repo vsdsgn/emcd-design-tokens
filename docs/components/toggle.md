@@ -14,14 +14,15 @@
 - Правило выбора варианта:
   - Status: Off | On.
   - Size: M — дорожка 48×28, подпись 16/24 (настройки, формы); S — 40×24, подпись 14/20 (плотные списки, таблицы).
-  - Control: Right (по умолчанию) | Left; в одной группе — одинаково.
+  - Control position: End (по умолчанию) | Start; в одной группе — одинаково.
   - Ошибки (Tone=Danger) нет: неудача → откат положения + Toast.
 - Не делаем: Toggle в форме с «Сохранить»; Toggle для выбора одного из вариантов; Disabled без объяснения причины; дублировать состояние текстом «Вкл / Выкл».
 
 ## 3. Anatomy
-- Строка: `label` + `description` + `track` (дорожка с ползунком).
+- Строка: `label` + `description` + `track` (дорожка с ползунком). Всё — внутри экземпляра базы `_Selection control`; контрол — экземпляр глифа.
 - Служебные: `state layer` и `focus ring` на дорожке, зоны — на всю строку, `safe area · outer`.
-- Служебные слои (вариантов из 32): кольцо фокуса 32 · зона Web 32 · зона касания 32 · безопасное поле 32.
+- Вложено: `_Selection control` ×32.
+- Служебные слои (вариантов из 32): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Контрол выбора: слой `state/layer` на глифе, выбранное — `control/checked`; Pressed — масштаб 0.96.
@@ -35,22 +36,10 @@
 |---|---|---|
 | Status | Off · On | Off |
 | Size | M · S | M |
+| Control position | End · Start | End |
 | State | Default · Hover · Pressed · Disabled | Default |
-| Control | Left · Right | Right |
 
 Матрица полная: 32 вариантов.
-
-Свойства:
-
-| Свойство | Тип | По умолчанию | Привязано в вариантах |
-|---|---|---|---|
-| Label | текст | «Автовывод» | 32 из 32 |
-| Show label | булево | вкл | 32 из 32 |
-| Description | текст | «Выплата при достижении минимальной суммы» | 32 из 32 |
-| Show description | булево | выкл | 32 из 32 |
-| Focus ring | булево | выкл | 32 из 32 · служебное |
-| Show hit area | булево | выкл | 32 из 32 · служебное |
-| Safe margin | булево | выкл | 32 из 32 · служебное |
 
 ## 6. Content / slots
 - Label — что включается («Автовывод»), а не действие («Включить автовывод»).
@@ -71,38 +60,32 @@
 - Состояние не только цветом: положение ручки.
 
 ## 10. Tokens
-- `корень`: интервал `space/12`, `space/8`.
-- `text`: интервал `space/2`; отступы `space/12`, `space/2`.
-- `label`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`.
-- `description`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- `control`: высота `size/toggle-height/md`, `size/toggle-height/sm`; ширина `size/toggle-width/md`, `size/toggle-width/sm`.
-- `track`: заливка / цвет `control/checked`, `control/track`, `control/track-disabled`; высота `size/toggle-height/md`, `size/toggle-height/sm`; радиус `radius/chip`; ширина `size/toggle-width/md`, `size/toggle-width/sm`.
-- `knob`: заливка / цвет `control/knob`, `control/knob-disabled`.
-- Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed` · `focus ring`: радиус `radius/chip`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse`.
-- Min / max корня: maxWidth 480 числом.
-- Значений без переменной: 64 (напр. `hit area · web:w=144`, `hit area · web:h=28`, `hit area · web:w=126`, `hit area · web:h=24`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- `корень`: maxw `size/field/max`.
+- `_Selection control`: интервал `space/12`, `space/8`; maxw `size/field/max`.
+- Min / max корня: maxWidth 480 size/field/max.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Toggle`, вариантов 32 из 32; оси: Status, Size, State, Control.
+- Набор `Toggle`, вариантов 32 из 32; оси: Status, Size, Control position, State.
 - Борда: «Toggle — борда · шаблон v3», разделов 12.
-- Описание: 1731 знаков, разделы: Status: Level: Переключатель: • M — • Hover / Pressed — • Переключение — • Кликается вся строка. • В прототипе Figma: • Label — Правила: A11y:
-- Пилот на базе `_Selection control` — «Toggle · пилот» (`selection-control.md`); действующий набор — старой сборки.
+- Описание: 2042 знаков, разделы: Status: Level: Переключатель: Когда использовать: • M — • Hover / Pressed — • Переключение — • Кликается вся строка. • В прототипе Figma: • Label — Правила: Сборка:
+- Заменён на месте 2026-11-13: набор собран от базы `_Selection control` (`selection-control.md`), ид. набора и экземпляры в продуктах сохранены.
+- Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsToggle>`; Flutter: `DsToggle`.
-- Props: `status`: boolean; `size`: m | s; `control`: left | right; `label`: string или слот; `showLabel`: boolean = true; `description`: string или слот; `showDescription`: boolean = false.
+- Props: `status`: boolean; `size`: m | s; `controlPosition`: end | start.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
 ## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
-- `variables-check.plugin.js` — `maxWidth 480`, `maxWidth 436 @label` числом.
-- `audit-parity.plugin.js` — DESC: нет «Когда использовать», сущности; AXES: Status булева, Control Left / Right, State не последняя; MINMAX: 480; STATE: радиус слоя ≠ «track»; BASE: 0 из 32.
+- `variables-check.plugin.js` — `maxWidth 436 @label` числом в базе — ждёт токена `size/*`.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
@@ -110,6 +93,5 @@
 - DS Web `baseToggle with text`: active → Status Off | On; disable → State=Disabled; size md | sm → Size M | S; danger не переносим (ошибка → откат + Toast).
 
 Правки к замене набора (фаза C, после точки отката и «ок» Стефана):
-- Заменить набор на пилот с базой `_Selection control`.
-- Control → Start / End; State — последней осью; ось Status — решение по булевым осям.
-- Описание: «Когда использовать:»; Убрать экранированные сущности (`&amp;…quot;`) из описания.
+- max-width подписи 436 в базе — токен `size/*` (публикует Стефан).
+- Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.

@@ -115,4 +115,7 @@ Figma Foundations → публикация (вручную) → экспорт �
 6. Переснять батч манифеста, `npm run contracts`, `agent-docs`, `draft-audit`, `parity`, `exceptions`.
 
 Приёмы: слот вложенного экземпляра — `slot.children[0].swapComponent(…)` (`appendChild` ломается); удалённый компонент — `figma.importComponentByKeyAsync(key)`; рамка HUG со скрытыми детьми держит прежний размер; для нескольких страниц в одном вызове — `await page.loadAsync()` вместо переключения страницы; `figma.skipInvisibleInstanceChildren = false` в начале.
+Привязка текста к строковой переменной (сетки языков) при замене теряется: до замены запомнить `boundVariables.characters`, после — вернуть `setBoundVariable('characters', v)`.
+Экземпляр надстройки не HUG (растянут или фиксирован): слою базы внутри поставить `layoutSizingHorizontal = 'FILL'`.
 Частичная пересъёмка манифеста: снять только изменённые наборы, влить в сырьё батча по id набора, пересобрать.
+Базы и служебные слои: `scripts/figma/manifest-bases.plugin.js` → `bases.json` в папке сырья → раздел `bases` манифеста. Нужен `parity`: токены надстройки после замены живут в базе и глифах. Новая база — добавить страницу в `PAGES` плагина и переснять.

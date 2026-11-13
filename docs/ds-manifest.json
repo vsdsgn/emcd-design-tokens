@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-13",
- "source": "Figma Components, scripts/figma/manifest.plugin.js (read-only)",
+ "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
    "atom": 32,
@@ -20,13 +20,14 @@
   "variants": 1648,
   "incompleteMatrix": 11,
   "propsNotBoundEverywhere": 19,
-  "rawMinMax": 46,
-  "withRawValues": 91,
-  "withFocusRing": 31,
-  "withHitArea": 24,
-  "withSafeMargin": 23,
+  "rawMinMax": 43,
+  "withRawValues": 88,
+  "withFocusRing": 28,
+  "withHitArea": 21,
+  "withSafeMargin": 20,
   "pagesWithoutV3Board": 1,
-  "pagesWithFullBoard": 9
+  "pagesWithFullBoard": 9,
+  "baseSets": 9
  },
  "pages": [
   {
@@ -1259,17 +1260,19 @@
      "id": "320:700",
      "type": "SET",
      "status": "beta",
-     "descLen": 1914,
+     "descLen": 2217,
      "descHeads": [
       "Status:",
       "Level:",
       "Чекбокс:",
+      "Когда использовать:",
       "• Tone = Danger —",
       "• M —",
       "• Hover / Pressed —",
       "• Кольцо фокуса —",
       "• Label —",
       "Правила:",
+      "Сборка:",
       "A11y:"
      ],
      "inBoard": false,
@@ -1287,150 +1290,43 @@
        "M",
        "S"
       ],
+      "Control position": [
+       "Start",
+       "End"
+      ],
       "State": [
        "Default",
        "Hover",
        "Pressed",
        "Disabled"
-      ],
-      "Control": [
-       "Right",
-       "Left"
       ]
      },
      "variants": 96,
      "full": 96,
-     "props": [
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Получать уведомления о выплатах",
-       "bound": 96
-      },
-      {
-       "name": "Show label",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 96
-      },
-      {
-       "name": "Description",
-       "type": "TEXT",
-       "def": "Письмо после каждого начисления",
-       "bound": 96
-      },
-      {
-       "name": "Show description",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 96
-      },
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 96
-      },
-      {
-       "name": "Show hit area",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 96
-      },
-      {
-       "name": "Safe margin",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 96
-      }
-     ],
+     "props": [],
      "nested": {
-      "(icons)": 64
+      "_Selection control": 96
      },
      "minmax": [
-      "maxw=480 RAW"
+      "maxw=480 size/field/max"
      ],
      "layers": {
-      "ring": 96,
-      "hitWeb": 96,
-      "hitApp": 96,
-      "hit": 96,
-      "safe": 96
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
      },
-     "rawCount": 192,
-     "raw": [
-      "hit area · web:w=295",
-      "hit area · web:h=24",
-      "hit area · web:w=258",
-      "hit area · web:w=262"
-     ],
+     "rawCount": 0,
+     "raw": [],
      "tokens": {
       "(root)": [
+       "maxw:size/field/max"
+      ],
+      "_Selection control": [
        "gap:space/12",
-       "gap:space/8"
-      ],
-      "control": [
-       "h:size/box",
-       "h:size/box-row",
-       "w:size/box"
-      ],
-      "box": [
-       "f:action/danger/default",
-       "f:control/box",
-       "f:control/checked",
-       "f:control/surface/disabled",
-       "h:size/box",
-       "r:radius/control-xs",
-       "s:border/strong",
-       "s:control/border/disabled",
-       "s:control/border/error",
-       "sw:border/width/default",
-       "w:size/box"
-      ],
-      "state layer": [
-       "f:state/layer",
-       "o:state/hover",
-       "o:state/pressed"
-      ],
-      "focus ring": [
-       "r:radius/sm",
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "text": [
-       "gap:space/2",
-       "p:space/12"
-      ],
-      "label": [
-       "f:text/disabled",
-       "f:text/primary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "description": [
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "safe area · outer": [
-       "s:status/success/solid",
-       "sw:control/safe-margin"
-      ],
-      "hit area · web": [
-       "visible:touch/is-fine"
-      ],
-      "hit area · overlay": [
-       "f:status/danger/solid"
-      ],
-      "hit area · app": [
-       "visible:touch/is-coarse"
+       "gap:space/8",
+       "maxw:size/field/max"
       ]
      },
      "statusFirstLine": true
@@ -3397,14 +3293,16 @@
      "id": "322:435",
      "type": "SET",
      "status": "beta",
-     "descLen": 1390,
+     "descLen": 1693,
      "descHeads": [
       "Status:",
       "Level:",
       "Радио:",
+      "Когда использовать:",
       "• Tone = Danger —",
       "• Обводка круга в Off —",
       "• Hover / Pressed —",
+      "Сборка:",
       "A11y:"
      ],
      "inBoard": false,
@@ -3421,152 +3319,43 @@
        "M",
        "S"
       ],
+      "Control position": [
+       "Start",
+       "End"
+      ],
       "State": [
        "Default",
        "Hover",
        "Pressed",
        "Disabled"
-      ],
-      "Control": [
-       "Right",
-       "Left"
       ]
      },
      "variants": 64,
      "full": 64,
-     "props": [
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Вывод раз в сутки",
-       "bound": 64
-      },
-      {
-       "name": "Show label",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 64
-      },
-      {
-       "name": "Description",
-       "type": "TEXT",
-       "def": "Комиссия ниже, деньги приходят утром",
-       "bound": 64
-      },
-      {
-       "name": "Show description",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 64
-      },
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 64
-      },
-      {
-       "name": "Show hit area",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 64
-      },
-      {
-       "name": "Safe margin",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 64
-      }
-     ],
-     "nested": {},
+     "props": [],
+     "nested": {
+      "_Selection control": 64
+     },
      "minmax": [
-      "maxw=480 RAW"
+      "maxw=480 size/field/max"
      ],
      "layers": {
-      "ring": 64,
-      "hitWeb": 64,
-      "hitApp": 64,
-      "hit": 64,
-      "safe": 64
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
      },
-     "rawCount": 128,
-     "raw": [
-      "hit area · web:w=171",
-      "hit area · web:h=24",
-      "hit area · web:w=149",
-      "hit area · web:w=153"
-     ],
+     "rawCount": 0,
+     "raw": [],
      "tokens": {
       "(root)": [
+       "maxw:size/field/max"
+      ],
+      "_Selection control": [
        "gap:space/12",
-       "gap:space/8"
-      ],
-      "control": [
-       "h:size/box",
-       "h:size/box-row",
-       "w:size/box"
-      ],
-      "circle": [
-       "f:action/danger/default",
-       "f:control/box",
-       "f:control/checked",
-       "f:control/surface/disabled",
-       "r:radius/chip",
-       "s:border/strong",
-       "s:control/border/disabled",
-       "s:control/border/error",
-       "sw:border/width/default"
-      ],
-      "state layer": [
-       "f:state/layer",
-       "o:state/hover",
-       "o:state/pressed"
-      ],
-      "focus ring": [
-       "r:radius/chip",
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "text": [
-       "gap:space/2",
-       "p:space/12"
-      ],
-      "label": [
-       "f:text/disabled",
-       "f:text/primary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "description": [
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "safe area · outer": [
-       "s:status/success/solid",
-       "sw:control/safe-margin"
-      ],
-      "hit area · web": [
-       "visible:touch/is-fine"
-      ],
-      "hit area · overlay": [
-       "f:status/danger/solid"
-      ],
-      "hit area · app": [
-       "visible:touch/is-coarse"
-      ],
-      "dot": [
-       "f:icon/disabled",
-       "f:icon/on-accent",
-       "h:size/dot/md",
-       "w:size/dot/md"
+       "gap:space/8",
+       "maxw:size/field/max"
       ]
      },
      "statusFirstLine": true
@@ -4687,11 +4476,12 @@
      "id": "323:227",
      "type": "SET",
      "status": "beta",
-     "descLen": 1731,
+     "descLen": 2042,
      "descHeads": [
       "Status:",
       "Level:",
       "Переключатель:",
+      "Когда использовать:",
       "• M —",
       "• Hover / Pressed —",
       "• Переключение —",
@@ -4699,7 +4489,7 @@
       "• В прототипе Figma:",
       "• Label —",
       "Правила:",
-      "A11y:"
+      "Сборка:"
      ],
      "inBoard": false,
      "axes": {
@@ -4711,152 +4501,43 @@
        "M",
        "S"
       ],
+      "Control position": [
+       "End",
+       "Start"
+      ],
       "State": [
        "Default",
        "Hover",
        "Pressed",
        "Disabled"
-      ],
-      "Control": [
-       "Left",
-       "Right"
       ]
      },
      "variants": 32,
      "full": 32,
-     "props": [
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Автовывод",
-       "bound": 32
-      },
-      {
-       "name": "Show label",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 32
-      },
-      {
-       "name": "Description",
-       "type": "TEXT",
-       "def": "Выплата при достижении минимальной суммы",
-       "bound": 32
-      },
-      {
-       "name": "Show description",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 32
-      },
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 32
-      },
-      {
-       "name": "Show hit area",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 32
-      },
-      {
-       "name": "Safe margin",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 32
-      }
-     ],
-     "nested": {},
+     "props": [],
+     "nested": {
+      "_Selection control": 32
+     },
      "minmax": [
-      "maxw=480 RAW"
+      "maxw=480 size/field/max"
      ],
      "layers": {
-      "ring": 32,
-      "hitWeb": 32,
-      "hitApp": 32,
-      "hit": 32,
-      "safe": 32
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
      },
-     "rawCount": 64,
-     "raw": [
-      "hit area · web:w=144",
-      "hit area · web:h=28",
-      "hit area · web:w=126",
-      "hit area · web:h=24",
-      "hit area · web:w=122"
-     ],
+     "rawCount": 0,
+     "raw": [],
      "tokens": {
       "(root)": [
+       "maxw:size/field/max"
+      ],
+      "_Selection control": [
        "gap:space/12",
-       "gap:space/8"
-      ],
-      "text": [
-       "gap:space/2",
-       "p:space/12",
-       "p:space/2"
-      ],
-      "label": [
-       "f:text/disabled",
-       "f:text/primary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "description": [
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "control": [
-       "h:size/toggle-height/md",
-       "h:size/toggle-height/sm",
-       "w:size/toggle-width/md",
-       "w:size/toggle-width/sm"
-      ],
-      "track": [
-       "f:control/checked",
-       "f:control/track",
-       "f:control/track-disabled",
-       "h:size/toggle-height/md",
-       "h:size/toggle-height/sm",
-       "r:radius/chip",
-       "w:size/toggle-width/md",
-       "w:size/toggle-width/sm"
-      ],
-      "state layer": [
-       "f:state/layer",
-       "o:state/hover",
-       "o:state/pressed"
-      ],
-      "knob": [
-       "f:control/knob",
-       "f:control/knob-disabled"
-      ],
-      "focus ring": [
-       "r:radius/chip",
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "safe area · outer": [
-       "s:status/success/solid",
-       "sw:control/safe-margin"
-      ],
-      "hit area · web": [
-       "visible:touch/is-fine"
-      ],
-      "hit area · overlay": [
-       "f:status/danger/solid"
-      ],
-      "hit area · app": [
-       "visible:touch/is-coarse"
+       "gap:space/8",
+       "maxw:size/field/max"
       ]
      },
      "statusFirstLine": true
@@ -15203,6 +14884,366 @@
       ]
      },
      "statusFirstLine": true
+    }
+   ]
+  }
+ ],
+ "bases": [
+  {
+   "page": "Field base",
+   "pageId": "1825:3314",
+   "sets": [
+    {
+     "name": "_Field base",
+     "id": "1825:3315",
+     "status": "beta",
+     "variants": 108,
+     "axes": {
+      "Size": [
+       "M",
+       "L",
+       "XL"
+      ],
+      "Label position": [
+       "On border",
+       "Above"
+      ],
+      "Lines": [
+       "Single",
+       "Multi"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Focus",
+       "Filled",
+       "Error",
+       "Disabled",
+       "Read-only",
+       "Loading",
+       "Skeleton"
+      ]
+     },
+     "nested": [
+      "Input addon / Unit",
+      "Spinner",
+      "_Focus ring",
+      "_Hit area",
+      "_Safe margin",
+      "_State layer"
+     ],
+     "tokens": [
+      "border/focus",
+      "border/focus-ring",
+      "border/subtle",
+      "border/width/default",
+      "border/width/focus-ring",
+      "control/border/default",
+      "control/border/disabled",
+      "control/border/error",
+      "control/border/focus",
+      "control/height/lg",
+      "control/height/md",
+      "control/height/xl",
+      "control/padding-x/lg",
+      "control/padding-x/md",
+      "control/safe-margin",
+      "control/surface/default",
+      "control/surface/disabled",
+      "font-weight/medium",
+      "font/family/text",
+      "icon/size/md",
+      "icon/size/sm",
+      "radius/control",
+      "radius/control-sm",
+      "radius/focus-ring",
+      "radius/focus-ring-sm",
+      "size/field/min",
+      "skeleton/base",
+      "space/10",
+      "space/12",
+      "space/16",
+      "space/2",
+      "space/4",
+      "space/6",
+      "space/8",
+      "space/none",
+      "state/hover",
+      "state/layer",
+      "status/danger/solid",
+      "status/success/solid",
+      "text/danger",
+      "text/disabled",
+      "text/primary",
+      "text/secondary",
+      "text/tertiary",
+      "touch/is-coarse",
+      "touch/is-fine",
+      "type/label/lg/line-height",
+      "type/label/lg/size",
+      "type/label/md/line-height",
+      "type/label/md/size",
+      "type/label/sm/line-height",
+      "type/label/sm/size"
+     ]
+    }
+   ]
+  },
+  {
+   "page": "Service layers",
+   "pageId": "1837:435",
+   "sets": [
+    {
+     "name": "_Focus ring",
+     "id": "1837:436",
+     "status": "beta",
+     "variants": 1,
+     "axes": {},
+     "nested": [],
+     "tokens": [
+      "border/focus-ring",
+      "border/width/focus-ring",
+      "radius/focus-ring"
+     ]
+    },
+    {
+     "name": "_State layer",
+     "id": "1837:439",
+     "status": "beta",
+     "variants": 2,
+     "axes": {
+      "State": [
+       "Hover",
+       "Pressed"
+      ]
+     },
+     "nested": [],
+     "tokens": [
+      "radius/control",
+      "state/hover",
+      "state/layer",
+      "state/pressed"
+     ]
+    },
+    {
+     "name": "_Hit area",
+     "id": "1837:440",
+     "status": "beta",
+     "variants": 1,
+     "axes": {},
+     "nested": [],
+     "tokens": [
+      "status/danger/solid"
+     ]
+    },
+    {
+     "name": "_Safe margin",
+     "id": "1837:441",
+     "status": "beta",
+     "variants": 1,
+     "axes": {},
+     "nested": [],
+     "tokens": [
+      "control/safe-margin",
+      "status/success/solid"
+     ]
+    }
+   ]
+  },
+  {
+   "page": "Selection control",
+   "pageId": "1842:435",
+   "sets": [
+    {
+     "name": "_Checkbox control",
+     "id": "1842:568",
+     "status": "beta",
+     "variants": 24,
+     "axes": {
+      "Status": [
+       "Off",
+       "On",
+       "Indeterminate"
+      ],
+      "Tone": [
+       "Default",
+       "Danger"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Pressed",
+       "Disabled"
+      ]
+     },
+     "nested": [
+      "_Focus ring",
+      "_State layer"
+     ],
+     "tokens": [
+      "action/danger/default",
+      "border/focus-ring",
+      "border/strong",
+      "border/width/default",
+      "border/width/focus-ring",
+      "control/border/disabled",
+      "control/border/error",
+      "control/box",
+      "control/checked",
+      "control/surface/disabled",
+      "radius/control-xs",
+      "radius/sm",
+      "size/box",
+      "state/hover",
+      "state/layer",
+      "state/pressed"
+     ]
+    },
+    {
+     "name": "_Radio control",
+     "id": "1843:531",
+     "status": "beta",
+     "variants": 16,
+     "axes": {
+      "Status": [
+       "Off",
+       "On"
+      ],
+      "Tone": [
+       "Default",
+       "Danger"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Pressed",
+       "Disabled"
+      ]
+     },
+     "nested": [
+      "_Focus ring",
+      "_State layer"
+     ],
+     "tokens": [
+      "action/danger/default",
+      "border/focus-ring",
+      "border/strong",
+      "border/width/default",
+      "border/width/focus-ring",
+      "control/border/disabled",
+      "control/border/error",
+      "control/box",
+      "control/checked",
+      "control/surface/disabled",
+      "icon/disabled",
+      "icon/on-accent",
+      "radius/chip",
+      "size/box",
+      "size/dot/md",
+      "state/hover",
+      "state/layer",
+      "state/pressed"
+     ]
+    },
+    {
+     "name": "_Toggle control",
+     "id": "1843:620",
+     "status": "beta",
+     "variants": 16,
+     "axes": {
+      "Status": [
+       "Off",
+       "On"
+      ],
+      "Size": [
+       "M",
+       "S"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Pressed",
+       "Disabled"
+      ]
+     },
+     "nested": [
+      "_Focus ring",
+      "_State layer"
+     ],
+     "tokens": [
+      "border/focus-ring",
+      "border/width/focus-ring",
+      "control/checked",
+      "control/knob",
+      "control/knob-disabled",
+      "control/track",
+      "control/track-disabled",
+      "radius/chip",
+      "size/toggle-height/md",
+      "size/toggle-height/sm",
+      "size/toggle-width/md",
+      "size/toggle-width/sm",
+      "state/hover",
+      "state/layer",
+      "state/pressed"
+     ]
+    },
+    {
+     "name": "_Selection control",
+     "id": "1845:771",
+     "status": "beta",
+     "variants": 16,
+     "axes": {
+      "Type": [
+       "Box",
+       "Toggle"
+      ],
+      "Size": [
+       "M",
+       "S"
+      ],
+      "Control position": [
+       "Start",
+       "End"
+      ],
+      "State": [
+       "Default",
+       "Disabled"
+      ]
+     },
+     "nested": [
+      "_Checkbox control",
+      "_Hit area",
+      "_Safe margin"
+     ],
+     "tokens": [
+      "control/safe-margin",
+      "font-weight/medium",
+      "font/family/text",
+      "size/box",
+      "size/box-row",
+      "size/field/max",
+      "size/toggle-height/md",
+      "size/toggle-height/sm",
+      "size/toggle-width/md",
+      "size/toggle-width/sm",
+      "space/12",
+      "space/2",
+      "space/8",
+      "status/danger/solid",
+      "status/success/solid",
+      "text/disabled",
+      "text/primary",
+      "text/secondary",
+      "touch/is-coarse",
+      "touch/is-fine",
+      "type/label/lg/line-height",
+      "type/label/lg/size",
+      "type/label/md/line-height",
+      "type/label/md/size",
+      "type/label/sm/line-height",
+      "type/label/sm/size"
+     ]
     }
    ]
   }

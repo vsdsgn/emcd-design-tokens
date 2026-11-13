@@ -14,6 +14,7 @@
 Дополнено 2026-11-13 (в Figma сделано, библиотека ещё не опубликована):
 
 - **Input, Textarea** собраны от `_Field base`. API кода не меняется (`label`, `value`, `helper`, `counter`, `show*`, слоты — `docs/api.md`), меняется место свойств в Figma: слой `Field` внутри экземпляра, у корня — только Size, Label position, State. Dev Mode покажет свойства у вложенного слоя.
+- **Checkbox, Radio, Toggle** собраны от `_Selection control`. Ось `Control = Left | Right` → `Control position = Start | End` (prop `controlPosition: start | end`, в RTL зеркалится; по умолчанию Start, у Toggle — End). Label, Description, Show label, Show description — на вложенном слое `_Selection control`, Focus ring — на глифе.
 - Высота поля с подсказкой: +4 px (зазор подсказки `space/6`).
 - Skeleton не показывает слоты, подсказку и счётчик.
 
