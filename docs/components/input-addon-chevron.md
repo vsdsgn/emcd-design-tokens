@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Input addon / Chevron`. Status: beta. Level: molecule.
+- Набор: `Input addon / Chevron`. Status: beta. Level: unknown.
 - Figma: Components, страница «Input» (`349:2`), компонент `31:670`. Платформы: Web, Mobile web, iOS, Android (вместе с Input).
 - Страница «Input» (уровень молекулы), сам элемент — атом слота поля. Отдельно от поля не используется.
 

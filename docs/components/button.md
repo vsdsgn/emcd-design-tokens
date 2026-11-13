@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Button`. Status: beta. Level: atom.
+- Набор: `Button`. Status: beta. Level: unknown.
 - Figma: Components, страница «Button» (`259:2`), набор `218:16966`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
@@ -97,7 +97,7 @@
 ## 12. Figma projection
 - Набор `Button`, вариантов 176 из 192; оси: Type, Tone, Size, State.
 - Борда: «Button — борда · шаблон v3», разделов 12.
-- Описание: 4402 знаков, разделы: Status: Level: Кнопка действия. Когда использовать: Матрица: • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted — • Default — • Danger — S 32 — M 40 — L 48 — XL 56 — • Кнопки в группе — • Подложка кнопки — • Состояния: • Focus ring — • Заливка Default — • Hover / Pressed — • Кольцо фокуса —
+- Описание: 4402 знаков, разделы: Status: Level: Кнопка действия. Когда использовать: Матрица: • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted — • Default —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

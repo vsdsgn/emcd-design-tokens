@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Icon button`. Status: beta. Level: atom.
+- Набор: `Icon button`. Status: beta. Level: unknown.
 - Figma: Components, страница «Icon button» (`301:2237`), набор `301:4958`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
@@ -87,7 +87,7 @@
 ## 12. Figma projection
 - Набор `Icon button`, вариантов 240 из 448; оси: Type, Tone, Size, Loading, State.
 - Борда: «Icon button — борда · шаблон v3», разделов 12.
-- Описание: 2646 знаков, разделы: Status: Level: Кнопка-иконка: Когда использовать: Матрица: • Ghost — • Primary — • Secondary — • Text — • Inverted — Квадрат: A11y: • Label обязателен: • Тултип — • Hover / Pressed — • Loading — • Кольцо фокуса — • Иконку без Label.
+- Описание: 2646 знаков, разделы: Status: Level: Кнопка-иконка: Когда использовать: Матрица: • Ghost — • Primary — • Secondary — • Text — • Inverted — Квадрат: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

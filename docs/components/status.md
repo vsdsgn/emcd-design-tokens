@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Status`. Status: beta. Level: atom.
+- Набор: `Status`. Status: beta. Level: unknown.
 - Figma: Components, страница «Status» (`366:101`), набор `47:401`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent

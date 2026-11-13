@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Toast`. Status: draft. Level: molecule.
+- Набор: `Toast`. Status: draft. Level: unknown.
 - Figma: Components, страница «Toast» (`364:1389`), набор `1576:2`.
 
 ## 2. Intent
@@ -59,8 +59,8 @@
 - role="status" (polite), для ошибок role="alert"; крестик с aria-label «Закрыть»; фокус не забирает.
 
 ## 10. Tokens
-- `корень`: интервал `space/12`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
-- `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/inverse/default`, `status/danger/solid`, `status/info/solid`, `status/success/solid`, `status/warning/solid`, `surface/raised`; радиус `radius/control`.
+- `корень`: интервал `space/12`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`.
+- `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/inverse/default`, `status/danger/solid`, `status/info/solid`, `status/success/solid`, `status/warning/solid`, `surface/raised`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `content`: интервал `space/10`; отступы `space/2`.
 - `title`: заливка / цвет `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
@@ -79,7 +79,7 @@
 ## 12. Figma projection
 - Набор `Toast`, вариантов 10 из 10; оси: Layout, Tone.
 - Борда: «Toast — борда · шаблон v3», разделов 10.
-- Описание: 1327 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены: Поверхность —
+- Описание: 1458 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены: Поверхность —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

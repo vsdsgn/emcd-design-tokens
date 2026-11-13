@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Date range field`. Status: draft. Level: molecule.
+- Набор: `Date range field`. Status: draft. Level: unknown.
 - Figma: Components, страница «Date range field» (`1611:4`), набор `1611:115`.
 
 ## 2. Intent

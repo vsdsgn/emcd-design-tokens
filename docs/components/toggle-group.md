@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Toggle group`. Status: draft. Level: molecule.
+- Набор: `Toggle group`. Status: draft. Level: unknown.
 - Figma: Components, страница «Toggle group» (`1012:4`), набор `631:3104`.
 
 ## 2. Intent
@@ -68,7 +68,7 @@
 ## 12. Figma projection
 - Набор `Toggle group`, вариантов 4 из 4; оси: Direction, Size, State.
 - Борда: «Toggle group — борда · шаблон v3», разделов 10.
-- Описание: 1174 знаков, разделы: Status: Level: Toggle group: • Direction: • Error — • M: Когда использовать: Правила: A11y:
+- Описание: 1183 знаков, разделы: Status: Level: Toggle group: • Direction: • Disabled — • M: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

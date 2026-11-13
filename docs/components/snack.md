@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Snack`. Status: draft. Level: molecule.
+- Набор: `Snack`. Status: draft. Level: unknown.
 - Figma: Components, страница «Snack» (`1783:1378`), набор `1783:1379`.
 
 ## 2. Intent
@@ -65,7 +65,7 @@
 ## 12. Figma projection
 - Набор `Snack`, вариантов 5 из 5; оси: Tone.
 - Борда: «Snack — борда · шаблон v3», разделов 10.
-- Описание: 719 знаков, разделы: Status: Level: Когда использовать: Правила: Свойства: A11y:
+- Описание: 810 знаков, разделы: Status: Level: Когда использовать: Правила: Длинный текст: Свойства: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

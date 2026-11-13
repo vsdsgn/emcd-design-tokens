@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Avatar`. Status: beta. Level: molecule.
+- Набор: `Avatar`. Status: beta. Level: unknown.
 - Figma: Components, страница «Avatar» (`367:265`), набор `108:1270`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent

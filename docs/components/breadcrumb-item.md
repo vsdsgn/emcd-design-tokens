@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Breadcrumb item`. Status: beta. Level: atom.
+- Набор: `Breadcrumb item`. Status: beta. Level: unknown.
 - Figma: Components, страница «Breadcrumb item» (`1012:10`), набор `168:10635`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent

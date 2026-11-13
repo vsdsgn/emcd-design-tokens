@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Checkbox`. Status: beta. Level: atom.
+- Набор: `Checkbox`. Status: beta. Level: unknown.
 - Figma: Components, страница «Checkbox» (`320:11`), набор `320:700`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent

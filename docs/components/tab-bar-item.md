@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Tab bar item`. Status: beta. Level: organism.
+- Набор: `Tab bar item`. Status: beta. Level: unknown.
 - Figma: Components, страница «Tab bar» (`366:4724`), набор `65:105`. Платформы: iOS, Android, Mobile web.
 - Страница «Tab bar» (уровень организма); сам пункт — атом, вне Tab bar не используется.
 

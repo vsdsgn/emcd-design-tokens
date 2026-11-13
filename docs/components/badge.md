@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Badge`. Status: beta. Level: atom.
+- Набор: `Badge`. Status: beta. Level: unknown.
 - Figma: Components, страница «Badge» (`366:6`), набор `44:255`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
@@ -80,7 +80,7 @@
 ## 12. Figma projection
 - Набор `Badge`, вариантов 39 из 72; оси: Size, Tone, Style, State.
 - Борда: «Badge — борда · шаблон v3», разделов 11.
-- Описание: 1665 знаков, разделы: Status: Level: Бейдж: Когда использовать: Правила тона: Правила стиля: Размер: Цвета текста: Иконка: A11y: Поиск: Legacy: Матрица:
+- Описание: 1665 знаков, разделы: Status: Level: Бейдж: Когда использовать: Правила тона: Правила стиля: Размер: Цвета текста: Иконка: A11y: Поиск: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

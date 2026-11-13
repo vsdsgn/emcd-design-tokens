@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Chip`. Status: beta. Level: atom.
+- Набор: `Chip`. Status: beta. Level: unknown.
 - Figma: Components, страница «Chip» (`355:34251`), набор `47:364`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent

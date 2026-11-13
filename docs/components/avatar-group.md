@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Avatar group`. Status: draft. Level: molecule.
+- Набор: `Avatar group`. Status: draft. Level: unknown.
 - Figma: Components, страница «Avatar group» (`1012:5`), набор `108:1379`.
 
 ## 2. Intent
@@ -15,7 +15,7 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `more`, `count`.
+- Слои с токенами: `Avatar`, `more`, `count`.
 - Вложено: `Avatar` ×24.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -45,6 +45,7 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
+- `Avatar`: высота `size/media/lg`, `size/media/md`, `size/media/xs`; ширина `size/media/lg`, `size/media/md`, `size/media/xs`.
 - `more`: заливка / цвет `action/secondary/default`, `surface/default`; радиус `radius/chip`; обводка `surface/default`; толщина обводки `border/width/focus`.
 - `count`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - Значений без переменной: 6 (напр. `(root):gap=-4`, `(root):gap=-6`, `(root):gap=-8`).

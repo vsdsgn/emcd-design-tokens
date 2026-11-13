@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Tab`. Status: beta. Level: atom.
+- Набор: `Tab`. Status: beta. Level: unknown.
 - Figma: Components, страница «Tab» (`1012:8`), набор `45:155`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
@@ -71,7 +71,7 @@
 - `корень`: интервал `space/6`, `space/8`; высота `control/height/2xl`, `control/height/lg`, `control/height/sm`, `control/height/xl`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`, `text/secondary`; типографика `font-weight/bold`, `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/lg`, `type/label/lg`, `type/label/md`, `type/label/sm`.
-- `counter`: заливка / цвет `action/secondary/default`; высота `size/counter-height/md`, `size/counter-height/sm`; maxw `size/counter/max`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/2xs`, `space/6`; радиус `radius/full`.
+- `counter`: заливка / цвет `action/secondary/default`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/2xs`, `space/6`; радиус `radius/full`.
 - `indicator`: заливка / цвет `border/accent`, `border/default`, `control/border/default`, `icon/disabled`; высота `size/tab-indicator/lg`, `size/tab-indicator/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`, `radius/control-xs`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-inner`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.

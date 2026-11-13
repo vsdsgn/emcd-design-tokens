@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Tooltip`. Status: draft. Level: atom.
+- Набор: `Tooltip`. Status: draft. Level: unknown.
 - Figma: Components, страница «Tooltip» (`317:33689`), набор `317:33734`.
 
 ## 2. Intent
@@ -52,8 +52,8 @@
 - |
 
 ## 10. Tokens
-- `корень`: maxw `size/tooltip/max`; minh `size/tooltip/min`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
-- `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; радиус `radius/container`.
+- `корень`: maxw `size/tooltip/max`; minh `size/tooltip/min`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`.
+- `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
 - `text`: заливка / цвет `fixed/light`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Min / max корня: minWidth 58 size/tooltip/min, maxWidth 320 size/tooltip/max, minHeight 58 size/tooltip/min.
 
@@ -63,7 +63,7 @@
 ## 12. Figma projection
 - Набор `Tooltip`, вариантов 24 из 24; оси: Placement, Tone, Arrow.
 - Борда: «Tooltip — борда · шаблон v3», разделов 12.
-- Описание: 4198 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: • Пояснение термина: • Приложение и касание — • Ошибки формы — • Пузырь: • Neutral — • Placement — • Arrow — В коде — • Одновременно — • Появление — Поверхность —
+- Описание: 4198 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: • Пояснение термина: • Приложение и касание — • Ошибки формы — • Пузырь: • Neutral — • Placement — • Arrow —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

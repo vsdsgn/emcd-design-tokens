@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Radio`. Status: beta. Level: atom.
+- Набор: `Radio`. Status: beta. Level: unknown.
 - Figma: Components, страница «Radio» (`322:2`), набор `322:435`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent

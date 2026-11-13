@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Notification`. Status: draft. Level: molecule.
+- Набор: `Notification`. Status: draft. Level: unknown.
 - Figma: Components, страница «Notification» (`366:2939`), набор `179:620`.
 
 ## 2. Intent

@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Transaction`. Status: draft. Level: molecule.
+- Набор: `Transaction`. Status: draft. Level: unknown.
 - Figma: Components, страница «Transaction» (`364:4553`), набор `172:832`.
 
 ## 2. Intent
@@ -46,7 +46,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/12`; высота `size/row/lg`; отступы `space/12`, `space/16`.
-- `icon`: заливка / цвет `surface/raised`; высота `size/media/lg`; радиус `radius/chip`; ширина `size/media/lg`.
+- `icon`: заливка / цвет `action/secondary/default`; высота `size/media/lg`; радиус `radius/chip`; ширина `size/media/lg`.
 - `icon/arrow-up`: высота `icon/size/md`; ширина `icon/size/md`.
 - `content`: интервал `space/4`; мин. ширина `size/row/content-min`.
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.

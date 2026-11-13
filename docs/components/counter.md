@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Counter`. Status: beta. Level: atom.
+- Набор: `Counter`. Status: beta. Level: unknown.
 - Figma: Components, страница «Badge» (`366:6`), набор `43:16`. Платформы: Web, Mobile web, iOS, Android.
 - Лежит на странице Badge.
 
@@ -55,9 +55,9 @@
 - Число входит в доступное имя родителя («Воркеры, 3 неактивных»); сам счётчик — `aria-hidden`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/secondary/default`, `control/checked`, `status/danger/solid`; высота `size/counter-height/md`, `size/counter-height/sm`; maxw `size/counter/max`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/full`.
+- `корень`: заливка / цвет `action/secondary/default`, `control/checked`, `status/danger/solid`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/full`.
 - `value`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- Min / max корня: minWidth 16 size/counter-height/sm, maxWidth 40 size/counter/max, minWidth 20 size/counter-height/md.
+- Min / max корня: minWidth 16 size/counter-height/sm, maxWidth 40 size/counter/max, minHeight 16 size/counter-height/sm, minWidth 20 size/counter-height/md, minHeight 20 size/counter-height/md.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.

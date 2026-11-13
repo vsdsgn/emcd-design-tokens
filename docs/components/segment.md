@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Segment`. Status: beta. Level: atom.
+- Набор: `Segment`. Status: beta. Level: unknown.
 - Figma: Components, страница «Segment» (`1012:9`), набор `46:336`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
@@ -82,7 +82,7 @@
 ## 12. Figma projection
 - Набор `Segment`, вариантов 36 из 128; оси: Size, Selected, Tone, State.
 - Борда: «Segment — борда · шаблон v3», разделов 13.
-- Описание: 930 знаков, разделы: Status: Level: Сегмент — Tone: Только внутри Segmented. Поиск: Legacy: Когда использовать: Правила: Матрица: A11y:
+- Описание: 1018 знаков, разделы: Status: Level: Сегмент — Tone: Только внутри Segmented. Поиск: Legacy: Когда использовать: Правила: Длинный текст: Матрица: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

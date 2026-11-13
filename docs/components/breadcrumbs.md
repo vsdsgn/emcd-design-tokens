@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Breadcrumbs`. Status: draft. Level: molecule.
+- Набор: `Breadcrumbs`. Status: draft. Level: unknown.
 - Figma: Components, страница «Breadcrumbs» (`366:5621`), набор `168:10672`.
 
 ## 2. Intent
