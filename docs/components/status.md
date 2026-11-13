@@ -1,4 +1,4 @@
-# Status — контракт (2026-11-12)
+# Status — контракт (2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -75,7 +75,7 @@
 - Vue: `<DsStatus>`; Flutter: `DsStatus`.
 - Props: `size`: s | m; `tone`: success | warning | danger | info | neutral; `label`: string или слот; `showLabel`: boolean = true.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний (Status и Dot).
 - `variables-check.plugin.js` — `maxWidth 240 @label` числом.
 - `audit-parity.plugin.js` — Status — чисто; вложенный набор Dot: DESC — первая строка не «Status:», нет «Когда использовать», нет «A11y:».

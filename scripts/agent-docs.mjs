@@ -18,6 +18,14 @@ const pascal = (s) => s.replace(/[^\p{L}\p{N}]+/gu, ' ').trim().split(' ').map((
 const camel = (s) => { const p = pascal(s); return p[0].toLowerCase() + p.slice(1); };
 const val = (s) => String(s).trim().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '').toLowerCase();
 const SERVICE_PROPS = new Set(['Focus ring', 'Show hit area', 'Safe margin']);
+// Надстройки над базой: свойства живут на вложенном слое базы (exposed), в манифесте у набора их нет — берём список базы.
+// Страницы баз в манифест не входят; список — из docs/components/field-base.md, раздел «5. Properties».
+const T = (name) => ({ name, type: 'TEXT' }), B = (name, def) => ({ name, type: 'BOOLEAN', def }), SL = (name) => ({ name, type: 'SLOT' });
+const BASE_PROPS = {
+  '_Field base': [T('Label'), B('Show label', true), T('Value'), T('Helper'), B('Show helper', false), T('Counter'), B('Show counter', false),
+    B('Show leading', false), B('Show inline', false), B('Show trailing', false), SL('Leading'), SL('Inline'), SL('Trailing')],
+};
+const baseOf = (s) => Object.keys(BASE_PROPS).find((b) => (s.nested || {})[b] === s.variants);
 const LEVEL = { atom: 'атом', molecule: 'молекула', organism: 'организм' };
 const contract = (name) => `docs/components/${kebab(name)}.md`;
 const cell = (s) => String(s || '—').replace(/\|/g, '/').replace(/\.$/, '');
@@ -50,11 +58,12 @@ function api(s) {
     if (a === 'State') continue;
     rows.push(`| \`${camel(a)}\` | ${v.map(val).join(' \\| ')} | по правилу контракта | ось ${a} |`);
   }
-  for (const p of s.props || []) {
+  const base = baseOf(s);
+  for (const p of (s.props || []).concat(base ? BASE_PROPS[base] : [])) {
     if (SERVICE_PROPS.has(p.name) || p.type === 'INSTANCE_SWAP') continue;
     const t = { TEXT: 'string', BOOLEAN: 'boolean', SLOT: 'slot' }[p.type] || p.type;
     const d = p.type === 'BOOLEAN' ? String(p.def === true) : '—';
-    rows.push(`| \`${camel(p.name)}\` | ${t} | ${d} | свойство ${p.name} |`);
+    rows.push(`| \`${camel(p.name)}\` | ${t} | ${d} | свойство ${p.name}${base ? ` (слой \`Field\`, база \`${base}\`)` : ''} |`);
   }
   if (rows.length) L.push('| Prop | Тип / значения | По умолчанию | В Figma |', '|---|---|---|---|', ...rows, '');
   else L.push('Props нет.', '');

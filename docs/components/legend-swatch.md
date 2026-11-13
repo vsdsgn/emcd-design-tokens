@@ -1,4 +1,4 @@
-# Legend swatch — контракт · draft (2026-11-12)
+# Legend swatch — контракт · draft (2026-11-13)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -61,7 +61,7 @@
 - Vue: `<DsLegendSwatch>`; Flutter: `DsLegendSwatch`.
 - Props: `marker`: dot | line; `series`: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - RAW: 32 (напр. `(root):w=12`, `(root):h=12`)

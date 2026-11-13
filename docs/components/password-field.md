@@ -1,4 +1,4 @@
-# Password field — контракт · draft (2026-11-12)
+# Password field — контракт · draft (2026-11-13)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -45,7 +45,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/10`.
-- `Input`: интервал `space/6`.
+- `Input`: мин. ширина `size/field/min`.
 - `show password`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `requirements`: интервал `space/6`.
 - `req`: интервал `space/6`.
@@ -56,7 +56,7 @@
 - `Спецсимвол: ! @ # $ %`: заливка / цвет `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `icon/check`: высота `icon/size/md`; ширина `icon/size/md`.
 - Min / max корня: minWidth 160 числом.
-- Значений без переменной: 8 (напр. `(root):w=320`, `field:h=66`, `field:h=88`).
+- Значений без переменной: 8 (напр. `(root):w=320`, `field:h=66`, `field:h=92`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -73,7 +73,7 @@
 - Props: нет.
 - Состояния (Empty, Typing, Valid, Error) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:

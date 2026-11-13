@@ -1,4 +1,4 @@
-# Breadcrumb item — контракт (2026-11-12)
+# Breadcrumb item — контракт (2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -78,7 +78,7 @@
 - Props: `label`: string или слот.
 - Состояния (Default, Hover, Current, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — `raw text: label` — текст без текстового стиля.
 - `variables-check.plugin.js` — `maxWidth 200 @label` числом.
 - `audit-parity.plugin.js` — DESC: нет «A11y:», экранированные сущности.

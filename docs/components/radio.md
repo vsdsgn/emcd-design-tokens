@@ -1,4 +1,4 @@
-# Radio — контракт (2026-11-12)
+# Radio — контракт (2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -98,7 +98,7 @@
 - Props: `status`: boolean; `tone`: default | danger; `size`: m | s; `control`: right | left; `label`: string или слот; `showLabel`: boolean = true; `description`: string или слот; `showDescription`: boolean = false.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 480`, `maxWidth 436 @label` числом.
 - `audit-parity.plugin.js` — DESC: нет «Когда использовать», сущности; AXES: Status булева, Control Left / Right, State не последняя; MINMAX: 480; STATE: радиус слоя ≠ «circle»; BASE: 0 из 64.

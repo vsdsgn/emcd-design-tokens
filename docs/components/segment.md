@@ -1,4 +1,4 @@
-# Segment — контракт (2026-11-12)
+# Segment — контракт (2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -91,7 +91,7 @@
 - Props: `size`: s | m | l | xl; `selected`: boolean; `tone`: neutral | accent | success | danger; `label`: string или слот; `showLabel`: boolean = true; `icon`: boolean = false.
 - Состояния (Default, Hover, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 200 @label` числом.
 - `audit-parity.plugin.js` — DESC: сущности; MATRIX: 36 из 128 без строки «Матрица:»; AXES: Selected булева, State не последняя (Size, Selected, State, Tone).

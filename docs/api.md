@@ -1,4 +1,4 @@
-# Ожидаемый API компонентов — beta (2026-11-12)
+# Ожидаемый API компонентов — beta (2026-11-13)
 
 Собрано `scripts/agent-docs.mjs` из `docs/ds-manifest.json` — править не здесь, а в Figma (потом манифест) или в `scripts/contract-data.mjs`.
 Это **ожидаемый** API по правилам имён `scripts/parity.mjs`: кода (DSP, Vue `ui-emcd-web`, Flutter) в доступе нет (`docs/dsp-check-2026-11-12.md`). Когда появится манифест кода — `npm run parity` сверит.
@@ -223,19 +223,19 @@
 |---|---|---|---|
 | `size` | m \| l \| xl | по правилу контракта | ось Size |
 | `labelPosition` | on-border \| above | по правилу контракта | ось Label position |
-| `label` | string | — | свойство Label |
-| `showLabel` | boolean | true | свойство Show label |
-| `value` | string | — | свойство Value |
-| `helper` | string | — | свойство Helper |
-| `showHelper` | boolean | false | свойство Show helper |
-| `counter` | string | — | свойство Counter |
-| `showCounter` | boolean | false | свойство Show counter |
-| `showLeading` | boolean | false | свойство Show leading |
-| `showInline` | boolean | false | свойство Show inline |
-| `showTrailing` | boolean | false | свойство Show trailing |
-| `leading` | slot | — | свойство Leading |
-| `inline` | slot | — | свойство Inline |
-| `trailing` | slot | — | свойство Trailing |
+| `label` | string | — | свойство Label (слой `Field`, база `_Field base`) |
+| `showLabel` | boolean | true | свойство Show label (слой `Field`, база `_Field base`) |
+| `value` | string | — | свойство Value (слой `Field`, база `_Field base`) |
+| `helper` | string | — | свойство Helper (слой `Field`, база `_Field base`) |
+| `showHelper` | boolean | false | свойство Show helper (слой `Field`, база `_Field base`) |
+| `counter` | string | — | свойство Counter (слой `Field`, база `_Field base`) |
+| `showCounter` | boolean | false | свойство Show counter (слой `Field`, база `_Field base`) |
+| `showLeading` | boolean | false | свойство Show leading (слой `Field`, база `_Field base`) |
+| `showInline` | boolean | false | свойство Show inline (слой `Field`, база `_Field base`) |
+| `showTrailing` | boolean | false | свойство Show trailing (слой `Field`, база `_Field base`) |
+| `leading` | slot | — | свойство Leading (слой `Field`, база `_Field base`) |
+| `inline` | slot | — | свойство Inline (слой `Field`, база `_Field base`) |
+| `trailing` | slot | — | свойство Trailing (слой `Field`, база `_Field base`) |
 
 Состояния в Figma: Default · Hover · Focus · Filled · Error · Disabled · Read-only · Loading · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error`, `readonly`, `loading`, `skeleton` — boolean props.
 
@@ -293,19 +293,19 @@ Props нет.
 |---|---|---|---|
 | `size` | m \| l \| xl | по правилу контракта | ось Size |
 | `labelPosition` | above | по правилу контракта | ось Label position |
-| `leading` | slot | — | свойство Leading |
-| `inline` | slot | — | свойство Inline |
-| `trailing` | slot | — | свойство Trailing |
-| `label` | string | — | свойство Label |
-| `showLabel` | boolean | true | свойство Show label |
-| `value` | string | — | свойство Value |
-| `helper` | string | — | свойство Helper |
-| `showHelper` | boolean | false | свойство Show helper |
-| `counter` | string | — | свойство Counter |
-| `showCounter` | boolean | false | свойство Show counter |
-| `showLeading` | boolean | false | свойство Show leading |
-| `showInline` | boolean | false | свойство Show inline |
-| `showTrailing` | boolean | false | свойство Show trailing |
+| `label` | string | — | свойство Label (слой `Field`, база `_Field base`) |
+| `showLabel` | boolean | true | свойство Show label (слой `Field`, база `_Field base`) |
+| `value` | string | — | свойство Value (слой `Field`, база `_Field base`) |
+| `helper` | string | — | свойство Helper (слой `Field`, база `_Field base`) |
+| `showHelper` | boolean | false | свойство Show helper (слой `Field`, база `_Field base`) |
+| `counter` | string | — | свойство Counter (слой `Field`, база `_Field base`) |
+| `showCounter` | boolean | false | свойство Show counter (слой `Field`, база `_Field base`) |
+| `showLeading` | boolean | false | свойство Show leading (слой `Field`, база `_Field base`) |
+| `showInline` | boolean | false | свойство Show inline (слой `Field`, база `_Field base`) |
+| `showTrailing` | boolean | false | свойство Show trailing (слой `Field`, база `_Field base`) |
+| `leading` | slot | — | свойство Leading (слой `Field`, база `_Field base`) |
+| `inline` | slot | — | свойство Inline (слой `Field`, база `_Field base`) |
+| `trailing` | slot | — | свойство Trailing (слой `Field`, база `_Field base`) |
 
 Состояния в Figma: Default · Hover · Focus · Filled · Error · Disabled · Read-only · Loading · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error`, `readonly`, `loading`, `skeleton` — boolean props.
 

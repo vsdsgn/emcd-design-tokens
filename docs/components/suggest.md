@@ -1,4 +1,4 @@
-# Suggest — контракт · draft (2026-11-12)
+# Suggest — контракт · draft (2026-11-13)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -87,7 +87,7 @@
 - Vue: `<DsSuggest>`; Flutter: `DsSuggest`.
 - Props: `layout`: card | strip; `tone`: neutral | accent | info | success | warning | danger; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `showDescription`: boolean = true; `leading`: boolean = true; `primaryAction`: boolean = true; `secondaryAction`: boolean = false; `close`: boolean = true.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - RAW: 14 (напр. `(root):sw=1`, `(root):w=480`)

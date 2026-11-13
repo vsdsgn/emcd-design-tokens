@@ -1,4 +1,4 @@
-# Segmented — контракт · draft (2026-11-12)
+# Segmented — контракт · draft (2026-11-13)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -66,7 +66,7 @@
 - Vue: `<DsSegmented>`; Flutter: `DsSegmented`.
 - Props: `size`: s | m | l | xl; `items`: 2 | 3 | 4.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - RAW: 12 (напр. `(root):w=240`, `(root):w=280`)

@@ -1,6 +1,6 @@
 # DS 2.0 — передача контекста (handoff)
 
-Документ для нового чата / нового исполнителя. Обновлено: 2026-11-12.
+Документ для нового чата / нового исполнителя. Обновлено: 2026-11-13.
 
 ## Где работать (решение Стефана 2026-10-17)
 
@@ -49,6 +49,20 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 4. По теме задачи: `style.md` + `visual-language.md` (Base/Expressive, декор), `platforms.md` (Web / Mobile web / iOS / Android, хаптики), `components.md` (правила, a11y, фокус), `effects.md`, `motion.md`, `a11y-report.md`, `browser-support.md` (браузеры, тест `npm run test:browsers`), `performance.md` (загрузка, кадры, перф-гард, `npm run test:perf`), `migration/`.
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
+
+## Состояние на 2026-11-13
+
+**Идёт замена действующих наборов на собранные от баз (фаза C брифа). Точка отката в Version history — сделана Стефаном 13.11, до замены.** Решения доски 12.11 действуют по рекомендации (везде A), Стефан посмотрит результат.
+
+- **Input заменён на месте 13.11.** Набор `Input` (54): в каждом варианте один раскрытый экземпляр `_Field base` (слой `Field`), свойства набора удалены, значения в 272 экземплярах перенесены на `Field`. Потребители пересобраны: Password field, Select, Dropdown panel, Menu.
+- **Textarea заменён на месте 13.11.** Набор `Textarea` (27), 14 свойств удалены, 152 экземпляра, перенос значений у 72.
+- **Правки базы `_Field base` 13.11:** `helper row` видна только при Show helper (пустая строка резервировала 20 px); в Skeleton слоты, подсказка и счётчик скрыты жёстко. Password field: рамка Error 92, глаз по центру.
+- **Проверки 13.11** (страницы Input, `_Field base`, Textarea): `audit` 0 у всех 12 наборов; `audit-parity` 0; `variables-check` — 2 известных (`Input addon / Clear` толщина глифа 1.5; `minHeight 96` у базы — токены `size/*`, публикует Стефан).
+- **Манифест пересобран 13.11** (батч M3 — наборы Input, Textarea, Password field): `docs/ds-manifest.json`; контракты, `llms.txt`, `design.md`, `docs/api.md`, `docs/audit-draft.md` пересобраны. `scripts/agent-docs.mjs`: у надстроек над базой props берутся из списка базы (`BASE_PROPS`) — в манифесте свойств у набора больше нет.
+- **Последствия (подробно — контракты `input.md`, `textarea.md`, раздел 15):** MAJOR для макетов — оверрайды свойств в продуктовых файлах сбросятся при Publish; высота поля с подсказкой +4 px; архив затронут побочно (57 экземпляров Input пересобрались сами, у трёх потеряно содержимое Trailing).
+- **Рецепт замены** — `docs/HOW-IT-WORKS.md`, «Замена набора на месте».
+- **Дальше:** семейство выбора (Checkbox, Radio, Toggle) → строки (Menu item, Multiselect option, List item) → панели (Tooltip, Menu, Dropdown panel, Toast, Modal, Sheet) по тому же рецепту; правки остальных beta из разделов 15 контрактов; затем Стефану — Publish Foundations и Components, окно DSP.
+- **Не сделано по Input / Textarea:** стенд бренды × платформы у действующих наборов (снят у пилотов); пересъёмка Select и Password field после правок базы; полная сверка борды Input v3; проверка слота руками.
 
 ## Состояние на 2026-11-12
 

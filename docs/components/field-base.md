@@ -16,7 +16,7 @@
 Корень (вертикально, `space/6`) →
 - `label` — подпись над полем (Label position=Above);
 - `field` — рамка: слоты `Leading`, `Inline`, `Trailing`; `text` (`caret` + `value`); `notch label` (`border gap` + `notch text`, Label position=On border); `state layer` (Hover); `focus ring`; `hit area · web`, `hit area · app`;
-- `helper row` — `helper` + `counter`;
+- `helper row` — `helper` + `counter`; видна только при Show helper (пустая строка место не занимает). Счётчик без подсказки — Show helper + пустой Helper;
 - `safe area · outer` — safe margin.
 - Служебные слои `focus ring`, `state layer`, `hit area · overlay`, `safe area · outer` — экземпляры `_Focus ring`, `_State layer`, `_Hit area`, `_Safe margin` (см. `service-layers.md`).
 
@@ -26,7 +26,7 @@
 - Focus — рамка `control/border/focus`; с клавиатуры — кольцо (свойство Focus ring).
 - Error — рамка `control/border/error`, helper `text/danger`.
 - Disabled — фон `control/surface/disabled`, все тексты `text/disabled`. Read-only — тот же фон, рамка `border/subtle`, значение `text/primary`.
-- Loading — `spinner` в конце поля. Skeleton — фон `skeleton/base`.
+- Loading — `spinner` в конце поля. Skeleton — фон `skeleton/base`; слоты, подсказка и счётчик скрыты жёстко (свойства Show … не действуют).
 
 ## 5. Properties
 | Свойство | Тип | Значения / по умолчанию |
@@ -80,14 +80,16 @@
 Режимы Platform меняют высоты, отступы и видимость зон; отличий в структуре нет.
 
 ## 12. Figma projection
-Набор `_Field base`, порядок осей: Size, Label position, Lines, State. Экземпляр в надстройке называется `Field` и раскрыт.
+Набор `_Field base`, порядок осей: Size, Label position, Lines, State. Экземпляр в надстройке называется `Field` и раскрыт. Надстройки: `Input` и `Textarea` (действующие, заменены 2026-11-13), `Input · пилот`, `Textarea · пилот` (образцы).
+- Содержимое слотов по умолчанию: Leading — `icon/search`, Inline и Trailing — `Input addon / Unit`. Скриптом содержимое слота вложенного экземпляра меняется через `slot.children[0].swapComponent(…)`.
 
 ## 13. Code projection
 Нет (DSP, Vue, Flutter недоступны — `docs/dsp-check-2026-11-12.md`). Ожидается внутренний компонент `FieldBase`, не экспортируется.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0; `audit-parity.plugin.js` — 0; `variables-check.plugin.js` — 1 (`minHeight 96 @field`, вопрос 3).
 - Стенд: Light / Dark × EMCD / Geometria / WL × Web / iOS / Android × L0–L3 — пройден; все свойства переключены; длинный текст, 6 языков, 200 % — пройдены с замечаниями (разделы 6, 8).
+- 13.11 после правок (видимость `helper row`, Skeleton) — три аудита повторены: `audit` 0, `audit-parity` 0, `variables-check` 1 (тот же `minHeight 96`).
 - Не проверено: паритет с кодом (кода нет).
 
 ## 15. Migration

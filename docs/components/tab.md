@@ -1,4 +1,4 @@
-# Tab — контракт (2026-11-12)
+# Tab — контракт (2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -94,7 +94,7 @@
 - Props: `size`: m | l | xl | s; `selected`: boolean; `label`: string или слот; `counter`: boolean = false; `icon`: boolean = false.
 - Состояния (Default, Hover, Pressed, Disabled, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 240 @label` числом.
 - `audit-parity.plugin.js` — MATRIX: 36 из 40 без строки «Матрица:»; AXES: Selected булева; SIZE: `indicator.width` без переменной.

@@ -1,4 +1,4 @@
-# Input addon / Chevron — контракт (2026-11-12)
+# Input addon / Chevron — контракт (2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -54,7 +54,7 @@
 - Vue: `<DsInputAddonChevron>`; Flutter: `DsInputAddonChevron`.
 - Props: нет.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — не обходит отдельные компоненты; упрощённая проверка DESC: нет «Когда использовать», нет «A11y:».

@@ -1,4 +1,4 @@
-# Badge — контракт (2026-11-12)
+# Badge — контракт (2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -89,7 +89,7 @@
 - Props: `size`: s | m | l; `tone`: neutral | accent | success | warning | danger | info; `style`: subtle | solid; `label`: string или слот; `icon`: boolean = false; `close`: boolean = false; `chevron`: boolean = false.
 - Состояния (Skeleton, Default) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 160` (корень) и `maxWidth 112 @label` числом.
 - `audit-parity.plugin.js` — MATRIX: в описании «Матрица допустимых:», а не строка «Матрица:»; MINMAX: maxWidth=160 без переменной.

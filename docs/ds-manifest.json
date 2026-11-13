@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-12",
+ "generated": "2026-11-13",
  "source": "Figma Components, scripts/figma/manifest.plugin.js (read-only)",
  "summary": {
   "pages": {
@@ -19,12 +19,12 @@
   },
   "variants": 1648,
   "incompleteMatrix": 11,
-  "propsNotBoundEverywhere": 21,
-  "rawMinMax": 48,
+  "propsNotBoundEverywhere": 19,
+  "rawMinMax": 46,
   "withRawValues": 91,
-  "withFocusRing": 33,
-  "withHitArea": 25,
-  "withSafeMargin": 24,
+  "withFocusRing": 31,
+  "withHitArea": 24,
+  "withSafeMargin": 23,
   "pagesWithoutV3Board": 1,
   "pagesWithFullBoard": 9
  },
@@ -6622,19 +6622,20 @@
      "id": "393:14122",
      "type": "SET",
      "status": "beta",
-     "descLen": 1690,
+     "descLen": 2261,
      "descHeads": [
       "Status:",
       "Level:",
+      "Когда использовать:",
+      "Helper и Counter —",
+      "Матрица:",
+      "Legacy:",
       "Текстовое поле.",
       "• Leading —",
       "• Inline —",
       "• Trailing —",
       "• Input addon / Clear —",
-      "• On border —",
-      "• Hover —",
-      "Правила:",
-      "A11y:"
+      "• On border —"
      ],
      "inBoard": true,
      "axes": {
@@ -6661,238 +6662,32 @@
      },
      "variants": 54,
      "full": 54,
-     "props": [
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Сумма",
-       "bound": 51
-      },
-      {
-       "name": "Show label",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 51
-      },
-      {
-       "name": "Value",
-       "type": "TEXT",
-       "def": "0.00",
-       "bound": 54
-      },
-      {
-       "name": "Helper",
-       "type": "TEXT",
-       "def": "Минимум 10 USDT",
-       "bound": 54
-      },
-      {
-       "name": "Show helper",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 54
-      },
-      {
-       "name": "Counter",
-       "type": "TEXT",
-       "def": "5/20",
-       "bound": 54
-      },
-      {
-       "name": "Show counter",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 54
-      },
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 54
-      },
-      {
-       "name": "Show leading",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 54
-      },
-      {
-       "name": "Show inline",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 54
-      },
-      {
-       "name": "Show trailing",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 54
-      },
-      {
-       "name": "Leading",
-       "type": "SLOT",
-       "bound": 54
-      },
-      {
-       "name": "Inline",
-       "type": "SLOT",
-       "bound": 54
-      },
-      {
-       "name": "Trailing",
-       "type": "SLOT",
-       "bound": 54
-      },
-      {
-       "name": "Show hit area",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 54
-      },
-      {
-       "name": "Safe margin",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 54
-      }
-     ],
+     "props": [],
      "nested": {
-      "(icons)": 54,
-      "Input addon / Unit": 108,
-      "Spinner": 6
+      "_Field base": 54
      },
      "minmax": [
-      "minw=160 RAW"
+      "minw=160 size/field/min"
      ],
      "layers": {
-      "ring": 54,
-      "hitWeb": 54,
-      "hitApp": 54,
-      "hit": 54,
-      "safe": 54
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
      },
-     "rawCount": 162,
+     "rawCount": 54,
      "raw": [
-      "(root):w=320",
-      "hit area · web:w=320",
-      "hit area · web:h=40",
-      "hit area · web:h=48",
-      "hit area · web:h=56"
+      "(root):w=320"
      ],
      "tokens": {
       "(root)": [
+       "minw:size/field/min"
+      ],
+      "Field": [
        "gap:space/6",
+       "minw:size/field/min",
        "p:space/8"
-      ],
-      "field": [
-       "f:control/surface/default",
-       "f:control/surface/disabled",
-       "f:skeleton/base",
-       "gap:space/12",
-       "h:control/height/lg",
-       "h:control/height/md",
-       "h:control/height/xl",
-       "p:control/padding-x/lg",
-       "p:control/padding-x/md",
-       "p:space/none",
-       "r:radius/control",
-       "r:radius/control-sm",
-       "s:border/subtle",
-       "s:control/border/default",
-       "s:control/border/disabled",
-       "s:control/border/error",
-       "s:control/border/focus",
-       "sw:border/width/default"
-      ],
-      "icon/search": [
-       "h:icon/size/md",
-       "w:icon/size/md"
-      ],
-      "caret": [
-       "f:border/focus"
-      ],
-      "value": [
-       "f:text/disabled",
-       "f:text/primary",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "notch label": [
-       "p:space/2"
-      ],
-      "border gap": [
-       "f:control/surface/default",
-       "f:control/surface/disabled"
-      ],
-      "notch text": [
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "focus ring": [
-       "r:radius/focus-ring",
-       "r:radius/focus-ring-sm",
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "hit area · web": [
-       "visible:touch/is-fine"
-      ],
-      "hit area · overlay": [
-       "f:status/danger/solid"
-      ],
-      "hit area · app": [
-       "visible:touch/is-coarse"
-      ],
-      "helper row": [
-       "gap:space/8",
-       "p:space/4"
-      ],
-      "helper": [
-       "f:text/danger",
-       "f:text/disabled",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "counter": [
-       "f:text/disabled",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "safe area · outer": [
-       "s:status/success/solid",
-       "sw:control/safe-margin"
-      ],
-      "state layer": [
-       "f:state/layer",
-       "o:state/hover",
-       "r:radius/control-sm"
-      ],
-      "spinner": [
-       "h:icon/size/sm",
-       "w:icon/size/sm"
-      ],
-      "label": [
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height"
       ]
      },
      "statusFirstLine": true
@@ -8835,14 +8630,14 @@
      "raw": [
       "(root):w=320",
       "field:h=66",
-      "field:h=88"
+      "field:h=92"
      ],
      "tokens": {
       "(root)": [
        "gap:space/10"
       ],
       "Input": [
-       "gap:space/6"
+       "minw:size/field/min"
       ],
       "show password": [
        "gap:space/6",
@@ -12148,14 +11943,18 @@
      "id": "168:1324",
      "type": "SET",
      "status": "beta",
-     "descLen": 826,
+     "descLen": 1130,
      "descHeads": [
       "Status:",
       "Level:",
       "Многострочное поле:",
       "Когда использовать:",
-      "Legacy:",
-      "Зона нажатия —"
+      "Skeleton:",
+      "Состояния:",
+      "A11y:",
+      "Зона нажатия —",
+      "Матрица:",
+      "Legacy:"
      ],
      "inBoard": true,
      "axes": {
@@ -12181,196 +11980,31 @@
      },
      "variants": 27,
      "full": 27,
-     "props": [
-      {
-       "name": "Leading",
-       "type": "SLOT",
-       "bound": 27
-      },
-      {
-       "name": "Inline",
-       "type": "SLOT",
-       "bound": 27
-      },
-      {
-       "name": "Trailing",
-       "type": "SLOT",
-       "bound": 27
-      },
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Сумма",
-       "bound": 27
-      },
-      {
-       "name": "Show label",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 27
-      },
-      {
-       "name": "Value",
-       "type": "TEXT",
-       "def": "0.00",
-       "bound": 27
-      },
-      {
-       "name": "Helper",
-       "type": "TEXT",
-       "def": "Минимум 10 USDT",
-       "bound": 27
-      },
-      {
-       "name": "Show helper",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 27
-      },
-      {
-       "name": "Counter",
-       "type": "TEXT",
-       "def": "5/20",
-       "bound": 27
-      },
-      {
-       "name": "Show counter",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 27
-      },
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 27
-      },
-      {
-       "name": "Show leading",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 24
-      },
-      {
-       "name": "Show inline",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 24
-      },
-      {
-       "name": "Show trailing",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 24
-      }
-     ],
+     "props": [],
      "nested": {
-      "Spinner": 27,
-      "Input addon / Unit": 27
+      "_Field base": 27
      },
      "minmax": [
-      "minw=160 RAW"
+      "minw=160 size/field/min"
      ],
      "layers": {
-      "ring": 27,
+      "ring": 0,
       "hitWeb": 0,
       "hitApp": 0,
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 54,
+     "rawCount": 27,
      "raw": [
-      "(root):w=320",
-      "field:h=96"
+      "(root):w=320"
      ],
      "tokens": {
       "(root)": [
-       "gap:space/6"
+       "minw:size/field/min"
       ],
-      "label": [
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "field": [
-       "f:control/surface/default",
-       "f:control/surface/disabled",
-       "f:skeleton/base",
-       "gap:control/gap",
-       "p:control/padding-x/lg",
-       "p:control/padding-x/md",
-       "p:space/10",
-       "r:radius/control",
-       "r:radius/control-sm",
-       "s:border/subtle",
-       "s:control/border/default",
-       "s:control/border/disabled",
-       "s:control/border/error",
-       "s:control/border/focus",
-       "sw:border/width/default"
-      ],
-      "value": [
-       "f:text/disabled",
-       "f:text/primary",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "spinner": [
-       "h:icon/size/control",
-       "w:icon/size/control"
-      ],
-      "notch label": [
-       "f:surface/level-1",
-       "p:space/4"
-      ],
-      "notch text": [
-       "f:text/danger",
-       "f:text/disabled",
-       "f:text/primary",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "focus ring": [
-       "r:radius/focus-ring",
-       "r:radius/focus-ring-sm",
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "helper row": [
-       "gap:space/8"
-      ],
-      "helper": [
-       "f:text/danger",
-       "f:text/disabled",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "counter": [
-       "f:text/disabled",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "state layer": [
-       "f:state/layer",
-       "o:state/hover",
-       "r:radius/control-sm"
+      "Field": [
+       "gap:space/6",
+       "minw:size/field/min"
       ]
      },
      "statusFirstLine": true

@@ -102,3 +102,17 @@ Figma Foundations → публикация (вручную) → экспорт �
 - Агентный слой: `npm run agent-docs` (`scripts/agent-docs.mjs`) собирает `llms.txt` (карта репо для ИИ-агента), `design.md` (принципы, роли цвета, модель состояний, выбор компонента) и `docs/api.md` (ожидаемые props beta-наборов) из манифеста и `contract-data.mjs`; `--check` в CI. Руками эти три файла не править.
 - Аудит draft-наборов: `npm run draft-audit` (`scripts/draft-audit.mjs`) собирает `docs/audit-draft.md` из манифеста — что мешает перевести набор в beta (DESC, MATRIX, AXES, PROPS, MINMAX, RAW, SERVICE, BOARD); `--check` в CI. В Figma не ходит, наборы не меняет.
 - `state/hover`, `state/pressed` — проценты прозрачности слоя: в CSS сборка отдаёт число 0–1 (`--state-hover: 0.06`), во Flutter-JSON — проценты (`stateHover: 6`). Правило — `isOpacity` в `scripts/build.mjs`.
+
+## Замена набора на месте (с 2026-11-13)
+
+Рецепт отработан на Input и Textarea; один вызов `use_figma` на набор, перед пакетом — точка в Version history (делает Стефан, API не умеет).
+
+1. У всех экземпляров набора (`variant.getInstancesAsync()`, только с предком-страницей) снять значения BOOLEAN / TEXT по имени свойства до `#`.
+2. В каждый вариант: клон первого ребёнка варианта-пилота → `appendChild` → `layoutSizingHorizontal = 'FILL'`, `isExposedInstance = true`; старых детей удалить; отступы, интервал и привязку `minWidth` скопировать с пилота.
+3. `set.deleteComponentProperty(key)` для всех не-VARIANT свойств набора.
+4. На `instance.children[0]` (слой базы) — `setProperties` для значений, отличных от умолчаний базы; шрифты загрузить заранее.
+5. Проверки: `audit`, `variables-check`, `audit-parity` по страницам набора и базы; размеры экземпляров до / после; обрезания родителями; снимки набора и борды v3.
+6. Переснять батч манифеста, `npm run contracts`, `agent-docs`, `draft-audit`, `parity`, `exceptions`.
+
+Приёмы: слот вложенного экземпляра — `slot.children[0].swapComponent(…)` (`appendChild` ломается); удалённый компонент — `figma.importComponentByKeyAsync(key)`; рамка HUG со скрытыми детьми держит прежний размер; для нескольких страниц в одном вызове — `await page.loadAsync()` вместо переключения страницы; `figma.skipInvisibleInstanceChildren = false` в начале.
+Частичная пересъёмка манифеста: снять только изменённые наборы, влить в сырьё батча по id набора, пересобрать.

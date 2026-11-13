@@ -1,4 +1,4 @@
-# Chip — контракт (2026-11-12)
+# Chip — контракт (2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -97,7 +97,7 @@
 - Props: `size`: s | m; `selected`: boolean; `label`: string или слот; `meta`: boolean = false; `metaText`: string или слот; `icon`: boolean = false; `remove`: boolean = false; `trailingIcon`: boolean = false.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-12)
+## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 240` (корень), `maxWidth 192 @label` числом.
 - `audit-parity.plugin.js` — AXES: ось «Selected» булева (Off / On) — должна быть свойством или именованными значениями; MINMAX: maxWidth=240.
