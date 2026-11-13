@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Chart axis label`. Status: draft. Level: atom.
+- Набор: `Chart axis label`. Status: draft. Level: molecule.
 - Figma: Components, страница «Chart axis label» (`1012:17`), набор `97:818`.
 
 ## 2. Intent
@@ -50,9 +50,10 @@
 - метки оси скрыты от экранных читалок (aria-hidden), данные доступны через aria-label графика и таблицу данных.
 
 ## 10. Tokens
+- `корень`: maxw `size/chart-axis-label/max`.
 - `label`: заливка / цвет `text/primary`, `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`, `type/body/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
-- Min / max корня: maxWidth 64 числом.
+- Min / max корня: maxWidth 64 size/chart-axis-label/max.
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

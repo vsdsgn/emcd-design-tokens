@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Scrollbar`. Status: draft. Level: atom.
+- Набор: `Scrollbar`. Status: draft. Level: molecule.
 - Figma: Components, страница «Scrollbar» (`367:1043`), набор `149:1690`.
 
 ## 2. Intent
@@ -44,10 +44,10 @@
 - прокрутка доступна колёсиком, клавишами и тачем — скроллбар не единственный способ. В коде: scrollbar-width: thin; |
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/secondary/default`; радиус `radius/chip`.
-- `thumb`: заливка / цвет `icon/secondary`, `icon/tertiary`; радиус `radius/chip`, `radius/xs`.
+- `корень`: заливка / цвет `action/secondary/default`; высота `size/scrollbar`; радиус `radius/chip`; ширина `size/scrollbar`.
+- `thumb`: заливка / цвет `icon/secondary`, `icon/tertiary`; высота `size/track/md`, `size/track/sm`; радиус `radius/chip`, `radius/xs`; ширина `size/track/md`, `size/track/sm`.
 - Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`; радиус `radius/chip`.
-- Значений без переменной: 24 (напр. `(root):w=12`, `(root):h=120`, `thumb:w=4`, `thumb:h=48`).
+- Значений без переменной: 12 (напр. `(root):h=120`, `thumb:h=48`, `(root):w=120`, `thumb:w=48`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

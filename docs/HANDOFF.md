@@ -52,6 +52,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 ## Состояние на 2026-11-13
 
+- **После Publish 28 `size/*` (ночь 13.11):** экспорт (`export-3.json` Platform 149 → 177), `npm run all`, привязка в Components (`bind-sizes-extra` 38, `bind-dims` 363), временные исключения сняты (реестр 29 → 14 строк, `MINMAX_OK` и `SIZE_PENDING` пусты), дельта манифеста (MZ2, MZ3 — 21 страница), `draft-audit` 94 из 94 без замечаний, `parity` 0 ошибок. **`surface/raised` Dark → `neutral/700`** (ок Стефана) — в Foundations и в `export-2.json`, **ждёт Publish**. Полные `audit` / `audit-parity` / `variables-check` — после пакета правок стенда.
 - **Стенд draft-наборов 13.11 (вечер): просмотрено 75 из 78** — все, кроме Step progress, List item, Card (Step progress стенд собран, скриншот не снят: упёрлись в дневной лимит вызовов Figma MCP). Отчёты по наборам, черновики контрактов и бэклог дефектов — `docs/stand-review/` (`DEFECTS.md`). Рецепт пакета — `HOW-IT-WORKS.md`. В Figma пока ничего не правилось; на странице «⚑ Стенд · временный» — секция Step progress, удалить после съёмки. Дальше: досмотреть 3 набора → снимок версии (Стефан) → правки дефектов пакетами по классам (усечение длинного текста, Disabled вложенных, Active → Selected / Current в описаниях, Skeleton той же высоты, контраст) → перевод в beta.
 **Идёт замена действующих наборов на собранные от баз (фаза C брифа). Точка отката в Version history — сделана Стефаном 13.11, до замены.** Решения доски 12.11 действуют по рекомендации (везде A), Стефан посмотрит результат.
 

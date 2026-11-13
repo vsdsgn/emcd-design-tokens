@@ -52,11 +52,11 @@
 - role=group с подписью («Код из уведомления»), ячейки — «цифра N из M»; сообщение — aria-describedby, ошибка — role=alert.
 
 ## 10. Tokens
-- `корень`: интервал `space/12`.
+- `корень`: интервал `space/12`; maxw `size/code-input/max`.
 - `cells`: интервал `space/16`, `space/8`.
-- `Code cell`: заливка / цвет `control/surface/default`, `control/surface/disabled`; радиус `radius/control`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`, `status/success/solid`; толщина обводки `border/width/default`, `border/width/focus`.
+- `Code cell`: заливка / цвет `control/surface/default`, `control/surface/disabled`; высота `size/code-cell/lg`, `size/code-cell/md`; радиус `radius/control`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`, `status/success/solid`; толщина обводки `border/width/default`, `border/width/focus`.
 - `message`: заливка / цвет `text/danger`, `text/disabled`, `text/secondary`, `text/success`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- Min / max корня: maxWidth 400 числом.
+- Min / max корня: maxWidth 400 size/code-input/max.
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

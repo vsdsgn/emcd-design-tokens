@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Step segment`. Status: draft. Level: atom.
+- Набор: `Step segment`. Status: draft. Level: molecule.
 - Figma: Components, страница «Step segment» (`1012:22`), набор `149:1778`.
 
 ## 2. Intent
@@ -43,8 +43,8 @@
 - |
 
 ## 10. Tokens
-- `корень`: заливка / цвет `border/default`, `icon/accent`; радиус `radius/chip`.
-- Значений без переменной: 6 (напр. `(root):w=40`, `(root):h=4`).
+- `корень`: заливка / цвет `border/default`, `icon/accent`; высота `size/track/sm`; радиус `radius/chip`.
+- Значений без переменной: 3 (напр. `(root):w=40`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Coin`. Status: draft. Level: atom.
+- Набор: `Coin`. Status: draft. Level: molecule.
 - Figma: Components, страница «Coin» (`1590:21`), набор `1590:103`.
 
 ## 2. Intent
@@ -52,8 +52,9 @@
 - декоративна (aria-hidden), название монеты всегда в тексте рядом.
 
 ## 10. Tokens
+- `корень`: высота `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xs`; ширина `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xs`.
 - `network`: обводка `surface/current`; толщина обводки `border/width/strong`.
-- Значений без переменной: 25 (напр. `(root):w=16`, `(root):h=16`, `network:r=3.5`, `(root):w=20`).
+- Значений без переменной: 5 (напр. `network:r=3.5`, `network:r=4.5`, `network:r=5.5`, `network:r=7`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

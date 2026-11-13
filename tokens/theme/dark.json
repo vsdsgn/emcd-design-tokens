@@ -20,7 +20,7 @@
     },
     "raised": {
       "$type": "color",
-      "$value": "{color.neutral.850}"
+      "$value": "{color.neutral.700}"
     },
     "sunken": {
       "$type": "color",

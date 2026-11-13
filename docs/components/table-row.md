@@ -53,15 +53,15 @@
 - tr; если строка кликабельна — ссылка/кнопка в первой ячейке растягивается на строку; выбор — чекбокс в первой колонке с aria-label.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`; отступы `space/8`; обводка `border/subtle`.
-- `cell · Дата`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Монета`: интервал `space/sm`, `space/xs`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Сумма`: интервал `space/2xs`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Адрес`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Статус`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/12`.
-- `cell · ⋯`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/xs`.
+- `корень`: заливка / цвет `accent/subtle`; высота `size/table/row-lg`, `size/table/row-sm`; отступы `space/8`; обводка `border/subtle`.
+- `cell · Дата`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Монета`: интервал `space/sm`, `space/xs`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Сумма`: интервал `space/2xs`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Адрес`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Статус`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `cell · ⋯`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/xs`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`.
-- Значений без переменной: 24 (напр. `(root):h=48`, `hit area · web:w=856`, `hit area · web:h=48`, `(root):h=80`).
+- Значений без переменной: 16 (напр. `hit area · web:w=856`, `hit area · web:h=48`, `hit area · web:h=80`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

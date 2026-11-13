@@ -45,9 +45,9 @@
 - «Шаг 2 из 5» текстом рядом или для читалки. |
 
 ## 10. Tokens
-- `корень`: интервал `space/4`.
-- `Step segment`: заливка / цвет `border/default`, `icon/accent`; радиус `radius/chip`.
-- Значений без переменной: 50 (напр. `(root):w=240`, `(root):h=4`).
+- `корень`: интервал `space/4`; высота `size/track/sm`.
+- `Step segment`: заливка / цвет `border/default`, `icon/accent`; высота `size/track/sm`; радиус `radius/chip`.
+- Значений без переменной: 25 (напр. `(root):w=240`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

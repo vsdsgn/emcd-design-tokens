@@ -22,19 +22,6 @@
 | `fiat` | string | — | свойство Fiat |
 | `showFiat` | boolean | true | свойство Show fiat |
 
-## Avatar
-
-атом · beta · Vue `<DsAvatar>` · Flutter `DsAvatar` · контракт `docs/components/avatar.md`
-
-Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `size` | xs \| s \| m \| l | по правилу контракта | ось Size |
-| `type` | text \| icon \| image | по правилу контракта | ось Type |
-| `initials` | string | — | свойство Initials |
-| `status` | boolean | false | свойство Status |
-
 ## Badge
 
 атом · beta · Vue `<DsBadge>` · Flutter `DsBadge` · контракт `docs/components/badge.md`
@@ -252,6 +239,19 @@
 | `showDescription` | boolean | false | свойство Show description (слой `_Selection control`, база `_Selection control`) |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+
+## Avatar
+
+молекула · beta · Vue `<DsAvatar>` · Flutter `DsAvatar` · контракт `docs/components/avatar.md`
+
+Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | xs \| s \| m \| l | по правилу контракта | ось Size |
+| `type` | text \| icon \| image | по правилу контракта | ось Type |
+| `initials` | string | — | свойство Initials |
+| `status` | boolean | false | свойство Status |
 
 ## Input
 

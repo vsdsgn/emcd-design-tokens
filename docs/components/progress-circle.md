@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Progress circle`. Status: draft. Level: atom.
+- Набор: `Progress circle`. Status: draft. Level: molecule.
 - Figma: Components, страница «Progress» (`366:3115`), набор `56:388`.
 
 ## 2. Intent
@@ -49,10 +49,10 @@
 - role=progressbar, aria-valuenow.
 
 ## 10. Tokens
-- `track`: заливка / цвет `control/track`.
-- `fill`: заливка / цвет `control/checked`.
+- `корень`: высота `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; ширина `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
+- `track`: заливка / цвет `control/track`; высота `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; ширина `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
+- `fill`: заливка / цвет `control/checked`; высота `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; ширина `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
 - `value`: заливка / цвет `text/primary`; типографика `font-weight/regular`, `font/family/mono`, `type/body/md`, `type/body/sm`.
-- Значений без переменной: 12 (напр. `(root):w=24`, `(root):h=24`, `track:w=24`, `track:h=24`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

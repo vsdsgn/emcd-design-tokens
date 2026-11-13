@@ -54,7 +54,7 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: интервал `space/12`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `корень`: интервал `space/12`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `avatar`: заливка / цвет `action/secondary/default`; радиус `radius/chip`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `name row`: интервал `space/4`.
@@ -63,7 +63,7 @@
 - `caption`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Min / max корня: minWidth 80 size/table-cell/min.
-- Значений без переменной: 6 (напр. `(root):w=280`, `(root):h=80`).
+- Значений без переменной: 3 (напр. `(root):w=280`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

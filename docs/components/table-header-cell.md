@@ -57,12 +57,12 @@
 - th scope=col, aria-sort; сортировка — кнопка внутри th.
 
 ## 10. Tokens
-- `корень`: интервал `space/4`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `корень`: интервал `space/4`; высота `size/table/header`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `label`: заливка / цвет `text/primary`, `text/tertiary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`.
 - Min / max корня: minWidth 80 size/table-cell/min.
-- Значений без переменной: 80 (напр. `(root):w=160`, `(root):h=44`, `hit area · web:w=160`, `hit area · web:h=44`).
+- Значений без переменной: 60 (напр. `(root):w=160`, `hit area · web:w=160`, `hit area · web:h=44`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

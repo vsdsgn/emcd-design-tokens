@@ -51,13 +51,13 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: интервал `space/4`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `корень`: интервал `space/4`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `button 1`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `button 2`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `button 3`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Min / max корня: minWidth 80 size/table-cell/min.
-- Значений без переменной: 6 (напр. `(root):w=132`, `(root):h=80`).
+- Значений без переменной: 3 (напр. `(root):w=132`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

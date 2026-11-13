@@ -27,7 +27,7 @@ const RING_INSIDE = new Set(['Table header cell', 'Table row']);
 // Размер числом по реестру docs/exceptions.md: длина / высота образца задаётся потребителем (набор → 'слой.свойство', 'root' — корень варианта, '*' — любой слой).
 const SIZE_OK = { 'Divider': ['root.height'], 'Overlay': ['root.height'], 'Scrollbar': ['root.height', 'thumb.width', 'thumb.height'], 'Skeleton': ['*'], 'Chart crosshair': ['root.height'], 'Chart card': ['track.width', 'track.height'], 'Chart plot': ['root.height'], 'Sidebar': ['root.height'], 'Side panel': ['root.height'] };
 // Временно: токены size/* заведены 13.11 (вторая пачка) и ждут Publish Foundations; после Publish — bind-dims.plugin.js и убрать список.
-const SIZE_PENDING = ['Avatar', 'Code cell', 'Coin', 'Legend swatch', 'Progress', 'Progress circle', 'Scrollbar', 'Step segment', 'Step symbol', 'Step trail', 'Nav item', 'Select compact', 'Step progress', 'Table header cell', 'Table cell / ', 'Table row', 'Transaction'];
+const SIZE_PENDING = []; // с 2026-11-13 пуст: 28 size/* опубликованы и привязаны (bind-sizes-extra, bind-dims)
 const sizeOk = (set, layer, k) => { const n = set.replace(/ · пилот$/, ''); const ok = SIZE_OK[n] || []; return ok.includes('*') || ok.includes(layer + '.' + k) || SIZE_PENDING.some(x => x.endsWith(' ') ? n.startsWith(x) : n === x); };
 const PAIRS = [['Input', 'Textarea']]; // парные компоненты: добавлять сюда новые пары
 const DEPRECATED = new Set(['action/tertiary/hover', 'action/tertiary/pressed', 'surface/hover', 'surface/active', 'control/segment-hover', 'action/secondary/hover']);
@@ -48,7 +48,7 @@ const KEY = /^(control|box|track|thumb|dot|mark|check|indicator|pill|body|field)
 const rep = {}; const add = (k, msg) => { (rep[k] = rep[k] || new Set()).add(msg); };
 const paintCount = (v) => { let bound = 0, raw = 0; walk(v, false, n => { if (SKIP.test(n.name) || n.visible === false || n.type === 'TEXT') return; for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.visible !== false && p.type === 'SOLID') { if (p.boundVariables && p.boundVariables.color) bound++; else raw++; } }); return { bound, raw }; };
 // Записанные исключения docs/exceptions.md: min / max корня числом (набор → значения, например { Counter: ['maxWidth=40'] }). Сейчас — 7 наборов, чьи токены size/* заведены 13.11 и ждут Publish Foundations (после привязки bind-sizes-extra строки убрать).
-const MINMAX_OK = { 'Code input': ['maxWidth=400'], 'Select compact': ['maxWidth=200'], 'Legend item': ['maxWidth=160'], 'Step': ['maxWidth=160'], 'Chart metric': ['maxWidth=240'], 'Chart tooltip': ['minWidth=168'], 'Chart axis label': ['maxWidth=64'] };
+const MINMAX_OK = {}; // с 2026-11-13 пуст: size/* опубликованы и привязаны
 const okName = n => n.replace(/ · пилот$/, '');
 const bySet = {};
 const descCheck = (key, d, isBase) => {

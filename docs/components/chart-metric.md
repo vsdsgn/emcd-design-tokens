@@ -53,12 +53,12 @@
 - подпись и значение — один блок (role="group", aria-label «Текущий хешрейт: 89,94 TH/s»); цвет не единственный носитель тона — рядом иконка или знак.
 
 ## 10. Tokens
-- `корень`: интервал `space/4`.
+- `корень`: интервал `space/4`; maxw `size/chart-metric/max`.
 - `label`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `value row`: интервал `space/4`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `value`: заливка / цвет `text/danger`, `text/primary`, `text/success`, `text/warning`; типографика `font-weight/bold`, `font/family/display`, `type/heading/md`.
-- Min / max корня: maxWidth 240 числом.
+- Min / max корня: maxWidth 240 size/chart-metric/max.
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

@@ -52,11 +52,11 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: интервал `space/8`.
-- `symbol`: заливка / цвет `action/secondary/default`, `control/checked`, `status/success/solid`; радиус `radius/chip`; обводка `border/default`; толщина обводки `border/width/default`.
+- `корень`: интервал `space/8`; maxw `size/step/max`.
+- `symbol`: заливка / цвет `action/secondary/default`, `control/checked`, `status/success/solid`; высота `size/media/sm`; радиус `radius/chip`; обводка `border/default`; толщина обводки `border/width/default`; ширина `size/media/sm`.
 - `label`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `description`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
-- Min / max корня: maxWidth 160 числом.
+- Min / max корня: maxWidth 160 size/step/max.
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

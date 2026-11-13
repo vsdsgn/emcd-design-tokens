@@ -36,7 +36,6 @@
 ## Компоненты: beta — можно брать
 
 - [Amount](docs/components/amount.md): Денежная сумма: число, тикер и необязательный фиатный эквивалент. Единый способ показать сумму в продукте
-- [Avatar](docs/components/avatar.md): Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото
 - [Badge](docs/components/badge.md): Неинтерактивная метка статуса или свойства («Активен», «Новое», «−5 %», монета). Нажать нельзя
 - [Counter](docs/components/counter.md): Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус
 - [Breadcrumb item](docs/components/breadcrumb-item.md): Пункт хлебных крошек: ссылка на предыдущий уровень; Current — текущая страница, не ссылка
@@ -50,6 +49,7 @@
 - [Dot](docs/components/dot.md): не описано
 - [Tab](docs/components/tab.md): Переключение разделов одного экрана (История: Начисления / Выплаты / Воркеры). Выбранный — подчёркивание
 - [Toggle](docs/components/toggle.md): Переключатель: мгновенно включает настройку, без «Сохранить». Основа — legacy `baseToggle` (дорожка 48×28 / 40×24, ползунок 20 / 16)
+- [Avatar](docs/components/avatar.md): Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото
 - [Input](docs/components/input.md): одна строка текста или числа
 - [Input addon / Unit](docs/components/input-addon-unit.md): Единицы или валюта в suffix поля (USDT, TH/s, %, kW)
 - [Input addon / Max](docs/components/input-addon-max.md): Кнопка «Max» в suffix поля суммы: подставляет весь доступный остаток
@@ -69,8 +69,8 @@
 
 ## Компоненты: draft — не брать
 
-- атом (22): Card, Chart axis label, Circle timer, Code cell, Coin, Date cell, Divider, Legend swatch, Multiselect option, Overlay, Page dot, Pagination item, Progress, Progress circle, Spinner, Scrollbar, Skeleton, Step segment, Step symbol, Step trail, _Tooltip arrow, Tooltip
-- молекула (57): Accordion, Address, Avatar group, Breadcrumbs, Chart crosshair, Chart metric, Chart tooltip, Checkbox group, Code input, Coin stack, Date range field, Floating button, Input addon / Clear, Input addon / Icon, Input amount, Legend item, List item, Menu item, Multiselect, Nav item, Notification, Page indicator, Pagination, Password field, Key-value row, Promo card, Radio card, Radio group, Segmented, Select, Select compact, Snack, Stat card, Step progress, Step, Suggest, Table header cell, Table cell / Text, Table cell / Date time, Table cell / Coin, Table cell / Transaction, Table cell / Image, Table cell / Progress, Table cell / Avatar, Table cell / Badge, Table cell / Toggle, Table cell / Star, Table cell / Icon, Table cell / Buttons, Table cell / More, Table row, Table cell / Status, Tabs, Toast, Toggle group, Tooltip tour, Transaction
+- атом (11): Card, Circle timer, Date cell, Divider, Multiselect option, Overlay, Page dot, Pagination item, Skeleton, _Tooltip arrow, Tooltip
+- молекула (68): Accordion, Address, Avatar group, Breadcrumbs, Chart axis label, Chart crosshair, Chart metric, Chart tooltip, Checkbox group, Code cell, Code input, Coin, Coin stack, Date range field, Floating button, Input addon / Clear, Input addon / Icon, Input amount, Legend item, Legend swatch, List item, Menu item, Multiselect, Nav item, Notification, Page indicator, Pagination, Password field, Key-value row, Progress, Progress circle, Spinner, Promo card, Radio card, Radio group, Scrollbar, Segmented, Select, Select compact, Snack, Stat card, Step progress, Step segment, Step symbol, Step trail, Step, Suggest, Table header cell, Table cell / Text, Table cell / Date time, Table cell / Coin, Table cell / Transaction, Table cell / Image, Table cell / Progress, Table cell / Avatar, Table cell / Badge, Table cell / Toggle, Table cell / Star, Table cell / Icon, Table cell / Buttons, Table cell / More, Table row, Table cell / Status, Tabs, Toast, Toggle group, Tooltip tour, Transaction
 - организм (15): Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, Status screen, File upload, Page header, Menu, Modal, Sidebar, Sheet, Side panel, Tab bar
 
 ## Проверки

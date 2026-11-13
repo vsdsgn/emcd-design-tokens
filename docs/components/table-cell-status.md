@@ -44,11 +44,11 @@
 - ячейка role="cell", статус читается текстом подписи; цвет точки дублируется текстом.
 
 ## 10. Tokens
-- `корень`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `корень`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `status`: заливка / цвет `status/success/subtle`; интервал `space/6`, `space/8`; высота `size/badge-height/md`; maxw `size/badge/max`; отступы `control/padding-x/sm`; радиус `radius/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Min / max корня: minWidth 80 size/table-cell/min.
-- Значений без переменной: 6 (напр. `(root):w=160`, `(root):h=80`).
+- Значений без переменной: 3 (напр. `(root):w=160`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

@@ -15,7 +15,7 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `header`, `date`, `time`, `row 1`, `series`, `value`, `row 2`, `row 3`, `row 4`.
+- Слои с токенами: `header`, `date`, `time`, `row 1`, `swatch`, `series`, `value`, `row 2`, `row 3`, `row 4`.
 - Вложено: `Legend swatch` ×10.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -50,17 +50,18 @@
 - role="status" с aria-live=polite, текст содержит дату, серии и значения; закрывается Esc.
 
 ## 10. Tokens
-- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; интервал `space/6`; отступы `space/10`, `space/12`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; интервал `space/6`; мин. ширина `size/chart-tooltip/min`; отступы `space/10`, `space/12`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `header`: интервал `space/16`.
 - `date`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `time`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `row 1`: интервал `space/8`.
+- `swatch`: высота `size/legend-swatch`; ширина `size/legend-swatch`.
 - `series`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - `value`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - `row 2`: интервал `space/8`.
 - `row 3`: интервал `space/8`.
 - `row 4`: интервал `space/8`.
-- Min / max корня: minWidth 168 числом.
+- Min / max корня: minWidth 168 size/chart-tooltip/min.
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Code cell`. Status: draft. Level: atom.
+- Набор: `Code cell`. Status: draft. Level: molecule.
 - Figma: Components, страница «Code cell» (`1012:6`), набор `111:1272`.
 
 ## 2. Intent
@@ -54,11 +54,11 @@
 - |
 
 ## 10. Tokens
-- `корень`: заливка / цвет `control/surface/default`, `control/surface/disabled`; радиус `radius/control`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`, `status/success/solid`; толщина обводки `border/width/default`, `border/width/focus`.
+- `корень`: заливка / цвет `control/surface/default`, `control/surface/disabled`; высота `size/code-cell/lg`, `size/code-cell/md`; радиус `radius/control`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`, `status/success/solid`; толщина обводки `border/width/default`, `border/width/focus`.
 - `digit`: заливка / цвет `text/disabled`, `text/primary`, `text/tertiary`; типографика `font-weight/bold`, `font/family/display`, `type/display/md`, `type/heading/lg`.
 - `caret`: заливка / цвет `border/focus`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
-- Значений без переменной: 52 (напр. `(root):w=64`, `(root):h=68`, `digit:o=0.5`, `hit area · web:w=64`).
+- Значений без переменной: 40 (напр. `(root):w=64`, `digit:o=0.5`, `hit area · web:w=64`, `hit area · web:h=68`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Legend swatch`. Status: draft. Level: atom.
+- Набор: `Legend swatch`. Status: draft. Level: molecule.
 - Figma: Components, страница «Legend swatch» (`1012:16`), набор `84:595`.
 
 ## 2. Intent
@@ -44,8 +44,8 @@
 - декоративен, название серии всегда рядом в тексте; контраст маркера с фоном не ниже 3:1.
 
 ## 10. Tokens
+- `корень`: высота `size/legend-swatch`; ширина `size/legend-swatch`.
 - `marker`: заливка / цвет `data/1`, `data/2`, `data/3`, `data/4`, `data/5`, `data/6`, `data/7`, `data/8`; радиус `radius/chip`.
-- Значений без переменной: 32 (напр. `(root):w=12`, `(root):h=12`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

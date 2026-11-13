@@ -52,12 +52,12 @@
 - |
 
 ## 10. Tokens
-- `корень`: интервал `space/12`, `space/8`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `корень`: интервал `space/12`, `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `ticker`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `name`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Min / max корня: minWidth 80 size/table-cell/min.
-- Значений без переменной: 12 (напр. `(root):w=161`, `(root):h=80`, `(root):w=160`).
+- Значений без переменной: 6 (напр. `(root):w=161`, `(root):w=160`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

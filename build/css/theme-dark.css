@@ -7,7 +7,7 @@
   --mode-is-dark: true;
   --bg-subtle: var(--color-neutral-900);
   --bg-inverse: var(--color-white);
-  --surface-raised: var(--color-neutral-850);
+  --surface-raised: var(--color-neutral-700);
   --surface-sunken: var(--color-neutral-950);
   --surface-hover: var(--color-alpha-white-8);
   --surface-active: var(--color-alpha-white-12);

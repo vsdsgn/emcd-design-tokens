@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Spinner`. Status: draft. Level: atom.
+- Набор: `Spinner`. Status: draft. Level: molecule.
 - Figma: Components, страница «Progress» (`366:3115`), набор `4:20`.
 
 ## 2. Intent

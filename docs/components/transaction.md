@@ -45,8 +45,8 @@
 - строка — кнопка, озвучивается «Вывод BTC, 5 октября 09:25, выполнено, минус 0,005 BTC». |
 
 ## 10. Tokens
-- `корень`: интервал `space/12`; отступы `space/12`, `space/16`.
-- `icon`: заливка / цвет `surface/raised`; радиус `radius/chip`.
+- `корень`: интервал `space/12`; высота `size/row/lg`; отступы `space/12`, `space/16`.
+- `icon`: заливка / цвет `surface/raised`; высота `size/media/lg`; радиус `radius/chip`; ширина `size/media/lg`.
 - `icon/arrow-up`: высота `icon/size/md`; ширина `icon/size/md`.
 - `content`: интервал `space/4`; мин. ширина `size/row/content-min`.
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
@@ -57,7 +57,7 @@
 - `icon/arrow-down`: высота `icon/size/md`; ширина `icon/size/md`.
 - `icon/lightning`: высота `icon/size/md`; ширина `icon/size/md`.
 - `icon/exchange`: высота `icon/size/md`; ширина `icon/size/md`.
-- Значений без переменной: 24 (напр. `(root):w=400`, `(root):h=64`).
+- Значений без переменной: 12 (напр. `(root):w=400`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

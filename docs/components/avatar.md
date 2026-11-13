@@ -4,7 +4,7 @@
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Avatar`. Status: beta. Level: atom.
+- Набор: `Avatar`. Status: beta. Level: molecule.
 - Figma: Components, страница «Avatar» (`367:265`), набор `108:1270`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
@@ -61,13 +61,13 @@
 - Status — в доступном имени («в сети»), не только цветом.
 
 ## 10. Tokens
-- `circle`: заливка / цвет `accent/subtle`, `action/secondary/default`; радиус `radius/full`.
+- `корень`: высота `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`; ширина `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`.
+- `circle`: заливка / цвет `accent/subtle`, `action/secondary/default`; высота `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`; радиус `radius/full`; ширина `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`.
 - `initials`: заливка / цвет `text/secondary`; типографика `font-weight/bold`, `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/sm`, `type/label/md`, `type/label/sm`.
 - `status`: заливка / цвет `status/success/solid`; обводка `surface/current`; толщина обводки `border/width/strong`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `image (заменить)`: заливка / цвет `accent/subtle`.
 - `placeholder`: заливка / цвет `text/accent`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- Значений без переменной: 24 (напр. `(root):w=20`, `(root):h=20`, `(root):w=32`, `(root):h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.

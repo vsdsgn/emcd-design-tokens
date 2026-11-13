@@ -15,7 +15,7 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `label`, `value`, `skeleton`.
+- Слои с токенами: `swatch`, `label`, `value`, `skeleton`.
 - Вложено: `Legend swatch` ×3.
 - Служебные слои (вариантов из 4): кольцо фокуса 4 · зона Web 4 · зона касания 4 · безопасное поле 4.
 
@@ -55,12 +55,13 @@
 - список; цвет не единственный носитель — подпись обязательна.
 
 ## 10. Tokens
-- `корень`: интервал `space/6`.
+- `корень`: интервал `space/6`; maxw `size/legend-item/max`.
+- `swatch`: высота `size/legend-swatch`; ширина `size/legend-swatch`.
 - `label`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/sm`, `type/label/sm`.
 - `value`: заливка / цвет `text/primary`; типографика `font-weight/regular`, `font/family/mono`, `type/body/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/2xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
-- Min / max корня: maxWidth 160 числом.
+- Min / max корня: maxWidth 160 size/legend-item/max.
 - Значений без переменной: 8 (напр. `hit area · web:w=68`, `hit area · web:h=24`, `hit area · web:w=69`, `hit area · web:w=64`).
 
 ## 11. Platforms

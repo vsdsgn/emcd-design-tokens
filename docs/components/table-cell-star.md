@@ -45,10 +45,10 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/8`.
+- `корень`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/8`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Min / max корня: minWidth 80 size/table-cell/min.
-- Значений без переменной: 12 (напр. `(root):w=80`, `(root):h=80`).
+- Значений без переменной: 6 (напр. `(root):w=80`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

@@ -19,13 +19,13 @@ const RAW_SAMPLE = /^\(root\):[wh]=|^hit area[^:]*:[wh]=/;
 const RAW_OK = {
   'Coin': /^network:r=/, 'Avatar group': /^\(root\):gap=-/, 'Coin stack': /^\(root\):gap=-/, 'Promo card': /^text:p=96$/,
   'Chart card': /^track:[wh]=220$/,
-  // временные до Publish Foundations (size/*) и до токенов прозрачности
-  'Progress': /^(track|fill):h=/, 'Progress circle': /^(track|fill):[wh]=/, 'Scrollbar': /^thumb:[wh]=/,
+  'Scrollbar': /^thumb:h=48$|^thumb:w=48$/, // длина образца бегунка (реестр: ширина / высота образца)
+  // временные до токенов прозрачности
   'Spinner': /^track:o=0\.2$/, 'Code cell': /^digit:o=0\.5$/, 'Chart crosshair': /^halo:o=0\.24$/,
   'Tooltip tour': /^step:o=0\.72$/, 'Chart plot': /^(bar:o=0\.35|halo:o=0\.24|area:o=0\.45)$/,
 };
 // min / max числом, для которых токен size/* заведён и ждёт Publish Foundations (временные строки реестра).
-const MINMAX_OK = { 'Code input': 'maxw=400', 'Select compact': 'maxw=200', 'Legend item': 'maxw=160', 'Step': 'maxw=160', 'Chart metric': 'maxw=240', 'Chart tooltip': 'minw=168', 'Chart axis label': 'maxw=64' };
+const MINMAX_OK = {}; // с 2026-11-13 (после Publish 28 size/*) пуст
 const sameSet = (a, b) => a.length === b.length && a.every((x) => b.includes(x));
 
 export function findings(s) {

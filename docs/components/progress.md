@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Progress`. Status: draft. Level: atom.
+- Набор: `Progress`. Status: draft. Level: molecule.
 - Figma: Components, страница «Progress» (`366:3115`), набор `56:376`.
 
 ## 2. Intent
@@ -56,9 +56,9 @@
 - `label row`: интервал `space/8`.
 - `label`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `value`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/mono`, `type/body/md`.
-- `track`: заливка / цвет `control/track`; радиус `radius/chip`.
-- `fill`: заливка / цвет `control/checked`, `status/danger/solid`, `status/success/solid`, `status/warning/solid`; радиус `radius/chip`.
-- Значений без переменной: 16 (напр. `(root):w=320`, `track:h=4`, `track:h=8`).
+- `track`: заливка / цвет `control/track`; высота `size/track/md`, `size/track/sm`; радиус `radius/chip`.
+- `fill`: заливка / цвет `control/checked`, `status/danger/solid`, `status/success/solid`, `status/warning/solid`; высота `size/track/md`, `size/track/sm`; радиус `radius/chip`.
+- Значений без переменной: 8 (напр. `(root):w=320`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

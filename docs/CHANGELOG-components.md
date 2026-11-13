@@ -4,6 +4,8 @@
 
 ## 2026-11-13
 
+- **После Publish Foundations (28 `size/*`)** — привязано в Components: `bind-sizes-extra` 38 min / max (Code input, Select compact, Legend item, Step, Chart metric, Chart tooltip, Chart axis label, Page header), `bind-dims` 363 размера (Avatar, Coin, Step symbol / trail / segment / progress, Progress, Progress circle, Scrollbar, Legend swatch, Code cell, Nav item, Select compact, Table header cell, Table row, Table cell / *, Transaction). Значения не менялись. Временные строки реестра, `MINMAX_OK`, `SIZE_PENDING` сняты.
+- **Foundations: `surface/raised` в Dark** `neutral/850` → `neutral/700` (#1a1a1a → #262626; ок Стефана 13.11): поповеры, тултипы, тосты были вровень с L1 и темнее L2 / L3. Ждёт Publish.
 - **Amount** — draft → beta (стенд, контракт `docs/components/amount.md`). Правок набора нет.
 - **Avatar** — draft → beta. Точка статуса: обводка `surface/current` (была `surface/level-1`), толщина `border/width/strong` (была `border/width/focus`); круг — `radius/full` (был `radius/chip`). В описании: инициалы — 1 буква, круг не растёт при увеличении текста.
 - **Input** — набор заменён на месте: варианты = раскрытый экземпляр `_Field base` (слой `Field`); свойства набора удалены, значения 272 экземпляров перенесены. MAJOR для макетов.

@@ -51,13 +51,13 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: интервал `space/4`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `корень`: интервал `space/4`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `sign`: заливка / цвет `text/danger`, `text/disabled`, `text/success`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `value`: заливка / цвет `text/danger`, `text/disabled`, `text/primary`, `text/secondary`, `text/success`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `unit`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Min / max корня: minWidth 80 size/table-cell/min.
-- Значений без переменной: 24 (напр. `(root):w=132`, `(root):h=80`).
+- Значений без переменной: 12 (напр. `(root):w=132`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

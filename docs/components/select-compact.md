@@ -55,12 +55,12 @@
 - button с aria-haspopup=listbox, aria-expanded; доступное имя — «Монета: USDT».
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/disabled`, `action/secondary/default`, `action/secondary/pressed`; интервал `space/16`; отступы `space/8`; радиус `radius/control-sm`.
+- `корень`: заливка / цвет `action/disabled`, `action/secondary/default`, `action/secondary/pressed`; интервал `space/16`; высота `size/row/compact`; maxw `size/select-compact/max`; отступы `space/8`; радиус `radius/control-sm`.
 - `value`: интервал `space/6`.
 - `text`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control-sm`.
-- Min / max корня: maxWidth 200 числом.
-- Значений без переменной: 15 (напр. `(root):h=36`, `hit area · web:w=114`, `hit area · web:h=36`).
+- Min / max корня: maxWidth 200 size/select-compact/max.
+- Значений без переменной: 10 (напр. `hit area · web:w=114`, `hit area · web:h=36`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
