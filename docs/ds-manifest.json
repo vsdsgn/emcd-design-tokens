@@ -13,8 +13,8 @@
    "organism": 16
   },
   "status": {
-   "draft": 96,
-   "beta": 21
+   "beta": 23,
+   "draft": 94
   },
   "variants": 1647,
   "incompleteMatrix": 11,
@@ -33,7 +33,7 @@
    "level": "atom",
    "page": "Amount",
    "pageId": "364:4398",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Amount — борда · шаблон v3",
@@ -64,8 +64,8 @@
      "name": "Amount",
      "id": "167:78",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1549,
+     "status": "beta",
+     "descLen": 1548,
      "descHeads": [
       "Status:",
       "Level:",
@@ -201,7 +201,7 @@
    "level": "atom",
    "page": "Avatar",
    "pageId": "367:265",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Avatar — борда · шаблон v3",
@@ -231,8 +231,8 @@
      "name": "Avatar",
      "id": "108:1270",
      "type": "SET",
-     "status": "draft",
-     "descLen": 625,
+     "status": "beta",
+     "descLen": 823,
      "descHeads": [
       "Status:",
       "Level:",
@@ -298,7 +298,7 @@
       "circle": [
        "f:accent/subtle",
        "f:action/secondary/default",
-       "r:radius/chip"
+       "r:radius/full"
       ],
       "initials": [
        "f:text/secondary",
@@ -315,8 +315,8 @@
       ],
       "status": [
        "f:status/success/solid",
-       "s:surface/level-1",
-       "sw:border/width/focus"
+       "s:surface/current",
+       "sw:border/width/strong"
       ],
       "icon": [
        "h:icon/size/md",

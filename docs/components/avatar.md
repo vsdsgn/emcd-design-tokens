@@ -1,34 +1,39 @@
-# Avatar — контракт · draft (2026-11-13)
+# Avatar — контракт (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Avatar`. Status: draft. Level: atom.
-- Figma: Components, страница «Avatar» (`367:265`), набор `108:1270`.
+- Набор: `Avatar`. Status: beta. Level: atom.
+- Figma: Components, страница «Avatar» (`367:265`), набор `108:1270`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
-- Аватар пользователя / субаккаунта / контрагента P2P. Size XS 20 · S 32 · M 40 · L 56 (legacy micro / small / medium / large). Type Text (инициалы), Icon, Image (замените заливку картинкой).
-- Когда использовать: пользователь, монета, устройство.
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото.
+- Когда использовать: пользователь, субаккаунт, контрагент — в шапке, списках, карточках.
+- Когда нет: монета и сеть — Coin; устройство и раздел — Icon; несколько аватаров стопкой — Avatar group.
+- Правило выбора варианта:
+  - Type: Image — есть фото; Text — фото нет, известно имя (1 заглавная буква — первая буква имени); Icon — нет ни фото, ни имени.
+  - Size: XS 20 — строки таблиц и чипы; S 32 — списки и шапка; M 40 — карточки; L 56 — профиль.
+  - Status — точка «в сети» (`status/success/solid`); только там, где присутствие имеет смысл (чат поддержки, команда).
+- Не делаем: две и более буквы в инициалах; цвет фона как носитель смысла; квадратная форма; нажатие без обёртки-кнопки.
 
 ## 3. Anatomy
-- Слои с токенами: `circle`, `initials`, `status`, `icon`, `image (заменить)`, `placeholder`.
+- `circle` (обрезает содержимое, `radius/full`; фон `action/secondary/default`, у Icon — `accent/subtle`) → `initials` | `icon` (`icon/size/md`) | `image (заменить)` + `placeholder`.
+- `status` — точка с обводкой `surface/current` (`border/width/strong`): на любой поверхности L0–L3 обводка совпадает с фоном.
 - Вложено: иконки ×4.
 - Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Оси State нет.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
+- Своих состояний нет. Нажимаемый аватар — внутри Button / Icon button / строки списка: фокус и зона нажатия — у обёртки.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | XS · S · M · L | — |
-| Type | Text · Icon · Image | — |
+| Size | XS · S · M · L | XS |
+| Type | Text · Icon · Image | Text |
 
 Матрица полная: 12 вариантов.
 
@@ -40,33 +45,37 @@
 | Status | булево | выкл | 12 из 12 |
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Initials — 1 буква; длиннее — обрезается кругом (проверено на стенде), поэтому усечение делает код до передачи.
+- Изображение — заполняет круг (cover), центр кадра; не загрузилось — Type=Text или Icon.
+- Текст 200 %: круг и инициал не растут — размер фиксирован осью Size.
+- RTL: точка статуса — у конца строки (зеркалится), содержимое круга — нет.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- Нет.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Статичен. Смена Type при загрузке фото — без анимации.
 
 ## 9. Accessibility
-- декоративный — скрыт от читалки, иначе имя.
+- Рядом есть имя — `aria-hidden`; имени рядом нет — `alt` / доступное имя = имя пользователя.
+- Status — в доступном имени («в сети»), не только цветом.
 
 ## 10. Tokens
-- `circle`: заливка / цвет `accent/subtle`, `action/secondary/default`; радиус `radius/chip`.
+- `circle`: заливка / цвет `accent/subtle`, `action/secondary/default`; радиус `radius/full`.
 - `initials`: заливка / цвет `text/secondary`; типографика `font-weight/bold`, `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/sm`, `type/label/md`, `type/label/sm`.
-- `status`: заливка / цвет `status/success/solid`; обводка `surface/level-1`; толщина обводки `border/width/focus`.
+- `status`: заливка / цвет `status/success/solid`; обводка `surface/current`; толщина обводки `border/width/strong`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `image (заменить)`: заливка / цвет `accent/subtle`.
 - `placeholder`: заливка / цвет `text/accent`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- Значений без переменной: 24 (напр. `(root):w=20`, `(root):h=20`, `(root):w=32`, `(root):h=32`).
+- Значений без переменной: 24 (напр. `(root):w=20`, `(root):h=20`, `(root):w=32`, `(root):h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
 - Набор `Avatar`, вариантов 12 из 12; оси: Size, Type.
 - Борда: «Avatar — борда · шаблон v3», разделов 9.
-- Описание: 625 знаков, разделы: Status: Level: Правила: Когда использовать: A11y: Поиск: Legacy:
+- Описание: 823 знаков, разделы: Status: Level: Правила: Когда использовать: A11y: Поиск: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -75,8 +84,14 @@
 - Props: `size`: xs | s | m | l; `type`: text | icon | image; `initials`: string или слот; `status`: boolean = false.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний сверх реестра.
+- `variables-check.plugin.js` — ширина и высота корня 20 / 32 / 40 / 56 числом — временная строка реестра до Publish `size/media/*`.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячейки — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, Status = On; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: avatar (status, size md/sm, state), base avatar / single (size, var=text/icon/icon action/image) (DS Web)
+- DS Web: avatar (status, size md / sm, state), base avatar / single → Avatar (Size XS–L, Type, Status); state убран — интерактивность у обёртки.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Корень — на `size/media/*` после Publish Foundations (`bind-dims.plugin.js`), затем снять строку реестра.

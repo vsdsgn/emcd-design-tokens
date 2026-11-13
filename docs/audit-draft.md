@@ -5,19 +5,17 @@
 
 ## Сводка
 
-- Наборов не в beta: 96 (draft 96, без статуса 0: —).
-- Без замечаний по манифесту: 96 (Amount, Avatar, Card, Chart axis label, Circle timer, Code cell, Coin, Date cell, Divider, Legend swatch, Multiselect option, Overlay, Page dot, Pagination item, Progress, Progress circle, Spinner, Scrollbar, Skeleton, Step segment, Step symbol, Step trail, _Tooltip arrow, Tooltip, Accordion, Address, Avatar group, Breadcrumbs, Chart crosshair, Chart metric, Chart tooltip, Checkbox group, Code input, Coin stack, Date range field, Floating button, Input addon / Clear, Input addon / Icon, Input amount, Legend item, List item, Menu item, Multiselect, Nav item, Notification, Page indicator, Pagination, Password field, Key-value row, Promo card, Radio card, Radio group, Segmented, Select, Select compact, Snack, Stat card, Step progress, Step, Suggest, Table header cell, Table cell / Text, Table cell / Date time, Table cell / Coin, Table cell / Transaction, Table cell / Image, Table cell / Progress, Table cell / Avatar, Table cell / Badge, Table cell / Toggle, Table cell / Star, Table cell / Icon, Table cell / Buttons, Table cell / More, Table row, Table cell / Status, Tabs, Toast, Toggle group, Tooltip tour, Transaction, Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, Status screen, File upload, Page header, Menu, Modal, Sidebar, Sheet, Side panel, Tab bar).
+- Наборов не в beta: 94 (draft 94, без статуса 0: —).
+- Без замечаний по манифесту: 94 (Card, Chart axis label, Circle timer, Code cell, Coin, Date cell, Divider, Legend swatch, Multiselect option, Overlay, Page dot, Pagination item, Progress, Progress circle, Spinner, Scrollbar, Skeleton, Step segment, Step symbol, Step trail, _Tooltip arrow, Tooltip, Accordion, Address, Avatar group, Breadcrumbs, Chart crosshair, Chart metric, Chart tooltip, Checkbox group, Code input, Coin stack, Date range field, Floating button, Input addon / Clear, Input addon / Icon, Input amount, Legend item, List item, Menu item, Multiselect, Nav item, Notification, Page indicator, Pagination, Password field, Key-value row, Promo card, Radio card, Radio group, Segmented, Select, Select compact, Snack, Stat card, Step progress, Step, Suggest, Table header cell, Table cell / Text, Table cell / Date time, Table cell / Coin, Table cell / Transaction, Table cell / Image, Table cell / Progress, Table cell / Avatar, Table cell / Badge, Table cell / Toggle, Table cell / Star, Table cell / Icon, Table cell / Buttons, Table cell / More, Table row, Table cell / Status, Tabs, Toast, Toggle group, Tooltip tour, Transaction, Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, Status screen, File upload, Page header, Menu, Modal, Sidebar, Sheet, Side panel, Tab bar).
 - Наборов с замечанием: .
 
 Коды: DESC — разделы описания; MATRIX — неполная матрица осей; AXES — булева ось (кроме осей выбора Status / Selected и списка BOOL_OK) или Left / Right; PROPS — свойство не привязано ни в одном варианте; MINMAX — min / max числом; RAW — значения без переменной (без размеров образца на корне и зоны нажатия; строки реестра docs/exceptions.md — в списке RAW_OK); SERVICE — у набора с Hover / Pressed / Focus нет служебных слоёв; BOARD — нет борды v3 или её разделов (разделы, которых у набора нет по смыслу, перечисляет блок «Не собрано в этой версии» на самой борде).
 
-## Атомы (24)
+## Атомы (22)
 
 | Набор | Страница | Вариантов | Замечания |
 |---|---|---|---|
 | _Tooltip arrow | Tooltip | 2 | — |
-| Amount | Amount | 12 | — |
-| Avatar | Avatar | 12 | — |
 | Card | Card | 72 | — |
 | Chart axis label | Chart axis label | 8 | — |
 | Circle timer | Circle timer | 8 | — |

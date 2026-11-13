@@ -7,6 +7,34 @@
 Значение оси по умолчанию — по правилу из раздела «2. Intent» контракта (вариант по умолчанию в Figma у части наборов пока другой — `docs/OPEN-QUESTIONS.md`).
 Планируемые переименования при замене наборов (MAJOR, `docs/dev-handoff-2026-11-12.md`): `iconLeft` / `iconRight` → `iconStart` / `iconEnd`; ось выбранности — одна на систему.
 
+## Amount
+
+атом · beta · Vue `<DsAmount>` · Flutter `DsAmount` · контракт `docs/components/amount.md`
+
+Денежная сумма: число, тикер и необязательный фиатный эквивалент. Единый способ показать сумму в продукте.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | s \| m \| l \| xl | по правилу контракта | ось Size |
+| `sign` | none \| positive \| negative | по правилу контракта | ось Sign |
+| `value` | string | — | свойство Value |
+| `ticker` | string | — | свойство Ticker |
+| `fiat` | string | — | свойство Fiat |
+| `showFiat` | boolean | true | свойство Show fiat |
+
+## Avatar
+
+атом · beta · Vue `<DsAvatar>` · Flutter `DsAvatar` · контракт `docs/components/avatar.md`
+
+Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | xs \| s \| m \| l | по правилу контракта | ось Size |
+| `type` | text \| icon \| image | по правилу контракта | ось Type |
+| `initials` | string | — | свойство Initials |
+| `status` | boolean | false | свойство Status |
+
 ## Badge
 
 атом · beta · Vue `<DsBadge>` · Flutter `DsBadge` · контракт `docs/components/badge.md`

@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-13: beta 21 наборов, draft 96, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-13: beta 23 наборов, draft 94, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -35,6 +35,8 @@
 
 ## Компоненты: beta — можно брать
 
+- [Amount](docs/components/amount.md): Денежная сумма: число, тикер и необязательный фиатный эквивалент. Единый способ показать сумму в продукте
+- [Avatar](docs/components/avatar.md): Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото
 - [Badge](docs/components/badge.md): Неинтерактивная метка статуса или свойства («Активен», «Новое», «−5 %», монета). Нажать нельзя
 - [Counter](docs/components/counter.md): Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус
 - [Breadcrumb item](docs/components/breadcrumb-item.md): Пункт хлебных крошек: ссылка на предыдущий уровень; Current — текущая страница, не ссылка
@@ -67,7 +69,7 @@
 
 ## Компоненты: draft — не брать
 
-- атом (24): Amount, Avatar, Card, Chart axis label, Circle timer, Code cell, Coin, Date cell, Divider, Legend swatch, Multiselect option, Overlay, Page dot, Pagination item, Progress, Progress circle, Spinner, Scrollbar, Skeleton, Step segment, Step symbol, Step trail, _Tooltip arrow, Tooltip
+- атом (22): Card, Chart axis label, Circle timer, Code cell, Coin, Date cell, Divider, Legend swatch, Multiselect option, Overlay, Page dot, Pagination item, Progress, Progress circle, Spinner, Scrollbar, Skeleton, Step segment, Step symbol, Step trail, _Tooltip arrow, Tooltip
 - молекула (57): Accordion, Address, Avatar group, Breadcrumbs, Chart crosshair, Chart metric, Chart tooltip, Checkbox group, Code input, Coin stack, Date range field, Floating button, Input addon / Clear, Input addon / Icon, Input amount, Legend item, List item, Menu item, Multiselect, Nav item, Notification, Page indicator, Pagination, Password field, Key-value row, Promo card, Radio card, Radio group, Segmented, Select, Select compact, Snack, Stat card, Step progress, Step, Suggest, Table header cell, Table cell / Text, Table cell / Date time, Table cell / Coin, Table cell / Transaction, Table cell / Image, Table cell / Progress, Table cell / Avatar, Table cell / Badge, Table cell / Toggle, Table cell / Star, Table cell / Icon, Table cell / Buttons, Table cell / More, Table row, Table cell / Status, Tabs, Toast, Toggle group, Tooltip tour, Transaction
 - организм (15): Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, Status screen, File upload, Page header, Menu, Modal, Sidebar, Sheet, Side panel, Tab bar
 
