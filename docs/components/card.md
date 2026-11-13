@@ -15,7 +15,7 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: —.
+- Слои с токенами: `content`.
 - Служебные слои (вариантов из 72): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -47,15 +47,16 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `surface/level-0`, `surface/level-1`, `surface/level-2`, `surface/level-3`; отступы `space/12`, `space/16`, `space/24`; радиус `radius/container`, `radius/inner`, `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
-- Значений без переменной: 288 (напр. `(root):w=320`, `content:s=#808080`, `content:r=4`, `content:sw=1`).
+- `content`: радиус `radius/xs`; обводка `border/default`; толщина обводки `border/width/default`.
+- Значений без переменной: 72 (напр. `(root):w=320`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
 - Набор `Card`, вариантов 72 из 72; оси: Level, Radius, Padding, Border.
-- Борда: «Card — борда · шаблон v3», разделов 7.
-- Описание: 490 знаков, разделы: Status: Level: Card — Атом-шаблон: Level — Status: Level:
+- Борда: «Card — борда · шаблон v3», разделов 8.
+- Описание: 1251 знаков, разделы: Status: Level: Card — Атом-шаблон: Level — Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -65,11 +66,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - AXES: `Border` — булева ось (On | Off)
-  - RAW: 288 (напр. `(root):w=320`, `content:s=#808080`)
-  - BOARD: нет разделов 04, 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

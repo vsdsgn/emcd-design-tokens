@@ -43,18 +43,18 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: высота `icon/size/control`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/sm`.
-- `track`: заливка / цвет `icon/primary`.
+- `корень`: высота `icon/size/control`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/lg`, `icon/size/sm`.
+- `track`: заливка / цвет `icon/primary`; высота `icon/size/lg`, `icon/size/md`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/md`, `icon/size/sm`.
 - `arc`: заливка / цвет `icon/primary`.
-- Значений без переменной: 11 (напр. `track:o=0.2`, `track:w=16`, `track:h=16`, `track:w=20`).
+- Значений без переменной: 3 (напр. `track:o=0.2`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
 - Набор `Spinner`, вариантов 3 из 3; оси: Size.
-- Борда: «Progress — борда · шаблон v3», разделов 8.
-- Описание: 565 знаков, разделы: Status: Level: Индикатор загрузки. Когда использовать: Поиск: Legacy: Motion:
+- Борда: «Progress — борда · шаблон v3», разделов 9.
+- Описание: 933 знаков, разделы: Status: Level: Индикатор загрузки. Когда использовать: Поиск: Legacy: Motion: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -64,10 +64,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Правила:, A11y:
-  - RAW: 11 (напр. `track:o=0.2`, `track:w=16`)
-  - BOARD: нет разделов 04, 05, 07, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: ic-loader

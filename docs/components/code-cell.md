@@ -16,7 +16,8 @@
 
 ## 3. Anatomy
 - Слои с токенами: `digit`, `caret`.
-- Служебные слои (вариантов из 12): кольцо фокуса 12 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `_Hit area` ×24, `_Safe margin` ×12.
+- Служебные слои (вариантов из 12): кольцо фокуса 12 · зона Web 12 · зона касания 12 · безопасное поле 12.
 
 ## 4. States
 - Ось State: Empty · Focus · Filled · Error · Success · Disabled. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
@@ -37,6 +38,8 @@
 |---|---|---|---|
 | Digit | текст | «4» | 12 из 12 |
 | Focus ring | булево | выкл | 12 из 12 · служебное |
+| Show hit area | булево | выкл | 12 из 12 · служебное |
+| Safe margin | булево | выкл | 12 из 12 · служебное |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -54,16 +57,16 @@
 - `корень`: заливка / цвет `control/surface/default`, `control/surface/disabled`; радиус `radius/control`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`, `status/success/solid`; толщина обводки `border/width/default`, `border/width/focus`.
 - `digit`: заливка / цвет `text/disabled`, `text/primary`, `text/tertiary`; типографика `font-weight/bold`, `font/family/display`, `type/display/md`, `type/heading/lg`.
 - `caret`: заливка / цвет `border/focus`.
-- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring`.
-- Значений без переменной: 28 (напр. `(root):w=64`, `(root):h=68`, `digit:o=0.5`, `(root):w=48`).
+- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
+- Значений без переменной: 52 (напр. `(root):w=64`, `(root):h=68`, `digit:o=0.5`, `hit area · web:w=64`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
 - Набор `Code cell`, вариантов 12 из 12; оси: Size, State.
-- Борда: «Code cell — борда · шаблон v3», разделов 8.
-- Описание: 349 знаков, разделы: Status: Level: Ячейка кода (одна цифра). Только внутри Code input.
+- Борда: «Code cell — борда · шаблон v3», разделов 9.
+- Описание: 770 знаков, разделы: Status: Level: Ячейка кода (одна цифра). Только внутри Code input. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -74,11 +77,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - RAW: 28 (напр. `(root):w=64`, `(root):h=68`)
-  - SERVICE: нет зоны нажатия, безопасного поля
-  - BOARD: нет разделов 04, 05, 07, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

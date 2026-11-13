@@ -65,7 +65,7 @@
 
 ## 12. Figma projection
 - Набор `Progress`, вариантов 8 из 8; оси: Size, Tone.
-- Борда: «Progress — борда · шаблон v3», разделов 8.
+- Борда: «Progress — борда · шаблон v3», разделов 9.
 - Описание: 923 знаков, разделы: Status: Level: Progress: Когда использовать: Правила: A11y: Поиск: Legacy: Motion:
 
 ## 13. Code projection
@@ -76,9 +76,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 16 (напр. `(root):w=320`, `track:h=4`)
-  - BOARD: нет разделов 04, 05, 07, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

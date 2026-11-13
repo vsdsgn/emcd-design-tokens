@@ -70,7 +70,7 @@
 ## 12. Figma projection
 - Набор `Radio`, вариантов 64 из 64; оси: Status, Tone, Size, Control position, State.
 - Борда: «Radio — борда · шаблон v3», разделов 12.
-- Описание: 1693 знаков, разделы: Status: Level: Радио: Когда использовать: • Tone = Danger — • Обводка круга в Off — • Hover / Pressed — Сборка: A11y:
+- Описание: 1669 знаков, разделы: Status: Level: Радио: Когда использовать: • Tone = Danger — • Обводка круга в Off — • Hover / Pressed — Сборка: A11y:
 - Заменён на месте 2026-11-13: набор собран от базы `_Selection control` (`selection-control.md`), ид. набора и экземпляры в продуктах сохранены.
 - Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.
 

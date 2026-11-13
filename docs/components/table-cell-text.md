@@ -65,7 +65,7 @@
 ## 12. Figma projection
 - Набор `Table cell / Text`, вариантов 6 из 6; оси: Align, State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 224 знаков, разделы: Status: Level: Ячейка:
+- Описание: 699 знаков, разделы: Status: Level: Ячейка: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -76,10 +76,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - RAW: 12 (напр. `(root):w=184`, `(root):h=80`)
-  - BOARD: нет разделов 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: table / label text (text = Show secondary, hover — строка).

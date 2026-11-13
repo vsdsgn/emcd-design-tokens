@@ -86,8 +86,8 @@
 - `pad R`: ширина `space/2`.
 - `icon right`: высота `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`.
 - Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/container`, `radius/control`, `radius/control-sm` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid`; толщина обводки `border/width/default` · `hit area · app`: видимость `touch/is-coarse` · `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-lg`, `radius/focus-ring-sm`, `radius/focus-ring-xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `safe area · content`: заливка / цвет `status/success/solid` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
-- Min / max корня: minWidth 64 size/button/min, minWidth 64 числом.
-- Значений без переменной: 352 (напр. `hit area · web:w=65`, `hit area · web:h=32`, `hit area · web:w=69`, `hit area · web:h=40`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Min / max корня: minWidth 64 size/button/min.
+- Значений без переменной: 352 (напр. `hit area · web:w=69`, `hit area · web:h=40`, `hit area · web:w=65`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -97,7 +97,7 @@
 ## 12. Figma projection
 - Набор `Button`, вариантов 176 из 192; оси: Type, Tone, Size, State.
 - Борда: «Button — борда · шаблон v3», разделов 12.
-- Описание: 4179 знаков, разделы: Status: Level: Кнопка действия. • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted — • Default — • Danger — S 32 —
+- Описание: 4402 знаков, разделы: Status: Level: Кнопка действия. Когда использовать: Матрица: • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted — • Default — • Danger — S 32 — M 40 — L 48 — XL 56 — • Кнопки в группе — • Подложка кнопки — • Состояния: • Focus ring — • Заливка Default — • Hover / Pressed — • Кольцо фокуса —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

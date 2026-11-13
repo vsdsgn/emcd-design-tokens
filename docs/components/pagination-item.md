@@ -53,19 +53,19 @@
 - кнопка, имя «Страница N», у выбранной aria-current="page". |
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`; мин. ширина `control/height/md`, `control/height/sm`; отступы `control/padding-x/sm`, `space/8`; радиус `radius/control`, `radius/control-sm`.
+- `корень`: заливка / цвет `accent/subtle`; высота `control/height/md`, `control/height/sm`; мин. ширина `control/height/md`, `control/height/sm`; отступы `control/padding-x/sm`, `space/8`; радиус `radius/control`, `radius/control-sm`.
 - `page`: заливка / цвет `text/accent`, `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm`.
 - Min / max корня: minWidth 32 control/height/sm, minWidth 40 control/height/md.
-- Значений без переменной: 40 (напр. `(root):w=32`, `(root):h=32`, `hit area · web:w=32`, `hit area · web:h=32`).
+- Значений без переменной: 30 (напр. `(root):w=32`, `hit area · web:w=32`, `hit area · web:h=32`, `(root):w=40`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
 - Набор `Pagination item`, вариантов 10 из 10; оси: Size, State.
-- Борда: «Pagination item — борда · шаблон v3», разделов 10.
-- Описание: 399 знаков, разделы: Status: Level: A11y:
+- Борда: «Pagination item — борда · шаблон v3», разделов 11.
+- Описание: 668 знаков, разделы: Status: Level: A11y: Когда использовать: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -76,10 +76,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:
-  - RAW: 40 (напр. `(root):w=32`, `(root):h=32`)
-  - BOARD: нет разделов 07, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

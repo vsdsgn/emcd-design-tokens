@@ -1,23 +1,34 @@
 // Расширенный аудит компонентов (read-only). Запуск: Figma → Components → use_figma / плагин, без записи.
 // Каждая находка разработки или ручного прохода сначала становится проверкой здесь, потом исправляется.
 // Что ловит: DEPRECATED (токены из списка ниже ещё привязаны), SIZE (ключевые слои без переменной размера),
-// RING (кольцо фокуса не OUTSIDE / толщина и радиус без переменной / виден вне Focus),
+// RING (кольцо фокуса не OUTSIDE (у наборов RING_INSIDE — не INSIDE) / толщина и радиус без переменной / виден вне Focus),
 // COVERAGE (у части вариантов по оси сырой цвет, у соседей токен), PARITY (парные компоненты расходятся),
 // MINMAX (min / max корня числом, без переменной size/* — кроме записанных в MINMAX_OK и docs/exceptions.md), MATRIX (вариантов меньше произведения осей и в описании нет строки «Матрица:»),
-// DESC (первая строка не Status:, нет Level / «Когда использовать» / A11y, экранированные сущности &amp; / &quot; / &lt; в тексте, кольцо фокуса 4 px; то же у отдельных компонентов вне наборов), AXES (Left / Right вместо Start / End — без исключений: Placement у Tooltip — Start / End, решение 13.11; булева ось — кроме `Loading = False | True` у Icon button (спиннер вместо иконки: булево свойство Figma не умеет скрывать слой, решение 13.11), `Status = Off | On` у контролов выбора и `Selected = Off | On` у строк, чипов и табов, решения 12.11 и доски 13.11; State не последняя ось),
+// DESC (первая строка не Status:, нет Level / «Когда использовать» / A11y, экранированные сущности &amp; / &quot; / &lt; в тексте — Figma экранирует \" < > & при записи описания, поэтому в описаниях эти символы не пишем: «ёлочки», role=x без кавычек, «больше 1 с», стрелка →, кольцо фокуса 4 px; то же у отдельных компонентов вне наборов), AXES (Left / Right вместо Start / End — без исключений: Placement у Tooltip — Start / End, решение 13.11; булева ось — кроме `Loading = False | True` у Icon button (спиннер вместо иконки: булево свойство Figma не умеет скрывать слой, решение 13.11), `Status = Off | On` у контролов выбора и `Selected = Off | On` у строк, чипов и табов, решения 12.11 и доски 13.11; State не последняя ось),
 // BASE (компонент семьи без вложенной базы; оси надстройки не совпадают с вариантом вложенной базы — если у базы такого значения оси нет, база обязана быть Default; оси глифа в слоте базы не совпадают с надстройкой), BOARD (на странице нет борды v3),
 // NESTED (вложен компонент со статусом deprecated или без главного компонента).
 // SERVICE (в наборах из SERVICE_DONE служебный слой не экземпляр _Focus ring / _State layer / _Hit area / _Safe margin).
 // OVERLAY (надстройка оверлея из таблицы OVERLAY: нет слоя overlay surface / не тот Kind / слой не во весь корень / у корня своя заливка, тень или clip / радиус корня не равен радиусу поверхности / обводка или отступ корня числом; у базы Material-вариант без блюра или тень не равна Elevation).
 // STATE (слой state layer во весь родитель, а радиус привязан к другой переменной, чем у родителя).
-// SIZE не считает ширину корня (ширина по умолчанию — не размер компонента) и ширину абсолютного слоя, растянутого по родителю (constraints STRETCH, например индикатор Tab).
+// SIZE не считает наборы и слои из SIZE_OK (реестр исключений) и SIZE_PENDING (ждут Publish), ширину корня (ширина по умолчанию — не размер компонента) и ширину абсолютного слоя, растянутого по родителю (constraints STRETCH, например индикатор Tab).
 // Чего НЕ ловит (проверять руками, см. docs/preflight.md): цвет иконки и подписи, заливка полоски под подписью (notch).
 const PAGES = null; // null = все страницы компонентов; или имена / id страниц: ['Segment', 'Input', '1825:3314'] (по id берутся и наборы с «_»)
 const CHUNK = 0; const CHUNK_SIZE = 18500; // ответ use_figma ≤ 20 KB
 // Семьи: база → кто обязан быть собран на ней (вложенный экземпляр базы). Добавлять по мере появления базовых.
-const FAMILIES = { '_Field base': ['Input', 'Textarea', 'Select', 'Multiselect', 'Password field', 'Date range field', 'Input amount', 'Code input', 'Input · пилот', 'Textarea · пилот'],
+const FAMILIES = { '_Field base': ['Input', 'Textarea', 'Select', 'Multiselect', 'Password field', 'Date range field', 'Input · пилот', 'Textarea · пилот'],
   '_Selection control': ['Checkbox', 'Radio', 'Toggle', 'Checkbox · пилот', 'Radio · пилот', 'Toggle · пилот'],
   '_List row': ['Menu item', 'Multiselect option', 'List item', 'Menu item · пилот', 'Multiselect option · пилот', 'List item · пилот'] };
+// Не в семье _Field base (решение 13.11): Code input собран из атомов Code cell, Input amount — крупное поле суммы со своей раскладкой (подпись и баланс в шапке).
+// Надстройка второго уровня (Select → Input, Multiselect → Select, Password field → Input) несёт базу через экземпляр члена семьи — это засчитывается.
+// Булевы оси, допустимые как варианты: ось меняет геометрию, обводку или состав слоёв, а не видимость одного слоя (булево свойство Figma этого не умеет).
+const BOOL_OK = { 'Card': ['Border'], 'Coin': ['Network'], 'Divider': ['Label'], 'Overlay': ['Blur'], 'Accordion': ['Open'], 'Avatar group': ['More'], 'Input amount': ['Filled'], 'Nav item': ['Collapsed'], 'Date range panel': ['Presets'], 'Sidebar': ['Collapsed'] };
+// Кольцо фокуса внутри (INSIDE, без радиус-токена) — строки таблицы, docs/exceptions.md.
+const RING_INSIDE = new Set(['Table header cell', 'Table row']);
+// Размер числом по реестру docs/exceptions.md: длина / высота образца задаётся потребителем (набор → 'слой.свойство', 'root' — корень варианта, '*' — любой слой).
+const SIZE_OK = { 'Divider': ['root.height'], 'Overlay': ['root.height'], 'Scrollbar': ['root.height', 'thumb.width', 'thumb.height'], 'Skeleton': ['*'], 'Chart crosshair': ['root.height'], 'Chart card': ['track.width', 'track.height'], 'Chart plot': ['root.height'], 'Sidebar': ['root.height'], 'Side panel': ['root.height'] };
+// Временно: токены size/* заведены 13.11 (вторая пачка) и ждут Publish Foundations; после Publish — bind-dims.plugin.js и убрать список.
+const SIZE_PENDING = ['Avatar', 'Code cell', 'Coin', 'Legend swatch', 'Progress', 'Progress circle', 'Scrollbar', 'Step segment', 'Step symbol', 'Step trail', 'Nav item', 'Select compact', 'Step progress', 'Table header cell', 'Table cell / ', 'Table row', 'Transaction'];
+const sizeOk = (set, layer, k) => { const n = set.replace(/ · пилот$/, ''); const ok = SIZE_OK[n] || []; return ok.includes('*') || ok.includes(layer + '.' + k) || SIZE_PENDING.some(x => x.endsWith(' ') ? n.startsWith(x) : n === x); };
 const PAIRS = [['Input', 'Textarea']]; // парные компоненты: добавлять сюда новые пары
 const DEPRECATED = new Set(['action/tertiary/hover', 'action/tertiary/pressed', 'surface/hover', 'surface/active', 'control/segment-hover', 'action/secondary/hover']);
 figma.skipInvisibleInstanceChildren = false;
@@ -70,7 +81,7 @@ for (const pg of pages) {
     const order = Object.keys(axes);
     for (const [a, vals] of Object.entries(axes)) { const vs = [...vals];
       if ((vs.some(x => /^(Left|Right)$/i.test(x)) || /left|right/i.test(a))) add(key, 'AXES ось «' + a + '»: Left / Right, нужно Start / End');
-      if (a !== 'Status' && a !== 'Selected' && !(a === 'Loading' && s.name === 'Icon button') && vs.length <= 2 && vs.every(x => /^(true|false|on|off|yes|no)$/i.test(x))) add(key, 'AXES ось «' + a + '» булева (' + vs.join(' / ') + '): проверить, не свойство ли это'); }
+      if (a !== 'Status' && a !== 'Selected' && !(a === 'Loading' && s.name === 'Icon button') && !(BOOL_OK[okName(s.name)] || []).includes(a) && vs.length <= 2 && vs.every(x => /^(true|false|on|off|yes|no)$/i.test(x))) add(key, 'AXES ось «' + a + '» булева (' + vs.join(' / ') + '): проверить, не свойство ли это'); }
     if (order.includes('State') && order[order.length - 1] !== 'State') add(key, 'AXES порядок осей: State не последняя (' + order.join(', ') + ')');
     const fam = baseOf[s.name]; let famHit = 0;
     const sigs = {};
@@ -82,6 +93,7 @@ for (const pg of pages) {
       for (const i of insts) { const m = await mainSetName(i);
         if (!m) { add(key, 'NESTED «' + i.name + '» без главного компонента'); continue; }
         if (/^Status:\s*deprecated/.test(m.desc.trim())) add(key, 'NESTED вложен deprecated «' + m.name + '»');
+        if (fam && m.name !== fam && FAMILIES[fam].includes(m.name)) hasBase = true;
         if (fam && m.name === fam) { hasBase = true; const mv = Object.fromEntries(m.variant.split(', ').map(p => p.split('=')));
           for (const part of v.name.split(', ')) { const [a, b] = part.split('='); if (a in mv && mv[a] !== b && (mv[a] !== 'Default' || (m.set && m.set.children.some(c => c.name.split(', ').includes(a + '=' + b))))) add(key, 'BASE ось ' + a + ': надстройка ' + b + ', база ' + mv[a] + ' (' + v.name + ')'); }
           if (!i.isExposedInstance) add(key, 'BASE экземпляр базы не раскрыт (isExposedInstance)');
@@ -106,9 +118,9 @@ for (const pg of pages) {
         const ids = []; for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.boundVariables && p.boundVariables.color) ids.push(p.boundVariables.color.id);
         for (const [k, val] of Object.entries(b)) { if (k === 'fills' || k === 'strokes') continue; for (const a of (Array.isArray(val) ? val : [val])) if (a && a.id) ids.push(a.id); }
         for (const id of ids) { const vi = await vinfo(id); if (vi.dep) add(key, 'DEPRECATED ' + vi.n + ' (' + st + ' · ' + n.name + ')'); }
-        if (n.visible !== false && n.type !== 'TEXT' && (n === v || KEY.test(n.name))) for (const [k, sz] of [['width', n.layoutSizingHorizontal], ['height', n.layoutSizingVertical]]) if (sz !== 'FILL' && sz !== 'HUG' && !b[k] && !(n === v && (k === 'width' || s.name === '_Overlay surface')) && !(k === 'width' && n.layoutPositioning === 'ABSOLUTE' && n.constraints && n.constraints.horizontal === 'STRETCH')) add(key, 'SIZE ' + n.name + '.' + k + ' без переменной');
+        if (n.visible !== false && n.type !== 'TEXT' && (n === v || KEY.test(n.name))) for (const [k, sz] of [['width', n.layoutSizingHorizontal], ['height', n.layoutSizingVertical]]) if (sz !== 'FILL' && sz !== 'HUG' && !b[k] && !(n === v && (k === 'width' || s.name === '_Overlay surface')) && !(k === 'width' && n.layoutPositioning === 'ABSOLUTE' && n.constraints && n.constraints.horizontal === 'STRETCH') && !sizeOk(s.name, n === v ? 'root' : n.name, k)) add(key, 'SIZE ' + (n === v ? 'root' : n.name) + '.' + k + ' без переменной');
         if (n.name === 'state layer' && n.parent && n.parent !== v && Math.abs(n.width - n.parent.width) < 1 && Math.abs(n.height - n.parent.height) < 1) { const pb = n.parent.boundVariables || {}; if (pb.topLeftRadius && (!b.topLeftRadius || b.topLeftRadius.id !== pb.topLeftRadius.id)) add(key, 'STATE радиус слоя state layer не равен радиусу «' + n.parent.name + '»'); }
-        if (n.name === 'focus ring') { if (n.strokeAlign !== 'OUTSIDE') add(key, 'RING обводка ' + n.strokeAlign + ', нужна OUTSIDE'); if (!b.strokeTopWeight && !b.strokeWeight) add(key, 'RING толщина без переменной'); if (!b.topLeftRadius) add(key, 'RING радиус без переменной'); if (n.visible && st && st !== 'Focus' && st !== 'Default') add(key, 'RING виден в ' + st); }
+        if (n.name === 'focus ring') { const inside = RING_INSIDE.has(okName(s.name)); if (n.strokeAlign !== (inside ? 'INSIDE' : 'OUTSIDE')) add(key, 'RING обводка ' + n.strokeAlign + ', нужна ' + (inside ? 'INSIDE' : 'OUTSIDE')); if (!b.strokeTopWeight && !b.strokeWeight) add(key, 'RING толщина без переменной'); if (!b.topLeftRadius && !inside) add(key, 'RING радиус без переменной'); if (n.visible && st && st !== 'Focus' && st !== 'Default') add(key, 'RING виден в ' + st); }
       }
     }
     if (fam && famHit < s.children.length) add(key, 'BASE собран не на ' + fam + ' (' + famHit + ' из ' + s.children.length + ' вариантов)');
@@ -118,20 +130,20 @@ for (const pg of pages) {
   }
 }
 // PROPS: свойства компонента (boolean, text, instance swap) не привязаны ни к одному слою в части вариантов.
-// «Мёртвый» вариант: ни одно свойство не привязано (в Figma свойство в нём не работает). Skeleton пропускаем.
+// Вариант, где слоя свойства нет вовсе (подпись Divider только при Label=On, номер Step symbol только у Type=Numbered), дефектом не считается:
+// дефект — когда слой с тем же путём в варианте есть, а свойство к нему не привязано. Skeleton пропускаем.
 const pathOf = (n, root) => { const parts = []; let c = n; while (c && c !== root) { const sib = c.parent.children.filter(x => x.name === c.name); parts.unshift(c.name + '#' + sib.indexOf(c)); c = c.parent; } return parts.join('/'); };
 const allWalk = (n, fn) => { fn(n); if (n.children) for (const c of n.children) allWalk(c, fn); };
 for (const [sname, s] of Object.entries(bySet)) {
   const defs = Object.keys(s.componentPropertyDefinitions).filter(k => s.componentPropertyDefinitions[k].type !== 'VARIANT'); if (!defs.length) continue;
   const have = {}; for (const v of s.children) { const set = new Set(); allWalk(v, n => { const r = n.componentPropertyReferences; if (r) for (const x of Object.values(r)) if (defs.includes(x)) set.add(x); }); have[v.id] = set; }
   const pgName = (s.parent && s.parent.type === 'PAGE' ? s.parent.name : '').replace(/^[🟠🟡🟢🔴]\s*/u, ''); const key = (pgName || '?') + ' / ' + sname;
-  const dead = s.children.filter(v => have[v.id].size === 0 && !/State=Skeleton/.test(v.name));
-  if (dead.length) add(key, 'PROPS ни одно свойство не привязано у ' + dead.length + ' вариантов (напр. ' + dead[0].name + ')');
-  for (const k of defs) { const lacking = s.children.filter(v => !have[v.id].has(k) && have[v.id].size > 0 && !/State=Skeleton/.test(v.name)); if (!lacking.length || lacking.length === s.children.length) continue;
+  for (const k of defs) { const lacking = s.children.filter(v => !have[v.id].has(k) && !/State=Skeleton/.test(v.name)); if (!lacking.length || lacking.length === s.children.length) continue;
     // считаем дефектом только если соседний вариант привязывает это свойство к слою с тем же путём, который есть и в «слепом» варианте
     const bound = s.children.filter(v => have[v.id].has(k)); if (!bound.length) continue; const ref = bound[0]; const paths = []; allWalk(ref, n => { const r = n.componentPropertyReferences; if (r && Object.values(r).includes(k)) paths.push(pathOf(n, ref)); });
     const real = lacking.filter(v => paths.some(p => { let t = null; allWalk(v, n => { if (n !== v && pathOf(n, v) === p) t = n; }); return !!t; }));
-    if (real.length) add(key, 'PROPS «' + k.split('#')[0] + '» не привязано у ' + real.length + ' вариантов (напр. ' + real[0].name + ')'); } }
+    if (real.length) add(key, 'PROPS «' + k.split('#')[0] + '» не привязано у ' + real.length + ' вариантов (напр. ' + real[0].name + ')'); }
+  const unused = defs.filter(k => !s.children.some(v => have[v.id].has(k))); if (unused.length) add(key, 'PROPS свойство не привязано ни в одном варианте: ' + unused.map(k => k.split('#')[0]).join(', ')); }
 // ICON: у подписи text/disabled иконка должна быть icon/disabled; у text/danger (Button, Menu item) icon/danger;
 // у text/secondary в Tab, Tab bar item, Nav item (иконка часть подписи) icon/secondary. Иконки полей ввода слева не трогаем.
 const ICON_SECONDARY = new Set(['Tab', 'Tab bar item', 'Nav item']), ICON_DANGER = new Set(['Button', 'Menu item', 'Menu item · пилот']);

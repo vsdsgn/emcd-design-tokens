@@ -65,7 +65,7 @@
 ## 12. Figma projection
 - Набор `Table cell / Buttons`, вариантов 3 из 3; оси: State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 174 знаков, разделы: Status: Level:
+- Описание: 600 знаков, разделы: Status: Level: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -76,11 +76,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - PROPS: Button 2 2 из 3; Button 3 2 из 3
-  - RAW: 6 (напр. `(root):w=132`, `(root):h=80`)
-  - BOARD: нет разделов 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: table / small buttons (button 2, button 3).

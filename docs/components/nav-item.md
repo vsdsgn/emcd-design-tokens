@@ -69,7 +69,7 @@
 ## 12. Figma projection
 - Набор `Nav item`, вариантов 8 из 8; оси: Collapsed, State.
 - Борда: «Nav item — борда · шаблон v3», разделов 11.
-- Описание: 1322 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
+- Описание: 1199 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -80,10 +80,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - AXES: `Collapsed` — булева ось (Off | On)
-  - RAW: 32 (напр. `(root):w=218`, `(root):h=36`)
-  - BOARD: нет разделов 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: Navbar в sidebar / default (DS Web)

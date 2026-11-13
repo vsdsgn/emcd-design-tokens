@@ -69,7 +69,7 @@
 ## 12. Figma projection
 - Набор `Promo card`, вариантов 4 из 4; оси: Size, Tone.
 - Борда: «Promo card — борда · шаблон v3», разделов 10.
-- Описание: 866 знаков, разделы: Status: Level: Промо-карточка: Когда использовать: Правила: A11y: Legacy: Токены:
+- Описание: 854 знаков, разделы: Status: Level: Промо-карточка: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -79,9 +79,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 6 (напр. `(root):w=222`, `(root):w=343`)
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: DS Web Sidebar banner; продукт: banner 343×152.

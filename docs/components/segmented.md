@@ -68,9 +68,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 12 (напр. `(root):w=240`, `(root):w=280`)
-  - BOARD: нет разделов 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: base segmented picker group / text, / icon only (DS Web)

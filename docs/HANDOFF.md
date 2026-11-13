@@ -98,7 +98,17 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
   - Скрипты `audit`, `variables-check`, `bind-sizes-extra` выбирают страницы по эмодзи статуса / `_`, не по индексу.
   - Манифест пересобран полностью (кроме батча A2 — не менялся): draft 96, beta 21; корневых min / max числом — 8 (ждут Publish). `npm run all`, `contracts`, `agent-docs`, `draft-audit`, `parity` (ошибок 0), `exceptions`, `a11y`, `test:compat` — чисто.
   - Снимка Version history перед пакетом нет (API не ставит); откат — снимок Стефана 13.11 до замен.
-- **Дальше:** Стефану — посмотреть результат (Tooltip, Icon button), Publish Components, окно DSP. Агенту — решения 3 (Error / Danger), 5 (Align у Table, draft), 9 (Close / Chevron у Badge → Deprecated); пересъёмка Select / Password field, борда Input v3; стенд бренды × платформы и текст 200 %; повторный полный `audit-parity`, `audit`, `variables-check` по всем страницам.
+- **Третий пакет 13.11 (замечания draft-аудита), сделано в Figma и в репо:**
+  - **`draft-audit`: 96 наборов, без замечаний 96** (`docs/audit-draft.md`). Манифест пересобран полностью: 117 наборов (beta 21, draft 96), страниц без борды v3 — 0.
+  - **Служебные слои** (зона нажатия web / app, безопасное поле; кольцо было) добавлены в Code cell, Input amount, Radio card, Select compact, Table row, File upload. Date range field пересажен на Input (слои — из базы). Password field — на Input.
+  - **Оси и описания:** порядок осей Input amount (State последняя); строки «Матрица:» у неполных матриц; описания по шаблону; Icon button 240 из 448 — с правилом.
+  - **Сырьё:** обводки и радиусы привязаны (Divider, Tab bar, Key-value row; столбики Chart plot — `radius/2xs`); фиксированные размеры → `control/height/*`, `icon/size/*`, `size/dot/sm` (`scripts/figma/bind-dims.plugin.js`). File upload Disabled — токены вместо прозрачности.
+  - **Борды:** Snack — своя борда v3 (собрана из борды Toast, борда Toast очищена); разделы, которых у компонента нет по смыслу, — в блоке «— · Не собрано в этой версии» с причиной.
+  - **Select Disabled:** шеврон `icon/primary` → `icon/disabled` (оверрайд в трёх вариантах Select; Multiselect наследует).
+  - **Foundations, Platform: ещё 20 переменных, НЕ опубликованы** (вместе с первой пачкой ждут Publish 28): `size/media/2xs|xs|sm|md|lg|xl`, `size/track/sm|md`, `size/progress-circle/sm|md|lg`, `size/legend-swatch`, `size/scrollbar`, `size/code-cell/md|lg`, `size/row/compact`, `size/row/lg`, `size/table/header`, `size/table/row-sm`, `size/table/row-lg`. До Publish — временные строки реестра, `SIZE_PENDING` (`audit-parity`), `RAW_OK` / `MINMAX_OK` (`draft-findings.mjs`). После Publish: экспорт → `npm run all` → `bind-sizes-extra` и `bind-dims` → снять временные строки и списки.
+  - **Проверки по всем страницам компонентов:** `audit-parity` — 108 наборов, 0 (5 ICON исправлены); `audit` и `variables-check` — только строки реестра; `exceptions` ok (29 строк); `parity` — ошибок 0, совещательных 2; `contracts`, `agent-docs` — чисто.
+  - Снимка Version history перед пакетом нет (API не ставит).
+- **Дальше:** Стефану — Publish Foundations (28 `size/*`), посмотреть Tooltip, Icon button, борду Snack и блоки «Не собрано», Publish Components, окно DSP. Агенту — перевод draft-атомов и молекул в beta (пилот Amount и Avatar, затем пакет), стенд бренды × платформы × темы × уровни и текст 200 %, отчёт фазы E; после Publish — привязка `size/*`; затем организмы и экраны с правилами.
 - **Не сделано по Input / Textarea:** стенд бренды × платформы у действующих наборов (снят у пилотов); пересъёмка Select и Password field после правок базы; полная сверка борды Input v3; проверка слота руками.
 
 ## Состояние на 2026-11-12

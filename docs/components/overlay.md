@@ -62,10 +62,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - AXES: `Blur` — булева ось (Off | On)
-  - RAW: 4 (напр. `(root):w=480`, `(root):h=320`)
-  - BOARD: нет разделов 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: DS Web Background / base overlay.

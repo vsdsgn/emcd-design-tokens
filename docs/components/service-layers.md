@@ -41,6 +41,7 @@ Status: beta · Level: base (служебные, не публикуются —
 - `_Checkbox control`, `_Radio control`, `_Toggle control` (56 вариантов): кольцо и слой состояния в каждом глифе. `_Selection control` (16 вариантов): подсветка зоны и поле. Пилоты Checkbox, Radio, Toggle получают их через базу и глиф.
 - `_List row` (44 варианта): 44 кольца, 22 слоя состояния (Hover, Pressed), 88 подсветок зоны (web и app), 44 поля. Пилоты Menu item, Multiselect option, List item получают их через вложенную базу.
 - `_Overlay surface` — не служебный слой, а база поверхности, но ставится так же: экземпляр с именем слоя `overlay surface` (в `SERVICE` скрипта). Шесть пилотов оверлеев (52 варианта) — по одному экземпляру в каждом варианте. Контракт: `overlay-surface.md`.
+- 2026-11-13: Code cell, Input amount, Radio card, Select compact, Table row, File upload — подсветки зоны (web и app) и поле в каждом варианте. Date range field и Password field получают слои через Input.
 - Остальные компоненты — при миграции в фазе C; после пересадки имя набора добавить в `SERVICE_DONE`.
 
 ## Открыто

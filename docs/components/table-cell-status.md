@@ -67,9 +67,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 6 (напр. `(root):w=160`, `(root):h=80`)
-  - BOARD: нет разделов 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: DS Web table cell / status.

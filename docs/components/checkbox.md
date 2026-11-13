@@ -72,7 +72,7 @@
 ## 12. Figma projection
 - Набор `Checkbox`, вариантов 96 из 96; оси: Status, Tone, Size, Control position, State.
 - Борда: «Checkbox — борда · шаблон v3», разделов 12.
-- Описание: 2217 знаков, разделы: Status: Level: Чекбокс: Когда использовать: • Tone = Danger — • M — • Hover / Pressed — • Кольцо фокуса — • Label — Правила: Сборка: A11y:
+- Описание: 2205 знаков, разделы: Status: Level: Чекбокс: Когда использовать: • Tone = Danger — • M — • Hover / Pressed — • Кольцо фокуса — • Label — Правила: Сборка: A11y:
 - Заменён на месте 2026-11-13: набор собран от базы `_Selection control` (`selection-control.md`), ид. набора и экземпляры в продуктах сохранены.
 - Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.
 

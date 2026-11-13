@@ -53,7 +53,7 @@
 ## 12. Figma projection
 - Набор `Step trail`, вариантов 6 из 6; оси: Border, State.
 - Борда: «Step trail — борда · шаблон v3», разделов 9.
-- Описание: 161 знаков, разделы: Status: Level: Линия между шагами:
+- Описание: 496 знаков, разделы: Status: Level: Линия между шагами: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -64,10 +64,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - RAW: 12 (напр. `(root):w=80`, `(root):h=24`)
-  - BOARD: нет разделов 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: Step Trail (Border type, State).

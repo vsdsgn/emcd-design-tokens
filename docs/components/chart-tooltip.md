@@ -68,7 +68,7 @@
 ## 12. Figma projection
 - Набор `Chart tooltip`, вариантов 4 из 4; оси: Rows.
 - Борда: «Chart tooltip — борда · шаблон v3», разделов 9.
-- Описание: 719 знаков, разделы: Status: Level: Тултип точки графика: Когда использовать: Правила: A11y:
+- Описание: 707 знаков, разделы: Status: Level: Тултип точки графика: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -78,9 +78,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - MINMAX: minw=168
-  - BOARD: нет разделов 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: тултипы в «Песочнице графиков» (monitoring, WL Users, mining).

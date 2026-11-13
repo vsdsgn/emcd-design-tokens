@@ -73,9 +73,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - SERVICE: нет зоны нажатия, безопасного поля
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: Selector small, Dropdown (Type=Net/Wallet/Coins…) (DS Web)

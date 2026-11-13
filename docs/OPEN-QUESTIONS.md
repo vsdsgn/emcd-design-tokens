@@ -68,6 +68,15 @@
 
 ## Парковка (после этапа)
 
+**Находки третьего пакета 2026-11-13** (не блокируют, следующий MAJOR или отдельный шаг):
+- Coin `Network` и Avatar group `More` — оси False / True; кандидаты в булево свойство.
+- Password field — кнопка показа пароля лежит поверх; перенести в слот Trailing базы.
+- Семантические токены прозрачности (`opacity/*`): Spinner track 0.2, Code cell 0.5, Chart 0.24 / 0.35 / 0.45, Tooltip tour 0.72 — пока числом, в `RAW_OK`.
+- `Input addon / Max` — старые имена зон `hit area · fine / coarse`; `Input addon / Stepper` — нет «A11y:» в описании.
+- Empty state — внутри legacy-экземпляр `Button/Link/S/Default`. Sidebar — вложенный `Balance widget · вынесено из DS`.
+- У набора `Tab bar` (`66:371`) нет своей борды v3 (есть у Tab bar item).
+- Шеврон Select Disabled исправлен оверрайдом в Select; правильнее — состояние Disabled у `Input addon / Chevron` или наследование цвета от базы.
+
 **Источник правды и паритет Figma ↔ код (2026-10-30)**, вернуться после Base:
 - **Источник правды — Figma (сейчас) или код / контракт?** Повод: статья Christine Vallaure «Building an AI-ready design system» (christinevallaure.substack.com/p/building-an-ai-ready-design-system), тезис «код главнее, Figma — зеркало». Сейчас правда — Figma (`dsp.md`, HOW-IT-WORKS).
 - **`GAPS.md` в миграции компонента:** что не выражается в Figma, что решили, что проверить руками. Рядом с `component-contract.md` / `migration/`.
@@ -181,6 +190,13 @@
 4. Борда Multiselect option, анатомия: строка «checkbox · 20×20» оставлена (размер глифа); проверить глазами разделы 02 трёх борд.
 5. Не снято: стенд бренды × платформы и текст 200 % у действующих наборов; снимки хостов Multiselect, Sheet, Date range panel.
 6. [x] Токены `size/row/min` = 40, `size/row/content-min` = 120 заведены в Foundations 13.11, опубликованы и привязаны в `_List row` 13.11.
+
+### 2026-11-13 · третий пакет: замечания draft-аудита (посмотреть; п. 1 — действие)
+1. [ ] **Publish Foundations** — теперь 28 новых `size/*` в Platform (8 из второго пакета + 20 новых, список — HANDOFF). После него агент делает экспорт, `npm run all`, привязку (`bind-sizes-extra`, `bind-dims`) и снимает временные строки реестра.
+2. Посмотреть: борда Snack (собрана из борды Toast); блоки «Не собрано в этой версии» на бордах — причины; зона `hit area · app` 44 в шести наборах (Code cell, Input amount, Radio card, Select compact, Table row, File upload).
+3. Снимка версии перед пакетом нет (API не умеет).
+4. Нужен «ок» на удаление старых борд (не v3): «Input — борда» `404:91`, «Textarea — борда» `353:1004`, «Tab bar — борда» `366:4725`. До «ок» не трогаю.
+5. Snack: длинный текст переносится, а описание говорит «одна строка» — что верно? Пока оставлен перенос. RTL у Snack не зеркалится.
 
 ### 2026-11-13 · второй пакет: решения 5 и 9, сырые значения (посмотреть; п. 1 — действие)
 1. [ ] **Publish Foundations** — 8 новых `size/*` в Platform (список — HANDOFF). После него агент делает экспорт, `npm run all`, привязку и снимает 8 временных строк реестра (срок 2026-12-13).

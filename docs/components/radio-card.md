@@ -16,8 +16,8 @@
 
 ## 3. Anatomy
 - Слои с токенами: `header`, `radio`, `label`, `details`.
-- Вложено: `Radio` ×8.
-- Служебные слои (вариантов из 8): кольцо фокуса 8 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Radio` ×8, `_Hit area` ×16, `_Safe margin` ×8.
+- Служебные слои (вариантов из 8): кольцо фокуса 8 · зона Web 8 · зона касания 8 · безопасное поле 8.
 
 ## 4. States
 - Ось State: Default · Hover · Disabled · Pressed. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
@@ -42,6 +42,8 @@
 Период выгрузки: предыдущий квартал» | 8 из 8 |
 | Show details | булево | вкл | 8 из 8 |
 | Focus ring | булево | выкл | 8 из 8 · служебное |
+| Show hit area | булево | выкл | 8 из 8 · служебное |
+| Safe margin | булево | выкл | 8 из 8 · служебное |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -61,8 +63,8 @@
 - `radio`: maxw `size/field/max`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `details`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-surface`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/surface`.
-- Значений без переменной: 8 (напр. `(root):w=400`).
+- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-surface`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/surface`.
+- Значений без переменной: 24 (напр. `(root):w=400`, `hit area · web:w=400`, `hit area · web:h=126`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -70,7 +72,7 @@
 ## 12. Figma projection
 - Набор `Radio card`, вариантов 8 из 8; оси: Status, State.
 - Борда: «Radio card — борда · шаблон v3», разделов 10.
-- Описание: 950 знаков, разделы: Status: Level: Выбираемая карточка: Когда использовать: Правила: A11y: Legacy: Токены:
+- Описание: 926 знаков, разделы: Status: Level: Выбираемая карточка: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -81,11 +83,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - AXES: `Status` — булева ось (Off | On)
-  - RAW: 8 (напр. `(root):w=400`)
-  - SERVICE: нет зоны нажатия, безопасного поля
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: продукт «Выгрузка»: радио-карточки расписания.

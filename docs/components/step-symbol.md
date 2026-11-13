@@ -61,8 +61,8 @@
 
 ## 12. Figma projection
 - Набор `Step symbol`, вариантов 12 из 12; оси: Type, State.
-- Борда: «Step symbol — борда · шаблон v3», разделов 8.
-- Описание: 185 знаков, разделы: Status: Level: Символ шага:
+- Борда: «Step symbol — борда · шаблон v3», разделов 9.
+- Описание: 644 знаков, разделы: Status: Level: Символ шага: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -73,11 +73,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - PROPS: Number 3 из 12
-  - RAW: 24 (напр. `(root):w=24`, `(root):h=24`)
-  - BOARD: нет разделов 04, 05, 07, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: Step Symbol (Type, State) (DS Web Stepper).

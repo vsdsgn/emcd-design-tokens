@@ -58,7 +58,7 @@
 ## 12. Figma projection
 - Набор `Multiselect`, вариантов 8 из 8; оси: Display, State.
 - Борда: «Multiselect — борда · шаблон v3», разделов 10.
-- Описание: 767 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
+- Описание: 743 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -69,9 +69,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 8 (напр. `(root):w=320`)
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

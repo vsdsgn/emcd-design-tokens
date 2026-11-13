@@ -16,8 +16,8 @@
 
 ## 3. Anatomy
 - Слои с токенами: `cell · Дата`, `cell · Монета`, `cell · Сумма`, `cell · Адрес`, `cell · Статус`, `cell · ⋯`.
-- Вложено: `Table cell / Date time` ×8, `Table cell / Coin` ×8, `Table cell / Transaction` ×8, `Table cell / Text` ×8, `Table cell / Status` ×8, `Table cell / More` ×8.
-- Служебные слои (вариантов из 8): кольцо фокуса 8 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Table cell / Date time` ×8, `Table cell / Coin` ×8, `Table cell / Transaction` ×8, `Table cell / Text` ×8, `Table cell / Status` ×8, `Table cell / More` ×8, `_Hit area` ×16, `_Safe margin` ×8.
+- Служебные слои (вариантов из 8): кольцо фокуса 8 · зона Web 8 · зона касания 8 · безопасное поле 8.
 
 ## 4. States
 - Ось State: Default · Hover · Selected · Pressed. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
@@ -37,6 +37,8 @@
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
 | Focus ring | булево | выкл | 8 из 8 · служебное |
+| Show hit area | булево | выкл | 8 из 8 · служебное |
+| Safe margin | булево | выкл | 8 из 8 · служебное |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -58,8 +60,8 @@
 - `cell · Адрес`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
 - `cell · Статус`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `cell · ⋯`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/xs`.
-- Служебные слои (общие правила — `service-layers.md`): `focus ring`: обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`.
-- Значений без переменной: 8 (напр. `(root):h=48`, `(root):h=80`).
+- Служебные слои (общие правила — `service-layers.md`): `focus ring`: обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`.
+- Значений без переменной: 24 (напр. `(root):h=48`, `hit area · web:w=856`, `hit area · web:h=48`, `(root):h=80`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -67,7 +69,7 @@
 ## 12. Figma projection
 - Набор `Table row`, вариантов 8 из 8; оси: Density, State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 1069 знаков, разделы: Status: Level: Строка таблицы: Density: State: Колонки: A11y: Часть Table. Поиск: Legacy:
+- Описание: 1479 знаков, разделы: Status: Level: Строка таблицы: Density: State: Колонки: A11y: Часть Table. Поиск: Legacy: Когда использовать: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -78,11 +80,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:
-  - RAW: 8 (напр. `(root):h=48`, `(root):h=80`)
-  - SERVICE: нет зоны нажатия, безопасного поля
-  - BOARD: нет разделов 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: .table / raw (DS Web)

@@ -52,8 +52,8 @@
 
 ## 12. Figma projection
 - Набор `_Tooltip arrow`, вариантов 2 из 2; оси: Tone.
-- Борда: «Tooltip — борда · шаблон v3», разделов 11.
-- Описание: 206 знаков, разделы: Status: Level: Служебный:
+- Борда: «Tooltip — борда · шаблон v3», разделов 12.
+- Описание: 508 знаков, разделы: Status: Level: Служебный: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -63,10 +63,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - RAW: 4 (напр. `(root):w=26`, `(root):h=9`)
-  - BOARD: нет разделов 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

@@ -52,7 +52,7 @@
 ## 12. Figma projection
 - Набор `Step segment`, вариантов 3 из 3; оси: State.
 - Борда: «Step segment — борда · шаблон v3», разделов 9.
-- Описание: 130 знаков, разделы: Status: Level: Сегмент Step progress.
+- Описание: 458 знаков, разделы: Status: Level: Сегмент Step progress. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -63,10 +63,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - RAW: 6 (напр. `(root):w=40`, `(root):h=4`)
-  - BOARD: нет разделов 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

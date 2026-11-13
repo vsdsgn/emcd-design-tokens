@@ -73,7 +73,7 @@
 ## 12. Figma projection
 - Набор `Accordion`, вариантов 20 из 20; оси: Size, Open, State.
 - Борда: «Accordion — борда · шаблон v3», разделов 12.
-- Описание: 1091 знаков, разделы: Status: Level: Аккордеон: Движение: A11y: Когда использовать: Motion: Поиск: Legacy:
+- Описание: 1327 знаков, разделы: Status: Level: Аккордеон: Движение: A11y: Когда использовать: Motion: Поиск: Legacy: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -84,12 +84,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Правила:
-  - AXES: `Open` — булева ось (Off | On)
-  - PROPS: Label 16 из 20
-  - RAW: 60 (напр. `(root):w=400`, `hit area · web:w=400`)
-  - BOARD: нет разделов 07
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: baseAccordion --1.5 (mobile adaptive, open, state) (DS Web)

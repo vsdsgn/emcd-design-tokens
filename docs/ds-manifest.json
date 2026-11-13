@@ -19,12 +19,12 @@
   "variants": 1647,
   "incompleteMatrix": 11,
   "propsNotBoundEverywhere": 17,
-  "rawMinMax": 8,
-  "withRawValues": 87,
-  "withFocusRing": 25,
-  "withHitArea": 18,
-  "withSafeMargin": 17,
-  "pagesWithoutV3Board": 1,
+  "rawMinMax": 7,
+  "withRawValues": 86,
+  "withFocusRing": 24,
+  "withHitArea": 22,
+  "withSafeMargin": 22,
+  "pagesWithoutV3Board": 0,
   "pagesWithFullBoard": 9,
   "baseSets": 11
  },
@@ -65,7 +65,7 @@
      "id": "167:78",
      "type": "SET",
      "status": "draft",
-     "descLen": 1135,
+     "descLen": 1549,
      "descHeads": [
       "Status:",
       "Level:",
@@ -74,7 +74,9 @@
       "Знак:",
       "Цифры табличные:",
       "Fiat —",
-      "A11y:"
+      "A11y:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -213,7 +215,8 @@
       "07 · Группа: Avatar group",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -235,6 +238,7 @@
       "Level:",
       "Правила:",
       "Когда использовать:",
+      "A11y:",
       "Поиск:",
       "Legacy:"
      ],
@@ -353,7 +357,8 @@
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "12 · Локали и RTL"
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
      ]
     },
     {
@@ -368,7 +373,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -395,7 +401,8 @@
       "Иконка:",
       "A11y:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
@@ -635,7 +642,8 @@
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "12 · Локали и RTL"
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -783,11 +791,13 @@
      "id": "218:16966",
      "type": "SET",
      "status": "beta",
-     "descLen": 4179,
+     "descLen": 4402,
      "descHeads": [
       "Status:",
       "Level:",
       "Кнопка действия.",
+      "Когда использовать:",
+      "Матрица:",
       "• Primary —",
       "• Secondary —",
       "• Tertiary —",
@@ -796,7 +806,17 @@
       "• Inverted —",
       "• Default —",
       "• Danger —",
-      "S 32 —"
+      "S 32 —",
+      "M 40 —",
+      "L 48 —",
+      "XL 56 —",
+      "• Кнопки в группе —",
+      "• Подложка кнопки —",
+      "• Состояния:",
+      "• Focus ring —",
+      "• Заливка Default —",
+      "• Hover / Pressed —",
+      "• Кольцо фокуса —"
      ],
      "inBoard": false,
      "axes": {
@@ -888,8 +908,7 @@
       "(icons)": 352
      },
      "minmax": [
-      "minw=64 size/button/min",
-      "minw=64 RAW"
+      "minw=64 size/button/min"
      ],
      "layers": {
       "ring": 176,
@@ -900,10 +919,10 @@
      },
      "rawCount": 352,
      "raw": [
-      "hit area · web:w=65",
-      "hit area · web:h=32",
       "hit area · web:w=69",
       "hit area · web:h=40",
+      "hit area · web:w=65",
+      "hit area · web:h=32",
       "hit area · web:w=83",
       "hit area · web:h=48",
       "hit area · web:w=91",
@@ -1048,7 +1067,8 @@
       "06 · На поверхностях",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -1065,15 +1085,16 @@
      "id": "664:73999",
      "type": "SET",
      "status": "draft",
-     "descLen": 490,
+     "descLen": 1251,
      "descHeads": [
       "Status:",
       "Level:",
       "Card —",
       "Атом-шаблон:",
       "Level —",
-      "Status:",
-      "Level:"
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -1110,12 +1131,9 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 288,
+     "rawCount": 72,
      "raw": [
-      "(root):w=320",
-      "content:s=#808080",
-      "content:r=4",
-      "content:sw=1"
+      "(root):w=320"
      ],
      "tokens": {
       "(root)": [
@@ -1130,6 +1148,11 @@
        "r:radius/inner",
        "r:radius/surface",
        "s:border/subtle",
+       "sw:border/width/default"
+      ],
+      "content": [
+       "r:radius/xs",
+       "s:border/default",
        "sw:border/width/default"
       ]
      },
@@ -1269,7 +1292,7 @@
      "id": "320:700",
      "type": "SET",
      "status": "beta",
-     "descLen": 2217,
+     "descLen": 2205,
      "descHeads": [
       "Status:",
       "Level:",
@@ -1630,21 +1653,22 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 32,
-     "raw": [
-      "(root):w=16",
-      "(root):h=16",
-      "track:w=16",
-      "track:h=16",
-      "(root):w=24",
-      "(root):h=24",
-      "track:w=24",
-      "track:h=24"
-     ],
+     "rawCount": 0,
+     "raw": [],
      "tokens": {
+      "(root)": [
+       "h:icon/size/lg",
+       "h:icon/size/sm",
+       "w:icon/size/lg",
+       "w:icon/size/sm"
+      ],
       "track": [
+       "h:icon/size/lg",
+       "h:icon/size/sm",
        "s:border/default",
-       "sw:border/width/strong"
+       "sw:border/width/strong",
+       "w:icon/size/lg",
+       "w:icon/size/sm"
       ],
       "progress": [
        "s:icon/accent",
@@ -1673,7 +1697,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -1689,12 +1714,15 @@
      "id": "111:1272",
      "type": "SET",
      "status": "draft",
-     "descLen": 349,
+     "descLen": 770,
      "descHeads": [
       "Status:",
       "Level:",
       "Ячейка кода (одна цифра).",
-      "Только внутри Code input."
+      "Только внутри Code input.",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -1725,24 +1753,43 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 12
+      },
+      {
+       "name": "Show hit area",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 12
+      },
+      {
+       "name": "Safe margin",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 12
       }
      ],
-     "nested": {},
+     "nested": {
+      "_Hit area": 24,
+      "_Safe margin": 12
+     },
      "minmax": [],
      "layers": {
       "ring": 12,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
+      "hitWeb": 12,
+      "hitApp": 12,
+      "hit": 12,
+      "safe": 12
      },
-     "rawCount": 28,
+     "rawCount": 52,
      "raw": [
       "(root):w=64",
       "(root):h=68",
       "digit:o=0.5",
+      "hit area · web:w=64",
+      "hit area · web:h=68",
       "(root):w=48",
-      "(root):h=56"
+      "(root):h=56",
+      "hit area · web:w=48",
+      "hit area · web:h=56"
      ],
      "tokens": {
       "(root)": [
@@ -1772,6 +1819,19 @@
        "r:radius/focus-ring",
        "s:border/focus-ring",
        "sw:border/width/focus-ring"
+      ],
+      "hit area · web": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
+       "visible:touch/is-coarse"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
       ],
       "caret": [
        "f:border/focus"
@@ -1915,7 +1975,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -1929,11 +1990,14 @@
      "id": "169:1370",
      "type": "SET",
      "status": "draft",
-     "descLen": 362,
+     "descLen": 860,
      "descHeads": [
       "Status:",
       "Level:",
-      "Ячейка дня в Calendar."
+      "Ячейка дня в Calendar.",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -1987,10 +2051,8 @@
       "hit": 10,
       "safe": 10
      },
-     "rawCount": 40,
+     "rawCount": 20,
      "raw": [
-      "(root):w=40",
-      "(root):h=40",
       "hit area · web:w=40",
       "hit area · web:h=40"
      ],
@@ -1998,9 +2060,11 @@
       "(root)": [
        "f:accent/subtle",
        "f:action/primary/default",
+       "h:control/height/md",
        "r:radius/control-sm",
        "s:border/accent",
-       "sw:border/width/default"
+       "sw:border/width/default",
+       "w:control/height/md"
       ],
       "day": [
        "f:text/accent",
@@ -2062,7 +2126,8 @@
       "06 · На поверхностях",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -2079,12 +2144,15 @@
      "id": "107:1275",
      "type": "SET",
      "status": "draft",
-     "descLen": 387,
+     "descLen": 940,
      "descHeads": [
       "Status:",
       "Level:",
       "Разделитель:",
-      "Когда использовать:"
+      "Когда использовать:",
+      "Правила:",
+      "A11y:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
@@ -2108,7 +2176,7 @@
        "name": "Label text",
        "type": "TEXT",
        "def": "или",
-       "bound": 1
+       "bound": 2
       }
      ],
      "nested": {},
@@ -2120,12 +2188,11 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 11,
+     "rawCount": 8,
      "raw": [
       "(root):w=320",
       "(root):w=1",
-      "(root):h=40",
-      "Rectangle:sw=1"
+      "(root):h=40"
      ],
      "tokens": {
       "(root)": [
@@ -2133,7 +2200,8 @@
       ],
       "Rectangle": [
        "f:border/subtle",
-       "s:border/default"
+       "s:border/default",
+       "sw:border/width/default"
       ],
       "label": [
        "f:text/tertiary",
@@ -2168,7 +2236,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -2181,20 +2250,26 @@
      "id": "301:4958",
      "type": "SET",
      "status": "beta",
-     "descLen": 2195,
+     "descLen": 2646,
      "descHeads": [
       "Status:",
       "Level:",
       "Кнопка-иконка:",
+      "Когда использовать:",
+      "Матрица:",
       "• Ghost —",
       "• Primary —",
       "• Secondary —",
       "• Text —",
       "• Inverted —",
       "Квадрат:",
+      "A11y:",
       "• Label обязателен:",
       "• Тултип —",
-      "• Hover / Pressed —"
+      "• Hover / Pressed —",
+      "• Loading —",
+      "• Кольцо фокуса —",
+      "• Иконку без Label."
      ],
      "inBoard": false,
      "axes": {
@@ -2217,16 +2292,19 @@
        "L",
        "XL"
       ],
+      "Loading": [
+       "False",
+       "True"
+      ],
       "State": [
        "Default",
        "Hover",
        "Pressed",
-       "Disabled",
-       "Loading"
+       "Disabled"
       ]
      },
      "variants": 240,
-     "full": 280,
+     "full": 448,
      "props": [
       {
        "name": "Label",
@@ -2274,10 +2352,10 @@
      },
      "rawCount": 480,
      "raw": [
-      "hit area · web:w=32",
-      "hit area · web:h=32",
       "hit area · web:w=40",
       "hit area · web:h=40",
+      "hit area · web:w=32",
+      "hit area · web:h=32",
       "hit area · web:w=48",
       "hit area · web:h=48",
       "hit area · web:w=56",
@@ -2362,6 +2440,7 @@
        "effects:shadow/ambient",
        "effects:shadow/key",
        "f:surface/raised",
+       "minw:size/tooltip/min",
        "p:space/10",
        "p:space/16",
        "r:radius/container",
@@ -2659,7 +2738,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -2675,11 +2755,14 @@
      "id": "149:1695",
      "type": "SET",
      "status": "draft",
-     "descLen": 103,
+     "descLen": 511,
      "descHeads": [
       "Status:",
       "Level:",
-      "Точка индикатора страниц."
+      "Точка индикатора страниц.",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -2700,17 +2783,17 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 4,
+     "rawCount": 1,
      "raw": [
-      "(root):w=6",
-      "(root):h=6",
       "(root):w=16"
      ],
      "tokens": {
       "(root)": [
        "f:icon/primary",
        "f:icon/tertiary",
-       "r:radius/chip"
+       "h:size/dot/sm",
+       "r:radius/chip",
+       "w:size/dot/sm"
       ]
      },
      "statusFirstLine": true
@@ -2737,7 +2820,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -2751,11 +2835,13 @@
      "id": "148:1633",
      "type": "SET",
      "status": "draft",
-     "descLen": 399,
+     "descLen": 668,
      "descHeads": [
       "Status:",
       "Level:",
-      "A11y:"
+      "A11y:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -2811,20 +2897,20 @@
       "hit": 10,
       "safe": 10
      },
-     "rawCount": 40,
+     "rawCount": 30,
      "raw": [
       "(root):w=32",
-      "(root):h=32",
       "hit area · web:w=32",
       "hit area · web:h=32",
       "(root):w=40",
-      "(root):h=40",
       "hit area · web:w=40",
       "hit area · web:h=40"
      ],
      "tokens": {
       "(root)": [
        "f:accent/subtle",
+       "h:control/height/md",
+       "h:control/height/sm",
        "minw:control/height/md",
        "minw:control/height/sm",
        "p:control/padding-x/sm",
@@ -2890,7 +2976,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     },
     {
@@ -2905,7 +2992,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     },
     {
@@ -2920,7 +3008,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -3038,7 +3127,7 @@
      "id": "56:388",
      "type": "SET",
      "status": "draft",
-     "descLen": 555,
+     "descLen": 959,
      "descHeads": [
       "Status:",
       "Level:",
@@ -3047,7 +3136,9 @@
       "A11y:",
       "Поиск:",
       "Legacy:",
-      "Motion:"
+      "Motion:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -3115,7 +3206,7 @@
      "id": "4:20",
      "type": "SET",
      "status": "draft",
-     "descLen": 565,
+     "descLen": 933,
      "descHeads": [
       "Status:",
       "Level:",
@@ -3123,7 +3214,9 @@
       "Когда использовать:",
       "Поиск:",
       "Legacy:",
-      "Motion:"
+      "Motion:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -3145,27 +3238,27 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 11,
+     "rawCount": 3,
      "raw": [
-      "track:o=0.2",
-      "track:w=16",
-      "track:h=16",
-      "track:w=20",
-      "track:h=20",
-      "(root):w=24",
-      "(root):h=24",
-      "track:w=24",
-      "track:h=24"
+      "track:o=0.2"
      ],
      "tokens": {
       "(root)": [
        "h:icon/size/control",
+       "h:icon/size/lg",
        "h:icon/size/sm",
        "w:icon/size/control",
+       "w:icon/size/lg",
        "w:icon/size/sm"
       ],
       "track": [
-       "f:icon/primary"
+       "f:icon/primary",
+       "h:icon/size/lg",
+       "h:icon/size/md",
+       "h:icon/size/sm",
+       "w:icon/size/lg",
+       "w:icon/size/md",
+       "w:icon/size/sm"
       ],
       "arc": [
        "f:icon/primary"
@@ -3208,7 +3301,7 @@
      "id": "322:435",
      "type": "SET",
      "status": "beta",
-     "descLen": 1693,
+     "descLen": 1669,
      "descHeads": [
       "Status:",
       "Level:",
@@ -3295,7 +3388,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -3311,13 +3405,14 @@
      "id": "149:1690",
      "type": "SET",
      "status": "draft",
-     "descLen": 734,
+     "descLen": 1035,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда использовать:",
       "Default —",
-      "A11y:"
+      "A11y:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -3605,7 +3700,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -3621,7 +3717,7 @@
      "id": "34:14",
      "type": "SET",
      "status": "draft",
-     "descLen": 1236,
+     "descLen": 1130,
      "descHeads": [
       "Status:",
       "Level:",
@@ -3915,11 +4011,14 @@
      "id": "149:1778",
      "type": "SET",
      "status": "draft",
-     "descLen": 130,
+     "descLen": 458,
      "descHeads": [
       "Status:",
       "Level:",
-      "Сегмент Step progress."
+      "Сегмент Step progress.",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -3975,7 +4074,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -3991,11 +4091,14 @@
      "id": "108:1416",
      "type": "SET",
      "status": "draft",
-     "descLen": 185,
+     "descLen": 644,
      "descHeads": [
       "Status:",
       "Level:",
-      "Символ шага:"
+      "Символ шага:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -4099,11 +4202,14 @@
      "id": "108:1429",
      "type": "SET",
      "status": "draft",
-     "descLen": 161,
+     "descLen": 496,
      "descHeads": [
       "Status:",
       "Level:",
-      "Линия между шагами:"
+      "Линия между шагами:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -4401,7 +4507,7 @@
      "id": "323:227",
      "type": "SET",
      "status": "beta",
-     "descLen": 2042,
+     "descLen": 2030,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4414,7 +4520,8 @@
       "• В прототипе Figma:",
       "• Label —",
       "Правила:",
-      "Сборка:"
+      "Сборка:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -4490,7 +4597,8 @@
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
-      "11 · Код и токены"
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -4503,11 +4611,14 @@
      "id": "317:33693",
      "type": "SET",
      "status": "draft",
-     "descLen": 206,
+     "descLen": 508,
      "descHeads": [
       "Status:",
       "Level:",
-      "Служебный:"
+      "Служебный:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -4552,10 +4663,13 @@
      "id": "317:33734",
      "type": "SET",
      "status": "draft",
-     "descLen": 3818,
+     "descLen": 4198,
      "descHeads": [
       "Status:",
       "Level:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:",
       "• Пояснение термина:",
       "• Приложение и касание —",
       "• Ошибки формы —",
@@ -4565,7 +4679,8 @@
       "• Arrow —",
       "В коде —",
       "• Одновременно —",
-      "• Появление —"
+      "• Появление —",
+      "Поверхность —"
      ],
      "inBoard": false,
      "axes": {
@@ -4666,7 +4781,7 @@
       "10 · Доступность",
       "11 · Код и токены",
       "12 · Локали и RTL",
-      "— · Что не входит в борду"
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -4679,7 +4794,7 @@
      "id": "107:1266",
      "type": "SET",
      "status": "draft",
-     "descLen": 1091,
+     "descLen": 1327,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4689,7 +4804,8 @@
       "Когда использовать:",
       "Motion:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -4877,7 +4993,7 @@
      "id": "171:126",
      "type": "SET",
      "status": "draft",
-     "descLen": 840,
+     "descLen": 1185,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4885,7 +5001,9 @@
       "Копировать —",
       "Когда нет:",
       "A11y:",
-      "Формат адреса:"
+      "Формат адреса:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -5007,10 +5125,13 @@
      "id": "108:1379",
      "type": "SET",
      "status": "draft",
-     "descLen": 220,
+     "descLen": 678,
      "descHeads": [
       "Status:",
-      "Level:"
+      "Level:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -5099,13 +5220,14 @@
      "id": "168:10672",
      "type": "SET",
      "status": "draft",
-     "descLen": 647,
+     "descLen": 736,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда использовать:",
       "Последний пункт —",
-      "A11y:"
+      "A11y:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -5276,7 +5398,7 @@
      "id": "101:1011",
      "type": "SET",
      "status": "draft",
-     "descLen": 812,
+     "descLen": 800,
      "descHeads": [
       "Status:",
       "Level:",
@@ -5405,7 +5527,7 @@
      "id": "101:974",
      "type": "SET",
      "status": "draft",
-     "descLen": 719,
+     "descLen": 707,
      "descHeads": [
       "Status:",
       "Level:",
@@ -5543,14 +5665,17 @@
      "id": "631:1256",
      "type": "SET",
      "status": "draft",
-     "descLen": 526,
+     "descLen": 1174,
      "descHeads": [
       "Status:",
       "Level:",
       "Checkbox group:",
       "• Direction:",
       "• Error —",
-      "• M:"
+      "• M:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -5683,7 +5808,7 @@
      "id": "111:1379",
      "type": "SET",
      "status": "draft",
-     "descLen": 1470,
+     "descLen": 1854,
      "descHeads": [
       "Status:",
       "Level:",
@@ -5694,7 +5819,9 @@
       "A11y:",
       "Motion:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -5908,7 +6035,7 @@
      "id": "1611:115",
      "type": "SET",
      "status": "draft",
-     "descLen": 794,
+     "descLen": 938,
      "descHeads": [
       "Status:",
       "Level:",
@@ -5932,120 +6059,28 @@
      "full": 5,
      "props": [],
      "nested": {
-      "(icons)": 5
+      "Input": 5
      },
      "minmax": [
       "minw=160 size/field/min"
      ],
      "layers": {
-      "ring": 5,
-      "hitWeb": 5,
-      "hitApp": 5,
-      "hit": 5,
-      "safe": 5
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
      },
-     "rawCount": 15,
+     "rawCount": 5,
      "raw": [
-      "(root):w=320",
-      "hit area · web:w=320",
-      "hit area · web:h=40"
+      "(root):w=320"
      ],
      "tokens": {
       "(root)": [
-       "minw:size/field/min",
-       "p:space/8"
+       "minw:size/field/min"
       ],
       "field": [
-       "f:control/surface/default",
-       "f:control/surface/disabled",
-       "gap:space/12",
-       "h:control/height/md",
-       "p:control/padding-x/md",
-       "r:radius/control-sm",
-       "s:control/border/default",
-       "s:control/border/disabled",
-       "s:control/border/error",
-       "s:control/border/focus",
-       "sw:border/width/default"
-      ],
-      "Leading": [
-       "gap:space/6"
-      ],
-      "caret": [
-       "f:border/focus"
-      ],
-      "value": [
-       "f:text/disabled",
-       "f:text/primary",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "Inline": [
-       "gap:space/6"
-      ],
-      "Trailing": [
-       "gap:space/8"
-      ],
-      "calendar": [
-       "h:icon/size/md",
-       "w:icon/size/md"
-      ],
-      "notch label": [
-       "p:space/2"
-      ],
-      "border gap": [
-       "f:control/surface/default",
-       "f:control/surface/disabled"
-      ],
-      "notch text": [
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "focus ring": [
-       "r:radius/focus-ring-sm",
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "hit area · web": [
-       "visible:touch/is-fine"
-      ],
-      "hit area · overlay": [
-       "f:status/danger/solid"
-      ],
-      "hit area · app": [
-       "visible:touch/is-coarse"
-      ],
-      "helper row": [
-       "gap:space/8",
-       "p:space/4"
-      ],
-      "helper": [
-       "f:text/danger",
-       "f:text/disabled",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "counter": [
-       "f:text/disabled",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "safe area · outer": [
-       "s:status/success/solid",
-       "sw:control/safe-margin"
+       "minw:size/field/min"
       ]
      },
      "statusFirstLine": true
@@ -6087,7 +6122,7 @@
      "id": "179:1295",
      "type": "SET",
      "status": "draft",
-     "descLen": 893,
+     "descLen": 1056,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6095,7 +6130,8 @@
       "Icon —",
       "Позиция:",
       "A11y:",
-      "Тень:"
+      "Тень:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -6143,10 +6179,8 @@
       "hit": 8,
       "safe": 8
      },
-     "rawCount": 28,
+     "rawCount": 16,
      "raw": [
-      "(root):w=56",
-      "(root):h=56",
       "hit area · web:w=56",
       "hit area · web:h=56",
       "hit area · web:w=183"
@@ -6158,8 +6192,10 @@
        "f:action/disabled",
        "f:action/primary/default",
        "gap:space/8",
+       "h:control/height/xl",
        "p:space/20",
-       "r:radius/chip"
+       "r:radius/chip",
+       "w:control/height/xl"
       ],
       "icon/plus": [
        "h:icon/size/md",
@@ -6261,7 +6297,10 @@
       "• Inline —",
       "• Trailing —",
       "• Input addon / Clear —",
-      "• On border —"
+      "• On border —",
+      "• Hover —",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": true,
      "axes": {
@@ -6579,12 +6618,13 @@
      "id": "402:47767",
      "type": "COMPONENT",
      "status": "draft",
-     "descLen": 415,
+     "descLen": 549,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда использовать:",
-      "A11y:"
+      "A11y:",
+      "Правила:"
      ],
      "inBoard": true,
      "axes": {},
@@ -6607,16 +6647,20 @@
       "hit": 1,
       "safe": 0
      },
-     "rawCount": 4,
+     "rawCount": 2,
      "raw": [
-      "(root):w=20",
-      "(root):h=20",
       "hit area · web:w=24",
       "hit area · web:h=24"
      ],
      "tokens": {
+      "(root)": [
+       "h:icon/size/control",
+       "w:icon/size/control"
+      ],
       "circle": [
-       "f:control/track"
+       "f:control/track",
+       "h:icon/size/control",
+       "w:icon/size/control"
       ],
       "glyph": [
        "s:icon/secondary",
@@ -6639,13 +6683,14 @@
      "id": "402:47774",
      "type": "COMPONENT",
      "status": "draft",
-     "descLen": 283,
+     "descLen": 395,
      "descHeads": [
       "Status:",
       "Level:",
       "Иконка в Leading:",
       "Когда использовать:",
-      "A11y:"
+      "A11y:",
+      "Правила:"
      ],
      "inBoard": true,
      "axes": {},
@@ -6730,16 +6775,16 @@
      ],
      "inBoard": false,
      "axes": {
+      "Filled": [
+       "False",
+       "True"
+      ],
       "State": [
        "Default",
        "Focus",
        "Error",
        "Disabled",
        "Hover"
-      ],
-      "Filled": [
-       "False",
-       "True"
       ]
      },
      "variants": 10,
@@ -6798,25 +6843,42 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 10
+      },
+      {
+       "name": "Show hit area",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 10
+      },
+      {
+       "name": "Safe margin",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 10
       }
      ],
      "nested": {
       "(icons)": 10,
-      "Select compact": 10
+      "Select compact": 10,
+      "_Hit area": 20,
+      "_Safe margin": 10
      },
      "minmax": [
       "minw=160 size/field/min"
      ],
      "layers": {
       "ring": 10,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
+      "hitWeb": 10,
+      "hitApp": 10,
+      "hit": 10,
+      "safe": 10
      },
-     "rawCount": 10,
+     "rawCount": 30,
      "raw": [
-      "(root):w=395"
+      "(root):w=395",
+      "hit area · web:w=395",
+      "hit area · web:h=126",
+      "hit area · web:h=160"
      ],
      "tokens": {
       "(root)": [
@@ -6907,6 +6969,19 @@
        "r:radius/focus-ring",
        "s:border/focus-ring",
        "sw:border/width/focus-ring"
+      ],
+      "hit area · web": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
+       "visible:touch/is-coarse"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
       ],
       "state layer": [
        "f:state/layer",
@@ -7118,7 +7193,7 @@
      "id": "82:891",
      "type": "SET",
      "status": "draft",
-     "descLen": 1610,
+     "descLen": 1831,
      "descHeads": [
       "Status:",
       "Level:",
@@ -7130,7 +7205,8 @@
       "Когда использовать:",
       "Поиск:",
       "Legacy:",
-      "Кольцо фокуса:"
+      "Кольцо фокуса:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -7222,7 +7298,7 @@
      "id": "407:1987",
      "type": "SET",
      "status": "draft",
-     "descLen": 1233,
+     "descLen": 1614,
      "descHeads": [
       "Status:",
       "Level:",
@@ -7233,7 +7309,9 @@
       "• Show selection —",
       "• Tone = Danger —",
       "A11y:",
-      "Кольцо фокуса:"
+      "Кольцо фокуса:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -7318,7 +7396,7 @@
      "id": "1516:1052",
      "type": "SET",
      "status": "draft",
-     "descLen": 767,
+     "descLen": 743,
      "descHeads": [
       "Status:",
       "Level:",
@@ -7429,7 +7507,7 @@
      "id": "65:82",
      "type": "SET",
      "status": "draft",
-     "descLen": 1322,
+     "descLen": 1199,
      "descHeads": [
       "Status:",
       "Level:",
@@ -7607,12 +7685,14 @@
      "id": "179:620",
      "type": "SET",
      "status": "draft",
-     "descLen": 532,
+     "descLen": 894,
      "descHeads": [
       "Status:",
       "Level:",
       "Unread —",
-      "A11y:"
+      "A11y:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -7742,13 +7822,15 @@
      "id": "149:1764",
      "type": "SET",
      "status": "draft",
-     "descLen": 488,
+     "descLen": 698,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда использовать:",
       "Активная —",
-      "A11y:"
+      "A11y:",
+      "Правила:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
@@ -7789,7 +7871,9 @@
       "Page dot": [
        "f:icon/primary",
        "f:icon/tertiary",
-       "r:radius/chip"
+       "h:size/dot/sm",
+       "r:radius/chip",
+       "w:size/dot/sm"
       ]
      },
      "statusFirstLine": true
@@ -7831,7 +7915,7 @@
      "id": "148:10702",
      "type": "SET",
      "status": "draft",
-     "descLen": 830,
+     "descLen": 930,
      "descHeads": [
       "Status:",
       "Level:",
@@ -7839,7 +7923,8 @@
       "Pages —",
       "Prev/next —",
       "A11y:",
-      "Хаптик:"
+      "Хаптик:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -7884,6 +7969,8 @@
       ],
       "Pagination item": [
        "f:accent/subtle",
+       "h:control/height/md",
+       "h:control/height/sm",
        "minw:control/height/md",
        "minw:control/height/sm",
        "p:control/padding-x/sm",
@@ -7955,12 +8042,14 @@
      "id": "178:1850",
      "type": "SET",
      "status": "draft",
-     "descLen": 830,
+     "descLen": 1038,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда нет:",
-      "A11y:"
+      "A11y:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -7988,11 +8077,9 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 8,
+     "rawCount": 4,
      "raw": [
-      "(root):w=320",
-      "field:h=66",
-      "field:h=92"
+      "(root):w=320"
      ],
      "tokens": {
       "(root)": [
@@ -8094,13 +8181,15 @@
      "id": "199:227",
      "type": "SET",
      "status": "draft",
-     "descLen": 409,
+     "descLen": 772,
      "descHeads": [
       "Status:",
       "Level:",
       "Строка «название —",
       "Default —",
-      "A11y:"
+      "A11y:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -8135,17 +8224,17 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 4,
+     "rawCount": 3,
      "raw": [
-      "(root):w=360",
-      "(root):sw=1"
+      "(root):w=360"
      ],
      "tokens": {
       "(root)": [
        "gap:space/16",
        "p:space/12",
        "p:space/8",
-       "s:border/subtle"
+       "s:border/subtle",
+       "sw:border/width/default"
       ],
       "key": [
        "f:text/secondary",
@@ -8209,7 +8298,7 @@
      "id": "1662:1174",
      "type": "SET",
      "status": "draft",
-     "descLen": 866,
+     "descLen": 854,
      "descHeads": [
       "Status:",
       "Level:",
@@ -8364,7 +8453,7 @@
      "id": "1597:106",
      "type": "SET",
      "status": "draft",
-     "descLen": 950,
+     "descLen": 926,
      "descHeads": [
       "Status:",
       "Level:",
@@ -8414,22 +8503,38 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 8
+      },
+      {
+       "name": "Show hit area",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 8
+      },
+      {
+       "name": "Safe margin",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 8
       }
      ],
      "nested": {
-      "Radio": 8
+      "Radio": 8,
+      "_Hit area": 16,
+      "_Safe margin": 8
      },
      "minmax": [],
      "layers": {
       "ring": 8,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
+      "hitWeb": 8,
+      "hitApp": 8,
+      "hit": 8,
+      "safe": 8
      },
-     "rawCount": 8,
+     "rawCount": 24,
      "raw": [
-      "(root):w=400"
+      "(root):w=400",
+      "hit area · web:w=400",
+      "hit area · web:h=126"
      ],
      "tokens": {
       "(root)": [
@@ -8467,6 +8572,19 @@
        "r:radius/focus-ring-surface",
        "s:border/focus-ring",
        "sw:border/width/focus-ring"
+      ],
+      "hit area · web": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
+       "visible:touch/is-coarse"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
       ],
       "state layer": [
        "f:state/layer",
@@ -8514,14 +8632,17 @@
      "id": "631:2295",
      "type": "SET",
      "status": "draft",
-     "descLen": 516,
+     "descLen": 1126,
      "descHeads": [
       "Status:",
       "Level:",
       "Radio group:",
       "• Direction:",
       "• Error —",
-      "• M:"
+      "• M:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -8897,14 +9018,15 @@
      "id": "75:1449",
      "type": "SET",
      "status": "draft",
-     "descLen": 805,
+     "descLen": 1006,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда использовать:",
       "A11y:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -8941,27 +9063,41 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 5
+      },
+      {
+       "name": "Show hit area",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 5
+      },
+      {
+       "name": "Safe margin",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 5
       }
      ],
      "nested": {
       "smbl-bitcoin-btc": 5,
-      "(icons)": 5
+      "(icons)": 5,
+      "_Hit area": 10,
+      "_Safe margin": 5
      },
      "minmax": [
       "maxw=200 RAW"
      ],
      "layers": {
       "ring": 5,
-      "hitWeb": 0,
-      "hitApp": 0,
+      "hitWeb": 5,
+      "hitApp": 5,
       "hit": 5,
-      "safe": 0
+      "safe": 5
      },
      "rawCount": 15,
      "raw": [
       "(root):h=36",
-      "hit area · fine:w=114",
-      "hit area · fine:h=36"
+      "hit area · web:w=114",
+      "hit area · web:h=36"
      ],
      "tokens": {
       "(root)": [
@@ -8988,11 +9124,18 @@
        "s:border/focus-ring",
        "sw:border/width/focus-ring"
       ],
-      "hit area · fine": [
+      "hit area · web": [
        "visible:touch/is-fine"
       ],
-      "hit area · coarse": [
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
        "visible:touch/is-coarse"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
       ],
       "state layer": [
        "f:state/layer",
@@ -9010,20 +9153,29 @@
    "page": "Snack",
    "pageId": "1783:1378",
    "pageMark": "🟠",
-   "boards": [],
+   "boards": [
+    {
+     "name": "Snack — борда · шаблон v3",
+     "id": "1993:16686",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
    "boardMissing": [
-    "01",
-    "02",
-    "03",
-    "04",
     "05",
-    "06",
     "07",
-    "08",
-    "09",
-    "10",
-    "11",
-    "12"
+    "08"
    ],
    "sets": [
     {
@@ -9031,7 +9183,7 @@
      "id": "1783:1379",
      "type": "SET",
      "status": "draft",
-     "descLen": 731,
+     "descLen": 719,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9156,7 +9308,7 @@
      "id": "60:57",
      "type": "SET",
      "status": "draft",
-     "descLen": 1239,
+     "descLen": 1213,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9356,12 +9508,14 @@
      "id": "149:1939",
      "type": "SET",
      "status": "draft",
-     "descLen": 338,
+     "descLen": 559,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда использовать:",
-      "A11y:"
+      "A11y:",
+      "Правила:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
@@ -9450,11 +9604,14 @@
      "id": "108:1450",
      "type": "SET",
      "status": "draft",
-     "descLen": 155,
+     "descLen": 635,
      "descHeads": [
       "Status:",
       "Level:",
-      "Шаг:"
+      "Шаг:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -9568,7 +9725,7 @@
      "id": "1577:3185",
      "type": "SET",
      "status": "draft",
-     "descLen": 1519,
+     "descLen": 1447,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9811,7 +9968,7 @@
      "id": "62:67",
      "type": "SET",
      "status": "draft",
-     "descLen": 746,
+     "descLen": 1010,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9819,7 +9976,9 @@
       "A11y:",
       "Часть Table.",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Когда использовать:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
@@ -9947,11 +10106,14 @@
      "id": "92:592",
      "type": "SET",
      "status": "draft",
-     "descLen": 224,
+     "descLen": 699,
      "descHeads": [
       "Status:",
       "Level:",
-      "Ячейка:"
+      "Ячейка:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10037,11 +10199,14 @@
      "id": "92:619",
      "type": "SET",
      "status": "draft",
-     "descLen": 178,
+     "descLen": 584,
      "descHeads": [
       "Status:",
       "Level:",
-      "Дата и время:"
+      "Дата и время:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10124,11 +10289,14 @@
      "id": "92:685",
      "type": "SET",
      "status": "draft",
-     "descLen": 220,
+     "descLen": 653,
      "descHeads": [
       "Status:",
       "Level:",
-      "Монета:"
+      "Монета:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10212,12 +10380,15 @@
      "id": "92:727",
      "type": "SET",
      "status": "draft",
-     "descLen": 463,
+     "descLen": 965,
      "descHeads": [
       "Status:",
       "Level:",
       "Сумма операции:",
-      "Unexpected —"
+      "Unexpected —",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10311,10 +10482,13 @@
      "id": "92:744",
      "type": "SET",
      "status": "draft",
-     "descLen": 142,
+     "descLen": 591,
      "descHeads": [
       "Status:",
-      "Level:"
+      "Level:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10394,10 +10568,13 @@
      "id": "92:770",
      "type": "SET",
      "status": "draft",
-     "descLen": 157,
+     "descLen": 571,
      "descHeads": [
       "Status:",
-      "Level:"
+      "Level:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10464,10 +10641,13 @@
      "id": "93:670",
      "type": "SET",
      "status": "draft",
-     "descLen": 196,
+     "descLen": 651,
      "descHeads": [
       "Status:",
-      "Level:"
+      "Level:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10577,10 +10757,13 @@
      "id": "93:725",
      "type": "SET",
      "status": "draft",
-     "descLen": 145,
+     "descLen": 563,
      "descHeads": [
       "Status:",
-      "Level:"
+      "Level:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10637,10 +10820,13 @@
      "id": "93:757",
      "type": "SET",
      "status": "draft",
-     "descLen": 130,
+     "descLen": 553,
      "descHeads": [
       "Status:",
-      "Level:"
+      "Level:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10692,11 +10878,14 @@
      "id": "93:784",
      "type": "SET",
      "status": "draft",
-     "descLen": 177,
+     "descLen": 585,
      "descHeads": [
       "Status:",
       "Level:",
-      "Избранное в строке:"
+      "Избранное в строке:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10749,11 +10938,14 @@
      "id": "93:817",
      "type": "SET",
      "status": "draft",
-     "descLen": 134,
+     "descLen": 562,
      "descHeads": [
       "Status:",
       "Level:",
-      "Иконка 24 в ячейке."
+      "Иконка 24 в ячейке.",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10813,10 +11005,13 @@
      "id": "93:927",
      "type": "SET",
      "status": "draft",
-     "descLen": 174,
+     "descLen": 600,
      "descHeads": [
       "Status:",
-      "Level:"
+      "Level:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10896,11 +11091,14 @@
      "id": "93:978",
      "type": "SET",
      "status": "draft",
-     "descLen": 194,
+     "descLen": 612,
      "descHeads": [
       "Status:",
       "Level:",
-      "Кнопка «⋯» —"
+      "Кнопка «⋯» —",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -10965,7 +11163,7 @@
      "id": "63:291",
      "type": "SET",
      "status": "draft",
-     "descLen": 1069,
+     "descLen": 1479,
      "descHeads": [
       "Status:",
       "Level:",
@@ -10976,7 +11174,9 @@
       "A11y:",
       "Часть Table.",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -10999,6 +11199,18 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 8
+      },
+      {
+       "name": "Show hit area",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 8
+      },
+      {
+       "name": "Safe margin",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 8
       }
      ],
      "nested": {
@@ -11007,20 +11219,25 @@
       "Table cell / Transaction": 8,
       "Table cell / Text": 8,
       "Table cell / Status": 8,
-      "Table cell / More": 8
+      "Table cell / More": 8,
+      "_Hit area": 16,
+      "_Safe margin": 8
      },
      "minmax": [],
      "layers": {
       "ring": 8,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
+      "hitWeb": 8,
+      "hitApp": 8,
+      "hit": 8,
+      "safe": 8
      },
-     "rawCount": 8,
+     "rawCount": 24,
      "raw": [
       "(root):h=48",
-      "(root):h=80"
+      "hit area · web:w=856",
+      "hit area · web:h=48",
+      "(root):h=80",
+      "hit area · web:h=80"
      ],
      "tokens": {
       "(root)": [
@@ -11062,6 +11279,19 @@
       "focus ring": [
        "s:border/focus-ring",
        "sw:border/width/focus-ring"
+      ],
+      "hit area · web": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
+       "visible:touch/is-coarse"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
       ],
       "state layer": [
        "f:state/layer",
@@ -11174,7 +11404,7 @@
      "id": "45:250",
      "type": "SET",
      "status": "draft",
-     "descLen": 752,
+     "descLen": 934,
      "descHeads": [
       "Status:",
       "Level:",
@@ -11183,7 +11413,8 @@
       "Когда использовать:",
       "Хаптик:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -11341,7 +11572,7 @@
      "id": "168:1324",
      "type": "SET",
      "status": "beta",
-     "descLen": 1130,
+     "descLen": 1114,
      "descHeads": [
       "Status:",
       "Level:",
@@ -11618,6 +11849,10 @@
        "r:radius/control-sm",
        "w:control/height/sm"
       ],
+      "timer": [
+       "h:icon/size/sm",
+       "w:icon/size/sm"
+      ],
       "safe area": [
        "h:os/safe-area/top"
       ],
@@ -11666,14 +11901,17 @@
      "id": "631:3104",
      "type": "SET",
      "status": "draft",
-     "descLen": 563,
+     "descLen": 1174,
      "descHeads": [
       "Status:",
       "Level:",
       "Toggle group:",
       "• Direction:",
       "• Error —",
-      "• M:"
+      "• M:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -11800,7 +12038,7 @@
      "id": "1662:1318",
      "type": "SET",
      "status": "draft",
-     "descLen": 904,
+     "descLen": 892,
      "descHeads": [
       "Status:",
       "Level:",
@@ -11972,13 +12210,15 @@
      "id": "172:832",
      "type": "SET",
      "status": "draft",
-     "descLen": 505,
+     "descLen": 928,
      "descHeads": [
       "Status:",
       "Level:",
       "Анатомия:",
       "Когда нет:",
-      "A11y:"
+      "A11y:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -12108,14 +12348,15 @@
      "id": "169:1713",
      "type": "SET",
      "status": "draft",
-     "descLen": 831,
+     "descLen": 959,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда использовать:",
       "Single —",
       "A11y:",
-      "Тень:"
+      "Тень:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -12230,9 +12471,11 @@
       "Date cell": [
        "f:accent/subtle",
        "f:action/primary/default",
+       "h:control/height/md",
        "r:radius/control-sm",
        "s:border/accent",
-       "sw:border/width/default"
+       "sw:border/width/default",
+       "w:control/height/md"
       ]
      },
      "statusFirstLine": true
@@ -12298,6 +12541,7 @@
       "Type:",
       "Состояния графика —",
       "Когда использовать:",
+      "A11y:",
       "Поиск:",
       "Legacy:",
       "Правила:"
@@ -12479,7 +12723,7 @@
      "id": "97:921",
      "type": "SET",
      "status": "draft",
-     "descLen": 1421,
+     "descLen": 1629,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12489,7 +12733,8 @@
       "Legacy:",
       "Когда использовать:",
       "Правила:",
-      "A11y:"
+      "A11y:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
@@ -12525,15 +12770,13 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 240,
+     "rawCount": 80,
      "raw": [
       "(root):w=473",
       "(root):h=140",
-      "bar:r=3",
       "bar:o=0.35",
       "halo:o=0.24",
-      "area:o=0.45",
-      "bar:r=2"
+      "area:o=0.45"
      ],
      "tokens": {
       "(root)": [
@@ -12543,7 +12786,8 @@
        "f:action/disabled",
        "f:data/1",
        "f:data/4",
-       "f:skeleton/base"
+       "f:skeleton/base",
+       "r:radius/2xs"
       ],
       "Нет данных за период": [
        "f:text/tertiary",
@@ -12660,7 +12904,7 @@
      "id": "1663:8388",
      "type": "SET",
      "status": "draft",
-     "descLen": 1087,
+     "descLen": 1051,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12951,7 +13195,7 @@
      "id": "55:426",
      "type": "SET",
      "status": "draft",
-     "descLen": 1173,
+     "descLen": 1287,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12960,7 +13204,8 @@
       "Правила:",
       "A11y:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
@@ -13119,13 +13364,15 @@
      "id": "173:648",
      "type": "SET",
      "status": "draft",
-     "descLen": 685,
+     "descLen": 938,
      "descHeads": [
       "Status:",
       "Level:",
       "Success, Error, Pending —",
       "Когда нет:",
-      "A11y:"
+      "A11y:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -13251,13 +13498,15 @@
      "id": "179:3057",
      "type": "SET",
      "status": "draft",
-     "descLen": 512,
+     "descLen": 770,
      "descHeads": [
       "Status:",
       "Level:",
       "Зона загрузки файла:",
       "На Compact —",
-      "A11y:"
+      "A11y:",
+      "Когда использовать:",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -13277,23 +13526,38 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 5
+      },
+      {
+       "name": "Show hit area",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 5
+      },
+      {
+       "name": "Safe margin",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 5
       }
      ],
      "nested": {
-      "(icons)": 5
+      "(icons)": 5,
+      "_Hit area": 10,
+      "_Safe margin": 5
      },
      "minmax": [],
      "layers": {
       "ring": 5,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
+      "hitWeb": 5,
+      "hitApp": 5,
+      "hit": 5,
+      "safe": 5
      },
-     "rawCount": 6,
+     "rawCount": 15,
      "raw": [
       "(root):w=360",
-      "(root):o=0.5"
+      "hit area · web:w=360",
+      "hit area · web:h=122"
      ],
      "tokens": {
       "(root)": [
@@ -13333,6 +13597,19 @@
        "r:radius/focus-ring-lg",
        "s:border/focus-ring",
        "sw:border/width/focus-ring"
+      ],
+      "hit area · web": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
+       "visible:touch/is-coarse"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
       ],
       "state layer": [
        "f:state/layer",
@@ -13573,7 +13850,8 @@
       "Legacy:",
       "Motion:",
       "Expressive (привязано):",
-      "Тень:"
+      "Тень:",
+      "Поверхность —"
      ],
      "inBoard": false,
      "axes": {
@@ -13691,7 +13969,7 @@
      "id": "81:829",
      "type": "SET",
      "status": "draft",
-     "descLen": 1663,
+     "descLen": 1886,
      "descHeads": [
       "Status:",
       "Level:",
@@ -13704,7 +13982,9 @@
       "Поиск:",
       "Legacy:",
       "Motion:",
-      "Тень:"
+      "Тень:",
+      "Поверхность —",
+      "Правила:"
      ],
      "inBoard": false,
      "axes": {
@@ -14050,7 +14330,9 @@
       "Поиск:",
       "Legacy:",
       "Motion:",
-      "Expressive (привязано):"
+      "Expressive (привязано):",
+      "Тень:",
+      "Поверхность —"
      ],
      "inBoard": false,
      "axes": {
@@ -14432,7 +14714,8 @@
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "12 · Локали и RTL"
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
@@ -14485,16 +14768,16 @@
       "hit": 0,
       "safe": 1
      },
-     "rawCount": 2,
+     "rawCount": 1,
      "raw": [
-      "(root):sw=1",
       "(root):w=375"
      ],
      "tokens": {
       "(root)": [
        "effects:material/thin/blur",
        "f:material/thin/fill",
-       "s:edge/hairline"
+       "s:edge/hairline",
+       "sw:border/width/default"
       ],
       "Items": [
        "p:space/8"

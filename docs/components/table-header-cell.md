@@ -70,7 +70,7 @@
 ## 12. Figma projection
 - Набор `Table header cell`, вариантов 20 из 24; оси: Align, Sort, State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 746 знаков, разделы: Status: Level: Правила: A11y: Часть Table. Поиск: Legacy:
+- Описание: 1010 знаков, разделы: Status: Level: Правила: A11y: Часть Table. Поиск: Legacy: Когда использовать: Матрица:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -81,12 +81,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:
-  - MATRIX: 20 из 24
-  - PROPS: Show filter 18 из 20; Show info 18 из 20
-  - RAW: 80 (напр. `(root):w=160`, `(root):h=44`)
-  - BOARD: нет разделов 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: .table / column title (DS Web)

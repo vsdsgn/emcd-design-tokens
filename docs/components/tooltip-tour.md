@@ -71,7 +71,7 @@
 ## 12. Figma projection
 - Набор `Tooltip tour`, вариантов 4 из 4; оси: Placement, Tone.
 - Борда: «Tooltip tour — борда · шаблон v3», разделов 10.
-- Описание: 904 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
+- Описание: 892 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -81,9 +81,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 8 (напр. `(root):w=320`, `step:o=0.72`)
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: DS Web Tooltip tour (color, neutral).

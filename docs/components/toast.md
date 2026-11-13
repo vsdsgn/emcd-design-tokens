@@ -15,7 +15,7 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `overlay surface`, `content`, `title`, `description`, `actions`, `Button`, `close`, `row`.
+- Слои с токенами: `overlay surface`, `content`, `title`, `description`, `actions`, `Button`, `close`, `timer`, `row`.
 - Вложено: `_Overlay surface` ×10, `media/status/info` ×2, `Button` ×10, иконки ×10, `Circle timer` ×5, `media/status/success` ×1, `media/status/warning` ×1, `media/status/danger` ×1.
 - Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 5.
 
@@ -67,6 +67,7 @@
 - `actions`: интервал `space/8`; отступы `space/8`.
 - `Button`: заливка / цвет `action/tertiary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/4`, `space/6`; радиус `radius/control-sm`, `radius/xs`; обводка `control/border/default`; толщина обводки `border/width/default`.
 - `close`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
+- `timer`: высота `icon/size/sm`; ширина `icon/size/sm`.
 - `row`: интервал `space/12`; отступы `space/12`, `space/16`.
 - Служебные слои (общие правила — `service-layers.md`): `safe area`: высота `os/safe-area/top`.
 - Min / max корня: minWidth 280 size/toast/min.
@@ -88,10 +89,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - PROPS: Description 5 из 10; Actions 5 из 10; Icon 5 из 10; Show description 5 из 10; Timer 5 из 10; Safe area 5 из 10
-  - RAW: 10 (напр. `(root):w=400`, `(root):w=375`)
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: DS Web Toast (base notification).

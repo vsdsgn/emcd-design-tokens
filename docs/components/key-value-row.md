@@ -50,10 +50,10 @@
 - в коде <dl> / <dt> / <dd>. |
 
 ## 10. Tokens
-- `корень`: интервал `space/16`; отступы `space/12`, `space/8`; обводка `border/subtle`.
+- `корень`: интервал `space/16`; отступы `space/12`, `space/8`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `key`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/md`, `type/label/md`.
 - `value`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/mono`, `font/family/text`, `type/body/md`, `type/label/md`.
-- Значений без переменной: 4 (напр. `(root):w=360`, `(root):sw=1`).
+- Значений без переменной: 3 (напр. `(root):w=360`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -61,7 +61,7 @@
 ## 12. Figma projection
 - Набор `Key-value row`, вариантов 3 из 3; оси: Emphasis.
 - Борда: «Key-value row — борда · шаблон v3», разделов 10.
-- Описание: 409 знаков, разделы: Status: Level: Строка «название — Default — A11y:
+- Описание: 772 знаков, разделы: Status: Level: Строка «название — Default — A11y: Когда использовать: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -71,10 +71,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:
-  - RAW: 4 (напр. `(root):w=360`, `(root):sw=1`)
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

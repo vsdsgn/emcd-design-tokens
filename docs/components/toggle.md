@@ -71,7 +71,7 @@
 ## 12. Figma projection
 - Набор `Toggle`, вариантов 32 из 32; оси: Status, Size, Control position, State.
 - Борда: «Toggle — борда · шаблон v3», разделов 12.
-- Описание: 2042 знаков, разделы: Status: Level: Переключатель: Когда использовать: • M — • Hover / Pressed — • Переключение — • Кликается вся строка. • В прототипе Figma: • Label — Правила: Сборка:
+- Описание: 2030 знаков, разделы: Status: Level: Переключатель: Когда использовать: • M — • Hover / Pressed — • Переключение — • Кликается вся строка. • В прототипе Figma: • Label — Правила: Сборка: A11y:
 - Заменён на месте 2026-11-13: набор собран от базы `_Selection control` (`selection-control.md`), ид. набора и экземпляры в продуктах сохранены.
 - Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.
 

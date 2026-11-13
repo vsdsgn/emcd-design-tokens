@@ -78,7 +78,7 @@
 
 ## 12. Figma projection
 - Набор `Tab bar item`, вариантов 4 из 4; оси: Selected, State.
-- Борда: «Tab bar item — борда · шаблон v3», разделов 12.
+- Борда: «Tab bar item — борда · шаблон v3», разделов 13.
 - Описание: 864 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Хаптик: Поиск: Legacy: Disabled не используется:
 
 ## 13. Code projection

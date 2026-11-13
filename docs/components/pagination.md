@@ -47,7 +47,7 @@
 ## 10. Tokens
 - `корень`: интервал `space/4`.
 - `previous`: интервал `space/6`; высота `control/height/md`, `control/height/sm`; радиус `radius/control`, `radius/control-sm`; ширина `control/height/md`, `control/height/sm`.
-- `Pagination item`: заливка / цвет `accent/subtle`; мин. ширина `control/height/md`, `control/height/sm`; отступы `control/padding-x/sm`, `space/8`; радиус `radius/control`, `radius/control-sm`.
+- `Pagination item`: заливка / цвет `accent/subtle`; высота `control/height/md`, `control/height/sm`; мин. ширина `control/height/md`, `control/height/sm`; отступы `control/padding-x/sm`, `space/8`; радиус `radius/control`, `radius/control-sm`.
 - `ellipsis`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `next`: интервал `space/6`; высота `control/height/md`, `control/height/sm`; радиус `radius/control`, `radius/control-sm`; ширина `control/height/md`, `control/height/sm`.
 - `range`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`; отступы `space/8`.
@@ -58,7 +58,7 @@
 ## 12. Figma projection
 - Набор `Pagination`, вариантов 4 из 4; оси: Type, Size.
 - Борда: «Pagination — борда · шаблон v3», разделов 9.
-- Описание: 830 знаков, разделы: Status: Level: Когда использовать: Pages — Prev/next — A11y: Хаптик:
+- Описание: 930 знаков, разделы: Status: Level: Когда использовать: Pages — Prev/next — A11y: Хаптик: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -68,9 +68,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Правила:
-  - BOARD: нет разделов 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

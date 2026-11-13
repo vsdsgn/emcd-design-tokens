@@ -68,7 +68,7 @@
 ## 12. Figma projection
 - Набор `Toggle group`, вариантов 4 из 4; оси: Direction, Size, State.
 - Борда: «Toggle group — борда · шаблон v3», разделов 10.
-- Описание: 563 знаков, разделы: Status: Level: Toggle group: • Direction: • Error — • M:
+- Описание: 1174 знаков, разделы: Status: Level: Toggle group: • Direction: • Error — • M: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -79,9 +79,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

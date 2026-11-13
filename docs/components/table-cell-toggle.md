@@ -56,7 +56,7 @@
 ## 12. Figma projection
 - Набор `Table cell / Toggle`, вариантов 3 из 3; оси: State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 130 знаков, разделы: Status: Level:
+- Описание: 553 знаков, разделы: Status: Level: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -67,10 +67,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - RAW: 6 (напр. `(root):w=80`, `(root):h=80`)
-  - BOARD: нет разделов 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: table / toggle.

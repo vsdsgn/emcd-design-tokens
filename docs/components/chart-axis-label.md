@@ -71,11 +71,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - PROPS: Label 6 из 8
-  - MINMAX: maxw=64
-  - SERVICE: нет кольца фокуса, зоны нажатия, безопасного поля
-  - BOARD: нет разделов 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: .chart (size small/large, state default/hover/active/skeleton) — widget Graph.

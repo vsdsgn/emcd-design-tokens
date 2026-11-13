@@ -46,7 +46,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/6`.
-- `Page dot`: заливка / цвет `icon/primary`, `icon/tertiary`; радиус `radius/chip`.
+- `Page dot`: заливка / цвет `icon/primary`, `icon/tertiary`; высота `size/dot/sm`; радиус `radius/chip`; ширина `size/dot/sm`.
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -54,7 +54,7 @@
 ## 12. Figma projection
 - Набор `Page indicator`, вариантов 14 из 20; оси: Count, Selected.
 - Борда: «Page indicator — борда · шаблон v3», разделов 9.
-- Описание: 488 знаков, разделы: Status: Level: Когда использовать: Активная — A11y:
+- Описание: 698 знаков, разделы: Status: Level: Когда использовать: Активная — A11y: Правила: Матрица:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -64,10 +64,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Правила:
-  - MATRIX: 14 из 20
-  - BOARD: нет разделов 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

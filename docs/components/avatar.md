@@ -65,8 +65,8 @@
 
 ## 12. Figma projection
 - Набор `Avatar`, вариантов 12 из 12; оси: Size, Type.
-- Борда: «Avatar — борда · шаблон v3», разделов 8.
-- Описание: 625 знаков, разделы: Status: Level: Правила: Когда использовать: Поиск: Legacy:
+- Борда: «Avatar — борда · шаблон v3», разделов 9.
+- Описание: 625 знаков, разделы: Status: Level: Правила: Когда использовать: A11y: Поиск: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -76,11 +76,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: A11y:
-  - PROPS: Initials 4 из 12
-  - RAW: 24 (напр. `(root):w=20`, `(root):h=20`)
-  - BOARD: нет разделов 04, 05, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: avatar (status, size md/sm, state), base avatar / single (size, var=text/icon/icon action/image) (DS Web)

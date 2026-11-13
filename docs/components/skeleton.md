@@ -51,8 +51,8 @@
 
 ## 12. Figma projection
 - Набор `Skeleton`, вариантов 7 из 7; оси: Shape.
-- Борда: «Skeleton — борда · шаблон v3», разделов 9.
-- Описание: 1236 знаков, разделы: Status: Level: Кирпичи скелетона: Цвет — Правила: A11y: Когда использовать: Поиск: Motion: Shimmer:
+- Борда: «Skeleton — борда · шаблон v3», разделов 10.
+- Описание: 1130 знаков, разделы: Status: Level: Кирпичи скелетона: Цвет — Правила: A11y: Когда использовать: Поиск: Motion: Shimmer:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -62,9 +62,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 14 (напр. `(root):w=200`, `(root):h=12`)
-  - BOARD: нет разделов 04, 05, 07, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

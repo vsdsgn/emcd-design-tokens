@@ -56,7 +56,7 @@
 ## 12. Figma projection
 - Набор `Table cell / Star`, вариантов 6 из 6; оси: Status, State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 177 знаков, разделы: Status: Level: Избранное в строке:
+- Описание: 585 знаков, разделы: Status: Level: Избранное в строке: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -67,11 +67,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - AXES: `Status` — булева ось (Off | On)
-  - RAW: 12 (напр. `(root):w=80`, `(root):h=80`)
-  - BOARD: нет разделов 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: table / star (star active).

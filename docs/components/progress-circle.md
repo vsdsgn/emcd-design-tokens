@@ -59,8 +59,8 @@
 
 ## 12. Figma projection
 - Набор `Progress circle`, вариантов 3 из 3; оси: Size.
-- Борда: «Progress — борда · шаблон v3», разделов 8.
-- Описание: 555 знаков, разделы: Status: Level: Круговой прогресс: S 24 — A11y: Поиск: Legacy: Motion:
+- Борда: «Progress — борда · шаблон v3», разделов 9.
+- Описание: 959 знаков, разделы: Status: Level: Круговой прогресс: S 24 — A11y: Поиск: Legacy: Motion: Когда использовать: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -70,11 +70,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:
-  - PROPS: Value 2 из 3
-  - RAW: 12 (напр. `(root):w=24`, `(root):h=24`)
-  - BOARD: нет разделов 04, 05, 07, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: CIrcle loader (DS Web) — для неизвестной длительности используйте Spinner

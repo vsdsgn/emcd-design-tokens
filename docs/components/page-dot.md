@@ -43,16 +43,16 @@
 - |
 
 ## 10. Tokens
-- `корень`: заливка / цвет `icon/primary`, `icon/tertiary`; радиус `radius/chip`.
-- Значений без переменной: 4 (напр. `(root):w=6`, `(root):h=6`, `(root):w=16`).
+- `корень`: заливка / цвет `icon/primary`, `icon/tertiary`; высота `size/dot/sm`; радиус `radius/chip`; ширина `size/dot/sm`.
+- Значений без переменной: 1 (напр. `(root):w=16`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
 - Набор `Page dot`, вариантов 2 из 2; оси: Selected.
-- Борда: «Page dot — борда · шаблон v3», разделов 8.
-- Описание: 103 знаков, разделы: Status: Level: Точка индикатора страниц.
+- Борда: «Page dot — борда · шаблон v3», разделов 9.
+- Описание: 511 знаков, разделы: Status: Level: Точка индикатора страниц. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -62,11 +62,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - AXES: `Selected` — булева ось (Off | On)
-  - RAW: 4 (напр. `(root):w=6`, `(root):h=6`)
-  - BOARD: нет разделов 04, 05, 07, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

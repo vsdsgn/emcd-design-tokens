@@ -68,7 +68,7 @@
 
 ## 12. Figma projection
 - Набор `Breadcrumb item`, вариантов 5 из 5; оси: State.
-- Борда: «Breadcrumb item — борда · шаблон v3», разделов 11.
+- Борда: «Breadcrumb item — борда · шаблон v3», разделов 12.
 - Описание: 714 знаков, разделы: Status: Level: Пункт хлебных крошек. Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection

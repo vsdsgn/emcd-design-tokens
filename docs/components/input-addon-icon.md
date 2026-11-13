@@ -52,7 +52,7 @@
 ## 12. Figma projection
 - Компонент `Input addon / Icon`; оси: нет.
 - Борда: «Input — борда · шаблон v3», разделов 13.
-- Описание: 283 знаков, разделы: Status: Level: Иконка в Leading: Когда использовать: A11y:
+- Описание: 395 знаков, разделы: Status: Level: Иконка в Leading: Когда использовать: A11y: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -62,8 +62,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Правила:
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

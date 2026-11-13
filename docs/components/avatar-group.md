@@ -55,7 +55,7 @@
 ## 12. Figma projection
 - Набор `Avatar group`, вариантов 6 из 6; оси: Size, More.
 - Борда: «Avatar group — борда · шаблон v3», разделов 9.
-- Описание: 220 знаков, разделы: Status: Level:
+- Описание: 678 знаков, разделы: Status: Level: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -65,11 +65,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - AXES: `More` — булева ось (Off | On)
-  - RAW: 6 (напр. `(root):gap=-4`, `(root):gap=-6`)
-  - BOARD: нет разделов 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: base avatar / group line (size, more, RTL — в коде направление по dir).

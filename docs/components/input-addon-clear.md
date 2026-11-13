@@ -43,10 +43,11 @@
 - |
 
 ## 10. Tokens
-- `circle`: заливка / цвет `control/track`.
+- `корень`: высота `icon/size/control`; ширина `icon/size/control`.
+- `circle`: заливка / цвет `control/track`; высота `icon/size/control`; ширина `icon/size/control`.
 - `glyph`: обводка `icon/secondary`; толщина обводки `icon/stroke/regular`.
 - Служебные слои (общие правила — `service-layers.md`): `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse`.
-- Значений без переменной: 4 (напр. `(root):w=20`, `(root):h=20`, `hit area · web:w=24`, `hit area · web:h=24`).
+- Значений без переменной: 2 (напр. `hit area · web:w=24`, `hit area · web:h=24`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -54,7 +55,7 @@
 ## 12. Figma projection
 - Компонент `Input addon / Clear`; оси: нет.
 - Борда: «Input — борда · шаблон v3», разделов 13.
-- Описание: 415 знаков, разделы: Status: Level: Когда использовать: A11y:
+- Описание: 549 знаков, разделы: Status: Level: Когда использовать: A11y: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -64,9 +65,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Правила:
-  - RAW: 4 (напр. `(root):w=20`, `(root):h=20`)
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

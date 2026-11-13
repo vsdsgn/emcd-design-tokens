@@ -17,7 +17,6 @@
 | Отступ кольца фокуса от контрола 2 px | слой `focus ring` (инсет), код: `outline-offset: var(--focus-offset)` | Figma не умеет привязать offset слоя к переменной; значение в токене `focus/offset` (2), проверяется аудитом | 2027-05-06 |
 | Кольцо фокуса внутри строки, без смещения +2 и без радиус-токена | Table header cell, Table row (28 колец) | кольцо снаружи перекрыло бы соседние ячейки и строки; решение 2026-11-12 | 2027-05-12 |
 | Радиус кольца фокуса `radius/sm` вместо `radius/focus-ring*` | Checkbox, слой `focus ring` | отдельного токена для радиуса коробочки + 2 нет, значение совпадает с `radius/sm`; решение 2026-11-12 | 2027-05-12 |
-| Card · content: обводка 1 px `#808080`, радиус 4 | Card, слой `content` | заглушка содержимого слота, не часть дизайна карточки; в продукте слот заменяется | 2027-05-06 |
 | Столбики Chart: ширина, высота, зазор столбиков | Chart plot, Type=Bars | размер определяют данные и ширина графика, не шкала | 2027-05-06 |
 | Радиус 1 px у индикатора Tab | Tab (индикатор активной вкладки, 24 варианта) | физика: линия 1 px, радиус = половина толщины; не уточнено в проверке 06.11 (радиус привязан или заменён) | 2026-12-06 |
 | Радиусы бейджа сети у Coin 3.5 · 4.5 · 5.5 · 7 · 9 | Coin, слой `network` (по размерам XS–XL) | формула: круг, радиус = размер / 2 | 2027-05-06 |
@@ -34,8 +33,18 @@
 | `minWidth` 168 корня | Chart tooltip | временно: токен `size/chart-tooltip/min` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
 | `maxWidth` 64 корня | Chart axis label | временно: токен `size/chart-axis-label/max` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
 | `minWidth` 200 | Page header, слой `text` | временно: токен `size/page-header/text-min` заведён 13.11, не опубликован; привязать после Publish Foundations | 2026-12-13 |
+| Ширина и высота 16 / 20 / 24 / 32 / 40 / 56 числом | Avatar, Coin, Step symbol, Step trail, Transaction (`icon`) | временно: токен `size/media/*` заведён 13.11 (вторая пачка), не опубликован; привязать после Publish Foundations (`bind-dims.plugin.js`) | 2026-12-13 |
+| Высота 4 / 8 числом | Progress (`track`, `fill`), Step segment, Step progress, Scrollbar (`thumb`) | временно: токен `size/track/sm, size/track/md` заведён 13.11 (вторая пачка), не опубликован; привязать после Publish Foundations (`bind-dims.plugin.js`) | 2026-12-13 |
+| Диаметр 24 / 48 / 72 числом | Progress circle | временно: токен `size/progress-circle/*` заведён 13.11 (вторая пачка), не опубликован; привязать после Publish Foundations (`bind-dims.plugin.js`) | 2026-12-13 |
+| Сторона 12 числом | Legend swatch; Scrollbar (корень) | временно: токен `size/legend-swatch, size/scrollbar` заведён 13.11 (вторая пачка), не опубликован; привязать после Publish Foundations (`bind-dims.plugin.js`) | 2026-12-13 |
+| Высота 56 / 68 числом | Code cell | временно: токен `size/code-cell/md, size/code-cell/lg` заведён 13.11 (вторая пачка), не опубликован; привязать после Publish Foundations (`bind-dims.plugin.js`) | 2026-12-13 |
+| Высота 36 / 64 числом | Nav item, Select compact; Transaction | временно: токен `size/row/compact, size/row/lg` заведён 13.11 (вторая пачка), не опубликован; привязать после Publish Foundations (`bind-dims.plugin.js`) | 2026-12-13 |
+| Высота 44 / 48 / 80 числом | Table header cell, Table row, Table cell / * | временно: токен `size/table/*` заведён 13.11 (вторая пачка), не опубликован; привязать после Publish Foundations (`bind-dims.plugin.js`) | 2026-12-13 |
+| Прозрачность слоя числом: 0.2 (Spinner `track`), 0.5 (Code cell `digit` в Empty / Focus), 0.24 (`halo` в Chart plot и Chart crosshair), 0.72 (Tooltip tour, `step`), 0.35 / 0.45 (Chart plot: `bar` в Hover, `area`) | перечисленные слои | временно: семантических токенов прозрачности в Foundations нет; вопрос о шкале `opacity/*` — в парковке OPEN-QUESTIONS | 2026-12-13 |
+| Ширина / высота образца на корне числом (длина линии, область затемнения, длина дорожки, размер заглушки, область графика, высота панели) | Divider, Overlay, Scrollbar, Skeleton, Chart crosshair, Chart card (`track` 220), Chart plot, Sidebar, Side panel | образец: реальный размер задаёт родитель или данные, в коде значения нет | 2027-05-13 |
 
 ## История
 
 - 2026-11-06 — первый прогон `variables-check.plugin.js`: зазоры и отступы без `space/*`, обводки 1 / 1.5 / 2 числом, радиус 12 у `state layer` Tab bar item.
 - 2026-11-13 — всё найденное 06.11 привязано (`scripts/figma/bind-raw.plugin.js`, 231 привязка: `space/N`, `border/width/default`, `icon/stroke/regular`, `border/width/strong`, `chart/stroke`, `radius/control`); остаток, который следует из формулы, записан в реестр выше. `space/96` не заводим: значение — формула Promo card.
+- 2026-11-13 (вечер) — Card `content` привязан (`border/default`, `radius/xs`, `border/width/default`), строка снята; добавлены временные строки второй пачки `size/*` (20 токенов), прозрачности и постоянная строка образцов длины / высоты.

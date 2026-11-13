@@ -79,7 +79,7 @@
 ## 12. Figma projection
 - Набор `Suggest`, вариантов 12 из 12; оси: Layout, Tone.
 - Борда: «Suggest — борда · шаблон v3», разделов 10.
-- Описание: 1519 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
+- Описание: 1447 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -89,9 +89,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 12 (напр. `(root):w=480`, `(root):w=960`)
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: DS Web Banner, Alert; продукт: suggest, notifications, banner.

@@ -68,7 +68,7 @@
 ## 12. Figma projection
 - Набор `Radio group`, вариантов 12 из 12; оси: Direction, Size, State.
 - Борда: «Radio group — борда · шаблон v3», разделов 10.
-- Описание: 516 знаков, разделы: Status: Level: Radio group: • Direction: • Error — • M:
+- Описание: 1126 знаков, разделы: Status: Level: Radio group: • Direction: • Error — • M: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -79,9 +79,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:, A11y:
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

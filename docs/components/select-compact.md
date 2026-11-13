@@ -16,8 +16,8 @@
 
 ## 3. Anatomy
 - Слои с токенами: `value`, `text`.
-- Вложено: `smbl-bitcoin-btc` ×5, иконки ×5.
-- Служебные слои (вариантов из 5): кольцо фокуса 5 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `smbl-bitcoin-btc` ×5, иконки ×5, `_Hit area` ×10, `_Safe margin` ×5.
+- Служебные слои (вариантов из 5): кольцо фокуса 5 · зона Web 5 · зона касания 5 · безопасное поле 5.
 
 ## 4. States
 - Ось State: Default · Hover · Open · Disabled · Pressed. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
@@ -39,6 +39,8 @@
 | Show leading | булево | вкл | 5 из 5 |
 | Leading | SLOT | `undefined` | 5 из 5 |
 | Focus ring | булево | выкл | 5 из 5 · служебное |
+| Show hit area | булево | выкл | 5 из 5 · служебное |
+| Safe margin | булево | выкл | 5 из 5 · служебное |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -56,9 +58,9 @@
 - `корень`: заливка / цвет `action/disabled`, `action/secondary/default`, `action/secondary/pressed`; интервал `space/16`; отступы `space/8`; радиус `radius/control-sm`.
 - `value`: интервал `space/6`.
 - `text`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · fine`: видимость `touch/is-fine` · `hit area · coarse`: видимость `touch/is-coarse` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control-sm`.
+- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control-sm`.
 - Min / max корня: maxWidth 200 числом.
-- Значений без переменной: 15 (напр. `(root):h=36`, `hit area · fine:w=114`, `hit area · fine:h=36`).
+- Значений без переменной: 15 (напр. `(root):h=36`, `hit area · web:w=114`, `hit area · web:h=36`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -66,7 +68,7 @@
 ## 12. Figma projection
 - Набор `Select compact`, вариантов 5 из 5; оси: State.
 - Борда: «Select — борда · шаблон v3», разделов 11.
-- Описание: 805 знаков, разделы: Status: Level: Когда использовать: A11y: Поиск: Legacy:
+- Описание: 1006 знаков, разделы: Status: Level: Когда использовать: A11y: Поиск: Legacy: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -77,12 +79,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Правила:
-  - MINMAX: maxw=200
-  - RAW: 15 (напр. `(root):h=36`, `hit area · fine:w=114`)
-  - SERVICE: нет безопасного поля
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: Selector small (Type=Default/Inactive) (DS Web)

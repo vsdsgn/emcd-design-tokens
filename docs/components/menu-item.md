@@ -57,7 +57,7 @@
 ## 12. Figma projection
 - Набор `Menu item`, вариантов 16 из 16; оси: Size, Tone, State.
 - Борда: «Menu item — борда · шаблон v3», разделов 10.
-- Описание: 1233 знаков, разделы: Status: Level: Пункт меню. • Leading — • Trailing — • M — • Show selection — • Tone = Danger — A11y: Кольцо фокуса:
+- Описание: 1614 знаков, разделы: Status: Level: Пункт меню. • Leading — • Trailing — • M — • Show selection — • Tone = Danger — A11y: Кольцо фокуса: Когда использовать: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -68,10 +68,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): по набору 0; замечания базы — `docs/components/list-row.md`, раздел 14. Стенд — на пилоте базы.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Когда использовать:, Правила:
-  - RAW: 16 (напр. `(root):w=290`)
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

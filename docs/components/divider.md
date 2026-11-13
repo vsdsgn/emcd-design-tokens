@@ -36,7 +36,7 @@
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label text | текст | «или» | 1 из 6 |
+| Label text | текст | «или» | 2 из 6 |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -52,17 +52,17 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/12`.
-- `Rectangle`: заливка / цвет `border/subtle`; обводка `border/default`.
+- `Rectangle`: заливка / цвет `border/subtle`; обводка `border/default`; толщина обводки `border/width/default`.
 - `label`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
-- Значений без переменной: 11 (напр. `(root):w=320`, `(root):w=1`, `(root):h=40`, `Rectangle:sw=1`).
+- Значений без переменной: 8 (напр. `(root):w=320`, `(root):w=1`, `(root):h=40`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
 - Набор `Divider`, вариантов 6 из 8; оси: Orientation, Label, Style.
-- Борда: «Divider — борда · шаблон v3», разделов 7.
-- Описание: 387 знаков, разделы: Status: Level: Разделитель: Когда использовать:
+- Борда: «Divider — борда · шаблон v3», разделов 8.
+- Описание: 940 знаков, разделы: Status: Level: Разделитель: Когда использовать: Правила: A11y: Матрица:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -72,13 +72,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Правила:, A11y:
-  - MATRIX: 6 из 8
-  - AXES: `Label` — булева ось (Off | On)
-  - PROPS: Label text 1 из 6
-  - RAW: 11 (напр. `(root):w=320`, `(root):w=1`)
-  - BOARD: нет разделов 04, 05, 07, 08, 12
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: divider text --1.0 (DS App), разделители внутри компонентов DS Web.

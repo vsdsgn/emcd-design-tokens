@@ -78,7 +78,7 @@
 ## 12. Figma projection
 - Набор `Stat card`, вариантов 2 из 2; оси: State.
 - Борда: «Stat card — борда · шаблон v3», разделов 10.
-- Описание: 1239 знаков, разделы: Status: Level: Stat card: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
+- Описание: 1213 знаков, разделы: Status: Level: Stat card: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -89,10 +89,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - PROPS: Label 1 из 2; Value 1 из 2; Unit 1 из 2; Info 1 из 2; Delta 1 из 2; Delta caption 1 из 2; Show footer 1 из 2; Footer 1 из 2
-  - RAW: 2 (напр. `(root):w=280`)
-  - BOARD: нет разделов 05, 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: карточки дашборда Mining (Web App / App)

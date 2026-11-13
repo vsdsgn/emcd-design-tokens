@@ -23,6 +23,16 @@
 - **Зазоры, отступы, обводки → переменные** — 231 привязка (`bind-raw.plugin.js`). Значения не менялись.
 - **Card** — в описании `Status: draft`. **Breadcrumb item** — Current: стиль Label/MD.
 - **Foundations** — 8 новых переменных Platform, не опубликованы: `size/code-input/max`, `size/select-compact/max`, `size/legend-item/max`, `size/step/max`, `size/chart-metric/max`, `size/chart-tooltip/min`, `size/chart-axis-label/max`, `size/page-header/text-min`.
+- **Date range field, Password field** (draft) — собраны на Input (раскрытый экземпляр); служебные слои — из базы.
+- **Input amount** (draft) — порядок осей: State последняя; зоны нажатия и безопасное поле.
+- **Code cell, Radio card, Select compact, Table row, File upload** (draft) — добавлены `hit area · web / app`, `safe area · outer`; свойства `Show hit area`, `Safe margin`.
+- **File upload** — Disabled: токены вместо прозрачности.
+- **Divider, Tab bar, Key-value row** — обводки привязаны. **Chart plot** — радиус столбиков `radius/2xs`.
+- **Фиксированные размеры → переменные** (`bind-dims.plugin.js`): Pagination item, Floating button, Date cell, Input addon / Clear, Page dot, Spinner, Circle timer. Значения не менялись.
+- **Описания** — строки «Матрица:» у наборов с неполной матрицей; шаблон описания у draft-наборов.
+- **Snack** — своя борда v3; борда Toast очищена от Snack. На бордах — блок «Не собрано в этой версии» с причинами.
+- **Select** — Disabled: шеврон `icon/disabled` (был `icon/primary`); Multiselect наследует.
+- **Foundations** — ещё 20 переменных Platform, не опубликованы: `size/media/*`, `size/track/*`, `size/progress-circle/*`, `size/legend-swatch`, `size/scrollbar`, `size/code-cell/*`, `size/row/compact`, `size/row/lg`, `size/table/*`.
 - Архив: у тултипов с Arrow = Start / End текст теперь из свойства Text (ширина изменилась).
 - Архив: `icon/wallet` возвращён в два экземпляра; у трёх экземпляров Input потеряно содержимое Trailing.
 

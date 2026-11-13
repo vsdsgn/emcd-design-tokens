@@ -80,11 +80,7 @@
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - PROPS: Label 3 из 4; Value 3 из 4; Show value 3 из 4
-  - MINMAX: maxw=160
-  - RAW: 8 (напр. `hit area · web:w=68`, `hit area · web:h=24`)
-  - BOARD: нет разделов 07, 08
+- Замечаний по манифесту нет.
 
 ## 15. Migration
 - Legacy: .legends (state=default/hover/active/skeleton) (DS Web widget Graph)
