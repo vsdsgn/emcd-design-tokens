@@ -9,17 +9,17 @@
    "unknown": 117
   },
   "status": {
-   "beta": 92,
-   "draft": 25
+   "beta": 95,
+   "draft": 22
   },
-  "variants": 1647,
+  "variants": 1676,
   "incompleteMatrix": 11,
   "propsNotBoundEverywhere": 17,
   "rawMinMax": 0,
-  "withRawValues": 82,
-  "withFocusRing": 24,
-  "withHitArea": 22,
-  "withSafeMargin": 22,
+  "withRawValues": 83,
+  "withFocusRing": 26,
+  "withHitArea": 24,
+  "withSafeMargin": 24,
   "pagesWithoutV3Board": 0,
   "pagesWithFullBoard": 9,
   "baseSets": 11
@@ -1202,7 +1202,7 @@
    "level": "unknown",
    "page": "Breadcrumbs",
    "pageId": "366:5621",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Breadcrumbs — борда · шаблон v3",
@@ -1232,13 +1232,14 @@
      "name": "Breadcrumbs",
      "id": "168:10672",
      "type": "SET",
-     "status": "draft",
-     "descLen": 736,
+     "status": "beta",
+     "descLen": 944,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда использовать:",
       "Последний пункт —",
+      "Длинный путь:",
       "A11y:",
       "Правила:"
      ],
@@ -1247,14 +1248,15 @@
       "Items": [
        "2",
        "3",
-       "4"
+       "4",
+       "Collapsed"
       ]
      },
-     "variants": 3,
-     "full": 3,
+     "variants": 4,
+     "full": 4,
      "props": [],
      "nested": {
-      "Breadcrumb item": 9
+      "Breadcrumb item": 13
      },
      "minmax": [],
      "layers": {
@@ -7535,7 +7537,7 @@
    "level": "unknown",
    "page": "Notification",
    "pageId": "366:2939",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Notification — борда · шаблон v3",
@@ -7565,60 +7567,89 @@
      "name": "Notification",
      "id": "179:620",
      "type": "SET",
-     "status": "draft",
-     "descLen": 894,
+     "status": "beta",
+     "descLen": 1119,
      "descHeads": [
       "Status:",
       "Level:",
-      "Unread —",
+      "Status:",
+      "State:",
       "A11y:",
       "Когда использовать:",
       "Правила:"
      ],
      "inBoard": false,
      "axes": {
-      "State": [
+      "Status": [
        "Unread",
        "Read"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Pressed"
       ]
      },
-     "variants": 2,
-     "full": 2,
+     "variants": 6,
+     "full": 6,
      "props": [
       {
        "name": "Title",
        "type": "TEXT",
        "def": "Выплата отправлена",
-       "bound": 2
+       "bound": 6
       },
       {
        "name": "Text",
        "type": "TEXT",
        "def": "0,00500000 BTC ушли на адрес bc1q8c ••• x7k2pa",
-       "bound": 2
+       "bound": 6
       },
       {
        "name": "Time",
        "type": "TEXT",
        "def": "5 окт, 09:25",
-       "bound": 2
+       "bound": 6
+      },
+      {
+       "name": "Focus ring",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 6
+      },
+      {
+       "name": "Show hit area",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 6
+      },
+      {
+       "name": "Safe margin",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 6
       }
      ],
      "nested": {
-      "(icons)": 2
+      "(icons)": 6,
+      "_Hit area": 12,
+      "_Safe margin": 6
      },
      "minmax": [
       "maxw=400 size/toast/max"
      ],
      "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
+      "ring": 6,
+      "hitWeb": 6,
+      "hitApp": 6,
+      "hit": 6,
+      "safe": 6
      },
-     "rawCount": 0,
-     "raw": [],
+     "rawCount": 12,
+     "raw": [
+      "hit area · web:w=400",
+      "hit area · web:h=108"
+     ],
      "tokens": {
       "(root)": [
        "f:accent/subtle",
@@ -7662,6 +7693,30 @@
       ],
       "unread": [
        "f:action/primary/default"
+      ],
+      "focus ring": [
+       "r:radius/focus-ring",
+       "s:border/focus-ring",
+       "sw:border/width/focus-ring"
+      ],
+      "hit area · web": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
+       "visible:touch/is-coarse"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
+      ],
+      "state layer": [
+       "f:state/layer",
+       "o:state/hover",
+       "o:state/pressed",
+       "r:radius/control"
       ]
      },
      "statusFirstLine": true
@@ -14847,7 +14902,7 @@
    "level": "unknown",
    "page": "Transaction",
    "pageId": "364:4553",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Transaction — борда · шаблон v3",
@@ -14878,13 +14933,14 @@
      "name": "Transaction",
      "id": "172:832",
      "type": "SET",
-     "status": "draft",
-     "descLen": 928,
+     "status": "beta",
+     "descLen": 1167,
      "descHeads": [
       "Status:",
       "Level:",
       "Анатомия:",
       "Когда нет:",
+      "State:",
       "A11y:",
       "Когда использовать:",
       "Правила:"
@@ -14901,34 +14957,63 @@
        "Completed",
        "Pending",
        "Failed"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Pressed"
       ]
      },
-     "variants": 12,
-     "full": 12,
-     "props": [],
+     "variants": 36,
+     "full": 36,
+     "props": [
+      {
+       "name": "Focus ring",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 36
+      },
+      {
+       "name": "Show hit area",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 36
+      },
+      {
+       "name": "Safe margin",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 36
+      }
+     ],
      "nested": {
-      "(icons)": 12,
-      "Status": 12,
-      "Amount": 12
+      "(icons)": 36,
+      "Status": 36,
+      "Amount": 36,
+      "_Hit area": 72,
+      "_Safe margin": 36
      },
      "minmax": [],
      "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
+      "ring": 36,
+      "hitWeb": 36,
+      "hitApp": 36,
+      "hit": 36,
+      "safe": 36
      },
-     "rawCount": 12,
+     "rawCount": 108,
      "raw": [
-      "(root):w=400"
+      "(root):w=400",
+      "hit area · web:w=400",
+      "hit area · web:h=64"
      ],
      "tokens": {
       "(root)": [
        "gap:space/12",
        "h:size/row/lg",
        "p:space/12",
-       "p:space/16"
+       "p:space/16",
+       "r:radius/control"
       ],
       "icon": [
        "f:action/secondary/default",
@@ -14966,6 +15051,30 @@
       ],
       "Amount": [
        "gap:space/2"
+      ],
+      "focus ring": [
+       "r:radius/focus-ring",
+       "s:border/focus-ring",
+       "sw:border/width/focus-ring"
+      ],
+      "hit area · web": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
+       "visible:touch/is-coarse"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
+      ],
+      "state layer": [
+       "f:state/layer",
+       "o:state/hover",
+       "o:state/pressed",
+       "r:radius/control"
       ],
       "icon/arrow-down": [
        "h:icon/size/md",

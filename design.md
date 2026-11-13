@@ -9,7 +9,7 @@
 2. **Только семантические токены.** Примитивы (`color/*`, `dimension/*`) приватны. Значение без токена — только из списка `docs/exceptions.md`.
 3. **Оси вместо копий.** Brand (EMCD · Geometria · WL Default) × Theme (Light · Dark) × Platform (Web · Mobile web · iOS · Android) × Viewport (Compact … XLarge) × Style (Base · Expressive) + уровень поверхности L0–L3. Компонент один; разницу дают режимы токенов.
 4. **Одна модель состояний** для всех компонентов (раздел 4). Hover / Pressed не подбираются цветом на глаз.
-5. **Статус решает, можно ли брать.** beta — в макеты и разработку; draft — не брать; stable — сверен с кодом. Сейчас: beta 92, draft 25, stable 0.
+5. **Статус решает, можно ли брать.** beta — в макеты и разработку; draft — не брать; stable — сверен с кодом. Сейчас: beta 95, draft 22, stable 0.
 6. **Доступность — часть компонента:** кольцо фокуса, зона нажатия ≥ `touch/min` (Web 24, касание 44), контраст WCAG 2.2 AA, статус — никогда только цветом.
 7. **Style: Base по умолчанию.** Expressive (свечения, материалы, кромки) — только pool и Monitoring на мощных устройствах; правила — `docs/style.md`.
 
@@ -79,6 +79,7 @@ L0 — страница; L1 — карточка / секция; L2 — влож
 | [Badge](docs/components/badge.md) | Неинтерактивная метка статуса или свойства («Активен», «Новое», «−5 %», монета). Нажать нельзя | статус строки или карточки, пометки «Новое», «Beta» | действие — Button / Chip; количество — Counter; длинный текст — Alert; состояние, которое обновляется само, — Status |
 | [Counter](docs/components/counter.md) | Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус | количество непрочитанного или элементов в разделе | суммы и проценты — текст или Badge; статус — Badge / Status |
 | [Breadcrumb item](docs/components/breadcrumb-item.md) | Пункт хлебных крошек: ссылка на предыдущий уровень; Current — текущая страница, не ссылка | только внутри Breadcrumbs | переход между разделами — Nav item или Tabs; действие в тексте — Button Type=Text |
+| [Breadcrumbs](docs/components/breadcrumbs.md) | — | 3+ уровня вложенности | плоская навигация, App и Compact — там «назад» в Top bar |
 | [Button](docs/components/button.md) | Кнопка действия. Основа — legacy `baseButton` (DS Web + App), доведена до правил 2.0 | запуск действия: отправить, сохранить, отменить, удалить | переход на другую страницу в тексте — ссылка; действие иконкой без подписи — Icon button; выбор варианта — Chip / Segmented |
 | [Card](docs/components/card.md) | — | не описано | не описано |
 | [Chart axis label](docs/components/chart-axis-label.md) | — | подписи осей графиков (время, значение) | значения данных на самом графике — Chart tooltip |
@@ -113,6 +114,7 @@ L0 — страница; L1 — карточка / секция; L2 — влож
 | [Multiselect option](docs/components/multiselect-option.md) | — | пункты списка с множественным выбором (сети, монеты, воркеры) | независимые переключатели в форме — Checkbox |
 | [Multiselect](docs/components/multiselect.md) | — | фильтры, выбор нескольких сетей, монет или воркеров | 2–4 варианта — Checkbox group; один вариант — Select |
 | [Nav item](docs/components/nav-item.md) | — | пункт основной навигации в сайдбаре (Web) | переключение внутри страницы — Tabs; в App и на Compact — Tab bar item |
+| [Notification](docs/components/notification.md) | — | не описано | реакция на действие пользователя сейчас — Toast |
 | [Overlay](docs/components/overlay.md) | — | за Modal, Sheet и Side panel, под Dropdown panel на мобильном | внутри страницы, для выделения блока — Card |
 | [Page dot](docs/components/page-dot.md) | — | не описано | не описано |
 | [Page indicator](docs/components/page-indicator.md) | — | 2–5 слайдов | больше 5 — счётчик «3 / 12»; шаги процесса — Stepper / Step progress |
@@ -163,9 +165,10 @@ L0 — страница; L1 — карточка / секция; L2 — влож
 | [Toggle](docs/components/toggle.md) | Переключатель: мгновенно включает настройку, без «Сохранить». Основа — legacy `baseToggle` (дорожка 48×28 / 40×24, ползунок 20 / 16) | настройка применяется сразу (уведомления, автовывод, 2FA-подтверждения) | нужна кнопка «Сохранить» или отложенное применение — Checkbox; выбор одного из вариантов — Radio / Segmented |
 | [Toggle group](docs/components/toggle-group.md) | — | не описано | не описано |
 | [Tooltip tour](docs/components/tooltip-tour.md) | — | первый вход, новая функция, тур по нескольким элементам | короткая подсказка на hover или фокус — Tooltip; постоянное объяснение — Suggest |
+| [Transaction](docs/components/transaction.md) | — | не описано | детали операции — Side panel / Sheet по нажатию на строку |
 
 Правила выбора варианта (Type, Tone, Size …) — раздел «2. Intent» контракта компонента. Props — `docs/api.md`.
-Остальные 25 наборов — draft: в макеты и код не брать (список — `llms.txt`). Если задача не закрывается beta-компонентом — не собирать свой из примитивов, а записать в `docs/OPEN-QUESTIONS.md`.
+Остальные 22 наборов — draft: в макеты и код не брать (список — `llms.txt`). Если задача не закрывается beta-компонентом — не собирать свой из примитивов, а записать в `docs/OPEN-QUESTIONS.md`.
 
 ## 6. Устройство компонента
 

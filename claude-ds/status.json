@@ -4,7 +4,7 @@
     "Alert": "draft",
     "Amount": "beta",
     "Badge": "beta",
-    "Breadcrumbs": "draft",
+    "Breadcrumbs": "beta",
     "Button": "beta",
     "Card": "beta",
     "Checkbox": "beta",
@@ -15,7 +15,7 @@
     "Input": "beta",
     "ListItem": "draft",
     "Modal": "draft",
-    "Notification": "draft",
+    "Notification": "beta",
     "Pagination": "beta",
     "PasswordField": "beta",
     "Radio": "beta",
@@ -28,6 +28,6 @@
     "Toast": "draft",
     "Toggle": "beta",
     "Tooltip": "draft",
-    "Transaction": "draft"
+    "Transaction": "beta"
   }
 }

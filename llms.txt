@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-13: beta 92 наборов, draft 25, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-13: beta 95 наборов, draft 22, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -43,6 +43,7 @@
 - [Badge](docs/components/badge.md): Неинтерактивная метка статуса или свойства («Активен», «Новое», «−5 %», монета). Нажать нельзя
 - [Counter](docs/components/counter.md): Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус
 - [Breadcrumb item](docs/components/breadcrumb-item.md): Пункт хлебных крошек: ссылка на предыдущий уровень; Current — текущая страница, не ссылка
+- [Breadcrumbs](docs/components/breadcrumbs.md): 3+ уровня вложенности
 - [Button](docs/components/button.md): Кнопка действия. Основа — legacy `baseButton` (DS Web + App), доведена до правил 2.0
 - [Card](docs/components/card.md): не описано
 - [Chart axis label](docs/components/chart-axis-label.md): подписи осей графиков (время, значение)
@@ -77,6 +78,7 @@
 - [Multiselect option](docs/components/multiselect-option.md): пункты списка с множественным выбором (сети, монеты, воркеры)
 - [Multiselect](docs/components/multiselect.md): фильтры, выбор нескольких сетей, монет или воркеров
 - [Nav item](docs/components/nav-item.md): пункт основной навигации в сайдбаре (Web)
+- [Notification](docs/components/notification.md): не описано
 - [Overlay](docs/components/overlay.md): за Modal, Sheet и Side panel, под Dropdown panel на мобильном
 - [Page dot](docs/components/page-dot.md): не описано
 - [Page indicator](docs/components/page-indicator.md): 2–5 слайдов
@@ -127,6 +129,7 @@
 - [Toggle](docs/components/toggle.md): Переключатель: мгновенно включает настройку, без «Сохранить». Основа — legacy `baseToggle` (дорожка 48×28 / 40×24, ползунок 20 / 16)
 - [Toggle group](docs/components/toggle-group.md): не описано
 - [Tooltip tour](docs/components/tooltip-tour.md): первый вход, новая функция, тур по нескольким элементам
+- [Transaction](docs/components/transaction.md): не описано
 
 ## Базы и служебные слои (в макетах напрямую не используются)
 

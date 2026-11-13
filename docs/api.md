@@ -112,6 +112,14 @@ undefined · beta · Vue `<DsBreadcrumbItem>` · Flutter `DsBreadcrumbItem` · �
 
 Состояния в Figma: Default · Hover · Current · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
+## Breadcrumbs
+
+undefined · beta · Vue `<DsBreadcrumbs>` · Flutter `DsBreadcrumbs` · контракт `docs/components/breadcrumbs.md`
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `items` | 2 \| 3 \| 4 \| collapsed | по правилу контракта | ось Items |
+
 ## Button
 
 undefined · beta · Vue `<DsButton>` · Flutter `DsButton` · контракт `docs/components/button.md`
@@ -536,6 +544,19 @@ undefined · beta · Vue `<DsNavItem>` · Flutter `DsNavItem` · контрак�
 Состояния в Figma: Default · Hover · Selected · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
 Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
+
+## Notification
+
+undefined · beta · Vue `<DsNotification>` · Flutter `DsNotification` · контракт `docs/components/notification.md`
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `status` | unread \| read | по правилу контракта | ось Status |
+| `title` | string | — | свойство Title |
+| `text` | string | — | свойство Text |
+| `time` | string | — | свойство Time |
+
+Состояния в Figma: Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
 ## Overlay
 
@@ -1129,3 +1150,14 @@ undefined · beta · Vue `<DsTooltipTour>` · Flutter `DsTooltipTour` · кон�
 | `description` | string | — | свойство Description |
 | `showStep` | boolean | true | свойство Show step |
 | `showSkip` | boolean | true | свойство Show skip |
+
+## Transaction
+
+undefined · beta · Vue `<DsTransaction>` · Flutter `DsTransaction` · контракт `docs/components/transaction.md`
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `type` | withdrawal \| deposit \| reward \| exchange | по правилу контракта | ось Type |
+| `status` | completed \| pending \| failed | по правилу контракта | ось Status |
+
+Состояния в Figma: Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
