@@ -386,6 +386,7 @@ html { font-size: 100%; }
   --dimension-0: 0rem;
   --dimension-1: 0.0625rem;
   --dimension-2: 0.125rem;
+  --dimension-3: 0.1875rem;
   --dimension-4: 0.25rem;
   --dimension-6: 0.375rem;
   --dimension-8: 0.5rem;
@@ -395,6 +396,7 @@ html { font-size: 100%; }
   --dimension-16: 1rem;
   --dimension-20: 1.25rem;
   --dimension-24: 1.5rem;
+  --dimension-26: 1.625rem;
   --dimension-28: 1.75rem;
   --dimension-32: 2rem;
   --dimension-36: 2.25rem;
@@ -554,6 +556,9 @@ html { font-size: 100%; }
   --brand-radius-focus-ring: var(--dimension-14);
   --brand-radius-2xs: var(--dimension-2);
   --brand-radius-control-xs: var(--dimension-6);
+  --brand-radius-focus-ring-xs: var(--dimension-6);
+  --brand-radius-focus-ring-inner: var(--dimension-10);
+  --brand-radius-focus-ring-surface: var(--dimension-26);
   --brand-accent-solid-hover: var(--brand-accent-600);
   --brand-accent-solid-pressed: var(--brand-accent-700);
   --brand-accent-fg-on-light: var(--brand-accent-600);
@@ -615,6 +620,9 @@ html { font-size: 100%; }
   --brand-radius-2xs: var(--dimension-2);
   --brand-radius-control-xs: var(--dimension-2);
   --brand-radius-focus-ring-lg: var(--dimension-10);
+  --brand-radius-focus-ring-xs: var(--dimension-4);
+  --brand-radius-focus-ring-inner: var(--dimension-6);
+  --brand-radius-focus-ring-surface: var(--dimension-14);
   --brand-accent-solid-hover: var(--brand-accent-600);
   --brand-accent-solid-pressed: var(--brand-accent-700);
   --brand-accent-fg-on-light: var(--brand-accent-600);
@@ -676,6 +684,9 @@ html { font-size: 100%; }
   --brand-radius-focus-ring: var(--dimension-14);
   --brand-radius-2xs: var(--dimension-2);
   --brand-radius-control-xs: var(--dimension-6);
+  --brand-radius-focus-ring-xs: var(--dimension-6);
+  --brand-radius-focus-ring-inner: var(--dimension-10);
+  --brand-radius-focus-ring-surface: var(--dimension-26);
   --brand-accent-solid-hover: var(--brand-accent-600);
   --brand-accent-solid-pressed: var(--brand-accent-700);
   --brand-accent-fg-on-light: var(--brand-accent-600);
@@ -1028,12 +1039,15 @@ html { font-size: 100%; }
   --size-button-min: 4rem;
   --size-field-min: 10rem;
   --size-field-max: 30rem;
+  --size-field-multi-min: 6rem;
   --size-text-measure: 40rem;
   --size-menu-min: 10rem;
   --size-menu-max: 20rem;
   --size-tooltip-max: 20rem;
+  --size-tooltip-min: 3.625rem;
   --size-popover-max: 22.5rem;
   --size-toast-max: 25rem;
+  --size-toast-min: 17.5rem;
   --size-modal-sm: 25rem;
   --size-modal-md: 35rem;
   --size-modal-lg: 45rem;
@@ -1043,6 +1057,11 @@ html { font-size: 100%; }
   --size-chip-max: 15rem;
   --size-badge-max: 10rem;
   --size-table-cell-min: 5rem;
+  --size-counter-max: 2.5rem;
+  --size-dropdown-panel-max-height: 20rem;
+  --size-row-min: 2.5rem;
+  --size-row-content-min: 7.5rem;
+  --size-selection-label-max: 27.25rem;
   --space-2: var(--dimension-2);
   --space-4: var(--dimension-4);
   --space-6: var(--dimension-6);
@@ -1072,6 +1091,8 @@ html { font-size: 100%; }
   --control-height-md: var(--dimension-40);
   --control-height-lg: var(--dimension-48);
   --control-height-xl: var(--dimension-56);
+  --control-height-xs: var(--dimension-24);
+  --control-height-2xl: var(--dimension-64);
   --control-padding-x-sm: var(--dimension-10);
   --control-padding-x-md: var(--dimension-12);
   --control-padding-x-lg: var(--dimension-16);
@@ -1115,6 +1136,22 @@ html { font-size: 100%; }
   --motion-easing-enter: var(--easing-out);
   --motion-scale-press: var(--scale-press);
   --chart-stroke: var(--stroke-2);
+  --size-box: var(--dimension-20);
+  --size-box-row: var(--dimension-24);
+  --size-dot-sm: var(--dimension-6);
+  --size-dot-md: var(--dimension-8);
+  --size-toggle-width-sm: var(--dimension-40);
+  --size-toggle-width-md: var(--dimension-48);
+  --size-toggle-height-sm: var(--dimension-24);
+  --size-toggle-height-md: var(--dimension-28);
+  --size-badge-height-sm: var(--dimension-20);
+  --size-badge-height-md: var(--dimension-24);
+  --size-badge-height-lg: var(--dimension-32);
+  --size-counter-height-sm: var(--dimension-16);
+  --size-counter-height-md: var(--dimension-20);
+  --size-tab-bar-item-width: var(--dimension-72);
+  --size-tab-indicator-sm: var(--dimension-2);
+  --size-tab-indicator-lg: var(--dimension-3);
   --radius-control: var(--brand-radius-md);
   --radius-container: var(--brand-radius-lg);
   --radius-surface: var(--brand-radius-xl);
@@ -1123,6 +1160,9 @@ html { font-size: 100%; }
   --radius-control-sm: var(--brand-radius-control-sm);
   --radius-focus-ring-sm: var(--brand-radius-focus-ring-sm);
   --radius-focus-ring: var(--brand-radius-focus-ring);
+  --radius-focus-ring-xs: var(--brand-radius-focus-ring-xs);
+  --radius-focus-ring-inner: var(--brand-radius-focus-ring-inner);
+  --radius-focus-ring-surface: var(--brand-radius-focus-ring-surface);
 }
 
 [data-platform="android"], [data-platform="android"] [data-brand]:not([data-platform]) {
@@ -1151,12 +1191,15 @@ html { font-size: 100%; }
   --size-button-min: 4rem;
   --size-field-min: 10rem;
   --size-field-max: 30rem;
+  --size-field-multi-min: 6rem;
   --size-text-measure: 40rem;
   --size-menu-min: 10rem;
   --size-menu-max: 20rem;
   --size-tooltip-max: 20rem;
+  --size-tooltip-min: 3.625rem;
   --size-popover-max: 22.5rem;
   --size-toast-max: 25rem;
+  --size-toast-min: 17.5rem;
   --size-modal-sm: 25rem;
   --size-modal-md: 35rem;
   --size-modal-lg: 45rem;
@@ -1166,6 +1209,11 @@ html { font-size: 100%; }
   --size-chip-max: 15rem;
   --size-badge-max: 10rem;
   --size-table-cell-min: 5rem;
+  --size-counter-max: 2.5rem;
+  --size-dropdown-panel-max-height: 20rem;
+  --size-row-min: 2.5rem;
+  --size-row-content-min: 7.5rem;
+  --size-selection-label-max: 27.25rem;
   --space-2: var(--dimension-2);
   --space-4: var(--dimension-4);
   --space-6: var(--dimension-6);
@@ -1195,6 +1243,8 @@ html { font-size: 100%; }
   --control-height-md: var(--dimension-40);
   --control-height-lg: var(--dimension-48);
   --control-height-xl: var(--dimension-56);
+  --control-height-xs: var(--dimension-24);
+  --control-height-2xl: var(--dimension-64);
   --control-padding-x-sm: var(--dimension-10);
   --control-padding-x-md: var(--dimension-12);
   --control-padding-x-lg: var(--dimension-16);
@@ -1238,6 +1288,22 @@ html { font-size: 100%; }
   --motion-easing-enter: var(--easing-out);
   --motion-scale-press: var(--scale-press);
   --chart-stroke: var(--stroke-2);
+  --size-box: var(--dimension-20);
+  --size-box-row: var(--dimension-24);
+  --size-dot-sm: var(--dimension-6);
+  --size-dot-md: var(--dimension-8);
+  --size-toggle-width-sm: var(--dimension-40);
+  --size-toggle-width-md: var(--dimension-48);
+  --size-toggle-height-sm: var(--dimension-24);
+  --size-toggle-height-md: var(--dimension-28);
+  --size-badge-height-sm: var(--dimension-20);
+  --size-badge-height-md: var(--dimension-24);
+  --size-badge-height-lg: var(--dimension-32);
+  --size-counter-height-sm: var(--dimension-16);
+  --size-counter-height-md: var(--dimension-20);
+  --size-tab-bar-item-width: var(--dimension-72);
+  --size-tab-indicator-sm: var(--dimension-2);
+  --size-tab-indicator-lg: var(--dimension-3);
   --radius-control: var(--brand-radius-md);
   --radius-container: var(--brand-radius-lg);
   --radius-surface: var(--brand-radius-xl);
@@ -1246,6 +1312,9 @@ html { font-size: 100%; }
   --radius-control-sm: var(--brand-radius-control-sm);
   --radius-focus-ring-sm: var(--brand-radius-focus-ring-sm);
   --radius-focus-ring: var(--brand-radius-focus-ring);
+  --radius-focus-ring-xs: var(--brand-radius-focus-ring-xs);
+  --radius-focus-ring-inner: var(--brand-radius-focus-ring-inner);
+  --radius-focus-ring-surface: var(--brand-radius-focus-ring-surface);
 }
 
 [data-platform="ios"], [data-platform="ios"] [data-brand]:not([data-platform]) {
@@ -1274,12 +1343,15 @@ html { font-size: 100%; }
   --size-button-min: 4rem;
   --size-field-min: 10rem;
   --size-field-max: 30rem;
+  --size-field-multi-min: 6rem;
   --size-text-measure: 40rem;
   --size-menu-min: 10rem;
   --size-menu-max: 20rem;
   --size-tooltip-max: 20rem;
+  --size-tooltip-min: 3.625rem;
   --size-popover-max: 22.5rem;
   --size-toast-max: 25rem;
+  --size-toast-min: 17.5rem;
   --size-modal-sm: 25rem;
   --size-modal-md: 35rem;
   --size-modal-lg: 45rem;
@@ -1289,6 +1361,11 @@ html { font-size: 100%; }
   --size-chip-max: 15rem;
   --size-badge-max: 10rem;
   --size-table-cell-min: 5rem;
+  --size-counter-max: 2.5rem;
+  --size-dropdown-panel-max-height: 20rem;
+  --size-row-min: 2.5rem;
+  --size-row-content-min: 7.5rem;
+  --size-selection-label-max: 27.25rem;
   --space-2: var(--dimension-2);
   --space-4: var(--dimension-4);
   --space-6: var(--dimension-6);
@@ -1318,6 +1395,8 @@ html { font-size: 100%; }
   --control-height-md: var(--dimension-40);
   --control-height-lg: var(--dimension-48);
   --control-height-xl: var(--dimension-56);
+  --control-height-xs: var(--dimension-24);
+  --control-height-2xl: var(--dimension-64);
   --control-padding-x-sm: var(--dimension-10);
   --control-padding-x-md: var(--dimension-12);
   --control-padding-x-lg: var(--dimension-16);
@@ -1361,6 +1440,22 @@ html { font-size: 100%; }
   --motion-easing-enter: var(--easing-out);
   --motion-scale-press: var(--scale-press);
   --chart-stroke: var(--stroke-2);
+  --size-box: var(--dimension-20);
+  --size-box-row: var(--dimension-24);
+  --size-dot-sm: var(--dimension-6);
+  --size-dot-md: var(--dimension-8);
+  --size-toggle-width-sm: var(--dimension-40);
+  --size-toggle-width-md: var(--dimension-48);
+  --size-toggle-height-sm: var(--dimension-24);
+  --size-toggle-height-md: var(--dimension-28);
+  --size-badge-height-sm: var(--dimension-20);
+  --size-badge-height-md: var(--dimension-24);
+  --size-badge-height-lg: var(--dimension-32);
+  --size-counter-height-sm: var(--dimension-16);
+  --size-counter-height-md: var(--dimension-20);
+  --size-tab-bar-item-width: var(--dimension-72);
+  --size-tab-indicator-sm: var(--dimension-2);
+  --size-tab-indicator-lg: var(--dimension-3);
   --radius-control: var(--brand-radius-md);
   --radius-container: var(--brand-radius-lg);
   --radius-surface: var(--brand-radius-xl);
@@ -1369,6 +1464,9 @@ html { font-size: 100%; }
   --radius-control-sm: var(--brand-radius-control-sm);
   --radius-focus-ring-sm: var(--brand-radius-focus-ring-sm);
   --radius-focus-ring: var(--brand-radius-focus-ring);
+  --radius-focus-ring-xs: var(--brand-radius-focus-ring-xs);
+  --radius-focus-ring-inner: var(--brand-radius-focus-ring-inner);
+  --radius-focus-ring-surface: var(--brand-radius-focus-ring-surface);
 }
 
 [data-platform="mobile-web"], [data-platform="mobile-web"] [data-brand]:not([data-platform]) {
@@ -1397,12 +1495,15 @@ html { font-size: 100%; }
   --size-button-min: 4rem;
   --size-field-min: 10rem;
   --size-field-max: 30rem;
+  --size-field-multi-min: 6rem;
   --size-text-measure: 40rem;
   --size-menu-min: 10rem;
   --size-menu-max: 20rem;
   --size-tooltip-max: 20rem;
+  --size-tooltip-min: 3.625rem;
   --size-popover-max: 22.5rem;
   --size-toast-max: 25rem;
+  --size-toast-min: 17.5rem;
   --size-modal-sm: 25rem;
   --size-modal-md: 35rem;
   --size-modal-lg: 45rem;
@@ -1412,6 +1513,11 @@ html { font-size: 100%; }
   --size-chip-max: 15rem;
   --size-badge-max: 10rem;
   --size-table-cell-min: 5rem;
+  --size-counter-max: 2.5rem;
+  --size-dropdown-panel-max-height: 20rem;
+  --size-row-min: 2.5rem;
+  --size-row-content-min: 7.5rem;
+  --size-selection-label-max: 27.25rem;
   --space-2: var(--dimension-2);
   --space-4: var(--dimension-4);
   --space-6: var(--dimension-6);
@@ -1441,6 +1547,8 @@ html { font-size: 100%; }
   --control-height-md: var(--dimension-40);
   --control-height-lg: var(--dimension-48);
   --control-height-xl: var(--dimension-56);
+  --control-height-xs: var(--dimension-24);
+  --control-height-2xl: var(--dimension-64);
   --control-padding-x-sm: var(--dimension-10);
   --control-padding-x-md: var(--dimension-12);
   --control-padding-x-lg: var(--dimension-16);
@@ -1484,6 +1592,22 @@ html { font-size: 100%; }
   --motion-easing-enter: var(--easing-out);
   --motion-scale-press: var(--scale-press);
   --chart-stroke: var(--stroke-2);
+  --size-box: var(--dimension-20);
+  --size-box-row: var(--dimension-24);
+  --size-dot-sm: var(--dimension-6);
+  --size-dot-md: var(--dimension-8);
+  --size-toggle-width-sm: var(--dimension-40);
+  --size-toggle-width-md: var(--dimension-48);
+  --size-toggle-height-sm: var(--dimension-24);
+  --size-toggle-height-md: var(--dimension-28);
+  --size-badge-height-sm: var(--dimension-20);
+  --size-badge-height-md: var(--dimension-24);
+  --size-badge-height-lg: var(--dimension-32);
+  --size-counter-height-sm: var(--dimension-16);
+  --size-counter-height-md: var(--dimension-20);
+  --size-tab-bar-item-width: var(--dimension-72);
+  --size-tab-indicator-sm: var(--dimension-2);
+  --size-tab-indicator-lg: var(--dimension-3);
   --radius-control: var(--brand-radius-md);
   --radius-container: var(--brand-radius-lg);
   --radius-surface: var(--brand-radius-xl);
@@ -1492,6 +1616,9 @@ html { font-size: 100%; }
   --radius-control-sm: var(--brand-radius-control-sm);
   --radius-focus-ring-sm: var(--brand-radius-focus-ring-sm);
   --radius-focus-ring: var(--brand-radius-focus-ring);
+  --radius-focus-ring-xs: var(--brand-radius-focus-ring-xs);
+  --radius-focus-ring-inner: var(--brand-radius-focus-ring-inner);
+  --radius-focus-ring-surface: var(--brand-radius-focus-ring-surface);
 }
 
 :root, [data-style="base"], [data-brand]:not([data-style]), [data-style="base"] [data-brand]:not([data-style]), [data-theme]:not([data-style]), [data-style="base"] [data-theme]:not([data-style]), [data-platform]:not([data-style]), [data-style="base"] [data-platform]:not([data-style]) {

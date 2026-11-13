@@ -12,6 +12,10 @@
       "$type": "dimension",
       "$value": "2px"
     },
+    "3": {
+      "$type": "dimension",
+      "$value": "3px"
+    },
     "4": {
       "$type": "dimension",
       "$value": "4px"
@@ -47,6 +51,10 @@
     "24": {
       "$type": "dimension",
       "$value": "24px"
+    },
+    "26": {
+      "$type": "dimension",
+      "$value": "26px"
     },
     "28": {
       "$type": "dimension",

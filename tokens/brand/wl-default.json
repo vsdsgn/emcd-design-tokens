@@ -240,6 +240,18 @@
       "focus-ring-lg": {
         "$type": "dimension",
         "$value": "18px"
+      },
+      "focus-ring-xs": {
+        "$type": "dimension",
+        "$value": "{dimension.6}"
+      },
+      "focus-ring-inner": {
+        "$type": "dimension",
+        "$value": "{dimension.10}"
+      },
+      "focus-ring-surface": {
+        "$type": "dimension",
+        "$value": "{dimension.26}"
       }
     }
   }

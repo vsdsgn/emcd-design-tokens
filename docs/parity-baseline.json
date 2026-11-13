@@ -1,15 +1,6 @@
 {
- "_comment": "Известные расхождения для scripts/parity.mjs. pendingPublish — токены заведены в Figma Foundations 2026-11-09, ждут Publish (Стефан) и экспорта. accepted — расхождения с причиной и сроком пересмотра; строка без расхождения или с прошедшим сроком валит проверку.",
- "pendingPublish": [
-  "control/height/2xl", "control/height/xs",
-  "radius/focus-ring-inner", "radius/focus-ring-surface", "radius/focus-ring-xs",
-  "size/badge-height/lg", "size/badge-height/md", "size/badge-height/sm",
-  "size/box", "size/box-row",
-  "size/counter-height/md", "size/counter-height/sm",
-  "size/dot/md", "size/dot/sm",
-  "size/tab-bar-item/width", "size/tab-indicator/lg", "size/tab-indicator/sm",
-  "size/toggle-height/md", "size/toggle-height/sm", "size/toggle-width/md", "size/toggle-width/sm"
- ],
+ "_comment": "Известные расхождения для scripts/parity.mjs. pendingPublish — токены, заведённые в Figma Foundations и ждущие Publish (Стефан) и экспорта; на 2026-11-13 пусто. accepted — расхождения с причиной и сроком пересмотра; строка без расхождения или с прошедшим сроком валит проверку.",
+ "pendingPublish": [],
  "accepted": [
   { "match": "STATUS Alert:", "reason": "набора Alert в Figma нет (уведомления — Notification, Snack, Toast); строку status.json убрать или завести набор — вопрос Стефану", "until": "2026-12-15" },
   { "match": "STATUS Table:", "reason": "Table в Figma — страница из Table row / Table header cell / Table cell, набора с именем Table нет; правило имени — вопрос Стефану", "until": "2026-12-15" },

@@ -383,6 +383,7 @@
   --dimension-0: 0rem;
   --dimension-1: 0.0625rem;
   --dimension-2: 0.125rem;
+  --dimension-3: 0.1875rem;
   --dimension-4: 0.25rem;
   --dimension-6: 0.375rem;
   --dimension-8: 0.5rem;
@@ -392,6 +393,7 @@
   --dimension-16: 1rem;
   --dimension-20: 1.25rem;
   --dimension-24: 1.5rem;
+  --dimension-26: 1.625rem;
   --dimension-28: 1.75rem;
   --dimension-32: 2rem;
   --dimension-36: 2.25rem;
