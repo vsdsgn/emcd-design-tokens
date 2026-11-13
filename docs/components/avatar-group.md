@@ -1,62 +1,73 @@
-# Avatar group — контракт · draft (2026-11-13)
+# Avatar group — контракт (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Avatar group`. Status: draft. Level: unknown.
-- Figma: Components, страница «Avatar group» (`1012:5`), набор `108:1379`.
+- Набор: `Avatar group`. Status: beta. Level: unknown.
+- Figma: Components, страница «Avatar group» (`1012:5`), набор `108:1379`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
-- Группа аватаров внахлёст (−20% размера) с обводкой surface/default; More — «+N».
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Несколько аватаров одним блоком внахлёст; лишние сворачиваются в круг «+N».
+- Когда использовать: несколько участников одним блоком: рефералы, члены команды, получатели.
+- Когда нет: один человек — Avatar; монеты — Coin stack.
+- Правило выбора варианта:
+  - Size: XS / S / M — по размеру Avatar в этом месте; в группе один размер.
+  - More: Off — до 5 аватаров, все участники видны; On — участников больше: остальные сворачиваются в круг «+N».
+  - Порядок — от первого к последнему по направлению письма; «+N» — последний.
+- Не делаем: больше 5 аватаров в ряд; разные размеры в одной группе.
 
 ## 3. Anatomy
-- Слои с токенами: `Avatar`, `more`, `count`.
+- Корень — горизонтальный ряд экземпляров Avatar (`size/media/*`) с отрицательным зазором: нахлёст 20 % размера (−4 / −6 / −8 у XS / S / M).
+- Каждый аватар и `more` — кольцо `surface/current` (`border/width/focus`, OUTSIDE): на любой поверхности L0–L3 совпадает с фоном и отделяет круг от соседа. Корни аватаров скруглены `radius/full`.
+- `more` — круг «+N»: заливка `action/secondary/default`, `radius/chip`; `count` — `text/primary`, `type/label/sm`, `font-weight/medium`.
 - Вложено: `Avatar` ×24.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Оси State нет.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
+- Своих состояний нет. Если группа открывает список участников — она целиком внутри кнопки: состояния, фокус и зона нажатия — у обёртки.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | XS · S · M | — |
-| More | Off · On | — |
+| Size | XS · S · M | XS |
+| More | Off · On | Off |
 
 Матрица полная: 6 вариантов.
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Своих текстовых свойств нет: инициалы — у вложенных Avatar (1 буква, длиннее — обрезается кругом), число — в `count` в виде «+N».
+- Языки (стенд): de, ar, hi, th, ja, kk — инициалы вложенных Avatar обрезаются кругом, как у Avatar.
+- Текст 200 %: круги не растут; у S и M инициалы и «+N» помещаются, у XS инициалы выходят за круг, «+N» обрезается.
+- RTL: порядок аватаров зеркалится (в коде — по `dir`), «+N» — у конца строки; цифры не зеркалятся.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- Нет. Группа-кнопка — `click` у обёртки (открывает список участников).
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Статична.
 
 ## 9. Accessibility
-- Не описано: заполнить при переводе в beta.
+- Группа — список с именем («Участники, 8»); аватары — с alt-именами.
+- «+N» озвучивается как «и ещё N».
+- Если открывает список — кнопка: фокус и зона нажатия — у обёртки.
 
 ## 10. Tokens
-- `Avatar`: высота `size/media/lg`, `size/media/md`, `size/media/xs`; ширина `size/media/lg`, `size/media/md`, `size/media/xs`.
-- `more`: заливка / цвет `action/secondary/default`, `surface/default`; радиус `radius/chip`; обводка `surface/default`; толщина обводки `border/width/focus`.
+- `Avatar`: высота `size/media/lg`, `size/media/md`, `size/media/xs`; радиус `radius/full`; обводка `surface/current`; толщина обводки `border/width/focus`; ширина `size/media/lg`, `size/media/md`, `size/media/xs`.
+- `more`: заливка / цвет `action/secondary/default`, `surface/default`; радиус `radius/chip`; обводка `surface/current`; толщина обводки `border/width/focus`.
 - `count`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- Значений без переменной: 6 (напр. `(root):gap=-4`, `(root):gap=-6`, `(root):gap=-8`).
+- Значений без переменной: 6 (напр. `(root):gap=-4`, `(root):gap=-6`, `(root):gap=-8`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- От режима Platform не зависит: на стенде iOS / Android совпадают с Web.
 
 ## 12. Figma projection
 - Набор `Avatar group`, вариантов 6 из 6; оси: Size, More.
 - Борда: «Avatar group — борда · шаблон v3», разделов 9.
-- Описание: 678 знаков, разделы: Status: Level: Когда использовать: Правила: A11y:
+- Описание: 677 знаков, разделы: Status: Level: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -65,8 +76,17 @@
 - Props: `size`: xs | s | m; `more`: boolean.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — только реестр: отрицательный зазор −4 / −6 / −8 (нахлёст аватаров).
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 % (длинный текст и языки — только на варианте XS · More Off); своих текстовых и булевых свойств нет; RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: base avatar / group line (size, more, RTL — в коде направление по dir).
+- DS Web base avatar / group line (size, more, RTL) → Avatar group: size → Size, more → More; RTL — в коде, направление по `dir`.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Текст 200 % у XS: инициалы выходят за круг, «+N» обрезается — на решение: зафиксировать кегль или дать кругу расти.
+- Нахлёст −4 / −6 / −8 числом — ждёт токенов.
+- В вариантах 4 аватара: правило «до 5» в наборе не показано.
+- Light L3: заливка аватаров и `more` почти равна подложке (общее с Avatar) — на решение.

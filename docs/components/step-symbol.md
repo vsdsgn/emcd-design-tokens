@@ -1,34 +1,42 @@
-# Step symbol — контракт · draft (2026-11-13)
+# Step symbol — контракт (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Step symbol`. Status: draft. Level: molecule.
-- Figma: Components, страница «Step symbol» (`1012:11`), набор `108:1416`.
+- Набор: `Step symbol`. Status: beta. Level: unknown.
+- Figma: Components, страница «Step symbol» (`1012:11`), набор `108:1416`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
-- Символ шага: Numbered / Icon / Checked / Bullet × Default / Active / Success.
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Кружок шага в Step: номер, иконка, галочка или точка в одном из трёх состояний.
+- Когда использовать: только внутри Step — символ шага.
+- Когда нет: отдельно в макете; счётчик — Counter; статус — Status.
+- Правило выбора варианта:
+  - Type: Numbered — шаги по порядку; Icon — шаг со смысловой иконкой; Checked — шаг пройден; Bullet — шаги без номера. В одном ряду — один тип.
+  - State: Default — шаг впереди; Current — текущий (ровно один); Success — пройден.
+  - Number — номер шага, 1–2 цифры; есть только у Type=Numbered.
+- Не делаем: разные типы в одном ряду; два Current в ряду; символ вне Step; Number длиннее двух цифр.
 
 ## 3. Anatomy
-- Слои с токенами: `number`, `bullet`.
+- Корень — круг `size/media/sm` (24), `radius/chip`: Default — `action/secondary/default` + обводка `border/default` (`border/width/default`); Current — `control/checked`; Success — `status/success/solid`.
+- `number` — цифра (`type/label/sm`, `font-weight/medium`): `text/secondary` в Default, `text/on-accent` в Current и Success.
+- Иконка (Icon, Checked) — по центру круга; `bullet` — точка без круга: `border/default` / `control/checked` / `status/success/solid`.
 - Вложено: иконки ×6.
 - Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Ось State: Default · Current · Success. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
+- Default — серый круг с обводкой (у Bullet — серая точка): шаг впереди.
+- Current — заливка `control/checked`, содержимое `text/on-accent`: текущий шаг.
+- Success — заливка `status/success/solid`: шаг пройден.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Type | Numbered · Icon · Checked · Bullet | — |
-| State | Default · Current · Success | — |
+| Type | Numbered · Icon · Checked · Bullet | Numbered |
+| State | Default · Current · Success | Default |
 
 Матрица полная: 12 вариантов.
 
@@ -39,16 +47,20 @@
 | Number | текст | «1» | 3 из 12 |
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Number — 1–2 цифры. Длиннее не передавать: значение не усекается и не обрезается кругом, а выходит за него.
+- Цифры не переводятся: языки на символ не влияют.
+- Текст 200 %: круг не растёт (размер фиксирован), цифра удвоенного кегля помещается по высоте без обрезки.
+- RTL: содержимое круга не зеркалится; порядок шагов зеркалит Stepper.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- Нет.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Статичен. Смену State задаёт Step.
 
 ## 9. Accessibility
-- Не описано: заполнить при переводе в beta.
+- Декоративный: номер и состояние озвучивает Step («Шаг 2 из 4, текущий»).
+- Иконка скрыта от читалки.
 
 ## 10. Tokens
 - `корень`: заливка / цвет `action/secondary/default`, `control/checked`, `status/success/solid`; высота `size/media/sm`; радиус `radius/chip`; обводка `border/default`; толщина обводки `border/width/default`; ширина `size/media/sm`.
@@ -56,12 +68,12 @@
 - `bullet`: заливка / цвет `border/default`, `control/checked`, `status/success/solid`.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
 - Набор `Step symbol`, вариантов 12 из 12; оси: Type, State.
 - Борда: «Step symbol — борда · шаблон v3», разделов 9.
-- Описание: 644 знаков, разделы: Status: Level: Символ шага: Когда использовать: Правила: A11y:
+- Описание: 702 знаков, разделы: Status: Level: Символ шага: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -71,8 +83,15 @@
 - Состояния (Default, Current, Success) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — 0 замечаний.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; булевых свойств нет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: Step Symbol (Type, State) (DS Web Stepper).
+- DS Web Stepper: Step Symbol (Type, State) → Step symbol (Type Numbered | Icon | Checked | Bullet, State Default | Current | Success).
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Bullet · Default в Dark на L0 почти не виден (`border/default`) — на решение (токен).
+- Checked · Default есть в матрице, а по правилу Checked — только пройденный шаг: оставить или сузить — на решение.

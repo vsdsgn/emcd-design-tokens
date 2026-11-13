@@ -1,55 +1,62 @@
-# Step trail — контракт · draft (2026-11-13)
+# Step trail — контракт (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Step trail`. Status: draft. Level: molecule.
-- Figma: Components, страница «Step trail» (`1012:12`), набор `108:1429`.
+- Набор: `Step trail`. Status: beta. Level: unknown.
+- Figma: Components, страница «Step trail» (`1012:12`), набор `108:1429`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
-- Линия между шагами: Solid / Dotted × Default / Active / Success.
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Линия между двумя шагами в Stepper: сплошная или пунктирная, в цвете состояния шага.
+- Когда использовать: только внутри Stepper — линия между двумя Step.
+- Когда нет: разделить блоки — Divider; отдельно в макете не ставится.
+- Правило выбора варианта:
+  - Border: Solid — шаг до линии пройден или текущий; Dotted — шаг впереди.
+  - State повторяет состояние шага, из которого линия выходит: Default — впереди; Current — текущий; Success — пройден.
+  - Ширина — всё свободное место между символами шагов.
+- Не делаем: линия вне Stepper; State, не совпадающий с шагом-источником.
 
 ## 3. Anatomy
-- Слои с токенами: `line`.
+- Корень высотой `size/media/sm` (24 — высота Step symbol); `line` по центру высоты — обводка `border/width/default`: `border/default` (Default), `control/checked` (Current), `status/success/solid` (Success).
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Ось State: Default · Current · Success. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
+- Default — линия `border/default`.
+- Current — линия `control/checked`.
+- Success — линия `status/success/solid`.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Border | Solid · Dotted | — |
-| State | Default · Current · Success | — |
+| Border | Solid · Dotted | Solid |
+| State | Default · Current · Success | Default |
 
 Матрица полная: 6 вариантов.
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Текста нет: длинный текст, языки и 200 % на линию не влияют.
+- RTL: линия симметрична; направление шагов зеркалит Stepper.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- Нет.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Статична. Смену Border и State задаёт Stepper.
 
 ## 9. Accessibility
-- Не описано: заполнить при переводе в beta.
+- Декоративная, скрыта от читалки (`aria-hidden`).
 
 ## 10. Tokens
 - `корень`: высота `size/media/sm`.
 - `line`: обводка `border/default`, `control/checked`, `status/success/solid`; толщина обводки `border/width/default`.
-- Значений без переменной: 6 (напр. `(root):w=80`).
+- Значений без переменной: 6 (напр. `(root):w=80`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
 - Набор `Step trail`, вариантов 6 из 6; оси: Border, State.
@@ -64,8 +71,16 @@
 - Состояния (Default, Current, Success) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — 0 замечаний.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текста и булевых свойств нет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: Step Trail (Border type, State).
+- DS Web: Step Trail (Border type, State) → Step trail (Border Solid | Dotted, State Default | Current | Success).
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Ширина корня 80 — числом (образец; в продукте — всё свободное место).
+- Solid · Default и Dotted · Current / Success по правилу не применяются, но есть в матрице — сузить или уточнить правило.
+- Default в Dark на L0 почти не видна (`border/default`) — на решение (токен).

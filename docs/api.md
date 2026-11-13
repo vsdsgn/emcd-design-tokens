@@ -11,6 +11,8 @@
 
 undefined · beta · Vue `<DsAccordion>` · Flutter `DsAccordion` · контракт `docs/components/accordion.md`
 
+Вопрос или раздел, который раскрывается по нажатию на заголовок (FAQ, условия, детали расчёта). Контент — слот. Основа — legacy `baseAccordion --1.5`: пункт 64 (L), текст 16, круглый шеврон 24, разделитель.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | l \| m | по правилу контракта | ось Size |
@@ -24,6 +26,8 @@ undefined · beta · Vue `<DsAccordion>` · Flutter `DsAccordion` · контр�
 ## Address
 
 undefined · beta · Vue `<DsAddress>` · Flutter `DsAddress` · контракт `docs/components/address.md`
+
+Адрес кошелька или хэш с копированием и QR: подпись, строка с адресом и двумя кнопками, статус «Адрес скопирован».
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -62,6 +66,8 @@ undefined · beta · Vue `<DsAvatar>` · Flutter `DsAvatar` · контракт 
 ## Avatar group
 
 undefined · beta · Vue `<DsAvatarGroup>` · Flutter `DsAvatarGroup` · контракт `docs/components/avatar-group.md`
+
+Несколько аватаров одним блоком внахлёст; лишние сворачиваются в круг «+N».
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -116,6 +122,8 @@ undefined · beta · Vue `<DsBreadcrumbItem>` · Flutter `DsBreadcrumbItem` · �
 
 undefined · beta · Vue `<DsBreadcrumbs>` · Flutter `DsBreadcrumbs` · контракт `docs/components/breadcrumbs.md`
 
+Путь к текущей странице в глубокой иерархии (Web): «Главная / Воркеры / rig-01».
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `items` | 2 \| 3 \| 4 \| collapsed | по правилу контракта | ось Items |
@@ -144,6 +152,8 @@ undefined · beta · Vue `<DsButton>` · Flutter `DsButton` · контракт 
 
 undefined · beta · Vue `<DsCard>` · Flutter `DsCard` · контракт `docs/components/card.md`
 
+Контейнер-подложка: уровень поверхности, радиус, внутренний отступ и обводка. Своего содержимого нет.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `level` | 1 \| 2 \| 3 \| 0 | по правилу контракта | ось Level |
@@ -154,6 +164,8 @@ undefined · beta · Vue `<DsCard>` · Flutter `DsCard` · контракт `doc
 ## Chart axis label
 
 undefined · beta · Vue `<DsChartAxisLabel>` · Flutter `DsChartAxisLabel` · контракт `docs/components/chart-axis-label.md`
+
+Подпись оси графика: время, дата или значение. Одна короткая метка.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -166,6 +178,8 @@ undefined · beta · Vue `<DsChartAxisLabel>` · Flutter `DsChartAxisLabel` · �
 
 undefined · beta · Vue `<DsChartCrosshair>` · Flutter `DsChartCrosshair` · контракт `docs/components/chart-crosshair.md`
 
+Перекрестие под курсором на графике: вертикальная линия с точкой серии или подсветка полосы столбца. Работает вместе с Chart tooltip.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `target` | line \| bar | по правилу контракта | ось Target |
@@ -173,6 +187,8 @@ undefined · beta · Vue `<DsChartCrosshair>` · Flutter `DsChartCrosshair` · �
 ## Chart metric
 
 undefined · beta · Vue `<DsChartMetric>` · Flutter `DsChartMetric` · контракт `docs/components/chart-metric.md`
+
+Показатель над графиком: подпись и крупное значение, при необходимости иконка слева от значения.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -186,6 +202,8 @@ undefined · beta · Vue `<DsChartMetric>` · Flutter `DsChartMetric` · кон�
 ## Chart tooltip
 
 undefined · beta · Vue `<DsChartTooltip>` · Flutter `DsChartTooltip` · контракт `docs/components/chart-tooltip.md`
+
+Тултип точки графика: дата и время, под ними строки «маркер серии — название — значение».
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -214,6 +232,8 @@ undefined · beta · Vue `<DsCheckbox>` · Flutter `DsCheckbox` · контра�
 ## Checkbox group
 
 undefined · beta · Vue `<DsCheckboxGroup>` · Flutter `DsCheckboxGroup` · контракт `docs/components/checkbox-group.md`
+
+Группа чекбоксов: подпись группы, варианты, под ними подсказка или ошибка.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -251,6 +271,8 @@ undefined · beta · Vue `<DsChip>` · Flutter `DsChip` · контракт `doc
 
 undefined · beta · Vue `<DsCircleTimer>` · Flutter `DsCircleTimer` · контракт `docs/components/circle-timer.md`
 
+Круглый таймер обратного отсчёта: кольцо-прогресс, убывает по часовой стрелке. Показывает, сколько осталось до автоскрытия Toast или до повторной отправки кода.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | s \| m | по правилу контракта | ось Size |
@@ -259,6 +281,8 @@ undefined · beta · Vue `<DsCircleTimer>` · Flutter `DsCircleTimer` · кон�
 ## Code cell
 
 undefined · beta · Vue `<DsCodeCell>` · Flutter `DsCodeCell` · контракт `docs/components/code-cell.md`
+
+Ячейка кода: одна цифра кода подтверждения.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -270,6 +294,8 @@ undefined · beta · Vue `<DsCodeCell>` · Flutter `DsCodeCell` · контра�
 ## Code input
 
 undefined · beta · Vue `<DsCodeInput>` · Flutter `DsCodeInput` · контракт `docs/components/code-input.md`
+
+Ввод одноразового кода: ряд из 4 или 6 ячеек Code cell и строка сообщения под ним. Подтверждение — автоматически, когда введена последняя цифра.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -283,6 +309,8 @@ undefined · beta · Vue `<DsCodeInput>` · Flutter `DsCodeInput` · контр�
 
 undefined · beta · Vue `<DsCoin>` · Flutter `DsCoin` · контракт `docs/components/coin.md`
 
+Монета из библиотеки Symbols (`symbol/coin/*`) нужного размера, при необходимости с маленькой монетой сети в правом нижнем углу (USDT TRC-20, USDT ERC-20).
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | xs \| s \| m \| l \| xl | по правилу контракта | ось Size |
@@ -294,6 +322,8 @@ undefined · beta · Vue `<DsCoin>` · Flutter `DsCoin` · контракт `doc
 
 undefined · beta · Vue `<DsCoinStack>` · Flutter `DsCoinStack` · контракт `docs/components/coin-stack.md`
 
+Несколько монет внахлёст (стопка): пул из нескольких монет, пара для обмена, «Kaspa+1».
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | s \| m \| l | по правилу контракта | ось Size |
@@ -302,6 +332,8 @@ undefined · beta · Vue `<DsCoinStack>` · Flutter `DsCoinStack` · контр�
 ## Date cell
 
 undefined · beta · Vue `<DsDateCell>` · Flutter `DsDateCell` · контракт `docs/components/date-cell.md`
+
+Ячейка одного дня в сетке Calendar: число и одно смысловое состояние (сегодня, выбран, край или середина диапазона, соседний месяц, недоступен).
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -313,6 +345,8 @@ undefined · beta · Vue `<DsDateCell>` · Flutter `DsDateCell` · контра�
 
 undefined · beta · Vue `<DsDateRangeField>` · Flutter `DsDateRangeField` · контракт `docs/components/date-range-field.md`
 
+Поле выбора диапазона дат: подпись на рамке, значение «ДД.ММ.ГГ → ДД.ММ.ГГ», справа иконка календаря. По нажатию открывает панель с календарём (Calendar, Mode=Range) и пресетами периодов.
+
 Props нет.
 
 Состояния в Figma: Default · Focus · Filled · Error · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
@@ -320,6 +354,8 @@ Props нет.
 ## Divider
 
 undefined · beta · Vue `<DsDivider>` · Flutter `DsDivider` · контракт `docs/components/divider.md`
+
+Разделитель: линия 1 px между группами содержимого, с необязательной подписью «или».
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -331,6 +367,8 @@ undefined · beta · Vue `<DsDivider>` · Flutter `DsDivider` · контрак�
 ## Floating button
 
 undefined · beta · Vue `<DsFloatingButton>` · Flutter `DsFloatingButton` · контракт `docs/components/floating-button.md`
+
+Плавающая кнопка главного действия экрана на Compact (App, мобильный веб): «Добавить воркер», «Пополнить».
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -430,11 +468,15 @@ undefined · beta · Vue `<DsInputAddonCounter>` · Flutter `DsInputAddonCounter
 
 undefined · beta · Vue `<DsInputAddonClear>` · Flutter `DsInputAddonClear` · контракт `docs/components/input-addon-clear.md`
 
+Кнопка очистки поля (форма legacy `ic-erase`): серый круг с крестиком. Ставится в Trailing.
+
 Props нет.
 
 ## Input addon / Icon
 
 undefined · beta · Vue `<DsInputAddonIcon>` · Flutter `DsInputAddonIcon` · контракт `docs/components/input-addon-icon.md`
+
+Иконка в слоте поля: поиск, сеть, тип значения.
 
 Props нет.
 
@@ -443,6 +485,8 @@ Props нет.
 ## Input amount
 
 undefined · beta · Vue `<DsInputAmount>` · Flutter `DsInputAmount` · контракт `docs/components/input-amount.md`
+
+Поле суммы для пополнения, вывода, обмена и депозита: подпись с иконкой info, баланс и «Макс», сумма крупно, описание лимитов, выбор монеты (Select compact). Ошибка — рамка `control/border/error` и сообщение снизу.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -462,6 +506,8 @@ undefined · beta · Vue `<DsInputAmount>` · Flutter `DsInputAmount` · кон�
 
 undefined · beta · Vue `<DsLegendItem>` · Flutter `DsLegendItem` · контракт `docs/components/legend-item.md`
 
+Элемент легенды графика: маркер серии (Legend swatch) + подпись и необязательное значение.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `label` | string | — | свойство Label |
@@ -474,6 +520,8 @@ undefined · beta · Vue `<DsLegendItem>` · Flutter `DsLegendItem` · конт�
 
 undefined · beta · Vue `<DsLegendSwatch>` · Flutter `DsLegendSwatch` · контракт `docs/components/legend-swatch.md`
 
+Маркер серии графика: цветная точка или отрезок линии.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `marker` | dot \| line | по правилу контракта | ось Marker |
@@ -482,6 +530,8 @@ undefined · beta · Vue `<DsLegendSwatch>` · Flutter `DsLegendSwatch` · ко�
 ## Menu item
 
 undefined · beta · Vue `<DsMenuItem>` · Flutter `DsMenuItem` · контракт `docs/components/menu-item.md`
+
+Пункт меню: слева необязательный слот (иконка, монета, аватар, эмодзи), затем подпись с необязательным описанием, справа необязательный слот (Badge, Counter, значение, шеврон подменю, кнопка). Нажимается вся строка, одно действие на пункт.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -505,6 +555,8 @@ undefined · beta · Vue `<DsMenuItem>` · Flutter `DsMenuItem` · контра�
 
 undefined · beta · Vue `<DsMultiselectOption>` · Flutter `DsMultiselectOption` · контракт `docs/components/multiselect-option.md`
 
+Строка списка выбора (Select, Multiselect, Menu): слева необязательный слот под монету, аватар или иконку, затем подпись с необязательным описанием, справа галочка выбранного. Это строка, а не чекбокс: нажимается вся строка.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `label` | string | — | свойство Label (слой `_List row`, база `_List row`) |
@@ -525,6 +577,8 @@ undefined · beta · Vue `<DsMultiselectOption>` · Flutter `DsMultiselectOption
 
 undefined · beta · Vue `<DsMultiselect>` · Flutter `DsMultiselect` · контракт `docs/components/multiselect.md`
 
+Поле множественного выбора: Select + список Multiselect option в Menu. Выбранное показывается строкой «Выбрано: N» в поле (Count) или чипами под полем (Chips).
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `display` | count \| chips | по правилу контракта | ось Display |
@@ -534,6 +588,8 @@ undefined · beta · Vue `<DsMultiselect>` · Flutter `DsMultiselect` · кон�
 ## Nav item
 
 undefined · beta · Vue `<DsNavItem>` · Flutter `DsNavItem` · контракт `docs/components/nav-item.md`
+
+Пункт основной навигации в сайдбаре Web: иконка и подпись; в свёрнутом сайдбаре — только иконка.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -549,6 +605,8 @@ undefined · beta · Vue `<DsNavItem>` · Flutter `DsNavItem` · контрак�
 
 undefined · beta · Vue `<DsNotification>` · Flutter `DsNotification` · контракт `docs/components/notification.md`
 
+Запись в центре уведомлений (колокольчик в шапке): иконка, заголовок, текст и время.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `status` | unread \| read | по правилу контракта | ось Status |
@@ -562,6 +620,8 @@ undefined · beta · Vue `<DsNotification>` · Flutter `DsNotification` · ко�
 
 undefined · beta · Vue `<DsOverlay>` · Flutter `DsOverlay` · контракт `docs/components/overlay.md`
 
+Подложка за модальными слоями: полупрозрачная заливка `surface/overlay` на весь экран, при необходимости с размытием фона.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `blur` | off \| on | по правилу контракта | ось Blur |
@@ -570,6 +630,8 @@ undefined · beta · Vue `<DsOverlay>` · Flutter `DsOverlay` · контрак�
 
 undefined · beta · Vue `<DsPageDot>` · Flutter `DsPageDot` · контракт `docs/components/page-dot.md`
 
+Точка индикатора страниц. Часть Page indicator.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `selected` | off \| on | по правилу контракта | ось Selected |
@@ -577,6 +639,8 @@ undefined · beta · Vue `<DsPageDot>` · Flutter `DsPageDot` · контрак�
 ## Page indicator
 
 undefined · beta · Vue `<DsPageIndicator>` · Flutter `DsPageIndicator` · контракт `docs/components/page-indicator.md`
+
+Индикатор страниц карусели: ряд точек, текущая — вытянутая.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -587,6 +651,8 @@ undefined · beta · Vue `<DsPageIndicator>` · Flutter `DsPageIndicator` · к�
 
 undefined · beta · Vue `<DsPagination>` · Flutter `DsPagination` · контракт `docs/components/pagination.md`
 
+Пагинация таблиц и списков: номера страниц или диапазон со стрелками.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `type` | pages \| compact | по правилу контракта | ось Type |
@@ -595,6 +661,8 @@ undefined · beta · Vue `<DsPagination>` · Flutter `DsPagination` · конт�
 ## Pagination item
 
 undefined · beta · Vue `<DsPaginationItem>` · Flutter `DsPaginationItem` · контракт `docs/components/pagination-item.md`
+
+Номер страницы в Pagination. Отдельно не используется.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -607,6 +675,8 @@ undefined · beta · Vue `<DsPaginationItem>` · Flutter `DsPaginationItem` · �
 
 undefined · beta · Vue `<DsPasswordField>` · Flutter `DsPasswordField` · контракт `docs/components/password-field.md`
 
+Поле пароля с кнопкой показа символов («глаз») и списком требований, которые отмечаются по мере ввода.
+
 Props нет.
 
 Состояния в Figma: Empty · Typing · Valid · Error — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `error` — boolean props.
@@ -614,6 +684,8 @@ Props нет.
 ## Key-value row
 
 undefined · beta · Vue `<DsKeyValueRow>` · Flutter `DsKeyValueRow` · контракт `docs/components/key-value-row.md`
+
+Строка «название — значение» в сводке: название в начале строки, значение в конце.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -624,6 +696,8 @@ undefined · beta · Vue `<DsKeyValueRow>` · Flutter `DsKeyValueRow` · кон�
 ## Progress
 
 undefined · beta · Vue `<DsProgress>` · Flutter `DsProgress` · контракт `docs/components/progress.md`
+
+Линейный прогресс: доля выполненного, когда длительность или объём известны (лимит вывода, заполненность, шаг загрузки файла, срок до выплаты).
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -637,6 +711,8 @@ undefined · beta · Vue `<DsProgress>` · Flutter `DsProgress` · контра�
 
 undefined · beta · Vue `<DsProgressCircle>` · Flutter `DsProgressCircle` · контракт `docs/components/progress-circle.md`
 
+Круговой прогресс: известная доля, когда места мало или прогресс — главное на карточке (заполнение пула, выполнение задания).
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | s \| m \| l | по правилу контракта | ось Size |
@@ -646,6 +722,8 @@ undefined · beta · Vue `<DsProgressCircle>` · Flutter `DsProgressCircle` · �
 
 undefined · beta · Vue `<DsSpinner>` · Flutter `DsSpinner` · контракт `docs/components/spinner.md`
 
+Индикатор загрузки: действие идёт, длительность неизвестна.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | s \| m \| l | по правилу контракта | ось Size |
@@ -653,6 +731,8 @@ undefined · beta · Vue `<DsSpinner>` · Flutter `DsSpinner` · контрак�
 ## Promo card
 
 undefined · beta · Vue `<DsPromoCard>` · Flutter `DsPromoCard` · контракт `docs/components/promo-card.md`
+
+Промо-карточка: заголовок, необязательные описание и действие, необязательная картинка справа.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -687,6 +767,8 @@ undefined · beta · Vue `<DsRadio>` · Flutter `DsRadio` · контракт `d
 
 undefined · beta · Vue `<DsRadioCard>` · Flutter `DsRadioCard` · контракт `docs/components/radio-card.md`
 
+Выбираемая карточка: радио, подпись и необязательные детали, которые раскрываются у выбранной. Нажимается вся карточка.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `status` | off \| on | по правилу контракта | ось Status |
@@ -699,6 +781,8 @@ undefined · beta · Vue `<DsRadioCard>` · Flutter `DsRadioCard` · контр�
 ## Radio group
 
 undefined · beta · Vue `<DsRadioGroup>` · Flutter `DsRadioGroup` · контракт `docs/components/radio-group.md`
+
+Группа радио: подпись группы, варианты, под ними подсказка или ошибка.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -714,6 +798,8 @@ undefined · beta · Vue `<DsRadioGroup>` · Flutter `DsRadioGroup` · конт�
 ## Scrollbar
 
 undefined · beta · Vue `<DsScrollbar>` · Flutter `DsScrollbar` · контракт `docs/components/scrollbar.md`
+
+Полоса прокрутки для своих скролл-контейнеров: выпадающие списки, панели, таблицы. Источник — legacy DS Web «Scrollbar» и сырой «Scroll» 4 px в продуктах.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -744,6 +830,8 @@ undefined · beta · Vue `<DsSegment>` · Flutter `DsSegment` · контрак�
 
 undefined · beta · Vue `<DsSegmented>` · Flutter `DsSegmented` · контракт `docs/components/segmented.md`
 
+Выбор одного значения из 2–4 взаимоисключающих; результат применяется сразу (период графика, Купить / Продать, вид список / сетка).
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | s \| m \| l \| xl | по правилу контракта | ось Size |
@@ -752,6 +840,8 @@ undefined · beta · Vue `<DsSegmented>` · Flutter `DsSegmented` · контр�
 ## Select
 
 undefined · beta · Vue `<DsSelect>` · Flutter `DsSelect` · контракт `docs/components/select.md`
+
+Поле выбора одного значения из списка (сеть вывода, кошелёк, монета, валюта). Поле как у Input (размеры, лейбл, helper, ошибка), справа шеврон; по нажатию открывает Menu (на Compact — Sheet).
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -762,6 +852,8 @@ undefined · beta · Vue `<DsSelect>` · Flutter `DsSelect` · контракт 
 ## Select compact
 
 undefined · beta · Vue `<DsSelectCompact>` · Flutter `DsSelectCompact` · контракт `docs/components/select-compact.md`
+
+Компактный селектор без лейбла: выбор монеты, сети, валюты внутри строки, карточки, шапки виджета («USDT ▾»). По нажатию открывает Menu, на Compact — Sheet.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -775,6 +867,8 @@ undefined · beta · Vue `<DsSelectCompact>` · Flutter `DsSelectCompact` · к�
 
 undefined · beta · Vue `<DsSkeleton>` · Flutter `DsSkeleton` · контракт `docs/components/skeleton.md`
 
+Кирпичи скелетона: из них собираются Skeleton-состояния всех компонентов с данными (List item, Table row, Stat card, Chart card, Coin, Avatar).
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `shape` | text \| title \| circle \| rect \| button \| input \| chip | по правилу контракта | ось Shape |
@@ -782,6 +876,8 @@ undefined · beta · Vue `<DsSkeleton>` · Flutter `DsSkeleton` · контра�
 ## Stat card
 
 undefined · beta · Vue `<DsStatCard>` · Flutter `DsStatCard` · контракт `docs/components/stat-card.md`
+
+Один показатель с подписью: хешрейт, баланс, начислено за 24 ч, активные воркеры. Основа дашборда.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -823,6 +919,8 @@ undefined · beta · Vue `<DsDot>` · Flutter `DsDot` · контракт `docs/
 
 undefined · beta · Vue `<DsStepProgress>` · Flutter `DsStepProgress` · контракт `docs/components/step-progress.md`
 
+Полоска из 3–7 равных сегментов: сколько шагов пройдено в линейной последовательности без названий. Источник — legacy «slider counter» (Tooltip tour, DS Web и DS App).
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `count` | 3 \| 4 \| 5 \| 6 \| 7 | по правилу контракта | ось Count |
@@ -832,6 +930,8 @@ undefined · beta · Vue `<DsStepProgress>` · Flutter `DsStepProgress` · ко�
 
 undefined · beta · Vue `<DsStepSegment>` · Flutter `DsStepSegment` · контракт `docs/components/step-segment.md`
 
+Один сегмент полоски Step progress: шаг пройден, текущий или впереди.
+
 Props нет.
 
 Состояния в Figma: Done · Current · Upcoming — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
@@ -839,6 +939,8 @@ Props нет.
 ## Step symbol
 
 undefined · beta · Vue `<DsStepSymbol>` · Flutter `DsStepSymbol` · контракт `docs/components/step-symbol.md`
+
+Кружок шага в Step: номер, иконка, галочка или точка в одном из трёх состояний.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -851,6 +953,8 @@ undefined · beta · Vue `<DsStepSymbol>` · Flutter `DsStepSymbol` · конт�
 
 undefined · beta · Vue `<DsStepTrail>` · Flutter `DsStepTrail` · контракт `docs/components/step-trail.md`
 
+Линия между двумя шагами в Stepper: сплошная или пунктирная, в цвете состояния шага.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `border` | solid \| dotted | по правилу контракта | ось Border |
@@ -860,6 +964,8 @@ undefined · beta · Vue `<DsStepTrail>` · Flutter `DsStepTrail` · контр�
 ## Step
 
 undefined · beta · Vue `<DsStep>` · Flutter `DsStep` · контракт `docs/components/step.md`
+
+Один шаг в Stepper: символ (Step symbol) + подпись и необязательное описание.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -907,6 +1013,8 @@ undefined · beta · Vue `<DsTabBarItem>` · Flutter `DsTabBarItem` · конт�
 
 undefined · beta · Vue `<DsTableHeaderCell>` · Flutter `DsTableHeaderCell` · контракт `docs/components/table-header-cell.md`
 
+Заголовок колонки таблицы; у сортируемой колонки — кнопка сортировки со стрелкой.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `align` | start \| end | по правилу контракта | ось Align |
@@ -921,6 +1029,8 @@ undefined · beta · Vue `<DsTableHeaderCell>` · Flutter `DsTableHeaderCell` ·
 
 undefined · beta · Vue `<DsTableCellText>` · Flutter `DsTableCellText` · контракт `docs/components/table-cell-text.md`
 
+Ячейка таблицы с текстом: основная строка и необязательная вторая строка.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `align` | start \| end | по правилу контракта | ось Align |
@@ -934,6 +1044,8 @@ undefined · beta · Vue `<DsTableCellText>` · Flutter `DsTableCellText` · к�
 
 undefined · beta · Vue `<DsTableCellDateTime>` · Flutter `DsTableCellDateTime` · контракт `docs/components/table-cell-date-time.md`
 
+Ячейка таблицы с датой и временем события: в строку или столбиком.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `layout` | row \| column | по правилу контракта | ось Layout |
@@ -945,6 +1057,8 @@ undefined · beta · Vue `<DsTableCellDateTime>` · Flutter `DsTableCellDateTime
 ## Table cell / Coin
 
 undefined · beta · Vue `<DsTableCellCoin>` · Flutter `DsTableCellCoin` · контракт `docs/components/table-cell-coin.md`
+
+Ячейка таблицы с монетой или активом: символ монеты, тикер и название или сеть.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -958,6 +1072,8 @@ undefined · beta · Vue `<DsTableCellCoin>` · Flutter `DsTableCellCoin` · к�
 
 undefined · beta · Vue `<DsTableCellTransaction>` · Flutter `DsTableCellTransaction` · контракт `docs/components/table-cell-transaction.md`
 
+Ячейка таблицы с суммой операции: знак, число и единица. Выровнена по концу строки.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `direction` | unexpected \| credit \| neutral \| neutral-secondary | по правилу контракта | ось Direction |
@@ -970,6 +1086,8 @@ undefined · beta · Vue `<DsTableCellTransaction>` · Flutter `DsTableCellTrans
 
 undefined · beta · Vue `<DsTableCellImage>` · Flutter `DsTableCellImage` · контракт `docs/components/table-cell-image.md`
 
+Ячейка таблицы с картинкой 52 и двумя строками текста (устройство, площадка).
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `primary` | string | — | свойство Primary |
@@ -981,6 +1099,8 @@ undefined · beta · Vue `<DsTableCellImage>` · Flutter `DsTableCellImage` · �
 
 undefined · beta · Vue `<DsTableCellProgress>` · Flutter `DsTableCellProgress` · контракт `docs/components/table-cell-progress.md`
 
+Ячейка таблицы с долей выполнения: полоса Progress шириной 80 и процент справа.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `percent` | string | — | свойство Percent |
@@ -990,6 +1110,8 @@ undefined · beta · Vue `<DsTableCellProgress>` · Flutter `DsTableCellProgress
 ## Table cell / Avatar
 
 undefined · beta · Vue `<DsTableCellAvatar>` · Flutter `DsTableCellAvatar` · контракт `docs/components/table-cell-avatar.md`
+
+Ячейка таблицы с пользователем: аватар 40, имя со значками достижений и подпись второй строкой.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -1005,6 +1127,8 @@ undefined · beta · Vue `<DsTableCellAvatar>` · Flutter `DsTableCellAvatar` ·
 
 undefined · beta · Vue `<DsTableCellBadge>` · Flutter `DsTableCellBadge` · контракт `docs/components/table-cell-badge.md`
 
+Ячейка таблицы с бейджем: один Badge M, тон и текст — у вложенного экземпляра.
+
 Props нет.
 
 Состояния в Figma: Default · Skeleton · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
@@ -1013,6 +1137,8 @@ Props нет.
 
 undefined · beta · Vue `<DsTableCellToggle>` · Flutter `DsTableCellToggle` · контракт `docs/components/table-cell-toggle.md`
 
+Ячейка таблицы с переключателем: Toggle S без подписи, включает или выключает объект строки сразу.
+
 Props нет.
 
 Состояния в Figma: Default · Skeleton · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
@@ -1020,6 +1146,8 @@ Props нет.
 ## Table cell / Icon
 
 undefined · beta · Vue `<DsTableCellIcon>` · Flutter `DsTableCellIcon` · контракт `docs/components/table-cell-icon.md`
+
+Ячейка таблицы с иконкой 24: признак строки (тип, канал). Не нажимается.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -1033,6 +1161,8 @@ undefined · beta · Vue `<DsTableCellIcon>` · Flutter `DsTableCellIcon` · к�
 
 undefined · beta · Vue `<DsTableCellButtons>` · Flutter `DsTableCellButtons` · контракт `docs/components/table-cell-buttons.md`
 
+Ячейка таблицы с быстрыми действиями строки: до трёх Icon button Ghost S.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `button2` | boolean | true | свойство Button 2 |
@@ -1044,6 +1174,8 @@ undefined · beta · Vue `<DsTableCellButtons>` · Flutter `DsTableCellButtons` 
 
 undefined · beta · Vue `<DsTableCellMore>` · Flutter `DsTableCellMore` · контракт `docs/components/table-cell-more.md`
 
+Ячейка таблицы с кнопкой «⋯»: открывает меню действий строки (Menu).
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `status` | boolean | false | свойство Status |
@@ -1053,6 +1185,8 @@ undefined · beta · Vue `<DsTableCellMore>` · Flutter `DsTableCellMore` · к�
 ## Table row
 
 undefined · beta · Vue `<DsTableRow>` · Flutter `DsTableRow` · контракт `docs/components/table-row.md`
+
+Строка таблицы: набор ячеек Table cell / … в колонках фиксированной ширины и разделитель снизу (`border/subtle`).
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -1064,6 +1198,8 @@ undefined · beta · Vue `<DsTableRow>` · Flutter `DsTableRow` · контра�
 
 undefined · beta · Vue `<DsTableCellStatus>` · Flutter `DsTableCellStatus` · контракт `docs/components/table-cell-status.md`
 
+Ячейка таблицы со статусом: точка и подпись («имя воркера · активен»). Подпись и тон — у вложенного Status.
+
 Props нет.
 
 Состояния в Figma: Default · Skeleton · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
@@ -1071,6 +1207,8 @@ Props нет.
 ## Tabs
 
 undefined · beta · Vue `<DsTabs>` · Flutter `DsTabs` · контракт `docs/components/tabs.md`
+
+Бар табов: переключение между разделами одного контекста. Внутри — экземпляры Tab, первый выбран; снизу разделитель `border/subtle` на всю ширину контейнера.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
@@ -1126,6 +1264,8 @@ undefined · beta · Vue `<DsToggle>` · Flutter `DsToggle` · контракт 
 
 undefined · beta · Vue `<DsToggleGroup>` · Flutter `DsToggleGroup` · контракт `docs/components/toggle-group.md`
 
+Группа переключателей: подпись группы, варианты, под ними подсказка.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `direction` | vertical | по правилу контракта | ось Direction |
@@ -1141,6 +1281,8 @@ undefined · beta · Vue `<DsToggleGroup>` · Flutter `DsToggleGroup` · кон�
 
 undefined · beta · Vue `<DsTooltipTour>` · Flutter `DsTooltipTour` · контракт `docs/components/tooltip-tour.md`
 
+Подсказка онбординга с шагами: номер шага, заголовок, пояснение и кнопки «Пропустить» и «Далее», стрелка на элемент. Для обучающих туров по экрану.
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `placement` | top \| bottom | по правилу контракта | ось Placement |
@@ -1154,6 +1296,8 @@ undefined · beta · Vue `<DsTooltipTour>` · Flutter `DsTooltipTour` · кон�
 ## Transaction
 
 undefined · beta · Vue `<DsTransaction>` · Flutter `DsTransaction` · контракт `docs/components/transaction.md`
+
+Строка операции в истории: вывод, пополнение, начисление, обмен. Нажимается целиком — открывает детали.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|

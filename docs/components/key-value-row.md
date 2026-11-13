@@ -1,32 +1,40 @@
-# Key-value row — контракт · draft (2026-11-13)
+# Key-value row — контракт (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Key-value row`. Status: draft. Level: molecule.
-- Figma: Components, страница «Payout summary» (`364:4625`), набор `199:227`.
+- Набор: `Key-value row`. Status: beta. Level: unknown.
+- Figma: Components, страница «Payout summary» (`364:4625`), набор `199:227`. Платформы: Web, Mobile web, iOS, Android.
+- Лежит на странице Payout summary.
 
 ## 2. Intent
-- Строка «название — значение» в сводках: подтверждение вывода, детали операции, параметры тарифа. Источник: «.sum list group» в Web App (88 вхождений).
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Строка «название — значение» в сводке: название в начале строки, значение в конце.
+- Когда использовать: пара «название — значение» в сводке: подтверждение вывода, детали операции, параметры тарифа.
+- Когда нет: нажимаемая строка — List item; сравнение по колонкам — Table.
+- Правило выбора варианта:
+  - Emphasis: Default — обычная строка; Total — итог: одна на сводку, последней, с линией сверху; Muted — второстепенные строки.
+  - Название — в начале строки, значение — в конце; числа — моноширинные.
+  - Название — до двух строк; значение — одна строка, не переносится.
+  - Между строками — `space/12`.
+- Не делаем: две строки Total в одной сводке; Total не последней; перенос значения; нажатие по строке.
 
 ## 3. Anatomy
-- Слои с токенами: `key`, `value`.
+- Корень — горизонтальный ряд, зазор `space/16`, вертикальные отступы `space/8` / `space/12`; у Total — линия сверху `border/subtle` (`border/width/default`).
+- `key` — `text/secondary`, Body/MD Regular; у Total — Label/MD Medium.
+- `value` — Default: `text/primary`, `font/family/mono`; Muted: `text/secondary`; Total: Label/MD Medium, `font/family/text`; max-width 200.
 - Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Оси State нет.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
+- Состояний нет. Загрузка — Skeleton на месте значения у родителя.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Emphasis | Default · Total · Muted | — |
+| Emphasis | Default · Total · Muted | Default |
 
 Матрица полная: 3 вариантов.
 
@@ -38,30 +46,35 @@
 | Value | текст | «0,00050000 BTC» | 3 из 3 |
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Key — название параметра; Value — значение в формате локали с единицей («0,00050000 BTC»).
+- Длинный текст: название — до двух строк, дальше многоточие; значение — одна строка до 200, дальше многоточие. Название не сжимается в столбец: значение уступает ширину.
+- Языки (de, ar, hi, th, ja, kk): название в 1–2 строки, обрезки по высоте нет.
+- RTL: название и значение меняются местами (порядок зеркалит контейнер); числа и тикеры не зеркалятся.
+- Текст 200 %: строка растёт по высоте, пределы строк те же.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- Нет.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Статична.
 
 ## 9. Accessibility
-- в коде <dl> / <dt> / <dd>. |
+- В коде — `dl` / `dt` / `dd`: название — `dt`, значение — `dd`.
+- Итог отличается не только цветом: линия сверху и Medium.
 
 ## 10. Tokens
 - `корень`: интервал `space/16`; отступы `space/12`, `space/8`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `key`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/md`, `type/label/md`.
 - `value`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/mono`, `font/family/text`, `type/body/md`, `type/label/md`.
-- Значений без переменной: 3 (напр. `(root):w=360`).
+- Значений без переменной: 3 (напр. `(root):w=360`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
 - Набор `Key-value row`, вариантов 3 из 3; оси: Emphasis.
 - Борда: «Key-value row — борда · шаблон v3», разделов 10.
-- Описание: 772 знаков, разделы: Status: Level: Строка «название — Default — A11y: Когда использовать: Правила:
+- Описание: 920 знаков, разделы: Status: Level: Строка «название — Default — A11y: Когда использовать: Правила: Длинный текст:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -70,8 +83,16 @@
 - Props: `emphasis`: default | total | muted; `key`: string или слот; `value`: string или слот.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 200).
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; правка длинного текста 13.11 стендом не перепроверена; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Web App `.sum list group` (88 вхождений) → Key-value row: Emphasis Default | Total | Muted, Key, Value.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Total: значение набрано `font/family/text`, по описанию числа моноширинные — выровнять набор или описание.
+- Ширина корня 360 и max-width значения 200 — числом; в экземпляре строка — по ширине родителя.
+- В описании нет строки Legacy (источник — `.sum list group`).

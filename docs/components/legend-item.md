@@ -1,33 +1,46 @@
-# Legend item — контракт · draft (2026-11-13)
+# Legend item — контракт (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Legend item`. Status: draft. Level: molecule.
-- Figma: Components, страница «Legend item» (`1012:20`), набор `84:613`.
+- Набор: `Legend item`. Status: beta. Level: unknown.
+- Figma: Components, страница «Legend item» (`1012:20`), набор `84:613`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
-- Элемент легенды графика: маркер серии (Legend swatch, вложен — выберите Marker и Series) + подпись (+ значение).
-- Когда использовать: легенда графика; кликабельная — скрыть/показать серию. Серия никогда не только цветом: подпись обязательна.
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Элемент легенды графика: маркер серии (Legend swatch) + подпись и необязательное значение.
+- Когда использовать: легенда графика; кликабельная — скрыть / показать серию.
+- Когда нет: серия только цветом, без подписи; статус — Status; метка — Badge.
+- Правило выбора варианта:
+  - State: Default — серия в покое; Hover — наведение на серию; Selected — серия выбрана / закреплена; Skeleton — график грузится.
+  - Вложенный Legend swatch: Marker Dot — столбцы и области, Line — линии; Series 1–8 = `data/1`…`data/8`, порядок как на графике.
+  - Show value — текущее значение серии рядом с подписью; по умолчанию выключено.
+  - Легенда — над графиком слева, зазор между элементами 16, перенос на новую строку разрешён.
+- Не делаем: элемент без подписи; порядок серий не как на графике; Focus ring у Skeleton.
 
 ## 3. Anatomy
-- Слои с токенами: `swatch`, `label`, `value`, `skeleton`.
+- Корень — горизонтальный ряд, зазор `space/6`, max-width `size/legend-item/max` (160): Legend swatch (`size/legend-swatch`, вложен, exposed) → `label` → `value`.
+- `label` — Body/SM Regular, `text/secondary` (Default) / `text/primary` (Hover); Selected — Label/SM Medium, `text/primary`.
+- `value` — `font/family/mono`, Body/SM, `text/primary`.
+- `skeleton` — полоса `skeleton/base`, `radius/chip`, высотой строки текста; корень той же высоты, что Default (16); маркера в Skeleton нет.
+- Служебные: `focus ring` (`border/focus-ring`, `border/width/focus-ring`, `radius/2xs`), `hit area · web` / `hit area · app`, `safe area · outer`.
 - Вложено: `Legend swatch` ×3.
 - Служебные слои (вариантов из 4): кольцо фокуса 4 · зона Web 4 · зона касания 4 · безопасное поле 4.
 
 ## 4. States
-- Ось State: Default · Hover · Selected · Skeleton. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
+- Группа модели состояний (`docs/components.md`): Текстовый: Hover / Pressed меняют цвет текста, подложки нет; Skeleton — загрузка.
+- Default — подпись `text/secondary`.
+- Hover — подпись `text/primary`: наведение на серию.
+- Selected — подпись `text/primary`, Medium: серия выбрана / закреплена.
+- Skeleton — полоса вместо маркера и подписи: график грузится.
+- Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| State | Default · Hover · Selected · Skeleton | — |
+| State | Default · Hover · Selected · Skeleton | Default |
 
 Матрица полная: 4 вариантов.
 
@@ -42,17 +55,26 @@
 | Show hit area | булево | выкл | 4 из 4 · служебное |
 | Safe margin | булево | выкл | 4 из 4 · служебное |
 
+- Label, Value, Show value — у Default, Hover, Selected; Focus ring, Show hit area, Safe margin — у всех четырёх.
+
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Label — название серии, обязательно; Value — значение с единицей («124.5 TH/s»).
+- Длинный текст: одна строка, многоточие; подпись ≤ 148, корень ≤ `size/legend-item/max` (160).
+- Языки (стенд): de, th, kk усекаются многоточием, hi, ja помещаются, обрезки по высоте нет.
+- RTL: маркер — со стороны начала строки, значение — в конце; цифры и единицы не зеркалятся.
+- Текст 200 %: подпись растёт, обрезки нет; маркер и полоса Skeleton не растут.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- `click` — скрыть или показать серию (у кликабельной легенды).
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Hover меняет цвет подписи.
+- Skeleton — блик по правилам Skeleton.
+- Зона нажатия ≥ `touch/min`: Web 24, касание 44 (слои `hit area · web` / `hit area · app`, проверка — Show hit area); безопасное поле — `control/safe-margin`.
 
 ## 9. Accessibility
-- список; цвет не единственный носитель — подпись обязательна.
+- Легенда — список; элемент — пункт списка. Кликабельный — кнопка с именем из подписи; Enter и Пробел.
+- Цвет не единственный носитель: подпись обязательна.
 
 ## 10. Tokens
 - `корень`: интервал `space/6`; maxw `size/legend-item/max`.
@@ -62,15 +84,16 @@
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/2xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
 - Min / max корня: maxWidth 160 size/legend-item/max.
-- Значений без переменной: 8 (напр. `hit area · web:w=68`, `hit area · web:h=24`, `hit area · web:w=69`, `hit area · web:w=64`).
+- Значений без переменной: 8 (напр. `hit area · web:w=68`, `hit area · web:h=24`, `hit area · web:w=69`, `hit area · web:w=64`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
+- Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
 - Набор `Legend item`, вариантов 4 из 4; оси: State.
 - Борда: «Legend item — борда · шаблон v3», разделов 11.
-- Описание: 969 знаков, разделы: Status: Level: Элемент легенды графика: State как у legacy . Правила: A11y: Когда использовать: Поиск: Legacy:
+- Описание: 970 знаков, разделы: Status: Level: Элемент легенды графика: State как у legacy . Правила: A11y: Когда использовать: Поиск: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -80,8 +103,16 @@
 - Состояния (Default, Hover, Selected, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 148).
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: .legends (state=default/hover/active/skeleton) (DS Web widget Graph)
+- DS Web widget Graph `.legends` (state=default | hover | active | skeleton) → State Default | Hover | Selected | Skeleton; маркер — вложенный Legend swatch (Marker, Series); значение — Show value + Value.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- На решение: Focus ring у Skeleton включается — убрать слой из Skeleton или оставить запрет «не включать».
+- ar: многоточие усечённой подписи вплотную к маркеру — проверить в RTL-раскладке.
+- `hit area · web` — числом (68 / 69 / 64 × 24).

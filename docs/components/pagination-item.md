@@ -1,33 +1,40 @@
-# Pagination item — контракт · draft (2026-11-13)
+# Pagination item — контракт (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Pagination item`. Status: draft. Level: atom.
-- Figma: Components, страница «Pagination item» (`1012:13`), набор `148:1633`.
+- Набор: `Pagination item`. Status: beta. Level: unknown.
+- Figma: Components, страница «Pagination item» (`1012:13`), набор `148:1633`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
-- Номер страницы в Pagination. Selected — accent/subtle + text/accent; цифры табличные. Не использовать отдельно.
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Номер страницы в Pagination. Отдельно не используется.
+- Когда использовать: только внутри Pagination — номер страницы или «…».
+- Когда нет: отдельно в макете; переключение разделов — Tab или Segment.
+- Правило выбора варианта:
+  - Size: S 32 — плотные таблицы; M 40 — по умолчанию. В одной пагинации один размер.
+  - State=Selected — текущая страница, ровно одна на пагинацию.
+  - «…» — пропуск страниц, не нажимается.
+- Не делаем: два выбранных номера; разные размеры в одной пагинации; нажимаемое «…».
 
 ## 3. Anatomy
-- Слои с токенами: `page`.
+- Корень: высота `control/height/sm` | `control/height/md`, ширина по содержимому, min-width = высота (`control/height/*`), отступы `space/8`, радиус `radius/control-sm` | `radius/control`.
+- `page` — число (`font/family/text`, `type/label/md`, `font-weight/medium`, цифры табличные).
+- Служебные: `state layer`, `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer` (свойства Focus ring, Show hit area, Safe margin).
 - Служебные слои (вариантов из 10): кольцо фокуса 10 · зона Web 10 · зона касания 10 · безопасное поле 10.
 
 ## 4. States
-- Ось State: Default · Hover · Pressed · Selected · Disabled. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
+- Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`.
+- Default — без подложки, `text/primary`; Hover / Pressed — слой `state/layer` × `state/hover` / `state/pressed`; Selected — `accent/subtle` + `text/accent`; Disabled — `text/disabled`, без подложки и без Hover.
+- Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | S · M | — |
-| State | Default · Hover · Pressed · Selected · Disabled | — |
+| Size | S · M | S |
+| State | Default · Hover · Pressed · Selected · Disabled | Default |
 
 Матрица полная: 10 вариантов.
 
@@ -41,31 +48,36 @@
 | Safe margin | булево | выкл | 10 из 10 · служебное |
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Page — число или «…»; ширина растёт с числом («1024» → 47), минимум — высота контрола.
+- Цифры не переводятся и не зеркалятся; порядок номеров в RTL зеркалит Pagination. Строки de, ar, hi, th, ja, kk по высоте не обрезаны (стенд), но в Page передаётся только число.
+- Текст 200 %: цифра растёт, высота плашки остаётся 32 / 40, обрезки нет (проверено на стенде).
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- `click` — переход на страницу; смену страницы испускает Pagination. «…» и Disabled событий не дают.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Hover: слой 0 → 6 %, `motion/duration/feedback` (120 мс), `motion/easing/standard`. «Уменьшить движение»: длительности ≈ 0.
+- Зона нажатия ≥ `touch/min`: Web 24, касание 44 (слои `hit area · web` / `hit area · app`, проверка — Show hit area); безопасное поле — `control/safe-margin`.
 
 ## 9. Accessibility
-- кнопка, имя «Страница N», у выбранной aria-current="page". |
+- Кнопка, имя «Страница N»; у выбранной `aria-current="page"`.
+- Tab — фокус, Enter / Пробел — переход.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`; высота `control/height/md`, `control/height/sm`; мин. ширина `control/height/md`, `control/height/sm`; отступы `control/padding-x/sm`, `space/8`; радиус `radius/control`, `radius/control-sm`.
+- `корень`: заливка / цвет `accent/subtle`; высота `control/height/md`, `control/height/sm`; мин. ширина `control/height/md`, `control/height/sm`; отступы `space/8`; радиус `radius/control`, `radius/control-sm`.
 - `page`: заливка / цвет `text/accent`, `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm`.
 - Min / max корня: minWidth 32 control/height/sm, minWidth 40 control/height/md.
-- Значений без переменной: 30 (напр. `(root):w=32`, `hit area · web:w=32`, `hit area · web:h=32`, `(root):w=40`).
+- Значений без переменной: 20 (напр. `hit area · web:w=32`, `hit area · web:h=32`, `hit area · web:w=40`, `hit area · web:h=40`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
+- Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
 - Набор `Pagination item`, вариантов 10 из 10; оси: Size, State.
 - Борда: «Pagination item — борда · шаблон v3», разделов 11.
-- Описание: 668 знаков, разделы: Status: Level: A11y: Когда использовать: Правила:
+- Описание: 667 знаков, разделы: Status: Level: A11y: Когда использовать: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -75,8 +87,17 @@
 - Состояния (Default, Hover, Pressed, Selected, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — 0 замечаний.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- В описании Figma строки Legacy нет.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Первый вариант набора — Size=S: поставить M первым (по описанию M — по умолчанию).
+- «…»: в наборе нет варианта или свойства для ненажимаемого пропуска.
+- `hit area · web` 32 × 32 / 40 × 40 — числом.
+- В описании Figma нет строки Legacy.

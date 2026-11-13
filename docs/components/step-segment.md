@@ -1,58 +1,63 @@
-# Step segment — контракт · draft (2026-11-13)
+# Step segment — контракт (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Step segment`. Status: draft. Level: molecule.
-- Figma: Components, страница «Step segment» (`1012:22`), набор `149:1778`.
+- Набор: `Step segment`. Status: beta. Level: unknown.
+- Figma: Components, страница «Step segment» (`1012:22`), набор `149:1778`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
-- Сегмент Step progress. Done и Current — accent, Upcoming — border/default.
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Один сегмент полоски Step progress: шаг пройден, текущий или впереди.
+- Когда использовать: только внутри Step progress — один сегмент на шаг.
+- Когда нет: доля выполнения — Progress; шаги с названиями — Stepper.
+- Правило выбора варианта:
+  - State: Done — шаг пройден; Current — текущий шаг; Upcoming — шаг впереди.
+  - Ширина — поровну на все сегменты ряда; высота — `size/track/sm`.
+- Не делаем: сегменты разной ширины в одном ряду; сегмент вне Step progress.
 
 ## 3. Anatomy
-- Слои с токенами: —.
+- Корень — полоска высотой `size/track/sm`: заливка `icon/accent` (Done, Current) или `border/default` (Upcoming), радиус `radius/chip`. Вложенных слоёв и текста нет.
 - Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Ось State: Done · Current · Upcoming. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
+- Done и Current — акцент, выглядят одинаково: текущий шаг определяется позицией и озвучкой Step progress.
+- Upcoming — `border/default`.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| State | Done · Current · Upcoming | — |
+| State | Done · Current · Upcoming | Done |
 
 Матрица полная: 3 вариантов.
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Текста нет: длинный текст, языки и 200 % на сегмент не влияют.
+- RTL: сам сегмент симметричен; порядок сегментов в ряду зеркалит Step progress.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- Нет.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Статичен. Смену State задаёт Step progress.
 
 ## 9. Accessibility
-- |
+- Декоративный; позицию озвучивает Step progress («Шаг 2 из 5»).
 
 ## 10. Tokens
 - `корень`: заливка / цвет `border/default`, `icon/accent`; высота `size/track/sm`; радиус `radius/chip`.
-- Значений без переменной: 3 (напр. `(root):w=40`).
+- Значений без переменной: 3 (напр. `(root):w=40`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
 - Набор `Step segment`, вариантов 3 из 3; оси: State.
 - Борда: «Step segment — борда · шаблон v3», разделов 9.
-- Описание: 458 знаков, разделы: Status: Level: Сегмент Step progress. Когда использовать: Правила: A11y:
+- Описание: 457 знаков, разделы: Status: Level: Сегмент Step progress. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -62,8 +67,17 @@
 - Состояния (Done, Current, Upcoming) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — 0 замечаний.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текста и булевых свойств нет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy в описании не указан: новый атом для Step progress (State Done | Current | Upcoming).
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Ширина корня 40 — числом (образец; в продукте — поровну на ряд).
+- Акцент — `icon/accent`, у Step symbol и Step trail текущий шаг — `control/checked`: привести семейство Step к одному токену или записать причину.
+- Upcoming (`border/default`) в Dark на L0 и Light на L3 почти не виден — на решение (токен).
+- В описании нет строки Legacy.

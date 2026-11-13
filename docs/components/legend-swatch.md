@@ -1,59 +1,68 @@
-# Legend swatch — контракт · draft (2026-11-13)
+# Legend swatch — контракт (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Legend swatch`. Status: draft. Level: unknown.
-- Figma: Components, страница «Legend swatch» (`1012:16`), набор `84:595`.
+- Набор: `Legend swatch`. Status: beta. Level: unknown.
+- Figma: Components, страница «Legend swatch» (`1012:16`), набор `84:595`. Платформы: Web, Mobile web, iOS, Android.
+- Вложен в Legend item (exposed).
 
 ## 2. Intent
-- Маркер серии для Legend item: Series 1–8 = data/1…8; Dot — столбцы/области/точки, Line — линии. Вложен в Legend item (exposed).
-- Когда использовать: маркер серии в легенде и тултипе.
+- Маркер серии графика: цветная точка или отрезок линии.
+- Когда использовать: маркер серии в легенде и тултипе графика.
 - Когда нет: индикатор статуса — Status.
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Правило выбора варианта:
+  - Marker: Dot — столбцы, области, точки; Line — линии.
+  - Series: 1–8 = `data/1`…`data/8`; не больше 8 серий.
+  - Серии различаются не только цветом: у линий Series 5–8 — пунктир (5 — 4/2, 6 — 2/2, 7 — 6/2/2/2, 8 — 1/2), Series 1–4 — сплошные.
+- Не делаем: девятая серия; цвет вне `data/*`; маркер без названия серии рядом.
 
 ## 3. Anatomy
-- Слои с токенами: `marker`.
+- Корень `size/legend-swatch` (12 × 12); `marker` — точка или отрезок, цвет `data/1`…`data/8`, `radius/chip`; у Line — линия толщиной `chart/stroke`, Series 5–8 пунктиром.
 - Служебные слои (вариантов из 16): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Оси State нет.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
+- Состояний нет.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Marker | Dot · Line | — |
-| Series | 1 · 2 · 3 · 4 · 5 · 6 · 7 · 8 | — |
+| Marker | Dot · Line | Dot |
+| Series | 1 · 2 · 3 · 4 · 5 · 6 · 7 · 8 | 1 |
 
 Матрица полная: 16 вариантов.
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Текста нет; название серии — в Legend item.
+- Текст 200 %: маркер не растёт.
+- RTL: маркер — со стороны начала строки, порядок задаёт Legend item.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- Нет.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Статичен.
 
 ## 9. Accessibility
-- декоративен, название серии всегда рядом в тексте; контраст маркера с фоном не ниже 3:1.
+- Декоративен (`aria-hidden`): название серии всегда рядом в тексте.
+- Контраст маркера с фоном — не ниже 3:1.
+- Серии различаются не только цветом: у линий разный штрих начиная с 5-й серии (WCAG 1.4.1).
 
 ## 10. Tokens
 - `корень`: высота `size/legend-swatch`; ширина `size/legend-swatch`.
-- `marker`: заливка / цвет `data/1`, `data/2`, `data/3`, `data/4`, `data/5`, `data/6`, `data/7`, `data/8`; радиус `radius/chip`.
+- `marker`: заливка / цвет `data/1`, `data/2`, `data/3`, `data/4`, `data/5`, `data/6`, `data/7`, `data/8`; радиус `radius/chip`; обводка `data/5`, `data/6`, `data/7`, `data/8`; толщина обводки `chart/stroke`.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Цвета `data/*` зависят только от темы; от бренда и режима Platform не зависят.
 
 ## 12. Figma projection
 - Набор `Legend swatch`, вариантов 16 из 16; оси: Marker, Series.
 - Борда: «Legend swatch — борда · шаблон v3», разделов 9.
-- Описание: 600 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy:
+- Описание: 641 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -62,8 +71,14 @@
 - Props: `marker`: dot | line; `series`: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — 0 замечаний.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), 200 %; текстовых и булевых свойств нет — длинный текст и языки неприменимы; RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: DS Web legend marker.
+- DS Web `legend marker` → Legend swatch: Marker Dot | Line, Series 1–8.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Палитра `data/*`: в Dark Series 3 и 7, 2 и 4 почти неразличимы, в Light — 2 и 4 близки — на решение, вопрос к палитре.

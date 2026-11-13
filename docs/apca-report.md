@@ -6,11 +6,11 @@
 
 | Набор | Пар | Ниже по APCA | Ниже по WCAG | WCAG ok, APCA ниже | APCA ok, WCAG ниже |
 |---|---|---|---|---|---|
-| emcd.dark.android | 79 | 44 | 0 | 44 | 0 |
+| emcd.dark.android | 79 | 45 | 0 | 45 | 0 |
 | emcd.light.android | 79 | 10 | 0 | 10 | 0 |
-| geometria.dark.android | 79 | 41 | 0 | 41 | 0 |
+| geometria.dark.android | 79 | 42 | 0 | 42 | 0 |
 | geometria.light.android | 79 | 10 | 0 | 10 | 0 |
-| wl-default.dark.android | 79 | 44 | 0 | 44 | 0 |
+| wl-default.dark.android | 79 | 45 | 0 | 45 | 0 |
 | wl-default.light.android | 79 | 10 | 0 | 10 | 0 |
 
 ## emcd.dark.android
@@ -51,16 +51,17 @@
 | borderStrong | surfaceLevel2 | 29 | 45 | 3.75 | 3 | WCAG ok, APCA ниже |
 | textSecondary | surfaceLevel3 | 67 | 75 | 8.55 | 4.5 | WCAG ok, APCA ниже |
 | textTertiary | surfaceLevel3 | 48 | 60 | 5.77 | 4.5 | WCAG ok, APCA ниже |
-| textSecondary | surfaceRaised | 67 | 75 | 9.49 | 4.5 | WCAG ok, APCA ниже |
-| textTertiary | surfaceRaised | 47 | 60 | 6.22 | 4.5 | WCAG ok, APCA ниже |
-| textAccent | surfaceRaised | 45 | 75 | 5.88 | 4.5 | WCAG ok, APCA ниже |
-| textLink | surfaceRaised | 45 | 75 | 5.88 | 4.5 | WCAG ok, APCA ниже |
-| textDanger | surfaceRaised | 48 | 75 | 6.33 | 4.5 | WCAG ok, APCA ниже |
-| textSuccess | surfaceRaised | 45 | 75 | 5.96 | 4.5 | WCAG ok, APCA ниже |
-| textWarning | surfaceRaised | 63 | 75 | 8.70 | 4.5 | WCAG ok, APCA ниже |
-| textInfo | surfaceRaised | 52 | 75 | 7.01 | 4.5 | WCAG ok, APCA ниже |
-| iconAccent | surfaceRaised | 45 | 45 | 5.88 | 3 | WCAG ok, APCA ниже |
-| borderStrong | surfaceRaised | 29 | 45 | 3.81 | 3 | WCAG ok, APCA ниже |
+| textSecondary | surfaceRaised | 67 | 75 | 8.55 | 4.5 | WCAG ok, APCA ниже |
+| textTertiary | surfaceRaised | 48 | 60 | 5.77 | 4.5 | WCAG ok, APCA ниже |
+| textAccent | surfaceRaised | 43 | 75 | 5.11 | 4.5 | WCAG ok, APCA ниже |
+| textLink | surfaceRaised | 43 | 75 | 5.11 | 4.5 | WCAG ok, APCA ниже |
+| textDanger | surfaceRaised | 46 | 75 | 5.50 | 4.5 | WCAG ok, APCA ниже |
+| textSuccess | surfaceRaised | 43 | 75 | 5.18 | 4.5 | WCAG ok, APCA ниже |
+| textWarning | surfaceRaised | 61 | 75 | 7.57 | 4.5 | WCAG ok, APCA ниже |
+| textInfo | surfaceRaised | 50 | 75 | 6.10 | 4.5 | WCAG ok, APCA ниже |
+| iconAccent | surfaceRaised | 43 | 45 | 5.11 | 3 | WCAG ok, APCA ниже |
+| iconSuccess | surfaceRaised | 43 | 45 | 5.18 | 3 | WCAG ok, APCA ниже |
+| borderStrong | surfaceRaised | 30 | 45 | 3.67 | 3 | WCAG ok, APCA ниже |
 
 ## emcd.light.android
 
@@ -113,15 +114,16 @@
 | borderStrong | surfaceLevel2 | 29 | 45 | 3.75 | 3 | WCAG ok, APCA ниже |
 | textSecondary | surfaceLevel3 | 67 | 75 | 8.55 | 4.5 | WCAG ok, APCA ниже |
 | textTertiary | surfaceLevel3 | 48 | 60 | 5.77 | 4.5 | WCAG ok, APCA ниже |
-| textSecondary | surfaceRaised | 67 | 75 | 9.49 | 4.5 | WCAG ok, APCA ниже |
-| textTertiary | surfaceRaised | 47 | 60 | 6.22 | 4.5 | WCAG ok, APCA ниже |
-| textAccent | surfaceRaised | 47 | 75 | 6.29 | 4.5 | WCAG ok, APCA ниже |
-| textLink | surfaceRaised | 47 | 75 | 6.29 | 4.5 | WCAG ok, APCA ниже |
-| textDanger | surfaceRaised | 48 | 75 | 6.33 | 4.5 | WCAG ok, APCA ниже |
-| textSuccess | surfaceRaised | 45 | 75 | 5.96 | 4.5 | WCAG ok, APCA ниже |
-| textWarning | surfaceRaised | 63 | 75 | 8.70 | 4.5 | WCAG ok, APCA ниже |
-| textInfo | surfaceRaised | 52 | 75 | 7.01 | 4.5 | WCAG ok, APCA ниже |
-| borderStrong | surfaceRaised | 29 | 45 | 3.81 | 3 | WCAG ok, APCA ниже |
+| textSecondary | surfaceRaised | 67 | 75 | 8.55 | 4.5 | WCAG ok, APCA ниже |
+| textTertiary | surfaceRaised | 48 | 60 | 5.77 | 4.5 | WCAG ok, APCA ниже |
+| textAccent | surfaceRaised | 46 | 75 | 5.47 | 4.5 | WCAG ok, APCA ниже |
+| textLink | surfaceRaised | 46 | 75 | 5.47 | 4.5 | WCAG ok, APCA ниже |
+| textDanger | surfaceRaised | 46 | 75 | 5.50 | 4.5 | WCAG ok, APCA ниже |
+| textSuccess | surfaceRaised | 43 | 75 | 5.18 | 4.5 | WCAG ok, APCA ниже |
+| textWarning | surfaceRaised | 61 | 75 | 7.57 | 4.5 | WCAG ok, APCA ниже |
+| textInfo | surfaceRaised | 50 | 75 | 6.10 | 4.5 | WCAG ok, APCA ниже |
+| iconSuccess | surfaceRaised | 43 | 45 | 5.18 | 3 | WCAG ok, APCA ниже |
+| borderStrong | surfaceRaised | 30 | 45 | 3.67 | 3 | WCAG ok, APCA ниже |
 
 ## geometria.light.android
 
@@ -176,16 +178,17 @@
 | borderStrong | surfaceLevel2 | 29 | 45 | 3.75 | 3 | WCAG ok, APCA ниже |
 | textSecondary | surfaceLevel3 | 67 | 75 | 8.55 | 4.5 | WCAG ok, APCA ниже |
 | textTertiary | surfaceLevel3 | 48 | 60 | 5.77 | 4.5 | WCAG ok, APCA ниже |
-| textSecondary | surfaceRaised | 67 | 75 | 9.49 | 4.5 | WCAG ok, APCA ниже |
-| textTertiary | surfaceRaised | 47 | 60 | 6.22 | 4.5 | WCAG ok, APCA ниже |
-| textAccent | surfaceRaised | 45 | 75 | 5.88 | 4.5 | WCAG ok, APCA ниже |
-| textLink | surfaceRaised | 45 | 75 | 5.88 | 4.5 | WCAG ok, APCA ниже |
-| textDanger | surfaceRaised | 48 | 75 | 6.33 | 4.5 | WCAG ok, APCA ниже |
-| textSuccess | surfaceRaised | 45 | 75 | 5.96 | 4.5 | WCAG ok, APCA ниже |
-| textWarning | surfaceRaised | 63 | 75 | 8.70 | 4.5 | WCAG ok, APCA ниже |
-| textInfo | surfaceRaised | 52 | 75 | 7.01 | 4.5 | WCAG ok, APCA ниже |
-| iconAccent | surfaceRaised | 45 | 45 | 5.88 | 3 | WCAG ok, APCA ниже |
-| borderStrong | surfaceRaised | 29 | 45 | 3.81 | 3 | WCAG ok, APCA ниже |
+| textSecondary | surfaceRaised | 67 | 75 | 8.55 | 4.5 | WCAG ok, APCA ниже |
+| textTertiary | surfaceRaised | 48 | 60 | 5.77 | 4.5 | WCAG ok, APCA ниже |
+| textAccent | surfaceRaised | 43 | 75 | 5.11 | 4.5 | WCAG ok, APCA ниже |
+| textLink | surfaceRaised | 43 | 75 | 5.11 | 4.5 | WCAG ok, APCA ниже |
+| textDanger | surfaceRaised | 46 | 75 | 5.50 | 4.5 | WCAG ok, APCA ниже |
+| textSuccess | surfaceRaised | 43 | 75 | 5.18 | 4.5 | WCAG ok, APCA ниже |
+| textWarning | surfaceRaised | 61 | 75 | 7.57 | 4.5 | WCAG ok, APCA ниже |
+| textInfo | surfaceRaised | 50 | 75 | 6.10 | 4.5 | WCAG ok, APCA ниже |
+| iconAccent | surfaceRaised | 43 | 45 | 5.11 | 3 | WCAG ok, APCA ниже |
+| iconSuccess | surfaceRaised | 43 | 45 | 5.18 | 3 | WCAG ok, APCA ниже |
+| borderStrong | surfaceRaised | 30 | 45 | 3.67 | 3 | WCAG ok, APCA ниже |
 
 ## wl-default.light.android
 
