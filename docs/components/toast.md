@@ -1,6 +1,6 @@
 # Toast — контракт · draft (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
+Заготовка: собрана автоматически. Набор заменён на месте (2026-11-13): фон, радиус и тень — слой `overlay surface`, нераскрытый экземпляр базы `_Overlay surface`; свойства набора не менялись. Поверхность, токены и приёмка базы — `docs/components/overlay-surface.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
@@ -15,8 +15,8 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `content`, `title`, `description`, `actions`, `Button`, `close`, `row`.
-- Вложено: `media/status/info` ×2, `Button` ×10, иконки ×10, `Circle timer` ×5, `media/status/success` ×1, `media/status/warning` ×1, `media/status/danger` ×1.
+- Слои с токенами: `overlay surface`, `content`, `title`, `description`, `actions`, `Button`, `close`, `row`.
+- Вложено: `_Overlay surface` ×10, `media/status/info` ×2, `Button` ×10, иконки ×10, `Circle timer` ×5, `media/status/success` ×1, `media/status/warning` ×1, `media/status/danger` ×1.
 - Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 5.
 
 ## 4. States
@@ -59,7 +59,8 @@
 - role="status" (polite), для ошибок role="alert"; крестик с aria-label «Закрыть»; фокус не забирает.
 
 ## 10. Tokens
-- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/inverse/default`, `status/danger/solid`, `status/info/solid`, `status/success/solid`, `status/warning/solid`, `surface/raised`; интервал `space/12`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`; обводка `border/subtle`.
+- `корень`: интервал `space/12`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/inverse/default`, `status/danger/solid`, `status/info/solid`, `status/success/solid`, `status/warning/solid`, `surface/raised`; радиус `radius/control`.
 - `content`: интервал `space/10`; отступы `space/2`.
 - `title`: заливка / цвет `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
@@ -69,7 +70,7 @@
 - `row`: интервал `space/12`; отступы `space/12`, `space/16`.
 - Служебные слои (общие правила — `service-layers.md`): `safe area`: высота `os/safe-area/top`.
 - Min / max корня: minWidth 280 числом.
-- Значений без переменной: 15 (напр. `(root):sw=1`, `(root):w=400`, `(root):w=375`).
+- Значений без переменной: 10 (напр. `(root):w=400`, `(root):w=375`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -77,7 +78,7 @@
 ## 12. Figma projection
 - Набор `Toast`, вариантов 10 из 10; оси: Layout, Tone.
 - Борда: «Toast — борда · шаблон v3», разделов 10.
-- Описание: 1336 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
+- Описание: 1327 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены: Поверхность —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -86,11 +87,11 @@
 - Props: `layout`: card | informer; `tone`: info | success | warning | danger | neutral; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `actions`: boolean = false; `close`: boolean = true; `icon`: boolean = true; `showDescription`: boolean = true; `timer`: boolean = false; `safeArea`: boolean = true.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
+- Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - PROPS: Description 5 из 10; Actions 5 из 10; Icon 5 из 10; Show description 5 из 10; Timer 5 из 10; Safe area 5 из 10
   - MINMAX: minw=280
-  - RAW: 15 (напр. `(root):sw=1`, `(root):w=400`)
+  - RAW: 10 (напр. `(root):w=400`, `(root):w=375`)
   - BOARD: нет разделов 05, 07, 08
 
 ## 15. Migration

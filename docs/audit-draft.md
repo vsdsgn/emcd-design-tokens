@@ -7,7 +7,7 @@
 
 - Наборов не в beta: 97 (draft 94, без статуса 3: Card, Dot, _Tooltip arrow).
 - Без замечаний по манифесту: 0.
-- Наборов с замечанием: BOARD — 95, RAW — 78, DESC — 60, MINMAX — 38, PROPS — 17, AXES — 16, SERVICE — 10, MATRIX — 6.
+- Наборов с замечанием: BOARD — 95, RAW — 78, DESC — 60, MINMAX — 38, PROPS — 16, AXES — 16, SERVICE — 10, MATRIX — 6.
 
 Коды: DESC — разделы описания; MATRIX — неполная матрица осей; AXES — булева ось или Left / Right; PROPS — свойство привязано не во всех вариантах (часть — по делу: свойство есть только у вариантов со слотом); MINMAX — min / max числом; RAW — значения без переменной (часть — размеры служебных слоёв); SERVICE — у набора с Hover / Pressed / Focus нет служебных слоёв; BOARD — нет борды v3 или её разделов (у неинтерактивного набора разделы 04 «Состояния», 05 «Зоны» могут быть не нужны — решается при контракте).
 
@@ -39,7 +39,7 @@
 | Step segment | Step segment | 3 | DESC: нет: Когда использовать:, Правила:, A11y:<br>RAW: 6 (напр. `(root):w=40`, `(root):h=4`)<br>BOARD: нет разделов 05, 07, 08, 12 |
 | Step symbol | Step symbol | 12 | DESC: нет: Когда использовать:, Правила:, A11y:<br>PROPS: Number 3 из 12<br>RAW: 24 (напр. `(root):w=24`, `(root):h=24`)<br>BOARD: нет разделов 04, 05, 07, 12 |
 | Step trail | Step trail | 6 | DESC: нет: Когда использовать:, Правила:, A11y:<br>RAW: 12 (напр. `(root):w=80`, `(root):h=24`)<br>BOARD: нет разделов 05, 07, 08, 12 |
-| Tooltip | Tooltip | 24 | DESC: нет: Когда использовать:, Правила:, A11y:<br>AXES: `Placement` — Left / Right вместо Start / End<br>PROPS: Text 8 из 24<br>MINMAX: minw=58, maxw=320, minh=58<br>BOARD: нет разделов 12 |
+| Tooltip | Tooltip | 24 | DESC: нет: Когда использовать:, Правила:, A11y:<br>AXES: `Placement` — Left / Right вместо Start / End<br>MINMAX: minw=58, maxw=320, minh=58<br>BOARD: нет разделов 12 |
 
 ## Молекулы (57)
 
@@ -98,7 +98,7 @@
 | Table header cell | Table | 20 | DESC: нет: Когда использовать:<br>MATRIX: 20 из 24<br>AXES: `Align` — Left / Right вместо Start / End<br>PROPS: Show filter 18 из 20; Show info 18 из 20<br>MINMAX: minw=80<br>RAW: 80 (напр. `(root):w=160`, `(root):h=44`)<br>BOARD: нет разделов 07, 08 |
 | Table row | Table | 8 | DESC: нет: Когда использовать:, Правила:<br>RAW: 8 (напр. `(root):h=48`, `(root):h=80`)<br>SERVICE: нет зоны нажатия, безопасного поля<br>BOARD: нет разделов 07, 08 |
 | Tabs | Tabs | 4 | DESC: нет: A11y:<br>BOARD: нет разделов 05, 07, 08, 12 |
-| Toast | Toast | 10 | PROPS: Description 5 из 10; Actions 5 из 10; Icon 5 из 10; Show description 5 из 10; Timer 5 из 10; Safe area 5 из 10<br>MINMAX: minw=280<br>RAW: 15 (напр. `(root):sw=1`, `(root):w=400`)<br>BOARD: нет разделов 05, 07, 08 |
+| Toast | Toast | 10 | PROPS: Description 5 из 10; Actions 5 из 10; Icon 5 из 10; Show description 5 из 10; Timer 5 из 10; Safe area 5 из 10<br>MINMAX: minw=280<br>RAW: 10 (напр. `(root):w=400`, `(root):w=375`)<br>BOARD: нет разделов 05, 07, 08 |
 | Toggle group | Toggle group | 4 | DESC: нет: Когда использовать:, Правила:, A11y:<br>MINMAX: maxw=480<br>BOARD: нет разделов 05, 07, 08 |
 | Tooltip tour | Tooltip tour | 4 | MINMAX: minw=58, maxw=320<br>RAW: 8 (напр. `(root):w=320`, `step:o=0.72`)<br>BOARD: нет разделов 05, 07, 08 |
 | Transaction | Transaction | 12 | DESC: нет: Когда использовать:, Правила:<br>RAW: 24 (напр. `(root):w=400`, `(root):h=64`)<br>BOARD: нет разделов 05, 07, 08 |
@@ -111,11 +111,11 @@
 | Chart card | Chart | 4 | DESC: нет: A11y:<br>PROPS: Show bottom 2 из 4; Bottom 2 из 4<br>RAW: 6 (напр. `(root):w=580`, `(root):w=343`)<br>BOARD: нет разделов 05, 07, 08, 12 |
 | Chart plot | Chart | 23 | MATRIX: 23 из 35<br>RAW: 260 (напр. `(root):w=473`, `(root):h=140`)<br>SERVICE: нет кольца фокуса, зоны нажатия, безопасного поля<br>BOARD: нет разделов 05, 07, 08, 12 |
 | Date range panel | Date range panel | 2 | AXES: `Presets` — булева ось (On \| Off)<br>RAW: 4 (напр. `(root):sw=1`, `calendar column:gap=12`)<br>BOARD: нет разделов 05, 07, 08, 12 |
-| Dropdown panel | Dropdown panel | 2 | RAW: 9 (напр. `(root):gap=12`, `(root):sw=1`)<br>BOARD: нет разделов 05, 07, 08, 12 |
+| Dropdown panel | Dropdown panel | 2 | RAW: 2 (напр. `(root):w=460`)<br>BOARD: нет разделов 05, 07, 08, 12 |
 | Empty state | Empty state | 5 | MATRIX: 5 из 6<br>PROPS: Show illustration 4 из 5; Illustration 4 из 5<br>RAW: 5 (напр. `(root):w=560`, `(root):w=320`)<br>BOARD: нет разделов 05, 07, 08 |
 | File upload | File upload | 5 | DESC: нет: Когда использовать:, Правила:<br>RAW: 6 (напр. `(root):w=360`, `(root):o=0.5`)<br>SERVICE: нет зоны нажатия, безопасного поля<br>BOARD: нет разделов 05, 07, 08 |
 | Menu | Menu | 2 | MINMAX: minw=160, maxw=320<br>RAW: 2 (напр. `(root):w=300`)<br>BOARD: нет разделов 05, 07, 08 |
-| Modal | Modal | 12 | DESC: нет: Когда использовать:, Правила:<br>PROPS: Title 8 из 12; Header description 4 из 12; Footer slot 9 из 12<br>RAW: 12 (напр. `(root):w=560`)<br>BOARD: нет разделов 05, 07, 08 |
+| Modal | Modal | 12 | DESC: нет: Правила:<br>PROPS: Title 8 из 12; Header description 4 из 12; Footer slot 9 из 12<br>RAW: 12 (напр. `(root):w=560`)<br>BOARD: нет разделов 05, 07, 08 |
 | Page header | Header | 2 | RAW: 2 (напр. `(root):w=1120`, `(root):w=375`)<br>BOARD: нет разделов 05, 07, 08 |
 | Sheet | Sheet | 2 | PROPS: Title 1 из 2; Show grabber 1 из 2; Show close 1 из 2; Show footer 1 из 2; Header actions 1 из 2; Body 1 из 2; Footer 1 из 2; Show header actions 1 из 2; Items 1 из 2<br>MINMAX: maxw=640<br>RAW: 2 (напр. `(root):w=375`)<br>BOARD: нет разделов 05, 07, 08 |
 | Side panel | Side panel | 2 | RAW: 4 (напр. `(root):w=400`, `(root):h=720`)<br>BOARD: нет разделов 05, 07, 08 |

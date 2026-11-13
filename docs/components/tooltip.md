@@ -1,6 +1,6 @@
 # Tooltip — контракт · draft (2026-11-13)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
+Заготовка: собрана автоматически. Набор заменён на месте (2026-11-13): фон, радиус и тень — слой `overlay surface`, нераскрытый экземпляр базы `_Overlay surface`; свойства набора не менялись. Поверхность, токены и приёмка базы — `docs/components/overlay-surface.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
@@ -15,8 +15,8 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `text`.
-- Вложено: `_Tooltip arrow` ×24.
+- Слои с токенами: `overlay surface`, `text`.
+- Вложено: `_Overlay surface` ×24, `_Tooltip arrow` ×24.
 - Служебные слои (вариантов из 24): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -37,7 +37,7 @@
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Text | текст | «Комиссия сети списывается отдельно» | 8 из 24 |
+| Text | текст | «Комиссия сети списывается отдельно» | 24 из 24 |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -52,7 +52,8 @@
 - |
 
 ## 10. Tokens
-- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; отступы `space/10`, `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
+- `корень`: отступы `space/10`, `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
+- `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; радиус `radius/container`.
 - `text`: заливка / цвет `fixed/light`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Min / max корня: minWidth 58 числом, maxWidth 320 числом, minHeight 58 числом.
 
@@ -62,7 +63,7 @@
 ## 12. Figma projection
 - Набор `Tooltip`, вариантов 24 из 24; оси: Placement, Tone, Arrow.
 - Борда: «Tooltip — борда · шаблон v3», разделов 11.
-- Описание: 3464 знаков, разделы: Status: Level: • Пояснение термина: • Приложение и касание — • Ошибки формы — • Пузырь: • Neutral — • Placement — • Arrow — В коде — • Одновременно — • Появление —
+- Описание: 3693 знаков, разделы: Status: Level: • Пояснение термина: • Приложение и касание — • Ошибки формы — • Пузырь: • Neutral — • Placement — • Arrow — В коде — • Одновременно — • Появление —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -71,11 +72,10 @@
 - Props: `placement`: top | bottom | left | right; `tone`: neutral | accent; `arrow`: center | start | end; `text`: string или слот.
 
 ## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
+- Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:, A11y:
   - AXES: `Placement` — Left / Right вместо Start / End
-  - PROPS: Text 8 из 24
   - MINMAX: minw=58, maxw=320, minh=58
   - BOARD: нет разделов 12
 

@@ -143,6 +143,8 @@ const DRAFT = new Map(fs.readFileSync('scripts/contract-draft-data.txt', 'utf8')
 // Базы, над которыми собраны draft-наборы (замена на месте). Новая база — добавить сюда и в BASE_PROPS scripts/agent-docs.mjs.
 const DRAFT_BASE = {
   '_List row': { date: '2026-11-13', doc: 'docs/components/list-row.md', props: 'Label, Description, Show description, Subvalue, Show leading, Show trailing, слоты Leading и Trailing, Selected, Show selection, Selection control, Divider, Focus ring, Show hit area, Safe margin' },
+  // Панели: база — нераскрытый слой `overlay surface` (фон, радиус, тень); свойства остаются у набора (props нет).
+  '_Overlay surface': { date: '2026-11-13', doc: 'docs/components/overlay-surface.md' },
 };
 
 function buildDraft(s) {
@@ -157,7 +159,9 @@ function buildDraft(s) {
   const base = Object.keys(DRAFT_BASE).find((k) => (s.nested || {})[k] === s.variants);
   const L = [];
   L.push(`# ${s.name} — контракт · draft (${date})`, '');
-  L.push(base ? `Заготовка: собрана автоматически. Набор заменён на месте надстройкой над базой \`${base}\` (${DRAFT_BASE[base].date}); свойства, слоты, токены и приёмка базы — \`${DRAFT_BASE[base].doc}\`. Status остаётся draft до ручного чеклиста и «ок» Стефана.`
+  const B = base && DRAFT_BASE[base];
+  L.push(base && !B.props ? `Заготовка: собрана автоматически. Набор заменён на месте (${B.date}): фон, радиус и тень — слой \`overlay surface\`, нераскрытый экземпляр базы \`${base}\`; свойства набора не менялись. Поверхность, токены и приёмка базы — \`${B.doc}\`. Status остаётся draft до ручного чеклиста и «ок» Стефана.`
+    : base ? `Заготовка: собрана автоматически. Набор заменён на месте надстройкой над базой \`${base}\` (${DRAFT_BASE[base].date}); свойства, слоты, токены и приёмка базы — \`${DRAFT_BASE[base].doc}\`. Status остаётся draft до ручного чеклиста и «ок» Стефана.`
     : 'Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.');
   L.push('Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.');
   L.push('При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.', '');
@@ -176,7 +180,7 @@ function buildDraft(s) {
   L.push('', '## 4. States');
   L.push(st ? `- Ось State: ${st.join(' · ')}. Группа модели состояний (\`docs/components.md\`) — определить при переводе в beta.` : '- Оси State нет.');
   L.push('', '## 5. Properties', propsBlock(s));
-  if (base) L.push('', `Свойства — на раскрытом экземпляре базы \`${base}\` (слой \`${base}\`): ${DRAFT_BASE[base].props}. Таблица — \`${DRAFT_BASE[base].doc}\`, раздел 5.`);
+  if (base && B.props) L.push('', `Свойства — на раскрытом экземпляре базы \`${base}\` (слой \`${base}\`): ${DRAFT_BASE[base].props}. Таблица — \`${DRAFT_BASE[base].doc}\`, раздел 5.`);
   L.push('', '## 6. Content / slots', TBD);
   L.push('', '## 7. Events', TBD);
   L.push('', '## 8. Behavior', TBD);
@@ -190,7 +194,8 @@ function buildDraft(s) {
   L.push(`- Описание: ${s.descLen} знаков, разделы: ${(s.descHeads || []).join(' ') || '—'}`);
   L.push('', '## 13. Code projection', codeBlock(s, {}));
   L.push('', `## 14. Acceptance (${date})`);
-  L.push(base ? `- Плагины \`audit\`, \`variables-check\`, \`audit-parity\` прогнаны после замены (${DRAFT_BASE[base].date}): по набору 0; замечания базы — \`${DRAFT_BASE[base].doc}\`, раздел 14. Стенд — на пилоте базы.`
+  L.push(base && !B.props ? `- Плагины \`audit\`, \`variables-check\`, \`audit-parity\` прогнаны после замены (${B.date}): \`audit\` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в \`${B.doc}\`, раздел 14. Стенд — на пилоте базы.`
+    : base ? `- Плагины \`audit\`, \`variables-check\`, \`audit-parity\` прогнаны после замены (${DRAFT_BASE[base].date}): по набору 0; замечания базы — \`${DRAFT_BASE[base].doc}\`, раздел 14. Стенд — на пилоте базы.`
     : '- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.');
   L.push(f.length ? '- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:' : '- Замечаний по манифесту нет.');
   for (const [c, x] of f) L.push(`  - ${c}: ${x}`);

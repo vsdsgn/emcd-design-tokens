@@ -10,6 +10,8 @@
 - **Password field** — рамка Error 92, глаз по центру (после замены Input).
 - **Checkbox, Radio, Toggle** — наборы заменены на месте: варианты = раскрытый экземпляр `_Selection control`; свойства наборов удалены, значения экземпляров перенесены; ось `Control = Left | Right` → `Control position = Start | End`. MAJOR. Описания (кольцо 2 px, «Когда использовать:», строка «Сборка») и раздел 03 борд v3 обновлены.
 - **Menu item, Multiselect option, List item** — наборы заменены на месте: варианты = раскрытый экземпляр `_List row`; свойства наборов удалены, значения, слоты и привязки языков перенесены. MAJOR: `Title` → `Label` (List item), `Checkbox` → `Show selection` (Menu item), `Leading · swap` → слот Leading и `State = Selected` → булево `Selected` (Multiselect option, вариант удалён, набор переложен). Описания и борды v3 обновлены.
+- **Tooltip, Menu, Dropdown panel, Toast, Modal, Sheet** — наборы заменены на месте: фон, радиус и тень — слой `overlay surface` (экземпляр `_Overlay surface`), у корня — обводка, радиус, отступы. Свойства не менялись. Тени Menu / Dropdown panel → Elevation/2, Sheet → Elevation/4. Tooltip: Text привязан во всех 24 вариантах (было 8). Привязаны числа: толщина обводки Dropdown panel и Toast, интервалы Dropdown panel, слотов Modal и Sheet. Описания дополнены строкой «Поверхность».
+- Архив: у тултипов с Arrow = Start / End текст теперь из свойства Text (ширина изменилась).
 - Архив: `icon/wallet` возвращён в два экземпляра; у трёх экземпляров Input потеряно содержимое Trailing.
 
 ## 2026-10-31 — 2026-11-05

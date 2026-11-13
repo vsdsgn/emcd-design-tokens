@@ -19,7 +19,7 @@
   },
   "variants": 1647,
   "incompleteMatrix": 11,
-  "propsNotBoundEverywhere": 18,
+  "propsNotBoundEverywhere": 17,
   "rawMinMax": 42,
   "withRawValues": 88,
   "withFocusRing": 25,
@@ -27,7 +27,7 @@
   "withSafeMargin": 17,
   "pagesWithoutV3Board": 1,
   "pagesWithFullBoard": 9,
-  "baseSets": 10
+  "baseSets": 11
  },
  "pages": [
   {
@@ -4527,7 +4527,7 @@
      "id": "317:33734",
      "type": "SET",
      "status": "draft",
-     "descLen": 3464,
+     "descLen": 3693,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4567,10 +4567,11 @@
        "name": "Text",
        "type": "TEXT",
        "def": "Комиссия сети списывается отдельно",
-       "bound": 8
+       "bound": 24
       }
      ],
      "nested": {
+      "_Overlay surface": 24,
       "_Tooltip arrow": 24
      },
      "minmax": [
@@ -4589,15 +4590,18 @@
      "raw": [],
      "tokens": {
       "(root)": [
-       "effects:shadow/ambient",
-       "effects:shadow/key",
-       "f:action/primary/default",
-       "f:surface/raised",
        "p:space/10",
        "p:space/16",
        "r:radius/container",
        "s:border/default",
        "sw:border/width/default"
+      ],
+      "overlay surface": [
+       "effects:shadow/ambient",
+       "effects:shadow/key",
+       "f:action/primary/default",
+       "f:surface/raised",
+       "r:radius/container"
       ],
       "text": [
        "f:fixed/light",
@@ -11339,7 +11343,7 @@
      "id": "1576:2",
      "type": "SET",
      "status": "draft",
-     "descLen": 1336,
+     "descLen": 1327,
      "descHeads": [
       "Status:",
       "Level:",
@@ -11347,7 +11351,8 @@
       "Правила:",
       "A11y:",
       "Legacy:",
-      "Токены:"
+      "Токены:",
+      "Поверхность —"
      ],
      "inBoard": false,
      "axes": {
@@ -11422,6 +11427,7 @@
       }
      ],
      "nested": {
+      "_Overlay surface": 10,
       "media/status/info": 2,
       "Button": 10,
       "(icons)": 10,
@@ -11440,14 +11446,23 @@
       "hit": 0,
       "safe": 5
      },
-     "rawCount": 15,
+     "rawCount": 10,
      "raw": [
-      "(root):sw=1",
       "(root):w=400",
       "(root):w=375"
      ],
      "tokens": {
       "(root)": [
+       "gap:space/12",
+       "p:space/12",
+       "p:space/16",
+       "p:space/20",
+       "p:space/48",
+       "r:radius/control",
+       "s:border/subtle",
+       "sw:border/width/default"
+      ],
+      "overlay surface": [
        "effects:shadow/ambient",
        "effects:shadow/key",
        "f:action/inverse/default",
@@ -11456,13 +11471,7 @@
        "f:status/success/solid",
        "f:status/warning/solid",
        "f:surface/raised",
-       "gap:space/12",
-       "p:space/12",
-       "p:space/16",
-       "p:space/20",
-       "p:space/48",
-       "r:radius/control",
-       "s:border/subtle"
+       "r:radius/control"
       ],
       "content": [
        "gap:space/10",
@@ -12665,7 +12674,7 @@
      "id": "1661:300",
      "type": "SET",
      "status": "draft",
-     "descLen": 984,
+     "descLen": 1029,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12673,7 +12682,8 @@
       "Правила:",
       "A11y:",
       "Legacy:",
-      "Токены:"
+      "Токены:",
+      "Поверхность —"
      ],
      "inBoard": false,
      "axes": {
@@ -12705,6 +12715,7 @@
       }
      ],
      "nested": {
+      "_Overlay surface": 2,
       "Tabs": 2,
       "Button": 2,
       "Input": 2,
@@ -12718,23 +12729,24 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 9,
+     "rawCount": 2,
      "raw": [
-      "(root):gap=12",
-      "(root):sw=1",
-      "(root):w=460",
-      "empty:p=24",
-      "empty:gap=4"
+      "(root):w=460"
      ],
      "tokens": {
       "(root)": [
+       "gap:space/12",
+       "p:space/12",
+       "r:radius/control",
+       "s:border/subtle",
+       "sw:border/width/default"
+      ],
+      "overlay surface": [
        "effects:material/thick/blur",
        "effects:shadow/ambient",
        "effects:shadow/key",
        "f:material/thick/fill",
-       "p:space/12",
-       "r:radius/control",
-       "s:border/subtle"
+       "r:radius/control"
       ],
       "tabs": [
        "gap:space/20",
@@ -12746,13 +12758,11 @@
        "r:radius/xs"
       ],
       "search": [
-       "gap:space/6"
+       "minw:size/field/min"
       ],
-      "Multiselect option": [
-       "gap:space/12",
-       "p:space/12",
-       "p:space/8",
-       "r:radius/inner"
+      "empty": [
+       "gap:space/4",
+       "p:space/24"
       ],
       "empty title": [
        "f:text/primary",
@@ -13432,7 +13442,7 @@
      "id": "51:195",
      "type": "SET",
      "status": "draft",
-     "descLen": 1147,
+     "descLen": 1228,
      "descHeads": [
       "Status:",
       "Level:",
@@ -13470,6 +13480,7 @@
       }
      ],
      "nested": {
+      "_Overlay surface": 2,
       "Input": 2,
       "Menu item": 8
      },
@@ -13490,18 +13501,21 @@
      ],
      "tokens": {
       "(root)": [
-       "effects:material/thick/blur",
-       "effects:shadow/ambient",
-       "effects:shadow/key",
-       "f:material/thick/fill",
        "gap:space/4",
        "p:space/8",
        "r:radius/control",
        "s:border/subtle",
        "sw:border/width/default"
       ],
+      "overlay surface": [
+       "effects:material/thick/blur",
+       "effects:shadow/ambient",
+       "effects:shadow/key",
+       "f:material/thick/fill",
+       "r:radius/control"
+      ],
       "search": [
-       "gap:space/6"
+       "minw:size/field/min"
       ],
       "group label": [
        "p:space/10",
@@ -13513,13 +13527,6 @@
        "fontSize:type/label/sm/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/sm/line-height"
-      ],
-      "Menu item": [
-       "gap:space/12",
-       "p:space/10",
-       "p:space/12",
-       "p:space/16",
-       "r:radius/sm"
       ],
       "line": [
        "f:border/subtle"
@@ -13564,11 +13571,11 @@
      "id": "81:829",
      "type": "SET",
      "status": "draft",
-     "descLen": 1571,
+     "descLen": 1663,
      "descHeads": [
       "Status:",
       "Level:",
-      "Modal:",
+      "Когда использовать:",
       "Header:",
       "Footer:",
       "Body и Footer —",
@@ -13632,6 +13639,7 @@
       }
      ],
      "nested": {
+      "_Overlay surface": 12,
       "(icons)": 12,
       "Button": 15,
       "smbl-bitcoin-btc": 4
@@ -13650,12 +13658,15 @@
      ],
      "tokens": {
       "(root)": [
-       "effects:shadow/ambient",
-       "effects:shadow/key",
-       "f:surface/level-1",
        "r:radius/surface",
        "s:border/subtle",
        "sw:border/width/default"
+      ],
+      "overlay surface": [
+       "effects:shadow/ambient",
+       "effects:shadow/key",
+       "f:surface/level-1",
+       "r:radius/surface"
       ],
       "header": [
        "gap:space/8",
@@ -13682,6 +13693,7 @@
        "f:border/subtle"
       ],
       "Body": [
+       "gap:space/12",
        "p:space/32",
        "p:space/8"
       ],
@@ -13694,6 +13706,7 @@
       ],
       "Footer slot": [
        "gap:space/16",
+       "gap:space/8",
        "p:space/24",
        "p:space/32"
       ],
@@ -13904,7 +13917,7 @@
      "id": "85:544",
      "type": "SET",
      "status": "draft",
-     "descLen": 1295,
+     "descLen": 1374,
      "descHeads": [
       "Status:",
       "Level:",
@@ -13981,6 +13994,7 @@
       }
      ],
      "nested": {
+      "_Overlay surface": 2,
       "(icons)": 1,
       "Button": 2,
       "Menu item": 2
@@ -14001,15 +14015,18 @@
      ],
      "tokens": {
       "(root)": [
-       "effects:material/thick/blur",
-       "effects:shadow/ambient",
-       "effects:shadow/key",
-       "f:material/thick/fill",
        "gap:space/16",
        "p:modal/padding",
        "p:os/safe-area/bottom",
        "p:space/16",
        "p:space/8",
+       "r:radius/surface"
+      ],
+      "overlay surface": [
+       "effects:material/thick/blur",
+       "effects:shadow/ambient",
+       "effects:shadow/key",
+       "f:material/thick/fill",
        "r:radius/surface"
       ],
       "grabber": [
@@ -14026,11 +14043,17 @@
        "fontWeight:font-weight/bold",
        "lineHeight:type/heading/md/line-height"
       ],
+      "Header actions": [
+       "gap:space/4"
+      ],
       "close": [
        "gap:space/6",
        "h:control/height/md",
        "r:radius/control",
        "w:control/height/md"
+      ],
+      "Body": [
+       "gap:space/12"
       ],
       "Сумма, сеть, адрес и статус транзакции. Контент — в слот Body.": [
        "f:text/secondary",
@@ -14069,12 +14092,6 @@
        "fontSize:type/label/sm/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/sm/line-height"
-      ],
-      "Menu item": [
-       "gap:space/12",
-       "p:space/12",
-       "p:space/16",
-       "r:radius/sm"
       ],
       "divider": [
        "p:space/20"
@@ -14945,6 +14962,39 @@
       "type/label/md/size",
       "type/label/sm/line-height",
       "type/label/sm/size"
+     ]
+    }
+   ]
+  },
+  {
+   "page": "Overlay surface",
+   "pageId": "1874:435",
+   "sets": [
+    {
+     "name": "_Overlay surface",
+     "id": "1876:440",
+     "status": "beta",
+     "variants": 5,
+     "axes": {
+      "Kind": [
+       "Tooltip",
+       "Popover",
+       "Toast",
+       "Modal",
+       "Sheet"
+      ]
+     },
+     "nested": [],
+     "tokens": [
+      "material/thick/blur",
+      "material/thick/fill",
+      "radius/container",
+      "radius/control",
+      "radius/surface",
+      "shadow/ambient",
+      "shadow/key",
+      "surface/level-1",
+      "surface/raised"
      ]
     }
    ]

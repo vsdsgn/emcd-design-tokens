@@ -1,13 +1,13 @@
-# _Overlay surface — контракт (2026-11-12)
+# _Overlay surface — контракт (2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (уровни, тени, материал, фокус) — ссылками, не повтором.
-Покрывает базу `_Overlay surface` и надстройки `Tooltip · пилот`, `Menu · пилот`, `Dropdown panel · пилот`, `Toast · пилот`, `Modal · пилот`, `Sheet · пилот`.
+Покрывает базу `_Overlay surface` и надстройки Tooltip, Menu, Dropdown panel, Toast, Modal, Sheet (заменены на месте 2026-11-13, раздел 14a). Пилоты `… · пилот` на странице базы — копии для сверки, ждут «ок» на удаление.
 
 ## 1. Identity
 - База: `_Overlay surface`. Status: beta. Level: base (служебный, имя с «_», не публикуется).
-- Надстройки: `Tooltip · пилот` (atom), `Menu · пилот`, `Dropdown panel · пилот`, `Toast · пилот`, `Modal · пилот`, `Sheet · пилот`. Status: draft · пилот. Действующие Tooltip, Menu, Dropdown panel, Toast, Modal, Sheet не тронуты до ответа на вопрос 1 доски.
+- Надстройки: Tooltip (atom), Toast (molecule), Menu, Dropdown panel, Modal, Sheet (organism). Status: draft. Наборы действующие, id прежние — экземпляры в макетах не переподключались.
 - Figma: Components, страница `_Overlay surface`, доска «⚑ Пилот _Overlay surface». Платформы: Web, Mobile web, iOS, Android.
-- Решение: Стефан 2026-11-12, «вариант 2» — общая база + надстройки с вложенным экземпляром.
+- Решение: Стефан 2026-11-12, «вариант 2» — общая база + надстройки с вложенным экземпляром; замена на месте — решение 1 доски (A), 2026-11-13.
 
 ## 2. Intent
 - Одна плавающая поверхность для всего, что лежит поверх интерфейса: фон, радиус, тень, материал.
@@ -39,14 +39,14 @@
 
 | Набор | Вариантов | Обводка | Радиус | Отступы (верх / право / низ / лево · интервал) |
 |---|---|---|---|---|
-| `Tooltip · пилот` | 24 | `border/default` | `radius/container` | `space/10` / `space/16` / `space/10` / `space/16` |
-| `Menu · пилот` | 2 | `border/subtle` | `radius/control` | `space/8` ×4 · `space/4` |
-| `Dropdown panel · пилот` | 2 | `border/subtle` | `radius/control` | `space/12` ×4 · `space/12` |
-| `Toast · пилот`, Layout = Card | 5 | `border/subtle` | `radius/control` | `space/12` / `space/48` / `space/16` / `space/20` · `space/12` |
-| `Toast · пилот`, Layout = Informer | 5 | нет | 0 | 0 |
-| `Modal · пилот` | 12 | `border/subtle` | `radius/surface` | 0 (отступы во вложенных секциях) |
-| `Sheet · пилот`, Type = Default | 1 | нет | `radius/surface` сверху | `space/8` / `modal/padding` ×3 · `space/16` |
-| `Sheet · пилот`, Type = Menu | 1 | нет | 0 | 0 / `space/16` / `os/safe-area/bottom` / `space/16` |
+| Tooltip | 24 | `border/default` | `radius/container` | `space/10` / `space/16` / `space/10` / `space/16` |
+| Menu | 2 | `border/subtle` | `radius/control` | `space/8` ×4 · `space/4` |
+| Dropdown panel | 2 | `border/subtle` | `radius/control` | `space/12` ×4 · `space/12` |
+| Toast, Layout = Card | 5 | `border/subtle` | `radius/control` | `space/12` / `space/48` / `space/16` / `space/20` · `space/12` |
+| Toast, Layout = Informer | 5 | нет | 0 | 0 |
+| Modal | 12 | `border/subtle` | `radius/surface` | 0 (отступы во вложенных секциях) |
+| Sheet, Type = Default | 1 | нет | `radius/surface` сверху | `space/8` / `modal/padding` ×3 · `space/16` |
+| Sheet, Type = Menu | 1 | нет | 0 | 0 / `space/16` / `os/safe-area/bottom` / `space/16` |
 
 Толщина обводки — `border/width/default`.
 
@@ -55,7 +55,7 @@
 - Toast, Layout = Informer — заливка `status/<tone>/solid` (Neutral — `action/inverse/default`), радиус 0, без тени;
 - Sheet, Type = Menu — радиус 0.
 
-Свойства надстроек — как у действующих наборов, без переименований:
+Свойства надстроек при замене не менялись (имена, типы, значения по умолчанию):
 - Tooltip: Text; Placement (Top, Bottom, Left, Right); Tone (Neutral, Accent); Arrow (Center, Start, End).
 - Menu: слот Items; Search; Size (M, L).
 - Dropdown panel: Show tabs, Show reset, Show search; Content (List, Empty).
@@ -97,8 +97,9 @@
 Режимы Platform меняют шрифт и safe area (Informer на Android и iOS выше на высоту статус-бара; у Sheet Menu нижний отступ `os/safe-area/bottom`). Отличий в структуре поверхности нет.
 
 ## 12. Figma projection
-- Страница `_Overlay surface`: база, шесть пилотных надстроек, доска.
-- Таблица «набор → Kind» — `OVERLAY` в `audit-parity.plugin.js`; пилоты добавлены в `SERVICE_DONE`. При замене действующих наборов добавить их имена без «· пилот».
+- Страница `_Overlay surface`: база, шесть пилотов, доска. Действующие наборы — на своих страницах (Tooltip, Menu, Dropdown panel, Toast, Modal, Sheet).
+- Таблица «набор → Kind» — `OVERLAY` в `audit-parity.plugin.js`; действующие наборы и пилоты — в `SERVICE_DONE`.
+- Манифест: база — в разделе `bases` (`manifest-bases.plugin.js`), у наборов слой `overlay surface` и `_Overlay surface` во вложенных.
 - Экземпляр поверхности не раскрыт: менять Kind в макете нельзя, его задаёт компонент.
 
 ## 13. Code projection
@@ -111,6 +112,19 @@
 - Размеры всех 52 вариантов надстроек совпали с действующими наборами (разница 0).
 - Стенд: Light / Dark × EMCD / Geometria / WL Default × Web / iOS / Android / Mobile web × L0–L3; все булевы свойства и варианты, длинный текст, 6 языков — пройден и удалён.
 - Не проверено: текст 200 %; паритет с кодом (кода нет).
+
+## 14a. Замена на месте (2026-11-13)
+- Рецепт (`docs/HOW-IT-WORKS.md`, «Замена набора на месте», вариант для панелей): в каждый вариант первым слоем вставлен клон `overlay surface` пилота (absolute, STRETCH, во весь корень); у корня сняты заливка, тень и clip; привязки вложенных слоёв и корня выровнены по пилоту. Свойства наборов и экземпляры не трогались.
+- Вариантов: Tooltip 24, Menu 2, Dropdown panel 2, Toast 10, Modal 12, Sheet 2 — 52. У всех экземпляров поверхность равна корню, заливки и тени на корне нет.
+- Размеры экземпляров до / после: разница только у Tooltip — 20 экземпляров стали шире или уже. Причина — исправление: в 16 вариантах (Arrow = Start / End) текст не был привязан к свойству Text, теперь экземпляр показывает своё значение свойства (у всех 153 экземпляров текст = значению свойства). Задело и экземпляры в архиве (сам архив не правился).
+- Высоты Toast (3) и Modal (1) в сетке локалей (hi, th, ar) читаются нестабильно между вызовами — ленивая раскладка текста, не изменение.
+- `audit` по страницам шести наборов и базы — 0.
+- `variables-check` — только числа min / max раздела 10 и `itemSpacing 8 @header` у Dropdown panel.
+- `audit-parity` — OVERLAY 0, SERVICE 0, BASE 0. Остаток: MINMAX (Tooltip, Menu, Toast, Sheet — ждут `size/overlay/*`), AXES «Placement: Left / Right» (решение 7), `_Tooltip arrow` — нет Status / Level в описании и высота без переменной.
+- Попутно привязано (было числом): толщина обводки Dropdown panel и Toast, интервал корня Dropdown panel, отступы `empty` у Dropdown panel; интервалы слотов Body / Footer slot у Modal и Header actions / Body у Sheet.
+- Описания наборов = описаниям пилотов: строка «Поверхность — слой overlay surface…», у Tooltip и Modal — «Когда использовать» и A11y. Кавычки в описаниях не ставить: Figma экранирует их (`&quot;`).
+- Борды v3: раздел 11 перечисляет токены без привязки к слою — правка не нужна.
+- Не сделано: стенд бренды × платформы и текст 200 % у действующих наборов (снят у пилотов); снимки хостов (Select, Multiselect, Date range panel и др.); Placement Start / End; токены `size/overlay/*`.
 
 ## 15. Migration
 Legacy: base tooltip, Dropdown, base modal (header / footer), шторки App. Источник формы — действующие наборы 2.0: размеры, отступы, свойства перенесены без изменений. Что изменено против действующих:
