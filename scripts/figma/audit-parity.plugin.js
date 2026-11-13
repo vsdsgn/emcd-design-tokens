@@ -8,7 +8,7 @@
 // BASE (компонент семьи без вложенной базы; оси надстройки не совпадают с вариантом вложенной базы — если у базы такого значения оси нет, база обязана быть Default; оси глифа в слоте базы не совпадают с надстройкой), BOARD (на странице нет борды v3),
 // NESTED (вложен компонент со статусом deprecated или без главного компонента).
 // SERVICE (в наборах из SERVICE_DONE служебный слой не экземпляр _Focus ring / _State layer / _Hit area / _Safe margin).
-// OVERLAY (надстройка оверлея из таблицы OVERLAY: нет слоя overlay surface / не тот Kind / слой не во весь корень / у корня своя заливка, тень или clip / радиус корня не равен радиусу поверхности / обводка или отступ корня числом; у базы Material-вариант без блюра или тень не равна Elevation).
+// OVERLAY (надстройка оверлея из таблицы OVERLAY: нет слоя overlay surface / не тот Kind / слой не во весь корень / у корня своя заливка, тень, обводка или clip (обводка — на overlay surface: дочерний слой перекрывает обводку корня) / радиус корня не равен радиусу поверхности / отступ корня числом; у базы Material-вариант без блюра или тень не равна Elevation).
 // STATE (слой state layer во весь родитель, а радиус привязан к другой переменной, чем у родителя).
 // SIZE не считает наборы и слои из SIZE_OK (реестр исключений) и SIZE_PENDING (ждут Publish), ширину корня (ширина по умолчанию — не размер компонента) и ширину абсолютного слоя, растянутого по родителю (constraints STRETCH, например индикатор Tab).
 // Чего НЕ ловит (проверять руками, см. docs/preflight.md): цвет иконки и подписи, заливка полоски под подписью (notch).
@@ -105,7 +105,7 @@ for (const pg of pages) {
           if (o.layoutPositioning !== 'ABSOLUTE' || Math.abs(o.x) > 0.01 || Math.abs(o.y) > 0.01 || Math.abs(o.width - v.width) > 0.01 || Math.abs(o.height - v.height) > 0.01 || o.constraints.horizontal !== 'STRETCH' || o.constraints.vertical !== 'STRETCH') add(key, 'OVERLAY слой overlay surface не во весь корень (' + v.name + ')');
           const ob = o.boundVariables || {}; for (const k of ['topLeftRadius', 'bottomLeftRadius']) { const a = vbn[k] && vbn[k].id, c = ob[k] && ob[k].id; if (a !== c || (!a && v[k] !== o[k])) add(key, 'OVERLAY ' + k + ' корня не равен радиусу поверхности (' + v.name + ')'); } }
         if (v.fills.length || v.effects.length || v.clipsContent) add(key, 'OVERLAY у корня своя заливка, тень или clip (' + v.name + ')');
-        if (v.strokes.length && !vbn.strokeTopWeight) add(key, 'OVERLAY толщина обводки корня числом');
+        if (v.strokes.length) add(key, 'OVERLAY обводка на корне: она под слоем overlay surface и не видна — обводку ставить на overlay surface (решение 13.11)');
         for (const k of ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft', 'itemSpacing']) if (v[k] > 0 && !vbn[k] && (k !== 'itemSpacing' || v.primaryAxisAlignItems !== 'SPACE_BETWEEN')) add(key, 'OVERLAY ' + k + '=' + v[k] + ' числом'); }
       if (s.name === '_Overlay surface') { const kd = v.name.replace('Kind=', ''), fx = OVERLAY_FX[kd], sh = v.effects.filter(e => e.type === 'DROP_SHADOW'), bl = v.effects.find(e => e.type === 'BACKGROUND_BLUR');
         if (fx) { if (!bl || !(bl.boundVariables && bl.boundVariables.radius)) add(key, 'OVERLAY ' + kd + ': нет блюра material/thick/blur'); const got = sh.length === 2 ? [sh[0].radius, sh[0].offset.y, sh[1].radius, sh[1].offset.y, sh[1].spread] : []; if (got.join() !== fx.join() || sh.some(e => !(e.boundVariables && e.boundVariables.color))) add(key, 'OVERLAY ' + kd + ': тень не равна Elevation (' + got.join(' ') + ')'); }

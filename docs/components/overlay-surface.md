@@ -15,11 +15,11 @@
 - Что база не решает: обводку, отступы, ширину, содержимое, позиционирование и подложку (`surface/overlay`) — это надстройка и код.
 
 ## 3. Anatomy
-Надстройка (корень: обводка, радиус, отступы, ширина; без заливки и тени, clip выключен) →
+Надстройка (корень: радиус, отступы, ширина; без заливки, тени и обводки, clip выключен) →
 - `overlay surface` — первый слой, экземпляр `_Overlay surface`, absolute, во весь корень (constraints STRETCH), позади содержимого. Не раскрыт;
 - содержимое надстройки (текст, слоты, секции).
 
-Обводка остаётся на корне: INSIDE, входит в размер варианта.
+Обводка — на экземпляре `overlay surface` (оверрайд, INSIDE), не на корне: дочерний слой рисуется поверх обводки корня и прятал её (найдено стендом 13.11, Tooltip Neutral; перенесено у Tooltip, Toast, Menu, Dropdown panel, Modal). `audit-parity` ловит обводку на корне оверлея.
 
 ## 4. States
 У поверхности состояний нет. Состояния — у вложенных контролов (Menu item, Button, Tab и т. д.). Появление и скрытие — движение, раздел 8.
@@ -89,7 +89,7 @@
 - Заливка: `surface/raised`, `surface/level-1`, `material/thick/fill`; переопределения `action/primary/default`, `status/*/solid`, `action/inverse/default`.
 - Радиус: `radius/container`, `radius/control`, `radius/surface`.
 - Тень: стили `Elevation/2 · S`, `Elevation/3`, `Elevation/4`; у материала — эффекты без стиля (стиль эффектов нельзя совместить с блюром): Popover r2 y1 + r24 y8 s-4 (= `Elevation/2`), Sheet r6 y2 + r56 y24 s-8 (= `Elevation/4`), цвета `shadow/key`, `shadow/ambient`, блюр `material/thick/blur`. Равенство чисел стилю ловит `audit-parity` (OVERLAY, таблица `OVERLAY_FX`).
-- Обводка корня: `border/default`, `border/subtle`, `border/width/default`.
+- Обводка (на `overlay surface`): `border/default`, `border/subtle`, `border/width/default`.
 - Отступы: `space/4`, `space/8`, `space/10`, `space/12`, `space/16`, `space/20`, `space/48`, `modal/padding`, `os/safe-area/bottom`.
 - Без переменной (вопрос 6 доски): Tooltip `minWidth 58` / `minHeight 58` / `maxWidth 320`; Menu `minWidth 160`, `maxWidth 320`; Toast `minWidth 280`; Sheet `maxWidth 640`; список Dropdown panel `maxHeight 320`.
 
