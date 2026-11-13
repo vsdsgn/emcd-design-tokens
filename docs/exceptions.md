@@ -21,10 +21,10 @@
 | Столбики Chart: ширина, высота, зазор столбиков | Chart plot, Type=Bars | размер определяют данные и ширина графика, не шкала | 2027-05-06 |
 | Радиус 1 px у индикатора Tab | Tab (индикатор активной вкладки, 24 варианта) | физика: линия 1 px, радиус = половина толщины; не уточнено в проверке 06.11 (радиус привязан или заменён) | 2026-12-06 |
 | Радиусы бейджа сети у Coin 3.5 · 4.5 · 5.5 · 7 · 9 | Coin, слой `network` (по размерам XS–XL) | формула: круг, радиус = размер / 2 | 2027-05-06 |
-| `maxWidth` 40 у Counter | Counter, корень (6 вариантов) | временно: токена `size/counter/max` нет; значение одно на набор, предел «99+»; завести токен со следующей публикацией Foundations (OPEN-QUESTIONS, раздел 13.11 «правки beta»); в `audit-parity` — `MINMAX_OK` | 2026-12-13 |
-| `minWidth` 58 и `minHeight` 58 у Tooltip | Tooltip, корень (24 варианта) | временно: токена нет; минимум, при котором стрелка со смещением Start / End не выходит за скругление; завести `size/tooltip/min` со следующей публикацией Foundations; `MINMAX_OK` | 2026-12-13 |
-| `minWidth` 280 у Toast | Toast, корень | временно: токена `size/toast/min` нет; завести со следующей публикацией Foundations; `MINMAX_OK` | 2026-12-13 |
-| `maxHeight` 320 у Dropdown panel | Dropdown panel, корень | временно: токена `size/dropdown-panel/max-height` нет; завести со следующей публикацией Foundations; `MINMAX_OK` | 2026-12-13 |
+| `maxWidth` 40 у Counter | Counter, корень (6 вариантов) | временно: токен `size/counter/max` заведён 13.11, не опубликован; значение одно на набор, предел «99+»; привязать после Publish Foundations (OPEN-QUESTIONS, раздел 13.11 «правки beta»); в `audit-parity` — `MINMAX_OK` | 2026-12-13 |
+| `minWidth` 58 и `minHeight` 58 у Tooltip | Tooltip, корень (24 варианта) | временно: токен `size/tooltip/min` заведён 13.11, не опубликован; минимум, при котором стрелка со смещением Start / End не выходит за скругление; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
+| `minWidth` 280 у Toast | Toast, корень | временно: токен `size/toast/min` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
+| `maxHeight` 320 у Dropdown panel | Dropdown panel, корень | временно: токен `size/dropdown-panel/max-height` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
 
 ## Найдено 2026-11-06 без токена (не исключения, на исправление)
 

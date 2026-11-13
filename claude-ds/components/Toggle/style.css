@@ -3,8 +3,8 @@
   display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%; max-width: 480px; box-sizing: border-box;
   font: 500 16px/24px var(--font-sans); color: var(--text-primary); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .emcd-toggle--s { --w: 40px; --h: 24px; --knob: 16px; --lh: 20px; gap: 8px; font: 500 14px/20px var(--font-sans); }
-/* Control = Left — дорожка перед подписью (по умолчанию — Right, у конца строки) */
-.emcd-toggle--left { flex-direction: row; justify-content: flex-start; width: fit-content; }
+/* Control position = Start — дорожка перед подписью (по умолчанию — End, у конца строки) */
+.emcd-toggle--start { flex-direction: row; justify-content: flex-start; width: fit-content; }
 .emcd-toggle__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .emcd-toggle__desc { font: 500 12px/16px var(--font-sans); color: var(--text-secondary); }
 .emcd-toggle input { appearance: none; -webkit-appearance: none; position: relative; flex: none; width: var(--w); height: var(--h); margin: 0; border-radius: var(--radius-chip, 9999px);

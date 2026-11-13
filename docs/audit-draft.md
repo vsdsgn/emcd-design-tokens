@@ -7,7 +7,7 @@
 
 - Наборов не в beta: 96 (draft 94, без статуса 2: Card, _Tooltip arrow).
 - Без замечаний по манифесту: 0.
-- Наборов с замечанием: BOARD — 94, RAW — 78, DESC — 59, MINMAX — 21, PROPS — 16, AXES — 16, SERVICE — 10, MATRIX — 6.
+- Наборов с замечанием: BOARD — 94, RAW — 78, DESC — 59, MINMAX — 21, PROPS — 16, AXES — 15, SERVICE — 10, MATRIX — 6.
 
 Коды: DESC — разделы описания; MATRIX — неполная матрица осей; AXES — булева ось или Left / Right; PROPS — свойство привязано не во всех вариантах (часть — по делу: свойство есть только у вариантов со слотом); MINMAX — min / max числом; RAW — значения без переменной (часть — размеры служебных слоёв); SERVICE — у набора с Hover / Pressed / Focus нет служебных слоёв; BOARD — нет борды v3 или её разделов (у неинтерактивного набора разделы 04 «Состояния», 05 «Зоны» могут быть не нужны — решается при контракте).
 
@@ -38,7 +38,7 @@
 | Step segment | Step segment | 3 | DESC: нет: Когда использовать:, Правила:, A11y:<br>RAW: 6 (напр. `(root):w=40`, `(root):h=4`)<br>BOARD: нет разделов 05, 07, 08, 12 |
 | Step symbol | Step symbol | 12 | DESC: нет: Когда использовать:, Правила:, A11y:<br>PROPS: Number 3 из 12<br>RAW: 24 (напр. `(root):w=24`, `(root):h=24`)<br>BOARD: нет разделов 04, 05, 07, 12 |
 | Step trail | Step trail | 6 | DESC: нет: Когда использовать:, Правила:, A11y:<br>RAW: 12 (напр. `(root):w=80`, `(root):h=24`)<br>BOARD: нет разделов 05, 07, 08, 12 |
-| Tooltip | Tooltip | 24 | DESC: нет: Когда использовать:, Правила:, A11y:<br>AXES: `Placement` — Left / Right вместо Start / End<br>MINMAX: minw=58, minh=58<br>BOARD: нет разделов 12 |
+| Tooltip | Tooltip | 24 | DESC: нет: Когда использовать:, Правила:, A11y:<br>MINMAX: minw=58, minh=58<br>BOARD: нет разделов 12 |
 
 ## Молекулы (57)
 

@@ -56,7 +56,7 @@
 - Sheet, Type = Menu — радиус 0.
 
 Свойства надстроек при замене не менялись (имена, типы, значения по умолчанию):
-- Tooltip: Text; Placement (Top, Bottom, Left, Right); Tone (Neutral, Accent); Arrow (Center, Start, End).
+- Tooltip: Text; Placement (Top, Bottom, Start, End — логические стороны, решение 13.11); Tone (Neutral, Accent); Arrow (Center, Start, End).
 - Menu: слот Items; Search; Size (M, L).
 - Dropdown panel: Show tabs, Show reset, Show search; Content (List, Empty).
 - Toast: Title, Show title, Description, Show description, Actions, Close, Icon, Timer, Safe area; Layout (Card, Informer); Tone (Info, Success, Warning, Danger, Neutral).

@@ -2175,7 +2175,7 @@
      "id": "301:4958",
      "type": "SET",
      "status": "beta",
-     "descLen": 2476,
+     "descLen": 2646,
      "descHeads": [
       "Status:",
       "Level:",
@@ -2211,16 +2211,19 @@
        "L",
        "XL"
       ],
+      "Loading": [
+       "False",
+       "True"
+      ],
       "State": [
        "Default",
        "Hover",
        "Pressed",
-       "Disabled",
-       "Loading"
+       "Disabled"
       ]
      },
      "variants": 240,
-     "full": 280,
+     "full": 448,
      "props": [
       {
        "name": "Label",
@@ -4538,7 +4541,7 @@
      "id": "317:33734",
      "type": "SET",
      "status": "draft",
-     "descLen": 3693,
+     "descLen": 3818,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4558,8 +4561,8 @@
       "Placement": [
        "Top",
        "Bottom",
-       "Left",
-       "Right"
+       "Start",
+       "End"
       ],
       "Tone": [
        "Neutral",

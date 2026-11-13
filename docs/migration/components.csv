@@ -51,7 +51,7 @@ Segmented,DS Web,base segmented picker item,size,lg|sm,Size,XL|M,item 48 → XL;
 Segmented,DS Web,base segmented picker item,active,true|false,Selected,On|Off,
 Segmented,DS Web,base segmented picker item / icon only,(set),—,Show label,false,
 Segmented,DS Web,base segmented picker group,amount,2|3,Items,2|3,
-Tooltip,DS Web,base tooltip / neutral --1.5,arrow placement + tooltip arrow,top|bottom|left|right + bool,Placement,Top|Bottom|Left|Right|None,arrow=false → None
+Tooltip,DS Web,base tooltip / neutral --1.5,arrow placement + tooltip arrow,top|bottom|left|right + bool,Placement,Top|Bottom|Start|End|None,arrow=false → None
 Tooltip,DS Web,Tooltip,Content,Text|Limits|Swap,Content,Text|Custom,Limits/Swap → Custom (слот)
 Tooltip,DS Web,base tooltip / color --1.5,(set),—,—,Tooltip tour (будет),онбординг
 Empty state,DS Web,empty state,position,vertical|horizontal,Layout,Vertical|Horizontal,

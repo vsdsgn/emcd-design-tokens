@@ -121,6 +121,3 @@
 - Has left icon / Has right icon / Has text → Icon left / Icon right / Label; без текста → Icon button.
 - Active No | Yes → State; Focus ring и Loading — новые.
 - Строка Button в `docs/migration/components.csv` обновлена под эти типы 2026-11-12.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Loading — свойство у Button и значение оси State у Icon button: привести к одному способу (ломает экземпляры — решение Стефана).

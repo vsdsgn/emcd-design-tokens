@@ -180,12 +180,12 @@
 3. Пилоты `Menu item · пилот`, `Multiselect option · пилот`, `List item · пилот` больше не нужны. Удалить? Рекомендация — да, после просмотра.
 4. Борда Multiselect option, анатомия: строка «checkbox · 20×20» оставлена (размер глифа); проверить глазами разделы 02 трёх борд.
 5. Не снято: стенд бренды × платформы и текст 200 % у действующих наборов; снимки хостов Multiselect, Sheet, Date range panel.
-6. Ждут токенов (решение 5 пилота): `size/row/min` = 40, `size/row/content-min` = 120 — завести и привязать, публикует Стефан.
+6. [x] Токены `size/row/min` = 40, `size/row/content-min` = 120 заведены в Foundations 13.11 — ждут Publish Стефана, затем привязка.
 
 ### 2026-11-13 · после пакета правок beta (посмотреть, не блокирует)
 1. Умолчания: Button — Size M, Icon button — Ghost / M, Badge — Default. Новый экземпляр из панели Assets встаёт таким; существующие экземпляры не менялись.
-2. Loading: у Button — свойство, у Icon button — значение оси State. Свести к одному способу — MAJOR (ломает оверрайды). Рекомендация: свойство, как у Button. Нужен «ок».
-3. Четыре числа без токена записаны временными исключениями (`docs/exceptions.md`, пересмотр 2026-12-13). Завести в Foundations: `size/counter/max` 40, `size/tooltip/min` 58, `size/toast/min` 280, `size/dropdown-panel/max-height` 320 — после Publish привяжу и уберу исключения.
+2. [x] Loading — решено Стефаном 13.11 («ок»), сделано: у Icon button `Loading = False | True` (ось-тумблер; булево свойство Figma не умеет заменить иконку спиннером), `State = Loading` убран, 16 экземпляров перенесены. MAJOR. У Input `State = Loading` пока остаётся — парковка.
+3. Четыре числа без токена — временные исключения (`docs/exceptions.md`, пересмотр 2026-12-13). Токены заведены в Foundations 13.11 (всего 8: `size/counter/max` 40, `size/tooltip/min` 58, `size/toast/min` 280, `size/dropdown-panel/max-height` 320, `size/row/min` 40, `size/row/content-min` 120, `size/field/multi-min` 96, `size/selection/label-max` 436), не опубликованы. После Publish Стефана — привяжу и уберу исключения.
 4. Вложенные `maxWidth` подписей числом (Badge 112, Chip 192, Segment 200, Breadcrumb item 200, Status 240, Tab 240, Tab bar item 72, значение Counter 28, тултип Icon button 58): токены или правило «подпись = max корня − отступы» — решить одним способом.
 5. Breadcrumb item: `label` без текстового стиля (у Current другой вес — нужен стиль или два). Tab bar item: радиус state layer 12 числом.
 6. Badge: Close / Chevron (решение 9 доски → Deprecated, интерактивный бейдж — это Chip) — не сделано, ждёт просмотра.
@@ -198,7 +198,7 @@
 1. Тени стали заметнее: Menu и Dropdown panel — Elevation/2, Sheet — Elevation/4 (решение 2 пилота). Посмотреть на продуктовых экранах, особенно Dark.
 2. Tooltip: свойство Text заработало во всех 24 вариантах (было в 8). 20 экземпляров с Arrow = Start / End теперь показывают свой текст свойства и изменили ширину, в том числе в архиве. Проверить глазами страницы, где стоят такие тултипы.
 3. Пилоты `Tooltip · пилот`, `Menu · пилот`, `Dropdown panel · пилот`, `Toast · пилот`, `Modal · пилот`, `Sheet · пилот` больше не нужны. Удалить? Рекомендация — да, после просмотра.
-4. Tooltip Placement остаётся Left / Right: действует решение Стефана 2026-11-09 («Tooltip не меняем»); рекомендация A по решению 7 пилота не применена — если нужно Start / End, сказать (MAJOR). min / max панелей привязаны к опубликованным `size/*` (пакет правок beta 13.11), остаток — 3 временных исключения (Tooltip 58, Toast 280, список Dropdown panel 320). Не сделано: `_Tooltip arrow` — нет Status / Level в описании, высота без переменной.
+4. [x] Tooltip Placement — **решение Стефана 13.11: Start / End** (отменяет «Tooltip не меняем» от 09.11), сделано, MAJOR; 153 экземпляра целы. min / max панелей привязаны к опубликованным `size/*`, остаток — 3 временных исключения (Tooltip 58, Toast 280, список Dropdown panel 320), токены заведены, ждут Publish. Не сделано: `_Tooltip arrow` — нет Status / Level в описании, высота без переменной; вариант по умолчанию у Tooltip — Arrow = Start, а в описании Center (исправить при переводе в beta).
 5. Не снято: стенд бренды × платформы и текст 200 % у действующих наборов; снимки хостов (Select, Multiselect, Date range panel).
 6. Парковка: высоты Toast и Modal в сетке локалей (hi, th, ar) читаются плагином нестабильно — не считать расхождением; у описания Tooltip заголовки «КОГДА ИСПОЛЬЗОВАТЬ» прописными — `draft-audit` их не узнаёт (DESC), привести к «Когда использовать:» при переводе в beta.
 

@@ -26,7 +26,7 @@
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`; Pressed — масштаб 0.96; у Ghost и Text подложка — только слой состояния.
-- Default, Hover, Pressed, Disabled, Loading — ось State.
+- Default, Hover, Pressed, Disabled — ось State. Loading — свойство False / True (спиннер вместо иконки, кнопка не нажимается); только при State = Default.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо 2 px, зазор 2, повторяет скругление.
 
 ## 5. Properties
@@ -37,9 +37,10 @@
 | Type | Primary · Secondary · Tertiary · Tertiary outline · Ghost · Text · Inverted | Ghost |
 | Tone | Default · Danger | Default |
 | Size | S · M · L · XL | M |
-| State | Default · Hover · Pressed · Disabled · Loading | Default |
+| Loading | False · True | False |
+| State | Default · Hover · Pressed · Disabled | Default |
 
-Матрица: 240 из 280.
+Матрица: 240 из 448.
 
 Свойства:
 
@@ -84,16 +85,16 @@
 - Иконка крупнее на касании (режим Platform): M 20 → 24, L / XL 24 → 28.
 
 ## 12. Figma projection
-- Набор `Icon button`, вариантов 240 из 280; оси: Type, Tone, Size, State.
+- Набор `Icon button`, вариантов 240 из 448; оси: Type, Tone, Size, Loading, State.
 - Борда: «Icon button — борда · шаблон v3», разделов 11.
-- Описание: 2476 знаков, разделы: Status: Level: Кнопка-иконка: Когда использовать: Матрица: • Ghost — • Primary — • Secondary — • Text — • Inverted — Квадрат: A11y:
+- Описание: 2646 знаков, разделы: Status: Level: Кнопка-иконка: Когда использовать: Матрица: • Ghost — • Primary — • Secondary — • Text — • Inverted — Квадрат: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsIconButton>`; Flutter: `DsIconButton`.
-- Props: `type`: primary | secondary | tertiary | tertiary-outline | ghost | text | inverted; `tone`: default | danger; `size`: s | m | l | xl; `label`: string или слот.
-- Состояния (Default, Hover, Pressed, Disabled, Loading) — не props: Hover / Pressed / Focus из платформы; `disabled`, `loading` — props.
+- Props: `type`: primary | secondary | tertiary | tertiary-outline | ghost | text | inverted; `tone`: default | danger; `size`: s | m | l | xl; `loading`: boolean; `label`: string или слот.
+- Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 - `label` → `aria-label` и текст тултипа; `icon` — слот.
 
 ## 14. Acceptance (2026-11-13)
@@ -106,6 +107,3 @@
 ## 15. Migration
 - DS Web `baseButton` (Has text=false) и `.button circle` → Icon button; типы — как у Button, плюс Ghost (самый частый).
 - Строка Icon button в `docs/migration/components.csv` обновлена под типы Figma 2026-11-12.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Loading — в оси State, у Button — свойство: один способ (ломает экземпляры — решение Стефана).

@@ -39,8 +39,9 @@
 - Вариант по умолчанию в Figma: Button — Size M; Icon button — Type Ghost, Size M; Badge — State Default. Сверить умолчания props в коде (Web: Button `size="m"`, Icon button `type="ghost"`).
 - Кольцо фокуса — 2 px у всех (в описании Icon button было 4).
 - min / max: Button min-width — `size/button/min`; Counter min-width — `size/counter-height/*`; Badge, Chip max-width — `size/badge/max`, `size/chip/max`. Без токена пока: Counter max 40, Tooltip min 58, Toast min 280, список Dropdown panel max-высота 320 (токены появятся со следующей публикацией Foundations).
-- Tooltip: Placement остаётся Top / Bottom / Left / Right.
-- Открыто: Loading — свойство у Button и значение State у Icon button; сведём к свойству (MAJOR) после «ок» Стефана.
+- **MAJOR 13.11 — Tooltip:** Placement = Top / Bottom / Start / End (было Left / Right). Логические стороны: в RTL Start и End меняются местами. В коде: `placement="start" | "end"`, запасные стороны `bottom, end, start`.
+- **MAJOR 13.11 — Icon button:** Loading — отдельное свойство `loading: boolean`, как у Button; значения `State = Loading` больше нет. Loading только при State = Default: спиннер вместо иконки, кнопка не нажимается, `aria-busy`.
+- Новые токены Foundations (появятся после публикации): `size/counter/max` 40, `size/tooltip/min` 58, `size/toast/min` 280, `size/dropdown-panel/max-height` 320, `size/row/min` 40, `size/row/content-min` 120, `size/field/multi-min` 96, `size/selection/label-max` 436.
 
 ## Новое в Figma (аддитивно, в код пока не идёт)
 
@@ -57,7 +58,7 @@
 | Сторона иконки и контрола | `Icon left` / `Icon right`, `Control = Left / Right`, `Align = Left / Right` | `Icon start` / `Icon end`, `Start` / `End` | решено 2026-11-09 |
 | Ось выбранности | `Selected = Off / On` (Chip, Segment, Tab, Tab bar item) и `Status = Off / On / Indeterminate` (Checkbox, Radio, Toggle) | одна схема на систему | ждёт решения Стефана |
 | Ошибка контрола | `Tone = Danger` (Checkbox, Radio) и `State = Error` (Input, Textarea) | одна схема | ждёт решения |
-| Loading | булево `Loading` (Button) и значение `State = Loading` (Icon button, Input) | один способ | ждёт решения |
+| Loading | булево `Loading` (Button) и значение `State = Loading` (Input) | один способ: свойство | Icon button — сделано 2026-11-13; Input — позже |
 | Булевы видимости | `Icon`, `Close`, `Chevron`, `Remove`, `Counter` и `Show label`, `Show helper` | один префикс | ждёт решения |
 | Вариант по умолчанию | у Button в Figma `Size = S` | `M` (Web), `L` (App, Mobile web) — в коде по умолчанию уже по правилу | правка описания и набора |
 

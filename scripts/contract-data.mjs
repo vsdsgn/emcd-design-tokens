@@ -104,7 +104,6 @@ export const DATA = [
     code: ['`iconLeft` / `iconRight` в коде — слоты, а не boolean + swap.', 'Type=Text + Tone=Danger и т. п. — недопустимые сочетания Tone=Danger × (Inverted, Tertiary, Tertiary outline) отсекать типами.'],
     accept: { audit: OK, vc: OK + ' (min-width — `size/button/min` во всех вариантах)', ap: '0 (2026-11-13)' },
     migration: ['DS Web `baseButton` Type: Primary → Primary; Secondary base → Tertiary; Secondary accent → Secondary; Stroke base → Tertiary outline; Text accent / Link → Text; Error → Primary + Tone=Danger; white → Inverted; Stroke accent, Success — не переносим.', 'Size: Small 36 → S 32; Large 56 → XL 56; M 40 и L 48 — новые.', 'Has left icon / Has right icon / Has text → Icon left / Icon right / Label; без текста → Icon button.', 'Active No | Yes → State; Focus ring и Loading — новые.', 'Строка Button в `docs/migration/components.csv` обновлена под эти типы 2026-11-12.'],
-    todo: ['Loading — свойство у Button и значение оси State у Icon button: привести к одному способу (ломает экземпляры — решение Стефана).'],
   },
   {
     name: 'Checkbox',
@@ -156,8 +155,8 @@ export const DATA = [
     never: 'иконку без Label; две Primary рядом; Ghost на пёстрой подложке (там Inverted); размер иконки вне шкалы.',
     anatomy: ['Квадрат: `icon` (замена экземпляра) или `Spinner` (Loading).', '`tooltip` с `_Tooltip arrow` — в Hover, только Web.', 'Служебные: `state layer`, `focus ring`, зоны, `safe area · outer`.'],
     group: PLASHKA + '; Pressed — масштаб 0.96; у Ghost и Text подложка — только слой состояния',
-    states: ['Default, Hover, Pressed, Disabled, Loading — ось State.', FOCUS + ' Кольцо 2 px, зазор 2, повторяет скругление.'],
-    defaults: { Type: 'Ghost', Tone: 'Default', Size: 'M', State: 'Default' },
+    states: ['Default, Hover, Pressed, Disabled — ось State. Loading — свойство False / True (спиннер вместо иконки, кнопка не нажимается); только при State = Default.', FOCUS + ' Кольцо 2 px, зазор 2, повторяет скругление.'],
+    defaults: { Type: 'Ghost', Tone: 'Default', Size: 'M', Loading: 'False', State: 'Default' },
     content: ['Label обязателен: действие, а не «Иконка» («Скопировать адрес», «Закрыть»). Показывается в тултипе (Web) и читается скринридером.', 'Тултип — одна строка, min-width 58; длинный Label переносит Tooltip по своим правилам.', RTL],
     events: ['`click`; при Loading и Disabled не испускается.'],
     behavior: [MOTION, 'Pressed — как у Button: слой 10 % + масштаб 0.96, 120 мс; хаптик `haptic/press` на касании.', 'Тултип: в Hover с указателем; сверху, у края экрана — переворот или сдвиг; в тулбаре между соседними кнопками — без задержки. В приложении тултипа нет.', 'Зона: S 32 на касании расширяется до 44. ' + ZONES],
@@ -166,7 +165,6 @@ export const DATA = [
     code: ['`label` → `aria-label` и текст тултипа; `icon` — слот.'],
     accept: { audit: OK, vc: '`minWidth 58 @tooltip` числом', ap: '0 (2026-11-13)' },
     migration: ['DS Web `baseButton` (Has text=false) и `.button circle` → Icon button; типы — как у Button, плюс Ghost (самый частый).', 'Строка Icon button в `docs/migration/components.csv` обновлена под типы Figma 2026-11-12.'],
-    todo: ['Loading — в оси State, у Button — свойство: один способ (ломает экземпляры — решение Стефана).'],
   },
   {
     name: 'Radio',

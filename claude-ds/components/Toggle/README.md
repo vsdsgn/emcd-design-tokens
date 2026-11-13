@@ -2,9 +2,9 @@
 
 Переключатель: мгновенно включает настройку, без «Сохранить».
 
-**Оси (как в Figma «🟡 Toggle»):** Status — Off · On; Size — M · S; Control — Right (по умолчанию) · Left; State — Default · Hover · Pressed · Disabled. Свойства: Label, Description. Tone · Danger нет.
+**Оси (как в Figma «🟡 Toggle»):** Status — Off · On; Size — M · S; Control position — End (по умолчанию) · Start (в RTL зеркалится); State — Default · Hover · Pressed · Disabled. Свойства: Label, Description. Tone · Danger нет.
 
-**Когда какой:** Size M — дорожка 48×28, подпись 16/24 (настройки, формы); S — 40×24, подпись 14/20 (плотные списки, таблицы). Control · Right — строка настроек, дорожка у конца; Left — отдельный переключатель рядом с подписью; в одной группе — одинаково.
+**Когда какой:** Size M — дорожка 48×28, подпись 16/24 (настройки, формы); S — 40×24, подпись 14/20 (плотные списки, таблицы). Control position · End — строка настроек, дорожка у конца; Start — отдельный переключатель рядом с подписью; в одной группе — одинаково.
 
 **Когда нет:** нужна кнопка «Сохранить» или отложенное применение — Checkbox; выбор одного из вариантов — Radio или Segmented.
 
@@ -14,4 +14,4 @@
 
 **Доступность:** `<input type="checkbox" role="switch">` внутри `<label>` — зона нажатия вся строка; фокус — кольцо 2 px с зазором 2 px на дорожке. Хаптик `selection` (App).
 
-Классы: `emcd-toggle [emcd-toggle--s] [emcd-toggle--left]`; внутри — `input`, `emcd-toggle__text` (подпись и `emcd-toggle__desc`).
+Классы: `emcd-toggle [emcd-toggle--s] [emcd-toggle--start]`; внутри — `input`, `emcd-toggle__text` (подпись и `emcd-toggle__desc`).

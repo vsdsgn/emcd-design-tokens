@@ -27,7 +27,7 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Placement | Top · Bottom · Left · Right | — |
+| Placement | Top · Bottom · Start · End | — |
 | Tone | Neutral · Accent | — |
 | Arrow | Center · Start · End | — |
 
@@ -63,19 +63,18 @@
 ## 12. Figma projection
 - Набор `Tooltip`, вариантов 24 из 24; оси: Placement, Tone, Arrow.
 - Борда: «Tooltip — борда · шаблон v3», разделов 11.
-- Описание: 3693 знаков, разделы: Status: Level: • Пояснение термина: • Приложение и касание — • Ошибки формы — • Пузырь: • Neutral — • Placement — • Arrow — В коде — • Одновременно — • Появление —
+- Описание: 3818 знаков, разделы: Status: Level: • Пояснение термина: • Приложение и касание — • Ошибки формы — • Пузырь: • Neutral — • Placement — • Arrow — В коде — • Одновременно — • Появление —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsTooltip>`; Flutter: `DsTooltip`.
-- Props: `placement`: top | bottom | left | right; `tone`: neutral | accent; `arrow`: center | start | end; `text`: string или слот.
+- Props: `placement`: top | bottom | start | end; `tone`: neutral | accent; `arrow`: center | start | end; `text`: string или слот.
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:, A11y:
-  - AXES: `Placement` — Left / Right вместо Start / End
   - MINMAX: minw=58, minh=58
   - BOARD: нет разделов 12
 
