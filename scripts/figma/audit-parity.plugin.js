@@ -36,8 +36,8 @@ const SKIP = /hit area|safe area|safe margin|overlay/i;
 const KEY = /^(control|box|track|thumb|dot|mark|check|indicator|pill|body|field)$/i;
 const rep = {}; const add = (k, msg) => { (rep[k] = rep[k] || new Set()).add(msg); };
 const paintCount = (v) => { let bound = 0, raw = 0; walk(v, false, n => { if (SKIP.test(n.name) || n.visible === false || n.type === 'TEXT') return; for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.visible !== false && p.type === 'SOLID') { if (p.boundVariables && p.boundVariables.color) bound++; else raw++; } }); return { bound, raw }; };
-// Записанные исключения docs/exceptions.md: min / max корня числом (набор → значения, например { Counter: ['maxWidth=40'] }). С 13.11 пусто: всё привязано к size/*.
-const MINMAX_OK = {};
+// Записанные исключения docs/exceptions.md: min / max корня числом (набор → значения, например { Counter: ['maxWidth=40'] }). Сейчас — 7 наборов, чьи токены size/* заведены 13.11 и ждут Publish Foundations (после привязки bind-sizes-extra строки убрать).
+const MINMAX_OK = { 'Code input': ['maxWidth=400'], 'Select compact': ['maxWidth=200'], 'Legend item': ['maxWidth=160'], 'Step': ['maxWidth=160'], 'Chart metric': ['maxWidth=240'], 'Chart tooltip': ['minWidth=168'], 'Chart axis label': ['maxWidth=64'] };
 const okName = n => n.replace(/ · пилот$/, '');
 const bySet = {};
 const descCheck = (key, d, isBase) => {

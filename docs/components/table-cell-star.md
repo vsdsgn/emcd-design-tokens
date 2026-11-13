@@ -27,7 +27,7 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Active | Off · On | — |
+| Status | Off · On | — |
 | State | Default · Skeleton · Disabled | — |
 
 Матрица полная: 6 вариантов.
@@ -54,22 +54,22 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
-- Набор `Table cell / Star`, вариантов 6 из 6; оси: Active, State.
+- Набор `Table cell / Star`, вариантов 6 из 6; оси: Status, State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 140 знаков, разделы: Status: Level: Избранное в строке:
+- Описание: 177 знаков, разделы: Status: Level: Избранное в строке:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsTableCellStar>`; Flutter: `DsTableCellStar`.
-- Props: `active`: boolean.
+- Props: `status`: boolean.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:, A11y:
-  - AXES: `Active` — булева ось (Off | On)
+  - AXES: `Status` — булева ось (Off | On)
   - RAW: 12 (напр. `(root):w=80`, `(root):h=80`)
   - BOARD: нет разделов 07, 08
 

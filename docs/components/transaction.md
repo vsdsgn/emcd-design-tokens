@@ -48,7 +48,7 @@
 - `корень`: интервал `space/12`; отступы `space/12`, `space/16`.
 - `icon`: заливка / цвет `surface/raised`; радиус `radius/chip`.
 - `icon/arrow-up`: высота `icon/size/md`; ширина `icon/size/md`.
-- `content`: интервал `space/4`.
+- `content`: интервал `space/4`; мин. ширина `size/row/content-min`.
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `meta`: интервал `space/8`.
 - `date`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.

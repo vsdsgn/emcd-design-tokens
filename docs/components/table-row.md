@@ -52,12 +52,12 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `accent/subtle`; отступы `space/8`; обводка `border/subtle`.
-- `cell · Дата`: отступы `space/sm`.
-- `cell · Монета`: интервал `space/sm`, `space/xs`; отступы `space/sm`.
-- `cell · Сумма`: интервал `space/2xs`; отступы `space/sm`.
-- `cell · Адрес`: отступы `space/sm`.
-- `cell · Статус`: отступы `space/12`.
-- `cell · ⋯`: интервал `space/8`; отступы `space/xs`.
+- `cell · Дата`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Монета`: интервал `space/sm`, `space/xs`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Сумма`: интервал `space/2xs`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Адрес`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Статус`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `cell · ⋯`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/xs`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`.
 - Значений без переменной: 8 (напр. `(root):h=48`, `(root):h=80`).
 

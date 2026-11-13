@@ -44,9 +44,9 @@
 
 ## 10. Tokens
 - `circle`: заливка / цвет `control/track`.
-- `glyph`: обводка `icon/secondary`.
+- `glyph`: обводка `icon/secondary`; толщина обводки `icon/stroke/regular`.
 - Служебные слои (общие правила — `service-layers.md`): `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse`.
-- Значений без переменной: 5 (напр. `(root):w=20`, `(root):h=20`, `glyph:sw=1.5`, `hit area · web:w=24`).
+- Значений без переменной: 4 (напр. `(root):w=20`, `(root):h=20`, `hit area · web:w=24`, `hit area · web:h=24`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -66,7 +66,7 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Правила:
-  - RAW: 5 (напр. `(root):w=20`, `(root):h=20`)
+  - RAW: 4 (напр. `(root):w=20`, `(root):h=20`)
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

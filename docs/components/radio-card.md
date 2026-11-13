@@ -56,13 +56,13 @@
 - role="radiogroup" на группе карточек, у карточки role="radio" и aria-checked; Стрелки меняют выбор, Tab входит в группу один раз; детали связаны через aria-describedby.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-2`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/accent`, `border/subtle`.
+- `корень`: заливка / цвет `surface/level-2`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/accent`, `border/subtle`; толщина обводки `border/width/default`.
 - `header`: интервал `space/12`.
-- `radio`: интервал `space/12`.
+- `radio`: maxw `size/field/max`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `details`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-surface`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/surface`.
-- Значений без переменной: 16 (напр. `(root):sw=1`, `(root):w=400`).
+- Значений без переменной: 8 (напр. `(root):w=400`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -83,7 +83,7 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - AXES: `Status` — булева ось (Off | On)
-  - RAW: 16 (напр. `(root):sw=1`, `(root):w=400`)
+  - RAW: 8 (напр. `(root):w=400`)
   - SERVICE: нет зоны нажатия, безопасного поля
   - BOARD: нет разделов 05, 07, 08
 

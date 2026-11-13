@@ -17,6 +17,9 @@
 - **Checkbox, Radio, Toggle** собраны от `_Selection control`. Ось `Control = Left | Right` → `Control position = Start | End` (prop `controlPosition: start | end`, в RTL зеркалится; по умолчанию Start, у Toggle — End). Label, Description, Show label, Show description — на вложенном слое `_Selection control`, Focus ring — на глифе.
 - **Menu item, Multiselect option, List item** собраны от `_List row`. Props: List item `title` → `label`; Menu item `checkbox` → `showSelection`; Multiselect option `leading` (boolean + swap) → `showLeading` + слот `leading`, значение `State = Selected` → boolean `selected` (сочетается с hover / pressed / disabled). Остальные свойства (description, subvalue, trailing, divider) — на вложенном слое `_List row`.
 - **Tooltip, Menu, Dropdown panel, Toast, Modal, Sheet** собраны от `_Overlay surface` — не breaking: props те же. В Figma фон, радиус и тень — на вложенном слое `overlay surface`, у корня — обводка и отступы. Тени: Menu и Dropdown panel — Elevation/2, Sheet — Elevation/4 (были свои числа). В коде — один набор стилей поверхности по Kind (Tooltip, Popover, Toast, Modal, Sheet), `docs/components/overlay-surface.md`.
+- **Table header cell, Table cell / Text** (draft): `Align = Left | Right` → `Start | End` (prop `align: start | end`, в RTL зеркалится).
+- **Table cell / Star** (draft): ось `Active` → `Status = Off | On` (prop `status`, как у Checkbox / Radio / Toggle).
+- **Badge** (beta): `Close`, `Chevron` — deprecated. Удаляемый или раскрывающийся элемент — Chip. Props из кода не удалять до замены в продуктах; новые экраны — без них.
 - Высота поля с подсказкой: +4 px (зазор подсказки `space/6`).
 - Skeleton не показывает слоты, подсказку и счётчик.
 

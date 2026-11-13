@@ -55,12 +55,12 @@
 - |
 
 ## 10. Tokens
-- `корень`: интервал `space/12`, `space/8`.
+- `корень`: интервал `space/12`, `space/8`; maxw `size/field/max`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `items`: интервал `space/16`.
-- `Toggle`: интервал `space/12`, `space/8`.
+- `Toggle`: maxw `size/field/max`.
 - `helper`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- Min / max корня: maxWidth 480 числом.
+- Min / max корня: maxWidth 480 size/field/max.
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -81,7 +81,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:, A11y:
-  - MINMAX: maxw=480
   - BOARD: нет разделов 05, 07, 08
 
 ## 15. Migration

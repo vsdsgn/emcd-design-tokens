@@ -15,7 +15,7 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `Menu`, `Chip`.
+- Слои с токенами: `Select`, `Menu`, `selected`, `Chip`.
 - Вложено: `Select` ×8, `Menu` ×2, `Chip` ×12.
 - Служебные слои (вариантов из 8): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -45,9 +45,12 @@
 - role="combobox", список role="listbox" с aria-multiselectable; выбранное озвучивается как «Выбрано: 3»; Пробел отмечает пункт, Esc закрывает меню. |
 
 ## 10. Tokens
-- `Menu`: эффект `material/thick/blur`, `shadow/ambient`, `shadow/key`; заливка / цвет `material/thick/fill`; интервал `space/4`; отступы `space/8`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
-- `Chip`: заливка / цвет `action/disabled`, `action/inverse/default`; интервал `space/6`; высота `control/height/sm`; отступы `control/padding-x/sm`; радиус `radius/control-sm`.
-- Значений без переменной: 17 (напр. `(root):w=320`, `(root):gap=8`, `selected:gap=8`).
+- `корень`: интервал `space/8`.
+- `Select`: мин. ширина `size/field/min`.
+- `Menu`: интервал `space/4`; maxw `size/menu/max`; мин. ширина `size/menu/min`; отступы `space/8`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `selected`: интервал `space/8`.
+- `Chip`: заливка / цвет `action/disabled`, `action/inverse/default`; интервал `space/6`; высота `control/height/sm`; maxw `size/chip/max`; отступы `control/padding-x/sm`; радиус `radius/control-sm`.
+- Значений без переменной: 8 (напр. `(root):w=320`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -67,7 +70,7 @@
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 17 (напр. `(root):w=320`, `(root):gap=8`)
+  - RAW: 8 (напр. `(root):w=320`)
   - BOARD: нет разделов 05, 07, 08
 
 ## 15. Migration

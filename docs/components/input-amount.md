@@ -59,7 +59,7 @@
 - label связан с полем, описание и ошибка — aria-describedby; «Макс» — кнопка с aria-label «Подставить максимальную сумму».
 
 ## 10. Tokens
-- `корень`: заливка / цвет `control/surface/default`, `control/surface/disabled`; интервал `space/16`; отступы `space/20`; радиус `radius/control`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`; толщина обводки `border/width/default`, `border/width/focus`.
+- `корень`: заливка / цвет `control/surface/default`, `control/surface/disabled`; интервал `space/16`; мин. ширина `size/field/min`; отступы `space/20`; радиус `radius/control`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`; толщина обводки `border/width/default`, `border/width/focus`.
 - `header`: интервал `space/12`.
 - `label`: интервал `space/4`.
 - `label text`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
@@ -73,8 +73,8 @@
 - `currency`: заливка / цвет `action/secondary/default`; интервал `space/16`; отступы `space/8`; радиус `radius/control-sm`.
 - `message`: заливка / цвет `text/danger`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`; радиус `radius/control-sm`.
-- Min / max корня: minWidth 160 числом.
-- Значений без переменной: 12 (напр. `(root):w=395`, `(root):sw=1`).
+- Min / max корня: minWidth 160 size/field/min.
+- Значений без переменной: 10 (напр. `(root):w=395`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -95,8 +95,7 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - AXES: `Filled` — булева ось (False | True)
-  - MINMAX: minw=160
-  - RAW: 12 (напр. `(root):w=395`, `(root):sw=1`)
+  - RAW: 10 (напр. `(root):w=395`)
   - SERVICE: нет зоны нажатия, безопасного поля
   - BOARD: нет разделов 05, 07, 08
 

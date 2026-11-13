@@ -37,10 +37,9 @@
 | Type | Primary · Secondary · Tertiary · Tertiary outline · Ghost · Text · Inverted | Ghost |
 | Tone | Default · Danger | Default |
 | Size | S · M · L · XL | M |
-| Loading | False · True | False |
-| State | Default · Hover · Pressed · Disabled | Default |
+| State | Default · Hover · Pressed · Disabled · Loading | Default |
 
-Матрица: 240 из 448.
+Матрица: 240 из 280.
 
 Свойства:
 
@@ -74,7 +73,7 @@
 - `корень`: заливка / цвет `action/accent/default`, `action/danger-subtle/default`, `action/danger/default`, `action/disabled`, `action/inverse/default`, `action/primary/default`, `action/secondary/default`, `action/tertiary/default`; интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`; радиус `radius/container`, `radius/control`, `radius/control-sm`; обводка `control/border/default`, `control/border/error`; толщина обводки `border/width/default`; ширина `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`.
 - `spinner`: высота `icon/size/lg`, `icon/size/md`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/md`, `icon/size/sm`.
 - `icon`: высота `icon/size/lg`, `icon/size/md`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/md`, `icon/size/sm`.
-- `tooltip`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`; обводка `control/border/default`; толщина обводки `border/width/default`; видимость `touch/is-fine`.
+- `tooltip`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; отступы `space/10`, `space/16`; радиус `radius/container`; обводка `control/border/default`; толщина обводки `border/width/default`; видимость `touch/is-fine`.
 - `Скопировать`: заливка / цвет `text/danger`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/container`, `radius/control`, `radius/control-sm` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid`; толщина обводки `border/width/default` · `hit area · app`: видимость `touch/is-coarse` · `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-lg`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `safe area · content`: заливка / цвет `status/success/solid` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
 - Значений без переменной: 480 (напр. `hit area · web:w=32`, `hit area · web:h=32`, `hit area · web:w=40`, `hit area · web:h=40`) — размеры слоёв зон и то, что перечислено в разделе 14.
@@ -85,16 +84,16 @@
 - Иконка крупнее на касании (режим Platform): M 20 → 24, L / XL 24 → 28.
 
 ## 12. Figma projection
-- Набор `Icon button`, вариантов 240 из 448; оси: Type, Tone, Size, Loading, State.
+- Набор `Icon button`, вариантов 240 из 280; оси: Type, Tone, Size, State.
 - Борда: «Icon button — борда · шаблон v3», разделов 11.
-- Описание: 2646 знаков, разделы: Status: Level: Кнопка-иконка: Когда использовать: Матрица: • Ghost — • Primary — • Secondary — • Text — • Inverted — Квадрат: A11y:
+- Описание: 2195 знаков, разделы: Status: Level: Кнопка-иконка: • Ghost — • Primary — • Secondary — • Text — • Inverted — Квадрат: • Label обязателен: • Тултип — • Hover / Pressed —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsIconButton>`; Flutter: `DsIconButton`.
-- Props: `type`: primary | secondary | tertiary | tertiary-outline | ghost | text | inverted; `tone`: default | danger; `size`: s | m | l | xl; `loading`: boolean; `label`: string или слот.
-- Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
+- Props: `type`: primary | secondary | tertiary | tertiary-outline | ghost | text | inverted; `tone`: default | danger; `size`: s | m | l | xl; `label`: string или слот.
+- Состояния (Default, Hover, Pressed, Disabled, Loading) — не props: Hover / Pressed / Focus из платформы; `disabled`, `loading` — props.
 - `label` → `aria-label` и текст тултипа; `icon` — слот.
 
 ## 14. Acceptance (2026-11-13)

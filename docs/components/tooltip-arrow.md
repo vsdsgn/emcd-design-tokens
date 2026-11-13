@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `_Tooltip arrow`. Status: не указан. Level: atom.
+- Набор: `_Tooltip arrow`. Status: draft. Level: atom.
 - Figma: Components, страница «Tooltip» (`317:33689`), набор `317:33693`.
 
 ## 2. Intent
@@ -53,7 +53,7 @@
 ## 12. Figma projection
 - Набор `_Tooltip arrow`, вариантов 2 из 2; оси: Tone.
 - Борда: «Tooltip — борда · шаблон v3», разделов 11.
-- Описание: 168 знаков, разделы: Служебный:
+- Описание: 206 знаков, разделы: Status: Level: Служебный:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -64,7 +64,7 @@
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Status: первой строкой, Когда использовать:, Правила:, A11y:
+  - DESC: нет: Когда использовать:, Правила:, A11y:
   - RAW: 4 (напр. `(root):w=26`, `(root):h=9`)
   - BOARD: нет разделов 12
 

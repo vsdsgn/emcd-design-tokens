@@ -3,14 +3,13 @@
 // not bound to a variable: fill / stroke colour, stroke weight, padding / gap, radius, min / max width / height, font size / line height (no text style).
 // A finding is an exception only when it is listed in docs/exceptions.md (value, where, reason, review date); everything else is a defect.
 // Output: { "<component>": ["fill #hex @layer", "radius 1 @layer", ...] }  (instances are skipped: their masters are checked).
-const FROM = 0, TO = 20;
+const FROM = 0, TO = 20; // окно по списку страниц компонентов (эмодзи статуса в имени), а не по индексу в файле
 const PAGES = []; // id страниц: если задано, FROM / TO и фильтр по эмодзи не действуют (служебные страницы баз «_…»)
 figma.skipInvisibleInstanceChildren = true;
 const rep = {};
 const walk = (n, fn) => { if (n.type === 'INSTANCE') return; fn(n); if (n.children) for (const c of n.children) walk(c, fn); };
 const hex = (c) => '#' + [c.r, c.g, c.b].map((x) => Math.round(x * 255).toString(16).padStart(2, '0')).join('');
-for (const pg of PAGES.length ? figma.root.children.filter((p) => PAGES.includes(p.id)) : figma.root.children.slice(FROM, TO)) {
-  if (!PAGES.length && !/^[🟠🟡🟢🔴]/u.test(pg.name)) continue;
+for (const pg of PAGES.length ? figma.root.children.filter((p) => PAGES.includes(p.id)) : figma.root.children.filter((p) => /^[🟠🟡🟢🔴]/u.test(p.name)).slice(FROM, TO)) {
   await figma.setCurrentPageAsync(pg);
   for (const s of pg.findAll((n) => n.type === 'COMPONENT_SET' || (n.type === 'COMPONENT' && n.parent.type !== 'COMPONENT_SET'))) {
     const out = new Set();

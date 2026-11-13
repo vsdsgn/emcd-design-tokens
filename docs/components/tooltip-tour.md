@@ -15,7 +15,7 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `step`, `title`, `description`, `skip`, `next`.
+- Слои с токенами: `step`, `title`, `description`, `footer`, `skip`, `next`.
 - Вложено: `Button` ×8, `_Tooltip arrow` ×4.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -55,13 +55,14 @@
 - role="dialog" с aria-label, фокус на заголовке шага и заперт внутри; Esc пропускает тур; шаг озвучивается («Шаг 1 из 4»).
 
 ## 10. Tokens
-- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; интервал `space/8`; мин. ширина `size/tooltip/min`; отступы `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
+- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; интервал `space/8`; maxw `size/tooltip/max`; мин. ширина `size/tooltip/min`; отступы `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
 - `step`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `title`: заливка / цвет `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- `skip`: интервал `space/2`; отступы `space/4`; радиус `radius/xs`.
+- `footer`: интервал `space/8`.
+- `skip`: интервал `space/2`; мин. ширина `size/button/min`; отступы `space/4`; радиус `radius/xs`.
 - `next`: заливка / цвет `action/inverse/default`, `action/primary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`.
-- Min / max корня: minWidth 58 size/tooltip/min, maxWidth 320 числом.
+- Min / max корня: minWidth 58 size/tooltip/min, maxWidth 320 size/tooltip/max.
 - Значений без переменной: 8 (напр. `(root):w=320`, `step:o=0.72`).
 
 ## 11. Platforms
@@ -81,7 +82,6 @@
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - MINMAX: maxw=320
   - RAW: 8 (напр. `(root):w=320`, `step:o=0.72`)
   - BOARD: нет разделов 05, 07, 08
 

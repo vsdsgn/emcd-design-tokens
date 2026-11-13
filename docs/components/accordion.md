@@ -60,7 +60,7 @@
 - `header`: интервал `space/4`; отступы `space/12`, `space/20`; радиус `radius/inner`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`.
 - `chevron`: заливка / цвет `action/secondary/default`; радиус `radius/chip`.
-- `Content`: отступы `space/12`, `space/20`.
+- `Content`: интервал `space/8`; отступы `space/12`, `space/20`.
 - `text`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`, `type/body/sm`.
 - `divider`: заливка / цвет `border/subtle`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.

@@ -20,8 +20,8 @@
 | `style` | subtle \| solid | по правилу контракта | ось Style |
 | `label` | string | — | свойство Label |
 | `icon` | boolean | false | свойство Icon |
-| `close` | boolean | false | свойство Close |
-| `chevron` | boolean | false | свойство Chevron |
+| `closeDeprecated` | boolean | false | свойство Close · deprecated |
+| `chevronDeprecated` | boolean | false | свойство Chevron · deprecated |
 
 Состояния в Figma: Skeleton · Default — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 
@@ -122,10 +122,9 @@
 | `type` | primary \| secondary \| tertiary \| tertiary-outline \| ghost \| text \| inverted | по правилу контракта | ось Type |
 | `tone` | default \| danger | по правилу контракта | ось Tone |
 | `size` | s \| m \| l \| xl | по правилу контракта | ось Size |
-| `loading` | false \| true | по правилу контракта | ось Loading |
 | `label` | string | — | свойство Label |
 
-Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+Состояния в Figma: Default · Hover · Pressed · Disabled · Loading — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `loading` — boolean props.
 
 Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
 

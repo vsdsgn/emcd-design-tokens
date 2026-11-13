@@ -5,7 +5,7 @@
 При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
 
 ## 1. Identity
-- Набор: `Card`. Status: не указан. Level: atom.
+- Набор: `Card`. Status: draft. Level: atom.
 - Figma: Components, страница «Card» (`664:73890`), набор `664:73999`.
 
 ## 2. Intent
@@ -46,8 +46,8 @@
 - |
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-0`, `surface/level-1`, `surface/level-2`, `surface/level-3`; отступы `space/12`, `space/16`, `space/24`; радиус `radius/container`, `radius/inner`, `radius/surface`; обводка `border/subtle`.
-- Значений без переменной: 324 (напр. `(root):sw=1`, `(root):w=320`, `content:s=#808080`, `content:r=4`).
+- `корень`: заливка / цвет `surface/level-0`, `surface/level-1`, `surface/level-2`, `surface/level-3`; отступы `space/12`, `space/16`, `space/24`; радиус `radius/container`, `radius/inner`, `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- Значений без переменной: 288 (напр. `(root):w=320`, `content:s=#808080`, `content:r=4`, `content:sw=1`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -55,7 +55,7 @@
 ## 12. Figma projection
 - Набор `Card`, вариантов 72 из 72; оси: Level, Radius, Padding, Border.
 - Борда: «Card — борда · шаблон v3», разделов 7.
-- Описание: 434 знаков, разделы: Card — Атом-шаблон: Level — Status: Level:
+- Описание: 490 знаков, разделы: Status: Level: Card — Атом-шаблон: Level — Status: Level:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -66,9 +66,9 @@
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Status: первой строкой, Когда использовать:, Правила:, A11y:
+  - DESC: нет: Когда использовать:, Правила:, A11y:
   - AXES: `Border` — булева ось (On | Off)
-  - RAW: 324 (напр. `(root):sw=1`, `(root):w=320`)
+  - RAW: 288 (напр. `(root):w=320`, `content:s=#808080`)
   - BOARD: нет разделов 04, 05, 07, 08, 12
 
 ## 15. Migration

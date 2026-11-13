@@ -15,7 +15,7 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `title`, `description`, `action`, `media`.
+- Слои с токенами: `text`, `title`, `description`, `action`, `media`.
 - Вложено: `Button` ×4.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -55,12 +55,13 @@
 - role="region" с aria-label, вся карточка или кнопка — одна цель нажатия; картинка с пустым alt.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `surface/level-1`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`.
+- `корень`: заливка / цвет `accent/subtle`, `surface/level-1`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `text`: интервал `space/4`; отступы `space/64`.
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `action`: заливка / цвет `action/accent/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/4`, `space/6`; радиус `radius/control-sm`, `radius/xs`.
 - `media`: заливка / цвет `surface/level-2`; радиус `radius/inner`.
-- Значений без переменной: 14 (напр. `(root):sw=1`, `(root):w=222`, `text:p=64`, `text:gap=4`).
+- Значений без переменной: 6 (напр. `(root):w=222`, `(root):w=343`, `text:p=96`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -79,7 +80,7 @@
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 14 (напр. `(root):sw=1`, `(root):w=222`)
+  - RAW: 6 (напр. `(root):w=222`, `(root):w=343`)
   - BOARD: нет разделов 05, 07, 08
 
 ## 15. Migration

@@ -45,7 +45,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/12`.
-- `badge`: заливка / цвет `status/success/subtle`; интервал `space/6`; высота `size/badge-height/md`; отступы `control/padding-x/sm`; радиус `radius/sm`.
+- `badge`: заливка / цвет `status/success/subtle`; интервал `space/6`; высота `size/badge-height/md`; maxw `size/badge/max`; отступы `control/padding-x/sm`; радиус `radius/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Min / max корня: minWidth 80 size/table-cell/min.
 - Значений без переменной: 6 (напр. `(root):w=160`, `(root):h=80`).

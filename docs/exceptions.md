@@ -21,12 +21,21 @@
 | Столбики Chart: ширина, высота, зазор столбиков | Chart plot, Type=Bars | размер определяют данные и ширина графика, не шкала | 2027-05-06 |
 | Радиус 1 px у индикатора Tab | Tab (индикатор активной вкладки, 24 варианта) | физика: линия 1 px, радиус = половина толщины; не уточнено в проверке 06.11 (радиус привязан или заменён) | 2026-12-06 |
 | Радиусы бейджа сети у Coin 3.5 · 4.5 · 5.5 · 7 · 9 | Coin, слой `network` (по размерам XS–XL) | формула: круг, радиус = размер / 2 | 2027-05-06 |
+| `maxWidth` текстового слоя числом (подписи Badge 112, `_Selection control` 436 и др.) | текстовые слои `label` / `description` внутри наборов | Plugin API не привязывает `maxWidth` текстового слоя («invalid field for text node»); значение равно токену `size/*` корня минус отступы и сверяется аудитом; привязка — когда подпись получит фрейм-обёртку | 2027-05-13 |
+| Отрицательный зазор −4 / −6 / −8 | Avatar group (по размерам) | нахлёст аватаров: доля размера аватара, а не шаг шкалы `space/*`; в шкале нет отрицательных значений | 2027-05-13 |
+| Отрицательный зазор −6 / −7 / −10 | Coin stack (по размерам) | нахлёст монет: доля размера монеты, а не шаг шкалы `space/*` | 2027-05-13 |
+| `paddingRight` 96 | Promo card, слой `text`, Size=M | формула: ширина иллюстрации 88 + зазор 8; место под картинку, а не отступ шкалы | 2027-05-13 |
+| `maxWidth` 248 | Stat card, слой `delta row` | формула: `size/card/min` 280 − 2 × отступ 16 | 2027-05-13 |
+| `maxWidth` 400 корня | Code input | временно: токен `size/code-input/max` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
+| `maxWidth` 200 корня | Select compact | временно: токен `size/select-compact/max` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
+| `maxWidth` 160 корня | Legend item | временно: токен `size/legend-item/max` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
+| `maxWidth` 160 корня | Step | временно: токен `size/step/max` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
+| `maxWidth` 240 корня | Chart metric | временно: токен `size/chart-metric/max` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
+| `minWidth` 168 корня | Chart tooltip | временно: токен `size/chart-tooltip/min` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
+| `maxWidth` 64 корня | Chart axis label | временно: токен `size/chart-axis-label/max` заведён 13.11, не опубликован; привязать после Publish Foundations; `MINMAX_OK` | 2026-12-13 |
+| `minWidth` 200 | Page header, слой `text` | временно: токен `size/page-header/text-min` заведён 13.11, не опубликован; привязать после Publish Foundations | 2026-12-13 |
 
-## Найдено 2026-11-06 без токена (не исключения, на исправление)
+## История
 
-Первый прогон `variables-check.plugin.js` (по 6 находок на компонент, значит нижняя граница). Токены для этих значений есть:
-
-- `itemSpacing` 2, 4, 8, 12, 16 и −4 / −6 / −7 (Avatar group, Coin stack): Accordion, Multiselect, Table cell / *, Modal, Sheet, Side panel, Empty state, Dropdown panel, Date range panel / field, Chart card, Promo card, Tooltip tour. Нужны `space/*`; отрицательные нахлёсты Avatar group и Coin stack — отдельная пара токенов (`space/overlap-*`) или запись в реестр по размеру.
-- Толщина обводки 1 (`border/width/default`) у Card, Input amount, Promo card, Radio card, Suggest, Toast, Date range panel, Dropdown panel; 1.5 у глифа Input addon / Clear (`icon/stroke/regular`); 2 у Circle timer, Coin, линий Chart plot (`chart/stroke`).
-- Радиус 12 у `state layer` Tab bar item.
-- `paddingRight` 28, `paddingTop` 12 / 24 (Promo card, Toast Snack, Dropdown panel).
+- 2026-11-06 — первый прогон `variables-check.plugin.js`: зазоры и отступы без `space/*`, обводки 1 / 1.5 / 2 числом, радиус 12 у `state layer` Tab bar item.
+- 2026-11-13 — всё найденное 06.11 привязано (`scripts/figma/bind-raw.plugin.js`, 231 привязка: `space/N`, `border/width/default`, `icon/stroke/regular`, `border/width/strong`, `chart/stroke`, `radius/control`); остаток, который следует из формулы, записан в реестр выше. `space/96` не заводим: значение — формула Promo card.

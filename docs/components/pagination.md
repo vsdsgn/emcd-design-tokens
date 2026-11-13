@@ -47,7 +47,7 @@
 ## 10. Tokens
 - `корень`: интервал `space/4`.
 - `previous`: интервал `space/6`; высота `control/height/md`, `control/height/sm`; радиус `radius/control`, `radius/control-sm`; ширина `control/height/md`, `control/height/sm`.
-- `Pagination item`: заливка / цвет `accent/subtle`; отступы `control/padding-x/sm`, `space/8`; радиус `radius/control`, `radius/control-sm`.
+- `Pagination item`: заливка / цвет `accent/subtle`; мин. ширина `control/height/md`, `control/height/sm`; отступы `control/padding-x/sm`, `space/8`; радиус `radius/control`, `radius/control-sm`.
 - `ellipsis`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `next`: интервал `space/6`; высота `control/height/md`, `control/height/sm`; радиус `radius/control`, `radius/control-sm`; ширина `control/height/md`, `control/height/sm`.
 - `range`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`; отступы `space/8`.

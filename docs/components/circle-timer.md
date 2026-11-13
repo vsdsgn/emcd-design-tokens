@@ -44,9 +44,9 @@
 - декоративен (aria-hidden), оставшееся время не озвучивается; при reduced motion — статичное кольцо без анимации.
 
 ## 10. Tokens
-- `track`: обводка `border/default`.
-- `progress`: обводка `icon/accent`.
-- Значений без переменной: 48 (напр. `(root):w=16`, `(root):h=16`, `track:sw=2`, `track:w=16`).
+- `track`: обводка `border/default`; толщина обводки `border/width/strong`.
+- `progress`: обводка `icon/accent`; толщина обводки `border/width/strong`.
+- Значений без переменной: 32 (напр. `(root):w=16`, `(root):h=16`, `track:w=16`, `track:h=16`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -65,7 +65,7 @@
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 48 (напр. `(root):w=16`, `(root):h=16`)
+  - RAW: 32 (напр. `(root):w=16`, `(root):h=16`)
   - BOARD: нет разделов 05, 07, 08, 12
 
 ## 15. Migration

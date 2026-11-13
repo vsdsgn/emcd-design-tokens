@@ -52,12 +52,12 @@
 - как у Toast — role="status" (polite), фокус не забирает. |
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/inverse/default`; отступы `space/12`, `space/16`; радиус `radius/control`.
+- `корень`: заливка / цвет `action/inverse/default`; интервал `space/12`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`; радиус `radius/control`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `title`: заливка / цвет `text/inverse`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
-- `action`: интервал `space/2`; отступы `space/4`; радиус `radius/xs`.
-- Min / max корня: minWidth 280 числом.
-- Значений без переменной: 10 (напр. `(root):gap=12`, `(root):w=343`).
+- `action`: интервал `space/2`; мин. ширина `size/button/min`; отступы `space/4`; радиус `radius/xs`.
+- Min / max корня: minWidth 280 size/toast/min.
+- Значений без переменной: 5 (напр. `(root):w=343`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -76,8 +76,7 @@
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - MINMAX: minw=280
-  - RAW: 10 (напр. `(root):gap=12`, `(root):w=343`)
+  - RAW: 5 (напр. `(root):w=343`)
   - BOARD: нет борды v3
 
 ## 15. Migration

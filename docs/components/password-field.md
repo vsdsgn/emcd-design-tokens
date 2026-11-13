@@ -44,7 +44,7 @@
 - type="password", autocomplete="new-password" / "current-password"; список требований связан aria-describedby, изменения озвучиваются aria-live="polite". |
 
 ## 10. Tokens
-- `корень`: интервал `space/10`.
+- `корень`: интервал `space/10`; мин. ширина `size/field/min`.
 - `Input`: мин. ширина `size/field/min`.
 - `show password`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `requirements`: интервал `space/6`.
@@ -55,7 +55,7 @@
 - `Заглавная и строчная буквы`: заливка / цвет `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `Спецсимвол: ! @ # $ %`: заливка / цвет `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `icon/check`: высота `icon/size/md`; ширина `icon/size/md`.
-- Min / max корня: minWidth 160 числом.
+- Min / max корня: minWidth 160 size/field/min.
 - Значений без переменной: 8 (напр. `(root):w=320`, `field:h=66`, `field:h=92`).
 
 ## 11. Platforms
@@ -77,7 +77,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:
-  - MINMAX: minw=160
   - RAW: 8 (напр. `(root):w=320`, `field:h=66`)
   - BOARD: нет разделов 05, 07, 08
 

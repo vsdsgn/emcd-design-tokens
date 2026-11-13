@@ -52,7 +52,7 @@
 - список role="feed" или list; непрочитанное озвучивается («непрочитано»); «Отметить все прочитанными» — кнопка в шапке центра. |
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`; интервал `space/12`; отступы `space/12`, `space/16`; радиус `radius/control`.
+- `корень`: заливка / цвет `accent/subtle`; интервал `space/12`; maxw `size/toast/max`; отступы `space/12`, `space/16`; радиус `radius/control`.
 - `icon`: заливка / цвет `surface/raised`; радиус `radius/chip`.
 - `icon/bell-notifications`: высота `icon/size/md`; ширина `icon/size/md`.
 - `content`: интервал `space/4`.
@@ -60,7 +60,7 @@
 - `text`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - `time`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `unread`: заливка / цвет `action/primary/default`.
-- Min / max корня: maxWidth 400 числом.
+- Min / max корня: maxWidth 400 size/toast/max.
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -81,7 +81,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:
-  - MINMAX: maxw=400
   - BOARD: нет разделов 05, 07, 08
 
 ## 15. Migration

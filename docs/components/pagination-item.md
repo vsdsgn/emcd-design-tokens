@@ -53,10 +53,10 @@
 - кнопка, имя «Страница N», у выбранной aria-current="page". |
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`; отступы `control/padding-x/sm`, `space/8`; радиус `radius/control`, `radius/control-sm`.
+- `корень`: заливка / цвет `accent/subtle`; мин. ширина `control/height/md`, `control/height/sm`; отступы `control/padding-x/sm`, `space/8`; радиус `radius/control`, `radius/control-sm`.
 - `page`: заливка / цвет `text/accent`, `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm`.
-- Min / max корня: minWidth 32 числом, minWidth 40 числом.
+- Min / max корня: minWidth 32 control/height/sm, minWidth 40 control/height/md.
 - Значений без переменной: 40 (напр. `(root):w=32`, `(root):h=32`, `hit area · web:w=32`, `hit area · web:h=32`).
 
 ## 11. Platforms
@@ -78,7 +78,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:
-  - MINMAX: minw=32, minw=40
   - RAW: 40 (напр. `(root):w=32`, `(root):h=32`)
   - BOARD: нет разделов 07, 12
 

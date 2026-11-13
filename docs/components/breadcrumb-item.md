@@ -58,7 +58,7 @@
 
 ## 10. Tokens
 - `корень`: отступы `space/2`; радиус `radius/xs`.
-- `label`: заливка / цвет `text/disabled`, `text/primary`, `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
+- `label`: заливка / цвет `text/disabled`, `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/md`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
 - Значений без переменной: 10 (напр. `hit area · web:w=60`, `hit area · web:h=24`) — размеры слоёв зон и то, что перечислено в разделе 14.
 

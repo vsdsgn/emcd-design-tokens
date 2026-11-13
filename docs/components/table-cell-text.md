@@ -26,7 +26,7 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Align | Left · Right | — |
+| Align | Start · End | — |
 | State | Default · Skeleton · Disabled | — |
 
 Матрица полная: 6 вариантов.
@@ -65,20 +65,19 @@
 ## 12. Figma projection
 - Набор `Table cell / Text`, вариантов 6 из 6; оси: Align, State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 160 знаков, разделы: Status: Level: Ячейка:
+- Описание: 224 знаков, разделы: Status: Level: Ячейка:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsTableCellText>`; Flutter: `DsTableCellText`.
-- Props: `align`: left | right; `primary`: string или слот; `secondary`: string или слот; `showSecondary`: boolean = true.
+- Props: `align`: start | end; `primary`: string или слот; `secondary`: string или слот; `showSecondary`: boolean = true.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, Правила:, A11y:
-  - AXES: `Align` — Left / Right вместо Start / End
   - RAW: 12 (напр. `(root):w=184`, `(root):h=80`)
   - BOARD: нет разделов 07, 08
 

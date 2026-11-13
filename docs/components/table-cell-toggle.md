@@ -45,7 +45,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/12`.
-- `toggle`: интервал `space/8`.
+- `toggle`: maxw `size/field/max`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Min / max корня: minWidth 80 size/table-cell/min.
 - Значений без переменной: 6 (напр. `(root):w=80`, `(root):h=80`).

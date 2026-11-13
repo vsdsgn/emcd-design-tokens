@@ -58,7 +58,7 @@
 - карточка — группа с именем Label; дельта читается словами («рост на 2,4% к вчера»).
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-1`; интервал `space/8`; отступы `card/padding`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `surface/level-1`; интервал `space/8`; мин. ширина `size/card/min`; отступы `card/padding`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `ambient light`: эффект `light/ambient/blur`; заливка / цвет `light/ambient/color`.
 - `label row`: интервал `space/4`.
 - `label`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
@@ -66,10 +66,10 @@
 - `value`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/xl`.
 - `unit`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - `delta row`: интервал `space/6`.
-- `Badge`: заливка / цвет `status/success/subtle`; интервал `space/4`; высота `size/badge-height/sm`; отступы `space/xs`; радиус `radius/sm`.
+- `Badge`: заливка / цвет `status/success/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/xs`; радиус `radius/sm`.
 - `delta caption`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `Skeleton`: заливка / цвет `skeleton/base`; радиус `radius/inner`.
-- Min / max корня: minWidth 280 числом.
+- Min / max корня: minWidth 280 size/card/min.
 - Значений без переменной: 2 (напр. `(root):w=280`).
 
 ## 11. Platforms
@@ -91,7 +91,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - PROPS: Label 1 из 2; Value 1 из 2; Unit 1 из 2; Info 1 из 2; Delta 1 из 2; Delta caption 1 из 2; Show footer 1 из 2; Footer 1 из 2
-  - MINMAX: minw=280
   - RAW: 2 (напр. `(root):w=280`)
   - BOARD: нет разделов 05, 07, 08
 

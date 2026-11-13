@@ -4,13 +4,13 @@
 // Rules it checks are in docs/components.md («Модель состояний») and docs/HOW-IT-WORKS.md.
 // Focus ring (решение 2026-11-09/12): рамка +2 px от цели, OUTSIDE border/width/focus-ring, радиус radius/focus-ring*;
 // подробная проверка кольца — RING в audit-parity.plugin.js.
-// PAGES: пусто — страницы компонентов по индексу (2..58), наборы с «_» пропускаются; id страниц — только они, включая служебные «_» базы.
+// PAGES: пусто — страницы компонентов по эмодзи статуса в имени (🟠🟡🟢🔴), наборы с «_» пропускаются; id страниц — только они, включая служебные «_» базы.
 const PAGES = [];
 figma.skipInvisibleInstanceChildren = false;
 const cache = {}; const vn = async id => { if (!(id in cache)) { const v = await figma.variables.getVariableByIdAsync(id); cache[id] = v ? v.name : '?'; } return cache[id]; };
 const walk = (n, inst, fn) => { if (n.type === 'INSTANCE' && inst) { if (n.name === 'focus ring' || n.name === 'state layer') fn(n); return; } fn(n); if (n.children) for (const c of n.children) walk(c, true, fn); };
 const rep = {};
-const pages = PAGES.length ? figma.root.children.filter(p => PAGES.includes(p.id)) : figma.root.children.slice(2, 59);
+const pages = PAGES.length ? figma.root.children.filter(p => PAGES.includes(p.id)) : figma.root.children.filter(p => /^[🟠🟡🟢🔴]/u.test(p.name));
 for (const pg of pages) {
   await figma.setCurrentPageAsync(pg);
   for (const s of pg.findAll(n => (n.type === 'COMPONENT_SET' || (n.type === 'COMPONENT' && n.parent.type !== 'COMPONENT_SET')) && (PAGES.length || !n.name.startsWith('_')))) {

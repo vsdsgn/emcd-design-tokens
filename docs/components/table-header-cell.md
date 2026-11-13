@@ -27,7 +27,7 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Align | Left · Right | — |
+| Align | Start · End | — |
 | Sort | None · Ascending · Descending | — |
 | State | Skeleton · Default · Hover · Pressed | — |
 
@@ -70,13 +70,13 @@
 ## 12. Figma projection
 - Набор `Table header cell`, вариантов 20 из 24; оси: Align, Sort, State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 689 знаков, разделы: Status: Level: Правила: A11y: Часть Table. Поиск: Legacy:
+- Описание: 746 знаков, разделы: Status: Level: Правила: A11y: Часть Table. Поиск: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsTableHeaderCell>`; Flutter: `DsTableHeaderCell`.
-- Props: `align`: left | right; `sort`: none | ascending | descending; `label`: string или слот; `showFilter`: boolean = false; `showInfo`: boolean = false.
+- Props: `align`: start | end; `sort`: none | ascending | descending; `label`: string или слот; `showFilter`: boolean = false; `showInfo`: boolean = false.
 - Состояния (Skeleton, Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-13)
@@ -84,7 +84,6 @@
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:
   - MATRIX: 20 из 24
-  - AXES: `Align` — Left / Right вместо Start / End
   - PROPS: Show filter 18 из 20; Show info 18 из 20
   - RAW: 80 (напр. `(root):w=160`, `(root):h=44`)
   - BOARD: нет разделов 07, 08

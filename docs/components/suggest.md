@@ -58,7 +58,7 @@
 - role="region" с aria-label, для Warning и Danger role="alert"; крестик с aria-label «Закрыть»; иконка дублируется текстом; кнопки достижимы по Tab в порядке чтения.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `status/danger/subtle`, `status/info/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/raised`; интервал `space/16`; отступы `space/12`, `space/16`, `space/48`; радиус `radius/surface`; обводка `border/subtle`.
+- `корень`: заливка / цвет `accent/subtle`, `status/danger/subtle`, `status/info/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/raised`; интервал `space/16`; отступы `space/12`, `space/16`, `space/48`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `icon/info`: высота `icon/size/md`; ширина `icon/size/md`.
 - `content`: интервал `space/12`.
 - `text`: интервал `space/4`.
@@ -71,7 +71,7 @@
 - `icon/check-circle`: высота `icon/size/md`; ширина `icon/size/md`.
 - `icon/alert-triangle`: высота `icon/size/md`; ширина `icon/size/md`.
 - `icon/alert-circle`: высота `icon/size/md`; ширина `icon/size/md`.
-- Значений без переменной: 14 (напр. `(root):sw=1`, `(root):w=480`, `(root):w=960`).
+- Значений без переменной: 12 (напр. `(root):w=480`, `(root):w=960`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -90,7 +90,7 @@
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - RAW: 14 (напр. `(root):sw=1`, `(root):w=480`)
+  - RAW: 12 (напр. `(root):w=480`, `(root):w=960`)
   - BOARD: нет разделов 05, 07, 08
 
 ## 15. Migration

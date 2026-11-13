@@ -51,9 +51,10 @@
 - role=combobox, aria-expanded, aria-controls → listbox; Enter/Space/↓ — открыть, ↑/↓ — выбор, Enter — подтвердить, Esc — закрыть; ввод букв — прыжок к пункту.
 
 ## 10. Tokens
-- `field`: интервал `space/6`.
+- `корень`: мин. ширина `size/field/min`.
+- `field`: мин. ширина `size/field/min`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-inner`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring`.
-- Min / max корня: minWidth 160 числом.
+- Min / max корня: minWidth 160 size/field/min.
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -73,7 +74,6 @@
 ## 14. Acceptance (2026-11-13)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - MINMAX: minw=160
   - SERVICE: нет зоны нажатия, безопасного поля
   - BOARD: нет разделов 05, 07, 08
 

@@ -3,7 +3,6 @@
  "pendingPublish": [],
  "accepted": [
   { "match": "STATUS Alert:", "reason": "набора Alert в Figma нет (уведомления — Notification, Snack, Toast); строку status.json убрать или завести набор — вопрос Стефану", "until": "2026-12-15" },
-  { "match": "STATUS Table:", "reason": "Table в Figma — страница из Table row / Table header cell / Table cell, набора с именем Table нет; правило имени — вопрос Стефану", "until": "2026-12-15" },
-  { "match": "STATUS Card:", "reason": "в описании набора Card нет первой строки Status:; правка описания — с пакетом фазы C после точки отката", "until": "2026-12-15" }
+  { "match": "STATUS Table:", "reason": "Table в Figma — страница из Table row / Table header cell / Table cell, набора с именем Table нет; правило имени — вопрос Стефану", "until": "2026-12-15" }
  ]
 }

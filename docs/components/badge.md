@@ -19,14 +19,14 @@
 
 ## 3. Anatomy
 - Корень: подложка (тон × стиль), радиус, отступы.
-- `label` — текст; `icon` — смысловая иконка слева (Icon + Icon · swap); `close` / `chevron` — справа, только у интерактивного бейджа.
+- `label` — текст; `icon` — смысловая иконка слева (Icon + Icon · swap); `close` / `chevron` — справа; свойства `Close · deprecated` и `Chevron · deprecated` (с 13.11): в новых макетах не включать, интерактив — Chip.
 - Вложено: иконки ×117.
 - Служебные слои (вариантов из 39): кольцо фокуса 39 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; Skeleton — загрузка.
 - Default; Skeleton — один на размер, от тона и стиля не зависит (поэтому матрица 39 из 72: 36 Default + 3 Skeleton).
-- Кольцо фокуса — только у интерактивного бейджа (Close / Chevron или кликабельный).
+- Кольцо фокуса — только у кликабельного бейджа; бейдж с крестиком или шевроном — это Chip.
 
 ## 5. Properties
 Оси (варианты):
@@ -47,8 +47,8 @@
 | Label | текст | «Активен» | 39 из 39 |
 | Icon | булево | выкл | 39 из 39 |
 | Icon · swap | замена экземпляра | `icon/plus` | 39 из 39 |
-| Close | булево | выкл | 39 из 39 |
-| Chevron | булево | выкл | 39 из 39 |
+| Close · deprecated | булево | выкл | 39 из 39 |
+| Chevron · deprecated | булево | выкл | 39 из 39 |
 | Focus ring | булево | выкл | 39 из 39 · служебное |
 
 ## 6. Content / slots
@@ -57,7 +57,7 @@
 - RTL: порядок слотов зеркалится (leading ↔ trailing), смысловые стрелки и шевроны отражаются, цифры и латиница — нет.
 
 ## 7. Events
-- Нет. С Close — `close`; кликабельный бейдж — `click` (в коде это кнопка).
+- Нет. Кликабельный бейдж — `click` (в коде это кнопка). Удаляемый или раскрывающийся — Chip, не Badge.
 
 ## 8. Behavior
 - Статичен. Skeleton — блик `Skeleton` (pulse при «Уменьшить движение»).
@@ -65,7 +65,7 @@
 ## 9. Accessibility
 - Текст читается как часть строки; цвет не единственный носитель смысла — текст есть всегда.
 - Контраст текста: Subtle — `status/*/on-subtle`, `accent/on-subtle` (≥ 5.7:1); Solid — `text/on-accent`, у Warning — `text/on-warning`.
-- Close — отдельная кнопка с `aria-label`.
+- Close (deprecated) в старых макетах — отдельная кнопка с `aria-label`; в новых — Chip.
 
 ## 10. Tokens
 - `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `action/secondary/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/info/solid`, `status/info/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; maxw `size/badge/max`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/8`; радиус `radius/control-sm`, `radius/sm`.
@@ -80,13 +80,13 @@
 ## 12. Figma projection
 - Набор `Badge`, вариантов 39 из 72; оси: Size, Tone, Style, State.
 - Борда: «Badge — борда · шаблон v3», разделов 10.
-- Описание: 1509 знаков, разделы: Status: Level: Бейдж: Когда использовать: Правила тона: Правила стиля: Размер: Цвета текста: Иконка: A11y: Поиск: Legacy:
+- Описание: 1665 знаков, разделы: Status: Level: Бейдж: Когда использовать: Правила тона: Правила стиля: Размер: Цвета текста: Иконка: A11y: Поиск: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsBadge>`; Flutter: `DsBadge`.
-- Props: `size`: s | m | l; `tone`: neutral | accent | success | warning | danger | info; `style`: subtle | solid; `label`: string или слот; `icon`: boolean = false; `close`: boolean = false; `chevron`: boolean = false.
+- Props: `size`: s | m | l; `tone`: neutral | accent | success | warning | danger | info; `style`: subtle | solid; `label`: string или слот; `icon`: boolean = false; `closeDeprecated`: boolean = false; `chevronDeprecated`: boolean = false.
 - Состояния (Skeleton, Default) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-13)
@@ -102,5 +102,5 @@
 - var `text eraseble` → Close; `text counter` → Counter; `coin` → Icon + Icon · swap (монеты — в Symbols); `next` → Chevron.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Свойства Close / Chevron и кольцо фокуса без зон нажатия: интерактивный бейдж — это Chip; свойства перевести в Deprecated (решение 9 доски, ждёт просмотра Стефана).
+- Close / Chevron переведены в Deprecated 13.11 (решение 9 доски); удалить свойства после замены экземпляров в продуктах на Chip — с «ок» Стефана.
 - max-width подписи 112 — числом (вложенный слой).

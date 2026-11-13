@@ -13,15 +13,14 @@
    "organism": 16
   },
   "status": {
-   "draft": 94,
-   "beta": 21,
-   "нет": 2
+   "draft": 96,
+   "beta": 21
   },
   "variants": 1647,
   "incompleteMatrix": 11,
   "propsNotBoundEverywhere": 17,
-  "rawMinMax": 19,
-  "withRawValues": 88,
+  "rawMinMax": 8,
+  "withRawValues": 87,
   "withFocusRing": 25,
   "withHitArea": 18,
   "withSafeMargin": 17,
@@ -383,7 +382,7 @@
      "id": "44:255",
      "type": "SET",
      "status": "beta",
-     "descLen": 1509,
+     "descLen": 1665,
      "descHeads": [
       "Status:",
       "Level:",
@@ -444,13 +443,13 @@
        "bound": 39
       },
       {
-       "name": "Close",
+       "name": "Close · deprecated",
        "type": "BOOLEAN",
        "def": false,
        "bound": 39
       },
       {
-       "name": "Chevron",
+       "name": "Chevron · deprecated",
        "type": "BOOLEAN",
        "def": false,
        "bound": 39
@@ -722,8 +721,11 @@
        "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
+       "fontSize:type/label/md/size",
+       "fontWeight:font-weight/medium",
        "fontWeight:font-weight/regular",
-       "lineHeight:type/body/md/line-height"
+       "lineHeight:type/body/md/line-height",
+       "lineHeight:type/label/md/line-height"
       ],
       "focus ring": [
        "r:radius/focus-ring-xs",
@@ -781,20 +783,20 @@
      "id": "218:16966",
      "type": "SET",
      "status": "beta",
-     "descLen": 4402,
+     "descLen": 4179,
      "descHeads": [
       "Status:",
       "Level:",
       "Кнопка действия.",
-      "Когда использовать:",
-      "Матрица:",
       "• Primary —",
       "• Secondary —",
       "• Tertiary —",
       "• Tertiary outline —",
       "• Text —",
       "• Inverted —",
-      "• Default —"
+      "• Default —",
+      "• Danger —",
+      "S 32 —"
      ],
      "inBoard": false,
      "axes": {
@@ -886,7 +888,8 @@
       "(icons)": 352
      },
      "minmax": [
-      "minw=64 size/button/min"
+      "minw=64 size/button/min",
+      "minw=64 RAW"
      ],
      "layers": {
       "ring": 176,
@@ -1061,9 +1064,11 @@
      "name": "Card",
      "id": "664:73999",
      "type": "SET",
-     "status": null,
-     "descLen": 434,
+     "status": "draft",
+     "descLen": 490,
      "descHeads": [
+      "Status:",
+      "Level:",
       "Card —",
       "Атом-шаблон:",
       "Level —",
@@ -1105,9 +1110,8 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 324,
+     "rawCount": 288,
      "raw": [
-      "(root):sw=1",
       "(root):w=320",
       "content:s=#808080",
       "content:r=4",
@@ -1125,10 +1129,11 @@
        "r:radius/container",
        "r:radius/inner",
        "r:radius/surface",
-       "s:border/subtle"
+       "s:border/subtle",
+       "sw:border/width/default"
       ]
      },
-     "statusFirstLine": false
+     "statusFirstLine": true
     }
    ]
   },
@@ -1625,14 +1630,12 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 48,
+     "rawCount": 32,
      "raw": [
       "(root):w=16",
       "(root):h=16",
-      "track:sw=2",
       "track:w=16",
       "track:h=16",
-      "progress:sw=2",
       "(root):w=24",
       "(root):h=24",
       "track:w=24",
@@ -1640,10 +1643,12 @@
      ],
      "tokens": {
       "track": [
-       "s:border/default"
+       "s:border/default",
+       "sw:border/width/strong"
       ],
       "progress": [
-       "s:icon/accent"
+       "s:icon/accent",
+       "sw:border/width/strong"
       ]
      },
      "statusFirstLine": true
@@ -1862,12 +1867,11 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 30,
+     "rawCount": 25,
      "raw": [
       "(root):w=16",
       "(root):h=16",
       "network:r=3.5",
-      "network:sw=2",
       "(root):w=20",
       "(root):h=20",
       "network:r=4.5",
@@ -1883,7 +1887,8 @@
      ],
      "tokens": {
       "network": [
-       "s:surface/current"
+       "s:surface/current",
+       "sw:border/width/strong"
       ]
      },
      "statusFirstLine": true
@@ -2176,20 +2181,20 @@
      "id": "301:4958",
      "type": "SET",
      "status": "beta",
-     "descLen": 2646,
+     "descLen": 2195,
      "descHeads": [
       "Status:",
       "Level:",
       "Кнопка-иконка:",
-      "Когда использовать:",
-      "Матрица:",
       "• Ghost —",
       "• Primary —",
       "• Secondary —",
       "• Text —",
       "• Inverted —",
       "Квадрат:",
-      "A11y:"
+      "• Label обязателен:",
+      "• Тултип —",
+      "• Hover / Pressed —"
      ],
      "inBoard": false,
      "axes": {
@@ -2212,19 +2217,16 @@
        "L",
        "XL"
       ],
-      "Loading": [
-       "False",
-       "True"
-      ],
       "State": [
        "Default",
        "Hover",
        "Pressed",
-       "Disabled"
+       "Disabled",
+       "Loading"
       ]
      },
      "variants": 240,
-     "full": 448,
+     "full": 280,
      "props": [
       {
        "name": "Label",
@@ -2360,7 +2362,6 @@
        "effects:shadow/ambient",
        "effects:shadow/key",
        "f:surface/raised",
-       "minw:size/tooltip/min",
        "p:space/10",
        "p:space/16",
        "r:radius/container",
@@ -2800,8 +2801,8 @@
      ],
      "nested": {},
      "minmax": [
-      "minw=32 RAW",
-      "minw=40 RAW"
+      "minw=32 control/height/sm",
+      "minw=40 control/height/md"
      ],
      "layers": {
       "ring": 10,
@@ -2824,6 +2825,8 @@
      "tokens": {
       "(root)": [
        "f:accent/subtle",
+       "minw:control/height/md",
+       "minw:control/height/sm",
        "p:control/padding-x/sm",
        "p:space/8",
        "r:radius/control",
@@ -4323,6 +4326,8 @@
        "h:size/counter-height/md",
        "h:size/counter-height/sm",
        "maxw:size/counter/max",
+       "minw:size/counter-height/md",
+       "minw:size/counter-height/sm",
        "p:space/2xs",
        "p:space/6",
        "r:radius/full"
@@ -4497,9 +4502,11 @@
      "name": "_Tooltip arrow",
      "id": "317:33693",
      "type": "SET",
-     "status": null,
-     "descLen": 168,
+     "status": "draft",
+     "descLen": 206,
      "descHeads": [
+      "Status:",
+      "Level:",
       "Служебный:"
      ],
      "inBoard": false,
@@ -4538,7 +4545,7 @@
        "f:surface/raised"
       ]
      },
-     "statusFirstLine": false
+     "statusFirstLine": true
     },
     {
      "name": "Tooltip",
@@ -4785,6 +4792,7 @@
        "r:radius/chip"
       ],
       "Content": [
+       "gap:space/8",
        "p:space/12",
        "p:space/20"
       ],
@@ -5592,7 +5600,7 @@
       "Checkbox": 36
      },
      "minmax": [
-      "maxw=480 RAW"
+      "maxw=480 size/field/max"
      ],
      "layers": {
       "ring": 0,
@@ -5606,7 +5614,8 @@
      "tokens": {
       "(root)": [
        "gap:space/12",
-       "gap:space/8"
+       "gap:space/8",
+       "maxw:size/field/max"
       ],
       "label": [
        "f:text/disabled",
@@ -5623,8 +5632,7 @@
        "gap:space/8"
       ],
       "Checkbox": [
-       "gap:space/12",
-       "gap:space/8"
+       "maxw:size/field/max"
       ],
       "helper": [
        "f:text/danger",
@@ -5927,7 +5935,7 @@
       "(icons)": 5
      },
      "minmax": [
-      "minw=160 RAW"
+      "minw=160 size/field/min"
      ],
      "layers": {
       "ring": 5,
@@ -5944,6 +5952,7 @@
      ],
      "tokens": {
       "(root)": [
+       "minw:size/field/min",
        "p:space/8"
       ],
       "field": [
@@ -5959,6 +5968,9 @@
        "s:control/border/focus",
        "sw:border/width/default"
       ],
+      "Leading": [
+       "gap:space/6"
+      ],
       "caret": [
        "f:border/focus"
       ],
@@ -5970,6 +5982,12 @@
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/md/line-height"
+      ],
+      "Inline": [
+       "gap:space/6"
+      ],
+      "Trailing": [
+       "gap:space/8"
       ],
       "calendar": [
        "h:icon/size/md",
@@ -6589,11 +6607,10 @@
       "hit": 1,
       "safe": 0
      },
-     "rawCount": 5,
+     "rawCount": 4,
      "raw": [
       "(root):w=20",
       "(root):h=20",
-      "glyph:sw=1.5",
       "hit area · web:w=24",
       "hit area · web:h=24"
      ],
@@ -6602,7 +6619,8 @@
        "f:control/track"
       ],
       "glyph": [
-       "s:icon/secondary"
+       "s:icon/secondary",
+       "sw:icon/stroke/regular"
       ],
       "hit area · web": [
        "visible:touch/is-fine"
@@ -6787,7 +6805,7 @@
       "Select compact": 10
      },
      "minmax": [
-      "minw=160 RAW"
+      "minw=160 size/field/min"
      ],
      "layers": {
       "ring": 10,
@@ -6796,16 +6814,16 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 12,
+     "rawCount": 10,
      "raw": [
-      "(root):w=395",
-      "(root):sw=1"
+      "(root):w=395"
      ],
      "tokens": {
       "(root)": [
        "f:control/surface/default",
        "f:control/surface/disabled",
        "gap:space/16",
+       "minw:size/field/min",
        "p:space/20",
        "r:radius/control",
        "s:control/border/default",
@@ -7339,29 +7357,35 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 17,
+     "rawCount": 8,
      "raw": [
-      "(root):w=320",
-      "(root):gap=8",
-      "selected:gap=8"
+      "(root):w=320"
      ],
      "tokens": {
+      "(root)": [
+       "gap:space/8"
+      ],
+      "Select": [
+       "minw:size/field/min"
+      ],
       "Menu": [
-       "effects:material/thick/blur",
-       "effects:shadow/ambient",
-       "effects:shadow/key",
-       "f:material/thick/fill",
        "gap:space/4",
+       "maxw:size/menu/max",
+       "minw:size/menu/min",
        "p:space/8",
        "r:radius/control",
        "s:border/subtle",
        "sw:border/width/default"
+      ],
+      "selected": [
+       "gap:space/8"
       ],
       "Chip": [
        "f:action/disabled",
        "f:action/inverse/default",
        "gap:space/6",
        "h:control/height/sm",
+       "maxw:size/chip/max",
        "p:control/padding-x/sm",
        "r:radius/control-sm"
       ]
@@ -7510,6 +7534,7 @@
        "f:status/danger/solid",
        "h:size/counter-height/sm",
        "maxw:size/counter/max",
+       "minw:size/counter-height/sm",
        "p:space/2xs",
        "r:radius/full"
       ],
@@ -7622,7 +7647,7 @@
       "(icons)": 2
      },
      "minmax": [
-      "maxw=400 RAW"
+      "maxw=400 size/toast/max"
      ],
      "layers": {
       "ring": 0,
@@ -7637,6 +7662,7 @@
       "(root)": [
        "f:accent/subtle",
        "gap:space/12",
+       "maxw:size/toast/max",
        "p:space/12",
        "p:space/16",
        "r:radius/control"
@@ -7858,6 +7884,8 @@
       ],
       "Pagination item": [
        "f:accent/subtle",
+       "minw:control/height/md",
+       "minw:control/height/sm",
        "p:control/padding-x/sm",
        "p:space/8",
        "r:radius/control",
@@ -7951,7 +7979,7 @@
       "(icons)": 20
      },
      "minmax": [
-      "minw=160 RAW"
+      "minw=160 size/field/min"
      ],
      "layers": {
       "ring": 0,
@@ -7968,7 +7996,8 @@
      ],
      "tokens": {
       "(root)": [
-       "gap:space/10"
+       "gap:space/10",
+       "minw:size/field/min"
       ],
       "Input": [
        "minw:size/field/min"
@@ -8247,12 +8276,9 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 14,
+     "rawCount": 6,
      "raw": [
-      "(root):sw=1",
       "(root):w=222",
-      "text:p=64",
-      "text:gap=4",
       "(root):w=343",
       "text:p=96"
      ],
@@ -8263,7 +8289,12 @@
        "gap:space/8",
        "p:space/16",
        "r:radius/surface",
-       "s:border/subtle"
+       "s:border/subtle",
+       "sw:border/width/default"
+      ],
+      "text": [
+       "gap:space/4",
+       "p:space/64"
       ],
       "title": [
        "f:text/primary",
@@ -8396,9 +8427,8 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 16,
+     "rawCount": 8,
      "raw": [
-      "(root):sw=1",
       "(root):w=400"
      ],
      "tokens": {
@@ -8408,13 +8438,14 @@
        "p:space/16",
        "r:radius/surface",
        "s:border/accent",
-       "s:border/subtle"
+       "s:border/subtle",
+       "sw:border/width/default"
       ],
       "header": [
        "gap:space/12"
       ],
       "radio": [
-       "gap:space/12"
+       "maxw:size/field/max"
       ],
       "label": [
        "f:text/disabled",
@@ -8540,7 +8571,7 @@
       "Radio": 36
      },
      "minmax": [
-      "maxw=480 RAW"
+      "maxw=480 size/field/max"
      ],
      "layers": {
       "ring": 0,
@@ -8554,7 +8585,8 @@
      "tokens": {
       "(root)": [
        "gap:space/12",
-       "gap:space/8"
+       "gap:space/8",
+       "maxw:size/field/max"
       ],
       "label": [
        "f:text/disabled",
@@ -8571,8 +8603,7 @@
        "gap:space/8"
       ],
       "Radio": [
-       "gap:space/12",
-       "gap:space/8"
+       "maxw:size/field/max"
       ],
       "helper": [
        "f:text/danger",
@@ -8834,7 +8865,7 @@
       "Input": 24
      },
      "minmax": [
-      "minw=160 RAW"
+      "minw=160 size/field/min"
      ],
      "layers": {
       "ring": 24,
@@ -8846,8 +8877,11 @@
      "rawCount": 0,
      "raw": [],
      "tokens": {
+      "(root)": [
+       "minw:size/field/min"
+      ],
       "field": [
-       "gap:space/6"
+       "minw:size/field/min"
       ],
       "focus ring": [
        "r:radius/focus-ring-inner",
@@ -9043,7 +9077,7 @@
       "Button": 5
      },
      "minmax": [
-      "minw=280 RAW"
+      "minw=280 size/toast/min"
      ],
      "layers": {
       "ring": 0,
@@ -9052,14 +9086,15 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 10,
+     "rawCount": 5,
      "raw": [
-      "(root):gap=12",
       "(root):w=343"
      ],
      "tokens": {
       "(root)": [
        "f:action/inverse/default",
+       "gap:space/12",
+       "minw:size/toast/min",
        "p:space/12",
        "p:space/16",
        "r:radius/control"
@@ -9077,6 +9112,7 @@
       ],
       "action": [
        "gap:space/2",
+       "minw:size/button/min",
        "p:space/4",
        "r:radius/xs"
       ]
@@ -9204,7 +9240,7 @@
       "Skeleton": 3
      },
      "minmax": [
-      "minw=280 RAW"
+      "minw=280 size/card/min"
      ],
      "layers": {
       "ring": 0,
@@ -9221,6 +9257,7 @@
       "(root)": [
        "f:surface/level-1",
        "gap:space/8",
+       "minw:size/card/min",
        "p:card/padding",
        "r:radius/container",
        "s:border/subtle",
@@ -9264,6 +9301,7 @@
        "f:status/success/subtle",
        "gap:space/4",
        "h:size/badge-height/sm",
+       "maxw:size/badge/max",
        "p:space/xs",
        "r:radius/sm"
       ],
@@ -9619,9 +9657,8 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 14,
+     "rawCount": 12,
      "raw": [
-      "(root):sw=1",
       "(root):w=480",
       "(root):w=960"
      ],
@@ -9638,7 +9675,8 @@
        "p:space/16",
        "p:space/48",
        "r:radius/surface",
-       "s:border/subtle"
+       "s:border/subtle",
+       "sw:border/width/default"
       ],
       "icon/info": [
        "h:icon/size/md",
@@ -9773,7 +9811,7 @@
      "id": "62:67",
      "type": "SET",
      "status": "draft",
-     "descLen": 689,
+     "descLen": 746,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9786,8 +9824,8 @@
      "inBoard": false,
      "axes": {
       "Align": [
-       "Left",
-       "Right"
+       "Start",
+       "End"
       ],
       "Sort": [
        "None",
@@ -9909,7 +9947,7 @@
      "id": "92:592",
      "type": "SET",
      "status": "draft",
-     "descLen": 160,
+     "descLen": 224,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9918,8 +9956,8 @@
      "inBoard": false,
      "axes": {
       "Align": [
-       "Left",
-       "Right"
+       "Start",
+       "End"
       ],
       "State": [
        "Default",
@@ -10583,6 +10621,7 @@
        "f:status/success/subtle",
        "gap:space/6",
        "h:size/badge-height/md",
+       "maxw:size/badge/max",
        "p:control/padding-x/sm",
        "r:radius/sm"
       ],
@@ -10639,7 +10678,7 @@
        "p:space/12"
       ],
       "toggle": [
-       "gap:space/8"
+       "maxw:size/field/max"
       ],
       "skeleton": [
        "f:skeleton/base",
@@ -10653,7 +10692,7 @@
      "id": "93:784",
      "type": "SET",
      "status": "draft",
-     "descLen": 140,
+     "descLen": 177,
      "descHeads": [
       "Status:",
       "Level:",
@@ -10661,7 +10700,7 @@
      ],
      "inBoard": false,
      "axes": {
-      "Active": [
+      "Status": [
        "Off",
        "On"
       ],
@@ -10990,25 +11029,34 @@
        "s:border/subtle"
       ],
       "cell · Дата": [
+       "gap:space/8",
+       "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Монета": [
        "gap:space/sm",
        "gap:space/xs",
+       "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Сумма": [
        "gap:space/2xs",
+       "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Адрес": [
+       "gap:space/8",
+       "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Статус": [
+       "gap:space/8",
+       "minw:size/table-cell/min",
        "p:space/12"
       ],
       "cell · ⋯": [
        "gap:space/8",
+       "minw:size/table-cell/min",
        "p:space/xs"
       ],
       "focus ring": [
@@ -11078,6 +11126,7 @@
        "gap:space/6",
        "gap:space/8",
        "h:size/badge-height/md",
+       "maxw:size/badge/max",
        "p:control/padding-x/sm",
        "r:radius/sm"
       ],
@@ -11672,7 +11721,7 @@
       "Toggle": 12
      },
      "minmax": [
-      "maxw=480 RAW"
+      "maxw=480 size/field/max"
      ],
      "layers": {
       "ring": 0,
@@ -11686,7 +11735,8 @@
      "tokens": {
       "(root)": [
        "gap:space/12",
-       "gap:space/8"
+       "gap:space/8",
+       "maxw:size/field/max"
       ],
       "label": [
        "f:text/disabled",
@@ -11700,8 +11750,7 @@
        "gap:space/16"
       ],
       "Toggle": [
-       "gap:space/12",
-       "gap:space/8"
+       "maxw:size/field/max"
       ],
       "helper": [
        "f:text/disabled",
@@ -11812,7 +11861,7 @@
      },
      "minmax": [
       "minw=58 size/tooltip/min",
-      "maxw=320 RAW"
+      "maxw=320 size/tooltip/max"
      ],
      "layers": {
       "ring": 0,
@@ -11833,6 +11882,7 @@
        "f:action/primary/default",
        "f:surface/raised",
        "gap:space/8",
+       "maxw:size/tooltip/max",
        "minw:size/tooltip/min",
        "p:space/16",
        "r:radius/container",
@@ -11863,8 +11913,12 @@
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/md/line-height"
       ],
+      "footer": [
+       "gap:space/8"
+      ],
       "skip": [
        "gap:space/2",
+       "minw:size/button/min",
        "p:space/4",
        "r:radius/xs"
       ],
@@ -11976,7 +12030,8 @@
        "w:icon/size/md"
       ],
       "content": [
-       "gap:space/4"
+       "gap:space/4",
+       "minw:size/row/content-min"
       ],
       "title": [
        "f:text/primary",
@@ -12394,6 +12449,7 @@
        "f:status/success/subtle",
        "gap:space/6",
        "h:size/badge-height/md",
+       "maxw:size/badge/max",
        "p:control/padding-x/sm",
        "r:radius/sm"
       ],
@@ -12469,20 +12525,15 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 260,
+     "rawCount": 240,
      "raw": [
       "(root):w=473",
       "(root):h=140",
       "bar:r=3",
       "bar:o=0.35",
-      "line:sw=2",
       "halo:o=0.24",
       "area:o=0.45",
-      "bar:r=2",
-      "line 1:sw=2",
-      "line 2:sw=2",
-      "line 3:sw=2",
-      "line 4:sw=2"
+      "bar:r=2"
      ],
      "tokens": {
       "(root)": [
@@ -12508,7 +12559,8 @@
       "line": [
        "s:action/disabled",
        "s:data/1",
-       "s:skeleton/base"
+       "s:skeleton/base",
+       "sw:chart/stroke"
       ],
       "halo": [
        "f:data/1"
@@ -12536,17 +12588,21 @@
        "f:skeleton/base"
       ],
       "line 1": [
-       "s:data/1"
+       "s:data/1",
+       "sw:chart/stroke"
       ],
       "line 2": [
        "s:data/2",
-       "s:data/4"
+       "s:data/4",
+       "sw:chart/stroke"
       ],
       "line 3": [
-       "s:data/3"
+       "s:data/3",
+       "sw:chart/stroke"
       ],
       "line 4": [
-       "s:data/4"
+       "s:data/4",
+       "sw:chart/stroke"
       ],
       "segment 1": [
        "f:data/1",
@@ -12645,11 +12701,8 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 4,
-     "raw": [
-      "(root):sw=1",
-      "calendar column:gap=12"
-     ],
+     "rawCount": 0,
+     "raw": [],
      "tokens": {
       "(root)": [
        "effects:material/thick/blur",
@@ -12659,13 +12712,11 @@
        "gap:space/16",
        "p:space/12",
        "r:radius/control",
-       "s:border/subtle"
+       "s:border/subtle",
+       "sw:border/width/default"
       ],
-      "Menu item": [
-       "gap:space/12",
-       "p:space/10",
-       "p:space/12",
-       "r:radius/sm"
+      "calendar column": [
+       "gap:space/12"
       ],
       "calendar": [
        "effects:shadow/ambient",
@@ -12675,8 +12726,12 @@
        "p:space/16",
        "r:radius/container"
       ],
+      "footer": [
+       "gap:space/8"
+      ],
       "reset": [
        "gap:space/2",
+       "minw:size/button/min",
        "p:space/4",
        "r:radius/xs"
       ],
@@ -12802,17 +12857,24 @@
        "f:material/thick/fill",
        "r:radius/control"
       ],
+      "header": [
+       "gap:space/8"
+      ],
       "tabs": [
        "gap:space/20",
        "s:border/subtle"
       ],
       "reset": [
        "gap:space/2",
+       "minw:size/button/min",
        "p:space/4",
        "r:radius/xs"
       ],
       "search": [
        "minw:size/field/min"
+      ],
+      "list": [
+       "maxh:size/dropdown-panel/max-height"
       ],
       "empty": [
        "gap:space/4",
@@ -12831,9 +12893,6 @@
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/md/line-height"
-      ],
-      "list": [
-       "maxh:size/dropdown-panel/max-height"
       ]
      },
      "statusFirstLine": true
@@ -13027,7 +13086,9 @@
        "lineHeight:type/label/md/line-height"
       ],
       "Actions": [
+       "gap:space/12",
        "gap:space/16",
+       "gap:space/8",
        "p:space/8"
       ],
       "Button": [
@@ -14301,11 +14362,17 @@
        "fontWeight:font-weight/bold",
        "lineHeight:type/heading/md/line-height"
       ],
+      "Header actions": [
+       "gap:space/4"
+      ],
       "close": [
        "gap:space/6",
        "h:control/height/md",
        "r:radius/control",
        "w:control/height/md"
+      ],
+      "Body": [
+       "gap:space/12"
       ],
       "Хешрейт, история, настройки воркера. Контент — в слот Body.": [
        "f:text/secondary",
@@ -14526,11 +14593,10 @@
       "hit": 4,
       "safe": 4
      },
-     "rawCount": 10,
+     "rawCount": 8,
      "raw": [
       "hit area · app:w=72",
-      "hit area · app:h=56",
-      "state layer:r=12"
+      "hit area · app:h=56"
      ],
      "tokens": {
       "(root)": [
@@ -14569,7 +14635,8 @@
       ],
       "state layer": [
        "f:state/layer",
-       "o:state/pressed"
+       "o:state/pressed",
+       "r:radius/control"
       ]
      },
      "statusFirstLine": true

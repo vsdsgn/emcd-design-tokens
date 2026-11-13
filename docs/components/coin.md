@@ -52,8 +52,8 @@
 - декоративна (aria-hidden), название монеты всегда в тексте рядом.
 
 ## 10. Tokens
-- `network`: обводка `surface/current`.
-- Значений без переменной: 30 (напр. `(root):w=16`, `(root):h=16`, `network:r=3.5`, `network:sw=2`).
+- `network`: обводка `surface/current`; толщина обводки `border/width/strong`.
+- Значений без переменной: 25 (напр. `(root):w=16`, `(root):h=16`, `network:r=3.5`, `(root):w=20`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
@@ -73,7 +73,7 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - AXES: `Network` — булева ось (Off | On)
-  - RAW: 30 (напр. `(root):w=16`, `(root):h=16`)
+  - RAW: 25 (напр. `(root):w=16`, `(root):h=16`)
   - BOARD: нет разделов 05, 07, 08, 12
 
 ## 15. Migration

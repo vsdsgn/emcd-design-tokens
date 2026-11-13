@@ -18,13 +18,33 @@ const R = {
   'Dropdown panel': [['list', 'maxHeight', 'size/dropdown-panel/max-height', 320]],
   '_List row': [['ROOT', 'minHeight', 'size/row/min', 40], ['content', 'minWidth', 'size/row/content-min', 120]],
   '_Field base': [['field', 'minHeight', 'size/field/multi-min', 96]],
+  // Пакет 13.11 (второй): корневые min / max, стоявшие числом при существующем токене.
+  'Checkbox group': [['ROOT', 'maxWidth', 'size/field/max', 480]], 'Radio group': [['ROOT', 'maxWidth', 'size/field/max', 480]], 'Toggle group': [['ROOT', 'maxWidth', 'size/field/max', 480]],
+  'Date range field': [['ROOT', 'maxWidth', 'size/field/max', 480], ['ROOT', 'minWidth', 'size/field/min', 120]],
+  'Input amount': [['ROOT', 'maxWidth', 'size/field/max', 480], ['ROOT', 'minWidth', 'size/field/min', 120]],
+  'Password field': [['ROOT', 'maxWidth', 'size/field/max', 480], ['ROOT', 'minWidth', 'size/field/min', 120]],
+  'Select': [['ROOT', 'maxWidth', 'size/field/max', 480], ['ROOT', 'minWidth', 'size/field/min', 120]],
+  'Notification': [['ROOT', 'maxWidth', 'size/toast/max', 480], ['ROOT', 'minWidth', 'size/toast/min', 280]],
+  'Snack': [['ROOT', 'maxWidth', 'size/toast/max', 480], ['ROOT', 'minWidth', 'size/toast/min', 280]],
+  'Stat card': [['ROOT', 'minWidth', 'size/card/min', 280]],
+  'Menu': [['ROOT', 'minWidth', 'size/menu/min', 160], ['ROOT', 'maxWidth', 'size/menu/max', 320]],
+  'Sheet': [['ROOT', 'maxWidth', 'size/sheet/max', 480]],
+  // Токены заведены 13.11 (второй пакет) и ждут Publish Foundations; до него скрипт остановится на проверке missing.
+  'Code input': [['ROOT', 'maxWidth', 'size/code-input/max', 400]],
+  'Select compact': [['ROOT', 'maxWidth', 'size/select-compact/max', 200]],
+  'Legend item': [['ROOT', 'maxWidth', 'size/legend-item/max', 160]],
+  'Step': [['ROOT', 'maxWidth', 'size/step/max', 160]],
+  'Chart metric': [['ROOT', 'maxWidth', 'size/chart-metric/max', 240]],
+  'Chart tooltip': [['ROOT', 'minWidth', 'size/chart-tooltip/min', 168]],
+  'Chart axis label': [['ROOT', 'maxWidth', 'size/chart-axis-label/max', 64]],
+  'Page header': [['text', 'minWidth', 'size/page-header/text-min', 200]],
   // size/selection/label-max (436) у label / description в _Selection control не привязывается: Plugin API не даёт maxWidth текстового слоя
   // («invalid field for text node»). Значение сверяет аудит числом; привязка — когда подпись получит фрейм-обёртку (OPEN-QUESTIONS).
 };
 const missing = [...new Set(Object.values(R).flat().map(r => r[2]))].filter(n => !V[n]);
 if (missing.length) return { error: 'в библиотеке нет переменных (Publish Foundations и принять обновление в Components)', missing };
 const out = {}; const ids = []; const skipped = [];
-const pages = figma.root.children.slice(2).filter(p => /^[🟠🟡🟢🔴]/u.test(p.name) || /_(Field base|Selection control|Service layers|List row|Overlay surface)$/.test(p.name));
+const pages = figma.root.children.filter(p => /^[🟠🟡🟢🔴]/u.test(p.name) || /^_/.test(p.name)); // страницы компонентов и служебных баз — по имени, не по индексу
 for (const pg of pages) {
   await pg.loadAsync();
   for (const s of pg.findAll(n => n.type === 'COMPONENT_SET' && n.name.replace(/ · пилот$/, '') in R)) {

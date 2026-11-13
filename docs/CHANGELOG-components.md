@@ -16,6 +16,13 @@
 - **Icon button** — MAJOR: `State = Loading` → ось `Loading = False | True` (свойство, как у Button); оси Type, Tone, Size, Loading, State; 240 вариантов из 448; 16 экземпляров перенесены.
 - **Foundations** — 8 новых переменных Platform (опубликованы 13.11, в репо): `size/counter/max` 40, `size/tooltip/min` 58, `size/toast/min` 280, `size/dropdown-panel/max-height` 320, `size/row/min` 40, `size/row/content-min` 120, `size/field/multi-min` 96, `size/selection/label-max` 436.
 - **Привязка `size/*` после Publish Foundations** (значения не менялись, 262 привязки): Counter max, Tooltip min-ширина и min-высота, Tooltip tour min, тултип Icon button, Toast min, список Dropdown panel, `_List row` (min-высота, min-ширина текста), `_Field base` (min-высота многострочного поля), экземпляры `counter` в Tab и Nav item. `size/selection/label-max` не привязан (текстовый слой).
+- **Table header cell, Table cell / Text** (draft) — MAJOR: `Align = Left | Right` → `Start | End` (решение 5 доски).
+- **Table cell / Star** (draft) — MAJOR: ось `Active` → `Status` (Off / On).
+- **Badge** — свойства `Close · deprecated`, `Chevron · deprecated` (решение 9 доски; интерактивный бейдж — Chip). Экземпляры целы.
+- **min / max корня → `size/*`** — 114 узлов: группы Checkbox / Radio / Toggle, Date range field, Input amount, Password field, Select, Notification, Snack, Stat card, Tooltip tour, Menu, Sheet, ячейки Table. Значения не менялись.
+- **Зазоры, отступы, обводки → переменные** — 231 привязка (`bind-raw.plugin.js`). Значения не менялись.
+- **Card** — в описании `Status: draft`. **Breadcrumb item** — Current: стиль Label/MD.
+- **Foundations** — 8 новых переменных Platform, не опубликованы: `size/code-input/max`, `size/select-compact/max`, `size/legend-item/max`, `size/step/max`, `size/chart-metric/max`, `size/chart-tooltip/min`, `size/chart-axis-label/max`, `size/page-header/text-min`.
 - Архив: у тултипов с Arrow = Start / End текст теперь из свойства Text (ширина изменилась).
 - Архив: `icon/wallet` возвращён в два экземпляра; у трёх экземпляров Input потеряно содержимое Trailing.
 
