@@ -7,7 +7,7 @@
 
 - Наборов не в beta: 96 (draft 94, без статуса 2: Card, _Tooltip arrow).
 - Без замечаний по манифесту: 0.
-- Наборов с замечанием: BOARD — 94, RAW — 78, DESC — 59, MINMAX — 21, PROPS — 16, AXES — 15, SERVICE — 10, MATRIX — 6.
+- Наборов с замечанием: BOARD — 94, RAW — 78, DESC — 59, MINMAX — 19, PROPS — 16, AXES — 15, SERVICE — 10, MATRIX — 6.
 
 Коды: DESC — разделы описания; MATRIX — неполная матрица осей; AXES — булева ось или Left / Right; PROPS — свойство привязано не во всех вариантах (часть — по делу: свойство есть только у вариантов со слотом); MINMAX — min / max числом; RAW — значения без переменной (часть — размеры служебных слоёв); SERVICE — у набора с Hover / Pressed / Focus нет служебных слоёв; BOARD — нет борды v3 или её разделов (у неинтерактивного набора разделы 04 «Состояния», 05 «Зоны» могут быть не нужны — решается при контракте).
 
@@ -38,7 +38,7 @@
 | Step segment | Step segment | 3 | DESC: нет: Когда использовать:, Правила:, A11y:<br>RAW: 6 (напр. `(root):w=40`, `(root):h=4`)<br>BOARD: нет разделов 05, 07, 08, 12 |
 | Step symbol | Step symbol | 12 | DESC: нет: Когда использовать:, Правила:, A11y:<br>PROPS: Number 3 из 12<br>RAW: 24 (напр. `(root):w=24`, `(root):h=24`)<br>BOARD: нет разделов 04, 05, 07, 12 |
 | Step trail | Step trail | 6 | DESC: нет: Когда использовать:, Правила:, A11y:<br>RAW: 12 (напр. `(root):w=80`, `(root):h=24`)<br>BOARD: нет разделов 05, 07, 08, 12 |
-| Tooltip | Tooltip | 24 | DESC: нет: Когда использовать:, Правила:, A11y:<br>MINMAX: minw=58, minh=58<br>BOARD: нет разделов 12 |
+| Tooltip | Tooltip | 24 | DESC: нет: Когда использовать:, Правила:, A11y:<br>BOARD: нет разделов 12 |
 
 ## Молекулы (57)
 
@@ -97,9 +97,9 @@
 | Table header cell | Table | 20 | DESC: нет: Когда использовать:<br>MATRIX: 20 из 24<br>AXES: `Align` — Left / Right вместо Start / End<br>PROPS: Show filter 18 из 20; Show info 18 из 20<br>RAW: 80 (напр. `(root):w=160`, `(root):h=44`)<br>BOARD: нет разделов 07, 08 |
 | Table row | Table | 8 | DESC: нет: Когда использовать:, Правила:<br>RAW: 8 (напр. `(root):h=48`, `(root):h=80`)<br>SERVICE: нет зоны нажатия, безопасного поля<br>BOARD: нет разделов 07, 08 |
 | Tabs | Tabs | 4 | DESC: нет: A11y:<br>BOARD: нет разделов 05, 07, 08, 12 |
-| Toast | Toast | 10 | PROPS: Description 5 из 10; Actions 5 из 10; Icon 5 из 10; Show description 5 из 10; Timer 5 из 10; Safe area 5 из 10<br>MINMAX: minw=280<br>RAW: 10 (напр. `(root):w=400`, `(root):w=375`)<br>BOARD: нет разделов 05, 07, 08 |
+| Toast | Toast | 10 | PROPS: Description 5 из 10; Actions 5 из 10; Icon 5 из 10; Show description 5 из 10; Timer 5 из 10; Safe area 5 из 10<br>RAW: 10 (напр. `(root):w=400`, `(root):w=375`)<br>BOARD: нет разделов 05, 07, 08 |
 | Toggle group | Toggle group | 4 | DESC: нет: Когда использовать:, Правила:, A11y:<br>MINMAX: maxw=480<br>BOARD: нет разделов 05, 07, 08 |
-| Tooltip tour | Tooltip tour | 4 | MINMAX: minw=58, maxw=320<br>RAW: 8 (напр. `(root):w=320`, `step:o=0.72`)<br>BOARD: нет разделов 05, 07, 08 |
+| Tooltip tour | Tooltip tour | 4 | MINMAX: maxw=320<br>RAW: 8 (напр. `(root):w=320`, `step:o=0.72`)<br>BOARD: нет разделов 05, 07, 08 |
 | Transaction | Transaction | 12 | DESC: нет: Когда использовать:, Правила:<br>RAW: 24 (напр. `(root):w=400`, `(root):h=64`)<br>BOARD: нет разделов 05, 07, 08 |
 
 ## Организмы (15)

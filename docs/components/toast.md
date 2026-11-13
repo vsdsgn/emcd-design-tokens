@@ -59,7 +59,7 @@
 - role="status" (polite), для ошибок role="alert"; крестик с aria-label «Закрыть»; фокус не забирает.
 
 ## 10. Tokens
-- `корень`: интервал `space/12`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: интервал `space/12`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/inverse/default`, `status/danger/solid`, `status/info/solid`, `status/success/solid`, `status/warning/solid`, `surface/raised`; радиус `radius/control`.
 - `content`: интервал `space/10`; отступы `space/2`.
 - `title`: заливка / цвет `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
@@ -69,7 +69,7 @@
 - `close`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `row`: интервал `space/12`; отступы `space/12`, `space/16`.
 - Служебные слои (общие правила — `service-layers.md`): `safe area`: высота `os/safe-area/top`.
-- Min / max корня: minWidth 280 числом.
+- Min / max корня: minWidth 280 size/toast/min.
 - Значений без переменной: 10 (напр. `(root):w=400`, `(root):w=375`).
 
 ## 11. Platforms
@@ -90,7 +90,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - PROPS: Description 5 из 10; Actions 5 из 10; Icon 5 из 10; Show description 5 из 10; Timer 5 из 10; Safe area 5 из 10
-  - MINMAX: minw=280
   - RAW: 10 (напр. `(root):w=400`, `(root):w=375`)
   - BOARD: нет разделов 05, 07, 08
 

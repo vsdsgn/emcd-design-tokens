@@ -46,7 +46,7 @@
 - role="option", aria-selected; Пробел выбирает; выбранное озвучивается. |
 
 ## 10. Tokens
-- `_List row`: интервал `space/12`; отступы `space/12`, `space/8`; радиус `radius/inner`.
+- `_List row`: интервал `space/12`; minh `size/row/min`; отступы `space/12`, `space/8`; радиус `radius/inner`.
 - Значений без переменной: 4 (напр. `(root):w=280`).
 
 ## 11. Platforms

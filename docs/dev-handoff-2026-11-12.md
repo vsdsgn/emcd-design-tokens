@@ -29,19 +29,19 @@
 
 Слой состояния в коде: один `::before` с `background: var(--state-layer); opacity: var(--state-hover)`. Если где-то стояли свои числа (0.08 / 0.12 или 0.06 / 0.10 вручную) — заменить на переменные. Действуют **6 % / 10 %**.
 
-**Ждут Publish Foundations и экспорта (21 токен, MINOR — только добавление):**
+**Опубликованы и в репо с 13.11 (21 токен, MINOR — только добавление; `de836c0`):**
 `control/height/xs`, `control/height/2xl`; `radius/focus-ring-xs`, `radius/focus-ring-inner`, `radius/focus-ring-surface`; `size/badge-height/sm|md|lg`; `size/counter-height/sm|md`; `size/dot/sm|md`; `size/toggle-width/sm|md`, `size/toggle-height/sm|md`; `size/tab-indicator/sm|lg`; `size/tab-bar-item/width`; `size/box`, `size/box-row`.
-До экспорта их нет в `tokens/` и `build/` — в коде не использовать.
+Есть в `tokens/` и `build/` — можно использовать в коде.
 
 ## Пакет правок beta 2026-11-13 (не MAJOR)
 
 - Свойства и оси не переименованы, экземпляры не менялись.
 - Вариант по умолчанию в Figma: Button — Size M; Icon button — Type Ghost, Size M; Badge — State Default. Сверить умолчания props в коде (Web: Button `size="m"`, Icon button `type="ghost"`).
 - Кольцо фокуса — 2 px у всех (в описании Icon button было 4).
-- min / max: Button min-width — `size/button/min`; Counter min-width — `size/counter-height/*`; Badge, Chip max-width — `size/badge/max`, `size/chip/max`. Без токена пока: Counter max 40, Tooltip min 58, Toast min 280, список Dropdown panel max-высота 320 (токены появятся со следующей публикацией Foundations).
+- min / max: Button min-width — `size/button/min`; Counter min-width — `size/counter-height/*`; Badge, Chip max-width — `size/badge/max`, `size/chip/max`. Counter max-width — `size/counter/max`; Tooltip min — `size/tooltip/min`; Toast min-width — `size/toast/min`; список Dropdown panel max-height — `size/dropdown-panel/max-height`.
 - **MAJOR 13.11 — Tooltip:** Placement = Top / Bottom / Start / End (было Left / Right). Логические стороны: в RTL Start и End меняются местами. В коде: `placement="start" | "end"`, запасные стороны `bottom, end, start`.
 - **MAJOR 13.11 — Icon button:** Loading — отдельное свойство `loading: boolean`, как у Button; значения `State = Loading` больше нет. Loading только при State = Default: спиннер вместо иконки, кнопка не нажимается, `aria-busy`.
-- Новые токены Foundations (появятся после публикации): `size/counter/max` 40, `size/tooltip/min` 58, `size/toast/min` 280, `size/dropdown-panel/max-height` 320, `size/row/min` 40, `size/row/content-min` 120, `size/field/multi-min` 96, `size/selection/label-max` 436.
+- Новые токены Foundations (опубликованы 13.11, в `tokens/` и `build/`; в Components привязаны, кроме `size/selection/label-max`): `size/counter/max` 40, `size/tooltip/min` 58, `size/toast/min` 280, `size/dropdown-panel/max-height` 320, `size/row/min` 40, `size/row/content-min` 120, `size/field/multi-min` 96, `size/selection/label-max` 436.
 
 ## Новое в Figma (аддитивно, в код пока не идёт)
 

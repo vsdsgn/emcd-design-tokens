@@ -59,7 +59,7 @@ export const DATA = [
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: '`maxWidth 40` (записанное исключение) и `maxWidth 28 @value` числом; min-width — `size/counter-height/*`', ap: '0 (2026-11-13)' },
     migration: ['DS Web `Badge counter`: status neutral | danger → Tone Neutral | Danger; Accent — новое; размеры S | M.'],
-    todo: ['max-width 40 — временное исключение (`docs/exceptions.md`): завести `size/counter/max` со следующей публикацией Foundations.'],
+    todo: [],
   },
   {
     name: 'Breadcrumb item',

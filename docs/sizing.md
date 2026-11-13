@@ -39,7 +39,7 @@
 
 ## В Figma
 
-Значения min / max проставлены в мастерах Components 2026-10-06 (сырыми числами — новые токены ещё не опубликованы). **После публикации Foundations** — запустить `scripts/figma/bind-sizes.plugin.js` в Components (use_figma): привяжет minWidth / maxWidth к `size/*`.
+Значения min / max проставлены в мастерах Components 2026-10-06 (сырыми числами — новые токены ещё не опубликованы). **После публикации Foundations** — запустить `scripts/figma/bind-sizes.plugin.js` в Components (use_figma): привяжет minWidth / maxWidth к `size/*`. Токены от 13.11 (высоты и вложенные слои) привязывает `scripts/figma/bind-sizes-extra.plugin.js` — запущен 13.11.
 Текст в Chip и Badge — одна строка с обрезкой «…».
 
 ## В коде

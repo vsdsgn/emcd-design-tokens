@@ -20,7 +20,7 @@
   "variants": 1647,
   "incompleteMatrix": 11,
   "propsNotBoundEverywhere": 17,
-  "rawMinMax": 22,
+  "rawMinMax": 19,
   "withRawValues": 88,
   "withFocusRing": 25,
   "withHitArea": 18,
@@ -576,7 +576,7 @@
      "nested": {},
      "minmax": [
       "minw=16 size/counter-height/sm",
-      "maxw=40 RAW",
+      "maxw=40 size/counter/max",
       "minw=20 size/counter-height/md"
      ],
      "layers": {
@@ -595,6 +595,7 @@
        "f:status/danger/solid",
        "h:size/counter-height/md",
        "h:size/counter-height/sm",
+       "maxw:size/counter/max",
        "minw:size/counter-height/md",
        "minw:size/counter-height/sm",
        "p:space/4",
@@ -2359,6 +2360,7 @@
        "effects:shadow/ambient",
        "effects:shadow/key",
        "f:surface/raised",
+       "minw:size/tooltip/min",
        "p:space/10",
        "p:space/16",
        "r:radius/container",
@@ -2549,6 +2551,7 @@
      "tokens": {
       "_List row": [
        "gap:space/12",
+       "minh:size/row/min",
        "p:space/12",
        "p:space/8",
        "r:radius/inner"
@@ -4319,6 +4322,7 @@
        "f:action/secondary/default",
        "h:size/counter-height/md",
        "h:size/counter-height/sm",
+       "maxw:size/counter/max",
        "p:space/2xs",
        "p:space/6",
        "r:radius/full"
@@ -4589,9 +4593,9 @@
       "_Tooltip arrow": 24
      },
      "minmax": [
-      "minw=58 RAW",
+      "minw=58 size/tooltip/min",
       "maxw=320 size/tooltip/max",
-      "minh=58 RAW"
+      "minh=58 size/tooltip/min"
      ],
      "layers": {
       "ring": 0,
@@ -4605,6 +4609,8 @@
      "tokens": {
       "(root)": [
        "maxw:size/tooltip/max",
+       "minh:size/tooltip/min",
+       "minw:size/tooltip/min",
        "p:space/10",
        "p:space/16",
        "r:radius/container",
@@ -7503,6 +7509,7 @@
       "counter": [
        "f:status/danger/solid",
        "h:size/counter-height/sm",
+       "maxw:size/counter/max",
        "p:space/2xs",
        "r:radius/full"
       ],
@@ -11482,7 +11489,7 @@
       "media/status/danger": 1
      },
      "minmax": [
-      "minw=280 RAW"
+      "minw=280 size/toast/min"
      ],
      "layers": {
       "ring": 0,
@@ -11499,6 +11506,7 @@
      "tokens": {
       "(root)": [
        "gap:space/12",
+       "minw:size/toast/min",
        "p:space/12",
        "p:space/16",
        "p:space/20",
@@ -11803,7 +11811,7 @@
       "_Tooltip arrow": 4
      },
      "minmax": [
-      "minw=58 RAW",
+      "minw=58 size/tooltip/min",
       "maxw=320 RAW"
      ],
      "layers": {
@@ -11825,6 +11833,7 @@
        "f:action/primary/default",
        "f:surface/raised",
        "gap:space/8",
+       "minw:size/tooltip/min",
        "p:space/16",
        "r:radius/container",
        "s:border/default",
@@ -12822,6 +12831,9 @@
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/md/line-height"
+      ],
+      "list": [
+       "maxh:size/dropdown-panel/max-height"
       ]
      },
      "statusFirstLine": true
@@ -14636,6 +14648,7 @@
       "radius/focus-ring",
       "radius/focus-ring-sm",
       "size/field/min",
+      "size/field/multi-min",
       "skeleton/base",
       "space/10",
       "space/12",
@@ -14981,6 +14994,8 @@
       "radius/inner",
       "radius/sm",
       "size/box",
+      "size/row/content-min",
+      "size/row/min",
       "space/10",
       "space/12",
       "space/16",

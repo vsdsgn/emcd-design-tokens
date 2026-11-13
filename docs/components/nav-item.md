@@ -58,7 +58,7 @@
 ## 10. Tokens
 - `корень`: заливка / цвет `accent/subtle`; интервал `space/8`; отступы `space/6`; радиус `radius/control`.
 - `label`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
-- `counter`: заливка / цвет `status/danger/solid`; высота `size/counter-height/sm`; отступы `space/2xs`; радиус `radius/full`.
+- `counter`: заливка / цвет `status/danger/solid`; высота `size/counter-height/sm`; maxw `size/counter/max`; отступы `space/2xs`; радиус `radius/full`.
 - `accent glow`: эффект `light/accent/blur`; заливка / цвет `light/accent/color`; видимость `decor/light`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`.
 - Значений без переменной: 32 (напр. `(root):w=218`, `(root):h=36`, `hit area · web:w=218`, `hit area · web:h=36`).

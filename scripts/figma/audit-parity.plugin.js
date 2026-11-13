@@ -36,8 +36,8 @@ const SKIP = /hit area|safe area|safe margin|overlay/i;
 const KEY = /^(control|box|track|thumb|dot|mark|check|indicator|pill|body|field)$/i;
 const rep = {}; const add = (k, msg) => { (rep[k] = rep[k] || new Set()).add(msg); };
 const paintCount = (v) => { let bound = 0, raw = 0; walk(v, false, n => { if (SKIP.test(n.name) || n.visible === false || n.type === 'TEXT') return; for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.visible !== false && p.type === 'SOLID') { if (p.boundVariables && p.boundVariables.color) bound++; else raw++; } }); return { bound, raw }; };
-// Записанные исключения docs/exceptions.md: min / max корня числом (набор → значения).
-const MINMAX_OK = { Counter: ['maxWidth=40'], Tooltip: ['minWidth=58', 'minHeight=58'], Toast: ['minWidth=280'], 'Dropdown panel': ['maxHeight=320'] };
+// Записанные исключения docs/exceptions.md: min / max корня числом (набор → значения, например { Counter: ['maxWidth=40'] }). С 13.11 пусто: всё привязано к size/*.
+const MINMAX_OK = {};
 const okName = n => n.replace(/ · пилот$/, '');
 const bySet = {};
 const descCheck = (key, d, isBase) => {

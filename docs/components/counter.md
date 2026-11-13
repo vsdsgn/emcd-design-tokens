@@ -55,9 +55,9 @@
 - Число входит в доступное имя родителя («Воркеры, 3 неактивных»); сам счётчик — `aria-hidden`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/secondary/default`, `control/checked`, `status/danger/solid`; высота `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/full`.
+- `корень`: заливка / цвет `action/secondary/default`, `control/checked`, `status/danger/solid`; высота `size/counter-height/md`, `size/counter-height/sm`; maxw `size/counter/max`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/full`.
 - `value`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- Min / max корня: minWidth 16 size/counter-height/sm, maxWidth 40 числом, minWidth 20 size/counter-height/md.
+- Min / max корня: minWidth 16 size/counter-height/sm, maxWidth 40 size/counter/max, minWidth 20 size/counter-height/md.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -82,6 +82,3 @@
 
 ## 15. Migration
 - DS Web `Badge counter`: status neutral | danger → Tone Neutral | Danger; Accent — новое; размеры S | M.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- max-width 40 — временное исключение (`docs/exceptions.md`): завести `size/counter/max` со следующей публикацией Foundations.
