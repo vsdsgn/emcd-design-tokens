@@ -9,8 +9,8 @@
    "unknown": 117
   },
   "status": {
-   "beta": 86,
-   "draft": 31
+   "beta": 92,
+   "draft": 25
   },
   "variants": 1647,
   "incompleteMatrix": 11,
@@ -225,7 +225,7 @@
    "level": "unknown",
    "page": "Address",
    "pageId": "364:4435",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Address — борда · шаблон v3",
@@ -255,8 +255,8 @@
      "name": "Address",
      "id": "171:126",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1185,
+     "status": "beta",
+     "descLen": 1184,
      "descHeads": [
       "Status:",
       "Level:",
@@ -674,7 +674,7 @@
    "level": "unknown",
    "page": "Avatar group",
    "pageId": "1012:5",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Avatar group — борда · шаблон v3",
@@ -704,8 +704,8 @@
      "name": "Avatar group",
      "id": "108:1379",
      "type": "SET",
-     "status": "draft",
-     "descLen": 678,
+     "status": "beta",
+     "descLen": 677,
      "descHeads": [
       "Status:",
       "Level:",
@@ -750,6 +750,9 @@
        "h:size/media/lg",
        "h:size/media/md",
        "h:size/media/xs",
+       "r:radius/full",
+       "s:surface/current",
+       "sw:border/width/focus",
        "w:size/media/lg",
        "w:size/media/md",
        "w:size/media/xs"
@@ -758,7 +761,7 @@
        "f:action/secondary/default",
        "f:surface/default",
        "r:radius/chip",
-       "s:surface/default",
+       "s:surface/current",
        "sw:border/width/focus"
       ],
       "count": [
@@ -3934,7 +3937,7 @@
    "level": "unknown",
    "page": "Date range field",
    "pageId": "1611:4",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Date range field — борда · шаблон v3",
@@ -3964,8 +3967,8 @@
      "name": "Date range field",
      "id": "1611:115",
      "type": "SET",
-     "status": "draft",
-     "descLen": 938,
+     "status": "beta",
+     "descLen": 937,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6377,7 +6380,7 @@
    "level": "unknown",
    "page": "Legend swatch",
    "pageId": "1012:16",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Legend swatch — борда · шаблон v3",
@@ -6407,8 +6410,8 @@
      "name": "Legend swatch",
      "id": "84:595",
      "type": "SET",
-     "status": "draft",
-     "descLen": 600,
+     "status": "beta",
+     "descLen": 641,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6462,7 +6465,12 @@
        "f:data/6",
        "f:data/7",
        "f:data/8",
-       "r:radius/chip"
+       "r:radius/chip",
+       "s:data/5",
+       "s:data/6",
+       "s:data/7",
+       "s:data/8",
+       "sw:chart/stroke"
       ]
      },
      "statusFirstLine": true
@@ -9353,7 +9361,7 @@
    "level": "unknown",
    "page": "Scrollbar",
    "pageId": "367:1043",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Scrollbar — борда · шаблон v3",
@@ -9383,8 +9391,8 @@
      "name": "Scrollbar",
      "id": "149:1690",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1035,
+     "status": "beta",
+     "descLen": 1034,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9432,6 +9440,7 @@
        "w:size/scrollbar"
       ],
       "thumb": [
+       "f:icon/primary",
        "f:icon/secondary",
        "f:icon/tertiary",
        "h:size/track/md",
@@ -12028,7 +12037,7 @@
    "level": "unknown",
    "page": "Tab bar",
    "pageId": "366:4724",
-   "pageMark": "🟡",
+   "pageMark": "🟠",
    "boards": [
     {
      "name": "Tab bar — борда",
@@ -14350,7 +14359,7 @@
    "level": "unknown",
    "page": "Toggle group",
    "pageId": "1012:4",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Toggle group — борда · шаблон v3",
@@ -14380,8 +14389,8 @@
      "name": "Toggle group",
      "id": "631:3104",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1183,
+     "status": "beta",
+     "descLen": 1388,
      "descHeads": [
       "Status:",
       "Level:",
@@ -14391,6 +14400,7 @@
       "• M:",
       "Когда использовать:",
       "Правила:",
+      "Длинный текст:",
       "A11y:"
      ],
      "inBoard": false,

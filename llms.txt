@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-13: beta 86 наборов, draft 31, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-13: beta 92 наборов, draft 25, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -36,8 +36,10 @@
 ## Компоненты: beta — можно брать
 
 - [Accordion](docs/components/accordion.md): вторичная информация, FAQ, длинные настройки
+- [Address](docs/components/address.md): не описано
 - [Amount](docs/components/amount.md): Денежная сумма: число, тикер и необязательный фиатный эквивалент. Единый способ показать сумму в продукте
 - [Avatar](docs/components/avatar.md): Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото
+- [Avatar group](docs/components/avatar-group.md): не описано
 - [Badge](docs/components/badge.md): Неинтерактивная метка статуса или свойства («Активен», «Новое», «−5 %», монета). Нажать нельзя
 - [Counter](docs/components/counter.md): Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус
 - [Breadcrumb item](docs/components/breadcrumb-item.md): Пункт хлебных крошек: ссылка на предыдущий уровень; Current — текущая страница, не ссылка
@@ -56,6 +58,7 @@
 - [Coin](docs/components/coin.md): список монет, выбор монеты, суммы, история операций
 - [Coin stack](docs/components/coin-stack.md): несколько монет в одной строке (мультивыбор, майнинг нескольких монет)
 - [Date cell](docs/components/date-cell.md): не описано
+- [Date range field](docs/components/date-range-field.md): выгрузки, фильтры по периоду, отчёты
 - [Divider](docs/components/divider.md): разделить группы без карточек
 - [Floating button](docs/components/floating-button.md): одно частое действие на экране-списке
 - [Icon button](docs/components/icon-button.md): Кнопка-иконка: закрыть, «…», копировать, фильтр, обновить. Та же основа, что у Button
@@ -69,6 +72,7 @@
 - [Input addon / Icon](docs/components/input-addon-icon.md): не описано
 - [Input amount](docs/components/input-amount.md): суммы вывода/перевода с монетой и Max
 - [Legend item](docs/components/legend-item.md): легенда графика; кликабельная — скрыть/показать серию. Серия никогда не только цветом: подпись обязательна
+- [Legend swatch](docs/components/legend-swatch.md): маркер серии в легенде и тултипе
 - [Menu item](docs/components/menu-item.md): не описано
 - [Multiselect option](docs/components/multiselect-option.md): пункты списка с множественным выбором (сети, монеты, воркеры)
 - [Multiselect](docs/components/multiselect.md): фильтры, выбор нескольких сетей, монет или воркеров
@@ -87,6 +91,7 @@
 - [Radio](docs/components/radio.md): Один вариант из нескольких (2–5). Основа — legacy `baseRadio` (круг 20, точка 8, подпись через 12)
 - [Radio card](docs/components/radio-card.md): выбор одного из нескольких вариантов с пояснением (расписание выгрузки, тариф, способ вывода)
 - [Radio group](docs/components/radio-group.md): не описано
+- [Scrollbar](docs/components/scrollbar.md): Web, где системный скроллбар ломает вид (тёмные панели, списки в оверлеях)
 - [Segment](docs/components/segment.md): Элемент Segmented. Отдельно не используется
 - [Segmented](docs/components/segmented.md): режим или фильтр-значение внутри карточки, виджета, формы
 - [Select](docs/components/select.md): 5+ вариантов или длинные названия
@@ -120,6 +125,7 @@
 - [Tabs](docs/components/tabs.md): 2–7 разделов одного контекста
 - [Textarea](docs/components/textarea.md): текст длиннее одной строки (комментарий, обращение)
 - [Toggle](docs/components/toggle.md): Переключатель: мгновенно включает настройку, без «Сохранить». Основа — legacy `baseToggle` (дорожка 48×28 / 40×24, ползунок 20 / 16)
+- [Toggle group](docs/components/toggle-group.md): не описано
 - [Tooltip tour](docs/components/tooltip-tour.md): первый вход, новая функция, тур по нескольким элементам
 
 ## Базы и служебные слои (в макетах напрямую не используются)

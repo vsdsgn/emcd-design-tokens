@@ -4,6 +4,7 @@
 
 ## 2026-11-13
 
+- **Стенд и перевод в beta (ночь):** 70 атомов и молекул → beta после стенда и правок (`docs/stand-review/FIXES.md`); обводка оверлеев перенесена на `overlay surface` (была невидима); Select Open — шеврон вверх, без каретки; Table cell / Star — звезда стала Icon button; Promo card — картинка в потоке; Password field — «глаз» в слоте Trailing; Counter — высота по содержимому (min — токен). Перевод не MAJOR: свойства не переименованы, оси не менялись (кроме порядка Pressed у Select compact).
 - **После Publish Foundations (28 `size/*`)** — привязано в Components: `bind-sizes-extra` 38 min / max (Code input, Select compact, Legend item, Step, Chart metric, Chart tooltip, Chart axis label, Page header), `bind-dims` 363 размера (Avatar, Coin, Step symbol / trail / segment / progress, Progress, Progress circle, Scrollbar, Legend swatch, Code cell, Nav item, Select compact, Table header cell, Table row, Table cell / *, Transaction). Значения не менялись. Временные строки реестра, `MINMAX_OK`, `SIZE_PENDING` сняты.
 - **Foundations: `surface/raised` в Dark** `neutral/850` → `neutral/700` (#1a1a1a → #262626; ок Стефана 13.11): поповеры, тултипы, тосты были вровень с L1 и темнее L2 / L3. Ждёт Publish.
 - **Amount** — draft → beta (стенд, контракт `docs/components/amount.md`). Правок набора нет.

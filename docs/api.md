@@ -21,6 +21,16 @@ undefined · beta · Vue `<DsAccordion>` · Flutter `DsAccordion` · контр�
 
 Состояния в Figma: Default · Hover · Skeleton · Disabled · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
 
+## Address
+
+undefined · beta · Vue `<DsAddress>` · Flutter `DsAddress` · контракт `docs/components/address.md`
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `format` | short \| full | по правилу контракта | ось Format |
+
+Состояния в Figma: Default · Copied — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
+
 ## Amount
 
 undefined · beta · Vue `<DsAmount>` · Flutter `DsAmount` · контракт `docs/components/amount.md`
@@ -48,6 +58,15 @@ undefined · beta · Vue `<DsAvatar>` · Flutter `DsAvatar` · контракт 
 | `type` | text \| icon \| image | по правилу контракта | ось Type |
 | `initials` | string | — | свойство Initials |
 | `status` | boolean | false | свойство Status |
+
+## Avatar group
+
+undefined · beta · Vue `<DsAvatarGroup>` · Flutter `DsAvatarGroup` · контракт `docs/components/avatar-group.md`
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | xs \| s \| m | по правилу контракта | ось Size |
+| `more` | off \| on | по правилу контракта | ось More |
 
 ## Badge
 
@@ -282,6 +301,14 @@ undefined · beta · Vue `<DsDateCell>` · Flutter `DsDateCell` · контра�
 
 Состояния в Figma: Default · Hover · Today · Selected · Range start · Range middle · Range end · Outside · Disabled · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
+## Date range field
+
+undefined · beta · Vue `<DsDateRangeField>` · Flutter `DsDateRangeField` · контракт `docs/components/date-range-field.md`
+
+Props нет.
+
+Состояния в Figma: Default · Focus · Filled · Error · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
+
 ## Divider
 
 undefined · beta · Vue `<DsDivider>` · Flutter `DsDivider` · контракт `docs/components/divider.md`
@@ -434,6 +461,15 @@ undefined · beta · Vue `<DsLegendItem>` · Flutter `DsLegendItem` · конт�
 | `showValue` | boolean | false | свойство Show value |
 
 Состояния в Figma: Default · Hover · Selected · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
+
+## Legend swatch
+
+undefined · beta · Vue `<DsLegendSwatch>` · Flutter `DsLegendSwatch` · контракт `docs/components/legend-swatch.md`
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `marker` | dot \| line | по правилу контракта | ось Marker |
+| `series` | 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7 \| 8 | по правилу контракта | ось Series |
 
 ## Menu item
 
@@ -653,6 +689,16 @@ undefined · beta · Vue `<DsRadioGroup>` · Flutter `DsRadioGroup` · конт�
 | `helper` | string | — | свойство Helper |
 
 Состояния в Figma: Default · Error · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
+
+## Scrollbar
+
+undefined · beta · Vue `<DsScrollbar>` · Flutter `DsScrollbar` · контракт `docs/components/scrollbar.md`
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `orientation` | vertical \| horizontal | по правилу контракта | ось Orientation |
+
+Состояния в Figma: Default · Hover · Dragging — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
 ## Segment
 
@@ -1054,6 +1100,21 @@ undefined · beta · Vue `<DsToggle>` · Flutter `DsToggle` · контракт 
 | `showDescription` | boolean | false | свойство Show description (слой `_Selection control`, база `_Selection control`) |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+
+## Toggle group
+
+undefined · beta · Vue `<DsToggleGroup>` · Flutter `DsToggleGroup` · контракт `docs/components/toggle-group.md`
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `direction` | vertical | по правилу контракта | ось Direction |
+| `size` | m \| s | по правилу контракта | ось Size |
+| `showLabel` | boolean | true | свойство Show label |
+| `showHelper` | boolean | true | свойство Show helper |
+| `label` | string | — | свойство Label |
+| `helper` | string | — | свойство Helper |
+
+Состояния в Figma: Default · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
 ## Tooltip tour
 
