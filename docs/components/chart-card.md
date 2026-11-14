@@ -99,4 +99,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS Web `bar widget` type vertical / horizont / circle → Type Bars / Horizontal / Gauge; `.layout / graphic` · `.layout / bar` (top / center / bottom) → слоты Top / Content / Bottom; `widget Graph` (песочница) → Type Line; Firmware «Chain's Hashrate / Power / Fans» → Type=Line + Segmented в Top. Нужен скрин прода (дашборд Web App, Firmware).

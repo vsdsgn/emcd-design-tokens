@@ -71,4 +71,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS App нижняя навигация (`tabbar`) → Tab bar + Safe area; `tabbar item` active → Tab bar item Selected; высота 91 → 57 + safe area. DS Web — нет; мобильный веб — та же схема.

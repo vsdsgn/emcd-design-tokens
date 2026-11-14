@@ -11,7 +11,7 @@
 ## 2. Intent
 - Подсказка к элементу на Web: что делает иконка, что значит термин, почему контрол неактивен, полный текст обрезанного значения. Без действий внутри. Форма — legacy «base tooltip».
 - Когда использовать: не описано
-- Когда нет: не описано
+- Когда нет: |
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
@@ -49,7 +49,7 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 9. Accessibility
-- |
+- Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
 - `корень`: maxw `size/tooltip/max`; minh `size/tooltip/min`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`.
@@ -76,4 +76,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS Web `base tooltip / neutral --1.5`: arrow placement top / bottom / left / right + tooltip arrow → Placement Top / Bottom / Start / End / None (arrow=false → None); Content Text / Limits / Swap → Text / Custom (слот); `base tooltip / color --1.5` → Tooltip tour. DS App `tooltip` → Tooltip.

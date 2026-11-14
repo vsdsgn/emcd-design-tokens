@@ -1,5 +1,30 @@
 # Открытые вопросы и отложенное
 
+## Перепроверка 14.11 — нужен «ок» Стефана (рекомендация в каждом пункте)
+
+1. 7 аддонов Input удалить → слоты поля и атомы (Clear, Stepper — Icon button; Max — Button Text; Counter — Counter; Unit — текстовый слой в `_Field base`).
+2. Overlay удалить — это токен затемнения.
+3. Table cell / * (14 наборов) → одна ячейка со слотом (решение 16.10).
+4. Dot, Page dot, Step segment → служебные `_…`, не публиковать.
+5. Chart axis label → текстовый стиль внутри Chart plot.
+6. Status screen → из Base в шаблоны экранов.
+7. Skeleton: убрать фигуры Button / Input / Chip (загрузка контрола — его State=Skeleton).
+8. Transaction и Notification → надстройки над `_List row` (как Menu item).
+9. Убрать оси, склеивающие разное: Chart card Type, Sheet Type, List item Style=Card, Step symbol Type=Checked.
+10. Токен нейтральной подложки `status/neutral/subtle` (сейчас 11 неинтерактивных атомов на `action/secondary/default`; кнопочные `action/inverse|primary` у Snack, Toast, Tooltip, точки Notification). Публикует Стефан.
+11. Segment: убрать тона Success / Danger; Neutral + Accent тинтом.
+12. Toggle — без ошибки (мгновенное применение), записать в модель.
+13. Code input без Hover — исключение модели «Поле».
+14. Date range field, Step progress, Chart metric — оставить.
+15. Slider в Base — парковка.
+16. Icon button: ось Loading → булево свойство, как у Button (удаляет 48 вариантов Loading=True).
+17. Поля в Dark: `control/surface/default` = neutral.950 — на L1–L3 поле темнее поверхности («чёрная дыра»). Рекомендация: Dark → `alpha.white.4` (или `surface/current`). Существующий токен — меняет только Стефан.
+18. Floating button Loading — тем же способом, что решим в п. 16.
+19. Input amount: ось Filled → значение State=Filled, как у семьи полей (удаляет 4 варианта Filled=True × Hover/Focus/Error/Disabled — значение задаёт свойство Value). Пересадку на `_Field base` не делаю: другая анатомия (крупная сумма + описание внутри, шапка с балансом) — записать паттерном-исключением семьи полей. Уже сделано: «Макс» — Button Text S, добавлен Skeleton.
+
+Нужны скрины прода (опоры в legacy нет): File upload, Pagination, Snack, Side panel, Address, Stat card; Calendar — Web App «Выгрузка».
+Порядок значений осей State в панели свойств не меняется через API — после перекладки сеткой default верный, порядок в выпадающем списке проверить в Figma.
+
 ## Этап 1 — Token Migration & Mapping (с 2026-10-09; закрыт, работа идёт над компонентами — см. HANDOFF)
 
 Бриф Стефана 2026-10-09. Таблица одна: Foundations «🔁 Migration · legacy → DS 2.0» (28:3) ← `docs/migration/color-map.csv` → `scripts/color-migration.py`. Foundations-переменные без ок Стефана не меняем.

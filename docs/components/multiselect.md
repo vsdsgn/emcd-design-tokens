@@ -102,7 +102,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текст и языки — только Count · Default; правки 13.11 (Select, плейсхолдер Chips) стендом не перепроверены; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy в описании Figma не указан («—»): новый компонент 2.0 на базе Select, Menu, Multiselect option, Chip.
+- DS Web `multiselect_input` → Multiselect (поле, чипы / счётчик); `Dropdown wrapper` (Multiselect menu) → Menu с Search и Multiselect option; `Dropdown` Type=Multiselect → слот Items. DS App — нет.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - На проверку: при тексте 200 % первая строка меню не увеличивается — проверить текстовый слой первого Multiselect option в Menu.

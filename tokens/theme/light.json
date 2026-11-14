@@ -159,6 +159,10 @@
     "inverse-secondary": {
       "$type": "color",
       "$value": "{color.alpha.white.56}"
+    },
+    "link-inverse": {
+      "$type": "color",
+      "$value": "{brand.accent.fg-on-dark}"
     }
   },
   "icon": {

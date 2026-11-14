@@ -76,4 +76,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS Web `DateRange.Panel`, `PeriodPresets` → Date range panel (Calendar + пресеты + футер); DS App — нет.

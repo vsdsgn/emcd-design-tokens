@@ -99,6 +99,7 @@
   "textDangerHover": "#a02522",
   "textDangerPressed": "#7e1b19",
   "textInverseSecondary": "#ffffff8f",
+  "textLinkInverse": "#b678fd",
   "iconPrimary": "#0a0a0a",
   "iconSecondary": "#000000b8",
   "iconTertiary": "#0000008f",

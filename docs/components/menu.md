@@ -79,4 +79,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS Web `Dropdown` Type Menu / Multiselect / Coins / Wallet / Subaccount / Payment / Net / … → слот Items (пресеты — примеры содержимого); `Search` в Dropdown → Search (Input M); `Dropdown item` → Menu item. DS App `menu` → Menu; `bottom sheet menu` → Sheet Type=Menu.

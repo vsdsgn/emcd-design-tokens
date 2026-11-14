@@ -87,4 +87,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS Web `widget Navigation header` → Page header (Size Large / Compact; Breadcrumbs, слоты Tabs и Actions); DS App шапка (`navigation bar`) → Top bar — набора нет, решить Page header vs Top bar. Нужен скрин прода App.

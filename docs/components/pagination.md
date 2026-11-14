@@ -91,7 +91,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; длинный текст и языки — подменой подписей вложенных Pagination item; правки высоты Compact и ширины Pagination item 13.11 стендом не перепроверены; код — HTML/CSS.
 
 ## 15. Migration
-- В описании Figma строки Legacy нет.
+- Legacy нет: в legacy и продуктах не найдена, нарисована в стиле 2.0 → Type Pages | Compact, Size S | M; Pagination item — State Default | Hover | Pressed | Selected | Disabled. Нужен скрин прода.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Стрелки Disabled на первой / последней странице в вариантах не показаны.

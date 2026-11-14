@@ -98,6 +98,7 @@
 
 ## 15. Migration
 - DS Web `Step Text - Horizontal` (Leading Text, Type, State) → Step: State Default | Current | Success, Label, Description + Show description; Type — у вложенного Step symbol.
+- DS Web `Stepper H / V` (Step Symbol + Step Trail + Step Text) → набора Stepper в 2.0 нет, Step trail в Step не вложен; DS App — нет.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - max-width подписи и описания 120 — числом (текстовые слои).

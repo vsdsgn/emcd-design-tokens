@@ -79,4 +79,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS Web `DataPicker / DateRange.Panel`, `PeriodGrid`, `PeriodPresets` → Calendar (Mode Single / Range), ячейка `PeriodGridItem` → Date cell, пресеты → Date range panel; DS App — нет. Нужен скрин прода (Web App «Выгрузка»).

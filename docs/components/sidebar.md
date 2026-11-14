@@ -83,4 +83,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS Web `sidebar / default` (widget Sidebar): Header frame / Navbar / Footer frame → слоты Header / Nav / Footer; ru → локализация текстом; `Sidebar item` → Nav item. `Balance widget` + Hotkeys — вынесен из DS, не переносим. DS App — нет.

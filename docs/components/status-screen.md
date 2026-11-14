@@ -75,4 +75,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS App `Status screen`, `Success screen` → Status screen (в инвентаризации — шаблон экрана: Empty state + Key-value); DS Web — нет.

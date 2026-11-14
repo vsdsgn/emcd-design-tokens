@@ -86,7 +86,7 @@
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
 ## 15. Migration
-- DS Web breadcrumbs → Breadcrumb item + Breadcrumbs; состояния Hover / Pressed / Disabled — новые.
+- Legacy нет (DS Web / App — «—»); состояния Hover / Pressed / Disabled — по модели 2.0. Нужен скрин прода.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - `label` — привязать текстовый стиль (у Current — свой вес).

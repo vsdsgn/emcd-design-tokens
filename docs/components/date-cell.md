@@ -97,7 +97,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кольцо фокуса и Safe margin видны частично (ряд стенда обрезает выступ); кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy в описании Figma не указан; ось State (10 значений) и свойство Day — по набору 2.0.
+- DS Web `PeriodGridItem` (DataPicker / PeriodGrid) → Date cell; DS App — нет. Ось State (10 значений) и свойство Day — по набору 2.0; размер ячейки сверить с `PeriodGrid`.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - `hit area · web` 40 × 40 — числом.

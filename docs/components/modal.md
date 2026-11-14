@@ -90,4 +90,4 @@
   - DESC: нет: Правила:
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS Web `base modal header / title` · `title select` → Header=Title (select → Select compact в заголовке); `/ coin` · `coin select` → Coin; `/ empty` → Empty; divider → Divider; description → Header description. `base modal footer / single button` → Footer=Single; `/ two buttons` default / horizontal / horizontal zen → Stacked / Horizontal; `/ empty` → None; fade — в коде. desktop → ширина 540, на Compact — Sheet; радиус 16 → 24. DS App `Modal header / footer / content` → Modal.

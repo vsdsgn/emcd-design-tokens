@@ -79,4 +79,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: Legacy нет (DS Web / App — «—»; File upload · file — 0 использований); продуктовый экран в таблицах не назван, нужен скрин прода.

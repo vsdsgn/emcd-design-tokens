@@ -83,4 +83,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: Собран по пробелу DS Web: выпадающий список с вкладками, поиском, «Сбросить всё», «Ничего не нашли»; ближайший legacy — `Dropdown wrapper` (в инвентаризации — у Multiselect menu). DS App — нет; строки в components.csv нет.

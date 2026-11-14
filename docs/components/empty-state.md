@@ -87,4 +87,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS Web / DS App `empty state`: position vertical / horizontal → Layout; illustration / title / text frame / action 1 / action 2 → Show illustration / Title / Show text / Show actions; dashed background → Dashed background; `actions` (buttons / input / badge / link) → слот Actions. Вложенный legacy Button/Link/S → Button Type=Text.

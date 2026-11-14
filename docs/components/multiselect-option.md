@@ -86,7 +86,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; свойства вложенного `_List row` (Selected, Leading, Description, Focus ring, Show hit area, Safe margin) не просмотрены — у набора своих свойств нет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy в описании Figma не указан; State=Selected заменён булевым Selected базы `_List row`.
+- DS Web `Selectable list item` → Multiselect option; DS App — нет. State=Selected заменён булевым Selected базы `_List row`.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Порядок оси State: Pressed после Disabled — поставить Default, Hover, Pressed, Disabled.

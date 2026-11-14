@@ -104,7 +104,8 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; длинный текст и языки — только Icon, подпись Extended не проверена; RTL стенд не проверяет; код — HTML/CSS.
 
 ## 15. Migration
-- Legacy в описании не указан: новый компонент 2.0 (Layout Icon | Extended, State Default | Hover | Pressed | Disabled).
+- DS App `button float` (main | inside) → Floating button; DS Web — нет. Соответствие main / inside → Layout Icon | Extended не снято: размер 56, Extended и тень сверить с DS App.
+- State Hover | Pressed | Disabled — новые.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Проверить Extended с длинной подписью и языками; записать поведение при подписи длиннее 20 знаков.

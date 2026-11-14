@@ -114,7 +114,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; ось State (Hover / Pressed), свойства Focus ring / Show hit area / Safe margin, плашка иконки и усечение даты — после стенда, им не проверены; код — HTML/CSS.
 
 ## 15. Migration
-- Legacy в описании Figma не указан; табличный вариант — DS Web `table / transaction` → Table cell / Transaction.
+- DS App `txn-card-history` → Transaction (List item + Amount + Status); DS Web — нет; табличный вариант — DS Web `table / transaction` → Table cell / Transaction.
 - Ось State (Default | Hover | Pressed) и свойства Focus ring, Show hit area, Safe margin — новые; экземпляры получают State=Default.
 
 Осталось доделать (после пакета правок beta 2026-11-13):

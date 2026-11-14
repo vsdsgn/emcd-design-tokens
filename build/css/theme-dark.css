@@ -155,6 +155,7 @@
   --text-accent: var(--brand-accent-fg-on-dark);
   --text-link: var(--brand-accent-fg-on-dark);
   --text-link-hover: var(--brand-accent-fg-strong-on-dark);
+  --text-link-inverse: var(--brand-accent-fg-on-light);
   --icon-accent: var(--brand-accent-fg-on-dark);
   --icon-on-subtle-accent: var(--accent-on-subtle);
   --action-primary-hover: var(--brand-accent-solid-hover);

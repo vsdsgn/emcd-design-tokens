@@ -88,7 +88,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; Items=Collapsed добавлен после стенда и им не проверен; код — HTML/CSS.
 
 ## 15. Migration
-- DS Web breadcrumbs → Breadcrumbs (ось Items) + Breadcrumb item.
+- Legacy нет (DS Web / App — «—», legacy-map: «нет в legacy»); нужен скрин прода.
 - Items=Collapsed — новое значение (первый пункт, «…», два последних); прежние экземпляры не меняются.
 
 Осталось доделать (после пакета правок beta 2026-11-13):

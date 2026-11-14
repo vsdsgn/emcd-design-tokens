@@ -1,6 +1,6 @@
 # DS 2.0 — передача контекста (handoff)
 
-Документ для нового чата / нового исполнителя. Обновлено: 2026-11-13.
+Документ для нового чата / нового исполнителя. Обновлено: 2026-11-14.
 
 ## Где работать (решение Стефана 2026-10-17)
 
@@ -49,6 +49,26 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 4. По теме задачи: `style.md` + `visual-language.md` (Base/Expressive, декор), `platforms.md` (Web / Mobile web / iOS / Android, хаптики), `components.md` (правила, a11y, фокус), `effects.md`, `motion.md`, `a11y-report.md`, `browser-support.md` (браузеры, тест `npm run test:browsers`), `performance.md` (загрузка, кадры, перф-гард, `npm run test:perf`), `migration/`.
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
+
+## Состояние на 2026-11-14 — перепроверка после «косяков много»
+
+Стефан: «косяков много, перепроверить». Пересборка борд остановлена: сначала компоненты, потом один прогон всех борд генератором.
+
+- **Аудиты** (файлы, не Figma): состояния + цвета — 68 находок; разведение / лишние компоненты / опора на прод — 72. Решения, где нужен «ок» Стефана, — список из 19 пунктов в `OPEN-QUESTIONS.md` («Перепроверка 14.11»).
+- **Генератор борд** `scripts/figma/board-v3.plugin.js` (+ данные `scripts/board-data.mjs`): живёт текстом в узле страницы «⚑ Генератор · временный», запуск — `new AsyncFunction('D', node.characters)(D)`; файл и узел держать одинаковыми (длина + контрольная сумма). Новое: раздел 07 «Примеры в составе» (родители из манифеста, свойство, показывающее компонент, включено), матрица — строки по порядку опций, ряд с запасом под выступающий тултип, склонение «вариант/а/ов». Старые борды — на странице «🗄 Борды до генератора 14.11» до «ок» Стефана. Пересобрано 19 борд (ид в журнале сессии), 20 draft-борд с пустыми контрактами не трогаем.
+- **Исправлено в Components:**
+  - Вариант по умолчанию был Skeleton у Badge и Table header cell; у 24 наборов Default теперь левый верхний (Figma берёт default и порядок по положению на холсте, не по слоям).
+  - Icon button и Button: тултип Danger — `text/primary`; спиннер Danger / Text — дуга и дорожка по тону; Disabled — `icon/disabled`.
+  - Цвета: Radio card / Chip / Segment Disabled, Date cell Outside (`text/tertiary`) и Disabled (зачёркнут), Tooltip Accent (`text/on-accent`), Tooltip tour (без сырой прозрачности), Counter Neutral, Circle timer / Step segment / Page dot On → `control/checked` / `control/track`, Scrollbar → `scrollbar/thumb*`, Select compact Open, Input amount «Макс» `text/accent`, обводки тултипов → `border/default`, Avatar инициалы `accent/on-subtle`, Tab индикатор, Tab bar item Selected — акцент.
+  - Nav item Selected — по модели «Навигация»: плашка `surface/active` + индикатор `border/accent` 2×20 слева, без тинта.
+  - Выбор — отдельная ось `Selected` у Nav item, Pagination item, Table row, Legend item (+ Hover / Pressed выбранного).
+  - Skeleton добавлен: Avatar, Coin, Chip.
+  - Композиция: Table cell / Coin и Select compact — атом Coin; Table cell / Avatar — Avatar; Page header — Breadcrumbs; Empty state — Button вместо legacy; Sidebar — Promo card вместо продуктового Balance widget (свойство Balance → Promo); Promo card и Suggest Accent — Button Primary.
+  - Badge: удалены Focus ring и deprecated Close / Chevron; Chart plot State Loading → Skeleton.
+  - Страницы разведены: Counter, Chart plot, Spinner, Progress circle, Select compact, Tab bar item, Table header cell, Table row; переименованы Key-value row, Multiselect option ↔ Multiselect, Step, Chart card, Table cell.
+- **Поля:** `_Field base` Read-only ≠ Disabled, Hover — обводка `control/border/hover`; Password field — State как у семьи; Date range field, Multiselect — + Hover, Skeleton; Input amount — «Макс» Button Text, + Skeleton (пересадка на базу — решение п. 19). File upload + Pressed. Полный список — `docs/stand-review/FIXES.md` «2026-11-14».
+- **Контракты:** Button и Icon button — Danger есть у всех типов, кроме Inverted (и Ghost у Icon button). §15 «Миграция» заполнен у 34 наборов.
+- **Дальше:** решения Стефана → удаление/перестройка; семья полей (Input amount на `_Field base`, Password field, Date range field, Multiselect), Read-only ≠ Disabled, Floating button Loading; пересъёмка манифеста (устарел: вложенность от 13.11); прогон всех борд; проверки; Claude DS.
 
 ## Состояние на 2026-11-13
 

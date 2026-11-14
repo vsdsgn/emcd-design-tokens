@@ -84,4 +84,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS Web `.graphics` state loading / default / hover / disabled / empty → State; типы — по песочнице DS Web и Firmware: хешрейт → Line, хешрейт WL / мощность Monitoring → Area, хешрейт + реджекты → Line + Bars, температура плат → Multi-line, пул + курс → Dual area, WL payouts → Stacked bars. Компонентов графиков в продуктах не было; нужен скрин прода.

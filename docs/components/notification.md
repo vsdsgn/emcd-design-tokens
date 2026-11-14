@@ -110,7 +110,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; ось State (Hover / Pressed) и свойства Focus ring / Show hit area / Safe margin добавлены после стенда и им не проверены; код — HTML/CSS.
 
 ## 15. Migration
-- В описании Figma строки Legacy нет.
+- DS App `Card / Notification` → Notification (лента центра уведомлений); DS Web — нет. Иконку, время и точку непрочитанного сверить с DS App; в инвентаризации — кандидат в List item (решение 16.10).
 - MAJOR: ось State (Unread | Read) → Status (Unread | Read) — в макетах переназначить экземпляры; State теперь — Default | Hover | Pressed. Focus ring, Show hit area, Safe margin — новые.
 
 Осталось доделать (после пакета правок beta 2026-11-13):

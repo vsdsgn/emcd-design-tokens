@@ -12,7 +12,7 @@ const PAGE_NAME = '⚑ Стенд · временный'; const CELL_W = 560;
 const SAMPLES = { long: 'Очень длинный текст, который не помещается в одну строку и должен усечься или перенестись по правилу компонента', de: 'Rechtsschutzversicherungsgesellschaften Auszahlung', ar: 'سحب الأموال إلى المحفظة الخارجية', hi: 'बाहरी वॉलेट में निकासी', th: 'ถอนเงินไปยังกระเป๋าเงินภายนอก', ja: '外部ウォレットへの出金', kk: 'Сыртқы әмиянға қаражат шығару' };
 figma.skipInvisibleInstanceChildren = false;
 let page = figma.root.children.find(p => p.name === PAGE_NAME);
-if (REMOVE) { if (page) page.remove(); return { removed: !!page }; }
+if (REMOVE) { if (page) { await page.loadAsync(); for (const ch of [...page.children]) ch.remove(); page.remove(); } return { removed: !!page }; } // страницу с содержимым API не удаляет — сначала очистить
 if (!page) { page = figma.createPage(); page.name = PAGE_NAME; }
 await figma.setCurrentPageAsync(page);
 if (CLEAR) for (const ch of [...page.children]) ch.remove();

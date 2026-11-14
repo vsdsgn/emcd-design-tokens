@@ -82,7 +82,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 % (текста нет — без изменений); булевых свойств нет; RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Строки Legacy в описании нет — источник в DS Web / App не назван → Card (Level, Radius, Padding, Border).
+- DS Web `Card`, `Surface` → Card (Level, Radius, Padding, Border); DS App — нет. Радиусы и отступы сверить с DS Web.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Порядок оси Level `1, 2, 3, 0` — 0 поставить первым (на решение).

@@ -96,4 +96,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: DS App `bottom sheet menu` (more / send / top up / top up coinhold / exchange / coin change) → Type=Menu + слот Items; Type=Default — новое; радиус 12 → 24. DS Web — нет.

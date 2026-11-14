@@ -13,7 +13,7 @@
 - Когда нет: действие, которое не читается по иконке, — Button с подписью.
 - Правило выбора варианта:
   - Type: Ghost — самый частый (без подложки, подложка появляется слоем состояния); Primary — главное действие иконкой («+»), одна на группу; Secondary — второе по важности; Tertiary / Tertiary outline — нейтральное с подложкой / обводкой (L2–L3 — outline); Text — иконка цвета бренда; Inverted — на тёмных и цветных подложках.
-  - Tone=Danger — только Primary, Secondary, Text (отсюда 240 из 280).
+  - Tone=Danger — Primary, Secondary, Tertiary, Tertiary outline, Text; у Ghost и Inverted нет (отсюда 240 из 280).
   - Size: квадрат S 32 · M 40 · L 48 · XL 56; иконка S 16 · M 20 (касание 24) · L / XL 24 (касание 28). Рядом с Button — того же размера.
 - Не делаем: иконку без Label; две Primary рядом; Ghost на пёстрой подложке (там Inverted); размер иконки вне шкалы.
 
@@ -75,7 +75,7 @@
 - `spinner`: высота `icon/size/lg`, `icon/size/md`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/md`, `icon/size/sm`.
 - `icon`: высота `icon/size/lg`, `icon/size/md`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/md`, `icon/size/sm`.
 - `tooltip`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`; обводка `control/border/default`; толщина обводки `border/width/default`; видимость `touch/is-fine`.
-- `Скопировать`: заливка / цвет `text/danger`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `Скопировать`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/container`, `radius/control`, `radius/control-sm` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid`; толщина обводки `border/width/default` · `hit area · app`: видимость `touch/is-coarse` · `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-lg`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `safe area · content`: заливка / цвет `status/success/solid` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
 - Значений без переменной: 480 (напр. `hit area · web:w=40`, `hit area · web:h=40`, `hit area · web:w=32`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
 

@@ -2,6 +2,14 @@
 
 Формат: дата · что · где. Пишется после каждой группы правок.
 
+## 2026-11-14
+
+- **Перепроверка всех наборов** (аудиты состояний, цветов, структуры, опоры на прод): правки — `docs/stand-review/FIXES.md` «2026-11-14»; решения на «ок» Стефана — `OPEN-QUESTIONS.md` «Перепроверка 14.11» (19 пунктов).
+- **MAJOR для макетов:** Nav item, Pagination item, Table row, Legend item — `State=Selected` → `Selected=On` (экземпляры переименовываются автоматически); Password field — значения State переименованы; Badge — удалены свойства Focus ring, Close · deprecated, Chevron · deprecated; Sidebar — свойство Balance → Promo.
+- **Контракты:** Button / Icon button — Danger у всех типов, кроме Inverted (и Ghost); §15 «Миграция» заполнен у 34 наборов из legacy-таблиц (Floating button, Progress, Multiselect, Password field, Radio group — аналоги в legacy есть; Breadcrumbs — legacy нет).
+- **Генератор борд v3** — `scripts/figma/board-v3.plugin.js` + `scripts/board-data.mjs`; раздел 07 «Примеры в составе».
+- **Snack:** подпись действия — `text/link-inverse` (новый токен, опубликован 14.11).
+
 ## 2026-11-13
 
 - **Стенд и перевод в beta (ночь):** 70 атомов и молекул → beta после стенда и правок (`docs/stand-review/FIXES.md`); обводка оверлеев перенесена на `overlay surface` (была невидима); Select Open — шеврон вверх, без каретки; Table cell / Star — звезда стала Icon button; Promo card — картинка в потоке; Password field — «глаз» в слоте Trailing; Counter — высота по содержимому (min — токен). Перевод не MAJOR: свойства не переименованы, оси не менялись (кроме порядка Pressed у Select compact).

@@ -13,7 +13,7 @@
 - Когда нет: переход на другую страницу в тексте — ссылка; действие иконкой без подписи — Icon button; выбор варианта — Chip / Segmented.
 - Правило выбора варианта:
   - Type: Primary — главное действие экрана или блока, одна на группу; Secondary — второе по важности (тонированная подложка), только на L0–L1; Tertiary — нейтральное (Отмена, Назад, Фильтры); Tertiary outline — нейтральное на L2–L3 или пёстрой подложке; Text — действие внутри строки, без подложки и отступов; Inverted — на тёмных, цветных и промо-подложках, на изображениях.
-  - Tone: Default — цвет типа; Danger — разрушающее действие, есть только у Primary, Secondary, Text (отсюда 176 из 192).
+  - Tone: Default — цвет типа; Danger — разрушающее действие, есть у всех типов, кроме Inverted (отсюда 176 из 192).
   - Size: S 32 — таблицы, тулбары, фильтры; M 40 — по умолчанию в Web; L 48 — по умолчанию в App и мобильном вебе; XL 56 — главный CTA внизу на мобильном, онбординг, промо.
   - Кнопки в группе — одного размера; рядом с полем — размер поля (Input M ↔ Button M). Primary — на L0–L2.
 - Не делаем: две Primary рядом; Tone=Danger для обычных действий; иконку без подписи; подпись в две строки.
@@ -106,7 +106,7 @@
 - Props: `type`: primary | inverted | tertiary | tertiary-outline | text | secondary; `tone`: default | danger; `size`: s | m | l | xl; `label`: string или слот; `iconLeft`: boolean = false; `iconRight`: boolean = false; `loading`: boolean = false.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `loading` — props.
 - `iconLeft` / `iconRight` в коде — слоты, а не boolean + swap.
-- Type=Text + Tone=Danger и т. п. — недопустимые сочетания Tone=Danger × (Inverted, Tertiary, Tertiary outline) отсекать типами.
+- Tone=Danger есть у Primary, Secondary, Tertiary, Tertiary outline, Text; сочетание Inverted + Danger отсекать типами.
 
 ## 14. Acceptance (2026-11-13)
 - `audit.plugin.js` — 0 замечаний.

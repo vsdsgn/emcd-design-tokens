@@ -49,7 +49,7 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 9. Accessibility
-- как у Toast — role="status" (polite), фокус не забирает. |
+- как у Toast — role="status" (polite), фокус не забирает.
 
 ## 10. Tokens
 - `корень`: заливка / цвет `action/inverse/default`; интервал `space/12`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`; радиус `radius/control`.
@@ -78,4 +78,4 @@
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy: Legacy нет: в таблицах миграции не упоминается (бывший Layout=Snack из Toast 2.0). Нужен скрин прода (App).

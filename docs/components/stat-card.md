@@ -116,7 +116,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; Ambient light в Base не виден — проверять в Expressive; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Карточки дашборда Mining (Web App / App) → Stat card (Label, Value, Unit, Delta, Footer).
+- DS Web `stat card` (widget Graph) → Stat card (Label, Value, Unit, Delta, Footer); DS App — нет. Опора — карточки дашборда Mining (Web App / App); `Chart metric` сливается в Stat card. Нужен скрин прода.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - На решение: Light · L1 / Dark · L1 — заливка `surface/level-1` совпадает с подложкой, карточку держит только обводка.
