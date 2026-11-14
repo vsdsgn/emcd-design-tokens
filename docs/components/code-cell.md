@@ -1,4 +1,4 @@
-# Code cell — контракт (2026-11-13)
+# Code cell — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -81,7 +81,7 @@
 
 ## 12. Figma projection
 - Набор `Code cell`, вариантов 12 из 12; оси: Size, State.
-- Борда: «Code cell — борда · шаблон v3», разделов 9.
+- Борда: «Code cell — борда · шаблон v3», разделов 12.
 - Описание: 769 знаков, разделы: Status: Level: Ячейка кода (одна цифра). Только внутри Code input. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -91,7 +91,7 @@
 - Props: `size`: l | m; `digit`: string или слот.
 - Состояния (Empty, Focus, Filled, Error, Success, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

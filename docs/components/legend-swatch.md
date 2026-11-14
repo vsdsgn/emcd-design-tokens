@@ -1,4 +1,4 @@
-# Legend swatch — контракт (2026-11-13)
+# Legend swatch — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -61,7 +61,7 @@
 
 ## 12. Figma projection
 - Набор `Legend swatch`, вариантов 16 из 16; оси: Marker, Series.
-- Борда: «Legend swatch — борда · шаблон v3», разделов 9.
+- Борда: «Legend swatch — борда · шаблон v3», разделов 12.
 - Описание: 641 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection
@@ -70,7 +70,7 @@
 - Vue: `<DsLegendSwatch>`; Flutter: `DsLegendSwatch`.
 - Props: `marker`: dot | line; `series`: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,11 +1,11 @@
-# Select compact — контракт (2026-11-13)
+# Select compact — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Select compact`. Status: beta. Level: unknown.
-- Figma: Components, страница «Select» (`353:6`), набор `75:1449`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Select compact» (`2093:1269`), набор `75:1449`. Платформы: Web, Mobile web, iOS, Android.
 - Лежит на странице Select.
 
 ## 2. Intent
@@ -22,18 +22,19 @@
 
 ## 3. Anatomy
 - Корень: подложка `action/secondary/default`, `radius/control-sm`, отступ `space/8`, зазор `space/16` между значением и шевроном; высота `size/row/compact`, max-width `size/select-compact/max`.
-- `value` (зазор `space/6`): слот `Leading` (монета 24) + `text` (`type/label/md`, `font-weight/medium`, `text/primary`; max-width 122) → шеврон 16.
+- `value` (зазор `space/6`): слот `Leading` (атом Coin, `size/media/sm` 24) + `text` (`type/label/md`, `font-weight/medium`, `text/primary`; max-width 122) → шеврон 16.
 - `state layer` — `state/layer` × `state/hover` / `state/pressed`, `radius/control-sm`.
 - Служебные слои: `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer`.
-- Вложено: `smbl-bitcoin-btc` ×5, иконки ×5, `_Hit area` ×10, `_Safe margin` ×5.
+- Вложено: `Coin` ×5, иконки ×5, `_Hit area` ×10, `_Safe margin` ×5.
 - Служебные слои (вариантов из 5): кольцо фокуса 5 · зона Web 5 · зона касания 5 · безопасное поле 5.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`.
 - Default — подложка `action/secondary/default`.
-- Hover — слой `state/hover`; Pressed — подложка `action/secondary/pressed` + слой `state/pressed`.
-- Open — подложка темнее Default, шеврон вверх; держится, пока открыт список.
+- Hover — слой `state/hover`; Pressed — слой `state/pressed`.
+- Open — подложка `action/secondary/default` (без `*-pressed`), шеврон вверх; держится, пока открыт список.
 - Disabled — подложка `action/disabled`, текст `text/disabled`, шеврон `icon/disabled`, монета погашена.
+- Монета во всех состояниях совпадает с подписью (USDT — монета USDT).
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 5. Properties
@@ -77,8 +78,9 @@
 - Enter / Space / ↓ — открыть, ↑ / ↓ — выбор, Enter — подтвердить, Esc — закрыть.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/disabled`, `action/secondary/default`, `action/secondary/pressed`; интервал `space/16`; высота `size/row/compact`; maxw `size/select-compact/max`; отступы `space/8`; радиус `radius/control-sm`.
+- `корень`: заливка / цвет `action/disabled`, `action/secondary/default`; интервал `space/16`; высота `size/row/compact`; maxw `size/select-compact/max`; отступы `space/8`; радиус `radius/control-sm`.
 - `value`: интервал `space/6`.
+- `coin`: высота `size/media/sm`; ширина `size/media/sm`.
 - `text`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control-sm`.
 - Min / max корня: maxWidth 200 size/select-compact/max.
@@ -91,7 +93,7 @@
 
 ## 12. Figma projection
 - Набор `Select compact`, вариантов 5 из 5; оси: State.
-- Борда: «Select — борда · шаблон v3», разделов 11.
+- Борда: «Select compact — борда · шаблон v3», разделов 12.
 - Описание: 1126 знаков, разделы: Status: Level: Когда использовать: A11y: Поиск: Legacy: Правила: Длинный текст:
 
 ## 13. Code projection
@@ -101,7 +103,7 @@
 - Props: `text`: string или слот; `showLeading`: boolean = true; `leading`: string или слот.
 - Состояния (Default, Hover, Open, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (text 122).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

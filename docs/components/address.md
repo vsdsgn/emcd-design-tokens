@@ -1,4 +1,4 @@
-# Address — контракт (2026-11-13)
+# Address — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -21,7 +21,7 @@
 - Корень — вертикальный стек (`space/6`), ширина 360 числом: `label` (`text/secondary`, `type/body/sm`) → `row` → `status`.
 - `row` — плашка `surface/raised`, `radius/control`, отступы `space/12` / `space/6` / `space/4`, зазор `space/4`: `address` (`text/primary`, `font/family/mono`, `type/body/md`) и кнопки `copy` и `show QR` (`control/height/sm`, `radius/control-sm`).
 - Copied: вместо `copy` — `copied` (галочка), под строкой `status` «Адрес скопирован» (`text/success`, `type/body/sm`).
-- Вложено: иконки ×8.
+- Вложено: `Icon button` ×8.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -75,7 +75,7 @@
 
 ## 12. Figma projection
 - Набор `Address`, вариантов 4 из 4; оси: Format, State.
-- Борда: «Address — борда · шаблон v3», разделов 10.
+- Борда: «Address — борда · шаблон v3», разделов 11.
 - Описание: 1184 знаков, разделы: Status: Level: Short — Копировать — Когда нет: A11y: Формат адреса: Когда использовать: Правила:
 
 ## 13. Code projection
@@ -85,7 +85,7 @@
 - Props: `format`: short | full.
 - Состояния (Default, Copied) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

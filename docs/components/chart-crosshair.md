@@ -1,4 +1,4 @@
-# Chart crosshair — контракт (2026-11-13)
+# Chart crosshair — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -61,7 +61,7 @@
 
 ## 12. Figma projection
 - Набор `Chart crosshair`, вариантов 2 из 2; оси: Target.
-- Борда: «Chart crosshair — борда · шаблон v3», разделов 9.
+- Борда: «Chart crosshair — борда · шаблон v3», разделов 12.
 - Описание: 753 знаков, разделы: Status: Level: Перекрестие под курсором: Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection
@@ -70,7 +70,7 @@
 - Vue: `<DsChartCrosshair>`; Flutter: `DsChartCrosshair`.
 - Props: `target`: line | bar.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

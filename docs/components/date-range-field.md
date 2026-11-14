@@ -1,4 +1,4 @@
-# Date range field — контракт (2026-11-13)
+# Date range field — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -12,7 +12,7 @@
 - Когда использовать: выгрузки, фильтры по периоду, отчёты.
 - Когда нет: одна дата — Input с календарём; быстрый выбор («7 дней», «30 дней») — Chip или Segmented.
 - Правило выбора варианта:
-  - State: Default — пусто, плейсхолдер формата; Focus — поле активно, панель открыта или идёт ввод; Filled — период выбран; Error — период не прошёл проверку (после выбора); Disabled — выбор недоступен.
+  - State: Default — пусто, плейсхолдер формата; Focus — поле активно, панель открыта или идёт ввод; Filled — период выбран; Error — период не прошёл проверку (после выбора); Disabled — выбор недоступен; Hover — указатель над полем; Skeleton — форма грузится.
   - Ограничение периода показывается в подсказке до выбора, ошибка — после; одновременно — одно сообщение.
   - Формат даты — по локали (дд.мм.гг в ru); стрелка между датами направленная; ввод с клавиатуры допустим.
   - База — Input Size=M, Label position=On border; длинная подпись — Label position=Above. Ширина не меньше `size/field/min` (160).
@@ -22,26 +22,26 @@
 - Корень — экземпляр Input (Size=M, Label position=On border), min-width `size/field/min`: подпись на рамке (`notch text` в `_Field base`, одна строка ≤ 240), значение, подсказка / ошибка под полем.
 - Справа — Input addon / Icon с `icon/calendar`.
 - Своих служебных слоёв нет: кольцо фокуса, зона нажатия и безопасное поле — из Input.
-- Вложено: `Input` ×5.
-- Служебные слои (вариантов из 5): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Input` ×7.
+- Служебные слои (вариантов из 7): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Группа модели состояний (`docs/components.md`): Поле ввода: состояние — цветом рамки и сообщения, слоя `state/layer` нет; Disabled — токены `*/disabled` (всё из Input).
+- Группа модели состояний (`docs/components.md`): Поле ввода: состояние — цветом рамки и сообщения; Hover — обводка `control/border/hover` + слой; Disabled — токены `*/disabled`; Skeleton — загрузка (всё из Input).
 - Default — плейсхолдер «ДД.ММ.ГГ → ДД.ММ.ГГ», под полем подсказка.
 - Focus — тёмная рамка и каретка в начале значения.
 - Filled — выбранный период основным цветом текста.
 - Error — красная рамка, сообщение об ошибке вместо подсказки.
 - Disabled — серая заливка; подпись, значение, подсказка (`text/disabled`) и иконка календаря (`icon/disabled`) погашены.
-- Hover в наборе нет.
+- Hover — обводка `control/border/hover` и слой состояния; Skeleton — плашка вместо поля (оба — через вложенный Input).
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| State | Default · Focus · Filled · Error · Disabled | Default |
+| State | Default · Focus · Filled · Error · Disabled · Hover · Skeleton | Default |
 
-Матрица полная: 5 вариантов.
+Матрица полная: 7 вариантов.
 
 - Своих свойств у набора нет: подпись, значение и подсказка — свойства слоя `Field` во вложенном Input.
 
@@ -71,15 +71,15 @@
 - `корень`: мин. ширина `size/field/min`.
 - `field`: мин. ширина `size/field/min`.
 - Min / max корня: minWidth 160 size/field/min.
-- Значений без переменной: 5 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 7 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Date range field`, вариантов 5 из 5; оси: State.
-- Борда: «Date range field — борда · шаблон v3», разделов 10.
+- Набор `Date range field`, вариантов 7 из 7; оси: State.
+- Борда: «Date range field — борда · шаблон v3», разделов 11.
 - Описание: 937 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
@@ -87,9 +87,9 @@
 
 - Vue: `<DsDateRangeField>`; Flutter: `DsDateRangeField`.
 - Props: нет.
-- Состояния (Default, Focus, Filled, Error, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
+- Состояния (Default, Focus, Filled, Error, Disabled, Hover, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -97,9 +97,8 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %; булевых свойств у набора нет; RTL стенд не проверяет; формат даты по локали не проверялся; правки 13.11 (Disabled, подпись на рамке ≤ 240) стендом не перепроверены; кода нет — parity props пропущена.
 
 ## 15. Migration
-- DS Web `DateRange.Field` → Date range field (State Default | Focus | Filled | Error | Disabled); база — Input Size=M, Label position=On border, справа Input addon / Icon с `icon/calendar`.
+- DS Web `DateRange.Field` → Date range field (State Default | Focus | Filled | Error | Disabled; Hover и Skeleton — новые); база — Input Size=M, Label position=On border, справа Input addon / Icon с `icon/calendar`.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Текст 200 %: подпись на рамке налезает на значение, высота поля не растёт — править в `_Field base` (подпись в Above или рост поля; вопрос 4 пилота).
 - Ширина корня 320 — числом.
-- Hover на оси State нет — на решение: добавить или записать «только в коде».

@@ -1,4 +1,4 @@
-# Chip — контракт (2026-11-13)
+# Chip — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -18,15 +18,16 @@
 - Не делаем: вертикальная раскладка (убрана 2026-10-18); две иконки слева.
 
 ## 3. Anatomy
-- Корень: подложка + обводка `control/border/default`, радиус `radius/control*`.
+- Корень: подложка + обводка `control/border/default` (Disabled — `control/border/disabled`), радиус `radius/control*`; Skeleton — плашка `skeleton/base`.
 - `icon` · `label` · `meta` · `trailing icon` / `remove`.
 - Служебные: `state layer` (на выбранном — `state/layer-inverse`), `focus ring`, зоны, `safe area · outer`.
-- Вложено: иконки ×48.
-- Служебные слои (вариантов из 16): кольцо фокуса 16 · зона Web 16 · зона касания 16 · безопасное поле 16.
+- Вложено: иконки ×60.
+- Служебные слои (вариантов из 20): кольцо фокуса 20 · зона Web 20 · зона касания 20 · безопасное поле 20.
 
 ## 4. States
-- Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`; на выбранном — `state/layer-inverse`.
-- Default, Hover, Pressed, Disabled × Selected Off | On.
+- Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`; на выбранном — `state/layer-inverse`; Skeleton — загрузка.
+- Default, Hover, Pressed, Disabled, Skeleton × Selected Off | On.
+- Disabled — обводка `control/border/disabled`, подпись и meta `text/disabled`; Skeleton — плашка `skeleton/base` вместо содержимого.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 5. Properties
@@ -36,25 +37,25 @@
 |---|---|---|
 | Size | S · M | S |
 | Selected | Off · On | Off |
-| State | Default · Hover · Pressed · Disabled | Default |
+| State | Default · Hover · Pressed · Disabled · Skeleton | Default |
 
-Матрица полная: 16 вариантов.
+Матрица полная: 20 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «360 дней» | 16 из 16 |
-| Meta | булево | выкл | 16 из 16 |
-| Meta text | текст | «8%» | 16 из 16 |
-| Icon | булево | выкл | 16 из 16 |
-| Icon · swap | замена экземпляра | `icon/plus` | 16 из 16 |
-| Remove | булево | выкл | 16 из 16 |
-| Focus ring | булево | выкл | 16 из 16 · служебное |
-| Show hit area | булево | выкл | 16 из 16 · служебное |
-| Safe margin | булево | выкл | 16 из 16 · служебное |
-| Trailing icon | булево | выкл | 16 из 16 |
-| Trailing icon · swap | замена экземпляра | `icon/plus` | 16 из 16 |
+| Label | текст | «360 дней» | 20 из 20 |
+| Meta | булево | выкл | 20 из 20 |
+| Meta text | текст | «8%» | 20 из 20 |
+| Icon | булево | выкл | 20 из 20 |
+| Icon · swap | замена экземпляра | `icon/plus` | 20 из 20 |
+| Remove | булево | выкл | 20 из 20 |
+| Focus ring | булево | выкл | 20 из 20 · служебное |
+| Show hit area | булево | выкл | 20 из 20 · служебное |
+| Safe margin | булево | выкл | 20 из 20 · служебное |
+| Trailing icon | булево | выкл | 20 из 20 |
+| Trailing icon · swap | замена экземпляра | `icon/plus` | 20 из 20 |
 
 ## 6. Content / slots
 - Длинный текст: одна строка, усечение многоточием по max-width 240 (подпись 192); полный текст — в `title` / тултипе.
@@ -74,19 +75,19 @@
 - Remove — отдельная кнопка, `aria-label` «Убрать фильтр …»; Пробел / Enter — выбрать.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/disabled`, `action/inverse/default`; интервал `space/6`; высота `control/height/md`, `control/height/sm`; maxw `size/chip/max`; отступы `control/padding-x/sm`, `space/12`; радиус `radius/control`, `radius/control-sm`; обводка `control/border/default`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `action/disabled`, `action/inverse/default`, `skeleton/base`; интервал `space/6`; высота `control/height/md`, `control/height/sm`; maxw `size/chip/max`; отступы `control/padding-x/sm`, `space/12`; радиус `radius/control`, `radius/control-sm`; обводка `control/border/default`, `control/border/disabled`; толщина обводки `border/width/default`.
 - `label`: заливка / цвет `text/disabled`, `text/inverse`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `meta`: заливка / цвет `text/disabled`, `text/inverse`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm`.
 - Min / max корня: maxWidth 240 size/chip/max.
-- Значений без переменной: 32 (напр. `hit area · web:w=84`, `hit area · web:h=32`, `hit area · web:w=82`, `hit area · web:w=88`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 48 (напр. `hit area · web:w=84`, `hit area · web:h=32`, `hit area · web:w=82`, `hit area · web:w=88`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Chip`, вариантов 16 из 16; оси: Size, Selected, State.
+- Набор `Chip`, вариантов 20 из 20; оси: Size, Selected, State.
 - Борда: «Chip — борда · шаблон v3», разделов 12.
 - Описание: 1118 знаков, разделы: Status: Level: Чип: Когда использовать: Правила: A11y: Поиск: Legacy:
 
@@ -95,9 +96,9 @@
 
 - Vue: `<DsChip>`; Flutter: `DsChip`.
 - Props: `size`: s | m; `selected`: boolean; `label`: string или слот; `meta`: boolean = false; `metaText`: string или слот; `icon`: boolean = false; `remove`: boolean = false; `trailingIcon`: boolean = false.
-- Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
+- Состояния (Default, Hover, Pressed, Disabled, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 192 @label` числом (корень — `size/chip/max`).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

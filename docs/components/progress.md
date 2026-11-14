@@ -1,4 +1,4 @@
-# Progress — контракт (2026-11-13)
+# Progress — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -77,7 +77,7 @@
 
 ## 12. Figma projection
 - Набор `Progress`, вариантов 8 из 8; оси: Size, Tone.
-- Борда: «Progress — борда · шаблон v3», разделов 9.
+- Борда: «Progress — борда · шаблон v3», разделов 12.
 - Описание: 922 знаков, разделы: Status: Level: Progress: Когда использовать: Правила: A11y: Поиск: Legacy: Motion:
 
 ## 13. Code projection
@@ -86,7 +86,7 @@
 - Vue: `<DsProgress>`; Flutter: `DsProgress`.
 - Props: `size`: s | m; `tone`: accent | success | warning | danger; `label`: string или слот; `value`: string или слот; `showLabel`: boolean = true.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 200).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

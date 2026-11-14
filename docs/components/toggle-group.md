@@ -1,4 +1,4 @@
-# Toggle group — контракт (2026-11-13)
+# Toggle group — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -90,7 +90,7 @@
 
 ## 12. Figma projection
 - Набор `Toggle group`, вариантов 4 из 4; оси: Direction, Size, State.
-- Борда: «Toggle group — борда · шаблон v3», разделов 10.
+- Борда: «Toggle group — борда · шаблон v3», разделов 11.
 - Описание: 1388 знаков, разделы: Status: Level: Toggle group: • Direction: • Disabled — • M: Когда использовать: Правила: Длинный текст: A11y:
 
 ## 13. Code projection
@@ -100,7 +100,7 @@
 - Props: `direction`: vertical; `size`: m | s; `showLabel`: boolean = true; `showHelper`: boolean = true; `label`: string или слот; `helper`: string или слот.
 - Состояния (Default, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 436, helper 436).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

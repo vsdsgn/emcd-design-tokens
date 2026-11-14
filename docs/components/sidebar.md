@@ -1,4 +1,4 @@
-# Sidebar — контракт · draft (2026-11-13)
+# Sidebar — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -15,8 +15,8 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `Header`, `logo (placeholder)`, `balance`, `Nav`, `Nav item`, `divider`, `Rectangle`, `Footer`.
-- Вложено: `Balance widget · вынесено из DS` ×1, `Nav item` ×16.
+- Слои с токенами: `Header`, `logo (placeholder)`, `promo`, `Nav`, `Nav item`, `divider`, `Rectangle`, `Footer`.
+- Вложено: `Promo card` ×1, `Nav item` ×16.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -38,7 +38,7 @@
 | Header | SLOT | `undefined` | 2 из 2 |
 | Nav | SLOT | `undefined` | 2 из 2 |
 | Footer | SLOT | `undefined` | 2 из 2 |
-| Balance | булево | вкл | 1 из 2 |
+| Promo | булево | вкл | 1 из 2 |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -56,9 +56,9 @@
 - `корень`: эффект `material/regular/blur`; заливка / цвет `material/regular/fill`; интервал `space/8`; отступы `space/12`; радиус `radius/container`; обводка `edge/hairline`.
 - `Header`: отступы `space/12`.
 - `logo (placeholder)`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
-- `balance`: интервал `space/2xs`; отступы `space/20`, `space/md`, `space/sm`.
+- `promo`: заливка / цвет `surface/level-1`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `Nav`: интервал `space/4`.
-- `Nav item`: заливка / цвет `accent/subtle`; интервал `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
+- `Nav item`: заливка / цвет `surface/active`; интервал `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
 - `divider`: отступы `space/6`, `space/8`.
 - `Rectangle`: заливка / цвет `border/subtle`.
 - `Footer`: интервал `space/4`.
@@ -76,11 +76,11 @@
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsSidebar>`; Flutter: `DsSidebar`.
-- Props: `collapsed`: boolean; `header`: string или слот; `nav`: string или слот; `footer`: string или слот; `balance`: boolean = true.
+- Props: `collapsed`: boolean; `header`: string или слот; `nav`: string или слот; `footer`: string или слот; `promo`: boolean = true.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: DS Web `sidebar / default` (widget Sidebar): Header frame / Navbar / Footer frame → слоты Header / Nav / Footer; ru → локализация текстом; `Sidebar item` → Nav item. `Balance widget` + Hotkeys — вынесен из DS, не переносим. DS App — нет.
+- Legacy: DS Web `sidebar / default` (widget Sidebar): Header frame / Navbar / Footer frame → слоты Header / Nav / Footer; ru → локализация текстом; `Sidebar item` → Nav item. `Balance widget` (продуктовый) → свойство Promo (Promo card S); Hotkeys — не переносим. DS App — нет.

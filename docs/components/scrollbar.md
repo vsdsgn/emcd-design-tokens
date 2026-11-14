@@ -1,4 +1,4 @@
-# Scrollbar — контракт (2026-11-13)
+# Scrollbar — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -19,15 +19,15 @@
 
 ## 3. Anatomy
 - Корень — область `size/scrollbar` (12); в Hover / Dragging — дорожка `action/secondary/default`, `radius/chip`.
-- `thumb` — ползунок: Default — `size/track/sm` (4), `icon/tertiary`; Hover — `size/track/md` (8), `icon/secondary`; Dragging — `size/track/md`, `icon/primary`.
+- `thumb` — ползунок: Default — `size/track/sm` (4), `scrollbar/thumb`; Hover — `size/track/md` (8), `scrollbar/thumb-hover`; Dragging — `size/track/md`, `scrollbar/thumb-hover`.
 - `state layer` — `state/layer` × `state/hover`, `radius/chip`.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` на дорожке; свои состояния Default / Hover / Dragging, Disabled и фокуса нет.
 - Default — тонкий ползунок 4, дорожки нет; виден при прокрутке и наведении, затем гаснет.
-- Hover — ползунок 8 `icon/secondary` и дорожка.
-- Dragging — ползунок 8 `icon/primary` и дорожка.
+- Hover — ползунок 8 `scrollbar/thumb-hover` и дорожка.
+- Dragging — ползунок 8 `scrollbar/thumb-hover` и дорожка.
 
 ## 5. Properties
 Оси (варианты):
@@ -57,7 +57,7 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `action/secondary/default`; высота `size/scrollbar`; радиус `radius/chip`; ширина `size/scrollbar`.
-- `thumb`: заливка / цвет `icon/primary`, `icon/secondary`, `icon/tertiary`; высота `size/track/md`, `size/track/sm`; радиус `radius/chip`, `radius/xs`; ширина `size/track/md`, `size/track/sm`.
+- `thumb`: заливка / цвет `scrollbar/thumb`, `scrollbar/thumb-hover`; высота `size/track/md`, `size/track/sm`; радиус `radius/chip`, `radius/xs`; ширина `size/track/md`, `size/track/sm`.
 - Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`; радиус `radius/chip`.
 - Значений без переменной: 12 (напр. `(root):h=120`, `thumb:h=48`, `(root):w=120`, `thumb:w=48`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
@@ -66,7 +66,7 @@
 
 ## 12. Figma projection
 - Набор `Scrollbar`, вариантов 6 из 6; оси: Orientation, State.
-- Борда: «Scrollbar — борда · шаблон v3», разделов 9.
+- Борда: «Scrollbar — борда · шаблон v3», разделов 11.
 - Описание: 1034 знаков, разделы: Status: Level: Когда использовать: Default — A11y: Правила:
 
 ## 13. Code projection
@@ -76,7 +76,7 @@
 - Props: `orientation`: vertical | horizontal.
 - Состояния (Default, Hover, Dragging) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

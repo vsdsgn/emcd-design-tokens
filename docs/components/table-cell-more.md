@@ -1,11 +1,11 @@
-# Table cell / More — контракт (2026-11-13)
+# Table cell / More — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Table cell / More`. Status: beta. Level: unknown.
-- Figma: Components, страница «Table» (`367:42849`), набор `93:978`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Table cell» (`367:42849`), набор `93:978`. Платформы: Web, Mobile web, iOS, Android.
 - Страница «Table». Ячейка строки таблицы; вне Table row не используется.
 
 ## 2. Intent
@@ -25,7 +25,7 @@
 - `more` — квадрат `control/height/sm`, `radius/control-sm`, внутри иконка «⋯».
 - `status` — точка `status/danger/solid` у правого верхнего угла кнопки (свойство Status).
 - `skeleton` — полоса `skeleton/base`, `radius/chip`.
-- Вложено: иконки ×3.
+- Вложено: `Icon button` ×3.
 - Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -81,7 +81,7 @@
 
 ## 12. Figma projection
 - Набор `Table cell / More`, вариантов 3 из 3; оси: State.
-- Борда: «Table header cell — борда · шаблон v3», разделов 11.
+- Борда: «Table cells — борда · шаблон v3», разделов 25.
 - Описание: 611 знаков, разделы: Status: Level: Кнопка «⋯» — Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -91,7 +91,7 @@
 - Props: `status`: boolean = false.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

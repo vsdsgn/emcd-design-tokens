@@ -1,4 +1,4 @@
-# Date cell — контракт (2026-11-13)
+# Date cell — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -20,7 +20,7 @@
 
 ## 3. Anatomy
 - Корень — квадрат `control/height/md` × `control/height/md`, `radius/control-sm`; заливка `action/primary/default` (Selected, Range start / end) или `accent/subtle` (Range middle); обводка `border/accent`, `border/width/default` (Today).
-- `day` — число (`font/family/text`, `type/body/md` / `type/label/md`): `text/primary`, `text/accent`, `text/on-accent`, `text/disabled`.
+- `day` — число (`font/family/text`, `type/body/md` / `type/label/md`): `text/primary`, `text/accent`, `text/on-accent`, `text/tertiary` (Outside), `text/disabled` (Disabled).
 - Служебные: `state layer`, `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer` (свойства Focus ring, Show hit area, Safe margin).
 - Служебные слои (вариантов из 10): кольцо фокуса 10 · зона Web 10 · зона касания 10 · безопасное поле 10.
 
@@ -29,7 +29,7 @@
 - Default — число `text/primary` без подложки; Hover / Pressed — слой `state/layer` × `state/hover` / `state/pressed`.
 - Today — обводка `border/accent`, число `text/accent`; Selected — заливка `action/primary/default`, число `text/on-accent`.
 - Range start / Range end — как Selected, углы со стороны диапазона прямые (Range start — справа, Range end — слева); Range middle — заливка `accent/subtle`.
-- Outside — погашенное число, без подложки; Disabled — погашенное и зачёркнутое число, не нажимается, без Hover.
+- Outside — число `text/tertiary`, без подложки; Disabled — число `text/disabled`, зачёркнуто, не нажимается, без Hover.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 5. Properties
@@ -69,7 +69,7 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `accent/subtle`, `action/primary/default`; высота `control/height/md`; радиус `radius/control-sm`; обводка `border/accent`; толщина обводки `border/width/default`; ширина `control/height/md`.
-- `day`: заливка / цвет `text/accent`, `text/disabled`, `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/md`, `type/label/md`.
+- `day`: заливка / цвет `text/accent`, `text/disabled`, `text/on-accent`, `text/primary`, `text/tertiary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/md`, `type/label/md`; textRangeFills `text/tertiary`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-inner`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control-sm`.
 - Значений без переменной: 20 (напр. `hit area · web:w=40`, `hit area · web:h=40`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
@@ -79,7 +79,7 @@
 
 ## 12. Figma projection
 - Набор `Date cell`, вариантов 10 из 10; оси: State.
-- Борда: «Date cell — борда · шаблон v3», разделов 11.
+- Борда: «Date cell — борда · шаблон v3», разделов 12.
 - Описание: 859 знаков, разделы: Status: Level: Ячейка дня в Calendar. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -89,7 +89,7 @@
 - Props: `day`: string или слот.
 - Состояния (Default, Hover, Today, Selected, Range start, Range middle, Range end, Outside, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

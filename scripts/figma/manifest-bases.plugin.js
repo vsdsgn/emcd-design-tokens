@@ -17,7 +17,7 @@ for (const pg of figma.root.children.filter(p => PAGES.test(p.name))) {
         const b = n.boundVariables || {};
         for (const val of Object.values(b)) for (const a of (Array.isArray(val) ? val : [val])) if (a && a.id) tk.add(await vn(a.id));
         for (const kk of ['fills', 'strokes']) if (Array.isArray(n[kk])) for (const p of n[kk]) if (p.boundVariables && p.boundVariables.color) tk.add(await vn(p.boundVariables.color.id));
-        if (n.type === 'INSTANCE' && n !== v) { const m = await n.getMainComponentAsync(); const nm = m ? (m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.name : m.name) : '?'; if (!/^(icon|ic)[ /_]/i.test(nm)) nested[nm] = 1; }
+        if (n.type === 'INSTANCE' && n !== v) { const m = await n.getMainComponentAsync(); const nm = m ? (m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.name : m.name) : '?'; if (!/^(icon|ic)\//i.test(nm)) nested[nm] = 1; }
       }
     }
     const axes = {}; if (s.type === 'COMPONENT_SET') for (const [k, d] of Object.entries(s.componentPropertyDefinitions)) if (d.type === 'VARIANT') axes[k] = d.variantOptions;

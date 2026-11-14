@@ -1,11 +1,11 @@
-# Table header cell — контракт (2026-11-13)
+# Table header cell — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Table header cell`. Status: beta. Level: unknown.
-- Figma: Components, страница «Table» (`367:42849`), набор `62:67`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Table header cell» (`2093:1270`), набор `62:67`. Платформы: Web, Mobile web, iOS, Android.
 - Часть Table (страница «Table», молекула). Вне таблицы не используется.
 
 ## 2. Intent
@@ -89,7 +89,7 @@
 
 ## 12. Figma projection
 - Набор `Table header cell`, вариантов 20 из 24; оси: Align, Sort, State.
-- Борда: «Table header cell — борда · шаблон v3», разделов 11.
+- Борда: «Table header cell — борда · шаблон v3», разделов 12.
 - Описание: 1110 знаков, разделы: Status: Level: Правила: Длинный текст: A11y: Часть Table. Поиск: Legacy: Когда использовать: Матрица:
 
 ## 13. Code projection
@@ -99,7 +99,7 @@
 - Props: `align`: start | end; `sort`: none | ascending | descending; `label`: string или слот; `showFilter`: boolean = false; `showInfo`: boolean = false.
 - Состояния (Skeleton, Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

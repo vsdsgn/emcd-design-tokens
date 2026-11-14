@@ -1,4 +1,4 @@
-# Page header — контракт · draft (2026-11-13)
+# Page header — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -16,7 +16,7 @@
 
 ## 3. Anatomy
 - Слои с токенами: `breadcrumbs`, `title row`, `text`, `title`, `subtitle`, `Actions`, `Button`, `Tabs`.
-- Вложено: `Button` ×4, `Tabs` ×2.
+- Вложено: `Breadcrumbs` ×2, `Button` ×4, `Tabs` ×2.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -58,7 +58,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/12`, `space/16`; отступы `control/padding-x/lg`, `space/4`, `space/8`.
-- `breadcrumbs`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
+- `breadcrumbs`: интервал `space/8`.
 - `title row`: интервал `space/12`, `space/16`.
 - `text`: интервал `space/4`; мин. ширина `size/page-header/text-min`.
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`, `type/heading/xl`.
@@ -82,7 +82,7 @@
 - Vue: `<DsPageHeader>`; Flutter: `DsPageHeader`.
 - Props: `size`: large | compact; `title`: string или слот; `subtitle`: string или слот; `showSubtitle`: boolean = true; `breadcrumbs`: boolean = false; `showActions`: boolean = true; `showTabs`: boolean = false; `actions`: string или слот; `tabs`: string или слот.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 

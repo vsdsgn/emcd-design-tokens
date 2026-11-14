@@ -1,11 +1,11 @@
-# Tab bar item — контракт (2026-11-13)
+# Tab bar item — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Tab bar item`. Status: beta. Level: unknown.
-- Figma: Components, страница «Tab bar» (`366:4724`), набор `65:105`. Платформы: iOS, Android, Mobile web.
+- Figma: Components, страница «Tab bar item» (`2093:1272`), набор `65:105`. Платформы: iOS, Android, Mobile web.
 - Страница «Tab bar» (уровень организма); сам пункт — атом, вне Tab bar не используется.
 
 ## 2. Intent
@@ -13,7 +13,7 @@
 - Когда использовать: основные разделы продукта на Compact, 3–5 пунктов.
 - Когда нет: подразделы экрана — Tabs; больше 5 разделов — пятый пункт «Ещё» со списком.
 - Правило выбора варианта:
-  - Selected=On — текущий раздел (`icon/accent` + `text/primary`).
+  - Selected=On — текущий раздел (`icon/accent` + `text/accent`); Off — `text/secondary`.
   - Badge dot — в разделе есть то, что требует действия; число не показываем.
 - Не делаем: Disabled (недоступный раздел скрывается); подпись в два слова; число в бейдже.
 
@@ -67,10 +67,10 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/2`; высота `control/height/xl`; ширина `size/tab-bar-item/width`.
-- `label`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
+- `label`: заливка / цвет `text/accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - `badge dot`: заливка / цвет `status/danger/solid`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/2xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/pressed`; радиус `radius/control`.
-- Значений без переменной: 8 (напр. `hit area · app:w=72`, `hit area · app:h=56`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 8 (напр. `hit area · web:w=72`, `hit area · web:h=56`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Только касание: iOS, Android, Mobile web. На Web (Large) навигация — Sidebar.
@@ -78,7 +78,7 @@
 
 ## 12. Figma projection
 - Набор `Tab bar item`, вариантов 4 из 4; оси: Selected, State.
-- Борда: «Tab bar item — борда · шаблон v3», разделов 13.
+- Борда: «Tab bar item — борда · шаблон v3», разделов 12.
 - Описание: 864 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Хаптик: Поиск: Legacy: Disabled не используется:
 
 ## 13. Code projection
@@ -88,7 +88,7 @@
 - Props: `selected`: boolean; `label`: string или слот; `badgeDot`: boolean = false.
 - Состояния (Default, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — `raw radius 12 @state layer` — радиус слоя состояния числом.
 - `variables-check.plugin.js` — `maxWidth 72 @label` числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

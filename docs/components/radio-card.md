@@ -1,4 +1,4 @@
-# Radio card — контракт (2026-11-13)
+# Radio card — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -30,7 +30,7 @@
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`.
 - Default — подложка `surface/level-2`; Off — обводка `border/subtle`, On — `border/accent` и радио с точкой.
 - Hover / Pressed — только слой `state/layer` (`state/hover` / `state/pressed`) поверх карточки; обводка и текст не меняются.
-- Disabled — подпись и детали `text/disabled`, радио погашено, нажатие недоступно; у On обводка остаётся `border/accent`.
+- Disabled — подпись и детали `text/disabled`, радио погашено, нажатие недоступно; у On обводка `control/border/disabled`.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо — вокруг всей карточки.
 
 ## 5. Properties
@@ -80,7 +80,7 @@
 - Выбор виден не только цветом обводки: точка в радио.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-2`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/accent`, `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `surface/level-2`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/accent`, `border/subtle`, `control/border/disabled`; толщина обводки `border/width/default`.
 - `header`: интервал `space/12`.
 - `radio`: maxw `size/field/max`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
@@ -94,7 +94,7 @@
 
 ## 12. Figma projection
 - Набор `Radio card`, вариантов 8 из 8; оси: Status, State.
-- Борда: «Radio card — борда · шаблон v3», разделов 10.
+- Борда: «Radio card — борда · шаблон v3», разделов 12.
 - Описание: 925 знаков, разделы: Status: Level: Выбираемая карточка: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
@@ -104,7 +104,7 @@
 - Props: `status`: boolean; `label`: string или слот; `details`: string или слот; `showDetails`: boolean = true.
 - Состояния (Default, Hover, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -116,5 +116,4 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - На решение: на L2 заливка `surface/level-2` совпадает с фоном, карточку держит только `border/subtle` (в Light у Disabled контур почти не виден) — заливка от текущей поверхности или запрет на L2.
-- На решение: On · Disabled — обводка `border/accent` не погашена.
 - Ширина корня 400 и `hit area · web` 400 × 126 — числом.

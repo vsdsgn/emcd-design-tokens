@@ -1,4 +1,4 @@
-# Calendar — контракт · draft (2026-11-13)
+# Calendar — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -16,7 +16,7 @@
 
 ## 3. Anatomy
 - Слои с токенами: `previous month`, `month`, `next month`, `weekdays`, `Frame`, `Пн`, `Вт`, `Ср`, `Чт`, `Пт`, `Сб`, `Вс`, `days`, `Date cell`.
-- Вложено: иконки ×4, `Date cell` ×84.
+- Вложено: `Icon button` ×4, `Date cell` ×84.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -74,7 +74,7 @@
 - Vue: `<DsCalendar>`; Flutter: `DsCalendar`.
 - Props: `mode`: single | range.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 

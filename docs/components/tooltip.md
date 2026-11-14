@@ -1,4 +1,4 @@
-# Tooltip — контракт · draft (2026-11-13)
+# Tooltip — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически. Набор заменён на месте (2026-11-13): фон, радиус и тень — слой `overlay surface`, нераскрытый экземпляр базы `_Overlay surface`; свойства набора не менялись. Поверхность, токены и приёмка базы — `docs/components/overlay-surface.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -54,7 +54,7 @@
 ## 10. Tokens
 - `корень`: maxw `size/tooltip/max`; minh `size/tooltip/min`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`.
 - `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
-- `text`: заливка / цвет `fixed/light`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `text`: заливка / цвет `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Min / max корня: minWidth 58 size/tooltip/min, maxWidth 320 size/tooltip/max, minHeight 58 size/tooltip/min.
 
 ## 11. Platforms
@@ -71,7 +71,7 @@
 - Vue: `<DsTooltip>`; Flutter: `DsTooltip`.
 - Props: `placement`: top | bottom | start | end; `tone`: neutral | accent; `arrow`: center | start | end; `text`: string или слот.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
 - Замечаний по манифесту нет.
 

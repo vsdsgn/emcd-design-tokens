@@ -1,4 +1,4 @@
-# Amount — контракт (2026-11-13)
+# Amount — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -74,7 +74,7 @@
 
 ## 12. Figma projection
 - Набор `Amount`, вариантов 12 из 12; оси: Size, Sign.
-- Борда: «Amount — борда · шаблон v3», разделов 11.
+- Борда: «Amount — борда · шаблон v3», разделов 12.
 - Описание: 1548 знаков, разделы: Status: Level: Форматирование — Точность: Знак: Цифры табличные: Fiat — A11y: Когда использовать: Правила:
 
 ## 13. Code projection
@@ -83,7 +83,7 @@
 - Vue: `<DsAmount>`; Flutter: `DsAmount`.
 - Props: `size`: s | m | l | xl; `sign`: none | positive | negative; `value`: string или слот; `ticker`: string или слот; `fiat`: string или слот; `showFiat`: boolean = true.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

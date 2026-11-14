@@ -1,4 +1,4 @@
-# Chart metric — контракт (2026-11-13)
+# Chart metric — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -75,7 +75,7 @@
 
 ## 12. Figma projection
 - Набор `Chart metric`, вариантов 4 из 4; оси: Tone.
-- Борда: «Chart metric — борда · шаблон v3», разделов 9.
+- Борда: «Chart metric — борда · шаблон v3», разделов 12.
 - Описание: 884 знаков, разделы: Status: Level: Показатель над графиком: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -84,7 +84,7 @@
 - Vue: `<DsChartMetric>`; Flutter: `DsChartMetric`.
 - Props: `tone`: default | danger | warning | success; `label`: string или слот; `value`: string или слот; `icon`: boolean = false.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 228, value 228).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

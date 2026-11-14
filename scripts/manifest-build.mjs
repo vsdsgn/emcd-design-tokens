@@ -27,7 +27,7 @@ for (const [batch, b] of Object.entries(batches).sort()) {
     const boardSections = new Set(p.board.filter(x => /шаблон v3/.test(x.name)).flatMap(x => x.sections.map(s => s.slice(0, 2))));
     pages[p.id] = {
       level: LEVEL[batch[0]] || 'unknown', page: p.page.replace(/^\P{L}+/u, ''), pageId: p.id, pageMark: (p.page.match(/^\P{L}+/u) || [''])[0].trim(),
-      boards: p.board.map(x => ({ name: x.name, id: x.id, v3: /шаблон v3/.test(x.name), sections: x.sections.filter(s => s !== 'Frame') })),
+      boards: p.board.map(x => ({ name: x.name, id: x.id, v3: /шаблон v3/.test(x.name), sections: x.sections.filter(s => s !== 'Frame' && s !== 'Шапка') })),
       boardMissing: p.board.some(x => /шаблон v3/.test(x.name)) ? SECTIONS.filter(s => !boardSections.has(s)) : SECTIONS,
       sets: p.sets.map(s => ({ ...s, status: (s.status.match(/^Status:\s*(\w+)/) || [, null])[1], statusFirstLine: /^Status:/.test(s.status) })),
     };

@@ -1,11 +1,11 @@
-# Spinner — контракт (2026-11-13)
+# Spinner — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Spinner`. Status: beta. Level: unknown.
-- Figma: Components, страница «Progress» (`366:3115`), набор `4:20`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Spinner» (`2093:1267`), набор `4:20`. Платформы: Web, Mobile web, iOS, Android.
 - Лежит на странице Progress.
 
 ## 2. Intent
@@ -62,7 +62,7 @@
 
 ## 12. Figma projection
 - Набор `Spinner`, вариантов 3 из 3; оси: Size.
-- Борда: «Progress — борда · шаблон v3», разделов 9.
+- Борда: «Spinner — борда · шаблон v3», разделов 12.
 - Описание: 932 знаков, разделы: Status: Level: Индикатор загрузки. Когда использовать: Поиск: Legacy: Motion: Правила: A11y:
 
 ## 13. Code projection
@@ -71,7 +71,7 @@
 - Vue: `<DsSpinner>`; Flutter: `DsSpinner`.
 - Props: `size`: s | m | l.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

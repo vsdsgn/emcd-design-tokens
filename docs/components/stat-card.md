@@ -1,4 +1,4 @@
-# Stat card — контракт (2026-11-13)
+# Stat card — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -98,7 +98,7 @@
 
 ## 12. Figma projection
 - Набор `Stat card`, вариантов 2 из 2; оси: State.
-- Борда: «Stat card — борда · шаблон v3», разделов 10.
+- Борда: «Stat card — борда · шаблон v3», разделов 11.
 - Описание: 1356 знаков, разделы: Status: Level: Stat card: Правила: Длинный текст: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
 
 ## 13. Code projection
@@ -108,7 +108,7 @@
 - Props: `label`: string или слот; `value`: string или слот; `unit`: string или слот; `info`: boolean = true; `delta`: boolean = true; `deltaCaption`: string или слот; `showFooter`: boolean = false; `footer`: string или слот; `ambientLight`: boolean = false.
 - Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 180, unit 64, delta caption 160) и maxWidth 248 у delta row.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

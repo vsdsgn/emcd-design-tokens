@@ -1,4 +1,4 @@
-# Segment — контракт (2026-11-13)
+# Segment — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -24,7 +24,7 @@
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`.
-- Default, Hover, Pressed, Disabled × Selected Off | On.
+- Default, Hover, Pressed, Disabled × Selected Off | On; Disabled — подложка `action/disabled`, подпись `text/disabled`.
 - Матрица 36 из 128: тона Accent / Success / Danger — только там, где они видны (выбранный сегмент); полный перечень — в строке «Матрица:» описания набора.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
@@ -69,7 +69,7 @@
 - Сегмент только с иконкой — `aria-label`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `control/checked`, `control/segment`, `status/danger/solid`, `status/success/solid`, `surface/disabled`; интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
+- `корень`: заливка / цвет `action/disabled`, `control/checked`, `control/segment`, `status/danger/solid`, `status/success/solid`; интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `label`: заливка / цвет `text/disabled`, `text/on-accent`, `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`, `type/label/sm`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-inner`, `radius/focus-ring-xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/sm`, `radius/xs`.
@@ -91,7 +91,7 @@
 - Props: `size`: s | m | l | xl; `selected`: boolean; `tone`: neutral | accent | success | danger; `label`: string или слот; `showLabel`: boolean = true; `icon`: boolean = false.
 - Состояния (Default, Hover, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 200 @label` числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

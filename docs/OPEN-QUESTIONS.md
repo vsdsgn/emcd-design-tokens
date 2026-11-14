@@ -17,12 +17,13 @@
 13. Code input без Hover — исключение модели «Поле».
 14. Date range field, Step progress, Chart metric — оставить.
 15. Slider в Base — парковка.
-16. Icon button: ось Loading → булево свойство, как у Button (удаляет 48 вариантов Loading=True).
-17. Поля в Dark: `control/surface/default` = neutral.950 — на L1–L3 поле темнее поверхности («чёрная дыра»). Рекомендация: Dark → `alpha.white.4` (или `surface/current`). Существующий токен — меняет только Стефан.
-18. Floating button Loading — тем же способом, что решим в п. 16.
+16. ~~Icon button: Loading → булево свойство~~ — снято: решение 13.11 (ось Loading = False | True: булево свойство Figma не скрывает иконку при показе спиннера).
+17. ~~Поля в Dark темнее поверхности~~ — снято: в проде Web App (модалка «Настройка отчёта») поля так и выглядят (`docs/migration/prod-refs-2026-11-14.md`).
+18. ~~Floating button Loading~~ — сделано 14.11 тем же способом: ось Loading = False | True, True только в Default (спиннер `text/on-accent` / `icon/on-accent` вместо иконки).
 19. Input amount: ось Filled → значение State=Filled, как у семьи полей (удаляет 4 варианта Filled=True × Hover/Focus/Error/Disabled — значение задаёт свойство Value). Пересадку на `_Field base` не делаю: другая анатомия (крупная сумма + описание внутри, шапка с балансом) — записать паттерном-исключением семьи полей. Уже сделано: «Макс» — Button Text S, добавлен Skeleton.
 
-Нужны скрины прода (опоры в legacy нет): File upload, Pagination, Snack, Side panel, Address, Stat card; Calendar — Web App «Выгрузка».
+Прод просмотрен (`docs/migration/prod-refs-2026-11-14.md`): опоры нет у File upload, Pagination (в проде — «Показать ещё»), Snack (в проде — Toast Card / Informer), Side panel (в проде — Modal). Рекомендация: все четыре — в парковку, оставить draft.
+20. Pagination, File upload, Snack, Side panel — в парковку (draft, не развивать), см. выше.
 Порядок значений осей State в панели свойств не меняется через API — после перекладки сеткой default верный, порядок в выпадающем списке проверить в Figma.
 
 ## Этап 1 — Token Migration & Mapping (с 2026-10-09; закрыт, работа идёт над компонентами — см. HANDOFF)

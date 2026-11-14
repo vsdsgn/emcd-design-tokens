@@ -1,4 +1,4 @@
-# Code input — контракт (2026-11-13)
+# Code input — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -96,7 +96,7 @@
 - Props: `length`: 4 | 6; `message`: string или слот; `showMessage`: boolean = true.
 - Состояния (Default, Error, Success, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (message 356).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

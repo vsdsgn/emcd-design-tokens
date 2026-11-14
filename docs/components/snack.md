@@ -1,4 +1,4 @@
-# Snack — контракт · draft (2026-11-13)
+# Snack — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -73,9 +73,9 @@
 - Vue: `<DsSnack>`; Flutter: `DsSnack`.
 - Props: `tone`: neutral | info | success | warning | danger; `icon`: boolean = true; `action`: boolean = true; `title`: string или слот.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: Legacy нет: в таблицах миграции не упоминается (бывший Layout=Snack из Toast 2.0). Нужен скрин прода (App).
+- Legacy: Legacy нет: в таблицах миграции не упоминается (бывший Layout=Snack из Toast 2.0). Опоры в проде нет: в App нижней инверсной плашки с действием нет, уведомления — Toast Card / Informer (`docs/migration/prod-refs-2026-11-14.md`).

@@ -1,4 +1,4 @@
-# Button — контракт (2026-11-13)
+# Button — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -20,7 +20,7 @@
 
 ## 3. Anatomy
 - Корень: подложка, радиус, отступы, min-width 64.
-- `icon left`, `label`, `icon right`; `Spinner` (Loading) — вместо содержимого, ширина не меняется.
+- `icon left`, `label`, `icon right`; `Spinner` (Loading) — вместо содержимого, ширина не меняется; цвет спиннера — по тону кнопки (дорожка и дуга; у Danger — `text/danger` / `icon/danger`), Disabled — дуга `icon/disabled`.
 - Служебные: `state layer`, `focus ring`, зоны `hit area · web` / `· app`, `safe area · outer`.
 - Вложено: `Spinner` ×176, иконки ×352.
 - Служебные слои (вариантов из 176): кольцо фокуса 176 · зона Web 176 · зона касания 176 · безопасное поле 176.
@@ -108,7 +108,7 @@
 - `iconLeft` / `iconRight` в коде — слоты, а не boolean + swap.
 - Tone=Danger есть у Primary, Secondary, Tertiary, Tertiary outline, Text; сочетание Inverted + Danger отсекать типами.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний (min-width — `size/button/min` во всех вариантах).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

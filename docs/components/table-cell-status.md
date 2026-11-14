@@ -1,11 +1,11 @@
-# Table cell / Status — контракт (2026-11-13)
+# Table cell / Status — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Table cell / Status`. Status: beta. Level: unknown.
-- Figma: Components, страница «Table» (`367:42849`), набор `1719:21483`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Table cell» (`367:42849`), набор `1719:21483`. Платформы: Web, Mobile web, iOS, Android.
 - Страница «Table». Ячейка строки таблицы; вне Table row не используется.
 
 ## 2. Intent
@@ -71,7 +71,7 @@
 
 ## 12. Figma projection
 - Набор `Table cell / Status`, вариантов 3 из 3; оси: State.
-- Борда: «Table header cell — борда · шаблон v3», разделов 11.
+- Борда: «Table cells — борда · шаблон v3», разделов 25.
 - Описание: 561 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection
@@ -81,7 +81,7 @@
 - Props: нет.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

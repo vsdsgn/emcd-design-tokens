@@ -1,4 +1,4 @@
-# Modal — контракт · draft (2026-11-13)
+# Modal — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически. Набор заменён на месте (2026-11-13): фон, радиус и тень — слой `overlay surface`, нераскрытый экземпляр базы `_Overlay surface`; свойства набора не менялись. Поверхность, токены и приёмка базы — `docs/components/overlay-surface.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -16,7 +16,7 @@
 
 ## 3. Anatomy
 - Слои с токенами: `overlay surface`, `header`, `title`, `close`, `divider`, `Body`, `Контент модалки — в слот Body: текст, поля, список.`, `Footer slot`, `Button`, `title group`, `header description`.
-- Вложено: `_Overlay surface` ×12, иконки ×12, `Button` ×15, `smbl-bitcoin-btc` ×4.
+- Вложено: `_Overlay surface` ×12, `Icon button` ×12, `Button` ×15, `smbl-bitcoin-btc` ×4.
 - Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -84,7 +84,7 @@
 - Vue: `<DsModal>`; Flutter: `DsModal`.
 - Props: `header`: title | coin | empty; `footer`: single | stacked | horizontal | none; `title`: string или слот; `divider`: boolean = false; `showClose`: boolean = true; `headerDescription`: boolean = true; `body`: string или слот; `footerSlot`: string или слот.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Правила:

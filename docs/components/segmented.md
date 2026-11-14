@@ -1,4 +1,4 @@
-# Segmented — контракт (2026-11-13)
+# Segmented — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -80,7 +80,7 @@
 
 ## 12. Figma projection
 - Набор `Segmented`, вариантов 12 из 12; оси: Size, Items.
-- Борда: «Segmented — борда · шаблон v3», разделов 9.
+- Борда: «Segmented — борда · шаблон v3», разделов 12.
 - Описание: 1222 знаков, разделы: Status: Level: Segmented: Когда использовать: Правила: Длинный текст: Уровни: A11y: Поиск: Legacy:
 
 ## 13. Code projection
@@ -89,7 +89,7 @@
 - Vue: `<DsSegmented>`; Flutter: `DsSegmented`.
 - Props: `size`: s | m | l | xl; `items`: 2 | 3 | 4.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (вложенный Segment, label).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

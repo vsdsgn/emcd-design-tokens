@@ -1,4 +1,4 @@
-# Coin — контракт (2026-11-13)
+# Coin — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -20,12 +20,13 @@
 ## 3. Anatomy
 - Корень — квадрат `size/media/2xs` | `xs` | `sm` | `md` | `lg` (XS–XL), в нём экземпляр `symbol/coin/*` (свойство Coin).
 - `network` — монета сети в правом нижнем углу, 45 % от размера, с кольцом `surface/current` (`border/width/strong`): на любой поверхности L0–L3 кольцо совпадает с фоном (проверено на стенде).
-- Вложено: `symbol/coin/bitcoin-btc` ×10, `symbol/coin/tether-usdt` ×10.
-- Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `symbol/coin/bitcoin-btc` ×20, `symbol/coin/tether-usdt` ×20.
+- Служебные слои (вариантов из 20): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
-- Своих состояний нет. Нажимаемая монета — внутри строки списка, Chip или Button: состояния, фокус и зона нажатия — у обёртки.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; Skeleton — загрузка.
+- Default; Skeleton — круг `skeleton/base` того же размера: данные грузятся.
+- Нажимаемая монета — внутри строки списка, Chip или Button: состояния, фокус и зона нажатия — у обёртки.
 
 ## 5. Properties
 Оси (варианты):
@@ -34,15 +35,16 @@
 |---|---|---|
 | Size | XS · S · M · L · XL | XS |
 | Network | Off · On | Off |
+| State | Default · Skeleton | Default |
 
-Матрица полная: 10 вариантов.
+Матрица полная: 20 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Coin | замена экземпляра | `symbol/coin/bitcoin-btc` | 10 из 10 |
-| Network coin | замена экземпляра | `symbol/coin/tether-usdt` | 10 из 10 |
+| Coin | замена экземпляра | `symbol/coin/bitcoin-btc` | 20 из 20 |
+| Network coin | замена экземпляра | `symbol/coin/tether-usdt` | 20 из 20 |
 
 ## 6. Content / slots
 - Текста нет: длинный текст и языки не влияют; название и тикер монеты — всегда текстом рядом.
@@ -53,22 +55,22 @@
 - Нет.
 
 ## 8. Behavior
-- Статична.
+- Статична. Skeleton — блик `Skeleton` (1.2 с; «Уменьшить движение» — пульсация прозрачности).
 
 ## 9. Accessibility
 - Декоративна (`aria-hidden`), название монеты всегда в тексте рядом.
 
 ## 10. Tokens
-- `корень`: высота `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xs`; ширина `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xs`.
-- `network`: обводка `surface/current`; толщина обводки `border/width/strong`.
-- Значений без переменной: 5 (напр. `network:r=3.5`, `network:r=4.5`, `network:r=5.5`, `network:r=7`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- `корень`: заливка / цвет `skeleton/base`; высота `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xs`; радиус `radius/full`; ширина `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xs`.
+- `network`: радиус `radius/full`; обводка `surface/current`; толщина обводки `border/width/strong`.
+- Значений без переменной: 5 (напр. `network:o=0`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Coin`, вариантов 10 из 10; оси: Size, Network.
-- Борда: «Coin — борда · шаблон v3», разделов 9.
+- Набор `Coin`, вариантов 20 из 20; оси: Size, Network, State.
+- Борда: «Coin — борда · шаблон v3», разделов 12.
 - Описание: 634 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection
@@ -76,8 +78,9 @@
 
 - Vue: `<DsCoin>`; Flutter: `DsCoin`.
 - Props: `size`: xs | s | m | l | xl; `network`: boolean.
+- Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: радиусы бейджа сети 3.5–9 числом (круг, радиус = размер / 2).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

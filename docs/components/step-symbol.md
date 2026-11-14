@@ -1,4 +1,4 @@
-# Step symbol — контракт (2026-11-13)
+# Step symbol — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -72,7 +72,7 @@
 
 ## 12. Figma projection
 - Набор `Step symbol`, вариантов 12 из 12; оси: Type, State.
-- Борда: «Step symbol — борда · шаблон v3», разделов 9.
+- Борда: «Step symbol — борда · шаблон v3», разделов 12.
 - Описание: 702 знаков, разделы: Status: Level: Символ шага: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -82,7 +82,7 @@
 - Props: `type`: numbered | icon | checked | bullet; `number`: string или слот.
 - Состояния (Default, Current, Success) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

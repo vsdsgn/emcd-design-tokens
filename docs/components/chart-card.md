@@ -1,4 +1,4 @@
-# Chart card — контракт · draft (2026-11-13)
+# Chart card — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -6,7 +6,7 @@
 
 ## 1. Identity
 - Набор: `Chart card`. Status: draft. Level: unknown.
-- Figma: Components, страница «Chart» (`367:45869`), набор `99:981`.
+- Figma: Components, страница «Chart card» (`367:45869`), набор `99:981`.
 
 ## 2. Intent
 - Не описано.
@@ -85,7 +85,7 @@
 
 ## 12. Figma projection
 - Набор `Chart card`, вариантов 4 из 4; оси: Type.
-- Борда: «Chart plot — борда · шаблон v3», разделов 9.
+- Борда: «Chart card — борда · шаблон v3», разделов 9.
 - Описание: 1577 знаков, разделы: Status: Level: Виджет графика: Type: Состояния графика — Когда использовать: A11y: Поиск: Legacy: Правила:
 
 ## 13. Code projection
@@ -94,7 +94,7 @@
 - Vue: `<DsChartCard>`; Flutter: `DsChartCard`.
 - Props: `type`: bars | horizontal | gauge | line; `showBottom`: boolean = true; `top`: string или слот; `content`: string или слот; `bottom`: string или слот.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 

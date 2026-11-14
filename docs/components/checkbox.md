@@ -1,4 +1,4 @@
-# Checkbox — контракт (2026-11-13)
+# Checkbox — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -83,7 +83,7 @@
 - Props: `status`: off | on | indeterminate; `tone`: default | danger; `size`: m | s; `controlPosition`: start | end.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 436 @label` числом в базе — ждёт токена `size/*`.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

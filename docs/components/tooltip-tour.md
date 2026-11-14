@@ -1,4 +1,4 @@
-# Tooltip tour — контракт (2026-11-13)
+# Tooltip tour — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -22,7 +22,7 @@
 
 ## 3. Anatomy
 - Корень: `surface/raised` (Accent — `action/primary/default`), обводка `border/default` / `border/width/default`, `radius/container`, тени `shadow/key` + `shadow/ambient`, отступы `space/16`, зазор `space/8`, ширина от `size/tooltip/min` до `size/tooltip/max`.
-- `step` (`type/label/md`, `text/secondary`, прозрачность 0.72) → `title` (`type/label/lg`, `text/primary`) → `description` (`type/label/md`, `text/secondary`). В Accent весь текст — `text/on-accent`.
+- `step` (`type/label/md`, `text/tertiary`, без прозрачности) → `title` (`type/label/lg`, `text/primary`) → `description` (`type/label/md`, `text/secondary`). В Accent весь текст — `text/on-accent`.
 - `footer` (`space/8`): `skip` (вложенная Button, текстовая) — распорка — `next` (вложенная Button `control/height/sm`; Accent — `action/inverse/default`). «Далее» всегда у конца строки, в том числе при Show skip = Off.
 - Стрелка — `_Tooltip arrow`.
 - Вложено: `Button` ×8, `_Tooltip arrow` ×4.
@@ -75,14 +75,14 @@
 
 ## 10. Tokens
 - `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; интервал `space/8`; maxw `size/tooltip/max`; мин. ширина `size/tooltip/min`; отступы `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
-- `step`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `step`: заливка / цвет `text/on-accent`, `text/tertiary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `title`: заливка / цвет `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `footer`: интервал `space/8`.
 - `skip`: интервал `space/2`; мин. ширина `size/button/min`; отступы `space/4`; радиус `radius/xs`.
 - `next`: заливка / цвет `action/inverse/default`, `action/primary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`.
 - Min / max корня: minWidth 58 size/tooltip/min, maxWidth 320 size/tooltip/max.
-- Значений без переменной: 8 (напр. `(root):w=320`, `step:o=0.72`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 4 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -90,7 +90,7 @@
 
 ## 12. Figma projection
 - Набор `Tooltip tour`, вариантов 4 из 4; оси: Placement, Tone.
-- Борда: «Tooltip tour — борда · шаблон v3», разделов 10.
+- Борда: «Tooltip tour — борда · шаблон v3», разделов 11.
 - Описание: 936 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
@@ -99,7 +99,7 @@
 - Vue: `<DsTooltipTour>`; Flutter: `DsTooltipTour`.
 - Props: `placement`: top | bottom; `tone`: neutral | accent; `step`: string или слот; `title`: string или слот; `description`: string или слот; `showStep`: boolean = true; `showSkip`: boolean = true.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -112,4 +112,4 @@
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Текст 200 %: подпись «Далее» упирается в край кнопки фиксированной высоты — проверить у Button.
 - На решение: предел строк для Title и Description.
-- Ширина корня 320 числом; прозрачность `step` 0.72 — временное исключение (`docs/exceptions.md`, до 2026-12-13).
+- Ширина корня 320 числом.

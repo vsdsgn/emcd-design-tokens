@@ -1,4 +1,4 @@
-# Password field — контракт (2026-11-13)
+# Password field — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -12,7 +12,7 @@
 - Когда использовать: создание или смена пароля — с требованиями; вход — без требований, только поле и «Забыли пароль?».
 - Когда нет: одноразовый код и PIN — Code input.
 - Правило выбора варианта:
-  - State: Empty — поле пустое, все требования с прочерком; Typing — идёт ввод, выполненные требования отмечаются сразу; Valid — выполнены все требования; Error — пароль не прошёл проверку, показывается только после отправки или ухода из поля, не на каждый символ.
+  - State: Default — поле пустое, все требования с прочерком; Hover — указатель над полем; Focus — идёт ввод, выполненные требования отмечаются сразу; Filled — все требования выполнены; Error — пароль не прошёл проверку, показывается только после отправки или ухода из поля, не на каждый символ; Disabled — ввод недоступен.
   - Требования видны сразу, до ввода; «глаз» — всегда.
   - Ширина — от `size/field/min` до `size/field/max`.
 - Не делаем: ошибка на каждый введённый символ; требования, которые появляются только после ошибки; запрет вставки и менеджеров паролей; выполнено / не выполнено только цветом.
@@ -22,25 +22,26 @@
 - «Глаз» (`show password`) — в слоте Trailing вложенного поля, по центру поля при любой высоте подписи.
 - `requirements` (зазор `space/6`) — строки `req`: иконка `icon/minus` или `icon/check` (`icon/size/md`) и текст `type/body/sm` — `text/secondary` (не выполнено) или `text/success` (выполнено); строка переносится.
 - Своих свойств и служебных слоёв у набора нет: тексты меняются во вложенных слоях, кольцо фокуса — у Input.
-- Вложено: `Input` ×4, иконки ×16.
-- Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Input` ×6, иконки ×24.
+- Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Группа модели состояний (`docs/components.md`): Поле ввода: состояние — цветом рамки и сообщения, слоя `state/layer` нет (рамка и сообщение — из Input).
-- Empty — плейсхолдер «Придумайте пароль», четыре требования с прочерком, `text/secondary`.
-- Typing — рамка фокуса и каретка; выполненные требования — галочка и `text/success`, остальные — прочерк.
-- Valid — рамка обычная, все требования с галочкой.
+- Группа модели состояний (`docs/components.md`): Поле ввода: состояние — цветом рамки и сообщения; Hover — обводка `control/border/hover` + слой; Disabled — токены `*/disabled` (рамка и сообщение — из Input).
+- Default — плейсхолдер «Придумайте пароль», четыре требования с прочерком, `text/secondary`.
+- Hover — обводка `control/border/hover` и слой состояния (из Input).
+- Focus — рамка фокуса и каретка; выполненные требования — галочка и `text/success`, остальные — прочерк.
+- Filled — рамка обычная, все требования выполнены (галочка, `text/success`).
 - Error — красная рамка, под полем сообщение «Пароль не соответствует требованиям», ниже список: невыполненные требования остаются с прочерком.
-- Hover и Disabled на оси State нет.
+- Disabled — поле погашено (из Input); требования `text/disabled`, иконки `icon/disabled`.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| State | Empty · Typing · Valid · Error | Empty |
+| State | Error · Default · Focus · Filled · Hover · Disabled | Default |
 
-Матрица полная: 4 вариантов.
+Матрица полная: 6 вариантов.
 
 - Свойств у набора нет: подпись, плейсхолдер и тексты требований меняются во вложенных слоях.
 
@@ -74,21 +75,21 @@
 - `requirements`: интервал `space/6`.
 - `req`: интервал `space/6`.
 - `icon/minus`: высота `icon/size/md`; ширина `icon/size/md`.
-- `Минимум 8 символов`: заливка / цвет `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
-- `Цифра`: заливка / цвет `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
-- `Заглавная и строчная буквы`: заливка / цвет `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
-- `Спецсимвол: ! @ # $ %`: заливка / цвет `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
+- `Минимум 8 символов`: заливка / цвет `text/disabled`, `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
+- `Цифра`: заливка / цвет `text/disabled`, `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
+- `Заглавная и строчная буквы`: заливка / цвет `text/disabled`, `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
+- `Спецсимвол: ! @ # $ %`: заливка / цвет `text/disabled`, `text/secondary`, `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `icon/check`: высота `icon/size/md`; ширина `icon/size/md`.
 - Min / max корня: minWidth 160 size/field/min.
-- Значений без переменной: 4 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 6 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Password field`, вариантов 4 из 4; оси: State.
-- Борда: «Password field — борда · шаблон v3», разделов 10.
+- Набор `Password field`, вариантов 6 из 6; оси: State.
+- Борда: «Password field — борда · шаблон v3», разделов 11.
 - Описание: 1037 знаков, разделы: Status: Level: Когда нет: A11y: Когда использовать: Правила:
 
 ## 13. Code projection
@@ -96,9 +97,9 @@
 
 - Vue: `<DsPasswordField>`; Flutter: `DsPasswordField`.
 - Props: нет.
-- Состояния (Empty, Typing, Valid, Error) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
+- Состояния (Error, Default, Focus, Filled, Hover, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -106,11 +107,10 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; правки 13.11 («глаз» в слоте, перенос требований) стендом не перепроверены; код — HTML/CSS.
 
 ## 15. Migration
-- DS App `input / password` → Password field: база Input, «глаз» → Icon button Ghost S в слоте Trailing, список требований — под полем; DS Web — нет.
+- DS App `input / password` → Password field (State Default | Hover | Focus | Filled | Error | Disabled; прежние Empty / Typing / Valid → Default / Focus / Filled): база Input, «глаз» → Icon button Ghost S в слоте Trailing, список требований — под полем; DS Web — нет.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- На проверку: в State=Typing введённые символы серые и мельче, чем в Valid / Error, — значение должно быть `text/primary`.
+- На проверку: в State=Focus введённые символы серые и мельче, чем в Filled / Error, — значение должно быть `text/primary`.
 - «Глаз» — иконка, а не экземпляр Icon button Ghost (по описанию): нет состояний, кольца фокуса и зоны нажатия; варианта «пароль показан» нет.
 - Нет свойства, скрывающего требования (вход — без требований).
 - Ширина корня 320 — числом.
-- Hover и Disabled на оси State нет — на решение: добавить или записать «только в коде».

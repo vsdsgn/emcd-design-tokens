@@ -1,11 +1,11 @@
-# Progress circle — контракт (2026-11-13)
+# Progress circle — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Progress circle`. Status: beta. Level: unknown.
-- Figma: Components, страница «Progress» (`366:3115`), набор `56:388`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Progress circle» (`2093:1268`), набор `56:388`. Платформы: Web, Mobile web, iOS, Android.
 - Лежит на странице Progress.
 
 ## 2. Intent
@@ -71,7 +71,7 @@
 
 ## 12. Figma projection
 - Набор `Progress circle`, вариантов 3 из 3; оси: Size.
-- Борда: «Progress — борда · шаблон v3», разделов 9.
+- Борда: «Progress circle — борда · шаблон v3», разделов 11.
 - Описание: 958 знаков, разделы: Status: Level: Круговой прогресс: S 24 — A11y: Поиск: Legacy: Motion: Когда использовать: Правила:
 
 ## 13. Code projection
@@ -80,7 +80,7 @@
 - Vue: `<DsProgressCircle>`; Flutter: `DsProgressCircle`.
 - Props: `size`: s | m | l; `value`: string или слот.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

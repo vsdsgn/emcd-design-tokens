@@ -1,4 +1,4 @@
-# Tabs — контракт (2026-11-13)
+# Tabs — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -87,7 +87,7 @@
 
 ## 12. Figma projection
 - Набор `Tabs`, вариантов 4 из 4; оси: Size.
-- Борда: «Tabs — борда · шаблон v3», разделов 9.
+- Борда: «Tabs — борда · шаблон v3», разделов 12.
 - Описание: 1113 знаков, разделы: Status: Level: Бар табов. Правила: Когда использовать: Хаптик: Поиск: Legacy: A11y:
 
 ## 13. Code projection
@@ -96,7 +96,7 @@
 - Vue: `<DsTabs>`; Flutter: `DsTabs`.
 - Props: `size`: m | l | xl | s; `tab3`: boolean = true; `tab4`: boolean = true; `tab5`: boolean = false; `tab6`: boolean = false.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

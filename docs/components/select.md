@@ -1,4 +1,4 @@
-# Select — контракт (2026-11-13)
+# Select — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -27,9 +27,9 @@
 - Служебные слои (вариантов из 24): кольцо фокуса 24 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Группа модели состояний (`docs/components.md`): Поле: Hover — слой `state/layer` × `state/hover`, обводка остаётся `control/border/default`; Pressed нет; Focus — обводка `control/border/focus` + кольцо; Disabled — токены `*/disabled`; Skeleton — загрузка.
+- Группа модели состояний (`docs/components.md`): Поле: Hover — обводка `control/border/hover` + слой `state/layer` × `state/hover`; Pressed нет; Focus — обводка `control/border/focus` + кольцо; Disabled — токены `*/disabled`; Skeleton — загрузка (всё из `_Field base` вложенного Input).
 - Default — плейсхолдер «Выберите …», helper под полем.
-- Hover — заливка поля меняется, рамка та же.
+- Hover — обводка `control/border/hover` и слой состояния (из `_Field base`): отличается от Default и Disabled.
 - Open — рамка фокуса, шеврон вверх (`icon/chevron-up`), без каретки, значение `text/primary`; под полем — Menu / Sheet.
 - Filled — выбранное значение основным цветом текста.
 - Error — рамка ошибки, сообщение вместо helper.
@@ -88,7 +88,7 @@
 
 ## 12. Figma projection
 - Набор `Select`, вариантов 24 из 24; оси: Size, State.
-- Борда: «Select — борда · шаблон v3», разделов 11.
+- Борда: «Select — борда · шаблон v3», разделов 12.
 - Описание: 1240 знаков, разделы: Status: Level: Select: Когда использовать: Правила: Состояния: A11y: Поиск: Legacy: Слот слева:
 
 ## 13. Code projection
@@ -98,7 +98,7 @@
 - Props: `size`: m | l | xl.
 - Состояния (Default, Hover, Open, Filled, Error, Disabled, Loading, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `loading`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -109,6 +109,5 @@
 - DS Web `Selector small`, `Dropdown` (Type=Net / Wallet / Coins …) → Select (Size M | L | XL, State); иконка сети / кошелька / монеты — слот Leading вложенного Input (Coin / Coin stack).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- На решение: Hover — заливка фиксированного цвета, на Light L1 / L2 и Dark L1 почти сливается с поверхностью; слой `state/hover` поверх `surface/current`.
 - Focus ring включается у Disabled и Skeleton — записать в описании «не включать».
 - Борда: нет разделов 05, 07, 08.

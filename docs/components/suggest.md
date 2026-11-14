@@ -1,4 +1,4 @@
-# Suggest — контракт · draft (2026-11-13)
+# Suggest — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -16,7 +16,7 @@
 
 ## 3. Anatomy
 - Слои с токенами: `icon/info`, `content`, `text`, `title`, `description`, `actions`, `primary`, `secondary`, `close`, `icon/check-circle`, `icon/alert-triangle`, `icon/alert-circle`.
-- Вложено: иконки ×24, `Button` ×24.
+- Вложено: иконки ×12, `Button` ×24, `Icon button` ×12.
 - Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -65,7 +65,7 @@
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `actions`: интервал `space/8`.
-- `primary`: заливка / цвет `action/accent/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`.
+- `primary`: заливка / цвет `action/accent/default`, `action/primary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`.
 - `secondary`: заливка / цвет `action/tertiary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`; обводка `control/border/default`; толщина обводки `border/width/default`.
 - `close`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `icon/check-circle`: высота `icon/size/md`; ширина `icon/size/md`.
@@ -87,7 +87,7 @@
 - Vue: `<DsSuggest>`; Flutter: `DsSuggest`.
 - Props: `layout`: card | strip; `tone`: neutral | accent | info | success | warning | danger; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `showDescription`: boolean = true; `leading`: boolean = true; `primaryAction`: boolean = true; `secondaryAction`: boolean = false; `close`: boolean = true.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 

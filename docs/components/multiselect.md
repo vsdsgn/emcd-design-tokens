@@ -1,11 +1,11 @@
-# Multiselect — контракт (2026-11-13)
+# Multiselect — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Multiselect`. Status: beta. Level: unknown.
-- Figma: Components, страница «Multiselect (контейнер)» (`1516:175`), набор `1516:1052`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Multiselect» (`1516:175`), набор `1516:1052`. Платформы: Web, Mobile web, iOS, Android.
 - Страница «Multiselect (контейнер)», молекула. Собран из вложенных Select (поле), Menu со строками Multiselect option и Chip; своих свойств и служебных слоёв нет.
 
 ## 2. Intent
@@ -14,7 +14,7 @@
 - Когда нет: 2–4 варианта — Checkbox group; один вариант — Select.
 - Правило выбора варианта:
   - Display: Count — мобильные и фильтры (высота поля постоянна, в поле «Выбрано: N»); Chips — формы с редким выбором: чипы под полем, не больше 3 чипов и «+N».
-  - State: Default — меню закрыто; Open — меню открыто, идёт выбор; Error — выбор не прошёл проверку, сообщение вместо подсказки; Disabled — выбор недоступен.
+  - State: Default — меню закрыто; Hover — указатель над полем; Open — меню открыто, идёт выбор; Error — выбор не прошёл проверку, сообщение вместо подсказки; Disabled — выбор недоступен; Skeleton — данные грузятся.
   - Меню остаётся открытым при выборе. Мобильные: список в Sheet с кнопкой «Применить».
 - Не делаем: больше 3 чипов без «+N»; закрытие меню после каждого выбора; Multiselect для 2–4 вариантов или одного значения.
 
@@ -23,16 +23,16 @@
 - Menu: строки Multiselect option, отступ `space/8`, зазор `space/4`, `radius/control`, ширина `size/menu/min` … `size/menu/max`; оболочка и обводка — по контракту Menu.
 - `selected` — ряд Chip с переносом, зазор `space/8`; Chip: высота `control/height/sm`, `radius/control-sm`, фон `action/inverse/default` (Disabled — `action/disabled`), max-width `size/chip/max`, крестик удаления.
 - Кольцо фокуса, зона нажатия и безопасное поле — у вложенных Select, Multiselect option и Chip.
-- Вложено: `Select` ×8, `Menu` ×2, `Chip` ×12.
-- Служебные слои (вариантов из 8): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Select` ×12, `Menu` ×2, `Chip` ×18.
+- Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Группа модели состояний (`docs/components.md`): Поле ввода: состояние — цветом рамки и сообщения, слоя `state/layer` нет; Disabled — токены `*/disabled` (всё из Select). Строки меню и чипы — по своим контрактам (Multiselect option, Chip).
+- Группа модели состояний (`docs/components.md`): Поле ввода: состояние — цветом рамки и сообщения, Hover — слой; Disabled — токены `*/disabled`; Skeleton — загрузка (всё из Select). Строки меню и чипы — по своим контрактам (Multiselect option, Chip).
 - Default — Count: «Выбрано: N» `text/primary`; Chips: плейсхолдер `text/tertiary` в поле, чипы выбранного под подсказкой.
 - Open — тёмная рамка, без каретки, шеврон вверх; значение `text/primary` (Count), плейсхолдер `text/tertiary` (Chips); под полем Menu, выбранные пункты — с галочкой.
 - Error — красная рамка, сообщение об ошибке вместо подсказки; чипы остаются; в Chips плейсхолдер `text/tertiary`.
 - Disabled — серая заливка; подпись, значение, подсказка, шеврон (`icon/disabled`) и чипы погашены, у чипов нет крестика.
-- Hover в наборе нет.
+- Hover и Skeleton — через вложенный Select (State=Hover / Skeleton): Hover — обводка `control/border/hover` и слой; Skeleton — плашка вместо поля.
 
 ## 5. Properties
 Оси (варианты):
@@ -40,9 +40,9 @@
 | Ось | Значения | По умолчанию |
 |---|---|---|
 | Display | Count · Chips | Count |
-| State | Default · Open · Error · Disabled | Default |
+| State | Default · Open · Error · Disabled · Hover · Skeleton | Default |
 
-Матрица полная: 8 вариантов.
+Матрица полная: 12 вариантов.
 
 - Своих свойств у набора нет: подпись, значение, подсказка и ошибка — свойства вложенного Select; подписи пунктов — в Multiselect option; подписи чипов — в Chip.
 
@@ -76,15 +76,15 @@
 - `Menu`: интервал `space/4`; maxw `size/menu/max`; мин. ширина `size/menu/min`; отступы `space/8`; радиус `radius/control`.
 - `selected`: интервал `space/8`.
 - `Chip`: заливка / цвет `action/disabled`, `action/inverse/default`; интервал `space/6`; высота `control/height/sm`; maxw `size/chip/max`; отступы `control/padding-x/sm`; радиус `radius/control-sm`.
-- Значений без переменной: 8 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 12 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Multiselect`, вариантов 8 из 8; оси: Display, State.
-- Борда: «Multiselect — борда · шаблон v3», разделов 10.
+- Набор `Multiselect`, вариантов 12 из 12; оси: Display, State.
+- Борда: «Multiselect — борда · шаблон v3», разделов 11.
 - Описание: 742 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
@@ -92,9 +92,9 @@
 
 - Vue: `<DsMultiselect>`; Flutter: `DsMultiselect`.
 - Props: `display`: count | chips.
-- Состояния (Default, Open, Error, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
+- Состояния (Default, Open, Error, Disabled, Hover, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -108,4 +108,3 @@
 - На проверку: при тексте 200 % первая строка меню не увеличивается — проверить текстовый слой первого Multiselect option в Menu.
 - Пункты меню по умолчанию — пять одинаковых «Bitcoin (BTC)»: развести подписи и согласовать с чипами; «+N» в Chips в наборе не показан.
 - Ширина корня 320 — числом.
-- Hover на оси State нет — на решение: добавить или записать «только в коде».

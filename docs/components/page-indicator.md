@@ -1,4 +1,4 @@
-# Page indicator — контракт (2026-11-13)
+# Page indicator — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -19,7 +19,7 @@
 
 ## 3. Anatomy
 - Корень — ряд вложенных Page dot, зазор `space/6`.
-- Page dot: `size/dot/sm` (6), `radius/chip`; обычная — `icon/tertiary`, выбранная — вытянутая (16), `icon/accent`.
+- Page dot: `size/dot/sm` (6), `radius/chip`; обычная — `icon/tertiary`, выбранная — вытянутая (16), `control/checked`.
 - Вложено: `Page dot` ×54.
 - Служебные слои (вариантов из 14): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -53,14 +53,14 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/6`.
-- `Page dot`: заливка / цвет `icon/accent`, `icon/tertiary`; высота `size/dot/sm`; радиус `radius/chip`; ширина `size/dot/sm`.
+- `Page dot`: заливка / цвет `control/checked`, `icon/tertiary`; высота `size/dot/sm`; радиус `radius/chip`; ширина `size/dot/sm`.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
 - Набор `Page indicator`, вариантов 14 из 20; оси: Count, Selected.
-- Борда: «Page indicator — борда · шаблон v3», разделов 9.
+- Борда: «Page indicator — борда · шаблон v3», разделов 11.
 - Описание: 697 знаков, разделы: Status: Level: Когда использовать: Активная — A11y: Правила: Матрица:
 
 ## 13. Code projection
@@ -69,7 +69,7 @@
 - Vue: `<DsPageIndicator>`; Flutter: `DsPageIndicator`.
 - Props: `count`: 2 | 3 | 4 | 5; `selected`: 1 | 2 | 3 | 4 | 5.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

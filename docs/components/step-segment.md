@@ -1,4 +1,4 @@
-# Step segment — контракт (2026-11-13)
+# Step segment — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -17,13 +17,13 @@
 - Не делаем: сегменты разной ширины в одном ряду; сегмент вне Step progress.
 
 ## 3. Anatomy
-- Корень — полоска высотой `size/track/sm`: заливка `icon/accent` (Done, Current) или `border/default` (Upcoming), радиус `radius/chip`. Вложенных слоёв и текста нет.
+- Корень — полоска высотой `size/track/sm`: заливка `control/checked` (Done, Current) или `control/track` (Upcoming), радиус `radius/chip`. Вложенных слоёв и текста нет.
 - Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
 - Done и Current — акцент, выглядят одинаково: текущий шаг определяется позицией и озвучкой Step progress.
-- Upcoming — `border/default`.
+- Upcoming — `control/track`.
 
 ## 5. Properties
 Оси (варианты):
@@ -48,7 +48,7 @@
 - Декоративный; позицию озвучивает Step progress («Шаг 2 из 5»).
 
 ## 10. Tokens
-- `корень`: заливка / цвет `border/default`, `icon/accent`; высота `size/track/sm`; радиус `radius/chip`.
+- `корень`: заливка / цвет `control/checked`, `control/track`; высота `size/track/sm`; радиус `radius/chip`.
 - Значений без переменной: 3 (напр. `(root):w=40`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -56,7 +56,7 @@
 
 ## 12. Figma projection
 - Набор `Step segment`, вариантов 3 из 3; оси: State.
-- Борда: «Step segment — борда · шаблон v3», разделов 9.
+- Борда: «Step segment — борда · шаблон v3», разделов 12.
 - Описание: 457 знаков, разделы: Status: Level: Сегмент Step progress. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -66,7 +66,7 @@
 - Props: нет.
 - Состояния (Done, Current, Upcoming) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -78,6 +78,5 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Ширина корня 40 — числом (образец; в продукте — поровну на ряд).
-- Акцент — `icon/accent`, у Step symbol и Step trail текущий шаг — `control/checked`: привести семейство Step к одному токену или записать причину.
-- Upcoming (`border/default`) в Dark на L0 и Light на L3 почти не виден — на решение (токен).
+- Upcoming (`control/track`) в Dark на L0 и Light на L3 — перепроверить видимость стендом.
 - В описании нет строки Legacy.

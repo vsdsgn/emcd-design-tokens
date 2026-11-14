@@ -1,4 +1,4 @@
-# Ожидаемый API компонентов — beta (2026-11-13)
+# Ожидаемый API компонентов — beta (2026-11-14)
 
 Собрано `scripts/agent-docs.mjs` из `docs/ds-manifest.json` — править не здесь, а в Figma (потом манифест) или в `scripts/contract-data.mjs`.
 Это **ожидаемый** API по правилам имён `scripts/parity.mjs`: кода (DSP, Vue `ui-emcd-web`, Flutter) в доступе нет (`docs/dsp-check-2026-11-12.md`). Когда появится манифест кода — `npm run parity` сверит.
@@ -63,6 +63,8 @@ undefined · beta · Vue `<DsAvatar>` · Flutter `DsAvatar` · контракт 
 | `initials` | string | — | свойство Initials |
 | `status` | boolean | false | свойство Status |
 
+Состояния в Figma: Default · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
+
 ## Avatar group
 
 undefined · beta · Vue `<DsAvatarGroup>` · Flutter `DsAvatarGroup` · контракт `docs/components/avatar-group.md`
@@ -87,24 +89,10 @@ undefined · beta · Vue `<DsBadge>` · Flutter `DsBadge` · контракт `d
 | `style` | subtle \| solid | по правилу контракта | ось Style |
 | `label` | string | — | свойство Label |
 | `icon` | boolean | false | свойство Icon |
-| `closeDeprecated` | boolean | false | свойство Close · deprecated |
-| `chevronDeprecated` | boolean | false | свойство Chevron · deprecated |
 
 Состояния в Figma: Skeleton · Default — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 
 Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
-
-## Counter
-
-undefined · beta · Vue `<DsCounter>` · Flutter `DsCounter` · контракт `docs/components/counter.md`
-
-Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `size` | s \| m | по правилу контракта | ось Size |
-| `tone` | neutral \| accent \| danger | по правилу контракта | ось Tone |
-| `value` | string | — | свойство Value |
 
 ## Breadcrumb item
 
@@ -263,7 +251,7 @@ undefined · beta · Vue `<DsChip>` · Flutter `DsChip` · контракт `doc
 | `remove` | boolean | false | свойство Remove |
 | `trailingIcon` | boolean | false | свойство Trailing icon |
 
-Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+Состояния в Figma: Default · Hover · Pressed · Disabled · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
 
 Иконки (Icon, Trailing icon) в коде — слот или имя иконки, а не boolean + swap.
 
@@ -316,6 +304,8 @@ undefined · beta · Vue `<DsCoin>` · Flutter `DsCoin` · контракт `doc
 | `size` | xs \| s \| m \| l \| xl | по правилу контракта | ось Size |
 | `network` | off \| on | по правилу контракта | ось Network |
 
+Состояния в Figma: Default · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
+
 Иконки (Coin, Network coin) в коде — слот или имя иконки, а не boolean + swap.
 
 ## Coin stack
@@ -328,6 +318,20 @@ undefined · beta · Vue `<DsCoinStack>` · Flutter `DsCoinStack` · контр�
 |---|---|---|---|
 | `size` | s \| m \| l | по правилу контракта | ось Size |
 | `count` | 2 \| 3 \| 4 | по правилу контракта | ось Count |
+| `showMore` | boolean | false | свойство Show more |
+| `more` | string | — | свойство More |
+
+## Counter
+
+undefined · beta · Vue `<DsCounter>` · Flutter `DsCounter` · контракт `docs/components/counter.md`
+
+Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | s \| m | по правилу контракта | ось Size |
+| `tone` | neutral \| accent \| danger | по правилу контракта | ось Tone |
+| `value` | string | — | свойство Value |
 
 ## Date cell
 
@@ -349,7 +353,7 @@ undefined · beta · Vue `<DsDateRangeField>` · Flutter `DsDateRangeField` · �
 
 Props нет.
 
-Состояния в Figma: Default · Focus · Filled · Error · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
+Состояния в Figma: Default · Focus · Filled · Error · Disabled · Hover · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error`, `skeleton` — boolean props.
 
 ## Divider
 
@@ -373,6 +377,7 @@ undefined · beta · Vue `<DsFloatingButton>` · Flutter `DsFloatingButton` · �
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `layout` | icon \| extended | по правилу контракта | ось Layout |
+| `loading` | false \| true | по правилу контракта | ось Loading |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
@@ -500,7 +505,20 @@ undefined · beta · Vue `<DsInputAmount>` · Flutter `DsInputAmount` · кон�
 | `message` | string | — | свойство Message |
 | `showCurrency` | boolean | true | свойство Show currency |
 
-Состояния в Figma: Default · Focus · Error · Disabled · Hover — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
+Состояния в Figma: Default · Focus · Error · Disabled · Hover · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error`, `skeleton` — boolean props.
+
+## Key-value row
+
+undefined · beta · Vue `<DsKeyValueRow>` · Flutter `DsKeyValueRow` · контракт `docs/components/key-value-row.md`
+
+Строка «название — значение» в сводке: название в начале строки, значение в конце.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `emphasis` | default \| total \| muted | по правилу контракта | ось Emphasis |
+| `leader` | off \| on | по правилу контракта | ось Leader |
+| `key` | string | — | свойство Key |
+| `value` | string | — | свойство Value |
 
 ## Legend item
 
@@ -510,11 +528,12 @@ undefined · beta · Vue `<DsLegendItem>` · Flutter `DsLegendItem` · конт�
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
+| `selected` | off \| on | по правилу контракта | ось Selected |
 | `label` | string | — | свойство Label |
 | `value` | string | — | свойство Value |
 | `showValue` | boolean | false | свойство Show value |
 
-Состояния в Figma: Default · Hover · Selected · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
+Состояния в Figma: Default · Hover · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 
 ## Legend swatch
 
@@ -551,6 +570,18 @@ undefined · beta · Vue `<DsMenuItem>` · Flutter `DsMenuItem` · контра�
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
+## Multiselect
+
+undefined · beta · Vue `<DsMultiselect>` · Flutter `DsMultiselect` · контракт `docs/components/multiselect.md`
+
+Поле множественного выбора: Select + список Multiselect option в Menu. Выбранное показывается строкой «Выбрано: N» в поле (Count) или чипами под полем (Chips).
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `display` | count \| chips | по правилу контракта | ось Display |
+
+Состояния в Figma: Default · Open · Error · Disabled · Hover · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error`, `skeleton` — boolean props.
+
 ## Multiselect option
 
 undefined · beta · Vue `<DsMultiselectOption>` · Flutter `DsMultiselectOption` · контракт `docs/components/multiselect-option.md`
@@ -573,18 +604,6 @@ undefined · beta · Vue `<DsMultiselectOption>` · Flutter `DsMultiselectOption
 
 Состояния в Figma: Default · Hover · Disabled · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
-## Multiselect
-
-undefined · beta · Vue `<DsMultiselect>` · Flutter `DsMultiselect` · контракт `docs/components/multiselect.md`
-
-Поле множественного выбора: Select + список Multiselect option в Menu. Выбранное показывается строкой «Выбрано: N» в поле (Count) или чипами под полем (Chips).
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `display` | count \| chips | по правилу контракта | ось Display |
-
-Состояния в Figma: Default · Open · Error · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
-
 ## Nav item
 
 undefined · beta · Vue `<DsNavItem>` · Flutter `DsNavItem` · контракт `docs/components/nav-item.md`
@@ -594,10 +613,11 @@ undefined · beta · Vue `<DsNavItem>` · Flutter `DsNavItem` · контрак�
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `collapsed` | off \| on | по правилу контракта | ось Collapsed |
+| `selected` | off \| on | по правилу контракта | ось Selected |
 | `label` | string | — | свойство Label |
 | `counter` | boolean | false | свойство Counter |
 
-Состояния в Figma: Default · Hover · Selected · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
+Состояния в Figma: Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
 Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
 
@@ -667,9 +687,10 @@ undefined · beta · Vue `<DsPaginationItem>` · Flutter `DsPaginationItem` · �
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | s \| m | по правилу контракта | ось Size |
+| `selected` | off \| on | по правилу контракта | ось Selected |
 | `page` | string | — | свойство Page |
 
-Состояния в Figma: Default · Hover · Pressed · Selected · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
 ## Password field
 
@@ -679,19 +700,7 @@ undefined · beta · Vue `<DsPasswordField>` · Flutter `DsPasswordField` · к�
 
 Props нет.
 
-Состояния в Figma: Empty · Typing · Valid · Error — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `error` — boolean props.
-
-## Key-value row
-
-undefined · beta · Vue `<DsKeyValueRow>` · Flutter `DsKeyValueRow` · контракт `docs/components/key-value-row.md`
-
-Строка «название — значение» в сводке: название в начале строки, значение в конце.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `emphasis` | default \| total \| muted | по правилу контракта | ось Emphasis |
-| `key` | string | — | свойство Key |
-| `value` | string | — | свойство Value |
+Состояния в Figma: Error · Default · Focus · Filled · Hover · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
 
 ## Progress
 
@@ -717,16 +726,6 @@ undefined · beta · Vue `<DsProgressCircle>` · Flutter `DsProgressCircle` · �
 |---|---|---|---|
 | `size` | s \| m \| l | по правилу контракта | ось Size |
 | `value` | string | — | свойство Value |
-
-## Spinner
-
-undefined · beta · Vue `<DsSpinner>` · Flutter `DsSpinner` · контракт `docs/components/spinner.md`
-
-Индикатор загрузки: действие идёт, длительность неизвестна.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `size` | s \| m \| l | по правилу контракта | ось Size |
 
 ## Promo card
 
@@ -873,6 +872,16 @@ undefined · beta · Vue `<DsSkeleton>` · Flutter `DsSkeleton` · контра�
 |---|---|---|---|
 | `shape` | text \| title \| circle \| rect \| button \| input \| chip | по правилу контракта | ось Shape |
 
+## Spinner
+
+undefined · beta · Vue `<DsSpinner>` · Flutter `DsSpinner` · контракт `docs/components/spinner.md`
+
+Индикатор загрузки: действие идёт, длительность неизвестна.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | s \| m \| l | по правилу контракта | ось Size |
+
 ## Stat card
 
 undefined · beta · Vue `<DsStatCard>` · Flutter `DsStatCard` · контракт `docs/components/stat-card.md`
@@ -914,6 +923,20 @@ undefined · beta · Vue `<DsDot>` · Flutter `DsDot` · контракт `docs/
 |---|---|---|---|
 | `size` | s \| m | по правилу контракта | ось Size |
 | `tone` | success \| warning \| danger \| info \| neutral | по правилу контракта | ось Tone |
+
+## Step
+
+undefined · beta · Vue `<DsStep>` · Flutter `DsStep` · контракт `docs/components/step.md`
+
+Один шаг в Stepper: символ (Step symbol) + подпись и необязательное описание.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `label` | string | — | свойство Label |
+| `description` | string | — | свойство Description |
+| `showDescription` | boolean | false | свойство Show description |
+
+Состояния в Figma: Default · Current · Success — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
 ## Step progress
 
@@ -961,20 +984,6 @@ undefined · beta · Vue `<DsStepTrail>` · Flutter `DsStepTrail` · контр�
 
 Состояния в Figma: Default · Current · Success — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
-## Step
-
-undefined · beta · Vue `<DsStep>` · Flutter `DsStep` · контракт `docs/components/step.md`
-
-Один шаг в Stepper: символ (Step symbol) + подпись и необязательное описание.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `label` | string | — | свойство Label |
-| `description` | string | — | свойство Description |
-| `showDescription` | boolean | false | свойство Show description |
-
-Состояния в Figma: Default · Current · Success — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
-
 ## Tab
 
 undefined · beta · Vue `<DsTab>` · Flutter `DsTab` · контракт `docs/components/tab.md`
@@ -1008,22 +1017,6 @@ undefined · beta · Vue `<DsTabBarItem>` · Flutter `DsTabBarItem` · конт�
 Состояния в Figma: Default · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
 Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
-
-## Table header cell
-
-undefined · beta · Vue `<DsTableHeaderCell>` · Flutter `DsTableHeaderCell` · контракт `docs/components/table-header-cell.md`
-
-Заголовок колонки таблицы; у сортируемой колонки — кнопка сортировки со стрелкой.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `align` | start \| end | по правилу контракта | ось Align |
-| `sort` | none \| ascending \| descending | по правилу контракта | ось Sort |
-| `label` | string | — | свойство Label |
-| `showFilter` | boolean | false | свойство Show filter |
-| `showInfo` | boolean | false | свойство Show info |
-
-Состояния в Figma: Skeleton · Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 
 ## Table cell / Text
 
@@ -1143,6 +1136,18 @@ Props нет.
 
 Состояния в Figma: Default · Skeleton · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
 
+## Table cell / Star
+
+undefined · beta · Vue `<DsTableCellStar>` · Flutter `DsTableCellStar` · контракт `docs/components/table-cell-star.md`
+
+Ячейка таблицы с избранным: звезда (Icon button), которая добавляет строку в избранное и убирает из него.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `status` | off \| on | по правилу контракта | ось Status |
+
+Состояния в Figma: Default · Skeleton · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
+
 ## Table cell / Icon
 
 undefined · beta · Vue `<DsTableCellIcon>` · Flutter `DsTableCellIcon` · контракт `docs/components/table-cell-icon.md`
@@ -1182,18 +1187,6 @@ undefined · beta · Vue `<DsTableCellMore>` · Flutter `DsTableCellMore` · к�
 
 Состояния в Figma: Default · Skeleton · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
 
-## Table row
-
-undefined · beta · Vue `<DsTableRow>` · Flutter `DsTableRow` · контракт `docs/components/table-row.md`
-
-Строка таблицы: набор ячеек Table cell / … в колонках фиксированной ширины и разделитель снизу (`border/subtle`).
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `density` | compact \| regular | по правилу контракта | ось Density |
-
-Состояния в Figma: Default · Hover · Selected · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
-
 ## Table cell / Status
 
 undefined · beta · Vue `<DsTableCellStatus>` · Flutter `DsTableCellStatus` · контракт `docs/components/table-cell-status.md`
@@ -1203,6 +1196,35 @@ undefined · beta · Vue `<DsTableCellStatus>` · Flutter `DsTableCellStatus` ·
 Props нет.
 
 Состояния в Figma: Default · Skeleton · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
+
+## Table header cell
+
+undefined · beta · Vue `<DsTableHeaderCell>` · Flutter `DsTableHeaderCell` · контракт `docs/components/table-header-cell.md`
+
+Заголовок колонки таблицы; у сортируемой колонки — кнопка сортировки со стрелкой.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `align` | start \| end | по правилу контракта | ось Align |
+| `sort` | none \| ascending \| descending | по правилу контракта | ось Sort |
+| `label` | string | — | свойство Label |
+| `showFilter` | boolean | false | свойство Show filter |
+| `showInfo` | boolean | false | свойство Show info |
+
+Состояния в Figma: Skeleton · Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
+
+## Table row
+
+undefined · beta · Vue `<DsTableRow>` · Flutter `DsTableRow` · контракт `docs/components/table-row.md`
+
+Строка таблицы: набор ячеек Table cell / … в колонках фиксированной ширины и разделитель снизу (`border/subtle`).
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `density` | compact \| regular | по правилу контракта | ось Density |
+| `selected` | off \| on | по правилу контракта | ось Selected |
+
+Состояния в Figma: Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
 ## Tabs
 

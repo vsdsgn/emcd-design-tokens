@@ -1,4 +1,4 @@
-# Input addon / Max — контракт (2026-11-13)
+# Input addon / Max — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -66,7 +66,7 @@
 - Vue: `<DsInputAddonMax>`; Flutter: `DsInputAddonMax`.
 - Props: `text`: string или слот.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13; отдельные компоненты обходятся).

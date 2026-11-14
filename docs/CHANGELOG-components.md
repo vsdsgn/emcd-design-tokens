@@ -4,11 +4,13 @@
 
 ## 2026-11-14
 
-- **Перепроверка всех наборов** (аудиты состояний, цветов, структуры, опоры на прод): правки — `docs/stand-review/FIXES.md` «2026-11-14»; решения на «ок» Стефана — `OPEN-QUESTIONS.md` «Перепроверка 14.11» (19 пунктов).
+- **Перепроверка всех наборов** (аудиты состояний, цветов, структуры, опоры на прод): правки — `docs/stand-review/FIXES.md` «2026-11-14»; решения на «ок» Стефана — `OPEN-QUESTIONS.md` «Перепроверка 14.11» (20 пунктов).
 - **MAJOR для макетов:** Nav item, Pagination item, Table row, Legend item — `State=Selected` → `Selected=On` (экземпляры переименовываются автоматически); Password field — значения State переименованы; Badge — удалены свойства Focus ring, Close · deprecated, Chevron · deprecated; Sidebar — свойство Balance → Promo.
 - **Контракты:** Button / Icon button — Danger у всех типов, кроме Inverted (и Ghost); §15 «Миграция» заполнен у 34 наборов из legacy-таблиц (Floating button, Progress, Multiselect, Password field, Radio group — аналоги в legacy есть; Breadcrumbs — legacy нет).
 - **Генератор борд v3** — `scripts/figma/board-v3.plugin.js` + `scripts/board-data.mjs`; раздел 07 «Примеры в составе».
 - **Snack:** подпись действия — `text/link-inverse` (новый токен, опубликован 14.11).
+- **Новые оси / свойства (не MAJOR, экземпляры получают значение по умолчанию):** Floating button — Loading; Coin stack — Show more, More; Key-value row — Leader.
+- **Борды:** 65 v3-борд пересобраны генератором; манифест — новые id и разделы борд.
 
 ## 2026-11-13
 

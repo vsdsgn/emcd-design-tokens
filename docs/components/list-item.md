@@ -1,4 +1,4 @@
-# List item — контракт · draft (2026-11-13)
+# List item — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически. Набор заменён на месте надстройкой над базой `_List row` (2026-11-13); свойства, слоты, токены и приёмка базы — `docs/components/list-row.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -67,7 +67,7 @@
 - Props: `size`: l | m; `style`: plain | card; `content`: text-first | description-first | big-value | description-only.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): по набору 0; замечания базы — `docs/components/list-row.md`, раздел 14. Стенд — на пилоте базы.
 - Замечаний по манифесту нет.
 

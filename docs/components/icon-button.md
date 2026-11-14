@@ -1,4 +1,4 @@
-# Icon button — контракт (2026-11-13)
+# Icon button — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -18,8 +18,8 @@
 - Не делаем: иконку без Label; две Primary рядом; Ghost на пёстрой подложке (там Inverted); размер иконки вне шкалы.
 
 ## 3. Anatomy
-- Квадрат: `icon` (замена экземпляра) или `Spinner` (Loading).
-- `tooltip` с `_Tooltip arrow` — в Hover, только Web.
+- Квадрат: `icon` (замена экземпляра) или `Spinner` (Loading); цвет спиннера — по тону (дорожка и дуга; у Danger — `text/danger` / `icon/danger`), Disabled — дуга `icon/disabled`.
+- `tooltip` с `_Tooltip arrow` — в Hover, только Web: `surface/raised`, обводка `border/default`, текст `text/primary` (у Danger тоже).
 - Служебные: `state layer`, `focus ring`, зоны, `safe area · outer`.
 - Вложено: `Spinner` ×240, иконки ×240, `_Tooltip arrow` ×48.
 - Служебные слои (вариантов из 240): кольцо фокуса 240 · зона Web 240 · зона касания 240 · безопасное поле 240.
@@ -74,7 +74,7 @@
 - `корень`: заливка / цвет `action/accent/default`, `action/danger-subtle/default`, `action/danger/default`, `action/disabled`, `action/inverse/default`, `action/primary/default`, `action/secondary/default`, `action/tertiary/default`; интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`; радиус `radius/container`, `radius/control`, `radius/control-sm`; обводка `control/border/default`, `control/border/error`; толщина обводки `border/width/default`; ширина `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`.
 - `spinner`: высота `icon/size/lg`, `icon/size/md`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/md`, `icon/size/sm`.
 - `icon`: высота `icon/size/lg`, `icon/size/md`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/md`, `icon/size/sm`.
-- `tooltip`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`; обводка `control/border/default`; толщина обводки `border/width/default`; видимость `touch/is-fine`.
+- `tooltip`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`; видимость `touch/is-fine`.
 - `Скопировать`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/container`, `radius/control`, `radius/control-sm` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid`; толщина обводки `border/width/default` · `hit area · app`: видимость `touch/is-coarse` · `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-lg`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `safe area · content`: заливка / цвет `status/success/solid` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
 - Значений без переменной: 480 (напр. `hit area · web:w=40`, `hit area · web:h=40`, `hit area · web:w=32`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
@@ -97,7 +97,7 @@
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 - `label` → `aria-label` и текст тултипа; `icon` — слот.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `minWidth 58 @tooltip` числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

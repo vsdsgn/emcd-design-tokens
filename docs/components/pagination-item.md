@@ -1,4 +1,4 @@
-# Pagination item — контракт (2026-11-13)
+# Pagination item — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -13,7 +13,7 @@
 - Когда нет: отдельно в макете; переключение разделов — Tab или Segment.
 - Правило выбора варианта:
   - Size: S 32 — плотные таблицы; M 40 — по умолчанию. В одной пагинации один размер.
-  - State=Selected — текущая страница, ровно одна на пагинацию.
+  - Selected=On — текущая страница, ровно одна на пагинацию; у выбранной есть Hover / Pressed, Disabled нет (14 из 16).
   - «…» — пропуск страниц, не нажимается.
 - Не делаем: два выбранных номера; разные размеры в одной пагинации; нажимаемое «…».
 
@@ -21,11 +21,12 @@
 - Корень: высота `control/height/sm` | `control/height/md`, ширина по содержимому, min-width = высота (`control/height/*`), отступы `space/8`, радиус `radius/control-sm` | `radius/control`.
 - `page` — число (`font/family/text`, `type/label/md`, `font-weight/medium`, цифры табличные).
 - Служебные: `state layer`, `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer` (свойства Focus ring, Show hit area, Safe margin).
-- Служебные слои (вариантов из 10): кольцо фокуса 10 · зона Web 10 · зона касания 10 · безопасное поле 10.
+- Служебные слои (вариантов из 14): кольцо фокуса 14 · зона Web 14 · зона касания 14 · безопасное поле 14.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`.
-- Default — без подложки, `text/primary`; Hover / Pressed — слой `state/layer` × `state/hover` / `state/pressed`; Selected — `accent/subtle` + `text/accent`; Disabled — `text/disabled`, без подложки и без Hover.
+- Default — без подложки, `text/primary`; Hover / Pressed — слой `state/layer` × `state/hover` / `state/pressed`; Disabled — `text/disabled`, без подложки и без Hover.
+- Selected=On — `accent/subtle` + `text/accent`; Hover / Pressed выбранной — тот же слой состояния поверх.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 5. Properties
@@ -34,18 +35,19 @@
 | Ось | Значения | По умолчанию |
 |---|---|---|
 | Size | S · M | S |
-| State | Default · Hover · Pressed · Selected · Disabled | Default |
+| Selected | Off · On | Off |
+| State | Default · Hover · Pressed · Disabled | Default |
 
-Матрица полная: 10 вариантов.
+Матрица: 14 из 16.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Focus ring | булево | выкл | 10 из 10 · служебное |
-| Page | текст | «1» | 10 из 10 |
-| Show hit area | булево | выкл | 10 из 10 · служебное |
-| Safe margin | булево | выкл | 10 из 10 · служебное |
+| Focus ring | булево | выкл | 14 из 14 · служебное |
+| Page | текст | «1» | 14 из 14 |
+| Show hit area | булево | выкл | 14 из 14 · служебное |
+| Safe margin | булево | выкл | 14 из 14 · служебное |
 
 ## 6. Content / slots
 - Page — число или «…»; ширина растёт с числом («1024» → 47), минимум — высота контрола.
@@ -68,25 +70,25 @@
 - `page`: заливка / цвет `text/accent`, `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm`.
 - Min / max корня: minWidth 32 control/height/sm, minWidth 40 control/height/md.
-- Значений без переменной: 20 (напр. `hit area · web:w=32`, `hit area · web:h=32`, `hit area · web:w=40`, `hit area · web:h=40`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 28 (напр. `hit area · web:w=32`, `hit area · web:h=32`, `hit area · web:w=40`, `hit area · web:h=40`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Pagination item`, вариантов 10 из 10; оси: Size, State.
-- Борда: «Pagination item — борда · шаблон v3», разделов 11.
-- Описание: 667 знаков, разделы: Status: Level: A11y: Когда использовать: Правила:
+- Набор `Pagination item`, вариантов 14 из 16; оси: Size, Selected, State.
+- Борда: «Pagination item — борда · шаблон v3», разделов 12.
+- Описание: 751 знаков, разделы: Status: Level: A11y: Когда использовать: Правила: Матрица:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsPaginationItem>`; Flutter: `DsPaginationItem`.
-- Props: `size`: s | m; `page`: string или слот.
-- Состояния (Default, Hover, Pressed, Selected, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
+- Props: `size`: s | m; `selected`: boolean; `page`: string или слот.
+- Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

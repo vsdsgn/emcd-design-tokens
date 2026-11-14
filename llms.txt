@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-13: beta 95 наборов, draft 22, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-14: beta 96 наборов, draft 21, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -41,7 +41,6 @@
 - [Avatar](docs/components/avatar.md): Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото
 - [Avatar group](docs/components/avatar-group.md): Несколько аватаров одним блоком внахлёст; лишние сворачиваются в круг «+N»
 - [Badge](docs/components/badge.md): Неинтерактивная метка статуса или свойства («Активен», «Новое», «−5 %», монета). Нажать нельзя
-- [Counter](docs/components/counter.md): Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус
 - [Breadcrumb item](docs/components/breadcrumb-item.md): Пункт хлебных крошек: ссылка на предыдущий уровень; Current — текущая страница, не ссылка
 - [Breadcrumbs](docs/components/breadcrumbs.md): Путь к текущей странице в глубокой иерархии (Web): «Главная / Воркеры / rig-01»
 - [Button](docs/components/button.md): Кнопка действия. Основа — legacy `baseButton` (DS Web + App), доведена до правил 2.0
@@ -58,6 +57,7 @@
 - [Code input](docs/components/code-input.md): Ввод одноразового кода: ряд из 4 или 6 ячеек Code cell и строка сообщения под ним. Подтверждение — автоматически, когда введена последняя цифра
 - [Coin](docs/components/coin.md): Монета из библиотеки Symbols (`symbol/coin/*`) нужного размера, при необходимости с маленькой монетой сети в правом нижнем углу (USDT TRC-20, USDT ERC-20)
 - [Coin stack](docs/components/coin-stack.md): Несколько монет внахлёст (стопка): пул из нескольких монет, пара для обмена, «Kaspa+1»
+- [Counter](docs/components/counter.md): Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус
 - [Date cell](docs/components/date-cell.md): Ячейка одного дня в сетке Calendar: число и одно смысловое состояние (сегодня, выбран, край или середина диапазона, соседний месяц, недоступен)
 - [Date range field](docs/components/date-range-field.md): Поле выбора диапазона дат: подпись на рамке, значение «ДД.ММ.ГГ → ДД.ММ.ГГ», справа иконка календаря. По нажатию открывает панель с календарём (Calendar, Mode=Range) и пресетами периодов
 - [Divider](docs/components/divider.md): Разделитель: линия 1 px между группами содержимого, с необязательной подписью «или»
@@ -72,11 +72,12 @@
 - [Input addon / Clear](docs/components/input-addon-clear.md): Кнопка очистки поля (форма legacy `ic-erase`): серый круг с крестиком. Ставится в Trailing
 - [Input addon / Icon](docs/components/input-addon-icon.md): Иконка в слоте поля: поиск, сеть, тип значения
 - [Input amount](docs/components/input-amount.md): Поле суммы для пополнения, вывода, обмена и депозита: подпись с иконкой info, баланс и «Макс», сумма крупно, описание лимитов, выбор монеты (Select compact). Ошибка — рамка `control/border/error` и сообщение снизу
+- [Key-value row](docs/components/key-value-row.md): Строка «название — значение» в сводке: название в начале строки, значение в конце
 - [Legend item](docs/components/legend-item.md): Элемент легенды графика: маркер серии (Legend swatch) + подпись и необязательное значение
 - [Legend swatch](docs/components/legend-swatch.md): Маркер серии графика: цветная точка или отрезок линии
 - [Menu item](docs/components/menu-item.md): Пункт меню: слева необязательный слот (иконка, монета, аватар, эмодзи), затем подпись с необязательным описанием, справа необязательный слот (Badge, Counter, значение, шеврон подменю, кнопка). Нажимается вся строка, одно действие на пункт
-- [Multiselect option](docs/components/multiselect-option.md): Строка списка выбора (Select, Multiselect, Menu): слева необязательный слот под монету, аватар или иконку, затем подпись с необязательным описанием, справа галочка выбранного. Это строка, а не чекбокс: нажимается вся строка
 - [Multiselect](docs/components/multiselect.md): Поле множественного выбора: Select + список Multiselect option в Menu. Выбранное показывается строкой «Выбрано: N» в поле (Count) или чипами под полем (Chips)
+- [Multiselect option](docs/components/multiselect-option.md): Строка списка выбора (Select, Multiselect, Menu): слева необязательный слот под монету, аватар или иконку, затем подпись с необязательным описанием, справа галочка выбранного. Это строка, а не чекбокс: нажимается вся строка
 - [Nav item](docs/components/nav-item.md): Пункт основной навигации в сайдбаре Web: иконка и подпись; в свёрнутом сайдбаре — только иконка
 - [Notification](docs/components/notification.md): Запись в центре уведомлений (колокольчик в шапке): иконка, заголовок, текст и время
 - [Overlay](docs/components/overlay.md): Подложка за модальными слоями: полупрозрачная заливка `surface/overlay` на весь экран, при необходимости с размытием фона
@@ -85,10 +86,8 @@
 - [Pagination](docs/components/pagination.md): Пагинация таблиц и списков: номера страниц или диапазон со стрелками
 - [Pagination item](docs/components/pagination-item.md): Номер страницы в Pagination. Отдельно не используется
 - [Password field](docs/components/password-field.md): Поле пароля с кнопкой показа символов («глаз») и списком требований, которые отмечаются по мере ввода
-- [Key-value row](docs/components/key-value-row.md): Строка «название — значение» в сводке: название в начале строки, значение в конце
 - [Progress](docs/components/progress.md): Линейный прогресс: доля выполненного, когда длительность или объём известны (лимит вывода, заполненность, шаг загрузки файла, срок до выплаты)
 - [Progress circle](docs/components/progress-circle.md): Круговой прогресс: известная доля, когда места мало или прогресс — главное на карточке (заполнение пула, выполнение задания)
-- [Spinner](docs/components/spinner.md): Индикатор загрузки: действие идёт, длительность неизвестна
 - [Promo card](docs/components/promo-card.md): Промо-карточка: заголовок, необязательные описание и действие, необязательная картинка справа
 - [Radio](docs/components/radio.md): Один вариант из нескольких (2–5). Основа — legacy `baseRadio` (круг 20, точка 8, подпись через 12)
 - [Radio card](docs/components/radio-card.md): Выбираемая карточка: радио, подпись и необязательные детали, которые раскрываются у выбранной. Нажимается вся карточка
@@ -99,17 +98,17 @@
 - [Select](docs/components/select.md): Поле выбора одного значения из списка (сеть вывода, кошелёк, монета, валюта). Поле как у Input (размеры, лейбл, helper, ошибка), справа шеврон; по нажатию открывает Menu (на Compact — Sheet)
 - [Select compact](docs/components/select-compact.md): Компактный селектор без лейбла: выбор монеты, сети, валюты внутри строки, карточки, шапки виджета («USDT ▾»). По нажатию открывает Menu, на Compact — Sheet
 - [Skeleton](docs/components/skeleton.md): Кирпичи скелетона: из них собираются Skeleton-состояния всех компонентов с данными (List item, Table row, Stat card, Chart card, Coin, Avatar)
+- [Spinner](docs/components/spinner.md): Индикатор загрузки: действие идёт, длительность неизвестна
 - [Stat card](docs/components/stat-card.md): Один показатель с подписью: хешрейт, баланс, начислено за 24 ч, активные воркеры. Основа дашборда
 - [Status](docs/components/status.md): Точка + подпись: состояние объекта (воркер, устройство, сервис, выплата) в строке таблицы, списке, шапке
 - [Dot](docs/components/dot.md): не описано
+- [Step](docs/components/step.md): Один шаг в Stepper: символ (Step symbol) + подпись и необязательное описание
 - [Step progress](docs/components/step-progress.md): Полоска из 3–7 равных сегментов: сколько шагов пройдено в линейной последовательности без названий. Источник — legacy «slider counter» (Tooltip tour, DS Web и DS App)
 - [Step segment](docs/components/step-segment.md): Один сегмент полоски Step progress: шаг пройден, текущий или впереди
 - [Step symbol](docs/components/step-symbol.md): Кружок шага в Step: номер, иконка, галочка или точка в одном из трёх состояний
 - [Step trail](docs/components/step-trail.md): Линия между двумя шагами в Stepper: сплошная или пунктирная, в цвете состояния шага
-- [Step](docs/components/step.md): Один шаг в Stepper: символ (Step symbol) + подпись и необязательное описание
 - [Tab](docs/components/tab.md): Переключение разделов одного экрана (История: Начисления / Выплаты / Воркеры). Выбранный — подчёркивание
 - [Tab bar item](docs/components/tab-bar-item.md): Пункт нижней навигации: иконка 24 + подпись. App и мобильный веб — одна схема
-- [Table header cell](docs/components/table-header-cell.md): Заголовок колонки таблицы; у сортируемой колонки — кнопка сортировки со стрелкой
 - [Table cell / Text](docs/components/table-cell-text.md): Ячейка таблицы с текстом: основная строка и необязательная вторая строка
 - [Table cell / Date time](docs/components/table-cell-date-time.md): Ячейка таблицы с датой и временем события: в строку или столбиком
 - [Table cell / Coin](docs/components/table-cell-coin.md): Ячейка таблицы с монетой или активом: символ монеты, тикер и название или сеть
@@ -119,11 +118,13 @@
 - [Table cell / Avatar](docs/components/table-cell-avatar.md): Ячейка таблицы с пользователем: аватар 40, имя со значками достижений и подпись второй строкой
 - [Table cell / Badge](docs/components/table-cell-badge.md): Ячейка таблицы с бейджем: один Badge M, тон и текст — у вложенного экземпляра
 - [Table cell / Toggle](docs/components/table-cell-toggle.md): Ячейка таблицы с переключателем: Toggle S без подписи, включает или выключает объект строки сразу
+- [Table cell / Star](docs/components/table-cell-star.md): Ячейка таблицы с избранным: звезда (Icon button), которая добавляет строку в избранное и убирает из него
 - [Table cell / Icon](docs/components/table-cell-icon.md): Ячейка таблицы с иконкой 24: признак строки (тип, канал). Не нажимается
 - [Table cell / Buttons](docs/components/table-cell-buttons.md): Ячейка таблицы с быстрыми действиями строки: до трёх Icon button Ghost S
 - [Table cell / More](docs/components/table-cell-more.md): Ячейка таблицы с кнопкой «⋯»: открывает меню действий строки (Menu)
-- [Table row](docs/components/table-row.md): Строка таблицы: набор ячеек Table cell / … в колонках фиксированной ширины и разделитель снизу (`border/subtle`)
 - [Table cell / Status](docs/components/table-cell-status.md): Ячейка таблицы со статусом: точка и подпись («имя воркера · активен»). Подпись и тон — у вложенного Status
+- [Table header cell](docs/components/table-header-cell.md): Заголовок колонки таблицы; у сортируемой колонки — кнопка сортировки со стрелкой
+- [Table row](docs/components/table-row.md): Строка таблицы: набор ячеек Table cell / … в колонках фиксированной ширины и разделитель снизу (`border/subtle`)
 - [Tabs](docs/components/tabs.md): Бар табов: переключение между разделами одного контекста. Внутри — экземпляры Tab, первый выбран; снизу разделитель `border/subtle` на всю ширину контейнера
 - [Textarea](docs/components/textarea.md): текст длиннее одной строки (комментарий, обращение)
 - [Toggle](docs/components/toggle.md): Переключатель: мгновенно включает настройку, без «Сохранить». Основа — legacy `baseToggle` (дорожка 48×28 / 40×24, ползунок 20 / 16)

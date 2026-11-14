@@ -1,11 +1,11 @@
-# Table cell / Star — контракт (2026-11-13)
+# Table cell / Star — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Table cell / Star`. Status: draft. Level: unknown.
-- Figma: Components, страница «Table» (`367:42849`), набор `93:784`. Платформы: Web, Mobile web, iOS, Android.
+- Набор: `Table cell / Star`. Status: beta. Level: unknown.
+- Figma: Components, страница «Table cell» (`367:42849`), набор `93:784`. Платформы: Web, Mobile web, iOS, Android.
 - Страница «Table». Ячейка строки таблицы; вне Table row не используется.
 
 ## 2. Intent
@@ -23,7 +23,7 @@
 - Корень — горизонтальный стек, отступы `space/8`, зазор `space/8`, высота `size/table/row-lg`, min-width `size/table-cell/min` (80).
 - `star` — экземпляр Icon button (Type=Ghost, Size=M) с иконкой `icon/star` 20; Default и Disabled ячейки — State=Default / Disabled у Icon button. Кольцо фокуса, зоны нажатия и безопасное поле — у Icon button.
 - `skeleton` — полоса `skeleton/base`, `radius/chip` (вместо звезды).
-- Вложено: иконки ×6.
+- Вложено: иконки ×2, `Icon button` ×4.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -63,6 +63,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/8`.
+- `star`: интервал `space/6`; высота `control/height/md`; радиус `radius/control`; ширина `control/height/md`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Min / max корня: minWidth 80 size/table-cell/min.
 - Значений без переменной: 6 (напр. `(root):w=80`) — размеры слоёв зон и то, что перечислено в разделе 14.
@@ -73,8 +74,8 @@
 
 ## 12. Figma projection
 - Набор `Table cell / Star`, вариантов 6 из 6; оси: Status, State.
-- Борда: «Table header cell — борда · шаблон v3», разделов 11.
-- Описание: 585 знаков, разделы: Status: Level: Избранное в строке: Когда использовать: Правила: A11y:
+- Борда: «Table cells — борда · шаблон v3», разделов 25.
+- Описание: 692 знаков, разделы: Status: Level: Избранное в строке: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -83,7 +84,7 @@
 - Props: `status`: boolean.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

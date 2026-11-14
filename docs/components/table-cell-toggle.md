@@ -1,11 +1,11 @@
-# Table cell / Toggle — контракт (2026-11-13)
+# Table cell / Toggle — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Table cell / Toggle`. Status: beta. Level: unknown.
-- Figma: Components, страница «Table» (`367:42849`), набор `93:757`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Table cell» (`367:42849`), набор `93:757`. Платформы: Web, Mobile web, iOS, Android.
 - Страница «Table». Ячейка строки таблицы; вне Table row не используется.
 
 ## 2. Intent
@@ -30,7 +30,7 @@
 - Группа модели состояний (`docs/components.md`): наследует вложенный Toggle: Контрол выбора: слой `state/layer` на глифе, выбранное — `control/checked`.
 - Default — переключатель активен; Hover / Pressed / Focus — у вложенного Toggle.
 - Skeleton — одна полоса вместо переключателя.
-- Disabled — вложенный Toggle в своём Disabled, не нажимается.
+- Disabled — вложенный Toggle в своём Disabled, не нажимается; ячейка сама не гасит (без двойного гашения).
 - Hover строки — у Table row.
 
 ## 5. Properties
@@ -74,7 +74,7 @@
 
 ## 12. Figma projection
 - Набор `Table cell / Toggle`, вариантов 3 из 3; оси: State.
-- Борда: «Table header cell — борда · шаблон v3», разделов 11.
+- Борда: «Table cells — борда · шаблон v3», разделов 25.
 - Описание: 552 знаков, разделы: Status: Level: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -84,7 +84,7 @@
 - Props: нет.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

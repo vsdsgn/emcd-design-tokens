@@ -21,7 +21,7 @@ const FAMILIES = { '_Field base': ['Input', 'Textarea', 'Select', 'Multiselect',
 // Не в семье _Field base (решение 13.11): Code input собран из атомов Code cell, Input amount — крупное поле суммы со своей раскладкой (подпись и баланс в шапке).
 // Надстройка второго уровня (Select → Input, Multiselect → Select, Password field → Input) несёт базу через экземпляр члена семьи — это засчитывается.
 // Булевы оси, допустимые как варианты: ось меняет геометрию, обводку или состав слоёв, а не видимость одного слоя (булево свойство Figma этого не умеет).
-const BOOL_OK = { 'Card': ['Border'], 'Coin': ['Network'], 'Divider': ['Label'], 'Overlay': ['Blur'], 'Accordion': ['Open'], 'Avatar group': ['More'], 'Input amount': ['Filled'], 'Nav item': ['Collapsed'], 'Date range panel': ['Presets'], 'Sidebar': ['Collapsed'] };
+const BOOL_OK = { 'Card': ['Border'], 'Coin': ['Network'], 'Divider': ['Label'], 'Overlay': ['Blur'], 'Accordion': ['Open'], 'Avatar group': ['More'], 'Input amount': ['Filled'], 'Nav item': ['Collapsed'], 'Date range panel': ['Presets'], 'Sidebar': ['Collapsed'], 'Key-value row': ['Leader'] };
 // Кольцо фокуса внутри (INSIDE, без радиус-токена) — строки таблицы, docs/exceptions.md.
 const RING_INSIDE = new Set(['Table header cell', 'Table row']);
 // Размер числом по реестру docs/exceptions.md: длина / высота образца задаётся потребителем (набор → 'слой.свойство', 'root' — корень варианта, '*' — любой слой).
@@ -81,7 +81,7 @@ for (const pg of pages) {
     const order = Object.keys(axes);
     for (const [a, vals] of Object.entries(axes)) { const vs = [...vals];
       if ((vs.some(x => /^(Left|Right)$/i.test(x)) || /left|right/i.test(a))) add(key, 'AXES ось «' + a + '»: Left / Right, нужно Start / End');
-      if (a !== 'Status' && a !== 'Selected' && !(a === 'Loading' && s.name === 'Icon button') && !(BOOL_OK[okName(s.name)] || []).includes(a) && vs.length <= 2 && vs.every(x => /^(true|false|on|off|yes|no)$/i.test(x))) add(key, 'AXES ось «' + a + '» булева (' + vs.join(' / ') + '): проверить, не свойство ли это'); }
+      if (a !== 'Status' && a !== 'Selected' && !(a === 'Loading' && (s.name === 'Icon button' || s.name === 'Floating button')) && !(BOOL_OK[okName(s.name)] || []).includes(a) && vs.length <= 2 && vs.every(x => /^(true|false|on|off|yes|no)$/i.test(x))) add(key, 'AXES ось «' + a + '» булева (' + vs.join(' / ') + '): проверить, не свойство ли это'); }
     if (order.includes('State') && order[order.length - 1] !== 'State') add(key, 'AXES порядок осей: State не последняя (' + order.join(', ') + ')');
     const fam = baseOf[s.name]; let famHit = 0;
     const sigs = {};

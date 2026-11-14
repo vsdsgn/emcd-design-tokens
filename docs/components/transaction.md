@@ -1,4 +1,4 @@
-# Transaction — контракт (2026-11-13)
+# Transaction — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -96,7 +96,7 @@
 
 ## 12. Figma projection
 - Набор `Transaction`, вариантов 36 из 36; оси: Type, Status, State.
-- Борда: «Transaction — борда · шаблон v3», разделов 11.
+- Борда: «Transaction — борда · шаблон v3», разделов 12.
 - Описание: 1167 знаков, разделы: Status: Level: Анатомия: Когда нет: State: A11y: Когда использовать: Правила:
 
 ## 13. Code projection
@@ -106,7 +106,7 @@
 - Props: `type`: withdrawal | deposit | reward | exchange; `status`: completed | pending | failed.
 - Состояния (Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

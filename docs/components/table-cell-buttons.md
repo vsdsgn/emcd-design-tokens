@@ -1,11 +1,11 @@
-# Table cell / Buttons — контракт (2026-11-13)
+# Table cell / Buttons — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Table cell / Buttons`. Status: beta. Level: unknown.
-- Figma: Components, страница «Table» (`367:42849`), набор `93:927`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Table cell» (`367:42849`), набор `93:927`. Платформы: Web, Mobile web, iOS, Android.
 - Страница «Table». Ячейка строки таблицы; вне Table row не используется.
 
 ## 2. Intent
@@ -24,7 +24,7 @@
 - Корень — горизонтальный стек, высота `size/table/row-lg`, отступы `space/12`, зазор `space/4`, min-width `size/table-cell/min` (80).
 - `button 1`, `button 2`, `button 3` — квадрат `control/height/sm`, `radius/control-sm`, внутри иконка.
 - `skeleton` — полоса `skeleton/base`, `radius/chip`.
-- Вложено: иконки ×9.
+- Вложено: `Icon button` ×9.
 - Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -81,7 +81,7 @@
 
 ## 12. Figma projection
 - Набор `Table cell / Buttons`, вариантов 3 из 3; оси: State.
-- Борда: «Table header cell — борда · шаблон v3», разделов 11.
+- Борда: «Table cells — борда · шаблон v3», разделов 25.
 - Описание: 599 знаков, разделы: Status: Level: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -91,7 +91,7 @@
 - Props: `button2`: boolean = true; `button3`: boolean = true.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,4 +1,4 @@
-# Overlay — контракт (2026-11-13)
+# Overlay — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -57,7 +57,7 @@
 
 ## 12. Figma projection
 - Набор `Overlay`, вариантов 2 из 2; оси: Blur.
-- Борда: «Overlay — борда · шаблон v3», разделов 9.
+- Борда: «Overlay — борда · шаблон v3», разделов 11.
 - Описание: 743 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
@@ -66,7 +66,7 @@
 - Vue: `<DsOverlay>`; Flutter: `DsOverlay`.
 - Props: `blur`: boolean.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,27 +1,27 @@
 {
- "generated": "2026-11-13",
+ "generated": "2026-11-14",
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
-   "unknown": 86
+   "unknown": 94
   },
   "sets": {
    "unknown": 117
   },
   "status": {
-   "beta": 95,
-   "draft": 22
+   "beta": 96,
+   "draft": 21
   },
-  "variants": 1676,
-  "incompleteMatrix": 11,
+  "variants": 1729,
+  "incompleteMatrix": 15,
   "propsNotBoundEverywhere": 17,
   "rawMinMax": 0,
-  "withRawValues": 83,
-  "withFocusRing": 26,
+  "withRawValues": 84,
+  "withFocusRing": 25,
   "withHitArea": 24,
   "withSafeMargin": 24,
-  "pagesWithoutV3Board": 0,
-  "pagesWithFullBoard": 9,
+  "pagesWithoutV3Board": 1,
+  "pagesWithFullBoard": 19,
   "baseSets": 11
  },
  "pages": [
@@ -33,7 +33,7 @@
    "boards": [
     {
      "name": "Accordion — борда · шаблон v3",
-     "id": "945:1130",
+     "id": "2109:18848",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -229,7 +229,7 @@
    "boards": [
     {
      "name": "Address — борда · шаблон v3",
-     "id": "957:15077",
+     "id": "2109:35986",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -237,6 +237,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -247,8 +248,7 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -283,7 +283,7 @@
      "full": 4,
      "props": [],
      "nested": {
-      "(icons)": 8
+      "Icon button": 8
      },
      "minmax": [],
      "layers": {
@@ -361,15 +361,16 @@
    "boards": [
     {
      "name": "Amount — борда · шаблон v3",
-     "id": "957:13841",
+     "id": "2109:34125",
      "v3": true,
      "sections": [
-      "✔ Применено по рекомендации",
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -379,9 +380,7 @@
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08"
+    "05"
    ],
    "sets": [
     {
@@ -529,26 +528,26 @@
    "boards": [
     {
      "name": "Avatar — борда · шаблон v3",
-     "id": "648:72444",
+     "id": "2107:58954",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
+      "04 · Состояния",
       "06 · На поверхностях",
-      "07 · Группа: Avatar group",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "04",
-    "05",
-    "08",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -578,26 +577,30 @@
        "Text",
        "Icon",
        "Image"
+      ],
+      "State": [
+       "Default",
+       "Skeleton"
       ]
      },
-     "variants": 12,
-     "full": 12,
+     "variants": 24,
+     "full": 24,
      "props": [
       {
        "name": "Initials",
        "type": "TEXT",
        "def": "E",
-       "bound": 4
+       "bound": 8
       },
       {
        "name": "Status",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 12
+       "bound": 24
       }
      ],
      "nested": {
-      "(icons)": 4
+      "(icons)": 8
      },
      "minmax": [],
      "layers": {
@@ -607,14 +610,18 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 0,
-     "raw": [],
+     "rawCount": 12,
+     "raw": [
+      "circle:o=0"
+     ],
      "tokens": {
       "(root)": [
+       "f:skeleton/base",
        "h:size/media/lg",
        "h:size/media/md",
        "h:size/media/xl",
        "h:size/media/xs",
+       "r:radius/full",
        "w:size/media/lg",
        "w:size/media/md",
        "w:size/media/xl",
@@ -634,6 +641,7 @@
        "w:size/media/xs"
       ],
       "initials": [
+       "f:accent/on-subtle",
        "f:text/secondary",
        "fontFamily:font/family/display",
        "fontFamily:font/family/text",
@@ -678,7 +686,7 @@
    "boards": [
     {
      "name": "Avatar group — борда · шаблон v3",
-     "id": "958:16176",
+     "id": "2110:1716",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -686,18 +694,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -784,14 +792,15 @@
    "boards": [
     {
      "name": "Badge — борда · шаблон v3",
-     "id": "648:932",
+     "id": "2107:60025",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
+      "04 · Состояния",
       "06 · На поверхностях",
-      "07 · Группы и раскладка",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
@@ -799,26 +808,9 @@
       "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
-    },
-    {
-     "name": "Counter — борда · шаблон v3",
-     "id": "648:69632",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "— · Не собрано в этой версии"
-     ]
     }
    ],
    "boardMissing": [
-    "04",
     "05"
    ],
    "sets": [
@@ -886,34 +878,16 @@
        "type": "INSTANCE_SWAP",
        "def": "icon/plus",
        "bound": 39
-      },
-      {
-       "name": "Close · deprecated",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 39
-      },
-      {
-       "name": "Chevron · deprecated",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 39
-      },
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 39
       }
      ],
      "nested": {
-      "(icons)": 117
+      "(icons)": 39
      },
      "minmax": [
       "maxw=160 size/badge/max"
      ],
      "layers": {
-      "ring": 39,
+      "ring": 0,
       "hitWeb": 0,
       "hitApp": 0,
       "hit": 0,
@@ -965,96 +939,6 @@
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/md/line-height",
        "lineHeight:type/label/sm/line-height"
-      ],
-      "focus ring": [
-       "r:radius/focus-ring-inner",
-       "r:radius/focus-ring-sm",
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "skeleton bar": [
-       "f:skeleton/shimmer",
-       "r:radius/xs"
-      ]
-     },
-     "statusFirstLine": true
-    },
-    {
-     "name": "Counter",
-     "id": "43:16",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 699,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Счётчик:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Поиск:",
-      "Legacy:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Size": [
-       "S",
-       "M"
-      ],
-      "Tone": [
-       "Neutral",
-       "Accent",
-       "Danger"
-      ]
-     },
-     "variants": 6,
-     "full": 6,
-     "props": [
-      {
-       "name": "Value",
-       "type": "TEXT",
-       "def": "12",
-       "bound": 6
-      }
-     ],
-     "nested": {},
-     "minmax": [
-      "minw=16 size/counter-height/sm",
-      "maxw=40 size/counter/max",
-      "minh=16 size/counter-height/sm",
-      "minw=20 size/counter-height/md",
-      "minh=20 size/counter-height/md"
-     ],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "f:action/secondary/default",
-       "f:control/checked",
-       "f:status/danger/solid",
-       "maxw:size/counter/max",
-       "minh:size/counter-height/md",
-       "minh:size/counter-height/sm",
-       "minw:size/counter-height/md",
-       "minw:size/counter-height/sm",
-       "p:space/4",
-       "p:space/6",
-       "r:radius/full"
-      ],
-      "value": [
-       "f:text/on-accent",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
       ]
      },
      "statusFirstLine": true
@@ -1069,7 +953,7 @@
    "boards": [
     {
      "name": "Breadcrumb item — борда · шаблон v3",
-     "id": "658:72470",
+     "id": "2108:68129",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -1078,18 +962,16 @@
       "04 · Состояния",
       "05 · Зоны",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
+      "12 · Локали и RTL"
      ]
     }
    ],
-   "boardMissing": [
-    "07"
-   ],
+   "boardMissing": [],
    "sets": [
     {
      "name": "Breadcrumb item",
@@ -1206,7 +1088,7 @@
    "boards": [
     {
      "name": "Breadcrumbs — борда · шаблон v3",
-     "id": "956:21620",
+     "id": "2109:23391",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -1214,6 +1096,8 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -1223,9 +1107,7 @@
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08"
+    "05"
    ],
    "sets": [
     {
@@ -1624,7 +1506,7 @@
      "full": 2,
      "props": [],
      "nested": {
-      "(icons)": 4,
+      "Icon button": 4,
       "Date cell": 84
      },
      "minmax": [],
@@ -1745,26 +1627,26 @@
    "boards": [
     {
      "name": "Card — борда · шаблон v3",
-     "id": "664:74000",
+     "id": "2108:72577",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
+      "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "04",
     "05",
-    "07",
-    "08",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -1849,13 +1731,13 @@
   },
   {
    "level": "unknown",
-   "page": "Chart",
-   "pageId": "367:45869",
-   "pageMark": "🟠",
+   "page": "Chart axis label",
+   "pageId": "1012:17",
+   "pageMark": "🟡",
    "boards": [
     {
-     "name": "Chart plot — борда · шаблон v3",
-     "id": "1713:14518",
+     "name": "Chart axis label — борда · шаблон v3",
+     "id": "2107:25507",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -1863,12 +1745,98 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
-    },
+    }
+   ],
+   "boardMissing": [
+    "05"
+   ],
+   "sets": [
+    {
+     "name": "Chart axis label",
+     "id": "97:818",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 774,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Size": [
+       "S",
+       "L"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Active",
+       "Skeleton"
+      ]
+     },
+     "variants": 8,
+     "full": 8,
+     "props": [
+      {
+       "name": "Label",
+       "type": "TEXT",
+       "def": "14:00",
+       "bound": 6
+      }
+     ],
+     "nested": {},
+     "minmax": [
+      "maxw=64 size/chart-axis-label/max"
+     ],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 0,
+     "raw": [],
+     "tokens": {
+      "(root)": [
+       "maxw:size/chart-axis-label/max"
+      ],
+      "label": [
+       "f:text/primary",
+       "f:text/tertiary",
+       "fontFamily:font/family/text",
+       "fontSize:type/body/md/size",
+       "fontSize:type/body/sm/size",
+       "fontWeight:font-weight/regular",
+       "lineHeight:type/body/md/line-height",
+       "lineHeight:type/body/sm/line-height"
+      ],
+      "skeleton": [
+       "f:skeleton/base",
+       "r:radius/chip"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Chart card",
+   "pageId": "367:45869",
+   "pageMark": "🟠",
+   "boards": [
     {
      "name": "Chart card — борда · шаблон v3",
      "id": "1713:16819",
@@ -2087,259 +2055,6 @@
       ]
      },
      "statusFirstLine": true
-    },
-    {
-     "name": "Chart plot",
-     "id": "97:921",
-     "type": "SET",
-     "status": "draft",
-     "descLen": 1629,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Область графика (в коде —",
-      "Type —",
-      "State:",
-      "Legacy:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Матрица:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Type": [
-       "Bars",
-       "Line",
-       "Area",
-       "Line + Bars",
-       "Multi-line",
-       "Dual area",
-       "Stacked bars"
-      ],
-      "State": [
-       "Default",
-       "Hover",
-       "Loading",
-       "Empty",
-       "Disabled"
-      ]
-     },
-     "variants": 23,
-     "full": 35,
-     "props": [],
-     "nested": {
-      "Chart crosshair": 6,
-      "Chart tooltip": 6
-     },
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 80,
-     "raw": [
-      "(root):w=473",
-      "(root):h=140",
-      "bar:o=0.35",
-      "halo:o=0.24",
-      "area:o=0.45"
-     ],
-     "tokens": {
-      "(root)": [
-       "gap:space/4"
-      ],
-      "bar": [
-       "f:action/disabled",
-       "f:data/1",
-       "f:data/4",
-       "f:skeleton/base",
-       "r:radius/2xs"
-      ],
-      "Нет данных за период": [
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/body/md/size",
-       "fontWeight:font-weight/regular",
-       "lineHeight:type/body/md/line-height"
-      ],
-      "grid": [
-       "s:border/subtle",
-       "sw:border/width/default"
-      ],
-      "line": [
-       "s:action/disabled",
-       "s:data/1",
-       "s:skeleton/base",
-       "sw:chart/stroke"
-      ],
-      "halo": [
-       "f:data/1"
-      ],
-      "point": [
-       "f:data/1",
-       "s:surface/level-1",
-       "sw:border/width/focus"
-      ],
-      "Chart tooltip": [
-       "effects:shadow/ambient",
-       "effects:shadow/key",
-       "f:surface/raised",
-       "gap:space/6",
-       "maxw:size/tooltip/max",
-       "minw:size/chart-tooltip/min",
-       "p:space/10",
-       "p:space/sm",
-       "r:radius/sm",
-       "s:border/subtle",
-       "sw:border/width/default"
-      ],
-      "area": [
-       "f:action/disabled",
-       "f:data/1",
-       "f:data/4",
-       "f:skeleton/base"
-      ],
-      "line 1": [
-       "s:data/1",
-       "sw:chart/stroke"
-      ],
-      "line 2": [
-       "s:data/2",
-       "s:data/4",
-       "sw:chart/stroke"
-      ],
-      "line 3": [
-       "s:data/3",
-       "sw:chart/stroke"
-      ],
-      "line 4": [
-       "s:data/4",
-       "sw:chart/stroke"
-      ],
-      "segment 1": [
-       "f:data/1",
-       "r:radius/2xs"
-      ],
-      "segment 2": [
-       "f:data/2",
-       "r:radius/2xs"
-      ],
-      "segment 3": [
-       "f:data/3",
-       "r:radius/2xs"
-      ],
-      "segment 4": [
-       "f:data/4",
-       "r:radius/2xs"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Chart axis label",
-   "pageId": "1012:17",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Chart axis label — борда · шаблон v3",
-     "id": "1713:6254",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
-   ],
-   "sets": [
-    {
-     "name": "Chart axis label",
-     "id": "97:818",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 774,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Size": [
-       "S",
-       "L"
-      ],
-      "State": [
-       "Default",
-       "Hover",
-       "Active",
-       "Skeleton"
-      ]
-     },
-     "variants": 8,
-     "full": 8,
-     "props": [
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "14:00",
-       "bound": 6
-      }
-     ],
-     "nested": {},
-     "minmax": [
-      "maxw=64 size/chart-axis-label/max"
-     ],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "maxw:size/chart-axis-label/max"
-      ],
-      "label": [
-       "f:text/primary",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/body/md/size",
-       "fontSize:type/body/sm/size",
-       "fontWeight:font-weight/regular",
-       "lineHeight:type/body/md/line-height",
-       "lineHeight:type/body/sm/line-height"
-      ],
-      "skeleton": [
-       "f:skeleton/base",
-       "r:radius/chip"
-      ]
-     },
-     "statusFirstLine": true
     }
    ]
   },
@@ -2351,7 +2066,7 @@
    "boards": [
     {
      "name": "Chart crosshair — борда · шаблон v3",
-     "id": "1713:7475",
+     "id": "2107:26811",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -2359,18 +2074,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -2441,7 +2156,7 @@
    "boards": [
     {
      "name": "Chart metric — борда · шаблон v3",
-     "id": "1713:8202",
+     "id": "2107:27373",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -2449,18 +2164,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -2565,13 +2280,13 @@
   },
   {
    "level": "unknown",
-   "page": "Chart tooltip",
-   "pageId": "1012:18",
-   "pageMark": "🟡",
+   "page": "Chart plot",
+   "pageId": "2093:1266",
+   "pageMark": "🟠",
    "boards": [
     {
-     "name": "Chart tooltip — борда · шаблон v3",
-     "id": "1713:9283",
+     "name": "Chart plot — борда · шаблон v3",
+     "id": "1713:14518",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -2591,6 +2306,189 @@
     "07",
     "08",
     "12"
+   ],
+   "sets": [
+    {
+     "name": "Chart plot",
+     "id": "97:921",
+     "type": "SET",
+     "status": "draft",
+     "descLen": 1629,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Область графика (в коде —",
+      "Type —",
+      "State:",
+      "Legacy:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:",
+      "Матрица:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Type": [
+       "Bars",
+       "Line",
+       "Area",
+       "Line + Bars",
+       "Multi-line",
+       "Dual area",
+       "Stacked bars"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Skeleton",
+       "Empty",
+       "Disabled"
+      ]
+     },
+     "variants": 23,
+     "full": 35,
+     "props": [],
+     "nested": {
+      "Chart crosshair": 6,
+      "Chart tooltip": 6
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 80,
+     "raw": [
+      "(root):w=473",
+      "(root):h=140",
+      "area:o=0.45",
+      "bar:o=0.35",
+      "halo:o=0.24"
+     ],
+     "tokens": {
+      "(root)": [
+       "gap:space/4"
+      ],
+      "bar": [
+       "f:action/disabled",
+       "f:data/1",
+       "f:data/4",
+       "f:skeleton/base",
+       "r:radius/2xs"
+      ],
+      "grid": [
+       "s:border/subtle",
+       "sw:border/width/default"
+      ],
+      "line": [
+       "s:action/disabled",
+       "s:data/1",
+       "s:skeleton/base",
+       "sw:chart/stroke"
+      ],
+      "area": [
+       "f:action/disabled",
+       "f:data/1",
+       "f:data/4",
+       "f:skeleton/base"
+      ],
+      "line 1": [
+       "s:data/1",
+       "sw:chart/stroke"
+      ],
+      "line 2": [
+       "s:data/2",
+       "s:data/4",
+       "sw:chart/stroke"
+      ],
+      "line 3": [
+       "s:data/3",
+       "sw:chart/stroke"
+      ],
+      "line 4": [
+       "s:data/4",
+       "sw:chart/stroke"
+      ],
+      "segment 1": [
+       "f:data/1",
+       "r:radius/2xs"
+      ],
+      "segment 2": [
+       "f:data/2",
+       "r:radius/2xs"
+      ],
+      "segment 3": [
+       "f:data/3",
+       "r:radius/2xs"
+      ],
+      "segment 4": [
+       "f:data/4",
+       "r:radius/2xs"
+      ],
+      "halo": [
+       "f:data/1"
+      ],
+      "point": [
+       "f:data/1",
+       "s:surface/level-1",
+       "sw:border/width/focus"
+      ],
+      "Chart tooltip": [
+       "effects:shadow/ambient",
+       "effects:shadow/key",
+       "f:surface/raised",
+       "gap:space/6",
+       "maxw:size/tooltip/max",
+       "minw:size/chart-tooltip/min",
+       "p:space/10",
+       "p:space/sm",
+       "r:radius/sm",
+       "s:border/default",
+       "sw:border/width/default"
+      ],
+      "Нет данных за период": [
+       "f:text/tertiary",
+       "fontFamily:font/family/text",
+       "fontSize:type/body/md/size",
+       "fontWeight:font-weight/regular",
+       "lineHeight:type/body/md/line-height"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Chart tooltip",
+   "pageId": "1012:18",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Chart tooltip — борда · шаблон v3",
+     "id": "2107:28540",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05"
    ],
    "sets": [
     {
@@ -2653,7 +2551,7 @@
        "p:space/10",
        "p:space/12",
        "r:radius/sm",
-       "s:border/subtle",
+       "s:border/default",
        "sw:border/width/default"
       ],
       "header": [
@@ -2822,7 +2720,7 @@
    "boards": [
     {
      "name": "Checkbox group — борда · шаблон v3",
-     "id": "958:8846",
+     "id": "2110:9909",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -2830,6 +2728,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -2840,8 +2739,7 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -3018,105 +2916,109 @@
        "Default",
        "Hover",
        "Pressed",
-       "Disabled"
+       "Disabled",
+       "Skeleton"
       ]
      },
-     "variants": 16,
-     "full": 16,
+     "variants": 20,
+     "full": 20,
      "props": [
       {
        "name": "Label",
        "type": "TEXT",
        "def": "360 дней",
-       "bound": 16
+       "bound": 20
       },
       {
        "name": "Meta",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 16
+       "bound": 20
       },
       {
        "name": "Meta text",
        "type": "TEXT",
        "def": "8%",
-       "bound": 16
+       "bound": 20
       },
       {
        "name": "Icon",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 16
+       "bound": 20
       },
       {
        "name": "Icon · swap",
        "type": "INSTANCE_SWAP",
        "def": "icon/plus",
-       "bound": 16
+       "bound": 20
       },
       {
        "name": "Remove",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 16
+       "bound": 20
       },
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 16
+       "bound": 20
       },
       {
        "name": "Show hit area",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 16
+       "bound": 20
       },
       {
        "name": "Safe margin",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 16
+       "bound": 20
       },
       {
        "name": "Trailing icon",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 16
+       "bound": 20
       },
       {
        "name": "Trailing icon · swap",
        "type": "INSTANCE_SWAP",
        "def": "icon/plus",
-       "bound": 16
+       "bound": 20
       }
      ],
      "nested": {
-      "(icons)": 48
+      "(icons)": 60
      },
      "minmax": [
       "maxw=240 size/chip/max"
      ],
      "layers": {
-      "ring": 16,
-      "hitWeb": 16,
-      "hitApp": 16,
-      "hit": 16,
-      "safe": 16
+      "ring": 20,
+      "hitWeb": 20,
+      "hitApp": 20,
+      "hit": 20,
+      "safe": 20
      },
-     "rawCount": 32,
+     "rawCount": 48,
      "raw": [
       "hit area · web:w=84",
       "hit area · web:h=32",
       "hit area · web:w=82",
       "hit area · web:w=88",
       "hit area · web:h=40",
-      "hit area · web:w=86"
+      "hit area · web:w=86",
+      "label:o=0",
+      "hit area · web:o=0"
      ],
      "tokens": {
       "(root)": [
        "f:action/disabled",
        "f:action/inverse/default",
+       "f:skeleton/base",
        "gap:space/6",
        "h:control/height/md",
        "h:control/height/sm",
@@ -3126,6 +3028,7 @@
        "r:radius/control",
        "r:radius/control-sm",
        "s:control/border/default",
+       "s:control/border/disabled",
        "sw:border/width/default"
       ],
       "label": [
@@ -3186,7 +3089,7 @@
    "boards": [
     {
      "name": "Circle timer — борда · шаблон v3",
-     "id": "1663:580",
+     "id": "2107:9335",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -3194,18 +3097,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -3260,13 +3163,13 @@
       "track": [
        "h:icon/size/lg",
        "h:icon/size/sm",
-       "s:border/default",
+       "s:control/track",
        "sw:border/width/strong",
        "w:icon/size/lg",
        "w:icon/size/sm"
       ],
       "progress": [
-       "s:icon/accent",
+       "s:control/checked",
        "sw:border/width/strong"
       ]
      },
@@ -3282,27 +3185,25 @@
    "boards": [
     {
      "name": "Code cell — борда · шаблон v3",
-     "id": "656:108",
+     "id": "2107:65338",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
+      "04 · Состояния",
+      "05 · Зоны",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "— · Не собрано в этой версии"
+      "12 · Локали и RTL"
      ]
     }
    ],
-   "boardMissing": [
-    "04",
-    "05",
-    "07",
-    "12"
-   ],
+   "boardMissing": [],
    "sets": [
     {
      "name": "Code cell",
@@ -3443,7 +3344,7 @@
    "boards": [
     {
      "name": "Code input — борда · шаблон v3",
-     "id": "956:4030",
+     "id": "2109:31053",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -3575,7 +3476,7 @@
    "boards": [
     {
      "name": "Coin — борда · шаблон v3",
-     "id": "1623:728",
+     "id": "2107:6813",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -3583,18 +3484,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -3623,27 +3524,31 @@
       "Network": [
        "Off",
        "On"
+      ],
+      "State": [
+       "Default",
+       "Skeleton"
       ]
      },
-     "variants": 10,
-     "full": 10,
+     "variants": 20,
+     "full": 20,
      "props": [
       {
        "name": "Coin",
        "type": "INSTANCE_SWAP",
        "def": "symbol/coin/bitcoin-btc",
-       "bound": 10
+       "bound": 20
       },
       {
        "name": "Network coin",
        "type": "INSTANCE_SWAP",
        "def": "symbol/coin/tether-usdt",
-       "bound": 10
+       "bound": 20
       }
      ],
      "nested": {
-      "symbol/coin/bitcoin-btc": 10,
-      "symbol/coin/tether-usdt": 10
+      "symbol/coin/bitcoin-btc": 20,
+      "symbol/coin/tether-usdt": 20
      },
      "minmax": [],
      "layers": {
@@ -3655,19 +3560,17 @@
      },
      "rawCount": 5,
      "raw": [
-      "network:r=3.5",
-      "network:r=4.5",
-      "network:r=5.5",
-      "network:r=7",
-      "network:r=9"
+      "network:o=0"
      ],
      "tokens": {
       "(root)": [
+       "f:skeleton/base",
        "h:size/media/2xs",
        "h:size/media/lg",
        "h:size/media/md",
        "h:size/media/sm",
        "h:size/media/xs",
+       "r:radius/full",
        "w:size/media/2xs",
        "w:size/media/lg",
        "w:size/media/md",
@@ -3675,6 +3578,7 @@
        "w:size/media/xs"
       ],
       "network": [
+       "r:radius/full",
        "s:surface/current",
        "sw:border/width/strong"
       ]
@@ -3691,7 +3595,7 @@
    "boards": [
     {
      "name": "Coin stack — борда · шаблон v3",
-     "id": "1623:1657",
+     "id": "2107:8367",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -3699,18 +3603,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -3742,7 +3646,20 @@
      },
      "variants": 9,
      "full": 9,
-     "props": [],
+     "props": [
+      {
+       "name": "Show more",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 9
+      },
+      {
+       "name": "More",
+       "type": "TEXT",
+       "def": "+2",
+       "bound": 9
+      }
+     ],
      "nested": {
       "symbol/coin/bitcoin-btc": 9,
       "symbol/coin/ethereum-eth": 9,
@@ -3770,11 +3687,135 @@
       "coin 2": [
        "s:surface/current"
       ],
+      "more": [
+       "f:action/secondary/default",
+       "r:radius/full",
+       "s:surface/current"
+      ],
+      "value": [
+       "f:text/secondary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/sm/line-height"
+      ],
       "coin 3": [
        "s:surface/current"
       ],
       "coin 4": [
        "s:surface/current"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Counter",
+   "pageId": "2093:1265",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Counter — борда · шаблон v3",
+     "id": "2107:57653",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05"
+   ],
+   "sets": [
+    {
+     "name": "Counter",
+     "id": "43:16",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 699,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Счётчик:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:",
+      "Поиск:",
+      "Legacy:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Size": [
+       "S",
+       "M"
+      ],
+      "Tone": [
+       "Neutral",
+       "Accent",
+       "Danger"
+      ]
+     },
+     "variants": 6,
+     "full": 6,
+     "props": [
+      {
+       "name": "Value",
+       "type": "TEXT",
+       "def": "12",
+       "bound": 6
+      }
+     ],
+     "nested": {},
+     "minmax": [
+      "minw=16 size/counter-height/sm",
+      "maxw=40 size/counter/max",
+      "minh=16 size/counter-height/sm",
+      "minw=20 size/counter-height/md",
+      "minh=20 size/counter-height/md"
+     ],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 0,
+     "raw": [],
+     "tokens": {
+      "(root)": [
+       "f:action/secondary/default",
+       "f:control/checked",
+       "f:status/danger/solid",
+       "maxw:size/counter/max",
+       "minh:size/counter-height/md",
+       "minh:size/counter-height/sm",
+       "minw:size/counter-height/md",
+       "minw:size/counter-height/sm",
+       "p:space/4",
+       "p:space/6",
+       "r:radius/full"
+      ],
+      "value": [
+       "f:text/on-accent",
+       "f:text/primary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/sm/line-height"
       ]
      },
      "statusFirstLine": true
@@ -3789,7 +3830,7 @@
    "boards": [
     {
      "name": "Date cell — борда · шаблон v3",
-     "id": "658:903",
+     "id": "2108:71485",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -3798,18 +3839,16 @@
       "04 · Состояния",
       "05 · Зоны",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "— · Не собрано в этой версии"
+      "12 · Локали и RTL"
      ]
     }
    ],
-   "boardMissing": [
-    "07",
-    "12"
-   ],
+   "boardMissing": [],
    "sets": [
     {
      "name": "Date cell",
@@ -3897,13 +3936,15 @@
        "f:text/disabled",
        "f:text/on-accent",
        "f:text/primary",
+       "f:text/tertiary",
        "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height",
-       "lineHeight:type/label/md/line-height"
+       "lineHeight:type/label/md/line-height",
+       "textRangeFills:text/tertiary"
       ],
       "focus ring": [
        "r:radius/focus-ring-inner",
@@ -3943,7 +3984,7 @@
    "boards": [
     {
      "name": "Date range field — борда · шаблон v3",
-     "id": "1623:3974",
+     "id": "2107:13113",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -3951,6 +3992,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -3961,8 +4003,7 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -3987,14 +4028,16 @@
        "Focus",
        "Filled",
        "Error",
-       "Disabled"
+       "Disabled",
+       "Hover",
+       "Skeleton"
       ]
      },
-     "variants": 5,
-     "full": 5,
+     "variants": 7,
+     "full": 7,
      "props": [],
      "nested": {
-      "Input": 5
+      "Input": 7
      },
      "minmax": [
       "minw=160 size/field/min"
@@ -4006,7 +4049,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 5,
+     "rawCount": 7,
      "raw": [
       "(root):w=320"
      ],
@@ -4153,26 +4196,26 @@
    "boards": [
     {
      "name": "Divider — борда · шаблон v3",
-     "id": "648:71630",
+     "id": "2107:58114",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
+      "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "04",
     "05",
-    "07",
-    "08",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -4530,8 +4573,7 @@
      ],
      "nested": {
       "status/pending": 4,
-      "Button": 6,
-      "Button/Link/S/Default": 1
+      "Button": 7
      },
      "minmax": [],
      "layers": {
@@ -4607,9 +4649,11 @@
        "r:radius/control",
        "r:radius/control-sm"
       ],
-      "Button · deprecated": [
-       "gap:space/2xs",
-       "r:radius/control-sm"
+      "link": [
+       "gap:space/2",
+       "minw:size/button/min",
+       "p:space/4",
+       "r:radius/xs"
       ],
       "column": [
        "gap:space/12",
@@ -4774,45 +4818,46 @@
        "Hover",
        "Dragging",
        "Error",
-       "Disabled"
+       "Disabled",
+       "Pressed"
       ]
      },
-     "variants": 5,
-     "full": 5,
+     "variants": 6,
+     "full": 6,
      "props": [
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 5
+       "bound": 6
       },
       {
        "name": "Show hit area",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 5
+       "bound": 6
       },
       {
        "name": "Safe margin",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 5
+       "bound": 6
       }
      ],
      "nested": {
-      "(icons)": 5,
-      "_Hit area": 10,
-      "_Safe margin": 5
+      "(icons)": 6,
+      "_Hit area": 12,
+      "_Safe margin": 6
      },
      "minmax": [],
      "layers": {
-      "ring": 5,
-      "hitWeb": 5,
-      "hitApp": 5,
-      "hit": 5,
-      "safe": 5
+      "ring": 6,
+      "hitWeb": 6,
+      "hitApp": 6,
+      "hit": 6,
+      "safe": 6
      },
-     "rawCount": 15,
+     "rawCount": 18,
      "raw": [
       "(root):w=360",
       "hit area · web:w=360",
@@ -4873,6 +4918,7 @@
       "state layer": [
        "f:state/layer",
        "o:state/hover",
+       "o:state/pressed",
        "r:radius/container"
       ]
      },
@@ -4888,7 +4934,7 @@
    "boards": [
     {
      "name": "Floating button — борда · шаблон v3",
-     "id": "945:11754",
+     "id": "2109:20505",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -4897,17 +4943,17 @@
       "04 · Состояния",
       "05 · Зоны",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "07",
-    "08",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -4915,7 +4961,7 @@
      "id": "179:1295",
      "type": "SET",
      "status": "beta",
-     "descLen": 1055,
+     "descLen": 1145,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4924,13 +4970,18 @@
       "Позиция:",
       "A11y:",
       "Тень:",
-      "Правила:"
+      "Правила:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
       "Layout": [
        "Icon",
        "Extended"
+      ],
+      "Loading": [
+       "False",
+       "True"
       ],
       "State": [
        "Default",
@@ -4939,44 +4990,46 @@
        "Disabled"
       ]
      },
-     "variants": 8,
-     "full": 8,
+     "variants": 10,
+     "full": 16,
      "props": [
       {
        "name": "Show hit area",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 8
+       "bound": 10
       },
       {
        "name": "Safe margin",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 8
+       "bound": 10
       },
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 8
+       "bound": 10
       }
      ],
      "nested": {
-      "(icons)": 8
+      "(icons)": 10,
+      "Spinner": 2
      },
      "minmax": [],
      "layers": {
-      "ring": 8,
-      "hitWeb": 8,
-      "hitApp": 8,
-      "hit": 8,
-      "safe": 8
+      "ring": 10,
+      "hitWeb": 10,
+      "hitApp": 10,
+      "hit": 10,
+      "safe": 10
      },
-     "rawCount": 16,
+     "rawCount": 20,
      "raw": [
       "hit area · web:w=56",
       "hit area · web:h=56",
-      "hit area · web:w=183"
+      "hit area · web:w=183",
+      "hit area · web:w=187"
      ],
      "tokens": {
       "(root)": [
@@ -5025,6 +5078,10 @@
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/md/line-height"
+      ],
+      "spinner": [
+       "h:icon/size/lg",
+       "w:icon/size/lg"
       ]
      },
      "statusFirstLine": true
@@ -5136,6 +5193,7 @@
       }
      ],
      "nested": {
+      "Breadcrumbs": 2,
       "Button": 4,
       "Tabs": 2
      },
@@ -5161,11 +5219,7 @@
        "p:space/8"
       ],
       "breadcrumbs": [
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/body/sm/size",
-       "fontWeight:font-weight/regular",
-       "lineHeight:type/body/sm/line-height"
+       "gap:space/8"
       ],
       "title row": [
        "gap:space/12",
@@ -5221,7 +5275,7 @@
    "boards": [
     {
      "name": "Icon button — борда · шаблон v3",
-     "id": "644:63703",
+     "id": "2107:47133",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -5230,18 +5284,16 @@
       "04 · Состояния",
       "05 · Зоны",
       "06 · На поверхностях",
-      "07 · Группы и раскладка",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "— · Не собрано в этой версии"
+      "12 · Локали и RTL"
      ]
     }
    ],
-   "boardMissing": [
-    "12"
-   ],
+   "boardMissing": [],
    "sets": [
     {
      "name": "Icon button",
@@ -5436,7 +5488,7 @@
        "p:space/10",
        "p:space/16",
        "r:radius/container",
-       "s:control/border/default",
+       "s:border/default",
        "sw:border/width/default",
        "visible:touch/is-fine"
       ],
@@ -5463,7 +5515,6 @@
      "id": "404:91",
      "v3": false,
      "sections": [
-      "Шапка",
       "Варианты",
       "Слоты и аддоны",
       "Поверхности",
@@ -5498,11 +5549,12 @@
      "id": "393:14122",
      "type": "SET",
      "status": "beta",
-     "descLen": 2245,
+     "descLen": 2377,
      "descHeads": [
       "Status:",
       "Level:",
       "Когда использовать:",
+      "Длинный текст:",
       "Helper и Counter —",
       "Матрица:",
       "Legacy:",
@@ -5510,8 +5562,7 @@
       "• Leading —",
       "• Inline —",
       "• Trailing —",
-      "• Input addon / Clear —",
-      "• On border —"
+      "• Input addon / Clear —"
      ],
      "inBoard": true,
      "axes": {
@@ -5742,7 +5793,7 @@
       }
      ],
      "nested": {
-      "(icons)": 2
+      "Icon button": 2
      },
      "minmax": [],
      "layers": {
@@ -5946,14 +5997,16 @@
    "boards": [
     {
      "name": "Input amount — борда · шаблон v3",
-     "id": "922:6130",
+     "id": "2109:3675",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
+      "05 · Зоны",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -5963,9 +6016,7 @@
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -5973,7 +6024,7 @@
      "id": "106:1358",
      "type": "SET",
      "status": "beta",
-     "descLen": 1058,
+     "descLen": 1140,
      "descHeads": [
       "Status:",
       "Level:",
@@ -5982,7 +6033,8 @@
       "Когда использовать:",
       "Хаптик:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
@@ -5995,106 +6047,112 @@
        "Focus",
        "Error",
        "Disabled",
-       "Hover"
+       "Hover",
+       "Skeleton"
       ]
      },
-     "variants": 10,
-     "full": 10,
+     "variants": 11,
+     "full": 12,
      "props": [
       {
        "name": "Label",
        "type": "TEXT",
        "def": "Пополняю",
-       "bound": 10
+       "bound": 11
       },
       {
        "name": "Value",
        "type": "TEXT",
        "def": "1 250.00",
-       "bound": 10
+       "bound": 11
       },
       {
        "name": "Description",
        "type": "TEXT",
        "def": "От 1000 USDT",
-       "bound": 10
+       "bound": 11
       },
       {
        "name": "Balance",
        "type": "TEXT",
        "def": "0.40004192",
-       "bound": 10
+       "bound": 11
       },
       {
        "name": "Info icon",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 10
+       "bound": 11
       },
       {
        "name": "Show balance",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 10
+       "bound": 11
       },
       {
        "name": "Message",
        "type": "TEXT",
        "def": "Недостаточно средств на балансе",
-       "bound": 10
+       "bound": 11
       },
       {
        "name": "Show currency",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 10
+       "bound": 11
       },
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 10
+       "bound": 11
       },
       {
        "name": "Show hit area",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 10
+       "bound": 11
       },
       {
        "name": "Safe margin",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 10
+       "bound": 11
       }
      ],
      "nested": {
-      "(icons)": 10,
-      "Select compact": 10,
-      "_Hit area": 20,
-      "_Safe margin": 10
+      "(icons)": 11,
+      "Button": 11,
+      "Select compact": 11,
+      "_Hit area": 22,
+      "_Safe margin": 11
      },
      "minmax": [
       "minw=160 size/field/min"
      ],
      "layers": {
-      "ring": 10,
-      "hitWeb": 10,
-      "hitApp": 10,
-      "hit": 10,
-      "safe": 10
+      "ring": 11,
+      "hitWeb": 11,
+      "hitApp": 11,
+      "hit": 11,
+      "safe": 11
      },
-     "rawCount": 30,
+     "rawCount": 35,
      "raw": [
       "(root):w=395",
       "hit area · web:w=395",
       "hit area · web:h=126",
-      "hit area · web:h=160"
+      "hit area · web:h=160",
+      "header:o=0",
+      "input row:o=0",
+      "hit area · web:h=124"
      ],
      "tokens": {
       "(root)": [
        "f:control/surface/default",
        "f:control/surface/disabled",
+       "f:skeleton/base",
        "gap:space/16",
        "minw:size/field/min",
        "p:space/20",
@@ -6132,12 +6190,10 @@
        "lineHeight:type/label/md/line-height"
       ],
       "max": [
-       "f:text/disabled",
-       "f:text/link",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height"
+       "gap:space/2",
+       "minw:size/button/min",
+       "p:space/4",
+       "r:radius/xs"
       ],
       "input row": [
        "gap:space/8"
@@ -6209,21 +6265,21 @@
   },
   {
    "level": "unknown",
-   "page": "Legend item",
-   "pageId": "1012:20",
+   "page": "Key-value row",
+   "pageId": "364:4625",
    "pageMark": "🟡",
    "boards": [
     {
-     "name": "Legend item — борда · шаблон v3",
-     "id": "966:14746",
+     "name": "Key-value row — борда · шаблон v3",
+     "id": "2110:7031",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
-      "05 · Зоны",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -6233,16 +6289,139 @@
     }
    ],
    "boardMissing": [
-    "07",
-    "08"
+    "05",
+    "07"
    ],
+   "sets": [
+    {
+     "name": "Key-value row",
+     "id": "199:227",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 920,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Строка «название —",
+      "Default —",
+      "A11y:",
+      "Когда использовать:",
+      "Правила:",
+      "Длинный текст:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Emphasis": [
+       "Default",
+       "Total",
+       "Muted"
+      ],
+      "Leader": [
+       "Off",
+       "On"
+      ]
+     },
+     "variants": 6,
+     "full": 6,
+     "props": [
+      {
+       "name": "Key",
+       "type": "TEXT",
+       "def": "Комиссия сети",
+       "bound": 6
+      },
+      {
+       "name": "Value",
+       "type": "TEXT",
+       "def": "0,00050000 BTC",
+       "bound": 6
+      }
+     ],
+     "nested": {},
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 6,
+     "raw": [
+      "(root):w=360"
+     ],
+     "tokens": {
+      "(root)": [
+       "gap:space/16",
+       "p:space/12",
+       "p:space/8",
+       "s:border/subtle",
+       "sw:border/width/default"
+      ],
+      "key": [
+       "f:text/secondary",
+       "fontFamily:font/family/text",
+       "fontSize:type/body/md/size",
+       "fontSize:type/label/md/size",
+       "fontWeight:font-weight/medium",
+       "fontWeight:font-weight/regular",
+       "lineHeight:type/body/md/line-height",
+       "lineHeight:type/label/md/line-height"
+      ],
+      "value": [
+       "f:text/primary",
+       "f:text/secondary",
+       "fontFamily:font/family/mono",
+       "fontFamily:font/family/text",
+       "fontSize:type/body/md/size",
+       "fontSize:type/label/md/size",
+       "fontWeight:font-weight/medium",
+       "fontWeight:font-weight/regular",
+       "lineHeight:type/body/md/line-height",
+       "lineHeight:type/label/md/line-height"
+      ],
+      "leader": [
+       "s:border/strong"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Legend item",
+   "pageId": "1012:20",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Legend item — борда · шаблон v3",
+     "id": "2110:12682",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "05 · Зоны",
+      "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL"
+     ]
+    }
+   ],
+   "boardMissing": [],
    "sets": [
     {
      "name": "Legend item",
      "id": "84:613",
      "type": "SET",
      "status": "beta",
-     "descLen": 970,
+     "descLen": 1087,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6252,19 +6431,23 @@
       "A11y:",
       "Когда использовать:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
+      "Selected": [
+       "Off",
+       "On"
+      ],
       "State": [
        "Default",
        "Hover",
-       "Selected",
        "Skeleton"
       ]
      },
      "variants": 4,
-     "full": 4,
+     "full": 6,
      "props": [
       {
        "name": "Label",
@@ -6385,7 +6568,7 @@
    "boards": [
     {
      "name": "Legend swatch — борда · шаблон v3",
-     "id": "1713:6881",
+     "id": "2107:26316",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -6393,18 +6576,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -6722,7 +6905,7 @@
    "boards": [
     {
      "name": "Menu item — борда · шаблон v3",
-     "id": "940:6019",
+     "id": "2109:13652",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -6730,6 +6913,8 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -6739,9 +6924,7 @@
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08"
+    "05"
    ],
    "sets": [
     {
@@ -6916,7 +7099,7 @@
      ],
      "nested": {
       "_Overlay surface": 12,
-      "(icons)": 12,
+      "Icon button": 12,
       "Button": 15,
       "smbl-bitcoin-btc": 4
      },
@@ -7013,21 +7196,20 @@
   {
    "level": "unknown",
    "page": "Multiselect",
-   "pageId": "355:3674",
+   "pageId": "1516:175",
    "pageMark": "🟡",
    "boards": [
     {
-     "name": "Multiselect option — борда · шаблон v3",
-     "id": "940:2009",
+     "name": "Multiselect — борда · шаблон v3",
+     "id": "2107:17466",
      "v3": true,
      "sections": [
-      "✔ Применено по рекомендации",
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
-      "05 · Зоны",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -7037,8 +7219,119 @@
     }
    ],
    "boardMissing": [
-    "07",
-    "08"
+    "05",
+    "07"
+   ],
+   "sets": [
+    {
+     "name": "Multiselect",
+     "id": "1516:1052",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 742,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:",
+      "Legacy:",
+      "Токены:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Display": [
+       "Count",
+       "Chips"
+      ],
+      "State": [
+       "Default",
+       "Open",
+       "Error",
+       "Disabled",
+       "Hover",
+       "Skeleton"
+      ]
+     },
+     "variants": 12,
+     "full": 12,
+     "props": [],
+     "nested": {
+      "Select": 12,
+      "Menu": 2,
+      "Chip": 18
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 12,
+     "raw": [
+      "(root):w=320"
+     ],
+     "tokens": {
+      "(root)": [
+       "gap:space/8"
+      ],
+      "Select": [
+       "minw:size/field/min"
+      ],
+      "Menu": [
+       "gap:space/4",
+       "maxw:size/menu/max",
+       "minw:size/menu/min",
+       "p:space/8",
+       "r:radius/control"
+      ],
+      "selected": [
+       "gap:space/8"
+      ],
+      "Chip": [
+       "f:action/disabled",
+       "f:action/inverse/default",
+       "gap:space/6",
+       "h:control/height/sm",
+       "maxw:size/chip/max",
+       "p:control/padding-x/sm",
+       "r:radius/control-sm"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Multiselect option",
+   "pageId": "355:3674",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Multiselect option — борда · шаблон v3",
+     "id": "2109:11198",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05"
    ],
    "sets": [
     {
@@ -7097,122 +7390,13 @@
   },
   {
    "level": "unknown",
-   "page": "Multiselect (контейнер)",
-   "pageId": "1516:175",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Multiselect — борда · шаблон v3",
-     "id": "1517:2643",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05",
-    "07",
-    "08"
-   ],
-   "sets": [
-    {
-     "name": "Multiselect",
-     "id": "1516:1052",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 742,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Legacy:",
-      "Токены:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Display": [
-       "Count",
-       "Chips"
-      ],
-      "State": [
-       "Default",
-       "Open",
-       "Error",
-       "Disabled"
-      ]
-     },
-     "variants": 8,
-     "full": 8,
-     "props": [],
-     "nested": {
-      "Select": 8,
-      "Menu": 2,
-      "Chip": 12
-     },
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 8,
-     "raw": [
-      "(root):w=320"
-     ],
-     "tokens": {
-      "(root)": [
-       "gap:space/8"
-      ],
-      "Select": [
-       "minw:size/field/min"
-      ],
-      "Menu": [
-       "gap:space/4",
-       "maxw:size/menu/max",
-       "minw:size/menu/min",
-       "p:space/8",
-       "r:radius/control"
-      ],
-      "selected": [
-       "gap:space/8"
-      ],
-      "Chip": [
-       "f:action/disabled",
-       "f:action/inverse/default",
-       "gap:space/6",
-       "h:control/height/sm",
-       "maxw:size/chip/max",
-       "p:control/padding-x/sm",
-       "r:radius/control-sm"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
    "page": "Nav item",
    "pageId": "1012:23",
    "pageMark": "🟡",
    "boards": [
     {
      "name": "Nav item — борда · шаблон v3",
-     "id": "957:9289",
+     "id": "2109:37919",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -7221,18 +7405,16 @@
       "04 · Состояния",
       "05 · Зоны",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
+      "12 · Локали и RTL"
      ]
     }
    ],
-   "boardMissing": [
-    "07",
-    "08"
-   ],
+   "boardMissing": [],
    "sets": [
     {
      "name": "Nav item",
@@ -7257,66 +7439,69 @@
        "Off",
        "On"
       ],
+      "Selected": [
+       "Off",
+       "On"
+      ],
       "State": [
        "Default",
        "Hover",
-       "Selected",
        "Pressed"
       ]
      },
-     "variants": 8,
-     "full": 8,
+     "variants": 12,
+     "full": 12,
      "props": [
       {
        "name": "Label",
        "type": "TEXT",
        "def": "Дашборд",
-       "bound": 8
+       "bound": 12
       },
       {
        "name": "Icon · swap",
        "type": "INSTANCE_SWAP",
        "def": "icon/dots-grid",
-       "bound": 8
+       "bound": 12
       },
       {
        "name": "Counter",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 8
+       "bound": 12
       },
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 8
+       "bound": 12
       },
       {
        "name": "Show hit area",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 8
+       "bound": 12
       },
       {
        "name": "Safe margin",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 8
+       "bound": 12
       }
      ],
      "nested": {
-      "(icons)": 8,
-      "Counter": 8
+      "(icons)": 12,
+      "Counter": 12
      },
      "minmax": [],
      "layers": {
-      "ring": 8,
-      "hitWeb": 8,
-      "hitApp": 8,
-      "hit": 8,
-      "safe": 8
+      "ring": 12,
+      "hitWeb": 12,
+      "hitApp": 12,
+      "hit": 12,
+      "safe": 12
      },
-     "rawCount": 20,
+     "rawCount": 30,
      "raw": [
       "(root):w=218",
       "hit area · web:w=218",
@@ -7325,7 +7510,7 @@
      ],
      "tokens": {
       "(root)": [
-       "f:accent/subtle",
+       "f:action/secondary/default",
        "gap:space/8",
        "h:size/row/compact",
        "p:space/6",
@@ -7371,6 +7556,12 @@
        "o:state/hover",
        "o:state/pressed",
        "r:radius/control"
+      ],
+      "indicator": [
+       "f:border/accent",
+       "h:icon/size/md",
+       "r:radius/full",
+       "w:size/tab-indicator/sm"
       ],
       "accent glow": [
        "effects:light/accent/blur",
@@ -7457,14 +7648,14 @@
        "bound": 2
       },
       {
-       "name": "Balance",
+       "name": "Promo",
        "type": "BOOLEAN",
        "def": true,
        "bound": 1
       }
      ],
      "nested": {
-      "Balance widget · вынесено из DS": 1,
+      "Promo card": 1,
       "Nav item": 16
      },
      "minmax": [],
@@ -7500,17 +7691,19 @@
        "fontWeight:font-weight/bold",
        "lineHeight:type/heading/lg/line-height"
       ],
-      "balance": [
-       "gap:space/2xs",
-       "p:space/20",
-       "p:space/md",
-       "p:space/sm"
+      "promo": [
+       "f:surface/level-1",
+       "gap:space/8",
+       "p:space/16",
+       "r:radius/surface",
+       "s:border/subtle",
+       "sw:border/width/default"
       ],
       "Nav": [
        "gap:space/4"
       ],
       "Nav item": [
-       "f:accent/subtle",
+       "f:surface/active",
        "gap:space/8",
        "h:size/row/compact",
        "p:space/6",
@@ -7540,14 +7733,16 @@
    "boards": [
     {
      "name": "Notification — борда · шаблон v3",
-     "id": "945:9605",
+     "id": "2109:21770",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
+      "05 · Зоны",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -7557,9 +7752,7 @@
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -7730,7 +7923,7 @@
    "boards": [
     {
      "name": "Overlay — борда · шаблон v3",
-     "id": "1663:1096",
+     "id": "2081:4429",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -7738,18 +7931,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -7809,26 +8002,26 @@
    "boards": [
     {
      "name": "Page dot — борда · шаблон v3",
-     "id": "655:69270",
+     "id": "2107:63069",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
+      "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "04",
-    "05",
-    "07",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -7870,7 +8063,7 @@
      ],
      "tokens": {
       "(root)": [
-       "f:icon/accent",
+       "f:control/checked",
        "f:icon/tertiary",
        "h:size/dot/sm",
        "r:radius/chip",
@@ -7889,7 +8082,7 @@
    "boards": [
     {
      "name": "Page indicator — борда · шаблон v3",
-     "id": "956:24612",
+     "id": "2109:28340",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -7897,18 +8090,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -7963,7 +8156,7 @@
        "gap:space/6"
       ],
       "Page dot": [
-       "f:icon/accent",
+       "f:control/checked",
        "f:icon/tertiary",
        "h:size/dot/sm",
        "r:radius/chip",
@@ -7982,7 +8175,7 @@
    "boards": [
     {
      "name": "Pagination — борда · шаблон v3",
-     "id": "956:23972",
+     "id": "2109:26506",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -7990,18 +8183,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -8035,8 +8228,8 @@
      "full": 4,
      "props": [],
      "nested": {
-      "(icons)": 8,
-      "Pagination item": 12
+      "Pagination item": 12,
+      "Icon button": 8
      },
      "minmax": [],
      "layers": {
@@ -8108,7 +8301,7 @@
    "boards": [
     {
      "name": "Pagination item — борда · шаблон v3",
-     "id": "657:903",
+     "id": "2107:66704",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -8117,31 +8310,30 @@
       "04 · Состояния",
       "05 · Зоны",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "— · Не собрано в этой версии"
+      "12 · Локали и RTL"
      ]
     }
    ],
-   "boardMissing": [
-    "07",
-    "12"
-   ],
+   "boardMissing": [],
    "sets": [
     {
      "name": "Pagination item",
      "id": "148:1633",
      "type": "SET",
      "status": "beta",
-     "descLen": 667,
+     "descLen": 751,
      "descHeads": [
       "Status:",
       "Level:",
       "A11y:",
       "Когда использовать:",
-      "Правила:"
+      "Правила:",
+      "Матрица:"
      ],
      "inBoard": false,
      "axes": {
@@ -8149,40 +8341,43 @@
        "S",
        "M"
       ],
+      "Selected": [
+       "Off",
+       "On"
+      ],
       "State": [
        "Default",
        "Hover",
        "Pressed",
-       "Selected",
        "Disabled"
       ]
      },
-     "variants": 10,
-     "full": 10,
+     "variants": 14,
+     "full": 16,
      "props": [
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 10
+       "bound": 14
       },
       {
        "name": "Page",
        "type": "TEXT",
        "def": "1",
-       "bound": 10
+       "bound": 14
       },
       {
        "name": "Show hit area",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 10
+       "bound": 14
       },
       {
        "name": "Safe margin",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 10
+       "bound": 14
       }
      ],
      "nested": {},
@@ -8191,13 +8386,13 @@
       "minw=40 control/height/md"
      ],
      "layers": {
-      "ring": 10,
-      "hitWeb": 10,
-      "hitApp": 10,
-      "hit": 10,
-      "safe": 10
+      "ring": 14,
+      "hitWeb": 14,
+      "hitApp": 14,
+      "hit": 14,
+      "safe": 14
      },
-     "rawCount": 20,
+     "rawCount": 28,
      "raw": [
       "hit area · web:w=32",
       "hit area · web:h=32",
@@ -8263,7 +8458,7 @@
    "boards": [
     {
      "name": "Password field — борда · шаблон v3",
-     "id": "922:9221",
+     "id": "2109:8728",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -8271,6 +8466,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -8281,8 +8477,7 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -8302,18 +8497,20 @@
      "inBoard": false,
      "axes": {
       "State": [
-       "Empty",
-       "Typing",
-       "Valid",
-       "Error"
+       "Error",
+       "Default",
+       "Focus",
+       "Filled",
+       "Hover",
+       "Disabled"
       ]
      },
-     "variants": 4,
-     "full": 4,
+     "variants": 6,
+     "full": 6,
      "props": [],
      "nested": {
-      "Input": 4,
-      "(icons)": 16
+      "Input": 6,
+      "(icons)": 24
      },
      "minmax": [
       "minw=160 size/field/min"
@@ -8325,7 +8522,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 4,
+     "rawCount": 6,
      "raw": [
       "(root):w=320"
      ],
@@ -8348,6 +8545,7 @@
        "w:icon/size/md"
       ],
       "Минимум 8 символов": [
+       "f:text/disabled",
        "f:text/secondary",
        "f:text/success",
        "fontFamily:font/family/text",
@@ -8356,6 +8554,7 @@
        "lineHeight:type/body/sm/line-height"
       ],
       "Цифра": [
+       "f:text/disabled",
        "f:text/secondary",
        "f:text/success",
        "fontFamily:font/family/text",
@@ -8364,6 +8563,7 @@
        "lineHeight:type/body/sm/line-height"
       ],
       "Заглавная и строчная буквы": [
+       "f:text/disabled",
        "f:text/secondary",
        "f:text/success",
        "fontFamily:font/family/text",
@@ -8372,6 +8572,7 @@
        "lineHeight:type/body/sm/line-height"
       ],
       "Спецсимвол: ! @ # $ %": [
+       "f:text/disabled",
        "f:text/secondary",
        "f:text/success",
        "fontFamily:font/family/text",
@@ -8390,13 +8591,13 @@
   },
   {
    "level": "unknown",
-   "page": "Payout summary",
-   "pageId": "364:4625",
+   "page": "Progress",
+   "pageId": "366:3115",
    "pageMark": "🟡",
    "boards": [
     {
-     "name": "Key-value row — борда · шаблон v3",
-     "id": "958:4576",
+     "name": "Progress — борда · шаблон v3",
+     "id": "2107:61611",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -8404,6 +8605,8 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -8413,159 +8616,7 @@
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08"
-   ],
-   "sets": [
-    {
-     "name": "Key-value row",
-     "id": "199:227",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 920,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Строка «название —",
-      "Default —",
-      "A11y:",
-      "Когда использовать:",
-      "Правила:",
-      "Длинный текст:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Emphasis": [
-       "Default",
-       "Total",
-       "Muted"
-      ]
-     },
-     "variants": 3,
-     "full": 3,
-     "props": [
-      {
-       "name": "Key",
-       "type": "TEXT",
-       "def": "Комиссия сети",
-       "bound": 3
-      },
-      {
-       "name": "Value",
-       "type": "TEXT",
-       "def": "0,00050000 BTC",
-       "bound": 3
-      }
-     ],
-     "nested": {},
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 3,
-     "raw": [
-      "(root):w=360"
-     ],
-     "tokens": {
-      "(root)": [
-       "gap:space/16",
-       "p:space/12",
-       "p:space/8",
-       "s:border/subtle",
-       "sw:border/width/default"
-      ],
-      "key": [
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/body/md/size",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "fontWeight:font-weight/regular",
-       "lineHeight:type/body/md/line-height",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "value": [
-       "f:text/primary",
-       "f:text/secondary",
-       "fontFamily:font/family/mono",
-       "fontFamily:font/family/text",
-       "fontSize:type/body/md/size",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "fontWeight:font-weight/regular",
-       "lineHeight:type/body/md/line-height",
-       "lineHeight:type/label/md/line-height"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Progress",
-   "pageId": "366:3115",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Progress — борда · шаблон v3",
-     "id": "653:108",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "— · Не собрано в этой версии"
-     ]
-    },
-    {
-     "name": "Spinner — борда · шаблон v3",
-     "id": "655:73980",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "— · Не собрано в этой версии"
-     ]
-    },
-    {
-     "name": "Progress circle — борда · шаблон v3",
-     "id": "655:74790",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "04",
-    "05",
-    "07",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -8671,7 +8722,39 @@
       ]
      },
      "statusFirstLine": true
-    },
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Progress circle",
+   "pageId": "2093:1268",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Progress circle — борда · шаблон v3",
+     "id": "2107:64549",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05",
+    "07"
+   ],
+   "sets": [
     {
      "name": "Progress circle",
      "id": "56:388",
@@ -8757,71 +8840,6 @@
       ]
      },
      "statusFirstLine": true
-    },
-    {
-     "name": "Spinner",
-     "id": "4:20",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 932,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Индикатор загрузки.",
-      "Когда использовать:",
-      "Поиск:",
-      "Legacy:",
-      "Motion:",
-      "Правила:",
-      "A11y:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Size": [
-       "S",
-       "M",
-       "L"
-      ]
-     },
-     "variants": 3,
-     "full": 3,
-     "props": [],
-     "nested": {},
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 3,
-     "raw": [
-      "track:o=0.2"
-     ],
-     "tokens": {
-      "(root)": [
-       "h:icon/size/control",
-       "h:icon/size/lg",
-       "h:icon/size/sm",
-       "w:icon/size/control",
-       "w:icon/size/lg",
-       "w:icon/size/sm"
-      ],
-      "track": [
-       "f:icon/primary",
-       "h:icon/size/lg",
-       "h:icon/size/md",
-       "h:icon/size/sm",
-       "w:icon/size/lg",
-       "w:icon/size/md",
-       "w:icon/size/sm"
-      ],
-      "arc": [
-       "f:icon/primary"
-      ]
-     },
-     "statusFirstLine": true
     }
    ]
   },
@@ -8833,7 +8851,7 @@
    "boards": [
     {
      "name": "Promo card — борда · шаблон v3",
-     "id": "1663:2304",
+     "id": "2107:21313",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -8841,6 +8859,8 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -8850,9 +8870,7 @@
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08"
+    "05"
    ],
    "sets": [
     {
@@ -8967,6 +8985,7 @@
       ],
       "action": [
        "f:action/accent/default",
+       "f:action/primary/default",
        "gap:space/2",
        "h:control/height/sm",
        "minw:size/button/min",
@@ -9094,14 +9113,16 @@
    "boards": [
     {
      "name": "Radio card — борда · шаблон v3",
-     "id": "1623:2760",
+     "id": "2107:10911",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
+      "05 · Зоны",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -9111,9 +9132,7 @@
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -9212,6 +9231,7 @@
        "r:radius/surface",
        "s:border/accent",
        "s:border/subtle",
+       "s:control/border/disabled",
        "sw:border/width/default"
       ],
       "header": [
@@ -9273,7 +9293,7 @@
    "boards": [
     {
      "name": "Radio group — борда · шаблон v3",
-     "id": "958:12159",
+     "id": "2109:41505",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -9281,6 +9301,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -9291,8 +9312,7 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -9419,26 +9439,26 @@
    "boards": [
     {
      "name": "Scrollbar — борда · шаблон v3",
-     "id": "655:108",
+     "id": "2107:62696",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
+      "04 · Состояния",
       "06 · На поверхностях",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "04",
     "05",
-    "07",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -9494,9 +9514,8 @@
        "w:size/scrollbar"
       ],
       "thumb": [
-       "f:icon/primary",
-       "f:icon/secondary",
-       "f:icon/tertiary",
+       "f:scrollbar/thumb",
+       "f:scrollbar/thumb-hover",
        "h:size/track/md",
        "h:size/track/sm",
        "r:radius/chip",
@@ -9658,11 +9677,11 @@
      ],
      "tokens": {
       "(root)": [
+       "f:action/disabled",
        "f:control/checked",
        "f:control/segment",
        "f:status/danger/solid",
        "f:status/success/solid",
-       "f:surface/disabled",
        "gap:space/6",
        "h:control/height/lg",
        "h:control/height/md",
@@ -9732,7 +9751,7 @@
    "boards": [
     {
      "name": "Segmented — борда · шаблон v3",
-     "id": "1735:4929",
+     "id": "2107:37333",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -9740,18 +9759,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -9881,45 +9900,25 @@
    "boards": [
     {
      "name": "Select — борда · шаблон v3",
-     "id": "922:2847",
-     "v3": true,
-     "sections": [
-      "✔ Применено по рекомендации",
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    },
-    {
-     "name": "Select compact — борда · шаблон v3",
-     "id": "922:3691",
+     "id": "2108:75786",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
+      "05 · Зоны",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
+      "12 · Локали и RTL"
      ]
     }
    ],
-   "boardMissing": [
-    "05",
-    "07",
-    "08"
-   ],
+   "boardMissing": [],
    "sets": [
     {
      "name": "Select",
@@ -9997,7 +9996,37 @@
       ]
      },
      "statusFirstLine": true
-    },
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Select compact",
+   "pageId": "2093:1269",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Select compact — борда · шаблон v3",
+     "id": "2108:78988",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "05 · Зоны",
+      "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL"
+     ]
+    }
+   ],
+   "boardMissing": [],
+   "sets": [
     {
      "name": "Select compact",
      "id": "75:1449",
@@ -10064,7 +10093,7 @@
       }
      ],
      "nested": {
-      "smbl-bitcoin-btc": 5,
+      "Coin": 5,
       "(icons)": 5,
       "_Hit area": 10,
       "_Safe margin": 5
@@ -10088,7 +10117,6 @@
       "(root)": [
        "f:action/disabled",
        "f:action/secondary/default",
-       "f:action/secondary/pressed",
        "gap:space/16",
        "h:size/row/compact",
        "maxw:size/select-compact/max",
@@ -10097,6 +10125,10 @@
       ],
       "value": [
        "gap:space/6"
+      ],
+      "coin": [
+       "h:size/media/sm",
+       "w:size/media/sm"
       ],
       "text": [
        "f:text/disabled",
@@ -10248,7 +10280,7 @@
      ],
      "nested": {
       "_Overlay surface": 2,
-      "(icons)": 1,
+      "Icon button": 1,
       "Button": 2,
       "Menu item": 2
      },
@@ -10458,7 +10490,7 @@
       }
      ],
      "nested": {
-      "(icons)": 2,
+      "Icon button": 2,
       "Button": 4
      },
      "minmax": [],
@@ -10539,27 +10571,26 @@
    "boards": [
     {
      "name": "Skeleton — борда · шаблон v3",
-     "id": "654:108",
+     "id": "2107:62258",
      "v3": true,
      "sections": [
-      "✔ Применено по рекомендации",
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
+      "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "04",
-    "05",
-    "07",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -10567,7 +10598,7 @@
      "id": "34:14",
      "type": "SET",
      "status": "beta",
-     "descLen": 1104,
+     "descLen": 1157,
      "descHeads": [
       "Status:",
       "Level:",
@@ -10761,13 +10792,13 @@
   },
   {
    "level": "unknown",
-   "page": "Stat card",
-   "pageId": "367:1131",
+   "page": "Spinner",
+   "pageId": "2093:1267",
    "pageMark": "🟡",
    "boards": [
     {
-     "name": "Stat card — борда · шаблон v3",
-     "id": "957:10283",
+     "name": "Spinner — борда · шаблон v3",
+     "id": "2107:64004",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -10775,6 +10806,104 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05"
+   ],
+   "sets": [
+    {
+     "name": "Spinner",
+     "id": "4:20",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 932,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Индикатор загрузки.",
+      "Когда использовать:",
+      "Поиск:",
+      "Legacy:",
+      "Motion:",
+      "Правила:",
+      "A11y:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Size": [
+       "S",
+       "M",
+       "L"
+      ]
+     },
+     "variants": 3,
+     "full": 3,
+     "props": [],
+     "nested": {},
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 3,
+     "raw": [
+      "track:o=0.2"
+     ],
+     "tokens": {
+      "(root)": [
+       "h:icon/size/control",
+       "h:icon/size/lg",
+       "h:icon/size/sm",
+       "w:icon/size/control",
+       "w:icon/size/lg",
+       "w:icon/size/sm"
+      ],
+      "track": [
+       "f:icon/primary",
+       "h:icon/size/lg",
+       "h:icon/size/md",
+       "h:icon/size/sm",
+       "w:icon/size/lg",
+       "w:icon/size/md",
+       "w:icon/size/sm"
+      ],
+      "arc": [
+       "f:icon/primary"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Stat card",
+   "pageId": "367:1131",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Stat card — борда · шаблон v3",
+     "id": "2109:33290",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -10785,8 +10914,7 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -11155,387 +11283,13 @@
   },
   {
    "level": "unknown",
-   "page": "Step progress",
-   "pageId": "367:994",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Step progress — борда · шаблон v3",
-     "id": "945:10406",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
-   ],
-   "sets": [
-    {
-     "name": "Step progress",
-     "id": "149:1939",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 558,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Когда использовать:",
-      "A11y:",
-      "Правила:",
-      "Матрица:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Count": [
-       "3",
-       "4",
-       "5",
-       "6",
-       "7"
-      ],
-      "Step": [
-       "1",
-       "2",
-       "3",
-       "4",
-       "5",
-       "6",
-       "7"
-      ]
-     },
-     "variants": 25,
-     "full": 35,
-     "props": [],
-     "nested": {
-      "Step segment": 135
-     },
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 25,
-     "raw": [
-      "(root):w=240"
-     ],
-     "tokens": {
-      "(root)": [
-       "gap:space/4",
-       "h:size/track/sm"
-      ],
-      "Step segment": [
-       "f:border/default",
-       "f:icon/accent",
-       "h:size/track/sm",
-       "r:radius/chip"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Step segment",
-   "pageId": "1012:22",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Step segment — борда · шаблон v3",
-     "id": "945:10897",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
-   ],
-   "sets": [
-    {
-     "name": "Step segment",
-     "id": "149:1778",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 457,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Сегмент Step progress.",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "State": [
-       "Done",
-       "Current",
-       "Upcoming"
-      ]
-     },
-     "variants": 3,
-     "full": 3,
-     "props": [],
-     "nested": {},
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 3,
-     "raw": [
-      "(root):w=40"
-     ],
-     "tokens": {
-      "(root)": [
-       "f:border/default",
-       "f:icon/accent",
-       "h:size/track/sm",
-       "r:radius/chip"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Step symbol",
-   "pageId": "1012:11",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Step symbol — борда · шаблон v3",
-     "id": "655:70881",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "04",
-    "05",
-    "07",
-    "12"
-   ],
-   "sets": [
-    {
-     "name": "Step symbol",
-     "id": "108:1416",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 702,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Символ шага:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Type": [
-       "Numbered",
-       "Icon",
-       "Checked",
-       "Bullet"
-      ],
-      "State": [
-       "Default",
-       "Current",
-       "Success"
-      ]
-     },
-     "variants": 12,
-     "full": 12,
-     "props": [
-      {
-       "name": "Number",
-       "type": "TEXT",
-       "def": "1",
-       "bound": 3
-      }
-     ],
-     "nested": {
-      "(icons)": 6
-     },
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "f:action/secondary/default",
-       "f:control/checked",
-       "f:status/success/solid",
-       "h:size/media/sm",
-       "r:radius/chip",
-       "s:border/default",
-       "sw:border/width/default",
-       "w:size/media/sm"
-      ],
-      "number": [
-       "f:text/on-accent",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "bullet": [
-       "f:border/default",
-       "f:control/checked",
-       "f:status/success/solid"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Step trail",
-   "pageId": "1012:12",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Step trail — борда · шаблон v3",
-     "id": "957:3161",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
-   ],
-   "sets": [
-    {
-     "name": "Step trail",
-     "id": "108:1429",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 496,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Линия между шагами:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Border": [
-       "Solid",
-       "Dotted"
-      ],
-      "State": [
-       "Default",
-       "Current",
-       "Success"
-      ]
-     },
-     "variants": 6,
-     "full": 6,
-     "props": [],
-     "nested": {},
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 6,
-     "raw": [
-      "(root):w=80"
-     ],
-     "tokens": {
-      "(root)": [
-       "h:size/media/sm"
-      ],
-      "line": [
-       "s:border/default",
-       "s:control/checked",
-       "s:status/success/solid",
-       "sw:border/width/default"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Stepper",
+   "page": "Step",
    "pageId": "367:349",
    "pageMark": "🟡",
    "boards": [
     {
      "name": "Step — борда · шаблон v3",
-     "id": "956:25513",
+     "id": "2109:29090",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -11543,6 +11297,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -11553,8 +11308,7 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -11646,6 +11400,380 @@
        "fontSize:type/body/sm/size",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/sm/line-height"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Step progress",
+   "pageId": "367:994",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Step progress — борда · шаблон v3",
+     "id": "2109:17064",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05",
+    "07"
+   ],
+   "sets": [
+    {
+     "name": "Step progress",
+     "id": "149:1939",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 558,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Когда использовать:",
+      "A11y:",
+      "Правила:",
+      "Матрица:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Count": [
+       "3",
+       "4",
+       "5",
+       "6",
+       "7"
+      ],
+      "Step": [
+       "1",
+       "2",
+       "3",
+       "4",
+       "5",
+       "6",
+       "7"
+      ]
+     },
+     "variants": 25,
+     "full": 35,
+     "props": [],
+     "nested": {
+      "Step segment": 135
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 25,
+     "raw": [
+      "(root):w=240"
+     ],
+     "tokens": {
+      "(root)": [
+       "gap:space/4",
+       "h:size/track/sm"
+      ],
+      "Step segment": [
+       "f:control/checked",
+       "f:control/track",
+       "h:size/track/sm",
+       "r:radius/chip"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Step segment",
+   "pageId": "1012:22",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Step segment — борда · шаблон v3",
+     "id": "2109:17897",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05"
+   ],
+   "sets": [
+    {
+     "name": "Step segment",
+     "id": "149:1778",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 457,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Сегмент Step progress.",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "State": [
+       "Done",
+       "Current",
+       "Upcoming"
+      ]
+     },
+     "variants": 3,
+     "full": 3,
+     "props": [],
+     "nested": {},
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 3,
+     "raw": [
+      "(root):w=40"
+     ],
+     "tokens": {
+      "(root)": [
+       "f:control/checked",
+       "f:control/track",
+       "h:size/track/sm",
+       "r:radius/chip"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Step symbol",
+   "pageId": "1012:11",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Step symbol — борда · шаблон v3",
+     "id": "2107:63418",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05"
+   ],
+   "sets": [
+    {
+     "name": "Step symbol",
+     "id": "108:1416",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 702,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Символ шага:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Type": [
+       "Numbered",
+       "Icon",
+       "Checked",
+       "Bullet"
+      ],
+      "State": [
+       "Default",
+       "Current",
+       "Success"
+      ]
+     },
+     "variants": 12,
+     "full": 12,
+     "props": [
+      {
+       "name": "Number",
+       "type": "TEXT",
+       "def": "1",
+       "bound": 3
+      }
+     ],
+     "nested": {
+      "(icons)": 6
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 0,
+     "raw": [],
+     "tokens": {
+      "(root)": [
+       "f:action/secondary/default",
+       "f:control/checked",
+       "f:status/success/solid",
+       "h:size/media/sm",
+       "r:radius/chip",
+       "s:border/default",
+       "sw:border/width/default",
+       "w:size/media/sm"
+      ],
+      "number": [
+       "f:text/on-accent",
+       "f:text/secondary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/sm/line-height"
+      ],
+      "bullet": [
+       "f:border/default",
+       "f:control/checked",
+       "f:status/success/solid"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Step trail",
+   "pageId": "1012:12",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Step trail — борда · шаблон v3",
+     "id": "2109:37158",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05",
+    "07"
+   ],
+   "sets": [
+    {
+     "name": "Step trail",
+     "id": "108:1429",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 496,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Линия между шагами:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Border": [
+       "Solid",
+       "Dotted"
+      ],
+      "State": [
+       "Default",
+       "Current",
+       "Success"
+      ]
+     },
+     "variants": 6,
+     "full": 6,
+     "props": [],
+     "nested": {},
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 6,
+     "raw": [
+      "(root):w=80"
+     ],
+     "tokens": {
+      "(root)": [
+       "h:size/media/sm"
+      ],
+      "line": [
+       "s:border/default",
+       "s:control/checked",
+       "s:status/success/solid",
+       "sw:border/width/default"
       ]
      },
      "statusFirstLine": true
@@ -11765,8 +11893,9 @@
       }
      ],
      "nested": {
-      "(icons)": 24,
-      "Button": 24
+      "(icons)": 12,
+      "Button": 24,
+      "Icon button": 12
      },
      "minmax": [],
      "layers": {
@@ -11826,6 +11955,7 @@
       ],
       "primary": [
        "f:action/accent/default",
+       "f:action/primary/default",
        "gap:space/2",
        "h:control/height/sm",
        "minw:size/button/min",
@@ -12072,8 +12202,8 @@
       "indicator": [
        "f:border/accent",
        "f:border/default",
-       "f:control/border/default",
-       "f:icon/disabled",
+       "f:border/strong",
+       "f:control/border/disabled",
        "h:size/tab-indicator/lg",
        "h:size/tab-indicator/sm"
       ],
@@ -12098,36 +12228,26 @@
      "id": "366:4725",
      "v3": false,
      "sections": [
-      "Шапка",
       "Tab bar",
       "Tab bar item",
       "Поверхности",
       "Правила"
      ]
-    },
-    {
-     "name": "Tab bar item — борда · шаблон v3",
-     "id": "658:74273",
-     "v3": true,
-     "sections": [
-      "✔ Применено по рекомендации",
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "05 · Зоны",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
     }
    ],
    "boardMissing": [
-    "07"
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
    ],
    "sets": [
     {
@@ -12203,7 +12323,37 @@
       ]
      },
      "statusFirstLine": true
-    },
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Tab bar item",
+   "pageId": "2093:1272",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Tab bar item — борда · шаблон v3",
+     "id": "2108:70176",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "05 · Зоны",
+      "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL"
+     ]
+    }
+   ],
+   "boardMissing": [],
+   "sets": [
     {
      "name": "Tab bar item",
      "id": "65:105",
@@ -12221,7 +12371,7 @@
       "Legacy:",
       "Disabled не используется:"
      ],
-     "inBoard": true,
+     "inBoard": false,
      "axes": {
       "Selected": [
        "Off",
@@ -12285,8 +12435,8 @@
      },
      "rawCount": 8,
      "raw": [
-      "hit area · app:w=72",
-      "hit area · app:h=56"
+      "hit area · web:w=72",
+      "hit area · web:h=56"
      ],
      "tokens": {
       "(root)": [
@@ -12295,7 +12445,7 @@
        "w:size/tab-bar-item/width"
       ],
       "label": [
-       "f:text/primary",
+       "f:text/accent",
        "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/label/sm/size",
@@ -12335,203 +12485,47 @@
   },
   {
    "level": "unknown",
-   "page": "Table",
+   "page": "Table cell",
    "pageId": "367:42849",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
-     "name": "Table header cell — борда · шаблон v3",
-     "id": "966:6217",
+     "name": "Table cells — борда · шаблон v3",
+     "id": "2111:2267",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
-      "05 · Зоны",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
       "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    },
-    {
-     "name": "Table cells — борда · шаблон v3",
-     "id": "966:17766",
-     "v3": true,
-     "sections": [
-      "✔ Применено по рекомендации",
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "11 · Код и токены",
-      "— · Не собрано в этой версии"
-     ]
-    },
-    {
-     "name": "Table row — борда · шаблон v3",
-     "id": "1735:8620",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
+      "13 · Набор: Table cell / Date time",
+      "13 · Набор: Table cell / Coin",
+      "13 · Набор: Table cell / Transaction",
+      "13 · Набор: Table cell / Image",
+      "13 · Набор: Table cell / Progress",
+      "13 · Набор: Table cell / Avatar",
+      "13 · Набор: Table cell / Badge",
+      "13 · Набор: Table cell / Toggle",
+      "13 · Набор: Table cell / Star",
+      "13 · Набор: Table cell / Icon",
+      "13 · Набор: Table cell / Buttons",
+      "13 · Набор: Table cell / More",
+      "13 · Набор: Table cell / Status",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "07",
-    "08"
+    "05"
    ],
    "sets": [
-    {
-     "name": "Table header cell",
-     "id": "62:67",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 1110,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Правила:",
-      "Длинный текст:",
-      "A11y:",
-      "Часть Table.",
-      "Поиск:",
-      "Legacy:",
-      "Когда использовать:",
-      "Матрица:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Align": [
-       "Start",
-       "End"
-      ],
-      "Sort": [
-       "None",
-       "Ascending",
-       "Descending"
-      ],
-      "State": [
-       "Skeleton",
-       "Default",
-       "Hover",
-       "Pressed"
-      ]
-     },
-     "variants": 20,
-     "full": 24,
-     "props": [
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Сумма",
-       "bound": 20
-      },
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 20
-      },
-      {
-       "name": "Show hit area",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 20
-      },
-      {
-       "name": "Safe margin",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 20
-      },
-      {
-       "name": "Show filter",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 18
-      },
-      {
-       "name": "Show info",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 18
-      }
-     ],
-     "nested": {
-      "(icons)": 48
-     },
-     "minmax": [
-      "minw=80 size/table-cell/min"
-     ],
-     "layers": {
-      "ring": 20,
-      "hitWeb": 20,
-      "hitApp": 20,
-      "hit": 20,
-      "safe": 20
-     },
-     "rawCount": 60,
-     "raw": [
-      "(root):w=160",
-      "hit area · web:w=160",
-      "hit area · web:h=44"
-     ],
-     "tokens": {
-      "(root)": [
-       "gap:space/4",
-       "h:size/table/header",
-       "minw:size/table-cell/min",
-       "p:space/12"
-      ],
-      "label": [
-       "f:text/primary",
-       "f:text/tertiary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height"
-      ],
-      "focus ring": [
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "hit area · web": [
-       "visible:touch/is-fine"
-      ],
-      "hit area · overlay": [
-       "f:status/danger/solid"
-      ],
-      "hit area · app": [
-       "visible:touch/is-coarse"
-      ],
-      "safe area · outer": [
-       "s:status/success/solid",
-       "sw:control/safe-margin"
-      ],
-      "skeleton": [
-       "f:skeleton/base",
-       "r:radius/chip"
-      ],
-      "state layer": [
-       "f:state/layer",
-       "o:state/hover",
-       "o:state/pressed"
-      ]
-     },
-     "statusFirstLine": true
-    },
     {
      "name": "Table cell / Text",
      "id": "92:592",
@@ -12761,7 +12755,7 @@
       }
      ],
      "nested": {
-      "smbl-bitcoin-btc": 6
+      "Coin": 6
      },
      "minmax": [
       "minw=80 size/table-cell/min"
@@ -12785,6 +12779,12 @@
        "h:size/table/row-lg",
        "minw:size/table-cell/min",
        "p:space/12"
+      ],
+      "coin": [
+       "h:size/media/lg",
+       "h:size/media/sm",
+       "w:size/media/lg",
+       "w:size/media/sm"
       ],
       "ticker": [
        "f:text/disabled",
@@ -13128,7 +13128,8 @@
       }
      ],
      "nested": {
-      "(icons)": 9
+      "Avatar": 3,
+      "(icons)": 6
      },
      "minmax": [
       "minw=80 size/table-cell/min"
@@ -13152,12 +13153,8 @@
        "p:space/12"
       ],
       "avatar": [
-       "f:action/secondary/default",
-       "r:radius/chip"
-      ],
-      "icon": [
-       "h:icon/size/md",
-       "w:icon/size/md"
+       "h:size/media/lg",
+       "w:size/media/lg"
       ],
       "name row": [
        "gap:space/4"
@@ -13313,8 +13310,8 @@
      "name": "Table cell / Star",
      "id": "93:784",
      "type": "SET",
-     "status": "draft",
-     "descLen": 585,
+     "status": "beta",
+     "descLen": 692,
      "descHeads": [
       "Status:",
       "Level:",
@@ -13339,7 +13336,8 @@
      "full": 6,
      "props": [],
      "nested": {
-      "(icons)": 6
+      "(icons)": 2,
+      "Icon button": 4
      },
      "minmax": [
       "minw=80 size/table-cell/min"
@@ -13361,6 +13359,12 @@
        "h:size/table/row-lg",
        "minw:size/table-cell/min",
        "p:space/8"
+      ],
+      "star": [
+       "gap:space/6",
+       "h:control/height/md",
+       "r:radius/control",
+       "w:control/height/md"
       ],
       "skeleton": [
        "f:skeleton/base",
@@ -13474,7 +13478,7 @@
       }
      ],
      "nested": {
-      "(icons)": 9
+      "Icon button": 9
      },
      "minmax": [
       "minw=80 size/table-cell/min"
@@ -13555,7 +13559,7 @@
       }
      ],
      "nested": {
-      "(icons)": 3
+      "Icon button": 3
      },
      "minmax": [
       "minw=80 size/table-cell/min"
@@ -13590,155 +13594,6 @@
       "skeleton": [
        "f:skeleton/base",
        "r:radius/chip"
-      ]
-     },
-     "statusFirstLine": true
-    },
-    {
-     "name": "Table row",
-     "id": "63:291",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 1478,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Строка таблицы:",
-      "Density:",
-      "State:",
-      "Колонки:",
-      "A11y:",
-      "Часть Table.",
-      "Поиск:",
-      "Legacy:",
-      "Когда использовать:",
-      "Правила:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Density": [
-       "Compact",
-       "Regular"
-      ],
-      "State": [
-       "Default",
-       "Hover",
-       "Selected",
-       "Pressed"
-      ]
-     },
-     "variants": 8,
-     "full": 8,
-     "props": [
-      {
-       "name": "Focus ring",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 8
-      },
-      {
-       "name": "Show hit area",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 8
-      },
-      {
-       "name": "Safe margin",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 8
-      }
-     ],
-     "nested": {
-      "Table cell / Date time": 8,
-      "Table cell / Coin": 8,
-      "Table cell / Transaction": 8,
-      "Table cell / Text": 8,
-      "Table cell / Status": 8,
-      "Table cell / More": 8,
-      "_Hit area": 16,
-      "_Safe margin": 8
-     },
-     "minmax": [],
-     "layers": {
-      "ring": 8,
-      "hitWeb": 8,
-      "hitApp": 8,
-      "hit": 8,
-      "safe": 8
-     },
-     "rawCount": 16,
-     "raw": [
-      "hit area · web:w=856",
-      "hit area · web:h=48",
-      "hit area · web:h=80"
-     ],
-     "tokens": {
-      "(root)": [
-       "f:accent/subtle",
-       "h:size/table/row-lg",
-       "h:size/table/row-sm",
-       "p:space/8",
-       "s:border/subtle"
-      ],
-      "cell · Дата": [
-       "gap:space/8",
-       "h:size/table/row-lg",
-       "minw:size/table-cell/min",
-       "p:space/sm"
-      ],
-      "cell · Монета": [
-       "gap:space/sm",
-       "gap:space/xs",
-       "h:size/table/row-lg",
-       "minw:size/table-cell/min",
-       "p:space/sm"
-      ],
-      "cell · Сумма": [
-       "gap:space/2xs",
-       "h:size/table/row-lg",
-       "minw:size/table-cell/min",
-       "p:space/sm"
-      ],
-      "cell · Адрес": [
-       "gap:space/8",
-       "h:size/table/row-lg",
-       "minw:size/table-cell/min",
-       "p:space/sm"
-      ],
-      "cell · Статус": [
-       "gap:space/8",
-       "h:size/table/row-lg",
-       "minw:size/table-cell/min",
-       "p:space/12"
-      ],
-      "cell · ⋯": [
-       "gap:space/8",
-       "h:size/table/row-lg",
-       "minw:size/table-cell/min",
-       "p:space/xs"
-      ],
-      "focus ring": [
-       "s:border/focus-ring",
-       "sw:border/width/focus-ring"
-      ],
-      "hit area · web": [
-       "visible:touch/is-fine"
-      ],
-      "hit area · overlay": [
-       "f:status/danger/solid"
-      ],
-      "hit area · app": [
-       "visible:touch/is-coarse"
-      ],
-      "safe area · outer": [
-       "s:status/success/solid",
-       "sw:control/safe-margin"
-      ],
-      "state layer": [
-       "f:state/layer",
-       "o:state/hover",
-       "o:state/pressed"
       ]
      },
      "statusFirstLine": true
@@ -13813,13 +13668,368 @@
   },
   {
    "level": "unknown",
+   "page": "Table header cell",
+   "pageId": "2093:1270",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Table header cell — борда · шаблон v3",
+     "id": "2111:5650",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "05 · Зоны",
+      "06 · На поверхностях",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "07"
+   ],
+   "sets": [
+    {
+     "name": "Table header cell",
+     "id": "62:67",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 1110,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Правила:",
+      "Длинный текст:",
+      "A11y:",
+      "Часть Table.",
+      "Поиск:",
+      "Legacy:",
+      "Когда использовать:",
+      "Матрица:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Align": [
+       "Start",
+       "End"
+      ],
+      "Sort": [
+       "None",
+       "Ascending",
+       "Descending"
+      ],
+      "State": [
+       "Skeleton",
+       "Default",
+       "Hover",
+       "Pressed"
+      ]
+     },
+     "variants": 20,
+     "full": 24,
+     "props": [
+      {
+       "name": "Label",
+       "type": "TEXT",
+       "def": "Сумма",
+       "bound": 20
+      },
+      {
+       "name": "Focus ring",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 20
+      },
+      {
+       "name": "Show hit area",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 20
+      },
+      {
+       "name": "Safe margin",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 20
+      },
+      {
+       "name": "Show filter",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 18
+      },
+      {
+       "name": "Show info",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 18
+      }
+     ],
+     "nested": {
+      "(icons)": 48
+     },
+     "minmax": [
+      "minw=80 size/table-cell/min"
+     ],
+     "layers": {
+      "ring": 20,
+      "hitWeb": 20,
+      "hitApp": 20,
+      "hit": 20,
+      "safe": 20
+     },
+     "rawCount": 60,
+     "raw": [
+      "(root):w=160",
+      "hit area · web:w=160",
+      "hit area · web:h=44"
+     ],
+     "tokens": {
+      "(root)": [
+       "gap:space/4",
+       "h:size/table/header",
+       "minw:size/table-cell/min",
+       "p:space/12"
+      ],
+      "label": [
+       "f:text/primary",
+       "f:text/tertiary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/lg/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/lg/line-height"
+      ],
+      "focus ring": [
+       "s:border/focus-ring",
+       "sw:border/width/focus-ring"
+      ],
+      "hit area · web": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
+       "visible:touch/is-coarse"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
+      ],
+      "state layer": [
+       "f:state/layer",
+       "o:state/hover",
+       "o:state/pressed"
+      ],
+      "skeleton": [
+       "f:skeleton/base",
+       "r:radius/chip"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Table row",
+   "pageId": "2093:1271",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Table row — борда · шаблон v3",
+     "id": "2107:3586",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "05 · Зоны",
+      "06 · На поверхностях",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "07"
+   ],
+   "sets": [
+    {
+     "name": "Table row",
+     "id": "63:291",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 1478,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Строка таблицы:",
+      "Density:",
+      "State:",
+      "Колонки:",
+      "A11y:",
+      "Часть Table.",
+      "Поиск:",
+      "Legacy:",
+      "Когда использовать:",
+      "Правила:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Density": [
+       "Compact",
+       "Regular"
+      ],
+      "Selected": [
+       "Off",
+       "On"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Pressed"
+      ]
+     },
+     "variants": 12,
+     "full": 12,
+     "props": [
+      {
+       "name": "Focus ring",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 12
+      },
+      {
+       "name": "Show hit area",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 12
+      },
+      {
+       "name": "Safe margin",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 12
+      }
+     ],
+     "nested": {
+      "Table cell / Date time": 12,
+      "Table cell / Coin": 12,
+      "Table cell / Transaction": 12,
+      "Table cell / Text": 12,
+      "Table cell / Status": 12,
+      "Table cell / More": 12,
+      "_Hit area": 24,
+      "_Safe margin": 12
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 12,
+      "hitWeb": 12,
+      "hitApp": 12,
+      "hit": 12,
+      "safe": 12
+     },
+     "rawCount": 24,
+     "raw": [
+      "hit area · web:w=856",
+      "hit area · web:h=48",
+      "hit area · web:h=80"
+     ],
+     "tokens": {
+      "(root)": [
+       "f:accent/subtle",
+       "h:size/table/row-lg",
+       "h:size/table/row-sm",
+       "p:space/8",
+       "s:border/subtle"
+      ],
+      "cell · Дата": [
+       "gap:space/8",
+       "h:size/table/row-lg",
+       "minw:size/table-cell/min",
+       "p:space/sm"
+      ],
+      "cell · Монета": [
+       "gap:space/sm",
+       "gap:space/xs",
+       "h:size/table/row-lg",
+       "minw:size/table-cell/min",
+       "p:space/sm"
+      ],
+      "cell · Сумма": [
+       "gap:space/2xs",
+       "h:size/table/row-lg",
+       "minw:size/table-cell/min",
+       "p:space/sm"
+      ],
+      "cell · Адрес": [
+       "gap:space/8",
+       "h:size/table/row-lg",
+       "minw:size/table-cell/min",
+       "p:space/sm"
+      ],
+      "cell · Статус": [
+       "gap:space/8",
+       "h:size/table/row-lg",
+       "minw:size/table-cell/min",
+       "p:space/12"
+      ],
+      "cell · ⋯": [
+       "gap:space/8",
+       "h:size/table/row-lg",
+       "minw:size/table-cell/min",
+       "p:space/xs"
+      ],
+      "focus ring": [
+       "s:border/focus-ring",
+       "sw:border/width/focus-ring"
+      ],
+      "hit area · web": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
+       "visible:touch/is-coarse"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
+      ],
+      "state layer": [
+       "f:state/layer",
+       "o:state/hover",
+       "o:state/pressed"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
    "page": "Tabs",
    "pageId": "355:33524",
    "pageMark": "🟡",
    "boards": [
     {
      "name": "Tabs — борда · шаблон v3",
-     "id": "1735:2937",
+     "id": "2107:32015",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -13827,18 +14037,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -13980,7 +14190,6 @@
      "id": "353:1004",
      "v3": false,
      "sections": [
-      "Шапка",
       "Textarea",
       "Поверхности",
       "Правила"
@@ -14204,7 +14413,7 @@
       "_Overlay surface": 10,
       "media/status/info": 2,
       "Button": 10,
-      "(icons)": 10,
+      "Icon button": 10,
       "Circle timer": 5,
       "media/status/success": 1,
       "media/status/warning": 1,
@@ -14417,7 +14626,7 @@
    "boards": [
     {
      "name": "Toggle group — борда · шаблон v3",
-     "id": "958:14783",
+     "id": "2109:45688",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -14425,6 +14634,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -14435,8 +14645,7 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -14714,7 +14923,7 @@
        "sw:border/width/default"
       ],
       "text": [
-       "f:fixed/light",
+       "f:text/on-accent",
        "f:text/primary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
@@ -14734,7 +14943,7 @@
    "boards": [
     {
      "name": "Tooltip tour — борда · шаблон v3",
-     "id": "1663:4097",
+     "id": "2107:23873",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -14742,6 +14951,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -14752,8 +14962,7 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -14831,10 +15040,9 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 8,
+     "rawCount": 4,
      "raw": [
-      "(root):w=320",
-      "step:o=0.72"
+      "(root):w=320"
      ],
      "tokens": {
       "(root)": [
@@ -14852,7 +15060,7 @@
       ],
       "step": [
        "f:text/on-accent",
-       "f:text/secondary",
+       "f:text/tertiary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
@@ -14905,15 +15113,16 @@
    "boards": [
     {
      "name": "Transaction — борда · шаблон v3",
-     "id": "958:3662",
+     "id": "2110:3929",
      "v3": true,
      "sections": [
-      "✔ Применено по рекомендации",
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
+      "05 · Зоны",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -14923,9 +15132,7 @@
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
@@ -15147,6 +15354,7 @@
       "control/border/disabled",
       "control/border/error",
       "control/border/focus",
+      "control/border/hover",
       "control/height/lg",
       "control/height/md",
       "control/height/xl",

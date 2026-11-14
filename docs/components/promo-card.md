@@ -1,4 +1,4 @@
-# Promo card — контракт (2026-11-13)
+# Promo card — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -24,7 +24,7 @@
 - Корень: Neutral — заливка `surface/level-1` + обводка `border/subtle` (`border/width/default`, вне раскладки — высота как у Accent); Accent — заливка `accent/subtle`; `radius/surface`, отступы `space/16`.
 - `body` — ряд `column` + `media` (зазор `space/8`); `column` — `text` и `action` (зазор `space/8`).
 - `text` — `title` (`type/label/lg`, Medium, `text/primary`) и `description` (`type/label/md`, Medium, `text/secondary`), зазор `space/4`.
-- `action` — вложенный Button (`control/height/sm`).
+- `action` — вложенный Button (`control/height/sm`); у Tone=Accent — Button Primary (другой вид сливается с подложкой `accent/subtle`).
 - `media` — картинка в потоке справа (`radius/inner`; плейсхолдер `surface/level-2`); при Show media = Off места под неё нет, текст — на всю ширину.
 - Служебных слоёв нет.
 - Вложено: `Button` ×4.
@@ -82,7 +82,7 @@
 - `text`: интервал `space/4`.
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- `action`: заливка / цвет `action/accent/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/4`, `space/6`; радиус `radius/control-sm`, `radius/xs`.
+- `action`: заливка / цвет `action/accent/default`, `action/primary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/4`, `space/6`; радиус `radius/control-sm`, `radius/xs`.
 - `media`: заливка / цвет `surface/level-2`; радиус `radius/inner`.
 - Значений без переменной: 4 (напр. `(root):w=222`, `(root):w=343`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
@@ -92,7 +92,7 @@
 
 ## 12. Figma projection
 - Набор `Promo card`, вариантов 4 из 4; оси: Size, Tone.
-- Борда: «Promo card — борда · шаблон v3», разделов 10.
+- Борда: «Promo card — борда · шаблон v3», разделов 12.
 - Описание: 853 знаков, разделы: Status: Level: Промо-карточка: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
@@ -101,7 +101,7 @@
 - Vue: `<DsPromoCard>`; Flutter: `DsPromoCard`.
 - Props: `size`: s | m; `tone`: neutral | accent; `title`: string или слот; `description`: string или слот; `showDescription`: boolean = true; `showAction`: boolean = true; `showMedia`: boolean = false.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

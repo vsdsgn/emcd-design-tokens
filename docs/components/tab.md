@@ -1,4 +1,4 @@
-# Tab — контракт (2026-11-13)
+# Tab — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -25,6 +25,7 @@
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Навигация: индикатор `border/accent`; Hover / Pressed — слой состояния и цвет текста.
 - Default, Hover, Pressed, Disabled × Selected Off | On; Skeleton — загрузка (без Selected: 36 из 40).
+- Индикатор: Selected=On — `border/accent`; Pressed (Off) — `border/strong`; Disabled·On — `control/border/disabled`.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 5. Properties
@@ -72,7 +73,7 @@
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`, `text/secondary`; типографика `font-weight/bold`, `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/lg`, `type/label/lg`, `type/label/md`, `type/label/sm`.
 - `counter`: заливка / цвет `action/secondary/default`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/2xs`, `space/6`; радиус `radius/full`.
-- `indicator`: заливка / цвет `border/accent`, `border/default`, `control/border/default`, `icon/disabled`; высота `size/tab-indicator/lg`, `size/tab-indicator/sm`.
+- `indicator`: заливка / цвет `border/accent`, `border/default`, `border/strong`, `control/border/disabled`; высота `size/tab-indicator/lg`, `size/tab-indicator/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`, `radius/control-xs`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-inner`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
 - Значений без переменной: 120 (напр. `hit area · web:w=60`, `hit area · web:h=48`, `indicator:r=1`, `indicator:w=60`) — размеры слоёв зон и то, что перечислено в разделе 14.
@@ -94,7 +95,7 @@
 - Props: `size`: m | l | xl | s; `selected`: boolean; `label`: string или слот; `counter`: boolean = false; `icon`: boolean = false.
 - Состояния (Default, Hover, Pressed, Disabled, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 240 @label` числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

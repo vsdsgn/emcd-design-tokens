@@ -1,11 +1,11 @@
-# Table cell / Coin — контракт (2026-11-13)
+# Table cell / Coin — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Table cell / Coin`. Status: beta. Level: unknown.
-- Figma: Components, страница «Table» (`367:42849`), набор `92:685`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Table cell» (`367:42849`), набор `92:685`. Платформы: Web, Mobile web, iOS, Android.
 - Страница «Table». Ячейка строки таблицы; вне Table row не используется.
 
 ## 2. Intent
@@ -21,17 +21,17 @@
 
 ## 3. Anatomy
 - Корень — горизонтальный стек, высота `size/table/row-lg`, отступы `space/12`, зазор `space/12` / `space/8` по Size, min-width `size/table-cell/min` (80).
-- Символ монеты из Symbols (на макете `smbl-bitcoin-btc`): 40 у M, 24 у S; замена — instance swap.
+- `coin` — вложенный атом Coin: 40 (`size/media/lg`) у M, 24 (`size/media/sm`) у S; монета — свойство Coin.
 - `content`: `ticker` — `text/primary`, `type/label/lg`, `font-weight/medium`; `name` — `text/secondary`, тот же кегль. Блок и тексты — Fill, одна строка.
 - `skeleton` — полоса `skeleton/base`, `radius/chip`.
-- Вложено: `smbl-bitcoin-btc` ×6.
+- Вложено: `Coin` ×6.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; Skeleton — загрузка.
 - Default — монета в цвете, `ticker` `text/primary`, `name` `text/secondary`.
 - Skeleton — одна полоса вместо монеты и текста, одинаковая у M и S.
-- Disabled — тексты `text/disabled`, монета погашена.
+- Disabled — тексты `text/disabled`, монета — прозрачность 40 %.
 - Hover — у строки (Table row), не у ячейки.
 
 ## 5. Properties
@@ -69,6 +69,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/12`, `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `coin`: высота `size/media/lg`, `size/media/sm`; ширина `size/media/lg`, `size/media/sm`.
 - `ticker`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `name`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
@@ -80,7 +81,7 @@
 
 ## 12. Figma projection
 - Набор `Table cell / Coin`, вариантов 6 из 6; оси: Size, State.
-- Борда: «Table header cell — борда · шаблон v3», разделов 11.
+- Борда: «Table cells — борда · шаблон v3», разделов 25.
 - Описание: 713 знаков, разделы: Status: Level: Монета: Когда использовать: Правила: Длинный текст: A11y:
 
 ## 13. Code projection
@@ -90,7 +91,7 @@
 - Props: `size`: m | s; `ticker`: string или слот; `name`: string или слот.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -102,5 +103,4 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - На решение: Skeleton — одна полоса без круга монеты (40 / 24).
-- На решение: монета вставлена напрямую из Symbols, не через Coin; свойства замены нет (instance swap вручную).
 - Ширина корня 161 / 160 числом (ширину задаёт колонка; min-width — `size/table-cell/min`).

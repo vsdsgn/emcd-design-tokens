@@ -1,4 +1,4 @@
-# Chart axis label — контракт (2026-11-13)
+# Chart axis label — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -70,7 +70,7 @@
 
 ## 12. Figma projection
 - Набор `Chart axis label`, вариантов 8 из 8; оси: Size, State.
-- Борда: «Chart axis label — борда · шаблон v3», разделов 9.
+- Борда: «Chart axis label — борда · шаблон v3», разделов 12.
 - Описание: 774 знаков, разделы: Status: Level: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -80,7 +80,7 @@
 - Props: `size`: s | l; `label`: string или слот.
 - Состояния (Default, Hover, Active, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 52).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

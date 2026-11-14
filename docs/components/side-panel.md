@@ -1,4 +1,4 @@
-# Side panel — контракт · draft (2026-11-13)
+# Side panel — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -16,7 +16,7 @@
 
 ## 3. Anatomy
 - Слои с токенами: `header`, `title`, `Header actions`, `close`, `Body`, `Хешрейт, история, настройки воркера. Контент — в слот Body.`, `Footer`, `Button`.
-- Вложено: иконки ×2, `Button` ×4.
+- Вложено: `Icon button` ×2, `Button` ×4.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -81,9 +81,9 @@
 - Vue: `<DsSidePanel>`; Flutter: `DsSidePanel`.
 - Props: `size`: m | l; `title`: string или слот; `showClose`: boolean = true; `showFooter`: boolean = true; `headerActions`: string или слот; `body`: string или слот; `footer`: string или слот; `showHeaderActions`: boolean = false.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: Legacy нет; опора — Web App «детали воркера / выплаты» (вместо модалки поверх таблицы) → Size M / L. Нужен скрин прода.
+- Legacy: Legacy нет; опоры в проде нет: детали устройства (Firmware) и настройка отчёта (Web App) — большая модалка, не боковая панель → детали — Modal (`docs/migration/prod-refs-2026-11-14.md`).

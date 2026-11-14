@@ -1,4 +1,4 @@
-# Chart tooltip — контракт (2026-11-13)
+# Chart tooltip — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -18,7 +18,7 @@
 - Не делаем: больше четырёх строк; перекрывать курсор; использовать как подсказку к элементу интерфейса.
 
 ## 3. Anatomy
-- Корень — карточка: `surface/raised`, обводка `border/subtle` (`border/width/default`), `radius/sm`, тени `shadow/ambient` + `shadow/key`, отступы `space/10` / `space/12`, зазор `space/6`; ширина min `size/chart-tooltip/min` (168), max `size/tooltip/max` (320).
+- Корень — карточка: `surface/raised`, обводка `border/default` (`border/width/default`, как у всех тултипов), `radius/sm`, тени `shadow/ambient` + `shadow/key`, отступы `space/10` / `space/12`, зазор `space/6`; ширина min `size/chart-tooltip/min` (168), max `size/tooltip/max` (320).
 - `header` — `date` (Fill) и `time`, оба `text/tertiary`, `type/body/sm`, зазор `space/16`; скрывается свойством Show date.
 - `row 1`…`row 4` (зазор `space/8`): Legend swatch (`size/legend-swatch`) + `series` (`text/secondary`) + `value` (`text/primary`), оба `type/label/sm`, medium.
 - Вложено: `Legend swatch` ×10.
@@ -61,7 +61,7 @@
 - Серия не только цветом маркера: название серии всегда текстом.
 
 ## 10. Tokens
-- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; интервал `space/6`; maxw `size/tooltip/max`; мин. ширина `size/chart-tooltip/min`; отступы `space/10`, `space/12`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; интервал `space/6`; maxw `size/tooltip/max`; мин. ширина `size/chart-tooltip/min`; отступы `space/10`, `space/12`; радиус `radius/sm`; обводка `border/default`; толщина обводки `border/width/default`.
 - `header`: интервал `space/16`.
 - `date`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `time`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
@@ -79,7 +79,7 @@
 
 ## 12. Figma projection
 - Набор `Chart tooltip`, вариантов 4 из 4; оси: Rows.
-- Борда: «Chart tooltip — борда · шаблон v3», разделов 9.
+- Борда: «Chart tooltip — борда · шаблон v3», разделов 12.
 - Описание: 706 знаков, разделы: Status: Level: Тултип точки графика: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -88,7 +88,7 @@
 - Vue: `<DsChartTooltip>`; Flutter: `DsChartTooltip`.
 - Props: `rows`: 1 | 2 | 3 | 4; `showDate`: boolean = true.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,4 +1,4 @@
-# Step progress — контракт (2026-11-13)
+# Step progress — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -13,12 +13,12 @@
 - Когда нет: шаги с названиями — Stepper; доля выполнения — Progress.
 - Правило выбора варианта:
   - Count: число шагов сценария, 3–7.
-  - Step: номер текущего шага, 1…Count; пройденные и текущий — акцент, остальные — `border/default`. Step больше Count не бывает (матрица 25 из 35).
+  - Step: номер текущего шага, 1…Count; пройденные и текущий — `control/checked`, остальные — `control/track`. Step больше Count не бывает (матрица 25 из 35).
   - Ширина — на всю ширину контейнера, сегменты поровну; высота — `size/track/sm`.
 - Не делаем: меньше 3 или больше 7 сегментов; сегменты разной ширины.
 
 ## 3. Anatomy
-- Корень — горизонтальный ряд, зазор `space/4`, высота `size/track/sm` → Count × `Step segment` (State Done / Current — `icon/accent`, Upcoming — `border/default`; `radius/chip`, высота `size/track/sm`).
+- Корень — горизонтальный ряд, зазор `space/4`, высота `size/track/sm` → Count × `Step segment` (State Done / Current — `control/checked`, Upcoming — `control/track`; `radius/chip`, высота `size/track/sm`).
 - Вложено: `Step segment` ×135.
 - Служебные слои (вариантов из 25): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -52,7 +52,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/4`; высота `size/track/sm`.
-- `Step segment`: заливка / цвет `border/default`, `icon/accent`; высота `size/track/sm`; радиус `radius/chip`.
+- `Step segment`: заливка / цвет `control/checked`, `control/track`; высота `size/track/sm`; радиус `radius/chip`.
 - Значений без переменной: 25 (напр. `(root):w=240`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -60,7 +60,7 @@
 
 ## 12. Figma projection
 - Набор `Step progress`, вариантов 25 из 35; оси: Count, Step.
-- Борда: «Step progress — борда · шаблон v3», разделов 9.
+- Борда: «Step progress — борда · шаблон v3», разделов 11.
 - Описание: 558 знаков, разделы: Status: Level: Когда использовать: A11y: Правила: Матрица:
 
 ## 13. Code projection
@@ -69,7 +69,7 @@
 - Vue: `<DsStepProgress>`; Flutter: `DsStepProgress`.
 - Props: `count`: 3 | 4 | 5 | 6 | 7; `step`: 1 | 2 | 3 | 4 | 5 | 6 | 7.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -81,4 +81,4 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Ширина корня 240 числом — образец; в макете Fill container.
-- Сегменты Upcoming (`border/default`) едва видны в Dark L0 и Light L3 (то же у Step segment) — на решение, вопрос к токену.
+- Сегменты Upcoming (`control/track`) в Dark L0 и Light L3 — перепроверить видимость стендом (то же у Step segment).

@@ -1,4 +1,4 @@
-# Toast — контракт · draft (2026-11-13)
+# Toast — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически. Набор заменён на месте (2026-11-13): фон, радиус и тень — слой `overlay surface`, нераскрытый экземпляр базы `_Overlay surface`; свойства набора не менялись. Поверхность, токены и приёмка базы — `docs/components/overlay-surface.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -16,7 +16,7 @@
 
 ## 3. Anatomy
 - Слои с токенами: `overlay surface`, `content`, `title`, `description`, `actions`, `Button`, `close`, `timer`, `row`.
-- Вложено: `_Overlay surface` ×10, `media/status/info` ×2, `Button` ×10, иконки ×10, `Circle timer` ×5, `media/status/success` ×1, `media/status/warning` ×1, `media/status/danger` ×1.
+- Вложено: `_Overlay surface` ×10, `media/status/info` ×2, `Button` ×10, `Icon button` ×10, `Circle timer` ×5, `media/status/success` ×1, `media/status/warning` ×1, `media/status/danger` ×1.
 - Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 5.
 
 ## 4. States
@@ -87,9 +87,9 @@
 - Vue: `<DsToast>`; Flutter: `DsToast`.
 - Props: `layout`: card | informer; `tone`: info | success | warning | danger | neutral; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `actions`: boolean = false; `close`: boolean = true; `icon`: boolean = true; `showDescription`: boolean = true; `timer`: boolean = false; `safeArea`: boolean = true.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: DS Web Toast (base notification).
+- Legacy: DS Web Toast (base notification). Опора — App: `base notification` → Layout=Card, `informer` → Layout=Informer (`docs/migration/prod-refs-2026-11-14.md`).

@@ -1,4 +1,4 @@
-# Page dot — контракт (2026-11-13)
+# Page dot — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -12,11 +12,11 @@
 - Когда использовать: только внутри Page indicator — одна точка на страницу.
 - Когда нет: статус объекта — Status / Dot; непрочитанное — Counter.
 - Правило выбора варианта:
-  - Selected: Off — остальные страницы, точка `size/dot/sm`; On — текущая страница, вытянутая точка 16 цвета акцента. В индикаторе выбрана ровно одна.
+  - Selected: Off — остальные страницы, точка `size/dot/sm`; On — текущая страница, вытянутая точка 16 (`control/checked`). В индикаторе выбрана ровно одна.
 - Не делаем: две выбранные точки.
 
 ## 3. Anatomy
-- Корень — капсула: `radius/chip`, высота `size/dot/sm`; Off — ширина `size/dot/sm`, заливка `icon/tertiary`; On — ширина 16, заливка `icon/accent`.
+- Корень — капсула: `radius/chip`, высота `size/dot/sm`; Off — ширина `size/dot/sm`, заливка `icon/tertiary` (`control/track` на фоне не виден); On — ширина 16, заливка `control/checked`.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -47,7 +47,7 @@
 - Кликабельные точки — кнопка с именем «Слайд N», у выбранной `aria-current`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `icon/accent`, `icon/tertiary`; высота `size/dot/sm`; радиус `radius/chip`; ширина `size/dot/sm`.
+- `корень`: заливка / цвет `control/checked`, `icon/tertiary`; высота `size/dot/sm`; радиус `radius/chip`; ширина `size/dot/sm`.
 - Значений без переменной: 1 (напр. `(root):w=16`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -55,7 +55,7 @@
 
 ## 12. Figma projection
 - Набор `Page dot`, вариантов 2 из 2; оси: Selected.
-- Борда: «Page dot — борда · шаблон v3», разделов 9.
+- Борда: «Page dot — борда · шаблон v3», разделов 12.
 - Описание: 510 знаков, разделы: Status: Level: Точка индикатора страниц. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -64,7 +64,7 @@
 - Vue: `<DsPageDot>`; Flutter: `DsPageDot`.
 - Props: `selected`: boolean.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

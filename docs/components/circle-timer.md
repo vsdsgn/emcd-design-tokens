@@ -1,4 +1,4 @@
-# Circle timer — контракт (2026-11-13)
+# Circle timer — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -16,8 +16,8 @@
   - Progress: 100 / 75 / 50 / 25 — доля оставшегося времени; в макете — ближайший кадр, в коде значение непрерывное от 100 до 0.
 
 ## 3. Anatomy
-- `track` — полное кольцо, обводка `border/default`, `border/width/strong`; размер — по корню (`icon/size/sm` | `icon/size/lg`).
-- `progress` — дуга поверх трека, обводка `icon/accent`, `border/width/strong`; масштабируется вместе с треком (constraints Scale), убывает по часовой стрелке.
+- `track` — полное кольцо, обводка `control/track`, `border/width/strong`; размер — по корню (`icon/size/sm` | `icon/size/lg`).
+- `progress` — дуга поверх трека, обводка `control/checked`, `border/width/strong`; масштабируется вместе с треком (constraints Scale), убывает по часовой стрелке.
 - Служебные слои (вариантов из 8): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -52,15 +52,15 @@
 
 ## 10. Tokens
 - `корень`: высота `icon/size/lg`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/sm`.
-- `track`: высота `icon/size/lg`, `icon/size/sm`; обводка `border/default`; толщина обводки `border/width/strong`; ширина `icon/size/lg`, `icon/size/sm`.
-- `progress`: обводка `icon/accent`; толщина обводки `border/width/strong`.
+- `track`: высота `icon/size/lg`, `icon/size/sm`; обводка `control/track`; толщина обводки `border/width/strong`; ширина `icon/size/lg`, `icon/size/sm`.
+- `progress`: обводка `control/checked`; толщина обводки `border/width/strong`.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
 - Набор `Circle timer`, вариантов 8 из 8; оси: Size, Progress.
-- Борда: «Circle timer — борда · шаблон v3», разделов 9.
+- Борда: «Circle timer — борда · шаблон v3», разделов 12.
 - Описание: 708 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
@@ -69,7 +69,7 @@
 - Vue: `<DsCircleTimer>`; Flutter: `DsCircleTimer`.
 - Props: `size`: s | m; `progress`: 100 | 75 | 50 | 25.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

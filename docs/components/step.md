@@ -1,11 +1,11 @@
-# Step — контракт (2026-11-13)
+# Step — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Step`. Status: beta. Level: unknown.
-- Figma: Components, страница «Stepper» (`367:349`), набор `108:1450`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Step» (`367:349`), набор `108:1450`. Платформы: Web, Mobile web, iOS, Android.
 - Лежит на странице Stepper. Отдельно от Stepper не используется.
 
 ## 2. Intent
@@ -79,7 +79,7 @@
 
 ## 12. Figma projection
 - Набор `Step`, вариантов 3 из 3; оси: State.
-- Борда: «Step — борда · шаблон v3», разделов 10.
+- Борда: «Step — борда · шаблон v3», разделов 11.
 - Описание: 727 знаков, разделы: Status: Level: Шаг: Когда использовать: Правила: Длинный текст: A11y:
 
 ## 13. Code projection
@@ -89,7 +89,7 @@
 - Props: `label`: string или слот; `description`: string или слот; `showDescription`: boolean = false.
 - Состояния (Default, Current, Success) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 120).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

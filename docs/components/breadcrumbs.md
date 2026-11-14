@@ -1,4 +1,4 @@
-# Breadcrumbs — контракт (2026-11-13)
+# Breadcrumbs — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -71,7 +71,7 @@
 
 ## 12. Figma projection
 - Набор `Breadcrumbs`, вариантов 4 из 4; оси: Items.
-- Борда: «Breadcrumbs — борда · шаблон v3», разделов 10.
+- Борда: «Breadcrumbs — борда · шаблон v3», разделов 12.
 - Описание: 944 знаков, разделы: Status: Level: Когда использовать: Последний пункт — Длинный путь: A11y: Правила:
 
 ## 13. Code projection
@@ -80,7 +80,7 @@
 - Vue: `<DsBreadcrumbs>`; Flutter: `DsBreadcrumbs`.
 - Props: `items`: 2 | 3 | 4 | collapsed.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

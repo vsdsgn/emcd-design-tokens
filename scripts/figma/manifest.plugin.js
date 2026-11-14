@@ -36,7 +36,7 @@ for (const pid of PAGES) {
       const seen = {}; const nodes = []; walk(v, false, (n, isNested) => nodes.push([n, isNested]));
       for (const [n, isNested] of nodes) {
         if (/^focus ring$/i.test(n.name)) seen.ring = 1; if (/^hit area · web/i.test(n.name)) seen.hitWeb = 1; else if (/^hit area · app/i.test(n.name)) seen.hitApp = 1; else if (/^hit area/i.test(n.name)) seen.hit = 1; if (/safe (margin|area)/i.test(n.name)) seen.safe = 1;
-        if (isNested) { const m = await n.getMainComponentAsync(); const nm = m ? (m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.name : m.name) : '?'; if (!/^(icon|ic)[ /_]/i.test(nm)) nested[nm] = (nested[nm] || 0) + 1; else nested['(icons)'] = (nested['(icons)'] || 0) + 1; }
+        if (isNested) { const m = await n.getMainComponentAsync(); const nm = m ? (m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.name : m.name) : '?'; if (!/^(icon|ic)\//i.test(nm)) nested[nm] = (nested[nm] || 0) + 1; else nested['(icons)'] = (nested['(icons)'] || 0) + 1; }
         const b = n.boundVariables || {}; const ln = n === v ? '(root)' : n.name; const t = tokens[ln] = tokens[ln] || new Set();
         for (const [k, val] of Object.entries(b)) for (const a of (Array.isArray(val) ? val : [val])) if (a && a.id) t.add(sk(k) + ':' + await vn(a.id));
         if (n === v) for (const k of ['minWidth', 'maxWidth', 'minHeight', 'maxHeight']) if (n[k] != null) mm.add(sk(k) + '=' + num(n[k]) + (b[k] ? ' ' + await vn(b[k].id) : ' RAW'));

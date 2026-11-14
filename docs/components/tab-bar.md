@@ -1,4 +1,4 @@
-# Tab bar — контракт · draft (2026-11-13)
+# Tab bar — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -57,7 +57,7 @@
 
 ## 12. Figma projection
 - Компонент `Tab bar`; оси: нет.
-- Борда: «Tab bar item — борда · шаблон v3», разделов 13.
+- Борда: шаблона v3 нет.
 - Описание: 933 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
 
 ## 13. Code projection
@@ -66,9 +66,10 @@
 - Vue: `<DsTabBar>`; Flutter: `DsTabBar`.
 - Props: `safeArea`: boolean = true; `items`: string или слот.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
+  - BOARD: нет борды v3
 
 ## 15. Migration
 - Legacy: DS App нижняя навигация (`tabbar`) → Tab bar + Safe area; `tabbar item` active → Tab bar item Selected; высота 91 → 57 + safe area. DS Web — нет; мобильный веб — та же схема.

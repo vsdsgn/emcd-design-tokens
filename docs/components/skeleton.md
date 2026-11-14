@@ -1,4 +1,4 @@
-# Skeleton — контракт (2026-11-13)
+# Skeleton — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -58,8 +58,8 @@
 
 ## 12. Figma projection
 - Набор `Skeleton`, вариантов 7 из 7; оси: Shape.
-- Борда: «Skeleton — борда · шаблон v3», разделов 10.
-- Описание: 1104 знаков, разделы: Status: Level: Кирпичи скелетона: Цвет — Правила: A11y: Когда использовать: Поиск: Motion: Shimmer:
+- Борда: «Skeleton — борда · шаблон v3», разделов 12.
+- Описание: 1157 знаков, разделы: Status: Level: Кирпичи скелетона: Цвет — Правила: A11y: Когда использовать: Поиск: Motion: Shimmer:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -67,7 +67,7 @@
 - Vue: `<DsSkeleton>`; Flutter: `DsSkeleton`.
 - Props: `shape`: text | title | circle | rect | button | input | chip.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

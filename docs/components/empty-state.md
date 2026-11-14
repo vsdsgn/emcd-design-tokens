@@ -1,4 +1,4 @@
-# Empty state — контракт · draft (2026-11-13)
+# Empty state — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -15,8 +15,8 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `dashed background`, `text`, `title`, `Actions`, `Button`, `Button · deprecated`, `column`.
-- Вложено: `status/pending` ×4, `Button` ×6, `Button/Link/S/Default` ×1.
+- Слои с токенами: `dashed background`, `text`, `title`, `Actions`, `Button`, `link`, `column`.
+- Вложено: `status/pending` ×4, `Button` ×7.
 - Служебные слои (вариантов из 5): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -64,7 +64,7 @@
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/lg`, `type/heading/sm`, `type/label/md`.
 - `Actions`: интервал `space/12`, `space/16`, `space/8`; отступы `space/8`.
 - `Button`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/2`; высота `control/height/md`, `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`, `space/8`; радиус `radius/control`, `radius/control-sm`.
-- `Button · deprecated`: интервал `space/2xs`; радиус `radius/control-sm`.
+- `link`: интервал `space/2`; мин. ширина `size/button/min`; отступы `space/4`; радиус `radius/xs`.
 - `column`: интервал `space/12`, `space/16`.
 - Значений без переменной: 5 (напр. `(root):w=560`, `(root):w=320`, `(root):w=280`, `(root):w=720`).
 
@@ -82,7 +82,7 @@
 - Vue: `<DsEmptyState>`; Flutter: `DsEmptyState`.
 - Props: `size`: l | m | s; `layout`: horizontal | vertical; `title`: string или слот; `text`: string или слот; `showText`: boolean = true; `showIllustration`: boolean = true; `showActions`: boolean = true; `illustration`: string или слот; `actions`: string или слот; `dashedBackground`: boolean = false.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 

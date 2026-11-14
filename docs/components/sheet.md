@@ -1,4 +1,4 @@
-# Sheet — контракт · draft (2026-11-13)
+# Sheet — контракт · draft (2026-11-14)
 
 Заготовка: собрана автоматически. Набор заменён на месте (2026-11-13): фон, радиус и тень — слой `overlay surface`, нераскрытый экземпляр базы `_Overlay surface`; свойства набора не менялись. Поверхность, токены и приёмка базы — `docs/components/overlay-surface.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -16,7 +16,7 @@
 
 ## 3. Anatomy
 - Слои с токенами: `overlay surface`, `grabber`, `header`, `title`, `Header actions`, `close`, `Body`, `Сумма, сеть, адрес и статус транзакции. Контент — в слот Body.`, `Footer`, `Button`, `card`, `group title`, `Отправить`, `divider`, `Rectangle`.
-- Вложено: `_Overlay surface` ×2, иконки ×1, `Button` ×2, `Menu item` ×2.
+- Вложено: `_Overlay surface` ×2, `Icon button` ×1, `Button` ×2, `Menu item` ×2.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -91,7 +91,7 @@
 - Vue: `<DsSheet>`; Flutter: `DsSheet`.
 - Props: `type`: default | menu; `title`: string или слот; `showGrabber`: boolean = true; `showClose`: boolean = true; `showFooter`: boolean = true; `headerActions`: string или слот; `body`: string или слот; `footer`: string или слот; `showHeaderActions`: boolean = false; `items`: string или слот.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
 - Замечаний по манифесту нет.
 

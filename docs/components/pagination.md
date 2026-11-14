@@ -1,4 +1,4 @@
-# Pagination — контракт (2026-11-13)
+# Pagination — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -10,12 +10,13 @@
 ## 2. Intent
 - Пагинация таблиц и списков: номера страниц или диапазон со стрелками.
 - Когда использовать: длинные таблицы на Web (воркеры, выплаты, устройства), когда важно знать позицию и прыгать по страницам.
-- Когда нет: ленты на Compact — «Показать ещё» / бесконечная прокрутка; меньше двух страниц — не показываем.
+- Когда нет: длинные списки и таблицы — «Показать ещё» (Button Tertiary L, по центру под таблицей; так в проде — Web App, WL admin); ленты на Compact — «Показать ещё» / бесконечная прокрутка; меньше двух страниц — не показываем.
 - Правило выбора варианта:
   - Type: Pages — Web: первая, последняя, текущая ± 1 и «…»; Compact — «21–40 из 340» и стрелки (Compact viewport, узкие колонки).
   - Size: S | M — как у контролов таблицы; в одной пагинации один размер.
   - Место: справа под таблицей (в RTL — слева).
   - Стрелки на первой / последней странице — Disabled.
+  - Только при явной навигации по страницам: в проде номеров страниц нет нигде (`docs/migration/prod-refs-2026-11-14.md`).
 - Не делаем: пагинация при одной странице; все номера подряд без «…»; два выбранных номера.
 
 ## 3. Anatomy
@@ -23,12 +24,12 @@
 - Compact: `previous` → `range` (`type/label/md`, `font-weight/medium`, `text/secondary`, отступ `space/8`, ширина по содержимому) → `next`; высота `control/height/sm` | `control/height/md`.
 - `previous` / `next` — стрелки как Icon button Ghost: `control/height/sm` | `control/height/md`, радиус `radius/control-sm` | `radius/control`.
 - Pagination item — ширина по содержимому, min = высоте (`control/height/*`), отступы `space/8`.
-- Вложено: иконки ×8, `Pagination item` ×12.
+- Вложено: `Pagination item` ×12, `Icon button` ×8.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): наследует вложенные: номера — Pagination item (плашка), стрелки — Icon button Ghost.
-- Своей оси State нет. Текущая страница — Pagination item Selected (`accent/subtle`); стрелка на первой / последней странице — Disabled.
+- Своей оси State нет. Текущая страница — Pagination item Selected=On (`accent/subtle`); стрелка на первой / последней странице — Disabled.
 
 ## 5. Properties
 Оси (варианты):
@@ -74,7 +75,7 @@
 
 ## 12. Figma projection
 - Набор `Pagination`, вариантов 4 из 4; оси: Type, Size.
-- Борда: «Pagination — борда · шаблон v3», разделов 9.
+- Борда: «Pagination — борда · шаблон v3», разделов 11.
 - Описание: 929 знаков, разделы: Status: Level: Когда использовать: Pages — Prev/next — A11y: Хаптик: Правила:
 
 ## 13. Code projection
@@ -83,7 +84,7 @@
 - Vue: `<DsPagination>`; Flutter: `DsPagination`.
 - Props: `type`: pages | compact; `size`: s | m.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -91,8 +92,9 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; длинный текст и языки — подменой подписей вложенных Pagination item; правки высоты Compact и ширины Pagination item 13.11 стендом не перепроверены; код — HTML/CSS.
 
 ## 15. Migration
-- Legacy нет: в legacy и продуктах не найдена, нарисована в стиле 2.0 → Type Pages | Compact, Size S | M; Pagination item — State Default | Hover | Pressed | Selected | Disabled. Нужен скрин прода.
+- Legacy нет: в legacy и продуктах не найдена, нарисована в стиле 2.0 → Type Pages | Compact, Size S | M; Pagination item — Selected Off | On × State Default | Hover | Pressed | Disabled. Опоры в проде нет: таблицы листаются «Показать ещё» (`docs/migration/prod-refs-2026-11-14.md`).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Стрелки Disabled на первой / последней странице в вариантах не показаны.
 - Нет свойств для текущей страницы и числа страниц — на решение.
+- Без опоры в проде — кандидат в парковку (решение Стефана).

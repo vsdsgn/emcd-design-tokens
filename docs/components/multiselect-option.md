@@ -1,11 +1,11 @@
-# Multiselect option — контракт (2026-11-13)
+# Multiselect option — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Multiselect option`. Status: beta. Level: unknown.
-- Figma: Components, страница «Multiselect» (`355:3674`), набор `170:1565`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Multiselect option» (`355:3674`), набор `170:1565`. Платформы: Web, Mobile web, iOS, Android.
 - Страница «Multiselect». Надстройка над `_List row` (вложенный раскрытый экземпляр): ось State — на корне; Label, Description, слот Leading, Selected, Focus ring и зоны — во вложенном экземпляре.
 
 ## 2. Intent
@@ -78,7 +78,7 @@
 - Props: нет.
 - Состояния (Default, Hover, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

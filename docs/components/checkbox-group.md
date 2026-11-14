@@ -1,4 +1,4 @@
-# Checkbox group — контракт (2026-11-13)
+# Checkbox group — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -91,7 +91,7 @@
 
 ## 12. Figma projection
 - Набор `Checkbox group`, вариантов 12 из 12; оси: Direction, Size, State.
-- Борда: «Checkbox group — борда · шаблон v3», разделов 10.
+- Борда: «Checkbox group — борда · шаблон v3», разделов 11.
 - Описание: 1173 знаков, разделы: Status: Level: Checkbox group: • Direction: • Error — • M: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -101,7 +101,7 @@
 - Props: `direction`: vertical | horizontal; `size`: m | s; `showLabel`: boolean = true; `showHelper`: boolean = true; `label`: string или слот; `helper`: string или слот.
 - Состояния (Default, Error, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 436, helper 436).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

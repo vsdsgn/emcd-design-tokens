@@ -1,11 +1,11 @@
-# Table cell / Avatar — контракт (2026-11-13)
+# Table cell / Avatar — контракт (2026-11-14)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
 - Набор: `Table cell / Avatar`. Status: beta. Level: unknown.
-- Figma: Components, страница «Table» (`367:42849`), набор `93:670`. Платформы: Web, Mobile web, iOS, Android.
+- Figma: Components, страница «Table cell» (`367:42849`), набор `93:670`. Платформы: Web, Mobile web, iOS, Android.
 - Страница «Table». Ячейка строки таблицы; вне Table row не используется.
 
 ## 2. Intent
@@ -22,10 +22,10 @@
 
 ## 3. Anatomy
 - Корень — горизонтальный стек, высота `size/table/row-lg`, отступы `space/12`, зазор `space/12`, min-width `size/table-cell/min` (80).
-- `avatar` — локальный слой 40 (`action/secondary/default`, `radius/chip`) с иконкой `icon/size/md`.
+- `avatar` — вложенный Avatar Size=M (40, `size/media/lg`).
 - `content`: `name row` (зазор `space/4`) — `name` (`text/primary`, `type/label/lg`, `font-weight/medium`) + `achieves` (значки звезды и щита, зазор `space/2`); `caption` — `text/secondary`, тот же кегль. Блок и тексты — Fill, одна строка.
 - `skeleton` — полоса `skeleton/base`, `radius/chip`.
-- Вложено: иконки ×9.
+- Вложено: `Avatar` ×3, иконки ×6.
 - Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -75,8 +75,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/12`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
-- `avatar`: заливка / цвет `action/secondary/default`; радиус `radius/chip`.
-- `icon`: высота `icon/size/md`; ширина `icon/size/md`.
+- `avatar`: высота `size/media/lg`; ширина `size/media/lg`.
 - `name row`: интервал `space/4`.
 - `name`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `achieves`: интервал `space/2`.
@@ -90,7 +89,7 @@
 
 ## 12. Figma projection
 - Набор `Table cell / Avatar`, вариантов 3 из 3; оси: State.
-- Борда: «Table header cell — борда · шаблон v3», разделов 11.
+- Борда: «Table cells — борда · шаблон v3», разделов 25.
 - Описание: 742 знаков, разделы: Status: Level: Когда использовать: Правила: Длинный текст: A11y:
 
 ## 13. Code projection
@@ -100,7 +99,7 @@
 - Props: `name`: string или слот; `caption`: string или слот; `achieves`: boolean = true; `starAchieve`: boolean = true; `shieldAchieve`: boolean = true.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-13)
+## 14. Acceptance (2026-11-14)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -111,7 +110,6 @@
 - DS Web `table / avatar label text` → Table cell / Avatar (Name, Caption); achieves → Achieves; star achieve → Star achieve; shield achieve → Shield achieve; text badge — свойства в наборе нет.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Описание: «Avatar L 40», у Avatar 40 — это Size=M; `avatar` собран локально, не экземпляром Avatar — заменить на Avatar M и поправить описание.
 - На решение: Skeleton — одна полоса без круга аватара 40.
 - На решение: «не больше трёх значков» и legacy text badge — в наборе два значка, свойств для третьего и text badge нет.
 - Ширина корня 280 числом (ширину задаёт колонка; min-width — `size/table-cell/min`).
