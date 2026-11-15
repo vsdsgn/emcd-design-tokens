@@ -34,7 +34,7 @@
 ### 2. Запись контракта
 
 Напиши запись для массива `DATA` в стиле образцов: объект JS (литерал), поля как у `Amount`:
-`name, identity?, what, use, dont, rule[], never?, anatomy[], group, states[], defaults{}, propsNote?, content[], events[], behavior[], a11y[], platforms, accept, migration[], todo[]`.
+`name, identity?, what, use, dont, rule[], never? (строка, пункты через «; »), anatomy[], group, states[], defaults{}, propsNote?[] (массив строк), content[], events[], behavior[], a11y[], platforms, accept, migration[], todo[]`.
 
 - Опирайся на описание Figma и манифест; не придумывай фактов (чисел, токенов, имён свойств), которых там нет. Имена осей, значений и свойств — точно как в манифесте. `defaults` — значения осей первого варианта в манифесте (вариант по умолчанию).
 - `rule` — жёсткое правило выбора на каждую ось и на значимые свойства (одна задача — один способ).
