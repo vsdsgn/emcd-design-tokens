@@ -30,7 +30,7 @@
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled` (только на `header`); Skeleton — загрузка.
 - Default, Hover, Skeleton, Disabled, Pressed. Hover / Pressed — слой `state/hover` / `state/pressed` на `header`, `label` и шеврон с полем `space/12` от края слоя; Disabled — `label` и `text` — `text/disabled`; Skeleton — полоса `skeleton/base` вместо заголовка (высотой строки текста), контента нет, высота как у Default (отступы `header` те же).
-- Каждое состояние × Open Off | On × Size L | M = 20 вариантов.
+- Каждое состояние × Open Off | On × Size L | M = 20 вариантов. Skeleton при Open Off и On одинаков: грузится список, контент не показывается (решение 15.11).
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо — вокруг `header`.
 
 ## 5. Properties
@@ -114,4 +114,3 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Корень `w=400` и `hit area · web` (400 × 64 / 48) числом — в узком контейнере (360) шеврон уходит за край; корень Fill / от контейнера.
-- Skeleton при Open Off и On рисуется одинаково — на решение: один Skeleton на Size.

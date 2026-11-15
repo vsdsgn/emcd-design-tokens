@@ -25,7 +25,7 @@
 - `bar` — `data/1` (Line + Bars — `data/4`), `radius/2xs`; в Hover невыбранные столбцы с прозрачностью 0.35.
 - `line`, `line 1…4` — штрих `data/1…4` × `chart/stroke`; `area` — `data/1` / `data/4`, прозрачность 0.45; `segment 1…4` — `data/1…4`, `radius/2xs`.
 - Skeleton — `skeleton/base`; Disabled — `action/disabled`; Empty — «Нет данных за период» (`type/body/md`, `text/tertiary`) на сетке.
-- Hover — Chart crosshair (точка `data/1`, кольцо `surface/level-1` × `border/width/focus`, ореол 0.24) + Chart tooltip.
+- Hover — Chart crosshair (точка `data/1`, кольцо `surface/current` × `border/width/focus`, ореол 0.24) + Chart tooltip.
 - Вложено: `Chart crosshair` ×7, `Chart tooltip` ×7.
 - Служебные слои (вариантов из 23): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 

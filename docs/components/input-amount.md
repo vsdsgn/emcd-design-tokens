@@ -29,7 +29,7 @@
 - Группа модели состояний (`docs/components.md`): Поле: Hover — слой `state/layer` × `state/hover`, обводка остаётся `control/border/default`; Pressed нет; Focus — `control/border/focus` + кольцо; Disabled — токены `*/disabled`.
 - Default — рамка `control/border/default`, сумма цветом плейсхолдера; Filled — та же рамка, сумма основным цветом.
 - Focus — рамка `control/border/focus`.
-- Error — рамка `control/border/error`, описание красным (`text/danger`), снизу сообщение; поле выше на строку.
+- Error — рамка `control/border/error` толщиной `border/width/default`, как у семьи полей (было 2 px, исправлено 15.11); описание красным (`text/danger`), снизу сообщение; поле выше на строку.
 - Disabled — заливка `control/surface/disabled`, рамка `control/border/disabled`; подпись, баланс, «Макс», сумма и описание — `text/disabled`, иконка info — `icon/disabled`, Select compact — в Disabled.
 - Hover — слой `state/layer` × `state/hover` поверх поля.
 - Skeleton — плашка `skeleton/base` вместо поля.
@@ -82,7 +82,7 @@
 - «Макс» — кнопка с `aria-label` «Подставить максимальную сумму».
 
 ## 10. Tokens
-- `корень`: заливка / цвет `control/surface/default`, `control/surface/disabled`, `skeleton/base`; интервал `space/16`; мин. ширина `size/field/min`; отступы `space/20`; радиус `radius/control`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`; толщина обводки `border/width/default`, `border/width/focus`.
+- `корень`: заливка / цвет `control/surface/default`, `control/surface/disabled`, `skeleton/base`; интервал `space/16`; мин. ширина `size/field/min`; отступы `space/20`; радиус `radius/control`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`; толщина обводки `border/width/default`.
 - `header`: интервал `space/12`.
 - `label`: интервал `space/4`.
 - `label text`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
@@ -97,7 +97,7 @@
 - `message`: заливка / цвет `text/danger`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`; радиус `radius/control-sm`.
 - Min / max корня: minWidth 160 size/field/min.
-- Значений без переменной: 23 (напр. `(root):w=395`, `hit area · web:w=395`, `hit area · web:h=126`, `hit area · web:h=160`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 23 (напр. `(root):w=395`, `hit area · web:w=395`, `hit area · web:h=126`, `hit area · web:h=158`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -129,4 +129,3 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Ширина корня 395 и `hit area · web` 395 × 126 / 160 — числом.
-- На решение: Focus — рамка 1 px, Error — 2 px; Hover на L1 почти сливается с подложкой.

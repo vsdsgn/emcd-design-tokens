@@ -231,7 +231,7 @@
    "boards": [
     {
      "name": "Address — борда · шаблон v3",
-     "id": "2164:10976",
+     "id": "2173:1333",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -337,18 +337,18 @@
        "r:radius/control-sm",
        "w:control/height/sm"
       ],
-      "copied": [
-       "gap:space/6",
-       "h:control/height/sm",
-       "r:radius/control-sm",
-       "w:control/height/sm"
-      ],
       "status": [
        "f:text/success",
        "fontFamily:font/family/text",
        "fontSize:type/body/sm/size",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/sm/line-height"
+      ],
+      "copied": [
+       "gap:space/6",
+       "h:control/height/sm",
+       "r:radius/control-sm",
+       "w:control/height/sm"
       ]
      },
      "statusFirstLine": true
@@ -1908,7 +1908,7 @@
    "boards": [
     {
      "name": "Chart crosshair — борда · шаблон v3",
-     "id": "2107:26811",
+     "id": "2173:71",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -1979,7 +1979,7 @@
       ],
       "point": [
        "f:data/1",
-       "s:surface/level-1",
+       "s:surface/current",
        "sw:border/width/focus"
       ],
       "band": [
@@ -5359,7 +5359,7 @@
    "boards": [
     {
      "name": "Input amount — борда · шаблон v3",
-     "id": "2167:1860",
+     "id": "2174:1860",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -5501,7 +5501,7 @@
       "(root):w=395",
       "hit area · web:w=395",
       "hit area · web:h=126",
-      "hit area · web:h=160",
+      "hit area · web:h=158",
       "header:o=0",
       "input row:o=0",
       "hit area · web:h=124"
@@ -5519,8 +5519,7 @@
        "s:control/border/disabled",
        "s:control/border/error",
        "s:control/border/focus",
-       "sw:border/width/default",
-       "sw:border/width/focus"
+       "sw:border/width/default"
       ],
       "header": [
        "gap:space/12"

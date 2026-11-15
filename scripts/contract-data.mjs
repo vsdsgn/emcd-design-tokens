@@ -1081,7 +1081,7 @@ export const DATA = [
     ],
     never: 'перехват нажатий; цвет линии, отличный от `border/default`.',
     anatomy: [
-      'Line: `line` — вертикальная линия (`border/default`); `point` — точка серии (`data/1`, обводка `surface/level-1`, `border/width/focus`); `halo` — ореол точки (`data/1`, прозрачность 0.24).',
+      'Line: `line` — вертикальная линия (`border/default`; в Dark на L0–L1 слабая, но различима — оставлено, стенд 15.11); `point` — точка серии (`data/1`, обводка `surface/current` (совпадает с подложкой на любом уровне, 15.11), `border/width/focus`); `halo` — ореол точки (`data/1`, прозрачность 0.24).',
       'Bar: `band` — полоса на ширину столбца (`status/neutral/subtle`).',
     ],
     group: NONE,
@@ -1103,8 +1103,8 @@ export const DATA = [
     migration: ['DS Web widget Graph (crosshair) → Target Line | Bar.'],
     todo: [
       'Ширина корня 24, высота 200 и прозрачность `halo` 0.24 — числом.',
-      'На решение: линия `border/default` в Dark на L0–L1 едва различима — достаточно ли контраста.',
-      'На решение: обводка точки `surface/level-1` на L2–L3 видна светлым ободком — перейти на `surface/current`.',
+      
+      
     ],
   },
   {
@@ -1298,7 +1298,7 @@ export const DATA = [
       'Длинный текст: подпись и описание — до 2 строк, дальше многоточие; `hint` — одна строка ≤ 160 (правило `_List row`).',
       RTL,
       'Языки (стенд): de, ar, hi, th, ja, kk — без обрезки по высоте.',
-      'Текст 200 %: подпись переносится на 2 строки, строка растёт по высоте, обрезки нет; иконка Leading не растёт.',
+      'Текст 200 %: подпись переносится на 2 строки, строка растёт по высоте, обрезки нет; иконка Leading не растёт и центрируется по блоку подписи — иконки с текстом не масштабируются (решение 15.11).',
     ],
     events: ['`click` / `select` по всей строке → действие пункта или выбор; у Disabled событий нет.'],
     behavior: [MOTION, 'Шеврон в Trailing — пункт открывает подменю.', 'Нажимается вся строка; вложенные контролы в Trailing — отдельные цели.'],
@@ -1311,7 +1311,7 @@ export const DATA = [
     migration: ['DS Web Dropdown item (44, отступы 10 / 12, слот слева, подпись 16 + описание 12, слот справа) → Size=M, слоты Leading / Trailing, Description; новое в 2.0: Size=L 56, Tone=Danger, состояния слоем `state/layer`, Show selection, Selected, Focus ring, зоны.'],
     todo: [
       'Ширина корня 290 — числом (пункт не растягивается по панели меню).',
-      'На решение: иконка Leading при тексте 200 % не растёт и выглядит мелкой.',
+      
     ],
   },
   {
@@ -1335,7 +1335,7 @@ export const DATA = [
     states: [
       'Default — рамка `control/border/default`, сумма цветом плейсхолдера; Filled — та же рамка, сумма основным цветом.',
       'Focus — рамка `control/border/focus`.',
-      'Error — рамка `control/border/error`, описание красным (`text/danger`), снизу сообщение; поле выше на строку.',
+      'Error — рамка `control/border/error` толщиной `border/width/default`, как у семьи полей (было 2 px, исправлено 15.11); описание красным (`text/danger`), снизу сообщение; поле выше на строку.',
       'Disabled — заливка `control/surface/disabled`, рамка `control/border/disabled`; подпись, баланс, «Макс», сумма и описание — `text/disabled`, иконка info — `icon/disabled`, Select compact — в Disabled.',
       'Hover — слой `state/layer` × `state/hover` поверх поля.',
       'Skeleton — плашка `skeleton/base` вместо поля.',
@@ -1367,7 +1367,7 @@ export const DATA = [
     ],
     todo: [
       'Ширина корня 395 и `hit area · web` 395 × 126 / 160 — числом.',
-      'На решение: Focus — рамка 1 px, Error — 2 px; Hover на L1 почти сливается с подложкой.',
+      
     ],
   },
   {
@@ -1892,7 +1892,7 @@ export const DATA = [
       'Default — подложка `action/secondary/default`.',
       'Hover — слой `state/hover`; Pressed — слой `state/pressed`.',
       'Open — подложка `action/secondary/default` (без `*-pressed`), шеврон вверх; держится, пока открыт список.',
-      'Disabled — подложка `action/disabled`, текст `text/disabled`, шеврон `icon/disabled`, монета погашена.',
+      'Disabled — подложка `action/disabled`, текст `text/disabled`, шеврон `icon/disabled`, монета погашена. Подложка по значению совпадает с Default (как у Button Secondary): Disabled отличают погашенные текст, шеврон и монета (стенд и решение 15.11).',
       'Монета во всех состояниях совпадает с подписью (USDT — монета USDT).',
       FOCUS,
     ],
@@ -1910,7 +1910,7 @@ export const DATA = [
     accept: { audit: OK, vc: 'только реестр: maxWidth текстового слоя числом (text 122)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['DS Web `Selector small` (Type=Default | Inactive) → Select compact (State Default | Disabled); Hover, Open, Pressed — новые.'],
     todo: [
-      'На решение: Disabled — подложка `action/disabled` на вид совпадает с Default, гаснет только содержимое.',
+      
     ],
   },
   {
@@ -2269,7 +2269,7 @@ export const DATA = [
     group: PLASHKA + ' (только на `header`); Skeleton — загрузка',
     states: [
       'Default, Hover, Skeleton, Disabled, Pressed. Hover / Pressed — слой `state/hover` / `state/pressed` на `header`, `label` и шеврон с полем `space/12` от края слоя; Disabled — `label` и `text` — `text/disabled`; Skeleton — полоса `skeleton/base` вместо заголовка (высотой строки текста), контента нет, высота как у Default (отступы `header` те же).',
-      'Каждое состояние × Open Off | On × Size L | M = 20 вариантов.',
+      'Каждое состояние × Open Off | On × Size L | M = 20 вариантов. Skeleton при Open Off и On одинаков: грузится список, контент не показывается (решение 15.11).',
       FOCUS + ' Кольцо — вокруг `header`.',
     ],
     defaults: { Size: 'L', Open: 'Off', State: 'Default' },
@@ -2296,7 +2296,7 @@ export const DATA = [
     migration: ['DS Web `baseAccordion --1.5`: mobile adaptive → Size L | M; open → Open Off | On; state → State (Default, Hover, Skeleton, Disabled, Pressed); Divider, Focus ring, Show hit area, Safe margin — новые.'],
     todo: [
       'Корень `w=400` и `hit area · web` (400 × 64 / 48) числом — в узком контейнере (360) шеврон уходит за край; корень Fill / от контейнера.',
-      'Skeleton при Open Off и On рисуется одинаково — на решение: один Skeleton на Size.',
+      
     ],
   },
   {
@@ -2392,7 +2392,7 @@ export const DATA = [
     content: [
       'Своих текстовых свойств нет: инициалы — у вложенных Avatar (1 буква, длиннее — обрезается кругом), число — в `count` в виде «+N».',
       'Языки (стенд): de, ar, hi, th, ja, kk — инициалы вложенных Avatar обрезаются кругом, как у Avatar.',
-      'Текст 200 %: круги не растут; у S и M инициалы и «+N» помещаются, у XS инициалы выходят за круг, «+N» обрезается.',
+      'Текст 200 %: круги и текст в них не масштабируются с системным размером (как иконки; в коде кегль в px). Стенд с удвоенным кеглем (буквы выходят за круг) — проверка Figma, не поведение кода (решение 15.11).',
       'RTL: порядок аватаров зеркалится (в коде — по `dir`), «+N» — у конца строки; цифры не зеркалятся.',
     ],
     events: ['Нет. Группа-кнопка — `click` у обёртки (открывает список участников).'],
@@ -2406,7 +2406,7 @@ export const DATA = [
     accept: { audit: OK, vc: 'только реестр: отрицательный зазор −4 / −6 / −8 (нахлёст аватаров)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 % (длинный текст и языки — только на варианте XS · More Off); своих текстовых и булевых свойств нет; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['DS Web base avatar / group line (size, more, RTL) → Avatar group: size → Size, more → More; RTL — в коде, направление по `dir`.'],
     todo: [
-      'Текст 200 % у XS: инициалы выходят за круг, «+N» обрезается — на решение: зафиксировать кегль или дать кругу расти.',
+      
       'Нахлёст −4 / −6 / −8 числом — ждёт токенов.',
       'В вариантах 4 аватара: правило «до 5» в наборе не показано.',
           ],
@@ -2466,7 +2466,7 @@ export const DATA = [
     states: [
       'Default — тонкий ползунок 4, дорожки нет; виден при прокрутке и наведении, затем гаснет.',
       'Hover — ползунок 8 `scrollbar/thumb-hover` и дорожка.',
-      'Dragging — ползунок 8 `scrollbar/thumb-hover` и дорожка.',
+      'Dragging — ползунок 8 `scrollbar/thumb-hover` и дорожка. Дорожка — подсказка, носитель — ползунок: в Dark на L0 дорожка слабая, это допустимо (стенд и решение 15.11).',
     ],
     defaults: { Orientation: 'Vertical', State: 'Default' },
     content: ['Текста нет: длинный текст, языки и 200 % не применимы.', 'RTL: Vertical переезжает к левому краю; Horizontal не меняется.'],
@@ -2482,7 +2482,7 @@ export const DATA = [
     migration: ['DS Web `Scrollbar` (base scrollbar, scroll controller) и сырой `Scroll` 4 px в продуктах → Scrollbar (Orientation Vertical | Horizontal, State Default | Hover | Dragging).'],
     todo: [
       'Длина корня 120 (образец) и ползунка 48 — числом.',
-      'Dark L0: дорожка Hover / Dragging едва видна — на решение.',
+      
     ],
   },
   {
@@ -2497,14 +2497,14 @@ export const DATA = [
     ],
     never: 'перевод адреса или смена регистра; Short там, где адрес сверяют или вводят вручную; адрес без копирования.',
     anatomy: [
-      'Корень — вертикальный стек (`space/6`), ширина 360 числом: `label` (`text/secondary`, `type/body/sm`) → `row` → `status`.',
+      'Корень — вертикальный стек (`space/6`), ширина 360 числом: `label` (`text/secondary`, `type/body/sm`; в Copied — `status`) → `row`.',
       '`row` — плашка `surface/next` (на уровень выше подложки, 15.11), `radius/control`, отступы `space/12` / `space/6` / `space/4`, зазор `space/4`: `address` (`text/primary`, `font/family/mono`, `type/body/md`) и кнопки `copy` и `show QR` (`control/height/sm`, `radius/control-sm`).',
-      'Copied: вместо `copy` — `copied` (галочка), под строкой `status` «Адрес скопирован» (`text/success`, `type/body/sm`).',
+      'Copied: вместо `copy` — `copied` (галочка), `status` «Адрес скопирован» (`text/success`, `type/body/sm`) встаёт на место `label` — высота как у Default (15.11).',
     ],
     group: 'состояния нажатия — у кнопок внутри (по модели Icon button); у набора — только Default / Copied',
     states: [
       'Default — иконка копирования и QR.',
-      'Copied — галочка на месте копирования и статус «Адрес скопирован» под строкой на 2 с, затем возврат в Default. Высота больше на строку статуса.',
+      'Copied — галочка на месте копирования и статус «Адрес скопирован» на месте подписи на 2 с, затем возврат в Default. Высота не меняется (15.11).',
       'Hover / Pressed / Focus / Disabled кнопок в наборе не нарисованы.',
     ],
     defaults: { Format: 'Short', State: 'Default' },
@@ -2527,7 +2527,7 @@ export const DATA = [
     todo: [
       '`copy` / `show QR` / `copied` — фреймы с иконками: заменить на экземпляры Icon button (состояния, Focus ring, зоны нажатия).',
       'QR виден во всех вариантах — нужен переключатель под правило «QR — только для адресов пополнения».',
-            'Copied выше Default на строку статуса — раскладка под компонентом сдвигается; на решение: резервировать место или статус поверх.',
+            
       'Ширина корня 360 — числом.',
     ],
   },
@@ -3322,7 +3322,7 @@ export const DATA = [
       '`bar` — `data/1` (Line + Bars — `data/4`), `radius/2xs`; в Hover невыбранные столбцы с прозрачностью 0.35.',
       '`line`, `line 1…4` — штрих `data/1…4` × `chart/stroke`; `area` — `data/1` / `data/4`, прозрачность 0.45; `segment 1…4` — `data/1…4`, `radius/2xs`.',
       'Skeleton — `skeleton/base`; Disabled — `action/disabled`; Empty — «Нет данных за период» (`type/body/md`, `text/tertiary`) на сетке.',
-      'Hover — Chart crosshair (точка `data/1`, кольцо `surface/level-1` × `border/width/focus`, ореол 0.24) + Chart tooltip.',
+      'Hover — Chart crosshair (точка `data/1`, кольцо `surface/current` × `border/width/focus`, ореол 0.24) + Chart tooltip.',
     ],
     group: 'График: Hover — Chart crosshair + Chart tooltip; Skeleton — загрузка; Empty — нет данных; Disabled — `action/disabled`',
     states: [

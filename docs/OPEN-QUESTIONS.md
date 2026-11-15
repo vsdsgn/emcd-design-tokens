@@ -18,7 +18,7 @@
 4. **Значение по умолчанию** — Tabs (порядок Size S, M, L, XL — что по умолчанию), Card (Level 0 первым — станет по умолчанию). (Tabs — M по умолчанию, порядок не трогать; Card — Level 1 по умолчанию, порядок не трогать.)
 5. **Палитра графиков** — `data/2` и `data/4` близки в Light, 3 и 7, 2 и 4 — в Dark (Legend swatch, Chart plot). (Вопрос к Foundations: сдвинуть `data/4` по светлоте.)
 6. **Promo card** — действие в S и M разного вида; крестика нет, хотя по правилу закрывается. (Один вид — Button Text; Show close — свойство.)
-7. **Мелочи вида** — Select compact Disabled похож на Default; Accordion Skeleton одинаков при Open Off / On; Avatar group XS при 200 %; Scrollbar Dark L0 дорожка; Address Copied сдвигает раскладку; Input amount — рамка Focus 1 px / Error 2 px; Chart crosshair — линия в Dark и обводка точки на L2–L3; Menu item — иконка при 200 %. (По каждому — смотреть на доске, пакетом после п. 1.)
+7. ~~**Мелочи вида**~~ — **закрыто 15.11 (стенд Light / Dark):** исправлено — Input amount Error 1 px (как семья полей); Chart crosshair: обводка точки `surface/current`; Address Copied: статус на месте подписи, высота не меняется; Tooltip tour: описание до 3 строк. Оставлено (различимо, записано в контракты) — Select compact Disabled (гаснут текст, шеврон, монета), Accordion Skeleton одинаков при Open Off / On (грузится список), Avatar group 200 % (текст в кругах не масштабируется, как иконки), Scrollbar Dark L0 дорожка (носитель — ползунок), линия Chart crosshair в Dark, иконка Menu item при 200 % (иконки не растут).
 
 ## Перепроверка 14.11 — решено 2026-11-15: «делай всё по своим рекомендациям»
 

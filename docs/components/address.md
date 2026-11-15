@@ -18,16 +18,16 @@
 - Не делаем: перевод адреса или смена регистра; Short там, где адрес сверяют или вводят вручную; адрес без копирования.
 
 ## 3. Anatomy
-- Корень — вертикальный стек (`space/6`), ширина 360 числом: `label` (`text/secondary`, `type/body/sm`) → `row` → `status`.
+- Корень — вертикальный стек (`space/6`), ширина 360 числом: `label` (`text/secondary`, `type/body/sm`; в Copied — `status`) → `row`.
 - `row` — плашка `surface/next` (на уровень выше подложки, 15.11), `radius/control`, отступы `space/12` / `space/6` / `space/4`, зазор `space/4`: `address` (`text/primary`, `font/family/mono`, `type/body/md`) и кнопки `copy` и `show QR` (`control/height/sm`, `radius/control-sm`).
-- Copied: вместо `copy` — `copied` (галочка), под строкой `status` «Адрес скопирован» (`text/success`, `type/body/sm`).
+- Copied: вместо `copy` — `copied` (галочка), `status` «Адрес скопирован» (`text/success`, `type/body/sm`) встаёт на место `label` — высота как у Default (15.11).
 - Вложено: `Icon button` ×8.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): состояния нажатия — у кнопок внутри (по модели Icon button); у набора — только Default / Copied.
 - Default — иконка копирования и QR.
-- Copied — галочка на месте копирования и статус «Адрес скопирован» под строкой на 2 с, затем возврат в Default. Высота больше на строку статуса.
+- Copied — галочка на месте копирования и статус «Адрес скопирован» на месте подписи на 2 с, затем возврат в Default. Высота не меняется (15.11).
 - Hover / Pressed / Focus / Disabled кнопок в наборе не нарисованы.
 
 ## 5. Properties
@@ -65,8 +65,8 @@
 - `address`: заливка / цвет `text/primary`; типографика `font-weight/regular`, `font/family/mono`, `type/body/md`.
 - `copy`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `show QR`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
-- `copied`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `status`: заливка / цвет `text/success`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
+- `copied`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - Значений без переменной: 4 (напр. `(root):w=360`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -98,5 +98,4 @@
 Осталось доделать (после пакета правок beta 2026-11-13):
 - `copy` / `show QR` / `copied` — фреймы с иконками: заменить на экземпляры Icon button (состояния, Focus ring, зоны нажатия).
 - QR виден во всех вариантах — нужен переключатель под правило «QR — только для адресов пополнения».
-- Copied выше Default на строку статуса — раскладка под компонентом сдвигается; на решение: резервировать место или статус поверх.
 - Ширина корня 360 — числом.

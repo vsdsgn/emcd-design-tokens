@@ -33,7 +33,7 @@
 - Default — подложка `action/secondary/default`.
 - Hover — слой `state/hover`; Pressed — слой `state/pressed`.
 - Open — подложка `action/secondary/default` (без `*-pressed`), шеврон вверх; держится, пока открыт список.
-- Disabled — подложка `action/disabled`, текст `text/disabled`, шеврон `icon/disabled`, монета погашена.
+- Disabled — подложка `action/disabled`, текст `text/disabled`, шеврон `icon/disabled`, монета погашена. Подложка по значению совпадает с Default (как у Button Secondary): Disabled отличают погашенные текст, шеврон и монета (стенд и решение 15.11).
 - Монета во всех состояниях совпадает с подписью (USDT — монета USDT).
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
@@ -112,6 +112,3 @@
 
 ## 15. Migration
 - DS Web `Selector small` (Type=Default | Inactive) → Select compact (State Default | Disabled); Hover, Open, Pressed — новые.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- На решение: Disabled — подложка `action/disabled` на вид совпадает с Default, гаснет только содержимое.
