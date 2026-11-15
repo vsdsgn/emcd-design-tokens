@@ -18,7 +18,7 @@
   "incompleteMatrix": 14,
   "propsNotBoundEverywhere": 13,
   "rawMinMax": 0,
-  "withRawValues": 68,
+  "withRawValues": 67,
   "withFocusRing": 21,
   "withHitArea": 20,
   "withSafeMargin": 23,
@@ -688,7 +688,7 @@
    "boards": [
     {
      "name": "Avatar group — борда · шаблон v3",
-     "id": "2110:1716",
+     "id": "2138:7463",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -1739,7 +1739,7 @@
    "boards": [
     {
      "name": "Chart card — борда · шаблон v3",
-     "id": "2151:1874",
+     "id": "2156:1874",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -1810,7 +1810,9 @@
       "Chart plot": 1,
       "Legend item": 3
      },
-     "minmax": [],
+     "minmax": [
+      "minw=280 size/card/min"
+     ],
      "layers": {
       "ring": 0,
       "hitWeb": 0,
@@ -1826,6 +1828,7 @@
       "(root)": [
        "f:surface/level-1",
        "gap:space/16",
+       "minw:size/card/min",
        "p:space/28",
        "r:radius/container",
        "s:border/subtle",
@@ -2125,7 +2128,7 @@
    "boards": [
     {
      "name": "Chart plot — борда · шаблон v3",
-     "id": "2151:4768",
+     "id": "2156:5480",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -2308,7 +2311,7 @@
    "boards": [
     {
      "name": "Chart tooltip — борда · шаблон v3",
-     "id": "2107:28540",
+     "id": "2155:583",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -2396,6 +2399,9 @@
       "header": [
        "gap:space/16"
       ],
+      "date wrap": [
+       "p:space/16"
+      ],
       "date": [
        "f:text/tertiary",
        "fontFamily:font/family/text",
@@ -2412,6 +2418,10 @@
       ],
       "row 1": [
        "gap:space/8"
+      ],
+      "label": [
+       "gap:space/8",
+       "p:space/16"
       ],
       "swatch": [
        "h:size/legend-swatch",
@@ -6342,7 +6352,7 @@
    "boards": [
     {
      "name": "Modal — борда · шаблон v3",
-     "id": "2151:19954",
+     "id": "2155:4377",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -6450,13 +6460,12 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 12,
-     "raw": [
-      "(root):w=560"
-     ],
+     "rawCount": 0,
+     "raw": [],
      "tokens": {
       "(root)": [
-       "r:radius/surface"
+       "r:radius/surface",
+       "w:size/modal/md"
       ],
       "overlay surface": [
        "effects:shadow/ambient",
@@ -6920,7 +6929,7 @@
    "boards": [
     {
      "name": "Sidebar — борда · шаблон v3",
-     "id": "2151:26358",
+     "id": "2156:10184",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -12815,26 +12824,26 @@
    "boards": [
     {
      "name": "Tooltip — борда · шаблон v3",
-     "id": "622:894",
+     "id": "2138:10899",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
-      "05 · Зоны",
       "06 · На поверхностях",
-      "07 · Позиционирование",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "12"
+    "05",
+    "07"
    ],
    "sets": [
     {

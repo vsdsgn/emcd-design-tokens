@@ -2,6 +2,16 @@
 
 Формат: дата · что · где. Пишется после каждой группы правок.
 
+## 2026-11-15 (вечер)
+
+- **Tab bar:** компонент вынесен из старой борды, борда v3 собрана генератором.
+- **Sidebar:** иконка выбранного пункта при Collapsed=Off — `icon/accent` (в экземпляре было переопределение `icon/secondary`).
+- **Chart tooltip:** растёт по содержимому (min `size/chart-tooltip/min`, max `size/tooltip/max`); дата и серия — одна строка до 200 с многоточием; минимальный зазор до времени / значения `space/16`; при 200 % не рвётся.
+- **Modal:** ширина привязана к `size/modal/md`. **Chart card:** min-width `size/card/min`.
+- **Chart plot:** Skeleton и Disabled визуально не разводим (решение Стефана).
+- Доска «⚑ Решение · Modal» (страница 🟡 Modal): пустая шапка без крестика и отступ после Divider — ждут решения.
+- Борды пересобраны: Chart tooltip, Modal, Chart card, Chart plot, Sidebar.
+
 ## 2026-11-15 (организмы, пакет 2)
 
 - **Chart card, Chart plot, Empty state, Page header, Modal, Sidebar, Sheet, Tab bar → beta** по стенду: контракты в `scripts/contract-data.mjs`, борды v3 пересобраны (кроме Tab bar: старая борда, компонент лежит в ней), страницы 🟡. В draft остались только парковка: Pagination, File upload, Snack, Side panel.

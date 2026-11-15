@@ -19,8 +19,8 @@
 
 ## 3. Anatomy
 - Корень — карточка: `surface/raised`, обводка `border/default` (`border/width/default`, как у всех тултипов), `radius/sm`, тени `shadow/ambient` + `shadow/key`, отступы `space/10` / `space/12`, зазор `space/6`; ширина min `size/chart-tooltip/min` (168), max `size/tooltip/max` (320).
-- `header` — `date` (Fill) и `time`, оба `text/tertiary`, `type/body/sm`, зазор `space/16`; скрывается свойством Show date.
-- `row 1`…`row 4` (зазор `space/8`): Legend swatch (`size/legend-swatch`) + `series` (`text/secondary`) + `value` (`text/primary`), оба `type/label/sm`, medium.
+- `header` (по краям) — `date wrap` (`date`, отступ справа `space/16` — минимальный зазор) и `time`, оба `text/tertiary`, `type/body/sm`; скрывается свойством Show date.
+- `row 1`…`row 4` (по краям): `label` (Legend swatch `size/legend-swatch` + `series` `text/secondary`, зазор `space/8`, отступ справа `space/16`) и `value` (`text/primary`); оба текста `type/label/sm`, medium.
 - Вложено: `Legend swatch` ×10.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -45,9 +45,9 @@
 
 ## 6. Content / slots
 - Дата и время — в формате локали; значения — число с единицей, выравнивание по концу строки.
-- Длинный текст: тултип растёт до `size/tooltip/max` (320); дата — одна строка с многоточием, зазор до времени сохраняется; название серии переносится, значение — одна строка.
+- Длинный текст: тултип растёт по содержимому от `size/chart-tooltip/min` до `size/tooltip/max` (320); дата и название серии — одна строка до 200 с многоточием, минимальный зазор до времени / значения — `space/16` (15.11); значение — одна строка.
 - Языки (стенд): de, ar, hi, th, ja, kk по высоте не обрезаны; маркер — у первой строки названия. RTL: строки зеркалятся (маркер и название — со стороны начала, значение — с конца), цифры и время — нет.
-- Текст 200 %: строки растут по высоте без обрезки; дата усекается, зазор `header` держится.
+- Текст 200 %: тултип растёт по ширине, дата и серии не рвутся (проверено 15.11).
 
 ## 7. Events
 - Нет своих: показ, скрытие и положение выставляет график по выбранной точке. Esc — закрыть.
@@ -63,9 +63,11 @@
 ## 10. Tokens
 - `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; интервал `space/6`; maxw `size/tooltip/max`; мин. ширина `size/chart-tooltip/min`; отступы `space/10`, `space/12`; радиус `radius/sm`; обводка `border/default`; толщина обводки `border/width/default`.
 - `header`: интервал `space/16`.
+- `date wrap`: отступы `space/16`.
 - `date`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `time`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `row 1`: интервал `space/8`.
+- `label`: интервал `space/8`; отступы `space/16`.
 - `swatch`: высота `size/legend-swatch`; ширина `size/legend-swatch`.
 - `series`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - `value`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
