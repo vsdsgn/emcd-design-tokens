@@ -1,4 +1,4 @@
-# Button — контракт (2026-11-14)
+# Button — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -108,7 +108,7 @@
 - `iconLeft` / `iconRight` в коде — слоты, а не boolean + swap.
 - Tone=Danger есть у Primary, Secondary, Tertiary, Tertiary outline, Text; сочетание Inverted + Danger отсекать типами.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний (min-width — `size/button/min` во всех вариантах).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

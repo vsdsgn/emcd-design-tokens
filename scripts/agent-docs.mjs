@@ -30,7 +30,7 @@ const BASE_PROPS = {
 };
 const BASE_LAYER = { '_Field base': 'Field', '_Selection control': '_Selection control', '_List row': '_List row' };
 const baseOf = (s) => Object.keys(BASE_PROPS).find((b) => (s.nested || {})[b] === s.variants);
-const LEVEL = { atom: 'атом', molecule: 'молекула', organism: 'организм' };
+const LEVEL = { atom: 'атом', molecule: 'молекула', organism: 'организм', unknown: 'уровень не указан' };
 const contract = (name) => `docs/components/${kebab(name)}.md`;
 const cell = (s) => String(s || '—').replace(/\|/g, '/').replace(/\.$/, '');
 
@@ -47,9 +47,12 @@ function intent(name) {
 
 const beta = all.filter((s) => s.status === 'beta');
 const draft = all.filter((s) => s.status === 'draft');
-const other = all.filter((s) => s.status !== 'beta' && s.status !== 'draft');
+// service — служебные «_…» (не публикуются, идут в раздел баз); template — шаблоны экранов, не Base (контракта нет).
+const service = all.filter((s) => s.status === 'service');
+const templates = all.filter((s) => s.status === 'template');
+const other = all.filter((s) => !['beta', 'draft', 'service', 'template'].includes(s.status));
 const bases = fs.readdirSync('docs/components').filter((f) => f.endsWith('.md')).map((f) => f.replace(/\.md$/, ''))
-  .filter((k) => !beta.some((s) => kebab(s.name) === k) && !draft.concat(other).some((s) => kebab(s.name) === k)).sort();
+  .filter((k) => !beta.some((s) => kebab(s.name) === k) && !draft.concat(other, service).some((s) => kebab(s.name) === k)).sort();
 
 // ---------- docs/api.md ----------
 function api(s) {
@@ -158,7 +161,7 @@ L0 — страница; L1 — карточка / секция; L2 — влож
 Сначала задача, потом компонент:
 
 - Запустить действие → **Button**; то же без подписи, узнаваемой иконкой → **Icon button**; действие внутри строки текста → Button Type=Text.
-- Ввести строку → **Input**; несколько строк → **Textarea**; единица, «Max», шеврон, степпер внутри поля → **Input addon / …** в слоте поля.
+- Ввести строку → **Input**; несколько строк → **Textarea**; внутри поля — содержимое слотов: единица — текст, шеврон и иконка — иконка, очистка и степпер — Icon button Ghost S, «Макс» — Button Text S, «+N» — Counter.
 - Выбрать несколько независимых → **Checkbox**; один из 2–5 → **Radio**; включить настройку сразу, без «Сохранить» → **Toggle**.
 - Фильтр или вариант из видимого набора → **Chip**; режим или период из 2–4 → Segmented (элемент — **Segment**); разделы одного экрана → Tabs (элемент — **Tab**).
 - Основные разделы продукта на Compact → Tab bar (элемент — **Tab bar item**); путь назад по уровням → Breadcrumbs (элемент — **Breadcrumb item**).
@@ -191,7 +194,7 @@ ${pickRows.join('\n')}
 `;
 
 // ---------- llms.txt ----------
-const byLevel = (list) => ['atom', 'molecule', 'organism'].map((l) => {
+const byLevel = (list) => ['atom', 'molecule', 'organism', 'unknown'].map((l) => {
   const n = list.filter((s) => s.level === l).map((s) => s.name);
   return n.length ? `- ${LEVEL[l]} (${n.length}): ${n.join(', ')}` : null;
 }).filter(Boolean);
@@ -237,11 +240,12 @@ ${beta.map((s) => `- [${s.name}](${contract(s.name)}): ${cell(intent(s.name).wha
 ## Базы и служебные слои (в макетах напрямую не используются)
 
 ${bases.map((k) => `- [${k}](docs/components/${k}.md)`).join('\n')}
+${service.map((s) => `- [${s.name}](${contract(s.name)}): служебный, только внутри родителя`).join('\n')}
 
 ## Компоненты: draft — не брать
 
 ${byLevel(draft).join('\n')}
-${other.length ? `- без статуса (${other.length}): ${other.map((s) => s.name).join(', ')}\n` : ''}
+${other.length ? `- без статуса (${other.length}): ${other.map((s) => s.name).join(', ')}\n` : ''}${templates.length ? `- шаблоны экранов, не Base (${templates.length}): ${templates.map((s) => s.name).join(', ')}\n` : ''}
 ## Проверки
 
 - \`npm run parity\`: манифест Figma ↔ токены, статусы, манифест кода

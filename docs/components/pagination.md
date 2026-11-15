@@ -1,4 +1,4 @@
-# Pagination — контракт (2026-11-14)
+# Pagination — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -24,7 +24,7 @@
 - Compact: `previous` → `range` (`type/label/md`, `font-weight/medium`, `text/secondary`, отступ `space/8`, ширина по содержимому) → `next`; высота `control/height/sm` | `control/height/md`.
 - `previous` / `next` — стрелки как Icon button Ghost: `control/height/sm` | `control/height/md`, радиус `radius/control-sm` | `radius/control`.
 - Pagination item — ширина по содержимому, min = высоте (`control/height/*`), отступы `space/8`.
-- Вложено: `Pagination item` ×12, `Icon button` ×8.
+- Вложено: `Icon button` ×8, `Pagination item` ×12.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -84,7 +84,7 @@
 - Vue: `<DsPagination>`; Flutter: `DsPagination`.
 - Props: `type`: pages | compact; `size`: s | m.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,4 +1,4 @@
-# Modal — контракт · draft (2026-11-14)
+# Modal — контракт · draft (2026-11-15)
 
 Заготовка: собрана автоматически. Набор заменён на месте (2026-11-13): фон, радиус и тень — слой `overlay surface`, нераскрытый экземпляр базы `_Overlay surface`; свойства набора не менялись. Поверхность, токены и приёмка базы — `docs/components/overlay-surface.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -40,8 +40,8 @@
 | Divider | булево | выкл | 12 из 12 |
 | Show close | булево | вкл | 12 из 12 |
 | Header description | булево | вкл | 4 из 12 |
-| Body | SLOT | `undefined` | 12 из 12 |
-| Footer slot | SLOT | `undefined` | 9 из 12 |
+| Body | слот | — | 12 из 12 |
+| Footer slot | слот | — | 9 из 12 |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -84,7 +84,7 @@
 - Vue: `<DsModal>`; Flutter: `DsModal`.
 - Props: `header`: title | coin | empty; `footer`: single | stacked | horizontal | none; `title`: string или слот; `divider`: boolean = false; `showClose`: boolean = true; `headerDescription`: boolean = true; `body`: string или слот; `footerSlot`: string или слот.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Правила:

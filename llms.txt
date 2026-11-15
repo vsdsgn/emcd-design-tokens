@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-14: beta 96 наборов, draft 21, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-15: beta 71 наборов, draft 20, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -45,7 +45,6 @@
 - [Breadcrumbs](docs/components/breadcrumbs.md): Путь к текущей странице в глубокой иерархии (Web): «Главная / Воркеры / rig-01»
 - [Button](docs/components/button.md): Кнопка действия. Основа — legacy `baseButton` (DS Web + App), доведена до правил 2.0
 - [Card](docs/components/card.md): Контейнер-подложка: уровень поверхности, радиус, внутренний отступ и обводка. Своего содержимого нет
-- [Chart axis label](docs/components/chart-axis-label.md): Подпись оси графика: время, дата или значение. Одна короткая метка
 - [Chart crosshair](docs/components/chart-crosshair.md): Перекрестие под курсором на графике: вертикальная линия с точкой серии или подсветка полосы столбца. Работает вместе с Chart tooltip
 - [Chart metric](docs/components/chart-metric.md): Показатель над графиком: подпись и крупное значение, при необходимости иконка слева от значения
 - [Chart tooltip](docs/components/chart-tooltip.md): Тултип точки графика: дата и время, под ними строки «маркер серии — название — значение»
@@ -64,13 +63,6 @@
 - [Floating button](docs/components/floating-button.md): Плавающая кнопка главного действия экрана на Compact (App, мобильный веб): «Добавить воркер», «Пополнить»
 - [Icon button](docs/components/icon-button.md): Кнопка-иконка: закрыть, «…», копировать, фильтр, обновить. Та же основа, что у Button
 - [Input](docs/components/input.md): одна строка текста или числа
-- [Input addon / Unit](docs/components/input-addon-unit.md): Единицы или валюта в suffix поля (USDT, TH/s, %, kW)
-- [Input addon / Max](docs/components/input-addon-max.md): Кнопка «Max» в suffix поля суммы: подставляет весь доступный остаток
-- [Input addon / Chevron](docs/components/input-addon-chevron.md): Шеврон для Select / Dropdown в trailing-слоте поля
-- [Input addon / Stepper](docs/components/input-addon-stepper.md): Степпер − / + для числового поля
-- [Input addon / Counter](docs/components/input-addon-counter.md): Счётчик «+N» в inline-слоте: сколько ещё значений выбрано в мультиселекте
-- [Input addon / Clear](docs/components/input-addon-clear.md): Кнопка очистки поля (форма legacy `ic-erase`): серый круг с крестиком. Ставится в Trailing
-- [Input addon / Icon](docs/components/input-addon-icon.md): Иконка в слоте поля: поиск, сеть, тип значения
 - [Input amount](docs/components/input-amount.md): Поле суммы для пополнения, вывода, обмена и депозита: подпись с иконкой info, баланс и «Макс», сумма крупно, описание лимитов, выбор монеты (Select compact). Ошибка — рамка `control/border/error` и сообщение снизу
 - [Key-value row](docs/components/key-value-row.md): Строка «название — значение» в сводке: название в начале строки, значение в конце
 - [Legend item](docs/components/legend-item.md): Элемент легенды графика: маркер серии (Legend swatch) + подпись и необязательное значение
@@ -80,8 +72,6 @@
 - [Multiselect option](docs/components/multiselect-option.md): Строка списка выбора (Select, Multiselect, Menu): слева необязательный слот под монету, аватар или иконку, затем подпись с необязательным описанием, справа галочка выбранного. Это строка, а не чекбокс: нажимается вся строка
 - [Nav item](docs/components/nav-item.md): Пункт основной навигации в сайдбаре Web: иконка и подпись; в свёрнутом сайдбаре — только иконка
 - [Notification](docs/components/notification.md): Запись в центре уведомлений (колокольчик в шапке): иконка, заголовок, текст и время
-- [Overlay](docs/components/overlay.md): Подложка за модальными слоями: полупрозрачная заливка `surface/overlay` на весь экран, при необходимости с размытием фона
-- [Page dot](docs/components/page-dot.md): Точка индикатора страниц. Часть Page indicator
 - [Page indicator](docs/components/page-indicator.md): Индикатор страниц карусели: ряд точек, текущая — вытянутая
 - [Pagination](docs/components/pagination.md): Пагинация таблиц и списков: номера страниц или диапазон со стрелками
 - [Pagination item](docs/components/pagination-item.md): Номер страницы в Pagination. Отдельно не используется
@@ -101,30 +91,15 @@
 - [Spinner](docs/components/spinner.md): Индикатор загрузки: действие идёт, длительность неизвестна
 - [Stat card](docs/components/stat-card.md): Один показатель с подписью: хешрейт, баланс, начислено за 24 ч, активные воркеры. Основа дашборда
 - [Status](docs/components/status.md): Точка + подпись: состояние объекта (воркер, устройство, сервис, выплата) в строке таблицы, списке, шапке
-- [Dot](docs/components/dot.md): не описано
 - [Step](docs/components/step.md): Один шаг в Stepper: символ (Step symbol) + подпись и необязательное описание
 - [Step progress](docs/components/step-progress.md): Полоска из 3–7 равных сегментов: сколько шагов пройдено в линейной последовательности без названий. Источник — legacy «slider counter» (Tooltip tour, DS Web и DS App)
-- [Step segment](docs/components/step-segment.md): Один сегмент полоски Step progress: шаг пройден, текущий или впереди
-- [Step symbol](docs/components/step-symbol.md): Кружок шага в Step: номер, иконка, галочка или точка в одном из трёх состояний
+- [Step symbol](docs/components/step-symbol.md): Кружок шага в Step: номер, иконка или точка в одном из трёх состояний
 - [Step trail](docs/components/step-trail.md): Линия между двумя шагами в Stepper: сплошная или пунктирная, в цвете состояния шага
 - [Tab](docs/components/tab.md): Переключение разделов одного экрана (История: Начисления / Выплаты / Воркеры). Выбранный — подчёркивание
 - [Tab bar item](docs/components/tab-bar-item.md): Пункт нижней навигации: иконка 24 + подпись. App и мобильный веб — одна схема
-- [Table cell / Text](docs/components/table-cell-text.md): Ячейка таблицы с текстом: основная строка и необязательная вторая строка
-- [Table cell / Date time](docs/components/table-cell-date-time.md): Ячейка таблицы с датой и временем события: в строку или столбиком
-- [Table cell / Coin](docs/components/table-cell-coin.md): Ячейка таблицы с монетой или активом: символ монеты, тикер и название или сеть
-- [Table cell / Transaction](docs/components/table-cell-transaction.md): Ячейка таблицы с суммой операции: знак, число и единица. Выровнена по концу строки
-- [Table cell / Image](docs/components/table-cell-image.md): Ячейка таблицы с картинкой 52 и двумя строками текста (устройство, площадка)
-- [Table cell / Progress](docs/components/table-cell-progress.md): Ячейка таблицы с долей выполнения: полоса Progress шириной 80 и процент справа
-- [Table cell / Avatar](docs/components/table-cell-avatar.md): Ячейка таблицы с пользователем: аватар 40, имя со значками достижений и подпись второй строкой
-- [Table cell / Badge](docs/components/table-cell-badge.md): Ячейка таблицы с бейджем: один Badge M, тон и текст — у вложенного экземпляра
-- [Table cell / Toggle](docs/components/table-cell-toggle.md): Ячейка таблицы с переключателем: Toggle S без подписи, включает или выключает объект строки сразу
-- [Table cell / Star](docs/components/table-cell-star.md): Ячейка таблицы с избранным: звезда (Icon button), которая добавляет строку в избранное и убирает из него
-- [Table cell / Icon](docs/components/table-cell-icon.md): Ячейка таблицы с иконкой 24: признак строки (тип, канал). Не нажимается
-- [Table cell / Buttons](docs/components/table-cell-buttons.md): Ячейка таблицы с быстрыми действиями строки: до трёх Icon button Ghost S
-- [Table cell / More](docs/components/table-cell-more.md): Ячейка таблицы с кнопкой «⋯»: открывает меню действий строки (Menu)
-- [Table cell / Status](docs/components/table-cell-status.md): Ячейка таблицы со статусом: точка и подпись («имя воркера · активен»). Подпись и тон — у вложенного Status
+- [Table cell](docs/components/table-cell.md): Ячейка таблицы: выравнивание, отступы, состояние и слот Content. Содержимое — текст (основная + вторая строка) или атом DS
 - [Table header cell](docs/components/table-header-cell.md): Заголовок колонки таблицы; у сортируемой колонки — кнопка сортировки со стрелкой
-- [Table row](docs/components/table-row.md): Строка таблицы: набор ячеек Table cell / … в колонках фиксированной ширины и разделитель снизу (`border/subtle`)
+- [Table row](docs/components/table-row.md): Строка таблицы: экземпляры Table cell со слотом Content в колонках фиксированной ширины и разделитель снизу (`border/subtle`)
 - [Tabs](docs/components/tabs.md): Бар табов: переключение между разделами одного контекста. Внутри — экземпляры Tab, первый выбран; снизу разделитель `border/subtle` на всю ширину контейнера
 - [Textarea](docs/components/textarea.md): текст длиннее одной строки (комментарий, обращение)
 - [Toggle](docs/components/toggle.md): Переключатель: мгновенно включает настройку, без «Сохранить». Основа — legacy `baseToggle` (дорожка 48×28 / 40×24, ползунок 20 / 16)
@@ -139,10 +114,14 @@
 - [overlay-surface](docs/components/overlay-surface.md)
 - [selection-control](docs/components/selection-control.md)
 - [service-layers](docs/components/service-layers.md)
+- [_Page dot](docs/components/page-dot.md): служебный, только внутри родителя
+- [_Dot](docs/components/dot.md): служебный, только внутри родителя
+- [_Step segment](docs/components/step-segment.md): служебный, только внутри родителя
 
 ## Компоненты: draft — не брать
 
-
+- уровень не указан (20): Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, File upload, Page header, List item, Menu, Modal, Sidebar, Sheet, Side panel, Snack, Suggest, Tab bar, Toast, _Tooltip arrow, Tooltip
+- шаблоны экранов, не Base (1): Status screen
 
 ## Проверки
 

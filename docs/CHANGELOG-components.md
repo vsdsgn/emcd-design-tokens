@@ -2,6 +2,13 @@
 
 Формат: дата · что · где. Пишется после каждой группы правок.
 
+## 2026-11-15 (решения Стефана по перепроверке: «делай всё по своим рекомендациям»)
+
+- **Удалены:** Overlay (это токен затемнения), Chart axis label (подписи осей — текст в Chart card / Chart plot), 7 аддонов Input (содержимое слотов `_Field base`: текст единицы, иконка, Icon button, Button, Counter), 13 наборов `Table cell / *`.
+- **MAJOR для макетов:** Table cell — один набор со слотом Content (свойства Primary / Secondary / Show secondary удалены); Transaction и Notification — надстройки над `_List row` (свои свойства удалены, Status у Transaction — справа под суммой, Notification 108 → 76); Segment без тонов Success / Danger, Accent выбранный — тинт; Skeleton без Button / Input / Chip; List item без Style=Card; Sheet без Type=Menu и Chart card без Type — теперь отдельные компоненты; Step symbol без Type=Checked (Numbered + Success — галочка); Input amount: Filled → State=Filled; Dot, Page dot, Step segment → служебные `_…`; Status screen → страница шаблонов (не Base).
+- **Токен:** `status/neutral/subtle` заведён в Foundations, ждёт Publish.
+- **Борды:** 37 пересобраны; генератор понимает слоты.
+
 ## 2026-11-14
 
 - **Перепроверка всех наборов** (аудиты состояний, цветов, структуры, опоры на прод): правки — `docs/stand-review/FIXES.md` «2026-11-14»; решения на «ок» Стефана — `OPEN-QUESTIONS.md` «Перепроверка 14.11» (20 пунктов).

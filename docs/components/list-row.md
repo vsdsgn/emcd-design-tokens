@@ -1,17 +1,17 @@
 # _List row — контракт (2026-11-12, замена на месте 2026-11-13)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, размеры) — ссылками, не повтором.
-Покрывает базу `_List row` и надстройки Menu item, Multiselect option, List item (заменены на месте 13.11; пилоты `… · пилот` лежат на странице базы до «ок» на удаление).
+Покрывает базу `_List row` и надстройки Menu item, Multiselect option, List item (заменены на месте 13.11), Transaction, Notification (2026-11-15). Пилоты `… · пилот` удалены 14.11.
 
 ## 1. Identity
 - База: `_List row`. Status: beta. Level: base (служебный, имя с «_», не публикуется).
-- Надстройки: `Menu item` `407:1987` (molecule, 16), `Multiselect option` `170:1565` (atom, 4), `List item` `82:891` (molecule, 64). Status: draft. Заменены на месте 2026-11-13: в каждом варианте раскрытый экземпляр базы (слой `_List row`), свойства наборов удалены, значения экземпляров перенесены. Пилоты `… · пилот` — на странице `_List row`, удаление ждёт «ок».
+- Надстройки: `Menu item` `407:1987` (molecule, 16), `Multiselect option` `170:1565` (atom, 4), `List item` `82:891` (molecule, 32 с 2026-11-15). Status: draft. С 2026-11-15 — ещё `Transaction` `172:832` (36) и `Notification` `179:620` (6), beta. Заменены на месте 2026-11-13: в каждом варианте раскрытый экземпляр базы (слой `_List row`), свойства наборов удалены, значения экземпляров перенесены. Пилоты `… · пилот` — на странице `_List row`, удаление ждёт «ок».
 - Figma: Components, страница `_List row`, доска «⚑ Пилот _List row». Платформы: Web, Mobile web, iOS, Android.
 - Решение: Стефан 2026-11-12, «вариант 2» — общая база + надстройки с вложенным раскрытым экземпляром.
 
 ## 2. Intent
 - Одна строка для меню, списков выбора и списков данных: глиф выбора → слот слева → тексты → слот справа → галочка.
-- База в макеты напрямую не ставится: брать Menu item, Multiselect option, List item. Строки Dropdown panel — те же надстройки.
+- База в макеты напрямую не ставится: брать Menu item, Multiselect option, List item, Transaction, Notification. Строки Dropdown panel — те же надстройки.
 - Когда какая надстройка — в их описаниях (Menu item — действие или выбор в меню; Multiselect option — строка множественного выбора; List item — строка данных).
 
 ## 3. Anatomy
@@ -70,11 +70,14 @@
 |---|---|---|
 | `Menu item` | Size (M, L) × Tone (Default, Danger) × State (4) | 16 |
 | `Multiselect option` | State (4) | 4 |
-| `List item` | Size (M, L) × Style (Plain, Card) × Content (4) × State (4) | 64 |
+| `List item` | Size (M, L) × Content (4) × State (4); оси Style нет с 2026-11-15 | 32 |
+| `Transaction` (с 2026-11-15) | Type (4) × Status (3) × State (3); Type=List, Size=M, высота 64 | 36 |
+| `Notification` (с 2026-11-15) | Status (Unread, Read) × State (3); Type=List, Size=M, высота 76 | 6 |
 
 - Оси надстройки менять на корне. Свойства базы (Label, Description, слоты, Selected, Show selection, Divider, Focus ring, зоны) — через раскрытый экземпляр базы.
 - Tone = Danger (Menu item): подпись `text/danger`, иконка Leading `icon/danger` — переопределения в надстройке.
-- Style = Card (List item): фон `surface/raised`, радиус `radius/control`, Divider выключен — переопределения в надстройке.
+- Карточный список — List item внутри Card (Style = Card удалён 2026-11-15, MAJOR: экземпляры Style=Card → Card + List item).
+- Transaction: Leading — плашка с иконкой типа, Label — действие + монета, Description — дата, Trailing — Amount + Status. Notification: Leading — плашка с иконкой, Label — заголовок, Description — текст (≤ 2 строк), Trailing — время + точка непрочитанного. Свои свойства наборов (Focus ring, Show hit area, Safe margin; у Notification ещё Title, Text, Time) удалены — MAJOR.
 - Изменения при замене 13.11 (MAJOR): List item `Title` → `Label`; Multiselect option `Leading` + `Leading · swap` → Show leading + слот Leading, `State = Selected` → булево Selected (вариант удалён, его экземпляры переведены на Default + Selected); Menu item `Checkbox` → Show selection.
 
 ## 6. Content / slots

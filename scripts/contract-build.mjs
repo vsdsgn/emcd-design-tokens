@@ -6,6 +6,9 @@
 //   Draft: атомы и молекулы не в beta без записи в contract-data — контракт-заготовка из манифеста, выжимки описаний
 //   Figma (scripts/contract-draft-data.txt) и замечаний scripts/draft-findings.mjs. Наборы в Figma не меняет.
 //   --check: ничего не пишет, код 1, если файл на диске отличается от сборки (для CI).
+//   Status из описания набора: beta / stable — контракт только из contract-data; draft — заготовка (кроме организмов);
+//   service (служебный «_…», не публикуется) — только из contract-data, без записи — ошибка; template (шаблон экрана,
+//   не Base) — контракта нет.
 import fs from 'node:fs';
 import { DATA } from './contract-data.mjs';
 import { findings } from './draft-findings.mjs';
@@ -63,7 +66,7 @@ function propsBlock(s) {
   const props = (s.props || []);
   if (props.length) {
     out.push('', 'Свойства:', '', '| Свойство | Тип | По умолчанию | Привязано в вариантах |', '|---|---|---|---|');
-    for (const p of props) out.push(`| ${p.name} | ${p.type === 'BOOLEAN' ? 'булево' : p.type === 'TEXT' ? 'текст' : p.type === 'INSTANCE_SWAP' ? 'замена экземпляра' : p.type} | ${p.type === 'TEXT' ? `«${p.def}»` : p.type === 'BOOLEAN' ? (p.def ? 'вкл' : 'выкл') : `\`${p.def}\``} | ${p.bound} из ${s.variants}${SERVICE_PROPS.has(p.name) ? ' · служебное' : ''} |`);
+    for (const p of props) out.push(`| ${p.name} | ${p.type === 'BOOLEAN' ? 'булево' : p.type === 'TEXT' ? 'текст' : p.type === 'INSTANCE_SWAP' ? 'замена экземпляра' : p.type === 'SLOT' ? 'слот' : p.type} | ${p.type === 'TEXT' ? `«${p.def}»` : p.type === 'BOOLEAN' ? (p.def ? 'вкл' : 'выкл') : p.def === undefined ? '—' : `\`${p.def}\``} | ${p.bound} из ${s.variants}${SERVICE_PROPS.has(p.name) ? ' · служебное' : ''} |`);
   }
   return out.join('\n');
 }
@@ -75,6 +78,7 @@ function codeBlock(s, d) {
   for (const [a, v] of Object.entries(s.axes || {})) { if (a === 'State') continue; const bool = v.length <= 2 && v.every((x) => /^(on|off|true|false)$/i.test(x)); props.push(`\`${camel(a)}\`: ${bool ? 'boolean' : v.map(val).join(' | ')}`); }
   for (const p of s.props || []) { if (SERVICE_PROPS.has(p.name) || p.type === 'INSTANCE_SWAP') continue; props.push(`\`${camel(p.name)}\`: ${p.type === 'BOOLEAN' ? `boolean = ${p.def}` : 'string или слот'}`); }
   out.push(`- Vue: \`<Ds${name}>\`; Flutter: \`Ds${name}\`.`);
+  if (s.status === 'service') out.push('- Служебный набор: в публичный API библиотеки не выходит — внутренняя часть родителя.');
   out.push(`- Props: ${props.join('; ') || 'нет'}.`);
   const st = (s.axes || {}).State;
   if (st) out.push(`- Состояния (${st.join(', ')}) — не props: Hover / Pressed / Focus из платформы; \`disabled\`${st.includes('Loading') || (s.props || []).some((p) => p.name === 'Loading') ? ', `loading`' : ''}${st.includes('Skeleton') ? ', `skeleton`' : ''} — props.`);
@@ -204,7 +208,10 @@ function buildDraft(s) {
 }
 
 const inData = new Set(DATA.map((d) => d.name));
-const drafts = [...sets.values()].filter((s) => s.status !== 'beta' && s.status !== 'stable' && s.level !== 'organism' && !inData.has(s.name));
+const NO_DRAFT = new Set(['beta', 'stable', 'service', 'template']);
+const noData = [...sets.values()].filter((s) => s.status === 'service' && !inData.has(s.name)).map((s) => s.name);
+if (noData.length) throw new Error(`contract-build: служебные наборы без записи в contract-data.mjs: ${noData.join(', ')}`);
+const drafts = [...sets.values()].filter((s) => !NO_DRAFT.has(s.status) && s.level !== 'organism' && !inData.has(s.name));
 const out = [...DATA.map((d) => [d.name, () => build(d)]), ...drafts.map((s) => [s.name, () => buildDraft(s)])];
 
 let changed = 0;

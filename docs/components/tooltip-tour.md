@@ -1,4 +1,4 @@
-# Tooltip tour — контракт (2026-11-14)
+# Tooltip tour — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -18,7 +18,7 @@
   - Один шаг — одна подсказка; ширина до 320 (`size/tooltip/max`).
   - Show step — номер шага («Шаг 1 из 4») в туре из 2 и более шагов; Off — одиночная подсказка.
   - «Пропустить» доступен на каждом шаге; Show skip = Off — только на последнем шаге, где «Далее» меняется на «Готово».
-- Не делаем: больше одной подсказки тура на экране; Show skip = Off не на последнем шаге; повторный показ пройденного тура; подсказка без подложки Overlay.
+- Не делаем: больше одной подсказки тура на экране; Show skip = Off не на последнем шаге; повторный показ пройденного тура; подсказка без затемнения (`surface/overlay`).
 
 ## 3. Anatomy
 - Корень: `surface/raised` (Accent — `action/primary/default`), обводка `border/default` / `border/width/default`, `radius/container`, тени `shadow/key` + `shadow/ambient`, отступы `space/16`, зазор `space/8`, ширина от `size/tooltip/min` до `size/tooltip/max`.
@@ -64,7 +64,7 @@
 - «Пропустить» или Esc — тур закрыт.
 
 ## 8. Behavior
-- Затемняет экран подложкой Overlay и подсвечивает элемент; стрелка указывает на него.
+- Затемняет экран (`surface/overlay`) и подсвечивает элемент; стрелка указывает на него.
 - Тур показывается один раз.
 
 ## 9. Accessibility
@@ -99,7 +99,7 @@
 - Vue: `<DsTooltipTour>`; Flutter: `DsTooltipTour`.
 - Props: `placement`: top | bottom; `tone`: neutral | accent; `step`: string или слот; `title`: string или слот; `description`: string или слот; `showStep`: boolean = true; `showSkip`: boolean = true.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -58,9 +58,11 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 - [x] 2 Overlay удалить · 5 Chart axis label → текст в Chart card / Chart plot · 4 Dot, Page dot, Step segment → `_…` · 6 Status screen → страница шаблонов.
 - [x] 7 Skeleton без Button / Input / Chip · 11 Segment без Success / Danger · 9 оси Chart card Type, Sheet Type, List item Style=Card, Step symbol Type=Checked · 16 Input amount Filled → State.
 - [x] 1 аддоны Input · 3 Table cell → одна ячейка · 8 Transaction, Notification на `_List row`.
-- [ ] 10 токен `status/neutral/subtle` (Foundations, публикует Стефан) · 12, 13, 14, 15, 17 — модели и парковка в доках.
-- [ ] Tooltip, Toast, Suggest, List item → beta (стенд, Dark); организмы.
-- [ ] Борды затронутых наборов, манифест целиком, контракты, Карта компонентов, Claude DS; 21 — страница генератора удалить в конце.
+- [x] 10 токен `status/neutral/subtle` заведён в Foundations (ждёт Publish → перепривязка атомов) · 12, 13, 14, 15, 17 — модели и парковка в доках.
+- [ ] Tooltip, Toast, Suggest, List item → beta: стоит — в Components не приняты обновления библиотеки (`surface/raised` Dark старый), см. OPEN-QUESTIONS «Нужно от Стефана (15.11)»; организмы.
+- [x] Манифест снят целиком 15.11 (95 наборов), контракты и доки пересобраны (субагент), 37 борд пересобраны генератором (+ раздел 03 понимает слоты), Карта компонентов — карточки удалённых убраны. Проверки: contracts, agent-docs, parity 0/0, draft-audit, exceptions — чисто.
+- [ ] Claude DS — синк после Publish токена; 21 — страница генератора: удалить после п. 10 (нужна для пересборки борд после перепривязки).
+- Итог в Figma 15.11: удалены Overlay, Chart axis label, 7 аддонов Input, 13 `Table cell / *`, Skeleton Button / Input / Chip, Segment Success / Danger, List item Style=Card, Sheet Type=Menu, Chart card Type, Step symbol Checked, Input amount Filled; Dot / Page dot / Step segment → `_…`; Status screen → «📐 Шаблоны экранов (не Base)»; Transaction и Notification — на `_List row`; Table cell — слот Content; `_Field base` — слоты без аддонов; страницы 🗄 Alert, 🗄 Старые доски (компоненты → 🗄 Archive), архивы борд удалены. Борды Button, Toggle, Status, Chart plot, Sidebar, Input — старые ручные, не пересобраны (текст контракта поменялся мало; у Input контракт пустой — ручная борда содержательнее).
 
 ## Состояние на 2026-11-14 — перепроверка после «косяков много»
 

@@ -1,4 +1,4 @@
-# Page indicator — контракт (2026-11-14)
+# Page indicator — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -18,9 +18,9 @@
 - Не делаем: больше 5 точек; на пёстром фоне без затемнения; две выбранные точки.
 
 ## 3. Anatomy
-- Корень — ряд вложенных Page dot, зазор `space/6`.
-- Page dot: `size/dot/sm` (6), `radius/chip`; обычная — `icon/tertiary`, выбранная — вытянутая (16), `control/checked`.
-- Вложено: `Page dot` ×54.
+- Корень — ряд вложенных `_Page dot`, зазор `space/6`.
+- `_Page dot`: `size/dot/sm` (6), `radius/chip`; обычная — `icon/tertiary`, выбранная — вытянутая (16), `control/checked`.
+- Вложено: `_Page dot` ×54.
 - Служебные слои (вариантов из 14): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -53,7 +53,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/6`.
-- `Page dot`: заливка / цвет `control/checked`, `icon/tertiary`; высота `size/dot/sm`; радиус `radius/chip`; ширина `size/dot/sm`.
+- `_Page dot`: заливка / цвет `control/checked`, `icon/tertiary`; высота `size/dot/sm`; радиус `radius/chip`; ширина `size/dot/sm`.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -69,7 +69,7 @@
 - Vue: `<DsPageIndicator>`; Flutter: `DsPageIndicator`.
 - Props: `count`: 2 | 3 | 4 | 5; `selected`: 1 | 2 | 3 | 4 | 5.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -80,4 +80,4 @@
 - DS Web `base carousel indicator` → Page indicator: Count 2–5, Selected 1–5.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина выбранной точки 16 — числом (во вложенном Page dot).
+- Ширина выбранной точки 16 — числом (во вложенном `_Page dot`).

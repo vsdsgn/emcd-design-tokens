@@ -2,6 +2,9 @@
 
 Каждая правка проверена отдельным чтением. Приём для усечения: текст по содержимому + `maxWidth` текстового слоя (Plugin API теперь принимает) — корень растёт до своего max, текст усекается многоточием; в фиксированных контейнерах — текст Fill, одна строка, многоточие.
 
+## 2026-11-15 (выполнение решений)
+- Подробно — `docs/CHANGELOG-components.md` «2026-11-15» и HANDOFF «Выполнение решений 15.11». Ошибка по ходу: при переводе Table cell / Text в слот тексты 68 экземпляров сбросились; восстановлены (Table row, Archive, Карта — адрес; «Сборка · Воркеры» — имя воркера и хешрейт-заглушка). Ячейка «Монета» в Regular-строках Table row пересобрана (столбец тикер / название).
+
 ## 2026-11-14 (перепроверка «косяков много»)
 - **Default-вариант:** у Badge и Table header cell по умолчанию стоял Skeleton. Figma берёт default и порядок значений по положению на холсте (левый верхний), не по порядку слоёв → 24 набора разложены сеткой, State по столбцам (Default первым).
 - **Состояния:** выбор — ось `Selected` (Nav item, Pagination item, Table row, Legend item; + Hover / Pressed выбранного со слоем состояния); Skeleton — Avatar, Coin, Chip, Input amount; Password field — Default / Hover / Focus / Filled / Error / Disabled (было Empty / Typing / Valid); Date range field и Multiselect — + Hover, Skeleton; File upload — + Pressed; Chart plot — Loading → Skeleton; `_Field base` Read-only — фон `control/surface/default` (был как Disabled), Hover — обводка `control/border/hover` (был неотличим от Disabled).

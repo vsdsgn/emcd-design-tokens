@@ -17,15 +17,15 @@ const CHUNK = 0; const CHUNK_SIZE = 18500; // ответ use_figma ≤ 20 KB
 // Семьи: база → кто обязан быть собран на ней (вложенный экземпляр базы). Добавлять по мере появления базовых.
 const FAMILIES = { '_Field base': ['Input', 'Textarea', 'Select', 'Multiselect', 'Password field', 'Date range field', 'Input · пилот', 'Textarea · пилот'],
   '_Selection control': ['Checkbox', 'Radio', 'Toggle', 'Checkbox · пилот', 'Radio · пилот', 'Toggle · пилот'],
-  '_List row': ['Menu item', 'Multiselect option', 'List item', 'Menu item · пилот', 'Multiselect option · пилот', 'List item · пилот'] };
+  '_List row': ['Menu item', 'Multiselect option', 'List item', 'Transaction', 'Notification', 'Menu item · пилот', 'Multiselect option · пилот', 'List item · пилот'] };
 // Не в семье _Field base (решение 13.11): Code input собран из атомов Code cell, Input amount — крупное поле суммы со своей раскладкой (подпись и баланс в шапке).
 // Надстройка второго уровня (Select → Input, Multiselect → Select, Password field → Input) несёт базу через экземпляр члена семьи — это засчитывается.
 // Булевы оси, допустимые как варианты: ось меняет геометрию, обводку или состав слоёв, а не видимость одного слоя (булево свойство Figma этого не умеет).
-const BOOL_OK = { 'Card': ['Border'], 'Coin': ['Network'], 'Divider': ['Label'], 'Overlay': ['Blur'], 'Accordion': ['Open'], 'Avatar group': ['More'], 'Input amount': ['Filled'], 'Nav item': ['Collapsed'], 'Date range panel': ['Presets'], 'Sidebar': ['Collapsed'], 'Key-value row': ['Leader'] };
+const BOOL_OK = { 'Card': ['Border'], 'Coin': ['Network'], 'Divider': ['Label'], 'Accordion': ['Open'], 'Avatar group': ['More'], 'Nav item': ['Collapsed'], 'Date range panel': ['Presets'], 'Sidebar': ['Collapsed'], 'Key-value row': ['Leader'] };
 // Кольцо фокуса внутри (INSIDE, без радиус-токена) — строки таблицы, docs/exceptions.md.
 const RING_INSIDE = new Set(['Table header cell', 'Table row']);
 // Размер числом по реестру docs/exceptions.md: длина / высота образца задаётся потребителем (набор → 'слой.свойство', 'root' — корень варианта, '*' — любой слой).
-const SIZE_OK = { 'Divider': ['root.height'], 'Overlay': ['root.height'], 'Scrollbar': ['root.height', 'thumb.width', 'thumb.height'], 'Skeleton': ['*'], 'Chart crosshair': ['root.height'], 'Chart card': ['track.width', 'track.height'], 'Chart plot': ['root.height'], 'Sidebar': ['root.height'], 'Side panel': ['root.height'] };
+const SIZE_OK = { 'Divider': ['root.height'], 'Scrollbar': ['root.height', 'thumb.width', 'thumb.height'], 'Skeleton': ['*'], 'Chart crosshair': ['root.height'], 'Chart plot': ['root.height'], 'Sidebar': ['root.height'], 'Side panel': ['root.height'] };
 // Временно: токены size/* заведены 13.11 (вторая пачка) и ждут Publish Foundations; после Publish — bind-dims.plugin.js и убрать список.
 const SIZE_PENDING = []; // с 2026-11-13 пуст: 28 size/* опубликованы и привязаны (bind-sizes-extra, bind-dims)
 const sizeOk = (set, layer, k) => { const n = set.replace(/ · пилот$/, ''); const ok = SIZE_OK[n] || []; return ok.includes('*') || ok.includes(layer + '.' + k) || SIZE_PENDING.some(x => x.endsWith(' ') ? n.startsWith(x) : n === x); };
@@ -37,7 +37,7 @@ const vinfo = async id => { if (!(id in cache)) { const v = await figma.variable
 // Вложенные экземпляры не обходим, кроме служебных слоёв (focus ring, state layer, hit area · overlay, safe area · outer): сам экземпляр проверяем, внутрь не идём.
 const SERVICE = { 'focus ring': '_Focus ring', 'state layer': '_State layer', 'hit area · overlay': '_Hit area', 'safe area · outer': '_Safe margin', 'overlay surface': '_Overlay surface' };
 // Наборы, уже пересаженные на служебные компоненты (страница _Service layers). Добавлять по мере миграции; для них служебный слой обязан быть экземпляром.
-const SERVICE_DONE = new Set(['_Field base', '_Selection control', '_Checkbox control', '_Radio control', '_Toggle control', '_List row', 'Menu item', 'Multiselect option', 'List item', 'Tooltip', 'Menu', 'Dropdown panel', 'Toast', 'Modal', 'Sheet', 'Tooltip · пилот', 'Menu · пилот', 'Dropdown panel · пилот', 'Toast · пилот', 'Modal · пилот', 'Sheet · пилот']);
+const SERVICE_DONE = new Set(['_Field base', '_Selection control', '_Checkbox control', '_Radio control', '_Toggle control', '_List row', 'Menu item', 'Multiselect option', 'List item', 'Transaction', 'Notification', 'Tooltip', 'Menu', 'Dropdown panel', 'Toast', 'Modal', 'Sheet', 'Tooltip · пилот', 'Menu · пилот', 'Dropdown panel · пилот', 'Toast · пилот', 'Modal · пилот', 'Sheet · пилот']);
 // Оверлеи: набор → Kind базы _Overlay surface. Действующие наборы заменены на месте 2026-11-13; пилоты остаются до «ок» на удаление.
 const OVERLAY = { Tooltip: 'Tooltip', Menu: 'Popover', 'Dropdown panel': 'Popover', Toast: 'Toast', Modal: 'Modal', Sheet: 'Sheet', 'Tooltip · пилот': 'Tooltip', 'Menu · пилот': 'Popover', 'Dropdown panel · пилот': 'Popover', 'Toast · пилот': 'Toast', 'Modal · пилот': 'Modal', 'Sheet · пилот': 'Sheet' };
 // Тени Material-вариантов базы (стиль эффектов не совмещается с блюром): [key radius, key y, ambient radius, ambient y, ambient spread] = Elevation/2 и Elevation/4, docs/effects.md.
@@ -67,7 +67,7 @@ for (const pg of pages) {
   await figma.setCurrentPageAsync(pg);
   const sets = pg.findAll(n => n.type === 'COMPONENT_SET' && (byId(pg) || !n.name.startsWith('_')));
   if (sets.some(s => !s.name.startsWith('_') && !/· пилот$/.test(s.name)) && !pg.children.some(n => /— борда · шаблон v3/.test(n.name))) add(pg.name.replace(/^[🟠🟡🟢🔴]\s*/u, ''), 'BOARD на странице нет борды «шаблон v3»');
-  // Отдельные компоненты (не в наборе, например Input addon / *): только описание и min / max корня.
+  // Отдельные компоненты (не в наборе, например Sheet, Chart card): только описание и min / max корня.
   for (const c of pg.findAll(n => n.type === 'COMPONENT' && n.parent.type !== 'COMPONENT_SET' && !n.name.startsWith('_') && !/· пилот$/.test(n.name))) {
     const key = pg.name.replace(/^[🟠🟡🟢🔴]\s*/u, '') + ' / ' + c.name; descCheck(key, (c.description || '').trim(), false);
     const cb = c.boundVariables || {}; for (const k of ['minWidth', 'maxWidth', 'minHeight', 'maxHeight']) if (c[k] != null && !cb[k]) add(key, 'MINMAX ' + k + '=' + c[k] + ' числом, нужна переменная size/*'); }

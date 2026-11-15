@@ -1,4 +1,4 @@
-# Side panel — контракт · draft (2026-11-14)
+# Side panel — контракт · draft (2026-11-15)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -38,9 +38,9 @@
 | Title | текст | «Воркер rig-01» | 2 из 2 |
 | Show close | булево | вкл | 2 из 2 |
 | Show footer | булево | вкл | 2 из 2 |
-| Header actions | SLOT | `undefined` | 2 из 2 |
-| Body | SLOT | `undefined` | 2 из 2 |
-| Footer | SLOT | `undefined` | 2 из 2 |
+| Header actions | слот | — | 2 из 2 |
+| Body | слот | — | 2 из 2 |
+| Footer | слот | — | 2 из 2 |
 | Show header actions | булево | выкл | 2 из 2 |
 
 ## 6. Content / slots
@@ -81,7 +81,7 @@
 - Vue: `<DsSidePanel>`; Flutter: `DsSidePanel`.
 - Props: `size`: m | l; `title`: string или слот; `showClose`: boolean = true; `showFooter`: boolean = true; `headerActions`: string или слот; `body`: string или слот; `footer`: string или слот; `showHeaderActions`: boolean = false.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 

@@ -1,4 +1,4 @@
-# Tab bar — контракт · draft (2026-11-14)
+# Tab bar — контракт · draft (2026-11-15)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -30,7 +30,7 @@
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
 | Safe area | булево | вкл | 1 из 1 |
-| Items | SLOT | `undefined` | 1 из 1 |
+| Items | слот | — | 1 из 1 |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -66,7 +66,7 @@
 - Vue: `<DsTabBar>`; Flutter: `DsTabBar`.
 - Props: `safeArea`: boolean = true; `items`: string или слот.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - BOARD: нет борды v3

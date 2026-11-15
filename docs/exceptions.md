@@ -25,7 +25,7 @@
 | Отрицательный зазор −6 / −7 / −10 | Coin stack (по размерам) | нахлёст монет: доля размера монеты, а не шаг шкалы `space/*` | 2027-05-13 |
 | `maxWidth` 248 | Stat card, слой `delta row` | формула: `size/card/min` 280 − 2 × отступ 16 | 2027-05-13 |
 | Прозрачность слоя числом: 0.2 (Spinner `track`), 0.5 (Code cell `digit` в Empty / Focus), 0.24 (`halo` в Chart plot и Chart crosshair), 0.72 (Tooltip tour, `step`), 0.35 / 0.45 (Chart plot: `bar` в Hover, `area`) | перечисленные слои | временно: семантических токенов прозрачности в Foundations нет; вопрос о шкале `opacity/*` — в парковке OPEN-QUESTIONS | 2026-12-13 |
-| Ширина / высота образца на корне числом (длина линии, область затемнения, длина дорожки, размер заглушки, область графика, высота панели) | Divider, Overlay, Scrollbar, Skeleton, Chart crosshair, Chart card (`track` 220), Chart plot, Sidebar, Side panel | образец: реальный размер задаёт родитель или данные, в коде значения нет | 2027-05-13 |
+| Ширина / высота образца на корне числом (длина линии, длина дорожки, размер заглушки, область графика, высота панели) | Divider, Scrollbar, Skeleton, Chart crosshair, Chart plot, Sidebar, Side panel | образец: реальный размер задаёт родитель или данные, в коде значения нет | 2027-05-13 |
 
 ## История
 
@@ -34,3 +34,4 @@
 - 2026-11-13 (вечер) — Card `content` привязан (`border/default`, `radius/xs`, `border/width/default`), строка снята; добавлены временные строки второй пачки `size/*` (20 токенов), прозрачности и постоянная строка образцов длины / высоты.
 - 2026-11-13 (ночь) — после Publish Foundations (28 `size/*`) привязано `bind-sizes-extra` (38 min / max) и `bind-dims` (363 размера); временные строки `size/*` сняты.
 - 2026-11-13 (ночь) — Promo card: картинка в потоке (`body` = column + media), `paddingRight` 96 у `text` убран — строка снята.
+- 2026-11-15 — Overlay удалён (затемнение — токен `surface/overlay`), у Chart card нет оси Type и слоя `track` (форма — вложенный Chart plot): убраны из строки образцов.

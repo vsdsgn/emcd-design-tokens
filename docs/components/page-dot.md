@@ -1,16 +1,17 @@
-# Page dot — контракт (2026-11-14)
+# _Page dot — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Page dot`. Status: beta. Level: unknown.
+- Набор: `_Page dot`. Status: service. Level: unknown.
 - Figma: Components, страница «Page dot» (`1012:14`), набор `149:1695`. Платформы: Web, Mobile web, iOS, Android.
+- Служебный набор (имя с «_», Status: service, с 2026-11-15): не публикуется, в макетах напрямую не используется — только внутри Page indicator.
 
 ## 2. Intent
 - Точка индикатора страниц. Часть Page indicator.
 - Когда использовать: только внутри Page indicator — одна точка на страницу.
-- Когда нет: статус объекта — Status / Dot; непрочитанное — Counter.
+- Когда нет: статус объекта — Status; непрочитанное — Counter.
 - Правило выбора варианта:
   - Selected: Off — остальные страницы, точка `size/dot/sm`; On — текущая страница, вытянутая точка 16 (`control/checked`). В индикаторе выбрана ровно одна.
 - Не делаем: две выбранные точки.
@@ -54,17 +55,18 @@
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Page dot`, вариантов 2 из 2; оси: Selected.
+- Набор `_Page dot`, вариантов 2 из 2; оси: Selected.
 - Борда: «Page dot — борда · шаблон v3», разделов 12.
-- Описание: 510 знаков, разделы: Status: Level: Точка индикатора страниц. Когда использовать: Правила: A11y:
+- Описание: 513 знаков, разделы: Status: Level: Точка индикатора страниц. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsPageDot>`; Flutter: `DsPageDot`.
+- Служебный набор: в публичный API библиотеки не выходит — внутренняя часть родителя.
 - Props: `selected`: boolean.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -73,6 +75,7 @@
 
 ## 15. Migration
 - В описании Figma строки Legacy нет.
+- 2026-11-15: `Page dot` → служебный `_Page dot` (не публикуется); в макетах — Page indicator.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Ширина выбранной точки 16 — числом.

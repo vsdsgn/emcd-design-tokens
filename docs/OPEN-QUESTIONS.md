@@ -29,6 +29,17 @@
 20. Pagination, File upload, Snack, Side panel — в парковку (draft, не развивать), см. выше.
 Порядок значений осей State в панели свойств не меняется через API — после перекладки сеткой default верный, порядок в выпадающем списке проверить в Figma.
 
+## Нужно от Стефана (15.11)
+
+1. **Принять обновления библиотеки в Components** (Assets → Libraries → Updates → Accept all): в Components `surface/raised` Dark всё ещё `neutral/850` (опубликовано `neutral/700`). Пока не принято — Tooltip, Toast, Suggest, List item в Dark сливаются с L2–L3, перевод в beta стоит (стенд 15.11).
+2. **Publish Foundations**: новый `status/neutral/subtle` (= `action/secondary/default`, роль — нейтральная подложка неинтерактивного). После Publish и принятия — перепривязать Badge Neutral, Counter Neutral, Avatar, Step symbol, иконку Transaction / Notification, Coin stack «+N», Avatar group «+N», Scrollbar дорожку, Chart crosshair band, Accordion шеврон и др. (скан по `action/secondary/default` у неинтерактивных).
+
+## Парковка (решение 15.11)
+
+- **Slider** — вне Base (в проде нет), набор в 🗄 Archive-странице «🗄 Slider».
+- **Pagination (beta), File upload, Snack, Side panel (draft)** — не развиваются, статус не меняем: в проде нет опоры (`docs/migration/prod-refs-2026-11-14.md`). Длинные списки — «Показать ещё» (Button Tertiary L), детали — Modal, уведомления — Toast.
+- **Date range field, Step progress, Chart metric** — оставлены в Base (решение 15.11, п. 14).
+
 ## Этап 1 — Token Migration & Mapping (с 2026-10-09; закрыт, работа идёт над компонентами — см. HANDOFF)
 
 Бриф Стефана 2026-10-09. Таблица одна: Foundations «🔁 Migration · legacy → DS 2.0» (28:3) ← `docs/migration/color-map.csv` → `scripts/color-migration.py`. Foundations-переменные без ок Стефана не меняем.

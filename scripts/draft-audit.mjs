@@ -12,7 +12,7 @@ const manifest = JSON.parse(fs.readFileSync('docs/ds-manifest.json', 'utf8'));
 const sets = manifest.pages.flatMap((p) => p.sets.map((s) => ({ ...s, level: p.level, page: p.page, boards: p.boards || [], boardMissing: p.boardMissing || [] })));
 const draft = sets.filter((s) => s.status !== 'beta');
 
-const LEVELS = [['atom', 'Атомы'], ['molecule', 'Молекулы'], ['organism', 'Организмы']];
+const LEVELS = [['atom', 'Атомы'], ['molecule', 'Молекулы'], ['organism', 'Организмы'], ['unknown', 'Уровень не указан в манифесте']];
 const rows = draft.map((s) => ({ s, f: findings(s) }));
 const count = {};
 for (const r of rows) for (const code of new Set(r.f.map((x) => x[0]))) count[code] = (count[code] || 0) + 1;
@@ -25,7 +25,7 @@ let md = `# Аудит draft-наборов (${manifest.generated})
 
 ## Сводка
 
-- Наборов не в beta: ${draft.length} (draft ${draft.filter((s) => s.status === 'draft').length}, без статуса ${draft.filter((s) => s.status !== 'draft').length}: ${draft.filter((s) => s.status !== 'draft').map((s) => s.name).join(', ') || '—'}).
+- Наборов не в beta: ${draft.length} (draft ${draft.filter((s) => s.status === 'draft').length}, другой статус ${draft.filter((s) => s.status !== 'draft').length}: ${draft.filter((s) => s.status !== 'draft').map((s) => `${s.name} (${s.status || 'нет'})`).join(', ') || '—'}).
 - Без замечаний по манифесту: ${clean.length}${clean.length ? ` (${clean.map((r) => r.s.name).join(', ')})` : ''}.
 - Наборов с замечанием: ${Object.entries(count).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} — ${v}`).join(', ')}.
 

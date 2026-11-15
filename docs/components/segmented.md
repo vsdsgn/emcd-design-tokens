@@ -1,4 +1,4 @@
-# Segmented — контракт (2026-11-14)
+# Segmented — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -15,7 +15,7 @@
   - Size = размер соседнего поля или кнопки: S 32 · M 40 · L 48 · XL 56.
   - Items: 2, 3 или 4 — по числу значений; больше 4 — Select. При Items=4 — короткие подписи («24 ч», «7 д», «30 д», «Год»).
   - Сегменты равной ширины.
-  - Тон выбранного — по правилам Segment: Success / Danger — только направление сделки.
+  - Тон выбранного — по правилам Segment: Neutral или Accent (тинт).
   - Только иконки — Show label = off у вложенных Segment, обязательно `aria-label`.
   - Ставится на L1 и L2: подложка полупрозрачная.
 - Не делаем: больше 4 сегментов; длинные подписи; сегменты разной ширины; навигация между разделами экрана.
@@ -80,7 +80,7 @@
 
 ## 12. Figma projection
 - Набор `Segmented`, вариантов 12 из 12; оси: Size, Items.
-- Борда: «Segmented — борда · шаблон v3», разделов 12.
+- Борда: «Segmented — борда · шаблон v3», разделов 11.
 - Описание: 1222 знаков, разделы: Status: Level: Segmented: Когда использовать: Правила: Длинный текст: Уровни: A11y: Поиск: Legacy:
 
 ## 13. Code projection
@@ -89,7 +89,7 @@
 - Vue: `<DsSegmented>`; Flutter: `DsSegmented`.
 - Props: `size`: s | m | l | xl; `items`: 2 | 3 | 4.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (вложенный Segment, label).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,4 +1,4 @@
-# Step progress — контракт (2026-11-14)
+# Step progress — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -18,8 +18,8 @@
 - Не делаем: меньше 3 или больше 7 сегментов; сегменты разной ширины.
 
 ## 3. Anatomy
-- Корень — горизонтальный ряд, зазор `space/4`, высота `size/track/sm` → Count × `Step segment` (State Done / Current — `control/checked`, Upcoming — `control/track`; `radius/chip`, высота `size/track/sm`).
-- Вложено: `Step segment` ×135.
+- Корень — горизонтальный ряд, зазор `space/4`, высота `size/track/sm` → Count × `_Step segment` (State Done / Current — `control/checked`, Upcoming — `control/track`; `radius/chip`, высота `size/track/sm`).
+- Вложено: `_Step segment` ×135.
 - Служебные слои (вариантов из 25): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -52,7 +52,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/4`; высота `size/track/sm`.
-- `Step segment`: заливка / цвет `control/checked`, `control/track`; высота `size/track/sm`; радиус `radius/chip`.
+- `_Step segment`: заливка / цвет `control/checked`, `control/track`; высота `size/track/sm`; радиус `radius/chip`.
 - Значений без переменной: 25 (напр. `(root):w=240`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -69,7 +69,7 @@
 - Vue: `<DsStepProgress>`; Flutter: `DsStepProgress`.
 - Props: `count`: 3 | 4 | 5 | 6 | 7; `step`: 1 | 2 | 3 | 4 | 5 | 6 | 7.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -81,4 +81,4 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Ширина корня 240 числом — образец; в макете Fill container.
-- Сегменты Upcoming (`control/track`) в Dark L0 и Light L3 — перепроверить видимость стендом (то же у Step segment).
+- Сегменты Upcoming (`control/track`) в Dark L0 и Light L3 — перепроверить видимость стендом (то же у `_Step segment`).

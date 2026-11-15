@@ -1,4 +1,4 @@
-# Accordion — контракт (2026-11-14)
+# Accordion — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -50,7 +50,7 @@
 |---|---|---|---|
 | Label | текст | «Как начисляются выплаты?» | 16 из 20 |
 | Divider | булево | вкл | 20 из 20 |
-| Content | SLOT | `undefined` | 20 из 20 |
+| Content | слот | — | 20 из 20 |
 | Focus ring | булево | выкл | 20 из 20 · служебное |
 | Show hit area | булево | выкл | 20 из 20 · служебное |
 | Safe margin | булево | выкл | 20 из 20 · служебное |
@@ -102,7 +102,7 @@
 - Props: `size`: l | m; `open`: boolean; `label`: string или слот; `divider`: boolean = true; `content`: string или слот.
 - Состояния (Default, Hover, Skeleton, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

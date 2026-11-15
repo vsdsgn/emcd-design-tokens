@@ -1,11 +1,12 @@
-# Step segment — контракт (2026-11-14)
+# _Step segment — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Step segment`. Status: beta. Level: unknown.
+- Набор: `_Step segment`. Status: service. Level: unknown.
 - Figma: Components, страница «Step segment» (`1012:22`), набор `149:1778`. Платформы: Web, Mobile web, iOS, Android.
+- Служебный набор (имя с «_», Status: service, с 2026-11-15): не публикуется, в макетах напрямую не используется — только внутри Step progress.
 
 ## 2. Intent
 - Один сегмент полоски Step progress: шаг пройден, текущий или впереди.
@@ -55,18 +56,19 @@
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Step segment`, вариантов 3 из 3; оси: State.
+- Набор `_Step segment`, вариантов 3 из 3; оси: State.
 - Борда: «Step segment — борда · шаблон v3», разделов 12.
-- Описание: 457 знаков, разделы: Status: Level: Сегмент Step progress. Когда использовать: Правила: A11y:
+- Описание: 460 знаков, разделы: Status: Level: Сегмент Step progress. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsStepSegment>`; Flutter: `DsStepSegment`.
+- Служебный набор: в публичный API библиотеки не выходит — внутренняя часть родителя.
 - Props: нет.
 - Состояния (Done, Current, Upcoming) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -75,6 +77,7 @@
 
 ## 15. Migration
 - Legacy в описании не указан: новый атом для Step progress (State Done | Current | Upcoming).
+- 2026-11-15: `Step segment` → служебный `_Step segment` (не публикуется); в макетах — Step progress.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Ширина корня 40 — числом (образец; в продукте — поровну на ряд).

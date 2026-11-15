@@ -1,4 +1,4 @@
-# Select compact — контракт (2026-11-14)
+# Select compact — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -52,7 +52,7 @@
 |---|---|---|---|
 | Text | текст | «USDT» | 5 из 5 |
 | Show leading | булево | вкл | 5 из 5 |
-| Leading | SLOT | `undefined` | 5 из 5 |
+| Leading | слот | — | 5 из 5 |
 | Focus ring | булево | выкл | 5 из 5 · служебное |
 | Show hit area | булево | выкл | 5 из 5 · служебное |
 | Safe margin | булево | выкл | 5 из 5 · служебное |
@@ -103,7 +103,7 @@
 - Props: `text`: string или слот; `showLeading`: boolean = true; `leading`: string или слот.
 - Состояния (Default, Hover, Open, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (text 122).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

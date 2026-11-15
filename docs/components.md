@@ -27,14 +27,14 @@
 
 | Компонент | Слоты | Остаётся свойствами |
 |---|---|---|
-| Input / Select / Search | prefix (иконка, монета, валюта), suffix (единицы, «Max», кнопка), hint/helper | size, state, label, error |
+| Input / Select / Search | prefix (иконка, монета, аватар), suffix (единица — текст, «Max» — Button Text S, очистка и степпер — Icon button Ghost S, «+N» — Counter), hint/helper | size, state, label, error |
 | List item | leading (иконка, аватар, монета), content (одна-две строки), trailing (значение, статус, шеврон, переключатель) | size, interactive, divider |
 | Card / Section | header actions, body, footer | padding, elevation |
 | Side panel / Sheet / Modal | header actions, body, footer (кнопки) | presentation, size |
 | Page header | actions (кнопки, период, фильтры) | title, counter, back |
 | Shell | nav, promo, balance, profile | platform, collapsed |
 | Empty state | illustration, actions | title, text |
-| Table cell | custom content | align, numeric |
+| Table cell | content: текст (1–2 строки) или атом DS — Coin, Avatar, Amount, Badge, Status, Toggle, Progress, Icon button, Button | align, state |
 
 **Не слоты:** Button, Checkbox, Radio, Toggle, Chip, Badge — у них анатомия фиксированная, иконка меняется через instance swap.
 
@@ -184,6 +184,10 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 - Вложенные компоненты в Disabled-варианте переключаются в свой Disabled (Toggle в ячейке таблицы и т. п.), иконки — `icon/disabled`.
 - Иконка в плашке следует цвету подписи (выбранный Chip — `icon/inverse`).
 - Токен фокуса (`border/focus`, `border/focus-ring`) — только для фокуса, не для выбора.
+- **Toggle — без ошибки** (решение 2026-11-15): изменение применяется сразу; при сбое — откат положения и Toast. У Toggle и Toggle group нет State=Error.
+- **Code input — без Hover** (исключение модели «Поле», 2026-11-15): ячейки кода — короткий ввод с автофокусом, наведение не несёт информации; Focus — обводка `control/border/focus`.
+- **Нейтральная подложка неинтерактивного** (2026-11-15): `status/neutral/subtle` (заведён в Foundations, ждёт Publish), не `action/secondary/default` — `action/*` только у нажимаемого.
+- **Segment** (2026-11-15): тона Neutral и Accent; выбранный Accent — тинт `accent/subtle` + `accent/on-subtle`, не заливка; Success / Danger убраны.
 
 
 ## Кольцо фокуса и начертание — общее правило (2026-10-07, по ревью Button)
@@ -228,10 +232,10 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 
 Правила:
 - Красный — только когда пользователь должен обратить внимание и, возможно, действовать. Обычный вывод не красный (решение 2026-10-05 остаётся по умолчанию).
-- Table cell · Transaction: цвет суммы задаёт вариант `Direction=Unexpected` (красный только для неожиданных списаний); обычные списания (бывший Debit) не красные.
+- Сумма в таблице — Amount в слоте Table cell (до 2026-11-15 — `Table cell / Transaction`, `Direction=Unexpected`): красный только для неожиданных списаний; обычные списания (бывший Debit) не красные.
 - Один экран — одна логика: в истории выплат все `+` зелёные; в ленте кошелька — `+` зелёные, `−` нейтральные.
 - Сумма в фиате-эквиваленте под основной — всегда `text/secondary`, без цвета.
-- Компоненты: Transaction, Amount (`signDisplay: 'exceptZero'`, docs/typography-l10n.md), Table cell «Сумма».
+- Компоненты: Transaction, Amount (`signDisplay: 'exceptZero'`, docs/typography-l10n.md), Table cell с Amount в слоте (колонка «Сумма»).
 
 ## Hover / Pressed — одна логика везде (решение Стефана 2026-10-16)
 

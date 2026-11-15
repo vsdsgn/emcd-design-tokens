@@ -1,4 +1,4 @@
-# Card — контракт (2026-11-14)
+# Card — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -74,7 +74,7 @@
 - Vue: `<DsCard>`; Flutter: `DsCard`.
 - Props: `level`: 1 | 2 | 3 | 0; `radius`: container | surface | inner; `padding`: s | m | l; `border`: boolean.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

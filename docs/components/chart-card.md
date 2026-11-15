@@ -1,4 +1,4 @@
-# Chart card — контракт · draft (2026-11-14)
+# Chart card — контракт · draft (2026-11-15)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -6,7 +6,7 @@
 
 ## 1. Identity
 - Набор: `Chart card`. Status: draft. Level: unknown.
-- Figma: Components, страница «Chart card» (`367:45869`), набор `99:981`.
+- Figma: Components, страница «Chart card» (`367:45869`), компонент `99:802`.
 
 ## 2. Intent
 - Не описано.
@@ -15,30 +15,24 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `Top`, `stat`, `label`, `value`, `caption`, `Tabs`, `Content`, `Chart plot`, `Chart axis label`, `Bottom`, `legend`, `Legend item`, `sum`, `stacked bar`, `segment`, `track`, `fill`, `center`, `Badge`, `metrics`, `Chart metric`, `Segmented`, `plot row`, `x axis`.
-- Вложено: `Tabs` ×1, `Chart plot` ×2, `Chart axis label` ×24, `Legend item` ×8, `Badge` ×1, `Chart metric` ×3, `Segmented` ×1.
-- Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Слои с токенами: `Top`, `stat`, `label`, `value`, `caption`, `Tabs`, `Content`, `Chart plot`, `axis label`, `Bottom`, `legend`, `Legend item`, `sum`.
+- Вложено: `Tabs` ×1, `Chart plot` ×1, `Legend item` ×3.
+- Служебные слои (вариантов из 1): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Оси State нет.
 
 ## 5. Properties
-Оси (варианты):
-
-| Ось | Значения | По умолчанию |
-|---|---|---|
-| Type | Bars · Horizontal · Gauge · Line | — |
-
-Матрица полная: 4 вариантов.
+Осей нет: один компонент.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Show bottom | булево | вкл | 2 из 4 |
-| Top | SLOT | `undefined` | 4 из 4 |
-| Content | SLOT | `undefined` | 4 из 4 |
-| Bottom | SLOT | `undefined` | 2 из 4 |
+| Show bottom | булево | вкл | 1 из 1 |
+| Top | слот | — | 1 из 1 |
+| Content | слот | — | 1 из 1 |
+| Bottom | слот | — | 1 из 1 |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -53,50 +47,39 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-1`; интервал `space/16`, `space/20`; отступы `space/28`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
-- `Top`: интервал `space/16`, `space/32`.
+- `корень`: заливка / цвет `surface/level-1`; интервал `space/16`; отступы `space/28`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `Top`: интервал `space/16`.
 - `stat`: интервал `space/4`.
-- `label`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`.
+- `label`: заливка / цвет `text/primary`, `text/tertiary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/sm`, `type/label/md`.
 - `value`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/display/md`.
 - `caption`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - `Tabs`: интервал `space/20`; обводка `border/subtle`.
 - `Content`: интервал `space/8`.
 - `Chart plot`: интервал `space/4`.
-- `Chart axis label`: maxw `size/chart-axis-label/max`.
+- `axis label`: maxw `size/chart-axis-label/max`.
 - `Bottom`: интервал `space/16`.
 - `legend`: интервал `space/16`.
 - `Legend item`: интервал `space/6`; maxw `size/legend-item/max`.
 - `sum`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
-- `stacked bar`: интервал `space/4`.
-- `segment`: заливка / цвет `data/1`, `data/2`, `data/3`; радиус `radius/chip`.
-- `track`: заливка / цвет `control/track`.
-- `fill`: заливка / цвет `status/success/solid`.
-- `center`: интервал `space/8`.
-- `Badge`: заливка / цвет `status/success/subtle`; интервал `space/6`; высота `size/badge-height/md`; maxw `size/badge/max`; отступы `control/padding-x/sm`; радиус `radius/sm`.
-- `metrics`: интервал `space/32`.
-- `Chart metric`: интервал `space/2xs`; maxw `size/chart-metric/max`.
-- `Segmented`: заливка / цвет `control/segment-track`; интервал `space/2`; отступы `space/4`; радиус `radius/control-sm`.
-- `plot row`: интервал `space/8`.
-- `x axis`: отступы `space/40`.
-- Значений без переменной: 6 (напр. `(root):w=580`, `(root):w=343`, `track:w=220`, `track:h=220`).
+- Значений без переменной: 1 (напр. `(root):w=580`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
-- Набор `Chart card`, вариантов 4 из 4; оси: Type.
-- Борда: «Chart card — борда · шаблон v3», разделов 9.
-- Описание: 1577 знаков, разделы: Status: Level: Виджет графика: Type: Состояния графика — Когда использовать: A11y: Поиск: Legacy: Правила:
+- Компонент `Chart card`; оси: нет.
+- Борда: «Chart card — борда · шаблон v3», разделов 6.
+- Описание: 1133 знаков, разделы: Status: Level: Виджет графика: Состояния графика — Когда использовать: A11y: Поиск: Legacy: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsChartCard>`; Flutter: `DsChartCard`.
-- Props: `type`: bars | horizontal | gauge | line; `showBottom`: boolean = true; `top`: string или слот; `content`: string или слот; `bottom`: string или слот.
+- Props: `showBottom`: boolean = true; `top`: string или слот; `content`: string или слот; `bottom`: string или слот.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: DS Web `bar widget` type vertical / horizont / circle → Type Bars / Horizontal / Gauge; `.layout / graphic` · `.layout / bar` (top / center / bottom) → слоты Top / Content / Bottom; `widget Graph` (песочница) → Type Line; Firmware «Chain's Hashrate / Power / Fans» → Type=Line + Segmented в Top. Нужен скрин прода (дашборд Web App, Firmware).
+- Legacy: DS Web `bar widget` type vertical / horizont / circle → форма графика — вложенный Chart plot в слоте Content (оси Type у Chart card нет с 2026-11-15); `.layout / graphic` · `.layout / bar` (top / center / bottom) → слоты Top / Content / Bottom; `widget Graph` (песочница) → Chart plot Line; Firmware «Chain's Hashrate / Power / Fans» → Chart plot Line + Segmented в Top. Нужен скрин прода (дашборд Web App, Firmware).

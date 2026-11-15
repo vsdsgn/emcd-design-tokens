@@ -1,5 +1,5 @@
 {
-  "_comment": "Статус компонента = эмодзи страницы в Figma Components (🟠 draft · 🟡 beta · 🟢 stable · 🔴 deprecated). Меняем вместе с Figma. draft в Claude DS помечаются «в макеты не брать».",
+  "_comment": "Статус компонента = эмодзи страницы в Figma Components (🟠 draft · 🟡 beta · 🟢 stable · 🔴 deprecated). Меняем вместе с Figma. draft в Claude DS помечаются «в макеты не брать». Шаблоны экранов (Figma Status: template, не Base) — draft; служебные наборы «_…» (service) не пишутся.",
   "components": {
     "Amount": "beta",
     "Badge": "beta",

@@ -3,7 +3,9 @@
 // Запуск: node scripts/parity.mjs [--code=<файл>] [--strict] [--json]
 //   TOKENS   токен стоит в компоненте Figma, но его нет в tokens/** (кроме pendingPublish из baseline) — ошибка
 //   BASELINE строка baseline устарела (токен уже есть в репо или больше не используется) — ошибка
-//   STATUS   claude-ds/status.json расходится со статусом набора в Figma — ошибка
+//   STATUS   claude-ds/status.json расходится со статусом набора в Figma — ошибка. Служебные наборы (Status: service, «_…»)
+//            в status.json не пишутся — не публикуются. Шаблон экрана (Status: template, не Base) — в status.json «draft»:
+//            в Claude DS группы шаблонов нет, карточка идёт как draft («в макеты не брать»).
 //   CODE     манифест кода: нет компонента, свойства, значения оси, другое значение по умолчанию, нет токена — ошибка
 //   Токены коллекции Brand в Figma названы без префикса (radius/xs), в репо — brand/radius/xs: считаются совпавшими.
 //   docs/parity-baseline.json: pendingPublish — токены, ждущие Publish Foundations и экспорта; accepted — известные расхождения
@@ -68,7 +70,9 @@ const status = read('claude-ds/status.json').components;
 for (const [name, st] of Object.entries(status)) {
   const s = byPascal.get(name);
   if (!s) { errors.push(`STATUS ${name}: в claude-ds/status.json есть, набора в Figma нет`); continue; }
-  if (s.status !== st) errors.push(`STATUS ${name}: status.json «${st}», Figma «${s.status || 'нет'}»`);
+  if (s.status === 'service') { errors.push(`STATUS ${name}: служебный набор (service) — убрать из claude-ds/status.json`); continue; }
+  const want = s.status === 'template' ? 'draft' : s.status;
+  if (want !== st) errors.push(`STATUS ${name}: status.json «${st}», Figma «${s.status || 'нет'}»${s.status === 'template' ? ' (шаблон → draft)' : ''}`);
 }
 
 // CONTRACT

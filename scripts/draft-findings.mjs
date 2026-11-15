@@ -8,17 +8,16 @@ const BOOL = [['Off', 'On'], ['False', 'True'], ['No', 'Yes']];
 // Input — член семьи _Field base: Select и Date range field стоят на нём.
 const BASES = ['_Field base', '_Selection control', '_List row', 'Input'];
 // Не фокусируемые наборы: Hover — подсказка для указателя, с клавиатуры цель — родитель (Chart card, область прокрутки).
-const NO_FOCUS = new Set(['Chart axis label', 'Chart plot', 'Scrollbar']);
+const NO_FOCUS = new Set(['Chart plot', 'Scrollbar']);
 // Оси выбора Off / On законны: это состояние выбора, а не включение слоя (то же в audit-parity.plugin.js).
 const BOOL_AXIS_OK = new Set(['Status', 'Selected']);
 // Булевы оси, которые меняют состав слоёв или раскладку и потому остаются осью (тот же список — BOOL_OK в audit-parity.plugin.js).
-const BOOL_OK = { 'Card': ['Border'], 'Coin': ['Network'], 'Divider': ['Label'], 'Overlay': ['Blur'], 'Accordion': ['Open'], 'Avatar group': ['More'], 'Input amount': ['Filled'], 'Nav item': ['Collapsed'], 'Date range panel': ['Presets'], 'Sidebar': ['Collapsed'] };
+const BOOL_OK = { 'Card': ['Border'], 'Coin': ['Network'], 'Divider': ['Label'], 'Accordion': ['Open'], 'Avatar group': ['More'], 'Nav item': ['Collapsed'], 'Date range panel': ['Presets'], 'Sidebar': ['Collapsed'] };
 // Сырые значения, которые не считаются: ширина / высота образца на корне и размеры зоны нажатия (их сверяет audit.plugin.js).
 const RAW_SAMPLE = /^\(root\):[wh]=|^hit area[^:]*:[wh]=/;
 // Сырые значения из реестра docs/exceptions.md (набор → шаблон значения). Строка реестра снята — убрать и отсюда.
 const RAW_OK = {
   'Coin': /^network:r=/, 'Avatar group': /^\(root\):gap=-/, 'Coin stack': /^\(root\):gap=-/,
-  'Chart card': /^track:[wh]=220$/,
   'Scrollbar': /^thumb:h=48$|^thumb:w=48$/, // длина образца бегунка (реестр: ширина / высота образца)
   // временные до токенов прозрачности
   'Spinner': /^track:o=0\.2$/, 'Code cell': /^digit:o=0\.5$/, 'Chart crosshair': /^halo:o=0\.24$/,

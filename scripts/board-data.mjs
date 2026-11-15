@@ -1,7 +1,7 @@
 // Данные борды v3 из контракта: `docs/components/<slug>.md` + `docs/ds-manifest.json` → JSON для `scripts/figma/board-v3.plugin.js`.
 // Борда собирается только из контракта и живого набора в Figma — поэтому «контракт = борда» по построению.
 // Запуск: node scripts/board-data.mjs --out=<папка> [--only="Notification,Tab"]. На каждую борду v3 — файл <id борды>.json.
-// Борда с несколькими наборами (Table cells, Input + аддоны): первый набор — главный, остальные идут блоками «Наборы страницы».
+// Борда с несколькими наборами: первый набор — главный, остальные идут блоками «Наборы страницы». Шаблоны экранов (Status: template) контракта не имеют — борда без наборов.
 import fs from 'node:fs';
 
 const arg = (k) => (process.argv.find((a) => a.startsWith(`--${k}=`)) || '').slice(k.length + 3);
@@ -15,8 +15,9 @@ const EMPTY = /^(—|не описано|Не описано|Нет\.?$)/;
 
 // Наборы, у которых борда названа иначе, и борды на несколько наборов. Ключ — имя борды без « — борда · шаблон v3».
 const BOARD_SETS = {
-  'Table cells': (p) => p.sets.filter((s) => /^Table cell/.test(s.name)).map((s) => s.name),
-  Input: (p) => ['Input', ...p.sets.filter((s) => /^Input addon/.test(s.name)).map((s) => s.name)],
+  'Table cells': () => ['Table cell'], // 14 наборов Table cell / * слиты в один 2026-11-15; имя борды старое
+  // Служебные наборы переименованы 2026-11-15 (Dot → _Dot и др.); борды — под старыми именами
+  Dot: () => ['_Dot'], 'Page dot': () => ['_Page dot'], 'Step segment': () => ['_Step segment'],
   Tooltip: () => ['Tooltip'],
 };
 

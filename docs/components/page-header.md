@@ -1,4 +1,4 @@
-# Page header — контракт · draft (2026-11-14)
+# Page header — контракт · draft (2026-11-15)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -41,8 +41,8 @@
 | Breadcrumbs | булево | выкл | 2 из 2 |
 | Show actions | булево | вкл | 2 из 2 |
 | Show tabs | булево | выкл | 2 из 2 |
-| Actions | SLOT | `undefined` | 2 из 2 |
-| Tabs | SLOT | `undefined` | 2 из 2 |
+| Actions | слот | — | 2 из 2 |
+| Tabs | слот | — | 2 из 2 |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -82,7 +82,7 @@
 - Vue: `<DsPageHeader>`; Flutter: `DsPageHeader`.
 - Props: `size`: large | compact; `title`: string или слот; `subtitle`: string или слот; `showSubtitle`: boolean = true; `breadcrumbs`: boolean = false; `showActions`: boolean = true; `showTabs`: boolean = false; `actions`: string или слот; `tabs`: string или слот.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 

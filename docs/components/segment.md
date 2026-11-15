@@ -1,4 +1,4 @@
-# Segment — контракт (2026-11-14)
+# Segment — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -12,20 +12,20 @@
 - Когда использовать: только внутри Segmented (режим или период из 2–4).
 - Когда нет: фильтры — Chip; разделы экрана — Tab.
 - Правило выбора варианта:
-  - Tone: Neutral — по умолчанию; Accent — режим с промо или главным действием (редко); Success / Danger — только направление сделки (Купить / Продать).
+  - Tone: Neutral — по умолчанию; Accent — режим с промо или главным действием (редко): выбранный — тинт `accent/subtle`, подпись `accent/on-subtle`. Тонов Success / Danger нет (сняты 2026-11-15): направление сделки — подписью, не цветом.
   - Size — из Segmented: S, M, L, XL.
   - Show label=false — сегмент только с иконкой.
 
 ## 3. Anatomy
 - Корень: `icon` · `label`; подложка выбранного.
 - Служебные: `state layer`, `focus ring`, зоны, `safe area · outer`.
-- Вложено: иконки ×36.
-- Служебные слои (вариантов из 36): кольцо фокуса 36 · зона Web 36 · зона касания 36 · безопасное поле 36.
+- Вложено: иконки ×28.
+- Служебные слои (вариантов из 28): кольцо фокуса 28 · зона Web 28 · зона касания 28 · безопасное поле 28.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`.
 - Default, Hover, Pressed, Disabled × Selected Off | On; Disabled — подложка `action/disabled`, подпись `text/disabled`.
-- Матрица 36 из 128: тона Accent / Success / Danger — только там, где они видны (выбранный сегмент); полный перечень — в строке «Матрица:» описания набора.
+- Матрица 28 из 64: тон Accent — только там, где он виден (выбранный сегмент); полный перечень — в строке «Матрица:» описания набора.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 5. Properties
@@ -35,22 +35,22 @@
 |---|---|---|
 | Size | S · M · L · XL | S |
 | Selected | Off · On | Off |
-| Tone | Neutral · Accent · Success · Danger | Neutral |
+| Tone | Neutral · Accent | Neutral |
 | State | Default · Hover · Disabled · Pressed | Default |
 
-Матрица: 36 из 128.
+Матрица: 28 из 64.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «Купить» | 36 из 36 |
-| Show label | булево | вкл | 36 из 36 |
-| Icon | булево | выкл | 36 из 36 |
-| Icon · swap | замена экземпляра | `icon/plus` | 36 из 36 |
-| Focus ring | булево | выкл | 36 из 36 · служебное |
-| Show hit area | булево | выкл | 36 из 36 · служебное |
-| Safe margin | булево | выкл | 36 из 36 · служебное |
+| Label | текст | «Купить» | 28 из 28 |
+| Show label | булево | вкл | 28 из 28 |
+| Icon | булево | выкл | 28 из 28 |
+| Icon · swap | замена экземпляра | `icon/plus` | 28 из 28 |
+| Focus ring | булево | выкл | 28 из 28 · служебное |
+| Show hit area | булево | выкл | 28 из 28 · служебное |
+| Safe margin | булево | выкл | 28 из 28 · служебное |
 
 ## 6. Content / slots
 - Длинный текст: одна строка, усечение многоточием по max-width 200 (подпись); полный текст — в `title` / тултипе. Сегменты в Segmented — равной ширины.
@@ -69,29 +69,29 @@
 - Сегмент только с иконкой — `aria-label`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/disabled`, `control/checked`, `control/segment`, `status/danger/solid`, `status/success/solid`; интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
+- `корень`: заливка / цвет `accent/subtle`, `action/disabled`, `control/segment`; интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
-- `label`: заливка / цвет `text/disabled`, `text/on-accent`, `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`, `type/label/sm`.
+- `label`: заливка / цвет `accent/on-subtle`, `text/disabled`, `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`, `type/label/sm`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-inner`, `radius/focus-ring-xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/sm`, `radius/xs`.
-- Значений без переменной: 72 (напр. `hit area · web:w=60`, `hit area · web:h=24`, `hit area · web:w=71`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 56 (напр. `hit area · web:w=60`, `hit area · web:h=24`, `hit area · web:w=71`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Segment`, вариантов 36 из 128; оси: Size, Selected, Tone, State.
-- Борда: «Segment — борда · шаблон v3», разделов 13.
-- Описание: 1018 знаков, разделы: Status: Level: Сегмент — Tone: Только внутри Segmented. Поиск: Legacy: Когда использовать: Правила: Длинный текст: Матрица: A11y:
+- Набор `Segment`, вариантов 28 из 64; оси: Size, Selected, Tone, State.
+- Борда: «Segment — борда · шаблон v3», разделов 12.
+- Описание: 994 знаков, разделы: Status: Level: Сегмент — Tone: Только внутри Segmented. Поиск: Legacy: Когда использовать: Правила: Длинный текст: Матрица: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsSegment>`; Flutter: `DsSegment`.
-- Props: `size`: s | m | l | xl; `selected`: boolean; `tone`: neutral | accent | success | danger; `label`: string или слот; `showLabel`: boolean = true; `icon`: boolean = false.
+- Props: `size`: s | m | l | xl; `selected`: boolean; `tone`: neutral | accent; `label`: string или слот; `showLabel`: boolean = true; `icon`: boolean = false.
 - Состояния (Default, Hover, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 200 @label` числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -99,7 +99,7 @@
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
 ## 15. Migration
-- DS Web `base segmented picker item / text | icon only`: status | color neutral | brand | danger | success → Tone; size lg | sm → Size XL | M; active → Selected; icon only → Show label=false.
+- DS Web `base segmented picker item / text | icon only`: status | color neutral | brand → Tone Neutral | Accent (danger | success — MAJOR: тонов нет с 2026-11-15, → Neutral); size lg | sm → Size XL | M; active → Selected; icon only → Show label=false.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - max-width подписи 200 — числом (вложенный слой).

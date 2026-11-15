@@ -1,4 +1,4 @@
-# Status — контракт (2026-11-14)
+# Status — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -17,8 +17,8 @@
   - Show label=false — только в ячейках под заголовком столбца «Статус» и в легенде графика (+ `aria-label`).
 
 ## 3. Anatomy
-- Корень: вложенный `Dot` (точка) + `label`.
-- Вложено: `Dot` ×10.
+- Корень: вложенный `_Dot` (служебная точка тона) + `label`.
+- Вложено: `_Dot` ×10.
 - Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -75,10 +75,10 @@
 - Vue: `<DsStatus>`; Flutter: `DsStatus`.
 - Props: `size`: s | m; `tone`: success | warning | danger | info | neutral; `label`: string или слот; `showLabel`: boolean = true.
 
-## 14. Acceptance (2026-11-14)
-- `audit.plugin.js` — 0 замечаний (Status и Dot).
+## 14. Acceptance (2026-11-15)
+- `audit.plugin.js` — 0 замечаний (Status и `_Dot`).
 - `variables-check.plugin.js` — `maxWidth 240 @label` числом.
-- `audit-parity.plugin.js` — 0 (2026-11-13), включая Dot.
+- `audit-parity.plugin.js` — 0 (2026-11-13), включая `_Dot`.
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 

@@ -1,4 +1,4 @@
-# Sidebar — контракт · draft (2026-11-14)
+# Sidebar — контракт · draft (2026-11-15)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -35,9 +35,9 @@
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Header | SLOT | `undefined` | 2 из 2 |
-| Nav | SLOT | `undefined` | 2 из 2 |
-| Footer | SLOT | `undefined` | 2 из 2 |
+| Header | слот | — | 2 из 2 |
+| Nav | слот | — | 2 из 2 |
+| Footer | слот | — | 2 из 2 |
 | Promo | булево | вкл | 1 из 2 |
 
 ## 6. Content / slots
@@ -58,7 +58,7 @@
 - `logo (placeholder)`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
 - `promo`: заливка / цвет `surface/level-1`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `Nav`: интервал `space/4`.
-- `Nav item`: заливка / цвет `surface/active`; интервал `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
+- `Nav item`: заливка / цвет `action/secondary/default`; интервал `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
 - `divider`: отступы `space/6`, `space/8`.
 - `Rectangle`: заливка / цвет `border/subtle`.
 - `Footer`: интервал `space/4`.
@@ -78,7 +78,7 @@
 - Vue: `<DsSidebar>`; Flutter: `DsSidebar`.
 - Props: `collapsed`: boolean; `header`: string или слот; `nav`: string или слот; `footer`: string или слот; `promo`: boolean = true.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 

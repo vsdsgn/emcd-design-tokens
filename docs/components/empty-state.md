@@ -1,4 +1,4 @@
-# Empty state — контракт · draft (2026-11-14)
+# Empty state — контракт · draft (2026-11-15)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -41,8 +41,8 @@
 | Show text | булево | вкл | 5 из 5 |
 | Show illustration | булево | вкл | 4 из 5 |
 | Show actions | булево | вкл | 5 из 5 |
-| Illustration | SLOT | `undefined` | 4 из 5 |
-| Actions | SLOT | `undefined` | 5 из 5 |
+| Illustration | слот | — | 4 из 5 |
+| Actions | слот | — | 5 из 5 |
 | Dashed background | булево | выкл | 5 из 5 |
 
 ## 6. Content / slots
@@ -82,7 +82,7 @@
 - Vue: `<DsEmptyState>`; Flutter: `DsEmptyState`.
 - Props: `size`: l | m | s; `layout`: horizontal | vertical; `title`: string или слот; `text`: string или слот; `showText`: boolean = true; `showIllustration`: boolean = true; `showActions`: boolean = true; `illustration`: string или слот; `actions`: string или слот; `dashedBackground`: boolean = false.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 

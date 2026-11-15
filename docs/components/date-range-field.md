@@ -1,4 +1,4 @@
-# Date range field — контракт (2026-11-14)
+# Date range field — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -20,7 +20,7 @@
 
 ## 3. Anatomy
 - Корень — экземпляр Input (Size=M, Label position=On border), min-width `size/field/min`: подпись на рамке (`notch text` в `_Field base`, одна строка ≤ 240), значение, подсказка / ошибка под полем.
-- Справа — Input addon / Icon с `icon/calendar`.
+- Справа — иконка `icon/calendar` в слоте Trailing.
 - Своих служебных слоёв нет: кольцо фокуса, зона нажатия и безопасное поле — из Input.
 - Вложено: `Input` ×7.
 - Служебные слои (вариантов из 7): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
@@ -89,7 +89,7 @@
 - Props: нет.
 - Состояния (Default, Focus, Filled, Error, Disabled, Hover, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -97,7 +97,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %; булевых свойств у набора нет; RTL стенд не проверяет; формат даты по локали не проверялся; правки 13.11 (Disabled, подпись на рамке ≤ 240) стендом не перепроверены; кода нет — parity props пропущена.
 
 ## 15. Migration
-- DS Web `DateRange.Field` → Date range field (State Default | Focus | Filled | Error | Disabled; Hover и Skeleton — новые); база — Input Size=M, Label position=On border, справа Input addon / Icon с `icon/calendar`.
+- DS Web `DateRange.Field` → Date range field (State Default | Focus | Filled | Error | Disabled; Hover и Skeleton — новые); база — Input Size=M, Label position=On border, справа иконка `icon/calendar` в слоте Trailing (до 2026-11-15 — `Input addon / Icon`).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Текст 200 %: подпись на рамке налезает на значение, высота поля не растёт — править в `_Field base` (подпись в Above или рост поля; вопрос 4 пилота).

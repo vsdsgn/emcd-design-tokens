@@ -1,4 +1,4 @@
-# List item — контракт · draft (2026-11-14)
+# List item — контракт · draft (2026-11-15)
 
 Заготовка: собрана автоматически. Набор заменён на месте надстройкой над базой `_List row` (2026-11-13); свойства, слоты, токены и приёмка базы — `docs/components/list-row.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -16,8 +16,8 @@
 
 ## 3. Anatomy
 - Слои с токенами: `_List row`.
-- Вложено: `_List row` ×64.
-- Служебные слои (вариантов из 64): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `_List row` ×32.
+- Служебные слои (вариантов из 32): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Ось State: Default · Hover · Pressed · Disabled. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
@@ -28,11 +28,10 @@
 | Ось | Значения | По умолчанию |
 |---|---|---|
 | Size | L · M | — |
-| Style | Plain · Card | — |
 | Content | Text first · Description first · Big value · Description only | — |
 | State | Default · Hover · Pressed · Disabled | — |
 
-Матрица полная: 64 вариантов.
+Матрица полная: 32 вариантов.
 
 Свойства — на раскрытом экземпляре базы `_List row` (слой `_List row`): Label, Description, Show description, Subvalue, Show leading, Show trailing, слоты Leading и Trailing, Selected, Show selection, Selection control, Divider, Focus ring, Show hit area, Safe margin. Таблица — `docs/components/list-row.md`, раздел 5.
 
@@ -49,27 +48,27 @@
 - интерактивная строка — одна цель нажатия с полным именем; вложенные контролы — отдельные цели.
 
 ## 10. Tokens
-- `_List row`: заливка / цвет `surface/raised`; интервал `space/12`; отступы `control/padding-x/lg`, `space/12`, `space/16`; радиус `radius/control`.
-- Значений без переменной: 64 (напр. `(root):w=375`).
+- `_List row`: интервал `space/12`; отступы `control/padding-x/lg`, `space/12`, `space/16`.
+- Значений без переменной: 32 (напр. `(root):w=375`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
-- Набор `List item`, вариантов 64 из 64; оси: Size, Style, Content, State.
-- Борда: «List item — борда · шаблон v3», разделов 11.
-- Описание: 1831 знаков, разделы: Status: Level: Code: Строка списка: Size: Суммы — A11y: Когда использовать: Поиск: Legacy: Кольцо фокуса: Правила:
+- Набор `List item`, вариантов 32 из 32; оси: Size, Content, State.
+- Борда: «List item — борда · шаблон v3», разделов 8.
+- Описание: 1568 знаков, разделы: Status: Level: Code: Строка списка: Size: Суммы — A11y: Когда использовать: Поиск: Legacy: Кольцо фокуса: Правила:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsListItem>`; Flutter: `DsListItem`.
-- Props: `size`: l | m; `style`: plain | card; `content`: text-first | description-first | big-value | description-only.
+- Props: `size`: l | m; `content`: text-first | description-first | big-value | description-only.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): по набору 0; замечания базы — `docs/components/list-row.md`, раздел 14. Стенд — на пилоте базы.
 - Замечаний по манифесту нет.
 
 ## 15. Migration
-- Legacy: List (Card, Desktop), Left, Content, Right (DS Web ?List)
+- Legacy: List (Desktop; Card → List item внутри Card, оси Style нет с 2026-11-15), Left, Content, Right (DS Web ?List)

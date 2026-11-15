@@ -69,7 +69,7 @@ Modal,DS Web,base modal footer / two buttons,var,default|horizontal|horizontal z
 Modal,DS Web,base modal footer / empty,(set),—,Footer,None,
 Modal,DS Web,base modal footer,description / fade,bool,слот Footer,текст в слоте,fade — в коде при скролле
 List item,DS Web,List,Desktop,True|False,Size,L|M,
-List item,DS Web,List,Card,False|True,Style,Plain|Card,
+List item,DS Web,List,Card,False|True,—,List item внутри Card,Style удалён 2026-11-15
 List item,DS Web,List,Devider,bool,Divider,bool,
 List item,DS Web,List,Left addon / Left Type,Coin|Icon secondary,Show leading + слот Leading,,
 List item,DS Web,Content,Type,Text first|Description first|Big value|Description only,Content,Text first|Description first|Big value|Description only,1:1
@@ -78,8 +78,8 @@ List item,DS Web,List,(state),—,State,Default|Hover,Hover — новое
 Legend item,DS Web,.legends,state,default|hover|active|skeleton,State,Default|Hover|Active|Skeleton,1:1
 Legend item,DS Web,.legends,slot (маркер),—,Legend swatch (exposed),Marker × Series,Series = data/1…8
 Progress circle,DS Web,baseCircleLoader,percent,0…100,Value + Arc,,дуга задаётся в Arc
-Sheet,DS App,bottom sheet menu,var,more|send|top up|top up coinhold|exchange|coin change,Type=Menu + слот Items,пресеты = содержимое,
-Sheet,DS App,—,—,—,Type=Default,—,новое: шторка край-в-край со слотами
+Sheet,DS App,bottom sheet menu,var,more|send|top up|top up coinhold|exchange|coin change,слот Items,пресеты = содержимое,Type удалён 2026-11-15
+Sheet,DS App,—,—,—,—,—,новое: шторка край-в-край со слотами (один компонент без осей)
 Nav item,DS Web,Sidebar item / Navbar item,(state),default|hover|active,State,Default|Hover|Active,36 / радиус 12 / иконка 24 / текст 16
 Sidebar,DS Web,sidebar / default,ru,false|true,—,локализация текстом,
 Sidebar,DS Web,sidebar / default,Header frame / Navbar / Footer frame,—,слоты Header / Nav / Footer,,Primary + Secondary navigation через divider
@@ -87,26 +87,26 @@ Balance widget,DS Web,Balance widget + Hotkeys (в sidebar),—,—,Balance widg
 Tabs,DS Web,widget Navigation header / .tab,(desktop / mobile),64 / 44,Tab / Tabs Size,XL / M,табы-заголовок страницы
 Stat card,—,—,—,—,Stat card,—,новое: в legacy только в макетах продуктов
 Chart (будет),DS Web,bar widget,type,horizont|vertical|circle,—,—,следующий этап
-Table cell / Text,DS Web,table / label text,text | state | hover,bool | default/skeleton/disable | bool,Show secondary | State | —,bool | Default/Skeleton/Disabled | Hover у Table row,
-Table cell / Date time,DS Web,table / date time · table / line label text,var,row/column,Layout,Row/Column,
-Table cell / Coin,DS Web,table / coin md label text · table / coin sm label text,(set) | coin symbol | icon blockchain,md/sm | instance | bool,Size | слот монеты,M/S,
-Table cell / Transaction,DS Web,table / transaction,var | text value,debit/сredit/neutral primary/neutral secondary | bool,Direction | Value,Debit/Credit/Neutral/Neutral secondary,skeleton/disable из var → State
-Table cell / Image,DS Web,table / image label text,state,image label text/disable/skeleton,State,Default/Disabled/Skeleton,
-Table cell / Avatar,DS Web,table / avatar label text,achieves | star achieve | shield achieve | text badge,bool,Achieves | Star achieve | Shield achieve | —,bool,
-Table cell / Progress,DS Web,table / progress line,puller | puller string | text,bool | text | bool,Percent,text,
-Table cell / Badge,DS Web,table / badge,state,default/skeleton/disable,State,Default/Skeleton/Disabled,
-Table cell / Toggle,DS Web,table / toggle,state,default/skeleton/disable,State,Default/Skeleton/Disabled,
-Table cell / Star,DS Web,table / star,star active,false/true,Active,Off/On,
-Table cell / Icon,DS Web,table / icon,icon color,secondary/primary,Color,Secondary/Primary,
-Table cell / Buttons,DS Web,table / small buttons,button 2 | button 3,bool,Button 2 | Button 3,bool,
-Table cell / More,DS Web,table / more button,status | button hover,bool | true/false,Status | —,bool,hover — состояние Icon button
+Table cell,DS Web,table / label text,text | state | hover,bool | default/skeleton/disable | bool,слот Content | State | —,текст 1–2 строки | Default/Skeleton/Disabled | Hover у Table row,бывший Table cell / Text; Show secondary удалён 2026-11-15
+Table cell,DS Web,table / date time · table / line label text,var,row/column,слот Content,текст: дата + время второй строкой,Table cell / Date time удалён 2026-11-15
+Table cell,DS Web,table / coin md label text · table / coin sm label text,(set) | coin symbol | icon blockchain,md/sm | instance | bool,слот Content,Coin с тикером,Table cell / Coin удалён 2026-11-15
+Table cell,DS Web,table / transaction,var | text value,debit/сredit/neutral primary/neutral secondary | bool,слот Content + Align,Amount (знак) + End,Table cell / Transaction удалён 2026-11-15; skeleton/disable из var → State
+Table cell,DS Web,table / image label text,state,image label text/disable/skeleton,State,Default/Disabled/Skeleton,Table cell / Image удалён 2026-11-15; картинка — по согласованию
+Table cell,DS Web,table / avatar label text,achieves | star achieve | shield achieve | text badge,bool,слот Content,Avatar с именем,Table cell / Avatar удалён 2026-11-15
+Table cell,DS Web,table / progress line,puller | puller string | text,bool | text | bool,слот Content,Progress,Table cell / Progress удалён 2026-11-15
+Table cell,DS Web,table / badge,state,default/skeleton/disable,слот Content + State,Badge + Default/Skeleton/Disabled,Table cell / Badge удалён 2026-11-15
+Table cell,DS Web,table / toggle,state,default/skeleton/disable,слот Content + State,Toggle S + Default/Skeleton/Disabled,Table cell / Toggle удалён 2026-11-15
+Table cell,DS Web,table / star,star active,false/true,слот Content,Icon button Ghost S,Table cell / Star удалён 2026-11-15; действие — последней колонкой
+Table cell,DS Web,table / icon,icon color,secondary/primary,слот Content,иконка,Table cell / Icon удалён 2026-11-15
+Table cell,DS Web,table / small buttons,button 2 | button 3,bool,слот Content,Icon button Ghost S ×1–3,Table cell / Buttons удалён 2026-11-15; последней колонкой
+Table cell,DS Web,table / more button,status | button hover,bool | true/false,слот Content,Icon button Ghost S «⋯» → Menu,Table cell / More удалён 2026-11-15; hover — состояние Icon button
 Table header cell,DS Web,table title / text,mirror | state,false/true | default/skeleton,Align | State,Left/Right | Default/Skeleton,высота 44 / текст 16
-Chart card,DS Web,bar widget,type,vertical|horizont|circle,Type,Bars|Horizontal|Gauge,
+Chart card,DS Web,bar widget,type,vertical|horizont|circle,Chart plot в слоте Content,Bars|Horizontal|Gauge,ось Type у Chart card удалена 2026-11-15
 Chart card,DS Web,.layout / graphic · .layout / bar,top / center / bottom slot value,—,слоты Top / Content / Bottom,,
 Chart plot,DS Web,.graphics,state,loading|default|hover|disabled|empty,State,Loading|Default|Hover|Disabled|Empty,
-Chart axis label,DS Web,.chart,size | state,small/large | default/hover/active/skeleton,Size | State,S/L | Default/Hover/Active/Skeleton,
+— (текст),DS Web,.chart,size | state,small/large | default/hover/active/skeleton,текстовый стиль в Chart card / Chart plot,—,Chart axis label удалён 2026-11-15
 Tabs,DS Web,.tabs (в bar widget),(height),30,Tab / Tabs Size,S (32),
-Chart card,DS Web (песочница),widget Graph → «Песочница графиков» (mining / wl / monitoring / website),макет,—,Type,Line,графики продуктов не были компонентами
+Chart card,DS Web (песочница),widget Graph → «Песочница графиков» (mining / wl / monitoring / website),макет,—,Chart plot в слоте Content,Line,графики продуктов не были компонентами
 Chart plot,DS Web (песочница),хешрейт (линия),макет,—,Type,Line,
 Chart plot,DS Web (песочница),хешрейт WL / мощность Monitoring (область),макет,—,Type,Area,
 Chart plot,DS Web (песочница),хешрейт + реджекты (2-я ось),макет,—,Type,Line + Bars,
@@ -121,8 +121,8 @@ Chart plot,Firmware,Hash board → Hashrate,макет,—,Type,Area,гради�
 Chip map,Firmware,Hash board → Chips (+ легенда Normal / Underperforming / Failed),макет,—,Chip map,слот Chips,
 Chip cell,Firmware,чип в сетке,статус,normal/underperforming/failed,Status,Normal/Underperforming/Failed/Off,State Default/Hover/Selected
 Chart metric,Firmware,Intake / Exhaust RPM; Fans F1–F4; Fan speed / Miner temperature / Avg. total power / Running time,макет,—,Tone,Default/Danger/Warning/Success,
-Chart card,Firmware Archive,Chain's Hashrate / Power / Fans; Chains inlet temperature Inlet / Outlet,макет,—,Type=Line + Segmented в Top,,
-Input amount,DS Web,widget Input amount,State | Filled | Info icon | Input message,Default/Error/Focus | bool,State | Filled | Info icon | Message,Default/Focus/Error/Disabled | bool,Disabled — новое; Selector small → Select compact
+Chart card,Firmware Archive,Chain's Hashrate / Power / Fans; Chains inlet temperature Inlet / Outlet,макет,—,Chart plot Line + Segmented в Top,,
+Input amount,DS Web,widget Input amount,State | Filled | Info icon | Input message,Default/Error/Focus | bool,State | Info icon | Message,Default/Hover/Focus/Filled/Error/Disabled/Skeleton | bool,Filled → State=Filled (2026-11-15); Disabled — новое; Selector small → Select compact
 Accordion,DS Web,baseAccordion --1.5,open | mobile adaptive | state,bool | bool | default/skeleton,Open | Size | State,On/Off | L/M | Default/Hover/Skeleton,Hover — новое; контент — слот
 Slider,DS Web,base slider,var | with num | label / value in label / description / info icon,3–10 | bool,Steps | Labels | свойства,3/5/10 | On/Off,
 Avatar,DS Web,avatar · base avatar / single,size | var | status,micro/small/medium/large | text/icon/icon action/image | bool,Size | Type | Status,XS/S/M/L | Text/Icon/Image | bool,icon action → Icon button
@@ -140,15 +140,15 @@ Checkbox,DS Web,baseCheckbox with text,status,default|active|intermediate,Status
 Checkbox,DS Web,baseCheckbox with text,disable / danger / size,bool / bool / md|sm,State / Tone / Size,Disabled / Default|Danger / M|S,secondary не переносим; цвета → control/* (обновлено по набору Figma 2026-11-12)
 Radio,DS Web,baseRadio with text,active / disable / danger,bool,Status / State / Tone,Off|On / Disabled / Default|Danger,1:1; secondary не переносим; Size M|S — новое (обновлено 2026-11-12)
 Toggle,DS Web,baseToggle with text,active / disable / size,bool / bool / md|sm,Status / State / Size,Off|On / Disabled / M|S,danger не переносим (ошибка → откат + Toast)
-Input,DS Web,input,type,text input|multi select|single select|number,—,—,select → Select / Select compact; number → Input + Input addon / Stepper
+Input,DS Web,input,type,text input|multi select|single select|number,—,—,select → Select / Select compact; number → Input + Icon button Ghost S ×2 в Trailing
 Input,DS Web,input,size,large|small,Size,M|L|XL,"small 40→M, large 48→L; XL 56 — новое"
 Input,DS Web,input,state,default|disabled|filled|error|skeleton|loading|hover|active,State,Default|Hover|Focus|Filled|Error|Disabled|Read-only|Loading|Skeleton,active→Focus; Read-only — новое; слоты Leading/Inline/Trailing
 Select,DS Web,Selector small / Dropdown (Type=Net|Wallet|Coins…),Type,Default|Inactive,State,Default|Hover|Open|Filled|Error|Disabled|Loading|Skeleton,поле формы = Input + Chevron; компактный — Select compact
-Input addon / Max,DS Web,кнопка Max в input суммы,—,—,—,—,button; hit area fine/coarse
-Input addon / Stepper,DS Web,input type=number (−/+),—,—,—,—,Icon button Ghost S ×2; role=spinbutton
-Input addon / Unit · Chevron · Counter,DS Web,suffix / arrow / +N в input,—,—,—,—,слоты trailing/inline
+Input (слот Trailing),DS Web,кнопка Max в input суммы,—,—,—,Button Type=Text Size=S,Input addon / Max удалён 2026-11-15
+Input (слот Trailing),DS Web,input type=number (−/+),—,—,—,Icon button Ghost S ×2,Input addon / Stepper удалён 2026-11-15; role=spinbutton
+Input (слоты Inline / Trailing),DS Web,suffix / arrow / +N в input,—,—,—,текст / иконка / Counter,Input addon / Unit · Chevron · Counter удалены 2026-11-15
 Tab,DS Web,"base tab item, tab item",active / size,bool / —,Selected / Size,Off|On / S|M|L|XL,+ State Hover/Pressed/Disabled/Skeleton
-Segment,DS Web,"base segmented picker item / text, / icon only",active,bool,Selected / State / Tone,Off|On / Default|Hover|Pressed|Disabled / Neutral|Accent|Success|Danger,только внутри Segmented
+Segment,DS Web,"base segmented picker item / text, / icon only",active,bool,Selected / State / Tone,Off|On / Default|Hover|Pressed|Disabled / Neutral|Accent,только внутри Segmented; Success / Danger удалены 2026-11-15
 Tab bar item,DS App,нижняя навигация,active,bool,Selected,Off|On,"+ Badge dot, Focus ring"
 Tab bar,DS App,нижняя навигация,—,—,Safe area,bool,мобильный веб — та же схема
 Top bar,DS App,шапка экрана,—,—,Back / Title / Actions,bool / text / slot,Expressive: material/thin + прогрессивный блюр
@@ -157,7 +157,7 @@ Shell,DS Web / DS App,sidebar / default + widget Navigation header; каркас
 Legend swatch,DS Web,маркеры легенды графиков,—,—,Marker / Series,Dot|Line / 1–8,серия не только цветом
 Side panel,Web App,детали воркера/выплаты,—,—,Size,M|L,вместо модалки поверх таблицы
 Spinner,DS Web,ic-loader,—,—,Size,S|M|L,Loading у действий
-Skeleton,DS Web,skeleton (стиль заливки),—,—,Shape,Text|Title|Circle|Rect|Button|Input|Chip,бегущий блик; pulse при reduced motion
+Skeleton,DS Web,skeleton (стиль заливки),—,—,Shape,Text|Title|Circle|Rect,бегущий блик; pulse при reduced motion; Button / Input / Chip удалены 2026-11-15 → State=Skeleton контрола
 Counter,DS Web,Badge counter,status,neutral|danger,Tone / Size,Neutral|Accent|Danger / S|M,Accent — новое
 Status,DS Web,status dots в таблицах воркеров,—,—,Tone / Size,Success|Warning|Danger|Info|Neutral / S|M,не только цветом: точка + подпись
 Progress,—,—,—,—,Tone / Size,Accent|Success|Warning|Danger / S|M,новое

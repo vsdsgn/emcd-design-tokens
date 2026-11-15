@@ -54,6 +54,7 @@
 - Helper переносится. Counter не переносится, прижат к концу строки.
 - Ширина: min `size/field/min` (160); по умолчанию поле тянется по контейнеру.
 - Слоты: `Leading` (иконка), `Inline` (суффикс, единица), `Trailing` (кнопки-иконки, спиннер). Зазоры `space/6`, `space/6`, `space/8`.
+- Содержимое слотов (2026-11-15, вместо удалённых `Input addon / *`): Leading — иконка, Coin, Avatar; Trailing — Icon button, Button, Counter. Единица — текстовый слой в слоте; шеврон и иконка — иконка напрямую; очистка и степпер — Icon button Ghost S; «Макс» — Button Type=Text Size=S; «+N» — Counter.
 - Языки (de, ar, hi, th, ja, kk) проверены: высота поля не меняется, строки не режутся по вертикали.
 
 ## 7. Events
@@ -81,7 +82,7 @@
 
 ## 12. Figma projection
 Набор `_Field base`, порядок осей: Size, Label position, Lines, State. Экземпляр в надстройке называется `Field` и раскрыт. Надстройки: `Input` и `Textarea` (действующие, заменены 2026-11-13), `Input · пилот`, `Textarea · пилот` (образцы).
-- Содержимое слотов по умолчанию: Leading — `icon/search`, Inline и Trailing — `Input addon / Unit`. Скриптом содержимое слота вложенного экземпляра меняется через `slot.children[0].swapComponent(…)`.
+- Содержимое слотов по умолчанию: Leading — `icon/search`, Inline и Trailing — текстовый слой единицы (до 2026-11-15 — `Input addon / Unit`, набор удалён). Скриптом содержимое слота вложенного экземпляра меняется через `slot.children[0].swapComponent(…)`.
 
 ## 13. Code projection
 Нет (DSP, Vue, Flutter недоступны — `docs/dsp-check-2026-11-12.md`). Ожидается внутренний компонент `FieldBase`, не экспортируется.

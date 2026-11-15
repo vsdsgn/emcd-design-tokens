@@ -1,4 +1,4 @@
-# Sheet — контракт · draft (2026-11-14)
+# Sheet — контракт · draft (2026-11-15)
 
 Заготовка: собрана автоматически. Набор заменён на месте (2026-11-13): фон, радиус и тень — слой `overlay surface`, нераскрытый экземпляр базы `_Overlay surface`; свойства набора не менялись. Поверхность, токены и приёмка базы — `docs/components/overlay-surface.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -6,7 +6,7 @@
 
 ## 1. Identity
 - Набор: `Sheet`. Status: draft. Level: unknown.
-- Figma: Components, страница «Sheet» (`364:3332`), набор `85:544`.
+- Figma: Components, страница «Sheet» (`364:3332`), компонент `58:270`.
 
 ## 2. Intent
 - Не описано.
@@ -15,35 +15,29 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `overlay surface`, `grabber`, `header`, `title`, `Header actions`, `close`, `Body`, `Сумма, сеть, адрес и статус транзакции. Контент — в слот Body.`, `Footer`, `Button`, `card`, `group title`, `Отправить`, `divider`, `Rectangle`.
-- Вложено: `_Overlay surface` ×2, `Icon button` ×1, `Button` ×2, `Menu item` ×2.
-- Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Слои с токенами: `overlay surface`, `grabber`, `header`, `title`, `Header actions`, `close`, `Body`, `Сумма, сеть, адрес и статус транзакции. Контент — в слот Body.`, `Footer`, `Button`.
+- Вложено: `_Overlay surface` ×1, `Icon button` ×1, `Button` ×2.
+- Служебные слои (вариантов из 1): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Оси State нет.
 
 ## 5. Properties
-Оси (варианты):
-
-| Ось | Значения | По умолчанию |
-|---|---|---|
-| Type | Default · Menu | — |
-
-Матрица полная: 2 вариантов.
+Осей нет: один компонент.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Title | текст | «Детали выплаты» | 1 из 2 |
-| Show grabber | булево | вкл | 1 из 2 |
-| Show close | булево | вкл | 1 из 2 |
-| Show footer | булево | вкл | 1 из 2 |
-| Header actions | SLOT | `undefined` | 1 из 2 |
-| Body | SLOT | `undefined` | 1 из 2 |
-| Footer | SLOT | `undefined` | 1 из 2 |
-| Show header actions | булево | выкл | 1 из 2 |
-| Items | SLOT | `undefined` | 1 из 2 |
+| Title | текст | «Детали выплаты» | 1 из 1 |
+| Show grabber | булево | вкл | 1 из 1 |
+| Show close | булево | вкл | 1 из 1 |
+| Show footer | булево | вкл | 1 из 1 |
+| Header actions | слот | — | 1 из 1 |
+| Body | слот | — | 1 из 1 |
+| Footer | слот | — | 1 из 1 |
+| Show header actions | булево | выкл | 1 из 1 |
+| Items | слот | — | 0 из 1 |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -58,7 +52,7 @@
 - Не описано: заполнить при переводе в beta.
 
 ## 10. Tokens
-- `корень`: интервал `space/16`; maxw `size/sheet/max`; отступы `modal/padding`, `os/safe-area/bottom`, `space/16`, `space/8`; радиус `radius/surface`.
+- `корень`: интервал `space/16`; maxw `size/sheet/max`; отступы `modal/padding`, `space/8`; радиус `radius/surface`.
 - `overlay surface`: эффект `material/thick/blur`, `shadow/ambient`, `shadow/key`; заливка / цвет `material/thick/fill`; радиус `radius/surface`.
 - `grabber`: заливка / цвет `border/default`; радиус `radius/chip`.
 - `header`: интервал `space/12`.
@@ -69,31 +63,27 @@
 - `Сумма, сеть, адрес и статус транзакции. Контент — в слот Body.`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - `Footer`: интервал `space/8`.
 - `Button`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/2`; высота `control/height/lg`; мин. ширина `size/button/min`; отступы `space/12`; радиус `radius/container`.
-- `card`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/level-1`; отступы `space/8`; радиус `radius/control`.
-- `group title`: отступы `space/20`, `space/4`, `space/8`.
-- `Отправить`: заливка / цвет `text/tertiary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- `divider`: отступы `space/20`.
-- `Rectangle`: заливка / цвет `border/subtle`.
 - Min / max корня: maxWidth 640 size/sheet/max.
-- Значений без переменной: 2 (напр. `(root):w=375`).
+- Значений без переменной: 1 (напр. `(root):w=375`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
-- Набор `Sheet`, вариантов 2 из 2; оси: Type.
-- Борда: «Sheet — борда · шаблон v3», разделов 10.
-- Описание: 1374 знаков, разделы: Status: Level: Type=Default — Type=Menu — Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
+- Компонент `Sheet`; оси: нет.
+- Борда: «Sheet — борда · шаблон v3», разделов 6.
+- Описание: 1244 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Поиск: Legacy: Motion: Expressive (привязано): Тень: Поверхность —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsSheet>`; Flutter: `DsSheet`.
-- Props: `type`: default | menu; `title`: string или слот; `showGrabber`: boolean = true; `showClose`: boolean = true; `showFooter`: boolean = true; `headerActions`: string или слот; `body`: string или слот; `footer`: string или слот; `showHeaderActions`: boolean = false; `items`: string или слот.
+- Props: `title`: string или слот; `showGrabber`: boolean = true; `showClose`: boolean = true; `showFooter`: boolean = true; `headerActions`: string или слот; `body`: string или слот; `footer`: string или слот; `showHeaderActions`: boolean = false; `items`: string или слот.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
-- Замечаний по манифесту нет.
+- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
+  - PROPS: Items 0 из 1
 
 ## 15. Migration
-- Legacy: DS App `bottom sheet menu` (more / send / top up / top up coinhold / exchange / coin change) → Type=Menu + слот Items; Type=Default — новое; радиус 12 → 24. DS Web — нет.
+- Legacy: DS App `bottom sheet menu` (more / send / top up / top up coinhold / exchange / coin change) → Sheet со слотом Items (оси Type нет с 2026-11-15); радиус 12 → 24. DS Web — нет.

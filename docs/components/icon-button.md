@@ -1,4 +1,4 @@
-# Icon button — контракт (2026-11-14)
+# Icon button — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -97,7 +97,7 @@
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 - `label` → `aria-label` и текст тултипа; `icon` — слот.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `minWidth 58 @tooltip` числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

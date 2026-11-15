@@ -1,4 +1,4 @@
-# Stat card — контракт (2026-11-14)
+# Stat card — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -56,7 +56,7 @@
 | Delta | булево | вкл | 1 из 2 |
 | Delta caption | текст | «к вчера» | 1 из 2 |
 | Show footer | булево | выкл | 1 из 2 |
-| Footer | SLOT | `undefined` | 1 из 2 |
+| Footer | слот | — | 1 из 2 |
 | Ambient light | булево | выкл | 2 из 2 |
 
 - Label, Value, Unit, Info, Delta, Delta caption, Show footer, Footer привязаны только к Default; Ambient light — к обоим вариантам.
@@ -108,7 +108,7 @@
 - Props: `label`: string или слот; `value`: string или слот; `unit`: string или слот; `info`: boolean = true; `delta`: boolean = true; `deltaCaption`: string или слот; `showFooter`: boolean = false; `footer`: string или слот; `ambientLight`: boolean = false.
 - Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 180, unit 64, delta caption 160) и maxWidth 248 у delta row.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -116,7 +116,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; Ambient light в Base не виден — проверять в Expressive; кода нет — parity props пропущена.
 
 ## 15. Migration
-- DS Web `stat card` (widget Graph) → Stat card (Label, Value, Unit, Delta, Footer); DS App — нет. Опора — карточки дашборда Mining (Web App / App); `Chart metric` сливается в Stat card. Нужен скрин прода.
+- DS Web `stat card` (widget Graph) → Stat card (Label, Value, Unit, Delta, Footer); DS App — нет. Опора — карточки дашборда Mining (Web App / App). Нужен скрин прода.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - На решение: Light · L1 / Dark · L1 — заливка `surface/level-1` совпадает с подложкой, карточку держит только обводка.

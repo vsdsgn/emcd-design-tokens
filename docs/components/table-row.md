@@ -1,4 +1,4 @@
-# Table row — контракт (2026-11-14)
+# Table row — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -9,23 +9,23 @@
 - Страница «Table». Часть Table: отдельно от таблицы не используется.
 
 ## 2. Intent
-- Строка таблицы: набор ячеек Table cell / … в колонках фиксированной ширины и разделитель снизу (`border/subtle`).
+- Строка таблицы: экземпляры Table cell со слотом Content в колонках фиксированной ширины и разделитель снизу (`border/subtle`).
 - Когда использовать: строка данных в Table на Web.
 - Когда нет: Compact — List item; пара «название — значение» — Key-value row.
 - Правило выбора варианта:
   - Density: Compact 48 (`size/table/row-sm`) — одна строка в ячейке, плотные списки; Regular 80 (`size/table/row-lg`) — две строки и медиа. В одной таблице одна плотность.
   - State: Hover — только если строка открывает детали (Side panel); Pressed — нажатие на кликабельную строку.
   - Selected=On — строка выбрана (массовые действия, открыта в Side panel); у выбранной есть Hover / Pressed.
-  - Колонки: текст и даты — у начала, числа и суммы — у конца; статус — Table cell / Status; действия — последней колонкой (Table cell / More, Table cell / Buttons).
-  - Ячейки — только наборы Table cell / … (Text, Date time, Coin, Transaction, Image, Avatar, Progress, Badge, Toggle, Star, Icon, Buttons, More, Status); ширины колонок задаются в макете.
-- Не делаем: две плотности в одной таблице; Hover у строки, которая ничего не открывает; произвольное содержимое вместо Table cell / …; действия не в последней колонке.
+  - Колонки: одна колонка — одно выравнивание и один тип содержимого; текст и даты — у начала, числа и суммы — у конца; действия (Icon button Ghost S, «⋯» → Menu) — последней колонкой.
+  - Ячейки — только экземпляры Table cell; содержимое — в слоте Content (текст или атом DS, правила — `table-cell.md`); ширины колонок задаются в макете.
+- Не делаем: две плотности в одной таблице; Hover у строки, которая ничего не открывает; произвольная вёрстка вместо Table cell и атома DS в слоте; действия не в последней колонке.
 
 ## 3. Anatomy
 - Корень — горизонтальный ряд ячеек, высота `size/table/row-sm` / `size/table/row-lg`, отступы `space/8`, обводка снизу `border/subtle`; Selected — заливка `accent/subtle`.
-- На макете шесть ячеек: `cell · Дата` (Table cell / Date time), `cell · Монета` (Table cell / Coin), `cell · Сумма` (Table cell / Transaction), `cell · Адрес` (Table cell / Text), `cell · Статус` (Table cell / Status), `cell · ⋯` (Table cell / More); у каждой min-width `size/table-cell/min`.
+- На макете шесть ячеек — экземпляры Table cell со своим содержимым слота: `cell · Дата` (текст, две строки), `cell · Монета` (Coin с тикером), `cell · Сумма` (Amount, End), `cell · Адрес` (текст), `cell · Статус` (Status), `cell · ⋯` (Icon button, End); у каждой min-width `size/table-cell/min`.
 - `state layer` — `state/layer` × `state/hover` / `state/pressed`.
 - Служебные: `focus ring` (`border/focus-ring`, `border/width/focus-ring`, внутреннее), `hit area · web` / `hit area · app`, `safe area · outer` (`control/safe-margin`).
-- Вложено: `Table cell / Date time` ×12, `Table cell / Coin` ×12, `Table cell / Transaction` ×12, `Table cell / Text` ×12, `Table cell / Status` ×12, `Table cell / More` ×12, `_Hit area` ×24, `_Safe margin` ×12.
+- Вложено: `Table cell` ×72, `_Hit area` ×24, `_Safe margin` ×12.
 - Служебные слои (вариантов из 12): кольцо фокуса 12 · зона Web 12 · зона касания 12 · безопасное поле 12.
 
 ## 4. States
@@ -34,7 +34,7 @@
 - Hover — слой `state/layer` × `state/hover`; только у строки, которая открывает детали.
 - Selected=On — заливка `accent/subtle` (цвет бренда); Hover / Pressed выбранной — слой состояния поверх.
 - Pressed — слой `state/layer` × `state/pressed`, темнее Hover.
-- Focus — свойство Focus ring: внутреннее кольцо, не наезжает на соседние строки. Disabled у строки нет — гасятся ячейки (State=Disabled у Table cell / …).
+- Focus — свойство Focus ring: внутреннее кольцо, не наезжает на соседние строки. Disabled у строки нет — гасятся ячейки (State=Disabled у Table cell).
 
 ## 5. Properties
 Оси (варианты):
@@ -57,7 +57,7 @@
 
 ## 6. Content / slots
 - Содержимое — у ячеек, по их правилам; ширина колонки фиксирована, текст ячейки не выходит за колонку.
-- Длинный текст и языки: ячейки Text, Date time, Coin — одна строка, усечение многоточием по ширине колонки (у End — выравнивание вправо); сумма Transaction не усекается (ширина колонки — по самой длинной сумме); Status — одна строка с многоточием.
+- Длинный текст и языки: текст в ячейке — одна строка, усечение многоточием по ширине колонки (у End — выравнивание вправо); сумма (Amount) не усекается (ширина колонки — по самой длинной сумме); Status — одна строка с многоточием.
 - Текст 200 %: высота строки 48 / 80 не растёт; текст усекается в пределах своей колонки, без наложения на соседние.
 - RTL: порядок колонок зеркалится, текст и даты — у начала, числа — у конца; цифры, адреса и тикеры не зеркалятся.
 
@@ -104,7 +104,7 @@
 - Props: `density`: compact | regular; `selected`: boolean.
 - Состояния (Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -112,7 +112,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; строка 856 шире ячейки стенда — колонки Статус и «⋯» видны только на 200 % в Light; усечение в ячейках после правок стендом в строке не перепроверено; RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- DS Web `.table / raw` → Table row: Density Compact 48 | Regular 80 (Regular — как legacy-ячейки 80), Selected Off | On, State Default | Hover | Pressed; ячейки — наборы Table cell / ….
+- DS Web `.table / raw` → Table row: Density Compact 48 | Regular 80 (Regular — как legacy-ячейки 80), Selected Off | On, State Default | Hover | Pressed; ячейки — Table cell со слотом Content (14 наборов `Table cell / *` слиты 2026-11-15).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Порядок вариантов: расставить по матрице Density × Selected × State.

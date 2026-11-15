@@ -53,7 +53,7 @@ const inst = (v, maxW) => { const i = v.createInstance(); if (maxW && i.width > 
 const loadFonts = async n => { for (const t of n.findAll(x => x.type === 'TEXT')) for (const s of t.getStyledTextSegments(['fontName'])) await figma.loadFontAsync(s.fontName); };
 const vprops = v => { try { return v.variantProperties || {}; } catch (e) { return Object.fromEntries(v.name.split(', ').map(x => x.split('='))); } };
 const SERVICE = ['Focus ring', 'Show hit area', 'Safe margin'];
-const TYPE = { VARIANT: 'вариант', BOOLEAN: 'булево', TEXT: 'текст', INSTANCE_SWAP: 'замена экземпляра' };
+const TYPE = { VARIANT: 'вариант', BOOLEAN: 'булево', TEXT: 'текст', INSTANCE_SWAP: 'замена экземпляра', SLOT: 'слот' };
 const live = async id => { const s = await figma.getNodeByIdAsync(id); if (!s) throw new Error('нет набора ' + id);
   const variants = s.type === 'COMPONENT_SET' ? s.children.filter(x => x.type === 'COMPONENT') : [s]; const defs = s.componentPropertyDefinitions || {};
   const axes = Object.keys(defs).filter(k => defs[k].type === 'VARIANT').map(k => ({ name: k, options: defs[k].variantOptions }));
@@ -100,7 +100,7 @@ try {
   { const r = sec('03', 'Свойства и варианты', 'Оси и свойства набора в Figma. Служебные свойства в код не переносятся.'); const rows = [];
     for (const k of Object.keys(defs)) { const d = defs[k]; const name = k.split('#')[0]; let vals = '', dv = String(d.defaultValue);
       if (d.type === 'VARIANT') vals = d.variantOptions.join(' · '); else if (d.type === 'BOOLEAN') { vals = 'On · Off'; dv = d.defaultValue ? 'On' : 'Off'; }
-      else if (d.type === 'INSTANCE_SWAP') { const n = await figma.getNodeByIdAsync(d.defaultValue); dv = n ? (n.parent && n.parent.type === 'COMPONENT_SET' ? n.parent.name + ' · ' + n.name : n.name) : '—'; vals = 'любой экземпляр'; } else vals = 'строка';
+      else if (d.type === 'INSTANCE_SWAP') { const n = await figma.getNodeByIdAsync(d.defaultValue); dv = n ? (n.parent && n.parent.type === 'COMPONENT_SET' ? n.parent.name + ' · ' + n.name : n.name) : '—'; vals = 'любой экземпляр'; } else if (d.type === 'SLOT') { vals = 'любое содержимое' + (d.preferredValues && d.preferredValues.length ? ' (предпочтительно: ' + d.preferredValues.length + ')' : ''); dv = '—'; } else vals = 'строка';
       rows.push([name, (TYPE[d.type] || d.type) + (SERVICE.includes(name) ? ' · служебное' : ''), vals, dv]); }
     if (rows.length) table(r, [['Свойство', 300], ['Тип', 260], ['Значения', 760], ['По умолчанию', 360]], rows); else add(r, T('У компонента нет осей и свойств: один вариант.', 15, 'Regular', INK, RW)); }
   // 04

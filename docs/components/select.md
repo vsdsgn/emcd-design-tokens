@@ -1,4 +1,4 @@
-# Select — контракт (2026-11-14)
+# Select — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -21,7 +21,7 @@
 
 ## 3. Anatomy
 - Корень — экземпляр Input (вложен во все 24 варианта): лейбл, поле, helper / ошибка под полем; min-width корня и `field` — `size/field/min`.
-- Справа в поле — шеврон (Input addon / Chevron): `icon/chevron-down`, в Open — `icon/chevron-up`; в Loading перед шевроном — спиннер; слева — необязательный слот Leading (Show leading у вложенного Input).
+- Справа в поле — шеврон (иконка в слоте Trailing): `icon/chevron-down`, в Open — `icon/chevron-up`; в Loading перед шевроном — спиннер; слева — необязательный слот Leading (Show leading у вложенного Input).
 - Служебный слой `focus ring` (`border/focus-ring`, `border/width/focus-ring`, радиусы `radius/focus-ring-sm` / `radius/focus-ring-inner`) — свойство Focus ring.
 - Вложено: `Input` ×24.
 - Служебные слои (вариантов из 24): кольцо фокуса 24 · зона Web 0 · зона касания 0 · безопасное поле 0.
@@ -98,7 +98,7 @@
 - Props: `size`: m | l | xl.
 - Состояния (Default, Hover, Open, Filled, Error, Disabled, Loading, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `loading`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

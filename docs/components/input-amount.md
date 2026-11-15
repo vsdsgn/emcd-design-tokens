@@ -1,4 +1,4 @@
-# Input amount — контракт (2026-11-14)
+# Input amount — контракт (2026-11-15)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -12,8 +12,7 @@
 - Когда использовать: суммы вывода и перевода с монетой и «Макс».
 - Когда нет: обычное число — Input.
 - Правило выбора варианта:
-  - State: Default — покой; Focus — идёт ввод; Error — сумма не прошла проверку (рамка, красное описание и сообщение снизу); Disabled — ввод недоступен; Hover — указатель над полем; Skeleton — данные грузятся (только Filled=False, отсюда 11 из 12).
-  - Filled: False — суммы нет, плейсхолдер (`text/tertiary`); True — сумма введена (`text/primary`).
+  - State: Default — суммы нет, плейсхолдер (`text/tertiary`); Hover — указатель над полем; Focus — идёт ввод; Filled — сумма введена (`text/primary`); Error — сумма не прошла проверку (рамка, красное описание и сообщение снизу); Disabled — ввод недоступен; Skeleton — данные грузятся. Как у семьи полей: Filled — значение State, не ось (7 вариантов).
   - «Макс» подставляет доступную сумму с учётом комиссии.
   - Сумма — Numeric в коде, разделители тысяч пробелом; ввод десятичных — по точности монеты.
 
@@ -23,17 +22,17 @@
 - `input row`: `amount` (`value` — `type/heading/lg`, `font/family/display`; под ним `description` — `type/label/sm`) и `currency` — Select compact (Show currency).
 - `message` — текст ошибки (`text/danger`), виден в State=Error.
 - Служебные слои: `state layer`, `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer`.
-- Вложено: иконки ×11, `Button` ×11, `Select compact` ×11, `_Hit area` ×22, `_Safe margin` ×11.
-- Служебные слои (вариантов из 11): кольцо фокуса 11 · зона Web 11 · зона касания 11 · безопасное поле 11.
+- Вложено: иконки ×7, `Button` ×7, `Select compact` ×7, `_Hit area` ×14, `_Safe margin` ×7.
+- Служебные слои (вариантов из 7): кольцо фокуса 7 · зона Web 7 · зона касания 7 · безопасное поле 7.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Поле: Hover — слой `state/layer` × `state/hover`, обводка остаётся `control/border/default`; Pressed нет; Focus — `control/border/focus` + кольцо; Disabled — токены `*/disabled`.
-- Default — рамка `control/border/default`; Filled=False — сумма цветом плейсхолдера, True — основным.
+- Default — рамка `control/border/default`, сумма цветом плейсхолдера; Filled — та же рамка, сумма основным цветом.
 - Focus — рамка `control/border/focus`.
 - Error — рамка `control/border/error`, описание красным (`text/danger`), снизу сообщение; поле выше на строку.
 - Disabled — заливка `control/surface/disabled`, рамка `control/border/disabled`; подпись, баланс, «Макс», сумма и описание — `text/disabled`, иконка info — `icon/disabled`, Select compact — в Disabled.
 - Hover — слой `state/layer` × `state/hover` поверх поля.
-- Skeleton — плашка `skeleton/base` вместо поля; только Filled=False.
+- Skeleton — плашка `skeleton/base` вместо поля.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 5. Properties
@@ -41,26 +40,25 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Filled | False · True | False |
-| State | Default · Focus · Error · Disabled · Hover · Skeleton | Default |
+| State | Default · Focus · Error · Disabled · Hover · Skeleton · Filled | Default |
 
-Матрица: 11 из 12.
+Матрица полная: 7 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «Пополняю» | 11 из 11 |
-| Value | текст | «1 250.00» | 11 из 11 |
-| Description | текст | «От 1000 USDT» | 11 из 11 |
-| Balance | текст | «0.40004192» | 11 из 11 |
-| Info icon | булево | вкл | 11 из 11 |
-| Show balance | булево | вкл | 11 из 11 |
-| Message | текст | «Недостаточно средств на балансе» | 11 из 11 |
-| Show currency | булево | вкл | 11 из 11 |
-| Focus ring | булево | выкл | 11 из 11 · служебное |
-| Show hit area | булево | выкл | 11 из 11 · служебное |
-| Safe margin | булево | выкл | 11 из 11 · служебное |
+| Label | текст | «Пополняю» | 7 из 7 |
+| Value | текст | «1 250.00» | 7 из 7 |
+| Description | текст | «От 1000 USDT» | 7 из 7 |
+| Balance | текст | «0.40004192» | 7 из 7 |
+| Info icon | булево | вкл | 7 из 7 |
+| Show balance | булево | вкл | 7 из 7 |
+| Message | текст | «Недостаточно средств на балансе» | 7 из 7 |
+| Show currency | булево | вкл | 7 из 7 |
+| Focus ring | булево | выкл | 7 из 7 · служебное |
+| Show hit area | булево | выкл | 7 из 7 · служебное |
+| Safe margin | булево | выкл | 7 из 7 · служебное |
 
 ## 6. Content / slots
 - Label — что делает сумма («Пополняю»); Value — число с разделителем тысяч пробелом; Description — лимит («От 1000 USDT»); Balance — доступная сумма; Message — причина ошибки («Недостаточно средств на балансе»).
@@ -99,25 +97,25 @@
 - `message`: заливка / цвет `text/danger`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`; радиус `radius/control-sm`.
 - Min / max корня: minWidth 160 size/field/min.
-- Значений без переменной: 35 (напр. `(root):w=395`, `hit area · web:w=395`, `hit area · web:h=126`, `hit area · web:h=160`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 23 (напр. `(root):w=395`, `hit area · web:w=395`, `hit area · web:h=126`, `hit area · web:h=160`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Input amount`, вариантов 11 из 12; оси: Filled, State.
+- Набор `Input amount`, вариантов 7 из 7; оси: State.
 - Борда: «Input amount — борда · шаблон v3», разделов 12.
-- Описание: 1140 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Хаптик: Поиск: Legacy: Матрица:
+- Описание: 1238 знаков, разделы: Status: Level: A11y: Когда использовать: Хаптик: Поиск: Legacy: State:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsInputAmount>`; Flutter: `DsInputAmount`.
-- Props: `filled`: boolean; `label`: string или слот; `value`: string или слот; `description`: string или слот; `balance`: string или слот; `infoIcon`: boolean = true; `showBalance`: boolean = true; `message`: string или слот; `showCurrency`: boolean = true.
-- Состояния (Default, Focus, Error, Disabled, Hover, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
+- Props: `label`: string или слот; `value`: string или слот; `description`: string или слот; `balance`: string или слот; `infoIcon`: boolean = true; `showBalance`: boolean = true; `message`: string или слот; `showCurrency`: boolean = true.
+- Состояния (Default, Focus, Error, Disabled, Hover, Skeleton, Filled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-14)
+## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label text 180).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -125,7 +123,8 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- DS Web widget `Input amount` (Info icon, Input message, State Default / Error / Focus, Filled) → Input amount: Info icon, Message, State Default | Focus | Error, Filled; Disabled, Hover и Skeleton — новые; кнопка Max → Button Type=Text Size=S; Show balance, Show currency — новые свойства; `Selector small` → Select compact.
+- DS Web widget `Input amount` (Info icon, Input message, State Default / Error / Focus, Filled) → Input amount: Info icon, Message, State Default | Focus | Error, Filled → State=Filled; Disabled, Hover и Skeleton — новые; кнопка Max → Button Type=Text Size=S; Show balance, Show currency — новые свойства; `Selector small` → Select compact.
+- MAJOR 2026-11-15: ось Filled удалена → State=Filled (было 11 вариантов, стало 7); на `_Field base` не пересажен — паттерн-исключение семьи полей (другая анатомия).
 - DS App `input amount` + `amount slider` → Input amount; слайдер суммы (DS Web `base slider`) не переносим: набора Slider в библиотеке нет.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
@@ -133,4 +132,4 @@
 - Value и Description обрезаются без многоточия — задать усечение или правило для суммы, которая не помещается.
 - Текст 200 %: Message в Error не переносится и выходит за рамку — включить перенос.
 - Ширина корня 395 и `hit area · web` 395 × 126 / 160 — числом.
-- На решение: Focus — рамка 1 px, Error — 2 px; Disabled Filled=True неотличим от False; Hover на L1 почти сливается с подложкой.
+- На решение: Focus — рамка 1 px, Error — 2 px; Hover на L1 почти сливается с подложкой.

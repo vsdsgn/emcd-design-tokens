@@ -1,71 +1,81 @@
-# Dot — контракт · draft (2026-11-13)
+# _Dot — контракт (2026-11-15)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Dot`. Status: не указан. Level: atom.
-- Figma: Components, страница «Status» (`366:101`), набор `720:75926`.
+- Набор: `_Dot`. Status: service. Level: unknown.
+- Figma: Components, страница «Status» (`366:101`), набор `720:75926`. Платформы: Web, Mobile web, iOS, Android.
+- Служебный набор (имя с «_», Status: service, с 2026-11-15): не публикуется, в макетах напрямую не используется — только внутри Status, Tab bar item (точка-бейдж) и легенд.
 
 ## 2. Intent
-- Точка тона: Success · Warning · Danger · Info · Neutral; S 6 · M 8. Используется в Status, Tab bar item (badge dot), легендах.
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Точка тона: Success · Warning · Danger · Info · Neutral; S 6 · M 8.
+- Когда использовать: только внутри наборов DS: Status, Tab bar item, легенды.
+- Когда нет: статус объекта в макете — Status (точка + подпись); непрочитанное — Counter; страница карусели — Page indicator.
+- Правило выбора варианта:
+  - Tone — по смыслу родителя (Status: Success — работает, Warning — внимание, Danger — не работает, Info — в процессе, Neutral — выключен).
+  - Size: S 6 — таблицы и плотные списки; M 8 — карточки и шапки (как Size у Status).
+- Не делаем: точка без подписи или `aria-label` у родителя; смысл только цветом.
 
 ## 3. Anatomy
-- Слои с токенами: `dot`.
+- Корень `size/dot/sm` | `size/dot/md`; слой `dot` — круг, заливка `status/*/solid` по Tone.
 - Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Оси State нет.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
+- Состояний нет; смена тона — смена данных у родителя.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | S · M | — |
-| Tone | Success · Warning · Danger · Info · Neutral | — |
+| Size | S · M | S |
+| Tone | Success · Warning · Danger · Info · Neutral | Success |
 
 Матрица полная: 10 вариантов.
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Текста нет: длинный текст, языки и 200 % не влияют.
+- RTL: точка симметрична; сторону задаёт родитель.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- Нет.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Статична; пульсации нет.
 
 ## 9. Accessibility
-- |
+- Декоративна (`aria-hidden`); смысл озвучивает родитель (подпись Status).
 
 ## 10. Tokens
 - `корень`: высота `size/dot/md`, `size/dot/sm`; ширина `size/dot/md`, `size/dot/sm`.
 - `dot`: заливка / цвет `status/danger/solid`, `status/info/solid`, `status/neutral/solid`, `status/success/solid`, `status/warning/solid`; высота `size/dot/md`, `size/dot/sm`; ширина `size/dot/md`, `size/dot/sm`.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Dot`, вариантов 10 из 10; оси: Size, Tone.
+- Набор `_Dot`, вариантов 10 из 10; оси: Size, Tone.
 - Борда: «Status — борда · шаблон v3», разделов 9.
-- Описание: 138 знаков, разделы: Level: Точка тона:
+- Описание: 540 знаков, разделы: Status: Level: Точка тона: Когда использовать: Правила: A11y: Поиск:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsDot>`; Flutter: `DsDot`.
+- Служебный набор: в публичный API библиотеки не выходит — внутренняя часть родителя.
 - Props: `size`: s | m; `tone`: success | warning | danger | info | neutral.
 
-## 14. Acceptance (2026-11-13)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Status: первой строкой, Когда использовать:, Правила:, A11y:
-  - BOARD: нет разделов 05, 07
+## 14. Acceptance (2026-11-15)
+- `audit.plugin.js` — 0 замечаний (вместе со Status).
+- `variables-check.plugin.js` — 0 замечаний.
+- `audit-parity.plugin.js` — 0 (2026-11-13, вместе со Status).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: отдельный стенд не снимался — проверен в составе Status; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Был набор `Dot` (атом), 2026-11-15 → служебный `_Dot`: в макетах — Status, а не голая точка.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Описание Figma: строки Legacy нет.
