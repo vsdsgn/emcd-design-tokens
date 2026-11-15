@@ -50,6 +50,18 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
 
+## Выполнение решений 15.11 (Стефан: «делай всё по своим рекомендациям»)
+
+Номера — из ответа 14.11 (см. `OPEN-QUESTIONS.md` «Перепроверка 14.11»). Отмечать по ходу.
+- [x] 18, 19 — Alert, Table убраны из `claude-ds/status.json` и `docs/parity-baseline.json`.
+- [x] 22, 20 — Alert и живые компоненты 🗄 Старые доски → 🗄 Archive; страницы удалить.
+- [x] 2 Overlay удалить · 5 Chart axis label → текст в Chart card / Chart plot · 4 Dot, Page dot, Step segment → `_…` · 6 Status screen → страница шаблонов.
+- [x] 7 Skeleton без Button / Input / Chip · 11 Segment без Success / Danger · 9 оси Chart card Type, Sheet Type, List item Style=Card, Step symbol Type=Checked · 16 Input amount Filled → State.
+- [x] 1 аддоны Input · 3 Table cell → одна ячейка · 8 Transaction, Notification на `_List row`.
+- [ ] 10 токен `status/neutral/subtle` (Foundations, публикует Стефан) · 12, 13, 14, 15, 17 — модели и парковка в доках.
+- [ ] Tooltip, Toast, Suggest, List item → beta (стенд, Dark); организмы.
+- [ ] Борды затронутых наборов, манифест целиком, контракты, Карта компонентов, Claude DS; 21 — страница генератора удалить в конце.
+
 ## Состояние на 2026-11-14 — перепроверка после «косяков много»
 
 Стефан: «косяков много, перепроверить». Сначала компоненты, потом один прогон всех борд генератором — **сделано: 65 борд пересобраны генератором v3** (старые — на странице «🗄 Борды до генератора 14.11», удалить после «ок» Стефана). Решения (п. 1–20 в `OPEN-QUESTIONS.md`) Стефан смотрит в конце, работа по ним не блокируется.
