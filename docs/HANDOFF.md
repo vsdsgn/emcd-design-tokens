@@ -56,7 +56,8 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 - Перепривязка неинтерактивных подложек на `status/neutral/subtle`: Avatar, Badge, Counter, Step symbol, Transaction (плашка иконки), Coin stack, Avatar group, Chart crosshair, Accordion (шеврон) — 124 слоя. «+N» у Avatar group и Coin stack — непрозрачная подложка `surface/default` + тон.
 - Components принял `surface/raised` Dark `neutral/700`: стенд Dark 15.11 — Tooltip, Toast, Suggest, List item различимы на L0–L2, на L3 держатся на обводке → **beta**; `_Tooltip arrow` — service. Контракты (субагент, сверены с манифестом), борды пересобраны (старые ручные Tooltip / Toast / Suggest заменены). List item — тексты BTC / Bitcoin.
 - Манифест: батчи N3, N7, N8, N9, N12, N13 пересняты; beta 75, draft 15, service 4, template 1. Проверки чистые.
-- Осталось: организмы (14 draft; Pagination, File upload, Snack, Side panel — в парковке); страница генератора — удалить, когда борды больше не нужны; Claude DS — синк.
+- **Claude DS синхронизирован 2026-11-15 (cae1d3b):** 8 файлов — tokens.json (+ status-neutral-subtle, text-link-inverse), README, Tooltip, Toast, ListItem → beta.
+- Осталось: организмы (14 draft; Pagination, File upload, Snack, Side panel — в парковке); страница генератора — удалить, когда борды больше не нужны.
 
 ## Выполнение решений 15.11 (Стефан: «делай всё по своим рекомендациям»)
 
