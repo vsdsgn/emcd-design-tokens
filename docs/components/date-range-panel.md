@@ -84,7 +84,7 @@
 
 ## 12. Figma projection
 - Набор `Date range panel`, вариантов 2 из 2; оси: Presets.
-- Борда: «Date range panel — борда · шаблон v3», разделов 9.
+- Борда: «Date range panel — борда · шаблон v3», разделов 11.
 - Описание: 1050 знаков, разделы: Status: Level: Панель выбора периода: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection

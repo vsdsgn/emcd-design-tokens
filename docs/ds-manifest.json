@@ -9,19 +9,19 @@
    "unknown": 95
   },
   "status": {
-   "beta": 79,
-   "draft": 11,
+   "beta": 87,
+   "draft": 3,
    "service": 4,
    "template": 1
   },
   "variants": 1598,
   "incompleteMatrix": 14,
-  "propsNotBoundEverywhere": 14,
+  "propsNotBoundEverywhere": 13,
   "rawMinMax": 0,
   "withRawValues": 68,
   "withFocusRing": 21,
   "withHitArea": 20,
-  "withSafeMargin": 22,
+  "withSafeMargin": 23,
   "pagesWithoutV3Board": 1,
   "pagesWithFullBoard": 19,
   "baseSets": 11
@@ -1460,7 +1460,7 @@
    "boards": [
     {
      "name": "Calendar — борда · шаблон v3",
-     "id": "956:14840",
+     "id": "2143:4914",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -1468,18 +1468,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
+    "05"
    ],
    "sets": [
     {
@@ -1735,38 +1735,38 @@
    "level": "unknown",
    "page": "Chart card",
    "pageId": "367:45869",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Chart card — борда · шаблон v3",
-     "id": "2132:4214",
+     "id": "2151:1874",
      "v3": true,
      "sections": [
+      "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "01",
     "05",
-    "07",
-    "08",
-    "09",
-    "10",
-    "12"
+    "07"
    ],
    "sets": [
     {
      "name": "Chart card",
      "id": "99:802",
      "type": "COMPONENT",
-     "status": "draft",
-     "descLen": 1133,
+     "status": "beta",
+     "descLen": 1132,
      "descHeads": [
       "Status:",
       "Level:",
@@ -2121,11 +2121,11 @@
    "level": "unknown",
    "page": "Chart plot",
    "pageId": "2093:1266",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Chart plot — борда · шаблон v3",
-     "id": "1713:14518",
+     "id": "2151:4768",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -2133,26 +2133,26 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08",
-    "12"
+    "05"
    ],
    "sets": [
     {
      "name": "Chart plot",
      "id": "97:921",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1629,
+     "status": "beta",
+     "descLen": 1689,
      "descHeads": [
       "Status:",
       "Level:",
@@ -2188,8 +2188,8 @@
      "full": 35,
      "props": [],
      "nested": {
-      "Chart crosshair": 6,
-      "Chart tooltip": 6
+      "Chart crosshair": 7,
+      "Chart tooltip": 7
      },
      "minmax": [],
      "layers": {
@@ -2267,14 +2267,6 @@
        "f:data/4",
        "r:radius/2xs"
       ],
-      "halo": [
-       "f:data/1"
-      ],
-      "point": [
-       "f:data/1",
-       "s:surface/level-1",
-       "sw:border/width/focus"
-      ],
       "Chart tooltip": [
        "effects:shadow/ambient",
        "effects:shadow/key",
@@ -2287,6 +2279,14 @@
        "r:radius/sm",
        "s:border/default",
        "sw:border/width/default"
+      ],
+      "halo": [
+       "f:data/1"
+      ],
+      "point": [
+       "f:data/1",
+       "s:surface/level-1",
+       "sw:border/width/focus"
       ],
       "Нет данных за период": [
        "f:text/tertiary",
@@ -3913,7 +3913,7 @@
    "boards": [
     {
      "name": "Date range panel — борда · шаблон v3",
-     "id": "1667:10384",
+     "id": "2143:26243",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -3921,18 +3921,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -4137,7 +4137,7 @@
    "boards": [
     {
      "name": "Dropdown panel — борда · шаблон v3",
-     "id": "1663:6979",
+     "id": "2144:4105",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -4145,18 +4145,18 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -4284,11 +4284,11 @@
    "level": "unknown",
    "page": "Empty state",
    "pageId": "366:3230",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Empty state — борда · шаблон v3",
-     "id": "957:11832",
+     "id": "2151:8016",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -4296,6 +4296,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -4306,16 +4307,15 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
      "name": "Empty state",
      "id": "55:426",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1287,
+     "status": "beta",
+     "descLen": 1286,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4808,11 +4808,11 @@
    "level": "unknown",
    "page": "Header",
    "pageId": "366:5290",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Page header — борда · шаблон v3",
-     "id": "957:4894",
+     "id": "2151:14189",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -4820,6 +4820,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -4830,16 +4831,15 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
      "name": "Page header",
      "id": "67:410",
      "type": "SET",
-     "status": "draft",
-     "descLen": 940,
+     "status": "beta",
+     "descLen": 1023,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4962,6 +4962,7 @@
        "lineHeight:type/body/md/line-height"
       ],
       "Actions": [
+       "gap2:space/8",
        "gap:space/8"
       ],
       "Button": [
@@ -6112,7 +6113,7 @@
    "boards": [
     {
      "name": "Menu — борда · шаблон v3",
-     "id": "940:4872",
+     "id": "2144:11955",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -6120,6 +6121,8 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -6129,9 +6132,7 @@
     }
    ],
    "boardMissing": [
-    "05",
-    "07",
-    "08"
+    "05"
    ],
    "sets": [
     {
@@ -6337,11 +6338,11 @@
    "level": "unknown",
    "page": "Modal",
    "pageId": "364:3195",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Modal — борда · шаблон v3",
-     "id": "953:4496",
+     "id": "2151:19954",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -6349,6 +6350,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -6359,16 +6361,15 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
      "name": "Modal",
      "id": "81:829",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1886,
+     "status": "beta",
+     "descLen": 1901,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6915,11 +6916,11 @@
    "level": "unknown",
    "page": "Navigation",
    "pageId": "366:3392",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Sidebar — борда · шаблон v3",
-     "id": "957:8489",
+     "id": "2151:26358",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -6927,6 +6928,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -6937,16 +6939,15 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
      "name": "Sidebar",
      "id": "66:370",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1092,
+     "status": "beta",
+     "descLen": 1091,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9328,38 +9329,38 @@
    "level": "unknown",
    "page": "Sheet",
    "pageId": "364:3332",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Sheet — борда · шаблон v3",
-     "id": "2132:6861",
+     "id": "2151:29961",
      "v3": true,
      "sections": [
+      "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "01",
     "05",
-    "07",
-    "08",
-    "09",
-    "10",
-    "12"
+    "07"
    ],
    "sets": [
     {
      "name": "Sheet",
      "id": "58:270",
      "type": "COMPONENT",
-     "status": "draft",
-     "descLen": 1244,
+     "status": "beta",
+     "descLen": 1259,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9422,11 +9423,6 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 1
-      },
-      {
-       "name": "Items",
-       "type": "SLOT",
-       "bound": 0
       }
      ],
      "nested": {
@@ -9442,7 +9438,7 @@
       "hitWeb": 0,
       "hitApp": 0,
       "hit": 0,
-      "safe": 0
+      "safe": 1
      },
      "rawCount": 1,
      "raw": [
@@ -9507,6 +9503,9 @@
        "minw:size/button/min",
        "p:space/12",
        "r:radius/container"
+      ],
+      "safe area": [
+       "h:os/safe-area/bottom"
       ]
      },
      "statusFirstLine": true
@@ -11336,7 +11335,7 @@
    "level": "unknown",
    "page": "Tab bar",
    "pageId": "366:4724",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Tab bar — борда",
@@ -11369,8 +11368,8 @@
      "name": "Tab bar",
      "id": "66:371",
      "type": "COMPONENT",
-     "status": "draft",
-     "descLen": 933,
+     "status": "beta",
+     "descLen": 1015,
      "descHeads": [
       "Status:",
       "Level:",

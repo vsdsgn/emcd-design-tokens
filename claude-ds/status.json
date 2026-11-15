@@ -13,7 +13,7 @@
     "IconButton": "beta",
     "Input": "beta",
     "ListItem": "beta",
-    "Modal": "draft",
+    "Modal": "beta",
     "Notification": "beta",
     "Pagination": "beta",
     "PasswordField": "beta",

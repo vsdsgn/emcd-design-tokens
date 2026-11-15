@@ -5,13 +5,13 @@
 
 ## Сводка
 
-- Наборов не в beta: 16 (draft 11, другой статус 5: _Page dot (service), _Dot (service), _Step segment (service), _Tooltip arrow (service), Status screen (template)).
-- Без замечаний по манифесту: 13 (Chart card, Chart plot, Empty state, File upload, Page header, Sidebar, _Page dot, Side panel, Snack, _Dot, _Step segment, _Tooltip arrow, Status screen).
-- Наборов с замечанием: DESC — 1, PROPS — 1, BOARD — 1.
+- Наборов не в beta: 8 (draft 3, другой статус 5: _Page dot (service), _Dot (service), _Step segment (service), _Tooltip arrow (service), Status screen (template)).
+- Без замечаний по манифесту: 8 (File upload, _Page dot, Side panel, Snack, _Dot, _Step segment, _Tooltip arrow, Status screen).
+- Наборов с замечанием: .
 
 Коды: DESC — разделы описания; MATRIX — неполная матрица осей; AXES — булева ось (кроме осей выбора Status / Selected и списка BOOL_OK) или Left / Right; PROPS — свойство не привязано ни в одном варианте; MINMAX — min / max числом; RAW — значения без переменной (без размеров образца на корне и зоны нажатия; строки реестра docs/exceptions.md — в списке RAW_OK); SERVICE — у набора с Hover / Pressed / Focus нет служебных слоёв; BOARD — нет борды v3 или её разделов (разделы, которых у набора нет по смыслу, перечисляет блок «Не собрано в этой версии» на самой борде).
 
-## Уровень не указан в манифесте (16)
+## Уровень не указан в манифесте (8)
 
 | Набор | Страница | Вариантов | Замечания |
 |---|---|---|---|
@@ -19,15 +19,7 @@
 | _Page dot | Page dot | 2 | — |
 | _Step segment | Step segment | 3 | — |
 | _Tooltip arrow | Tooltip | 2 | — |
-| Chart card | Chart card | 1 | — |
-| Chart plot | Chart plot | 23 | — |
-| Empty state | Empty state | 5 | — |
 | File upload | File upload | 6 | — |
-| Modal | Modal | 12 | DESC: нет: Правила: |
-| Page header | Header | 2 | — |
-| Sheet | Sheet | 1 | PROPS: Items 0 из 1 |
 | Side panel | Side panel | 2 | — |
-| Sidebar | Navigation | 2 | — |
 | Snack | Snack | 5 | — |
 | Status screen | Шаблоны экранов (не Base) | 3 | — |
-| Tab bar | Tab bar | 1 | BOARD: нет борды v3 |

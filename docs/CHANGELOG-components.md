@@ -2,6 +2,18 @@
 
 Формат: дата · что · где. Пишется после каждой группы правок.
 
+## 2026-11-15 (организмы, пакет 2)
+
+- **Chart card, Chart plot, Empty state, Page header, Modal, Sidebar, Sheet, Tab bar → beta** по стенду: контракты в `scripts/contract-data.mjs`, борды v3 пересобраны (кроме Tab bar: старая борда, компонент лежит в ней), страницы 🟡. В draft остались только парковка: Pagination, File upload, Snack, Side panel.
+- **Chart card:** легенда в Bottom переносится, итог — одна строка до 200 px с многоточием.
+- **Chart plot:** Bars · Hover — Chart crosshair (Target=Bar) и тултип, как у остальных типов; Skeleton отличается от Disabled формой (у Bars ровные столбцы-заглушки, у Line / Area — без сетки); в описании Loading → Skeleton.
+- **Empty state:** описание — иллюстрация L 200 (было 160 в правилах).
+- **Page header:** у Compact ряд действий переносится (слот Actions — Fill + перенос); описание Compact уточнено.
+- **Modal:** крестик в Header=Empty · Footer=Single / Stacked был `icon/on-accent` (белый) → `icon/primary`; описание — `surface/level-1`, ширина 560.
+- **Sheet:** удалено непривязанное свойство Items (меню действий — Menu item L в Body); добавлен слой `safe area` (`os/safe-area/bottom`).
+- **Sidebar:** Nav — Fill с клипом, распорка удалена; при 200 % Footer не выталкивается.
+- **Tab bar:** `safe area` был вынесен абсолютом за низ — теперь в потоке (iOS +34, Android +24, Web 0); описание без старых имён `surface/glass`.
+
 ## 2026-11-15 (организмы, пакет 1)
 
 - **Calendar, Date range panel, Dropdown panel, Menu → beta** по стенду: контракты в `scripts/contract-data.mjs`, борды пересобраны, страницы 🟡.

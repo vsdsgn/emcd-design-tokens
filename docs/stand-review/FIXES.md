@@ -2,6 +2,9 @@
 
 Каждая правка проверена отдельным чтением. Приём для усечения: текст по содержимому + `maxWidth` текстового слоя (Plugin API теперь принимает) — корень растёт до своего max, текст усекается многоточием; в фиксированных контейнерах — текст Fill, одна строка, многоточие.
 
+## 2026-11-15 (организмы, пакет 2: Chart card, Chart plot, Empty state, Page header, Modal, Sidebar, Sheet, Tab bar)
+- Разбор — `docs/stand-review/review/*.md`; правки — `docs/CHANGELOG-components.md` «пакет 2». Открытое — todo контрактов: ширины корней числом (Chart card 580, Empty state, Page header, Modal 560, Sidebar 240 / 72 × 800, Sheet / Tab bar 375), тултип Chart plot при 200 %, Skeleton и Disabled одного цвета в Light (токены — на решение), отступ Body после Divider у Modal, Header=Empty без крестика, Promo card «Подробнее» без многоточия, иконка Selected у Nav item.
+
 ## 2026-11-15 (организмы, пакет 1: Calendar, Date range panel, Dropdown panel, Menu)
 - Разбор — `docs/stand-review/review/{Calendar,Date_range_panel,Dropdown_panel,Menu}.md`. Исправлено: заголовок Calendar (многоточие, рост шапки), двойная карточка календаря в Date range panel, футер панели, выбранный пресет, шапка Dropdown panel (ширина 480, клип вкладок), подпись группы Menu. Остальное — todo контрактов (Disabled в Date cell, чипы периодов при Presets=Off, усечение «Сбросить», разная высота Multiselect option, ширины числом, max-height Menu).
 

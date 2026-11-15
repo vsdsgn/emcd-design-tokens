@@ -96,7 +96,7 @@
 
 ## 12. Figma projection
 - Набор `Dropdown panel`, вариантов 2 из 2; оси: Content.
-- Борда: «Dropdown panel — борда · шаблон v3», разделов 9.
+- Борда: «Dropdown panel — борда · шаблон v3», разделов 11.
 - Описание: 1028 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены: Поверхность —
 
 ## 13. Code projection

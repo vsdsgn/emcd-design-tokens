@@ -1,48 +1,73 @@
-# Chart plot — контракт · draft (2026-11-15)
+# Chart plot — контракт (2026-11-15)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Chart plot`. Status: draft. Level: unknown.
-- Figma: Components, страница «Chart plot» (`2093:1266`), набор `97:921`.
+- Набор: `Chart plot`. Status: beta. Level: unknown.
+- Figma: Components, страница «Chart plot» (`2093:1266`), набор `97:921`. Платформы: Web, Mobile web, iOS, Android.
+- Organism; область графика внутри Chart card. Матрица 23 из 35: Skeleton, Empty и Disabled — только у базовых типов Bars, Line, Area. Вложены Chart crosshair и Chart tooltip (в Hover).
 
 ## 2. Intent
-- Не описано.
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Область графика: серии данных, сетка и состояния. В коде — библиотека графиков с теми же токенами (`data/1…8`, `border/subtle` для сетки, `text/tertiary` для подписей).
+- Когда использовать: график внутри Chart card.
+- Когда нет: таблица данных — Table; один показатель — Stat card.
+- Правило выбора варианта:
+  - Type: Bars — выплаты, начисления; Line — хешрейт; Area — хешрейт WL, мощность Monitoring; Line + Bars — хешрейт + реджекты на второй оси Y; Multi-line — несколько однородных рядов (температура плат); Dual area — две величины (хешрейт пула + курс монеты); Stacked bars — доли целого по статусам (пользователи WL Users).
+  - State: Default — данные есть; Hover — выбрана точка (Chart crosshair + Chart tooltip); Skeleton — загрузка; Empty — данных за период нет; Disabled — график недоступен.
+  - Составные типы (Line + Bars, Multi-line, Dual area, Stacked bars) имеют только Default и Hover; Skeleton / Empty / Disabled берутся у базового типа.
+  - Ось X — по времени, не больше 6 меток; у столбцов нулевая база; цвета серий — `data/*`.
+- Не делаем: ось X не по времени или больше 6 меток; столбцы без нулевой базы; серии только цветом, без штриха и маркера; свои цвета серий вместо `data/*`.
 
 ## 3. Anatomy
-- Слои с токенами: `bar`, `grid`, `line`, `area`, `line 1`, `line 2`, `line 3`, `line 4`, `segment 1`, `segment 2`, `segment 3`, `segment 4`, `halo`, `point`, `Chart tooltip`, `Нет данных за период`.
-- Вложено: `Chart crosshair` ×6, `Chart tooltip` ×6.
+- Корень — зазор `space/4`; 473 × 140 числом.
+- `grid` — `border/subtle` × `border/width/default`, пунктир.
+- `bar` — `data/1` (Line + Bars — `data/4`), `radius/2xs`; в Hover невыбранные столбцы с прозрачностью 0.35.
+- `line`, `line 1…4` — штрих `data/1…4` × `chart/stroke`; `area` — `data/1` / `data/4`, прозрачность 0.45; `segment 1…4` — `data/1…4`, `radius/2xs`.
+- Skeleton — `skeleton/base`; Disabled — `action/disabled`; Empty — «Нет данных за период» (`type/body/md`, `text/tertiary`) на сетке.
+- Hover — Chart crosshair (точка `data/1`, кольцо `surface/level-1` × `border/width/focus`, ореол 0.24) + Chart tooltip.
+- Вложено: `Chart crosshair` ×7, `Chart tooltip` ×7.
 - Служебные слои (вариантов из 23): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Ось State: Default · Hover · Skeleton · Empty · Disabled. Группа модели состояний (`docs/components.md`) — определить при переводе в beta.
+- Группа модели состояний (`docs/components.md`): График: Hover — Chart crosshair + Chart tooltip; Skeleton — загрузка; Empty — нет данных; Disabled — `action/disabled`.
+- Default — серии цветами `data/*`, сетка.
+- Hover — перекрестие в выбранной точке и тултип со значениями серий; у Bars — подсветка столбца, Chart crosshair Target=Bar и тултип (исправлено 2026-11-15).
+- Skeleton — заглушка `skeleton/base`: у Bars столбцы ровной «пилой» (не данные), у Line / Area — силуэт без сетки (исправлено 2026-11-15; в Light цвет совпадает с Disabled — различие формой и сеткой, в коде — блик).
+- Empty — сетка и «Нет данных за период» по центру.
+- Disabled — серии `action/disabled`. Отличие от Skeleton — реальная форма данных и сетка.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Type | Bars · Line · Area · Line + Bars · Multi-line · Dual area · Stacked bars | — |
-| State | Default · Hover · Skeleton · Empty · Disabled | — |
+| Type | Bars · Line · Area · Line + Bars · Multi-line · Dual area · Stacked bars | Bars |
+| State | Default · Hover · Skeleton · Empty · Disabled | Default |
 
 Матрица: 23 из 35.
 
+- Свойств нет; тексты — во вложенном Chart tooltip и в Empty.
+
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Подписи осей — вне плота (в Chart card); на плоте текст только в тултипе (Hover) и в Empty.
+- Длинный текст и языки: у варианта по умолчанию (Bars · Default) текста нет — на стенде проверять нечего; правила тултипа — у Chart tooltip.
+- RTL: ось времени не зеркалится. На стенде направление не переключается.
+- Текст 200 %: «Нет данных за период» растёт без обрезки; тултип в Hover не растёт по ширине — дата «23....», названия серий рвутся посреди слова (см. todo).
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- `pointermove` / тап по точке → Hover (перекрестие + тултип); уход указателя → Default.
+- Стрелки — перемещение по точкам, Enter — зафиксировать точку.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Hover следует за указателем по точкам данных; тултип у края прижимается к границе графика.
+- Skeleton → Default — по приходу данных; «Уменьшить движение» — без плавного движения перекрестия.
 
 ## 9. Accessibility
-- Не описано: заполнить при переводе в beta.
+- `role=img` с `aria-label` — что показывает и за какой период; рядом доступна таблица данных.
+- Фокус на графике; Стрелки — по точкам, Enter — фиксирует точку; значение точки озвучивается через Chart tooltip.
+- Контраст серий с фоном не ниже 3:1; различимость не только цветом — штрих и маркер.
+- Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
 ## 10. Tokens
 - `корень`: интервал `space/4`.
@@ -58,19 +83,20 @@
 - `segment 2`: заливка / цвет `data/2`; радиус `radius/2xs`.
 - `segment 3`: заливка / цвет `data/3`; радиус `radius/2xs`.
 - `segment 4`: заливка / цвет `data/4`; радиус `radius/2xs`.
+- `Chart tooltip`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; интервал `space/6`; maxw `size/tooltip/max`; мин. ширина `size/chart-tooltip/min`; отступы `space/10`, `space/sm`; радиус `radius/sm`; обводка `border/default`; толщина обводки `border/width/default`.
 - `halo`: заливка / цвет `data/1`.
 - `point`: заливка / цвет `data/1`; обводка `surface/level-1`; толщина обводки `border/width/focus`.
-- `Chart tooltip`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; интервал `space/6`; maxw `size/tooltip/max`; мин. ширина `size/chart-tooltip/min`; отступы `space/10`, `space/sm`; радиус `radius/sm`; обводка `border/default`; толщина обводки `border/width/default`.
 - `Нет данных за период`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
-- Значений без переменной: 80 (напр. `(root):w=473`, `(root):h=140`, `area:o=0.45`, `bar:o=0.35`).
+- Значений без переменной: 80 (напр. `(root):w=473`, `(root):h=140`, `area:o=0.45`, `bar:o=0.35`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
+- Hover — с указателем (Web); на касании — тап по точке, точка остаётся до тапа вне графика.
 
 ## 12. Figma projection
 - Набор `Chart plot`, вариантов 23 из 35; оси: Type, State.
-- Борда: «Chart plot — борда · шаблон v3», разделов 9.
-- Описание: 1629 знаков, разделы: Status: Level: Область графика (в коде — Type — State: Legacy: Когда использовать: Правила: A11y: Матрица:
+- Борда: «Chart plot — борда · шаблон v3», разделов 12.
+- Описание: 1689 знаков, разделы: Status: Level: Область графика (в коде — Type — State: Legacy: Когда использовать: Правила: A11y: Матрица:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -80,8 +106,17 @@
 - Состояния (Default, Hover, Skeleton, Empty, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-15)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — размер корня 473 × 140 и прозрачности `area` 0.45 / `bar` 0.35 / `halo` 0.24 — числом.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web): полностью — EMCD Web L0–L3 в Light и Dark, длинный текст, 6 языков, 200 %; Geometria / WL — выборочно, iOS / Android — попиксельной сверкой с Web; у варианта по умолчанию текста нет; булевых свойств нет; RTL на стенде не зеркалится; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: DS Web `.graphics` state loading / default / hover / disabled / empty → State (loading → Skeleton с 14.11); типы — по песочнице DS Web и Firmware: хешрейт → Line, хешрейт WL / мощность Monitoring → Area, хешрейт + реджекты → Line + Bars, температура плат → Multi-line, пул + курс → Dual area, WL payouts → Stacked bars. Компонентов графиков в продуктах не было; нужен скрин прода.
+- DS Web .graphics (state loading / default / hover / disabled / empty) и .charts (widget Graph, «Песочница графиков») → Chart plot (Type × State; loading → Skeleton).
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Skeleton и Disabled в Light одного цвета (`skeleton/base` = `action/disabled`); различие — формой и сеткой (15.11). Развести токены — на решение.
+- Стенд 2026-11-15: тултип в Hover при 200 % фиксирован по ширине — дата усечена, слова рвутся; тултип по содержимому до `size/tooltip/max`.
+- Описание: «Loading» → `Skeleton` (имя значения оси); проверить порядок вариантов (Skeleton перед Empty).
+- Размер корня 473 × 140 и прозрачности — числом.

@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-15: beta 79 наборов, draft 11, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-15: beta 87 наборов, draft 3, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -46,8 +46,10 @@
 - [Button](docs/components/button.md): Кнопка действия. Основа — legacy `baseButton` (DS Web + App), доведена до правил 2.0
 - [Calendar](docs/components/calendar.md): Календарь выбора даты или периода (Datepicker): шапка с месяцем и стрелками, строка дней недели, сетка дней из Date cell
 - [Card](docs/components/card.md): Контейнер-подложка: уровень поверхности, радиус, внутренний отступ и обводка. Своего содержимого нет
+- [Chart card](docs/components/chart-card.md): Виджет графика: показатель + график + легенда. Сверху подпись, значение и итог с мини-табами, в центре Chart plot с подписями оси, снизу легенда и итог за период
 - [Chart crosshair](docs/components/chart-crosshair.md): Перекрестие под курсором на графике: вертикальная линия с точкой серии или подсветка полосы столбца. Работает вместе с Chart tooltip
 - [Chart metric](docs/components/chart-metric.md): Показатель над графиком: подпись и крупное значение, при необходимости иконка слева от значения
+- [Chart plot](docs/components/chart-plot.md): Область графика: серии данных, сетка и состояния. В коде — библиотека графиков с теми же токенами (`data/1…8`, `border/subtle` для сетки, `text/tertiary` для подписей)
 - [Chart tooltip](docs/components/chart-tooltip.md): Тултип точки графика: дата и время, под ними строки «маркер серии — название — значение»
 - [Checkbox](docs/components/checkbox.md): Множественный выбор, согласие с условиями, выбор строк таблицы. Основа — legacy `baseCheckbox` (коробочка 20, r 6, подпись через 12)
 - [Checkbox group](docs/components/checkbox-group.md): Группа чекбоксов: подпись группы, варианты, под ними подсказка или ошибка
@@ -63,7 +65,9 @@
 - [Date range panel](docs/components/date-range-panel.md): Панель выбора периода: слева пресеты («Сегодня», «7 дней», «30 дней», «Квартал», «Год», «Свой период»), справа календарь с диапазоном, внизу «Сбросить» и «Применить»
 - [Divider](docs/components/divider.md): Разделитель: линия 1 px между группами содержимого, с необязательной подписью «или»
 - [Dropdown panel](docs/components/dropdown-panel.md): Панель выпадающего списка выбора: вкладки-категории, «Сбросить всё», поиск и список пунктов Multiselect option; при пустом результате поиска — «Ничего не нашли» с подсказкой
+- [Empty state](docs/components/empty-state.md): Пустое состояние раздела, списка, таблицы или поиска: объясняет, почему пусто, и что сделать
 - [Floating button](docs/components/floating-button.md): Плавающая кнопка главного действия экрана на Compact (App, мобильный веб): «Добавить воркер», «Пополнить»
+- [Page header](docs/components/page-header.md): Шапка страницы: заголовок раздела / объекта, подзаголовок-сводка, действия страницы, табы разделов
 - [Icon button](docs/components/icon-button.md): Кнопка-иконка: закрыть, «…», копировать, фильтр, обновить. Та же основа, что у Button
 - [Input](docs/components/input.md): одна строка текста или числа
 - [Input amount](docs/components/input-amount.md): Поле суммы для пополнения, вывода, обмена и депозита: подпись с иконкой info, баланс и «Макс», сумма крупно, описание лимитов, выбор монеты (Select compact). Ошибка — рамка `control/border/error` и сообщение снизу
@@ -73,9 +77,11 @@
 - [List item](docs/components/list-item.md): Строка списка данных: монета, кошелёк, воркер, транзакция, настройка. Слот Leading слева, тексты по Content, слот Trailing справа
 - [Menu](docs/components/menu.md): Меню (Dropdown): всплывающий список действий или вариантов. В слоте Items — Menu item, подписи групп и разделители; сверху — необязательный поиск
 - [Menu item](docs/components/menu-item.md): Пункт меню: слева необязательный слот (иконка, монета, аватар, эмодзи), затем подпись с необязательным описанием, справа необязательный слот (Badge, Counter, значение, шеврон подменю, кнопка). Нажимается вся строка, одно действие на пункт
+- [Modal](docs/components/modal.md): Модальное окно (диалог): короткое действие или подтверждение, прерывающее поток. Шапка, слот Body, кнопки в слоте Footer slot; под окном — затемнение `surface/overlay`
 - [Multiselect](docs/components/multiselect.md): Поле множественного выбора: Select + список Multiselect option в Menu. Выбранное показывается строкой «Выбрано: N» в поле (Count) или чипами под полем (Chips)
 - [Multiselect option](docs/components/multiselect-option.md): Строка списка выбора (Select, Multiselect, Menu): слева необязательный слот под монету, аватар или иконку, затем подпись с необязательным описанием, справа галочка выбранного. Это строка, а не чекбокс: нажимается вся строка
 - [Nav item](docs/components/nav-item.md): Пункт основной навигации в сайдбаре Web: иконка и подпись; в свёрнутом сайдбаре — только иконка
+- [Sidebar](docs/components/sidebar.md): Сайдбар: основная навигация Web на Expanded и шире. Плавающая панель L1 на `bg/base` с отступом 12 (как в продуктах)
 - [Notification](docs/components/notification.md): Запись в центре уведомлений (колокольчик в шапке): иконка, заголовок, текст и время
 - [Page indicator](docs/components/page-indicator.md): Индикатор страниц карусели: ряд точек, текущая — вытянутая
 - [Pagination](docs/components/pagination.md): Пагинация таблиц и списков: номера страниц или диапазон со стрелками
@@ -92,6 +98,7 @@
 - [Segmented](docs/components/segmented.md): Выбор одного значения из 2–4 взаимоисключающих; результат применяется сразу (период графика, Купить / Продать, вид список / сетка)
 - [Select](docs/components/select.md): Поле выбора одного значения из списка (сеть вывода, кошелёк, монета, валюта). Поле как у Input (размеры, лейбл, helper, ошибка), справа шеврон; по нажатию открывает Menu (на Compact — Sheet)
 - [Select compact](docs/components/select-compact.md): Компактный селектор без лейбла: выбор монеты, сети, валюты внутри строки, карточки, шапки виджета («USDT ▾»). По нажатию открывает Menu, на Compact — Sheet
+- [Sheet](docs/components/sheet.md): Шторка на Compact (App и мобильный веб): панель от края до края — грабер, шапка с заголовком и крестиком, слот Body, кнопки L на всю ширину в слоте Footer. Меню действий — тот же Sheet с Menu item L в слоте Body
 - [Skeleton](docs/components/skeleton.md): Кирпичи скелетона: из них собираются Skeleton-состояния всех компонентов с данными (List item, Table row, Stat card, Chart card, Coin, Avatar)
 - [Spinner](docs/components/spinner.md): Индикатор загрузки: действие идёт, длительность неизвестна
 - [Stat card](docs/components/stat-card.md): Один показатель с подписью: хешрейт, баланс, начислено за 24 ч, активные воркеры. Основа дашборда
@@ -102,6 +109,7 @@
 - [Step trail](docs/components/step-trail.md): Линия между двумя шагами в Stepper: сплошная или пунктирная, в цвете состояния шага
 - [Suggest](docs/components/suggest.md): Сообщение или предложение внутри страницы: карточка или полоса на всю ширину — иконка слева, заголовок, описание, 0–2 кнопки, крестик. Заменяет Alert и Banner
 - [Tab](docs/components/tab.md): Переключение разделов одного экрана (История: Начисления / Выплаты / Воркеры). Выбранный — подчёркивание
+- [Tab bar](docs/components/tab-bar.md): Нижняя навигация на Compact: 4–5 основных разделов. App (iOS / Android) и мобильный веб — одна схема
 - [Tab bar item](docs/components/tab-bar-item.md): Пункт нижней навигации: иконка 24 + подпись. App и мобильный веб — одна схема
 - [Table cell](docs/components/table-cell.md): Ячейка таблицы: выравнивание, отступы, состояние и слот Content. Содержимое — текст (основная + вторая строка) или атом DS
 - [Table header cell](docs/components/table-header-cell.md): Заголовок колонки таблицы; у сортируемой колонки — кнопка сортировки со стрелкой
@@ -129,7 +137,7 @@
 
 ## Компоненты: draft — не брать
 
-- уровень не указан (11): Chart card, Chart plot, Empty state, File upload, Page header, Modal, Sidebar, Sheet, Side panel, Snack, Tab bar
+- уровень не указан (3): File upload, Side panel, Snack
 - шаблоны экранов, не Base (1): Status screen
 
 ## Проверки

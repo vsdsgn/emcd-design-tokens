@@ -159,6 +159,19 @@
 | `padding` | s \| m \| l | по правилу контракта | ось Padding |
 | `border` | on \| off | по правилу контракта | ось Border |
 
+## Chart card
+
+уровень не указан · beta · Vue `<DsChartCard>` · Flutter `DsChartCard` · контракт `docs/components/chart-card.md`
+
+Виджет графика: показатель + график + легенда. Сверху подпись, значение и итог с мини-табами, в центре Chart plot с подписями оси, снизу легенда и итог за период.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `showBottom` | boolean | true | свойство Show bottom |
+| `top` | slot | — | свойство Top |
+| `content` | slot | — | свойство Content |
+| `bottom` | slot | — | свойство Bottom |
+
 ## Chart crosshair
 
 уровень не указан · beta · Vue `<DsChartCrosshair>` · Flutter `DsChartCrosshair` · контракт `docs/components/chart-crosshair.md`
@@ -183,6 +196,18 @@
 | `icon` | boolean | false | свойство Icon |
 
 Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
+
+## Chart plot
+
+уровень не указан · beta · Vue `<DsChartPlot>` · Flutter `DsChartPlot` · контракт `docs/components/chart-plot.md`
+
+Область графика: серии данных, сетка и состояния. В коде — библиотека графиков с теми же токенами (`data/1…8`, `border/subtle` для сетки, `text/tertiary` для подписей).
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `type` | bars \| line \| area \| line-bars \| multi-line \| dual-area \| stacked-bars | по правилу контракта | ось Type |
+
+Состояния в Figma: Default · Hover · Skeleton · Empty · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
 
 ## Chart tooltip
 
@@ -389,6 +414,25 @@ Props нет.
 | `showReset` | boolean | true | свойство Show reset |
 | `showSearch` | boolean | true | свойство Show search |
 
+## Empty state
+
+уровень не указан · beta · Vue `<DsEmptyState>` · Flutter `DsEmptyState` · контракт `docs/components/empty-state.md`
+
+Пустое состояние раздела, списка, таблицы или поиска: объясняет, почему пусто, и что сделать.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | l \| m \| s | по правилу контракта | ось Size |
+| `layout` | horizontal \| vertical | по правилу контракта | ось Layout |
+| `title` | string | — | свойство Title |
+| `text` | string | — | свойство Text |
+| `showText` | boolean | true | свойство Show text |
+| `showIllustration` | boolean | true | свойство Show illustration |
+| `showActions` | boolean | true | свойство Show actions |
+| `illustration` | slot | — | свойство Illustration |
+| `actions` | slot | — | свойство Actions |
+| `dashedBackground` | boolean | false | свойство Dashed background |
+
 ## Floating button
 
 уровень не указан · beta · Vue `<DsFloatingButton>` · Flutter `DsFloatingButton` · контракт `docs/components/floating-button.md`
@@ -401,6 +445,24 @@ Props нет.
 | `loading` | false \| true | по правилу контракта | ось Loading |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+
+## Page header
+
+уровень не указан · beta · Vue `<DsPageHeader>` · Flutter `DsPageHeader` · контракт `docs/components/page-header.md`
+
+Шапка страницы: заголовок раздела / объекта, подзаголовок-сводка, действия страницы, табы разделов.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | large \| compact | по правилу контракта | ось Size |
+| `title` | string | — | свойство Title |
+| `subtitle` | string | — | свойство Subtitle |
+| `showSubtitle` | boolean | true | свойство Show subtitle |
+| `breadcrumbs` | boolean | false | свойство Breadcrumbs |
+| `showActions` | boolean | true | свойство Show actions |
+| `showTabs` | boolean | false | свойство Show tabs |
+| `actions` | slot | — | свойство Actions |
+| `tabs` | slot | — | свойство Tabs |
 
 ## Icon button
 
@@ -562,6 +624,23 @@ Props нет.
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
+## Modal
+
+уровень не указан · beta · Vue `<DsModal>` · Flutter `DsModal` · контракт `docs/components/modal.md`
+
+Модальное окно (диалог): короткое действие или подтверждение, прерывающее поток. Шапка, слот Body, кнопки в слоте Footer slot; под окном — затемнение `surface/overlay`.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `header` | title \| coin \| empty | по правилу контракта | ось Header |
+| `footer` | single \| stacked \| horizontal \| none | по правилу контракта | ось Footer |
+| `title` | string | — | свойство Title |
+| `divider` | boolean | false | свойство Divider |
+| `showClose` | boolean | true | свойство Show close |
+| `headerDescription` | boolean | true | свойство Header description |
+| `body` | slot | — | свойство Body |
+| `footerSlot` | slot | — | свойство Footer slot |
+
 ## Multiselect
 
 уровень не указан · beta · Vue `<DsMultiselect>` · Flutter `DsMultiselect` · контракт `docs/components/multiselect.md`
@@ -612,6 +691,20 @@ Props нет.
 Состояния в Figma: Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
 Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
+
+## Sidebar
+
+уровень не указан · beta · Vue `<DsSidebar>` · Flutter `DsSidebar` · контракт `docs/components/sidebar.md`
+
+Сайдбар: основная навигация Web на Expanded и шире. Плавающая панель L1 на `bg/base` с отступом 12 (как в продуктах).
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `collapsed` | off \| on | по правилу контракта | ось Collapsed |
+| `header` | slot | — | свойство Header |
+| `nav` | slot | — | свойство Nav |
+| `footer` | slot | — | свойство Footer |
+| `promo` | boolean | true | свойство Promo |
 
 ## Notification
 
@@ -842,6 +935,23 @@ Props нет.
 
 Состояния в Figma: Default · Hover · Open · Disabled · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
+## Sheet
+
+уровень не указан · beta · Vue `<DsSheet>` · Flutter `DsSheet` · контракт `docs/components/sheet.md`
+
+Шторка на Compact (App и мобильный веб): панель от края до края — грабер, шапка с заголовком и крестиком, слот Body, кнопки L на всю ширину в слоте Footer. Меню действий — тот же Sheet с Menu item L в слоте Body.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `title` | string | — | свойство Title |
+| `showGrabber` | boolean | true | свойство Show grabber |
+| `showClose` | boolean | true | свойство Show close |
+| `showFooter` | boolean | true | свойство Show footer |
+| `headerActions` | slot | — | свойство Header actions |
+| `body` | slot | — | свойство Body |
+| `footer` | slot | — | свойство Footer |
+| `showHeaderActions` | boolean | false | свойство Show header actions |
+
 ## Skeleton
 
 уровень не указан · beta · Vue `<DsSkeleton>` · Flutter `DsSkeleton` · контракт `docs/components/skeleton.md`
@@ -981,6 +1091,17 @@ Props нет.
 Состояния в Figma: Default · Hover · Pressed · Disabled · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
 
 Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
+
+## Tab bar
+
+уровень не указан · beta · Vue `<DsTabBar>` · Flutter `DsTabBar` · контракт `docs/components/tab-bar.md`
+
+Нижняя навигация на Compact: 4–5 основных разделов. App (iOS / Android) и мобильный веб — одна схема.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `safeArea` | boolean | true | свойство Safe area |
+| `items` | slot | — | свойство Items |
 
 ## Tab bar item
 

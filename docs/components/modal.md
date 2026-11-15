@@ -1,34 +1,50 @@
-# Modal — контракт · draft (2026-11-15)
+# Modal — контракт (2026-11-15)
 
-Заготовка: собрана автоматически. Набор заменён на месте (2026-11-13): фон, радиус и тень — слой `overlay surface`, нераскрытый экземпляр базы `_Overlay surface`; свойства набора не менялись. Поверхность, токены и приёмка базы — `docs/components/overlay-surface.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Modal`. Status: draft. Level: unknown.
-- Figma: Components, страница «Modal» (`364:3195`), набор `81:829`.
+- Набор: `Modal`. Status: beta. Level: unknown.
+- Figma: Components, страница «Modal» (`364:3195`), набор `81:829`. Платформы: Web, Mobile web, iOS, Android.
+- Страница «Modal», организм. Собран из вложенных _Overlay surface (Kind=Modal), Icon button (крестик), Button (кнопки Footer) и монеты в Header=Coin; слоты Body и Footer slot; служебных слоёв у корня нет.
 
 ## 2. Intent
-- Не описано.
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Модальное окно (диалог): короткое действие или подтверждение, прерывающее поток. Шапка, слот Body, кнопки в слоте Footer slot; под окном — затемнение `surface/overlay`.
+- Когда использовать: удалить, подтвердить вывод, 2FA, выбор из нескольких вариантов.
+- Когда нет: детали объекта или длинная форма — Side panel / Sheet; сообщение без решения — Toast / Alert; на Compact — Sheet.
+- Правило выбора варианта:
+  - Header: Title — заголовок-действие; Coin — действие с монетой (монета 32 + название + описание, legacy coin / coin select); Empty — только крестик, когда заголовок есть в Body.
+  - Footer: Single — одно действие; Stacked — два, главное сверху; Horizontal — два в ряд, отмена слева, главное справа; None — без кнопок (закрытие крестиком, Esc, фоном).
+  - Divider — линия под шапкой, когда Body прокручивается или начинается со списка (legacy divider); иначе Off.
+  - Show close — On по умолчанию; Off — только на необратимом шаге, где закрытие запрещено.
+  - Header description — только у Header=Coin: строка «тикер · сеть»; Off — когда сеть не важна.
+  - Ширина — `size/modal/sm`, `md`, `lg` по содержимому (ресайз экземпляра); одна задача и одно главное действие на окно.
+  - На Compact модалка открывается как Sheet.
+- Не делаем: модал поверх модала; два главных действия; длинная форма или детали объекта в модалке; закрытие фоном и Esc на необратимом шаге; Header=Empty с Show close = Off.
 
 ## 3. Anatomy
-- Слои с токенами: `overlay surface`, `header`, `title`, `close`, `divider`, `Body`, `Контент модалки — в слот Body: текст, поля, список.`, `Footer slot`, `Button`, `title group`, `header description`.
+- Корень — вертикальный стек, `radius/surface` (24), ширина 560 числом; отступы шапки, Body и Footer slot — `space/32` (верх Body — `space/8`).
+- Поверхность — слой `overlay surface`, экземпляр _Overlay surface (Kind=Modal): `surface/level-1`, обводка `border/subtle` × `border/width/default`, тени `shadow/key` + `shadow/ambient` (Elevation/4).
+- `header` (зазор `space/8`): `title` — Header=Title `font/family/display`, `type/display/md`, bold, `text/primary`; Header=Coin — монета 32 + `title group` (зазор `space/12`) с `type/heading/lg` и `header description` (`type/body/md`, `text/secondary`); `close` — Icon button `control/height/md`.
+- `divider` — линия `border/subtle` (Divider).
+- Слот Body (зазор `space/12`): образец — `type/body/lg`, `text/secondary`.
+- Слот Footer slot (зазор `space/8` / `space/16`): Button XL (`control/height/xl` 56) на всю ширину; подпись под кнопками — текстом в слоте.
 - Вложено: `_Overlay surface` ×12, `Icon button` ×12, `Button` ×15, `smbl-bitcoin-btc` ×4.
 - Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Оси State нет.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; интерактивны вложенные Button и Icon button.
+- Оси State нет: Hover / Pressed / Focus / Disabled — у вложенных Button и Icon button.
+- Header=Title — крупный заголовок; Coin — монета, заголовок `type/heading/lg` и описание; Empty — только крестик справа.
+- Footer=Single / Stacked / Horizontal — 1–2 кнопки XL; None — без Footer slot.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Header | Title · Coin · Empty | — |
-| Footer | Single · Stacked · Horizontal · None | — |
+| Header | Title · Coin · Empty | Title |
+| Footer | Single · Stacked · Horizontal · None | Single |
 
 Матрица полная: 12 вариантов.
 
@@ -43,17 +59,29 @@
 | Body | слот | — | 12 из 12 |
 | Footer slot | слот | — | 9 из 12 |
 
+- Title — текст заголовка (у Header=Title и Coin); Divider — по умолчанию Off; Show close — On; Header description — On (только Header=Coin).
+- Body и Footer slot — слоты: контент модалки и кнопки (у Footer=None слота нет).
+
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Заголовок переносится на несколько строк, правила числа строк нет; длинное слово (de) рвётся посреди.
+- RTL: порядок слотов зеркалится (leading ↔ trailing), смысловые стрелки и шевроны отражаются, цифры и латиница — нет. На стенде направление не переключается: ar проверен только на обрезку.
+- Языки без обрезки по высоте на стенде: de, ar, hi, th, ja, kk. Ширина 560 больше текстовой ячейки 360 — крестик и конец строки при длинном тексте не проверены; Header=Coin с длинным заголовком не проверен.
+- Текст 200 %: заголовок, описание и Body растут без обрезки; кнопки XL 56 вмещают подпись.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- `click` по главной кнопке — действие; по отмене / крестику — закрыть без действия.
+- Esc и клик по затемнению — закрыть (кроме необратимых шагов).
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Появление — fade + scale 0.96 → 1, 200 мс (App 320), standard; закрытие — 150 мс; затемнение — fade. «Уменьшить движение»: только fade.
+- Фокус заперт в окне; после закрытия возвращается на триггер.
+- Compact — Sheet.
 
 ## 9. Accessibility
-- Не описано: заполнить при переводе в beta.
+- `role="dialog"`, `aria-modal="true"`, `aria-labelledby` на заголовок.
+- Фокус заперт внутри; Esc закрывает (кроме необратимых шагов); фокус возвращается на триггер.
+- Крестик — Icon button с именем («Закрыть»).
+- Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо и зоны нажатия — у вложенных Button и Icon button.
 
 ## 10. Tokens
 - `корень`: радиус `radius/surface`.
@@ -68,15 +96,16 @@
 - `Button`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/2`; высота `control/height/xl`; мин. ширина `size/button/min`; отступы `space/16`; радиус `radius/container`.
 - `title group`: интервал `space/12`.
 - `header description`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
-- Значений без переменной: 12 (напр. `(root):w=560`).
+- Значений без переменной: 12 (напр. `(root):w=560`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Web (Expanded / Medium); на Compact (App и мобильный веб) — Sheet.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
 - Набор `Modal`, вариантов 12 из 12; оси: Header, Footer.
-- Борда: «Modal — борда · шаблон v3», разделов 10.
-- Описание: 1886 знаков, разделы: Status: Level: Когда использовать: Header: Footer: Body и Footer — Когда нет: A11y: Поиск: Legacy: Motion: Тень:
+- Борда: «Modal — борда · шаблон v3», разделов 11.
+- Описание: 1901 знаков, разделы: Status: Level: Когда использовать: Header: Footer: Body и Footer — Когда нет: A11y: Поиск: Legacy: Motion: Тень:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -85,9 +114,16 @@
 - Props: `header`: title | coin | empty; `footer`: single | stacked | horizontal | none; `title`: string или слот; `divider`: boolean = false; `showClose`: boolean = true; `headerDescription`: boolean = true; `body`: string или слот; `footerSlot`: string или слот.
 
 ## 14. Acceptance (2026-11-15)
-- Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
-- Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
-  - DESC: нет: Правила:
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — ширина корня 560 — числом (`size/modal/*` не привязаны).
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; ширина 560 больше текстовой ячейки 360 — правый край не проверен; содержимое слотов не проверялось; RTL на стенде не зеркалится; код — HTML/CSS.
 
 ## 15. Migration
-- Legacy: DS Web `base modal header / title` · `title select` → Header=Title (select → Select compact в заголовке); `/ coin` · `coin select` → Coin; `/ empty` → Empty; divider → Divider; description → Header description. `base modal footer / single button` → Footer=Single; `/ two buttons` default / horizontal / horizontal zen → Stacked / Horizontal; `/ empty` → None; fade — в коде. desktop → ширина 540, на Compact — Sheet; радиус 16 → 24. DS App `Modal header / footer / content` → Modal.
+- DS Web base modal header (title, title select → Header=Title; coin, coin select → Header=Coin; empty → Header=Empty) и base modal footer (single button → Footer=Single; two buttons → Stacked / Horizontal; empty → None); divider → Divider.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Header=Empty + Show close=Off — пустая шапка ~60 px: запретить сочетание или схлопывать (на решение).
+- Ширина корня 560 — числом: привязать `size/modal/sm` / `md` / `lg`.
+- Отступ Body после Divider (~8 px) — проверить, ждали ≥ `space/24`.

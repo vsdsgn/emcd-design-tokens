@@ -1,33 +1,46 @@
-# Sidebar — контракт · draft (2026-11-15)
+# Sidebar — контракт (2026-11-15)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Sidebar`. Status: draft. Level: unknown.
-- Figma: Components, страница «Navigation» (`366:3392`), набор `66:370`.
+- Набор: `Sidebar`. Status: beta. Level: unknown.
+- Figma: Components, страница «Navigation» (`366:3392`), набор `66:370`. Платформы: Web, Mobile web, iOS, Android.
+- Страница «Navigation», организм. Слоты Header (логотип), Nav (Nav item), Footer (настройки, профиль); промо-карточка — вложенный Promo card (свойство Promo). Служебных слоёв у корня нет.
 
 ## 2. Intent
-- Не описано.
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Сайдбар: основная навигация Web на Expanded и шире. Плавающая панель L1 на `bg/base` с отступом 12 (как в продуктах).
+- Когда использовать: основная навигация Web App, Monitoring, WL на Large+; на Medium — свёрнутая рейка.
+- Когда нет: Compact — Tab bar + меню «Ещё» / меню профиля; подразделы экрана — Tabs.
+- Правило выбора варианта:
+  - Collapsed: Off (240) — Large+ по умолчанию; On (72) — Medium или по кнопке «свернуть», подписи пунктов — в Tooltip.
+  - Все Nav item в сайдбаре — в одном значении Collapsed с корнем; Selected — ровно один пункт.
+  - Promo: On — промо-карточка (Promo card) в развёрнутом сайдбаре; при Collapsed=On промо нет.
+  - Header — логотип продукта / бренда (WL подставляет свой), опционально виджет баланса; Footer — настройки, профиль / аккаунт.
+- Не делаем: сайдбар на Compact; развёрнутые и свёрнутые пункты в одном сайдбаре; два выбранных пункта; сайдбар на подложке L1–L3 (он сам — L1 на `bg/base`).
 
 ## 3. Anatomy
-- Слои с токенами: `Header`, `logo (placeholder)`, `promo`, `Nav`, `Nav item`, `divider`, `Rectangle`, `Footer`.
+- Корень — вертикальный стек, отступ `space/12`, зазор `space/8`, `radius/container`; ширина 240 / 72 и высота 800 — числом.
+- Поверхность: Expressive — `material/regular/fill` + `material/regular/blur`, кромка `edge/hairline`; Base — непрозрачная поверхность без блюра.
+- Header (отступ `space/12`): `logo (placeholder)` — `font/family/display`, `type/heading/lg`, `font-weight/bold`, `text/primary`.
+- `promo` — Promo card: `surface/level-1`, `radius/surface`, отступ `space/16`, обводка `border/subtle` × `border/width/default`.
+- Nav (зазор `space/4`): Nav item (`size/row/compact`, `radius/control`); `divider` — линия `border/subtle` между группами.
+- Footer (зазор `space/4`): Nav item настроек и профиля, прижаты к низу.
 - Вложено: `Promo card` ×1, `Nav item` ×16.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Оси State нет.
+- Группа модели состояний (`docs/components.md`): Контейнер: своих состояний нет; Hover / Pressed / Selected / Focus — у вложенных Nav item и Promo card.
+- Collapsed=Off — иконка + подпись, промо-карточка, Counter справа.
+- Collapsed=On — только иконки 36 × 36, Counter поверх иконки, логотип — монограмма; подпись — в Tooltip справа.
+- Selected пункта — подложка и полоса слева (Nav item).
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Collapsed | Off · On | — |
+| Collapsed | Off · On | Off |
 
 Матрица полная: 2 вариантов.
 
@@ -40,17 +53,30 @@
 | Footer | слот | — | 2 из 2 |
 | Promo | булево | вкл | 1 из 2 |
 
+- Header, Nav, Footer — слоты; Promo — по умолчанию On (привязано к Collapsed=Off).
+- Текстовых свойств нет: тексты — во вложенных Nav item и Promo card.
+
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Пункты — по правилу Nav item: одна строка, многоточие; промо — по правилу Promo card (переносится, карточка растёт).
+- RTL: порядок слотов зеркалится (leading ↔ trailing), смысловые стрелки и шевроны отражаются, цифры и латиница — нет. На стенде направление не переключается: ar проверен только на обрезку.
+- Языки без обрезки по высоте на стенде: de, ar, hi, th, ja, kk. Подпись «Подробнее» в промо на длинном тексте режется краем без многоточия (см. todo).
+- Текст 200 %: Nav на Fill с клипом (в коде — прокрутка), Header и Footer на месте (исправлено 2026-11-15).
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- `click` по Nav item → переход в раздел.
+- `click` по кнопке «свернуть» → Collapsed Off ↔ On.
+- `click` по промо → действие Promo card.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Высота — на всю высоту окна; не помещается — Nav прокручивается внутри, Header и Footer на месте.
+- Collapsed=On: подпись пункта — в Tooltip при наведении / фокусе.
+- Expressive: `material/regular`; свечение и кромка у активного пункта (`decor/light`).
 
 ## 9. Accessibility
-- Не описано: заполнить при переводе в beta.
+- `nav` с `aria-label` «Основная навигация»; текущий пункт — `aria-current="page"`.
+- Кнопка «свернуть» — `aria-expanded`.
+- Collapsed=On: доступное имя пункта — подпись (не только Tooltip).
+- Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо и зоны нажатия — у вложенных Nav item.
 
 ## 10. Tokens
 - `корень`: эффект `material/regular/blur`; заливка / цвет `material/regular/fill`; интервал `space/8`; отступы `space/12`; радиус `radius/container`; обводка `edge/hairline`.
@@ -62,15 +88,16 @@
 - `divider`: отступы `space/6`, `space/8`.
 - `Rectangle`: заливка / цвет `border/subtle`.
 - `Footer`: интервал `space/4`.
-- Значений без переменной: 4 (напр. `(root):w=240`, `(root):h=800`, `(root):w=72`).
+- Значений без переменной: 4 (напр. `(root):w=240`, `(root):h=800`, `(root):w=72`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Только Web: Expanded и шире — Collapsed=Off, Medium — Collapsed=On.
+- Compact (App, мобильный веб) — Tab bar.
 
 ## 12. Figma projection
 - Набор `Sidebar`, вариантов 2 из 2; оси: Collapsed.
-- Борда: «Sidebar — борда · шаблон v3», разделов 10.
-- Описание: 1092 знаков, разделы: Status: Level: Сайдбар: Слоты: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
+- Борда: «Sidebar — борда · шаблон v3», разделов 11.
+- Описание: 1091 знаков, разделы: Status: Level: Сайдбар: Слоты: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -79,8 +106,18 @@
 - Props: `collapsed`: boolean; `header`: string или слот; `nav`: string или слот; `footer`: string или слот; `promo`: boolean = true.
 
 ## 14. Acceptance (2026-11-15)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — ширина 240 / 72 и высота 800 корня — числом.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; набор только Web — iOS / Android-ячейки для формы; Expressive не снят; RTL на стенде не зеркалится; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: DS Web `sidebar / default` (widget Sidebar): Header frame / Navbar / Footer frame → слоты Header / Nav / Footer; ru → локализация текстом; `Sidebar item` → Nav item. `Balance widget` (продуктовый) → свойство Promo (Promo card S); Hotkeys — не переносим. DS App — нет.
+- DS Web `sidebar / default` → Sidebar (Collapsed Off | On, слоты Header / Nav / Footer); `Sidebar banner` → Promo card в Sidebar (свойство Promo).
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Высота корня 800 — числом (в продукте — высота окна).
+- Ширины 240 / 72 — числом, ждут токена `size/*`.
+- Иконка Selected: при Collapsed=Off серая, при On — акцентная; свести в Nav item.
+- Promo card: подпись действия режется без многоточия на длинном тексте.
+- Описание: промо указано в Footer, в сборке — под логотипом; свести.
