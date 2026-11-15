@@ -77,7 +77,7 @@
 
 ## 12. Figma projection
 - Набор `Notification`, вариантов 6 из 6; оси: Status, State.
-- Борда: «Notification — борда · шаблон v3», разделов 11.
+- Борда: «Notification — борда · шаблон v3», разделов 12.
 - Описание: 1139 знаков, разделы: Status: Level: Status: State: A11y: Когда использовать: Правила:
 
 ## 13. Code projection

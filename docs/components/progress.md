@@ -77,7 +77,7 @@
 
 ## 12. Figma projection
 - Набор `Progress`, вариантов 8 из 8; оси: Size, Tone.
-- Борда: «Progress — борда · шаблон v3», разделов 11.
+- Борда: «Progress — борда · шаблон v3», разделов 12.
 - Описание: 922 знаков, разделы: Status: Level: Progress: Когда использовать: Правила: A11y: Поиск: Legacy: Motion:
 
 ## 13. Code projection

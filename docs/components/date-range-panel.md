@@ -1,33 +1,43 @@
-# Date range panel — контракт · draft (2026-11-15)
+# Date range panel — контракт (2026-11-15)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Date range panel`. Status: draft. Level: unknown.
-- Figma: Components, страница «Date range panel» (`1663:6984`), набор `1663:8388`.
+- Набор: `Date range panel`. Status: beta. Level: unknown.
+- Figma: Components, страница «Date range panel» (`1663:6984`), набор `1663:8388`. Платформы: Web, Mobile web, iOS, Android.
+- Organism; открывается из Date range field. Собран из Menu item (пресеты), Calendar (Mode=Range) и Button (футер).
 
 ## 2. Intent
-- Не описано.
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Панель выбора периода: слева пресеты («Сегодня», «7 дней», «30 дней», «Квартал», «Год», «Свой период»), справа календарь с диапазоном, внизу «Сбросить» и «Применить».
+- Когда использовать: выбор периода для выгрузки, фильтра, отчёта — из Date range field.
+- Когда нет: одна дата — Calendar (Single) в Input; быстрый выбор без календаря — Chip или Segmented.
+- Правило выбора варианта:
+  - Presets: On — Web, пресеты слева от календаря; Off — мобильный, панель в Sheet без пресетов, чипы периодов над календарём.
+  - Show reset: On — по умолчанию, есть выбор для сброса; Off — сбрасывать нечего (обязательный фильтр).
+  - Пресет подставляет диапазон в календарь; «Свой период» включает ручной выбор.
+  - Применение: Web — только по «Применить»; мобильный (в Sheet) — сразу при выборе второй даты.
+  - Недоступные даты — Date cell Disabled, ограничение — в подсказке Date range field.
+- Не делаем: применение периода без «Применить» на Web; пресет, не совпадающий с диапазоном в календаре; пресеты на мобильном (Presets=On в Sheet).
 
 ## 3. Anatomy
-- Слои с токенами: `calendar column`, `calendar`, `footer`, `reset`, `apply`.
+- Корень — `material/thick` (fill + blur), обводка `border/subtle`, `radius/control`, отступ `space/12`, интервал `space/16`, тень `shadow/ambient` + `shadow/key`.
+- Слева — список Menu item (6 пресетов), выбранный — с галочкой.
+- `calendar column` (интервал `space/12`): Calendar Mode=Range без своей подложки, тени, отступов и радиуса (внутри панели — одна поверхность, исправлено 2026-11-15); `footer` (интервал `space/8`, прижат к концу) — `reset` (текстовая Button) и `apply` (Button `action/primary/default`, `control/height/sm`).
+- Своих служебных слоёв нет: кольцо фокуса и зоны нажатия — у Menu item, Date cell, Button.
 - Вложено: `Menu item` ×12, `Calendar` ×2, `Button` ×4.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Оси State нет.
+- Группа модели состояний (`docs/components.md`): Контейнер: своих состояний нет; состояния — у Menu item, Calendar (Date cell) и Button.
+- Своих состояний нет. Выбранный пресет — Menu item с галочкой; период — Range start / middle / end в Calendar.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Presets | On · Off | — |
+| Presets | On · Off | On |
 
 Матрица полная: 2 вариантов.
 
@@ -37,33 +47,45 @@
 |---|---|---|---|
 | Show reset | булево | вкл | 2 из 2 |
 
+- Show reset (по умолчанию On) — кнопка «Сбросить» в футере.
+
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Пресеты — короткие периоды («7 дней»); длинный текст переносится на вторую строку и усекается многоточием (проверено на стенде).
+- Кнопки — глагол: «Сбросить», «Применить». Длинный текст «Сбросить» не усекается (см. todo).
+- RTL: пресеты переходят вправо, календарь зеркалится, кнопки футера меняются местами. На стенде направление не переключается: ar проверен только на обрезку.
+- Текст 200 %: пресеты и кнопки растут без обрезки; шапка Calendar растёт, заголовок месяца усекается многоточием.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- `select` пресета → диапазон в календаре; «Свой период» — ручной выбор.
+- `change` — выбран период в календаре.
+- «Применить» → `apply`, панель закрывается, период уходит в Date range field; «Сбросить» → `reset`.
+- Esc — закрывает без применения, фокус возвращается на поле.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Открывается из Date range field; на мобильном — в Sheet и применяется по второй дате.
+- Смена пресета и диапазона — без анимации; тайминги вложенных — их собственные.
 
 ## 9. Accessibility
-- Не описано: заполнить при переводе в beta.
+- `role=dialog` с `aria-label` «Период»; Esc закрывает и возвращает фокус на поле.
+- Пресеты — `role=listbox`; календарь — `role=grid`, стрелки двигают дату, Enter выбирает начало и конец.
+- Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо и зоны нажатия — у вложенных Menu item, Date cell, Button.
 
 ## 10. Tokens
 - `корень`: эффект `material/thick/blur`, `shadow/ambient`, `shadow/key`; заливка / цвет `material/thick/fill`; интервал `space/16`; отступы `space/12`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `calendar column`: интервал `space/12`.
-- `calendar`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; интервал `space/12`; отступы `space/16`; радиус `radius/container`.
+- `calendar`: интервал `space/12`.
 - `footer`: интервал `space/8`.
 - `reset`: интервал `space/2`; мин. ширина `size/button/min`; отступы `space/4`; радиус `radius/xs`.
 - `apply`: заливка / цвет `action/primary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
+- Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
 - Набор `Date range panel`, вариантов 2 из 2; оси: Presets.
 - Борда: «Date range panel — борда · шаблон v3», разделов 9.
-- Описание: 1051 знаков, разделы: Status: Level: Панель выбора периода: Когда использовать: Правила: A11y: Legacy: Токены:
+- Описание: 1050 знаков, разделы: Status: Level: Панель выбора периода: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -72,8 +94,15 @@
 - Props: `presets`: boolean; `showReset`: boolean = true.
 
 ## 14. Acceptance (2026-11-15)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — 0 замечаний.
+- `variables-check.plugin.js` — 0 замечаний.
+- `audit-parity.plugin.js` — 0 (2026-11-13).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячейки — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства (Show reset); RTL на стенде не зеркалится; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: DS Web `DateRange.Panel`, `PeriodPresets` → Date range panel (Calendar + пресеты + футер); DS App — нет.
+- DS Web `DateRange.Panel` → Date range panel (Presets On | Off, Show reset); `PeriodPresets.List` → Menu item; `PeriodGrid` → Calendar Mode=Range.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Presets=Off: чипов периодов над календарём (по описанию) нет — слот панели или Sheet, решить.
+- Длинный текст «Сбросить» не усекается и выталкивает «Применить» — нужен max-width у кнопки (проверить на полной ширине).

@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-15: beta 75 наборов, draft 15, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-15: beta 79 наборов, draft 11, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -44,6 +44,7 @@
 - [Breadcrumb item](docs/components/breadcrumb-item.md): Пункт хлебных крошек: ссылка на предыдущий уровень; Current — текущая страница, не ссылка
 - [Breadcrumbs](docs/components/breadcrumbs.md): Путь к текущей странице в глубокой иерархии (Web): «Главная / Воркеры / rig-01»
 - [Button](docs/components/button.md): Кнопка действия. Основа — legacy `baseButton` (DS Web + App), доведена до правил 2.0
+- [Calendar](docs/components/calendar.md): Календарь выбора даты или периода (Datepicker): шапка с месяцем и стрелками, строка дней недели, сетка дней из Date cell
 - [Card](docs/components/card.md): Контейнер-подложка: уровень поверхности, радиус, внутренний отступ и обводка. Своего содержимого нет
 - [Chart crosshair](docs/components/chart-crosshair.md): Перекрестие под курсором на графике: вертикальная линия с точкой серии или подсветка полосы столбца. Работает вместе с Chart tooltip
 - [Chart metric](docs/components/chart-metric.md): Показатель над графиком: подпись и крупное значение, при необходимости иконка слева от значения
@@ -59,7 +60,9 @@
 - [Counter](docs/components/counter.md): Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус
 - [Date cell](docs/components/date-cell.md): Ячейка одного дня в сетке Calendar: число и одно смысловое состояние (сегодня, выбран, край или середина диапазона, соседний месяц, недоступен)
 - [Date range field](docs/components/date-range-field.md): Поле выбора диапазона дат: подпись на рамке, значение «ДД.ММ.ГГ → ДД.ММ.ГГ», справа иконка календаря. По нажатию открывает панель с календарём (Calendar, Mode=Range) и пресетами периодов
+- [Date range panel](docs/components/date-range-panel.md): Панель выбора периода: слева пресеты («Сегодня», «7 дней», «30 дней», «Квартал», «Год», «Свой период»), справа календарь с диапазоном, внизу «Сбросить» и «Применить»
 - [Divider](docs/components/divider.md): Разделитель: линия 1 px между группами содержимого, с необязательной подписью «или»
+- [Dropdown panel](docs/components/dropdown-panel.md): Панель выпадающего списка выбора: вкладки-категории, «Сбросить всё», поиск и список пунктов Multiselect option; при пустом результате поиска — «Ничего не нашли» с подсказкой
 - [Floating button](docs/components/floating-button.md): Плавающая кнопка главного действия экрана на Compact (App, мобильный веб): «Добавить воркер», «Пополнить»
 - [Icon button](docs/components/icon-button.md): Кнопка-иконка: закрыть, «…», копировать, фильтр, обновить. Та же основа, что у Button
 - [Input](docs/components/input.md): одна строка текста или числа
@@ -68,6 +71,7 @@
 - [Legend item](docs/components/legend-item.md): Элемент легенды графика: маркер серии (Legend swatch) + подпись и необязательное значение
 - [Legend swatch](docs/components/legend-swatch.md): Маркер серии графика: цветная точка или отрезок линии
 - [List item](docs/components/list-item.md): Строка списка данных: монета, кошелёк, воркер, транзакция, настройка. Слот Leading слева, тексты по Content, слот Trailing справа
+- [Menu](docs/components/menu.md): Меню (Dropdown): всплывающий список действий или вариантов. В слоте Items — Menu item, подписи групп и разделители; сверху — необязательный поиск
 - [Menu item](docs/components/menu-item.md): Пункт меню: слева необязательный слот (иконка, монета, аватар, эмодзи), затем подпись с необязательным описанием, справа необязательный слот (Badge, Counter, значение, шеврон подменю, кнопка). Нажимается вся строка, одно действие на пункт
 - [Multiselect](docs/components/multiselect.md): Поле множественного выбора: Select + список Multiselect option в Menu. Выбранное показывается строкой «Выбрано: N» в поле (Count) или чипами под полем (Chips)
 - [Multiselect option](docs/components/multiselect-option.md): Строка списка выбора (Select, Multiselect, Menu): слева необязательный слот под монету, аватар или иконку, затем подпись с необязательным описанием, справа галочка выбранного. Это строка, а не чекбокс: нажимается вся строка
@@ -125,7 +129,7 @@
 
 ## Компоненты: draft — не брать
 
-- уровень не указан (15): Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, File upload, Page header, Menu, Modal, Sidebar, Sheet, Side panel, Snack, Tab bar
+- уровень не указан (11): Chart card, Chart plot, Empty state, File upload, Page header, Modal, Sidebar, Sheet, Side panel, Snack, Tab bar
 - шаблоны экранов, не Base (1): Status screen
 
 ## Проверки

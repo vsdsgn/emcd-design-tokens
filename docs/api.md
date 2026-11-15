@@ -136,6 +136,16 @@
 
 Иконки (Icon left, Icon right) в коде — слот или имя иконки, а не boolean + swap.
 
+## Calendar
+
+уровень не указан · beta · Vue `<DsCalendar>` · Flutter `DsCalendar` · контракт `docs/components/calendar.md`
+
+Календарь выбора даты или периода (Datepicker): шапка с месяцем и стрелками, строка дней недели, сетка дней из Date cell.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `mode` | single \| range | по правилу контракта | ось Mode |
+
 ## Card
 
 уровень не указан · beta · Vue `<DsCard>` · Flutter `DsCard` · контракт `docs/components/card.md`
@@ -342,6 +352,17 @@ Props нет.
 
 Состояния в Figma: Default · Focus · Filled · Error · Disabled · Hover · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error`, `skeleton` — boolean props.
 
+## Date range panel
+
+уровень не указан · beta · Vue `<DsDateRangePanel>` · Flutter `DsDateRangePanel` · контракт `docs/components/date-range-panel.md`
+
+Панель выбора периода: слева пресеты («Сегодня», «7 дней», «30 дней», «Квартал», «Год», «Свой период»), справа календарь с диапазоном, внизу «Сбросить» и «Применить».
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `presets` | on \| off | по правилу контракта | ось Presets |
+| `showReset` | boolean | true | свойство Show reset |
+
 ## Divider
 
 уровень не указан · beta · Vue `<DsDivider>` · Flutter `DsDivider` · контракт `docs/components/divider.md`
@@ -354,6 +375,19 @@ Props нет.
 | `label` | off \| on | по правилу контракта | ось Label |
 | `style` | solid \| dotted | по правилу контракта | ось Style |
 | `labelText` | string | — | свойство Label text |
+
+## Dropdown panel
+
+уровень не указан · beta · Vue `<DsDropdownPanel>` · Flutter `DsDropdownPanel` · контракт `docs/components/dropdown-panel.md`
+
+Панель выпадающего списка выбора: вкладки-категории, «Сбросить всё», поиск и список пунктов Multiselect option; при пустом результате поиска — «Ничего не нашли» с подсказкой.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `content` | list \| empty | по правилу контракта | ось Content |
+| `showTabs` | boolean | true | свойство Show tabs |
+| `showReset` | boolean | true | свойство Show reset |
+| `showSearch` | boolean | true | свойство Show search |
 
 ## Floating button
 
@@ -491,6 +525,18 @@ Props нет.
 | `divider` | boolean | false | свойство Divider (слой `_List row`, база `_List row`) |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+
+## Menu
+
+уровень не указан · beta · Vue `<DsMenu>` · Flutter `DsMenu` · контракт `docs/components/menu.md`
+
+Меню (Dropdown): всплывающий список действий или вариантов. В слоте Items — Menu item, подписи групп и разделители; сверху — необязательный поиск.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | m \| l | по правилу контракта | ось Size |
+| `items` | slot | — | свойство Items |
+| `search` | boolean | false | свойство Search |
 
 ## Menu item
 
