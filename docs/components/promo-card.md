@@ -16,6 +16,7 @@
   - Tone: Neutral — по умолчанию; Accent — только для главной акции экрана.
   - Show description — описание под заголовком; выключается, когда заголовок говорит всё.
   - Show action — действие, всегда одно; выключается, когда нажимается вся карточка.
+  - Действие — Button Text в S и M (один вид); Show close — крестик Icon button Ghost S, по умолчанию On (промо закрывается пользователем); заголовок до 2 строк, описание до 3 (решение 2026-11-15).
   - Show media — картинка справа; только как дополнение к тексту.
   - Закрывается пользователем и не возвращается в сессии.
 - Не делаем: больше одной промо-карточки на экран; два действия; картинка, несущая смысл без текста; возврат закрытой карточки в той же сессии.
@@ -27,7 +28,7 @@
 - `action` — вложенный Button (`control/height/sm`); у Tone=Accent — Button Primary (другой вид сливается с подложкой `accent/subtle`).
 - `media` — картинка в потоке справа (`radius/inner`; плейсхолдер `surface/level-2`); при Show media = Off места под неё нет, текст — на всю ширину.
 - Служебных слоёв нет.
-- Вложено: `Button` ×4.
+- Вложено: `Button` ×4, `Icon button` ×4.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -53,8 +54,9 @@
 | Show description | булево | вкл | 4 из 4 |
 | Show action | булево | вкл | 4 из 4 |
 | Show media | булево | выкл | 4 из 4 |
+| Show close | булево | вкл | 4 из 4 |
 
-- Title, Description — текст; Show description (вкл.), Show action (вкл.), Show media (выкл.).
+- Title, Description — текст; Show description (вкл.), Show action (вкл.), Show media (выкл.), Show close (вкл., 2026-11-15).
 
 ## 6. Content / slots
 - Title — короткий вопрос или выгода («Нет оборудования?»); Description — одна фраза («Получи каталог ASIC по выгодным ценам»); действие — глагол.
@@ -82,8 +84,9 @@
 - `text`: интервал `space/4`.
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- `action`: заливка / цвет `action/accent/default`, `action/primary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/4`, `space/6`; радиус `radius/control-sm`, `radius/xs`.
+- `action`: интервал `space/2`; мин. ширина `size/button/min`; отступы `space/4`; радиус `radius/xs`.
 - `media`: заливка / цвет `surface/level-2`; радиус `radius/inner`.
+- `close`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - Значений без переменной: 4 (напр. `(root):w=222`, `(root):w=343`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -93,13 +96,13 @@
 ## 12. Figma projection
 - Набор `Promo card`, вариантов 4 из 4; оси: Size, Tone.
 - Борда: «Promo card — борда · шаблон v3», разделов 12.
-- Описание: 853 знаков, разделы: Status: Level: Промо-карточка: Когда использовать: Правила: A11y: Legacy: Токены:
+- Описание: 1071 знаков, разделы: Status: Level: Промо-карточка: Когда использовать: Правила: A11y: Legacy: Токены: Действие —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsPromoCard>`; Flutter: `DsPromoCard`.
-- Props: `size`: s | m; `tone`: neutral | accent; `title`: string или слот; `description`: string или слот; `showDescription`: boolean = true; `showAction`: boolean = true; `showMedia`: boolean = false.
+- Props: `size`: s | m; `tone`: neutral | accent; `title`: string или слот; `description`: string или слот; `showDescription`: boolean = true; `showAction`: boolean = true; `showMedia`: boolean = false; `showClose`: boolean = true.
 
 ## 14. Acceptance (2026-11-15)
 - `audit.plugin.js` — 0 замечаний.
@@ -112,8 +115,5 @@
 - DS Web Sidebar banner → Promo card Size=S; продукт: banner 343×152 → Size=M; Tone, Show description, Show action, Show media — новые.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- На решение: Neutral (`surface/level-1`) на L1 сливается с подложкой, в Dark на L2 / L3 темнее подложки — правило «Neutral только на L0» или заливка от уровня.
-- На решение: действие в S и M разного вида (текстовая кнопка / кнопка с подложкой) — правило по Size или один вид.
-- На решение: по правилу карточка закрывается пользователем, крестика в наборе нет.
-- На решение: предел строк заголовка и описания (сейчас без ограничения).
+- После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.
 - Ширина корня 222 / 343 — числом.

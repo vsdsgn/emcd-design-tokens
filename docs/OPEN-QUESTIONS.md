@@ -3,9 +3,12 @@
 ## Решено 15.11 (вечер)
 - Chart plot: Skeleton и Disabled визуально не разводим; токены уже раздельные (`skeleton/base`, `action/disabled`), в Light значения совпадают — так и оставляем.
 
-## Нужно от Стефана (15.11, вечер)
-- **Modal** — доска «⚑ Решение · Modal» на странице 🟡 Modal: (1) Header=Empty без крестика — A оставить / B схлопывать шапку (Body сверху 32) / C запретить (сейчас); (2) отступ Body после Divider — 8 (сейчас) или 24 (рекомендую).
+## Нужно от Стефана (15.11, ночь)
+- **Publish Foundations:** новый токен `surface/next` (Surface context: L0→level-1, L1→level-2, L2→level-3, L3→raised); `data/4` (Light amber/600→amber/800, Dark amber/300→amber/500), `data/7` (Dark orange/300→orange/400). После Publish — агент перепривязывает заливки 7 наборов на `surface/next` и принимает обновление в Components.
 
+## Решено 15.11 (ночь) — «делай по рекам»
+- Modal: Header=Empty — только с крестиком (как было); после Divider — 24. Доска решения удалена.
+- П. 1 — токен `surface/next` (ждёт Publish), п. 2 — Promo card и Tooltip tour: заголовок 2 строки, текст 3; п. 3 — Show label=Off только при внешнем заголовке; п. 4 — Tabs (M) и Card (Level 1) не трогаем, Level 0 — только на L0; п. 5 — `data/4`, `data/7` сдвинуты (ждут Publish); п. 6 — Promo card: действие Button Text, Show close (On). П. 7 — после Publish и перепривязки, пакетом.
 
 ## На решение — todo контрактов, сгруппировано (15.11, ночь)
 Полный список — раздел «Осталось доделать» в `docs/components/*.md` (пункты «На решение»). Рекомендации агента — в скобках.

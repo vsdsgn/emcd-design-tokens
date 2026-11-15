@@ -81,4 +81,4 @@
 - DS Web `legend marker` → Legend swatch: Marker Dot | Line, Series 1–8.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Палитра `data/*`: в Dark Series 3 и 7, 2 и 4 почти неразличимы, в Light — 2 и 4 близки — на решение, вопрос к палитре.
+- Палитра: `data/4` (Light amber/800, Dark amber/500) и `data/7` (Dark orange/400) сдвинуты 2026-11-15 — ждут Publish Foundations.

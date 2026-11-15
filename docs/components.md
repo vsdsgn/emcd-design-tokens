@@ -123,6 +123,8 @@ Legacy: старые имена компонента
 
 `surface/raised` — для поповеров, дропдаунов, тостов (приподнятые над контентом), не для вложенных блоков.
 
+**Карточка внутри контейнера — `surface/next` (решение 2026-11-15).** Токен коллекции Surface context: на уровень выше подложки, на которой лежит компонент (L0 → `surface/level-1`, L1 → `level-2`, L2 → `level-3`, L3 → `surface/raised`). Им заливаются карточки и плашки, которые кладут на любой уровень: Promo card, Stat card, Chart card, Address (`row`), Notification (кружок), Radio card, Avatar group. Так карточка не сливается с подложкой и не бывает темнее её в Dark. Card с осью Level задаёт уровень явно; Level 0 — только на L0. CSS: `--surface-next` в `build/css/surface-context.css` (по `data-surface`).
+
 ## Button: типы
 
 9 типов (по частоте в продуктах): Secondary · Primary · Tertiary accent · Link · Secondary accent · Outline · Error · Tertiary error · Inverted.

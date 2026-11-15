@@ -815,6 +815,7 @@ Props нет.
 | `showDescription` | boolean | true | свойство Show description |
 | `showAction` | boolean | true | свойство Show action |
 | `showMedia` | boolean | false | свойство Show media |
+| `showClose` | boolean | true | свойство Show close |
 
 ## Radio
 

@@ -208,7 +208,9 @@ writeFileSync('build/css/type-features.css', `/* Interface OpenType features. Fo
 // Set data-surface="0|1|2|3" on a container; default L0. Needs theme scope above (it aliases --surface-level-N).
 {
   const lv = readdirSync(join(T, 'surface')).filter((f) => /^l\d\.json$/.test(f)).sort();
-  const rule = (f) => { const n = f.slice(1, 2); const ref = JSON.parse(readFileSync(join(T, 'surface', f), 'utf8')).surface.current.$value.replace(/^\{surface\.([a-z0-9-]+)\}$/, 'var(--surface-$1)'); return `${n === '0' ? ':root, ' : ''}[data-surface="${n}"] { --surface-current: ${ref}; }`; };
+  const ref = (x) => x.$value.replace(/^\{surface\.([a-z0-9-]+)\}$/, 'var(--surface-$1)');
+  // --surface-next (2026-11-15) — one level above the container: fill of cards and plates inside it.
+  const rule = (f) => { const n = f.slice(1, 2); const s = JSON.parse(readFileSync(join(T, 'surface', f), 'utf8')).surface; return `${n === '0' ? ':root, ' : ''}[data-surface="${n}"] { --surface-current: ${ref(s.current)};${s.next ? ` --surface-next: ${ref(s.next)};` : ''} }`; };
   writeFileSync('build/css/surface-context.css', `/**\n * Generated from tokens/surface/*.json (Figma «Surface context»). Do not edit.\n */\n${lv.map(rule).join('\n')}\n`);
 }
 

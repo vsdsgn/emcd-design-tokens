@@ -77,7 +77,7 @@
 
 ## 12. Figma projection
 - Набор `Notification`, вариантов 6 из 6; оси: Status, State.
-- Борда: «Notification — борда · шаблон v3», разделов 12.
+- Борда: «Notification — борда · шаблон v3», разделов 11.
 - Описание: 1139 знаков, разделы: Status: Level: Status: State: A11y: Когда использовать: Правила:
 
 ## 13. Code projection
@@ -101,5 +101,5 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - min-width: в описании `size/toast/min`, в наборе привязан только max.
-- Кружок `surface/raised` у Read сливается с подложкой в Light · L0 и Dark · L1 — на решение (нужен ли кружок у Read; у Transaction плашка — `action/secondary/default`).
+- После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.
 - Иконка — содержимое слота Leading базы; правило выбора иконки по типу события — дописать.

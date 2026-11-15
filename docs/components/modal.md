@@ -23,10 +23,10 @@
 - Не делаем: модал поверх модала; два главных действия; длинная форма или детали объекта в модалке; закрытие фоном и Esc на необратимом шаге; Header=Empty с Show close = Off.
 
 ## 3. Anatomy
-- Корень — вертикальный стек, `radius/surface` (24), ширина `size/modal/md` (560; `sm` 400 / `lg` 720 — ресайз экземпляра); отступы шапки, Body и Footer slot — `space/32` (верх Body — `space/8`).
+- Корень — вертикальный стек, `radius/surface` (24), ширина `size/modal/md` (560; `sm` 400 / `lg` 720 — ресайз экземпляра); отступы шапки, Body и Footer slot — `space/32` (верх Body — `space/8`; с Divider после линии 24: линия + `space/16` + `space/8`).
 - Поверхность — слой `overlay surface`, экземпляр _Overlay surface (Kind=Modal): `surface/level-1`, обводка `border/subtle` × `border/width/default`, тени `shadow/key` + `shadow/ambient` (Elevation/4).
 - `header` (зазор `space/8`): `title` — Header=Title `font/family/display`, `type/display/md`, bold, `text/primary`; Header=Coin — монета 32 + `title group` (зазор `space/12`) с `type/heading/lg` и `header description` (`type/body/md`, `text/secondary`); `close` — Icon button `control/height/md`.
-- `divider` — линия `border/subtle` (Divider).
+- `divider` — рамка с линией `border/subtle` и отступом снизу `space/16` (Divider, 2026-11-15).
 - Слот Body (зазор `space/12`): образец — `type/body/lg`, `text/secondary`.
 - Слот Footer slot (зазор `space/8` / `space/16`): Button XL (`control/height/xl` 56) на всю ширину; подпись под кнопками — текстом в слоте.
 - Вложено: `_Overlay surface` ×12, `Icon button` ×12, `Button` ×15, `smbl-bitcoin-btc` ×4.
@@ -89,7 +89,8 @@
 - `header`: интервал `space/8`; отступы `space/16`, `space/24`, `space/32`.
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/display/md`, `type/heading/lg`.
 - `close`: интервал `space/6`; высота `control/height/md`; радиус `radius/control`; ширина `control/height/md`.
-- `divider`: заливка / цвет `border/subtle`.
+- `divider`: отступы `space/16`.
+- `line`: заливка / цвет `border/subtle`.
 - `Body`: интервал `space/12`; отступы `space/32`, `space/8`.
 - `Контент модалки — в слот Body: текст, поля, список.`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/lg`.
 - `Footer slot`: интервал `space/16`, `space/8`; отступы `space/24`, `space/32`.
@@ -104,7 +105,7 @@
 ## 12. Figma projection
 - Набор `Modal`, вариантов 12 из 12; оси: Header, Footer.
 - Борда: «Modal — борда · шаблон v3», разделов 11.
-- Описание: 1901 знаков, разделы: Status: Level: Когда использовать: Header: Footer: Body и Footer — Когда нет: A11y: Поиск: Legacy: Motion: Тень:
+- Описание: 2072 знаков, разделы: Status: Level: Когда использовать: Header: Footer: Body и Footer — Когда нет: A11y: Поиск: Legacy: Motion: Тень:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -121,7 +122,3 @@
 
 ## 15. Migration
 - DS Web base modal header (title, title select → Header=Title; coin, coin select → Header=Coin; empty → Header=Empty) и base modal footer (single button → Footer=Single; two buttons → Stacked / Horizontal; empty → None); divider → Divider.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Header=Empty + Show close=Off — пустая шапка ~60 px: запретить сочетание или схлопывать (на решение).
-- Отступ Body после Divider (~8 px) — проверить, ждали ≥ `space/24`.

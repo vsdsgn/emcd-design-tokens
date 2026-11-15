@@ -80,7 +80,7 @@
 
 ## 12. Figma projection
 - Набор `Segmented`, вариантов 12 из 12; оси: Size, Items.
-- Борда: «Segmented — борда · шаблон v3», разделов 12.
+- Борда: «Segmented — борда · шаблон v3», разделов 11.
 - Описание: 1222 знаков, разделы: Status: Level: Segmented: Когда использовать: Правила: Длинный текст: Уровни: A11y: Поиск: Legacy:
 
 ## 13. Code projection

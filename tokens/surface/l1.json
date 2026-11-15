@@ -3,6 +3,10 @@
     "current": {
       "$type": "color",
       "$value": "{surface.level-1}"
+    },
+    "next": {
+      "$type": "color",
+      "$value": "{surface.level-2}"
     }
   }
 }

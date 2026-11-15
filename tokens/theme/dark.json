@@ -630,7 +630,7 @@
     },
     "4": {
       "$type": "color",
-      "$value": "{color.amber.300}"
+      "$value": "{color.amber.500}"
     },
     "5": {
       "$type": "color",
@@ -642,7 +642,7 @@
     },
     "7": {
       "$type": "color",
-      "$value": "{color.orange.300}"
+      "$value": "{color.orange.400}"
     },
     "8": {
       "$type": "color",

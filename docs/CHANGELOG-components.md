@@ -2,6 +2,14 @@
 
 Формат: дата · что · где. Пишется после каждой группы правок.
 
+## 2026-11-15 (ночь, решения «по рекам»)
+
+- **Foundations (ждут Publish):** новый `surface/next` (Surface context); `data/4` — Light amber/800, Dark amber/500; `data/7` — Dark orange/400 (различимость серий: 2↔4 Light ΔE 29→35, 3↔7 Dark 18→28; при протанопии и дейтеранопии 2↔4 больше не путаются). CSS: `--surface-next` в `surface-context.css`.
+- **Promo card:** действие — Button Text в S и M; новое свойство Show close (Icon button Ghost S, по умолчанию On); заголовок до 2 строк, описание до 3.
+- **Tooltip tour:** Title до 2 строк, Description до 3.
+- **Modal:** Divider — рамка с отступом снизу `space/16`, Body после линии через 24; Header=Empty — только с крестиком.
+- **Checkbox / Radio / Toggle group:** правило Show label = Off (только при внешнем заголовке, `aria-labelledby`).
+
 ## 2026-11-15 (ночь: todo атомов и молекул)
 
 - **Порядок вариантов** (Default — левый верхний, состояния Default → Hover → Pressed → Focus → Filled → Error → Disabled → Skeleton): Password field (по умолчанию стоял Error), Input amount, Multiselect option, Pagination item (M первым), Floating button (Disabled в своих рядах), Select compact, Accordion. Порядок значений в панели свойств Figma API не меняет.

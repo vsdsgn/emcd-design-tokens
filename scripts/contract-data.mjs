@@ -1114,6 +1114,7 @@ export const DATA = [
     use: 'несколько независимых вариантов одной темы (фильтры, подписки, согласия).',
     dont: 'один вариант из нескольких — Radio group; настройки, применяемые сразу, — Toggle group; больше 7 вариантов — Multiselect.',
     rule: [
+      'Show label = Off — только при заголовке группы снаружи (секция, карточка), связь `aria-labelledby` (решение 2026-11-15).',
       'Direction: Vertical — по умолчанию; Horizontal — только 2–3 коротких варианта.',
       'Size: M | S — как у Checkbox; в группе один размер и одно положение контрола.',
       'State: Default; Error — группа не прошла проверку; Disabled — вся группа неактивна, причина — в подсказке.',
@@ -1157,7 +1158,6 @@ export const DATA = [
     todo: [
       'Правило длинной подписи и подсказки: описание говорит «одной строкой под группой», набор переносит — записать правило.',
       'Зазоры в описании (8 / 12 / 24 и 6 / 8 / 16, `space/6`) не совпадают с набором (`space/6` нет) — свести.',
-      'На решение: Show label = Off против правила «подпись обязательна» — описать случай внешнего заголовка (`aria-labelledby`) или убрать свойство.',
     ],
   },
   {
@@ -1167,6 +1167,7 @@ export const DATA = [
     use: 'один вариант из 2–5 видимых (способ вывода, тариф, период).',
     dont: 'больше 5 вариантов — Select; переключение вида — Segmented; несколько вариантов — Checkbox group.',
     rule: [
+      'Show label = Off — только при заголовке группы снаружи (секция, карточка), связь `aria-labelledby` (решение 2026-11-15).',
       'Direction: Vertical — по умолчанию; Horizontal — только 2–3 коротких варианта.',
       'Size: M | S — как у Radio; в группе один размер и одно положение контрола.',
       'State: Default; Error — обязательный вариант не выбран; Disabled — вся группа неактивна, причина — в подсказке.',
@@ -1210,7 +1211,6 @@ export const DATA = [
     todo: [
       'Правило длинной подписи и подсказки: описание говорит «одной строкой под группой», набор переносит — записать правило.',
       'Зазоры в описании (8 / 12 / 24 и 6 / 8 / 16, `space/6`) не совпадают с набором (`space/6` нет) — свести.',
-      'На решение: Show label = Off против правила «подпись обязательна» — описать случай внешнего заголовка (`aria-labelledby`) или убрать свойство.',
     ],
   },
   {
@@ -1722,7 +1722,7 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; положение радио у первой строки после правки 13.11 стендом не перепроверено; кода нет — parity props пропущена' },
     migration: ['Продукт «Выгрузка»: радио-карточки расписания → Radio card (Status, State, Label, Details, Show details).'],
     todo: [
-      'На решение: на L2 заливка `surface/level-2` совпадает с фоном, карточку держит только `border/subtle` (в Light у Disabled контур почти не виден) — заливка от текущей поверхности или запрет на L2.',
+      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
       'Ширина корня 400 и `hit area · web` 400 × 126 — числом.',
     ],
   },
@@ -1793,6 +1793,7 @@ export const DATA = [
       'Tone: Neutral — по умолчанию; Accent — только для главной акции экрана.',
       'Show description — описание под заголовком; выключается, когда заголовок говорит всё.',
       'Show action — действие, всегда одно; выключается, когда нажимается вся карточка.',
+      'Действие — Button Text в S и M (один вид); Show close — крестик Icon button Ghost S, по умолчанию On (промо закрывается пользователем); заголовок до 2 строк, описание до 3 (решение 2026-11-15).',
       'Show media — картинка справа; только как дополнение к тексту.',
       'Закрывается пользователем и не возвращается в сессии.',
     ],
@@ -1808,7 +1809,7 @@ export const DATA = [
     group: NONE + '; интерактивно только действие (Button) или вся карточка как одна цель',
     states: ['Своих состояний нет. Hover / Pressed / Focus — у вложенного Button; если нажимается вся карточка — у обёртки в коде.'],
     defaults: { Size: 'S', Tone: 'Neutral' },
-    propsNote: ['Title, Description — текст; Show description (вкл.), Show action (вкл.), Show media (выкл.).'],
+    propsNote: ['Title, Description — текст; Show description (вкл.), Show action (вкл.), Show media (выкл.), Show close (вкл., 2026-11-15).'],
     content: [
       'Title — короткий вопрос или выгода («Нет оборудования?»); Description — одна фраза («Получи каталог ASIC по выгодным ценам»); действие — глагол.',
       'Длинный текст: заголовок и описание переносятся, карточка растёт по высоте; усечения нет.',
@@ -1823,10 +1824,7 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; раскладка body и обводка после правки 13.11 стендом не перепроверены; кода нет — parity props пропущена' },
     migration: ['DS Web Sidebar banner → Promo card Size=S; продукт: banner 343×152 → Size=M; Tone, Show description, Show action, Show media — новые.'],
     todo: [
-      'На решение: Neutral (`surface/level-1`) на L1 сливается с подложкой, в Dark на L2 / L3 темнее подложки — правило «Neutral только на L0» или заливка от уровня.',
-      'На решение: действие в S и M разного вида (текстовая кнопка / кнопка с подложкой) — правило по Size или один вид.',
-      'На решение: по правилу карточка закрывается пользователем, крестика в наборе нет.',
-      'На решение: предел строк заголовка и описания (сейчас без ограничения).',
+      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
       'Ширина корня 222 / 343 — числом.',
     ],
   },
@@ -1957,7 +1955,7 @@ export const DATA = [
     accept: { audit: OK, vc: 'только реестр: maxWidth текстового слоя числом (value 180, unit 64, delta caption 160) и maxWidth 248 у delta row', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; Ambient light в Base не виден — проверять в Expressive; кода нет — parity props пропущена' },
     migration: ['DS Web `stat card` (widget Graph) → Stat card (Label, Value, Unit, Delta, Footer); DS App — нет. Опора — карточки дашборда Mining (Web App / App). Нужен скрин прода.'],
     todo: [
-      'На решение: Light · L1 / Dark · L1 — заливка `surface/level-1` совпадает с подложкой, карточку держит только обводка.',
+      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
       'Ширина корня 280 числом (min-width — `size/card/min`).',
     ],
   },
@@ -1995,7 +1993,6 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; рост Counter при 200 % повторно не проверен; код — HTML/CSS' },
     migration: ['DS Web `tabs`, `base tabbar` → Tabs (Size; число вкладок — Tab 3 – Tab 6); подпись, счётчик, иконка — у вложенных Tab.'],
     todo: [
-      'Порядок оси Size — M, L, XL, S; привести к S, M, L, XL — на решение (что по умолчанию).',
     ],
   },
   {
@@ -2153,6 +2150,7 @@ export const DATA = [
     use: 'первый вход, новая функция, тур по нескольким элементам.',
     dont: 'короткая подсказка на hover или фокус — Tooltip; постоянное объяснение — Suggest.',
     rule: [
+      'Title — до 2 строк, Description — до 3, дальше многоточие (решение 2026-11-15).',
       'Placement: Top — подсказка над элементом (стрелка снизу); Bottom — под элементом (стрелка сверху). Выбирается по месту на экране.',
       'Tone: Neutral — по умолчанию (`surface/raised`, обводка `border/default`); Accent — шаг, который надо выделить на нагруженном экране (`action/primary/default`, текст `text/on-accent`).',
       'Один шаг — одна подсказка; ширина до 320 (`size/tooltip/max`).',
@@ -2189,7 +2187,6 @@ export const DATA = [
     migration: ['DS Web Tooltip tour (color, neutral) → Tone Accent | Neutral; Placement Top | Bottom; степпер `.🔸 slider counter` → текст Step.'],
     todo: [
       'Текст 200 %: подпись «Далее» упирается в край кнопки фиксированной высоты — проверить у Button.',
-      'На решение: предел строк для Title и Description.',
       'Ширина корня 320 числом.',
     ],
   },
@@ -2370,8 +2367,7 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 % (текста нет — без изменений); булевых свойств нет; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['DS Web `Card`, `Surface` → Card (Level, Radius, Padding, Border); DS App — нет. Радиусы и отступы сверить с DS Web.'],
     todo: [
-      'Порядок оси Level `1, 2, 3, 0` — 0 поставить первым (на решение).',
-      'Dark: Level 0 на L1–L3 темнее фона («яма») — на решение, нужен ли Level 0 в Dark.',
+      'Level 0 — только на L0 (на L1+ — Level 1–3); правило решения 2026-11-15.',
       'Обводка `border/subtle` у Level 0 на L0 едва видна (Light ≈ 1.2:1) — на решение.',
       'Описание: добавить строку Legacy.',
       'Ширина корня 320 числом — шаблон, в макете Fill.',
@@ -2416,7 +2412,7 @@ export const DATA = [
       'Текст 200 % у XS: инициалы выходят за круг, «+N» обрезается — на решение: зафиксировать кегль или дать кругу расти.',
       'Нахлёст −4 / −6 / −8 числом — ждёт токенов.',
       'В вариантах 4 аватара: правило «до 5» в наборе не показано.',
-      'Light L3: заливка аватаров и `more` почти равна подложке (общее с Avatar) — на решение.',
+      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
     ],
   },
   {
@@ -2451,7 +2447,7 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), 200 %; текстовых и булевых свойств нет — длинный текст и языки неприменимы; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['DS Web `legend marker` → Legend swatch: Marker Dot | Line, Series 1–8.'],
     todo: [
-      'Палитра `data/*`: в Dark Series 3 и 7, 2 и 4 почти неразличимы, в Light — 2 и 4 близки — на решение, вопрос к палитре.',
+      'Палитра: `data/4` (Light amber/800, Dark amber/500) и `data/7` (Dark orange/400) сдвинуты 2026-11-15 — ждут Publish Foundations.',
     ],
   },
   {
@@ -2535,7 +2531,7 @@ export const DATA = [
     todo: [
       '`copy` / `show QR` / `copied` — фреймы с иконками: заменить на экземпляры Icon button (состояния, Focus ring, зоны нажатия).',
       'QR виден во всех вариантах — нужен переключатель под правило «QR — только для адресов пополнения».',
-      '`row` (`surface/raised`) сливается с подложкой на Light L0 и Dark L1, в Dark L2 / L3 темнее подложки — на решение: заливка или обводка плашки.',
+      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
       'Copied выше Default на строку статуса — раскладка под компонентом сдвигается; на решение: резервировать место или статус поверх.',
       'Ширина корня 360 — числом.',
     ],
@@ -2602,6 +2598,7 @@ export const DATA = [
     use: 'набор настроек, которые применяются сразу (уведомления, безопасность).',
     dont: 'форма с кнопкой «Сохранить» — Checkbox group; один вариант из нескольких — Radio group.',
     rule: [
+      'Show label = Off — только при заголовке группы снаружи (секция, карточка), связь `aria-labelledby` (решение 2026-11-15).',
       'Direction: Vertical — единственное значение (у Toggle — только Vertical).',
       'Size: M | S — как у Toggle; в группе один размер и одно положение контрола.',
       'State: Default; Disabled — вся группа неактивна, причина — в подсказке. Ошибки нет: неудача применения — откат положения + Toast (как у Toggle).',
@@ -2644,7 +2641,6 @@ export const DATA = [
     todo: [
       'Ограничение Figma: при 200 % в узкой группе переключатель выходит за край (в коде подпись переносится) — макеты на ширине `size/field/max`.',
       'Зазоры в описании (M 8 / 12, S 6 / 8, `space/6`) не совпадают с набором (корень `space/12` / `space/8`, `items` `space/16`) — свести.',
-      'На решение: Show label = Off против правила «подпись обязательна» — описать случай внешнего заголовка (`aria-labelledby`) или убрать свойство.',
       'Описание: Direction Horizontal («2–3 коротких варианта») при единственном значении Vertical — убрать.',
     ],
   },
@@ -2697,7 +2693,7 @@ export const DATA = [
     ],
     todo: [
       'min-width: в описании `size/toast/min`, в наборе привязан только max.',
-      'Кружок `surface/raised` у Read сливается с подложкой в Light · L0 и Dark · L1 — на решение (нужен ли кружок у Read; у Transaction плашка — `action/secondary/default`).',
+      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
       'Иконка — содержимое слота Leading базы; правило выбора иконки по типу события — дописать.',
     ],
   },
@@ -3311,7 +3307,7 @@ export const DATA = [
     migration: ['DS Web bar widget (type=horizont / vertical / circle) и widget Graph (.chart, .graphics, .legends, .dividers) → Chart card (слоты Top / Content / Bottom, Show bottom); форма графика → Type вложенного Chart plot.'],
     todo: [
       'Ширина корня 580 — числом (в продукте — по колонке).',
-      'Light · L1 / Dark · L1: заливка `surface/level-1` равна подложке, карточку держит только обводка — на решение (как у Stat card).',
+      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
     ],
   },
   {
@@ -3488,10 +3484,10 @@ export const DATA = [
     ],
     never: 'модал поверх модала; два главных действия; длинная форма или детали объекта в модалке; закрытие фоном и Esc на необратимом шаге; Header=Empty с Show close = Off.',
     anatomy: [
-      'Корень — вертикальный стек, `radius/surface` (24), ширина `size/modal/md` (560; `sm` 400 / `lg` 720 — ресайз экземпляра); отступы шапки, Body и Footer slot — `space/32` (верх Body — `space/8`).',
+      'Корень — вертикальный стек, `radius/surface` (24), ширина `size/modal/md` (560; `sm` 400 / `lg` 720 — ресайз экземпляра); отступы шапки, Body и Footer slot — `space/32` (верх Body — `space/8`; с Divider после линии 24: линия + `space/16` + `space/8`).',
       'Поверхность — слой `overlay surface`, экземпляр _Overlay surface (Kind=Modal): `surface/level-1`, обводка `border/subtle` × `border/width/default`, тени `shadow/key` + `shadow/ambient` (Elevation/4).',
       '`header` (зазор `space/8`): `title` — Header=Title `font/family/display`, `type/display/md`, bold, `text/primary`; Header=Coin — монета 32 + `title group` (зазор `space/12`) с `type/heading/lg` и `header description` (`type/body/md`, `text/secondary`); `close` — Icon button `control/height/md`.',
-      '`divider` — линия `border/subtle` (Divider).',
+      '`divider` — рамка с линией `border/subtle` и отступом снизу `space/16` (Divider, 2026-11-15).',
       'Слот Body (зазор `space/12`): образец — `type/body/lg`, `text/secondary`.',
       'Слот Footer slot (зазор `space/8` / `space/16`): Button XL (`control/height/xl` 56) на всю ширину; подпись под кнопками — текстом в слоте.',
     ],
@@ -3531,8 +3527,6 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; ширина 560 больше текстовой ячейки 360 — правый край не проверен; содержимое слотов не проверялось; RTL на стенде не зеркалится; код — HTML/CSS' },
     migration: ['DS Web base modal header (title, title select → Header=Title; coin, coin select → Header=Coin; empty → Header=Empty) и base modal footer (single button → Footer=Single; two buttons → Stacked / Horizontal; empty → None); divider → Divider.'],
     todo: [
-      'Header=Empty + Show close=Off — пустая шапка ~60 px: запретить сочетание или схлопывать (на решение).',
-      'Отступ Body после Divider (~8 px) — проверить, ждали ≥ `space/24`.',
     ],
   },
 {

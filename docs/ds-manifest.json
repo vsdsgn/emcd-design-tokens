@@ -6382,7 +6382,7 @@
      "id": "81:829",
      "type": "SET",
      "status": "beta",
-     "descLen": 1901,
+     "descLen": 2072,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6500,6 +6500,9 @@
        "w:control/height/md"
       ],
       "divider": [
+       "p:space/16"
+      ],
+      "line": [
        "f:border/subtle"
       ],
       "Body": [
@@ -7084,14 +7087,13 @@
    "boards": [
     {
      "name": "Notification — борда · шаблон v3",
-     "id": "2109:21770",
+     "id": "2128:44587",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
-      "05 · Зоны",
       "06 · На поверхностях",
       "08 · Движение",
       "09 · Правила",
@@ -7103,6 +7105,7 @@
     }
    ],
    "boardMissing": [
+    "05",
     "07"
    ],
    "sets": [
@@ -7258,7 +7261,7 @@
    "boards": [
     {
      "name": "Page indicator — борда · шаблон v3",
-     "id": "2109:28340",
+     "id": "2128:10644",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -7351,7 +7354,7 @@
    "boards": [
     {
      "name": "Pagination — борда · шаблон v3",
-     "id": "2109:26506",
+     "id": "2128:41940",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -8055,7 +8058,7 @@
      "id": "1662:1174",
      "type": "SET",
      "status": "beta",
-     "descLen": 853,
+     "descLen": 1071,
      "descHeads": [
       "Status:",
       "Level:",
@@ -8064,7 +8067,8 @@
       "Правила:",
       "A11y:",
       "Legacy:",
-      "Токены:"
+      "Токены:",
+      "Действие —"
      ],
      "inBoard": false,
      "axes": {
@@ -8109,10 +8113,17 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 4
+      },
+      {
+       "name": "Show close",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 4
       }
      ],
      "nested": {
-      "Button": 4
+      "Button": 4,
+      "Icon button": 4
      },
      "minmax": [],
      "layers": {
@@ -8161,19 +8172,20 @@
        "lineHeight:type/label/md/line-height"
       ],
       "action": [
-       "f:action/accent/default",
-       "f:action/primary/default",
        "gap:space/2",
-       "h:control/height/sm",
        "minw:size/button/min",
        "p:space/4",
-       "p:space/6",
-       "r:radius/control-sm",
        "r:radius/xs"
       ],
       "media": [
        "f:surface/level-2",
        "r:radius/inner"
+      ],
+      "close": [
+       "gap:space/6",
+       "h:control/height/sm",
+       "r:radius/control-sm",
+       "w:control/height/sm"
       ]
      },
      "statusFirstLine": true
@@ -8497,7 +8509,7 @@
      "id": "631:2295",
      "type": "SET",
      "status": "beta",
-     "descLen": 1125,
+     "descLen": 1286,
      "descHeads": [
       "Status:",
       "Level:",
@@ -8507,7 +8519,8 @@
       "• M:",
       "Когда использовать:",
       "Правила:",
-      "A11y:"
+      "A11y:",
+      "Show label = Off —"
      ],
      "inBoard": false,
      "axes": {
@@ -8923,7 +8936,7 @@
    "boards": [
     {
      "name": "Segmented — борда · шаблон v3",
-     "id": "2107:37333",
+     "id": "2128:55031",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -8931,7 +8944,6 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
-      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
@@ -8942,7 +8954,8 @@
     }
    ],
    "boardMissing": [
-    "05"
+    "05",
+    "07"
    ],
    "sets": [
     {
@@ -9072,7 +9085,7 @@
    "boards": [
     {
      "name": "Select — борда · шаблон v3",
-     "id": "2108:75786",
+     "id": "2128:65781",
      "v3": true,
      "sections": [
       "01 · Когда применять",

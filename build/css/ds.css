@@ -806,10 +806,10 @@ html { font-size: 100%; }
   --data-1: var(--color-blue-300);
   --data-2: var(--color-yellow-300);
   --data-3: var(--color-rose-300);
-  --data-4: var(--color-amber-300);
+  --data-4: var(--color-amber-500);
   --data-5: var(--color-emerald-300);
   --data-6: var(--color-fuchsia-300);
-  --data-7: var(--color-orange-300);
+  --data-7: var(--color-orange-400);
   --data-8: var(--color-teal-300);
   --fixed-light: var(--color-white);
   --fixed-dark: var(--color-neutral-950);
@@ -967,7 +967,7 @@ html { font-size: 100%; }
   --data-1: var(--color-blue-500);
   --data-2: var(--color-yellow-700);
   --data-3: var(--color-rose-500);
-  --data-4: var(--color-amber-600);
+  --data-4: var(--color-amber-800);
   --data-5: var(--color-emerald-600);
   --data-6: var(--color-fuchsia-500);
   --data-7: var(--color-orange-500);
@@ -1800,10 +1800,10 @@ html { font-size: 100%; }
 }
 }
 
-:root, [data-surface="0"] { --surface-current: var(--surface-level-0); }
-[data-surface="1"] { --surface-current: var(--surface-level-1); }
-[data-surface="2"] { --surface-current: var(--surface-level-2); }
-[data-surface="3"] { --surface-current: var(--surface-level-3); }
+:root, [data-surface="0"] { --surface-current: var(--surface-level-0); --surface-next: var(--surface-level-1); }
+[data-surface="1"] { --surface-current: var(--surface-level-1); --surface-next: var(--surface-level-2); }
+[data-surface="2"] { --surface-current: var(--surface-level-2); --surface-next: var(--surface-level-3); }
+[data-surface="3"] { --surface-current: var(--surface-level-3); --surface-next: var(--surface-raised); }
 
 /* A nested [data-theme] / [data-brand] takes its own text colour. Background stays with components. */
 [data-theme], [data-brand] { color: var(--text-primary); }

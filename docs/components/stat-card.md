@@ -119,5 +119,5 @@
 - DS Web `stat card` (widget Graph) → Stat card (Label, Value, Unit, Delta, Footer); DS App — нет. Опора — карточки дашборда Mining (Web App / App). Нужен скрин прода.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- На решение: Light · L1 / Dark · L1 — заливка `surface/level-1` совпадает с подложкой, карточку держит только обводка.
+- После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.
 - Ширина корня 280 числом (min-width — `size/card/min`).
