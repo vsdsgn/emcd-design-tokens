@@ -1914,7 +1914,6 @@ export const DATA = [
     accept: { audit: OK, vc: 'только реестр: maxWidth текстового слоя числом (text 122)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['DS Web `Selector small` (Type=Default | Inactive) → Select compact (State Default | Disabled); Hover, Open, Pressed — новые.'],
     todo: [
-      'Порядок оси State: Pressed стоит после Disabled — на решение (Default, Hover, Pressed, Open, Disabled).',
       'На решение: Disabled — подложка `action/disabled` на вид совпадает с Default, гаснет только содержимое.',
     ],
   },
@@ -2303,7 +2302,6 @@ export const DATA = [
     migration: ['DS Web `baseAccordion --1.5`: mobile adaptive → Size L | M; open → Open Off | On; state → State (Default, Hover, Skeleton, Disabled, Pressed); Divider, Focus ring, Show hit area, Safe margin — новые.'],
     todo: [
       'Корень `w=400` и `hit area · web` (400 × 64 / 48) числом — в узком контейнере (360) шеврон уходит за край; корень Fill / от контейнера.',
-      'Порядок оси State: Skeleton, Disabled, Pressed в конце набора — на решение (Default, Hover, Pressed, Disabled, Skeleton).',
       'Skeleton при Open Off и On рисуется одинаково — на решение: один Skeleton на Size.',
     ],
   },

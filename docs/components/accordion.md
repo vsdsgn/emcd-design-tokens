@@ -114,5 +114,4 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Корень `w=400` и `hit area · web` (400 × 64 / 48) числом — в узком контейнере (360) шеврон уходит за край; корень Fill / от контейнера.
-- Порядок оси State: Skeleton, Disabled, Pressed в конце набора — на решение (Default, Hover, Pressed, Disabled, Skeleton).
 - Skeleton при Open Off и On рисуется одинаково — на решение: один Skeleton на Size.

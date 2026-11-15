@@ -4,7 +4,7 @@
 
 ## 2026-11-15 (ночь: todo атомов и молекул)
 
-- **Порядок вариантов** (Default — левый верхний, состояния Default → Hover → Pressed → Focus → Filled → Error → Disabled → Skeleton): Password field (по умолчанию стоял Error), Input amount, Multiselect option, Pagination item (M первым), Floating button (Disabled в своих рядах). Порядок значений в панели свойств Figma API не меняет.
+- **Порядок вариантов** (Default — левый верхний, состояния Default → Hover → Pressed → Focus → Filled → Error → Disabled → Skeleton): Password field (по умолчанию стоял Error), Input amount, Multiselect option, Pagination item (M первым), Floating button (Disabled в своих рядах), Select compact, Accordion. Порядок значений в панели свойств Figma API не меняет.
 - **Input amount:** Balance — одна строка до 160 с многоточием; Value и Description — одна строка с многоточием; Message в Error переносится.
 - **Password field:** Focus — введённые символы `text/primary` (были `text/tertiary`).
 - **Code cell:** корень клипует содержимое. **Divider:** линии у Label=On на целом пикселе (обёртка `line` 16, линия на y=8).

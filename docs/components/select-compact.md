@@ -114,5 +114,4 @@
 - DS Web `Selector small` (Type=Default | Inactive) → Select compact (State Default | Disabled); Hover, Open, Pressed — новые.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Порядок оси State: Pressed стоит после Disabled — на решение (Default, Hover, Pressed, Open, Disabled).
 - На решение: Disabled — подложка `action/disabled` на вид совпадает с Default, гаснет только содержимое.
