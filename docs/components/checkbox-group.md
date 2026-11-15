@@ -93,7 +93,7 @@
 ## 12. Figma projection
 - Набор `Checkbox group`, вариантов 12 из 12; оси: Direction, Size, State.
 - Борда: «Checkbox group — борда · шаблон v3», разделов 11.
-- Описание: 1173 знаков, разделы: Status: Level: Checkbox group: • Direction: • Error — • M: Когда использовать: Правила: A11y:
+- Описание: 1334 знаков, разделы: Status: Level: Checkbox group: • Direction: • Error — • M: Когда использовать: Правила: A11y: Show label = Off —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

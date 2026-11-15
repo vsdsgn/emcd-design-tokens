@@ -80,8 +80,8 @@
 ## 10. Tokens
 - `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/disabled`, `action/primary/default`; интервал `space/8`; высота `control/height/xl`; отступы `space/20`; радиус `radius/chip`; ширина `control/height/xl`.
 - `icon/plus`: высота `icon/size/md`; ширина `icon/size/md`.
-- `label`: заливка / цвет `text/disabled`, `text/on-accent`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `spinner`: высота `icon/size/lg`; ширина `icon/size/lg`.
+- `label`: заливка / цвет `text/disabled`, `text/on-accent`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `focus ring`: радиус `radius/chip`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `state layer`: заливка / цвет `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/chip`.
 - Значений без переменной: 20 (напр. `hit area · web:w=56`, `hit area · web:h=56`, `hit area · web:w=183`, `hit area · web:w=187`) — размеры слоёв зон и то, что перечислено в разделе 14.
 

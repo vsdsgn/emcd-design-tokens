@@ -80,7 +80,7 @@
 
 ## 12. Figma projection
 - Набор `Table cell`, вариантов 6 из 6; оси: Align, State.
-- Борда: «Table cells — борда · шаблон v3», разделов 25.
+- Борда: «Table cell — борда · шаблон v3», разделов 12.
 - Описание: 1173 знаков, разделы: Status: Level: Ячейка таблицы — Align: Когда использовать: Правила: Длинный текст: A11y: Legacy:
 
 ## 13. Code projection

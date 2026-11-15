@@ -92,7 +92,7 @@
 ## 12. Figma projection
 - Набор `Toggle group`, вариантов 4 из 4; оси: Direction, Size, State.
 - Борда: «Toggle group — борда · шаблон v3», разделов 11.
-- Описание: 1388 знаков, разделы: Status: Level: Toggle group: • Direction: • Disabled — • M: Когда использовать: Правила: Длинный текст: A11y:
+- Описание: 1549 знаков, разделы: Status: Level: Toggle group: • Direction: • Disabled — • M: Когда использовать: Правила: Длинный текст: A11y: Show label = Off —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
