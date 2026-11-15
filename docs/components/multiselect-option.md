@@ -69,7 +69,7 @@
 ## 12. Figma projection
 - Набор `Multiselect option`, вариантов 4 из 4; оси: State.
 - Борда: «Multiselect option — борда · шаблон v3», разделов 12.
-- Описание: 1085 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Кольцо фокуса:
+- Описание: 1122 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Кольцо фокуса:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -89,6 +89,4 @@
 - DS Web `Selectable list item` → Multiselect option; DS App — нет. State=Selected заменён булевым Selected базы `_List row`.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Порядок оси State: Pressed после Disabled — поставить Default, Hover, Pressed, Disabled.
-- Описание Figma: «описание в одну строку», база `_List row` — до 2 строк; свести.
 - Ширина корня 280 — числом.

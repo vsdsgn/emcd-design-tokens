@@ -2,6 +2,15 @@
 
 Формат: дата · что · где. Пишется после каждой группы правок.
 
+## 2026-11-15 (ночь: todo атомов и молекул)
+
+- **Порядок вариантов** (Default — левый верхний, состояния Default → Hover → Pressed → Focus → Filled → Error → Disabled → Skeleton): Password field (по умолчанию стоял Error), Input amount, Multiselect option, Pagination item (M первым), Floating button (Disabled в своих рядах). Порядок значений в панели свойств Figma API не меняет.
+- **Input amount:** Balance — одна строка до 160 с многоточием; Value и Description — одна строка с многоточием; Message в Error переносится.
+- **Password field:** Focus — введённые символы `text/primary` (были `text/tertiary`).
+- **Code cell:** корень клипует содержимое. **Divider:** линии у Label=On на целом пикселе (обёртка `line` 16, линия на y=8).
+- **Описания:** строки Legacy — Code cell, _Dot, _Page dot, Pagination item, Skeleton, _Step segment, Floating button, Key-value row, _Tooltip arrow; Code cell Empty — «пусто»; Divider — правило Style; Multiselect option — описание до 2 строк; числа — «табличные цифры» (Key-value row, Chart tooltip); Code input — одна строка про хаптик вместо дубля Motion.
+- Манифест по этим наборам пропатчен (длина описаний, разделы), полный пересъём N3, N5, N7, N9, N10 — в следующий раз; борды этих наборов не пересобирались.
+
 ## 2026-11-15 (вечер)
 
 - **Tab bar:** компонент вынесен из старой борды, борда v3 собрана генератором.

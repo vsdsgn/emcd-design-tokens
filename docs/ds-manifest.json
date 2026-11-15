@@ -2338,7 +2338,7 @@
      "id": "101:974",
      "type": "SET",
      "status": "beta",
-     "descLen": 706,
+     "descLen": 714,
      "descHeads": [
       "Status:",
       "Level:",
@@ -3059,7 +3059,7 @@
      "id": "111:1272",
      "type": "SET",
      "status": "beta",
-     "descLen": 769,
+     "descLen": 838,
      "descHeads": [
       "Status:",
       "Level:",
@@ -3067,7 +3067,8 @@
       "Только внутри Code input.",
       "Когда использовать:",
       "Правила:",
-      "A11y:"
+      "A11y:",
+      "Legacy:"
      ],
      "inBoard": false,
      "axes": {
@@ -3220,7 +3221,7 @@
      "id": "111:1379",
      "type": "SET",
      "status": "beta",
-     "descLen": 1853,
+     "descLen": 1790,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4068,7 +4069,7 @@
      "id": "107:1275",
      "type": "SET",
      "status": "beta",
-     "descLen": 939,
+     "descLen": 1060,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4687,7 +4688,7 @@
      "id": "179:1295",
      "type": "SET",
      "status": "beta",
-     "descLen": 1145,
+     "descLen": 1192,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4697,7 +4698,8 @@
       "A11y:",
       "Тень:",
       "Правила:",
-      "Матрица:"
+      "Матрица:",
+      "Legacy:"
      ],
      "inBoard": false,
      "axes": {
@@ -5653,7 +5655,7 @@
      "id": "199:227",
      "type": "SET",
      "status": "beta",
-     "descLen": 920,
+     "descLen": 1013,
      "descHeads": [
       "Status:",
       "Level:",
@@ -5662,7 +5664,8 @@
       "A11y:",
       "Когда использовать:",
       "Правила:",
-      "Длинный текст:"
+      "Длинный текст:",
+      "Legacy:"
      ],
      "inBoard": false,
      "axes": {
@@ -6687,7 +6690,7 @@
      "id": "170:1565",
      "type": "SET",
      "status": "beta",
-     "descLen": 1085,
+     "descLen": 1122,
      "descHeads": [
       "Status:",
       "Level:",
@@ -7201,14 +7204,15 @@
      "id": "149:1695",
      "type": "SET",
      "status": "service",
-     "descLen": 513,
+     "descLen": 606,
      "descHeads": [
       "Status:",
       "Level:",
       "Точка индикатора страниц.",
       "Когда использовать:",
       "Правила:",
-      "A11y:"
+      "A11y:",
+      "Legacy:"
      ],
      "inBoard": false,
      "axes": {
@@ -7498,14 +7502,15 @@
      "id": "148:1633",
      "type": "SET",
      "status": "beta",
-     "descLen": 751,
+     "descLen": 825,
      "descHeads": [
       "Status:",
       "Level:",
       "A11y:",
       "Когда использовать:",
       "Правила:",
-      "Матрица:"
+      "Матрица:",
+      "Legacy:"
      ],
      "inBoard": false,
      "axes": {
@@ -9729,7 +9734,7 @@
      "id": "34:14",
      "type": "SET",
      "status": "beta",
-     "descLen": 1228,
+     "descLen": 1289,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9740,7 +9745,8 @@
       "Когда использовать:",
       "Поиск:",
       "Motion:",
-      "Shimmer:"
+      "Shimmer:",
+      "Legacy:"
      ],
      "inBoard": false,
      "axes": {
@@ -10344,7 +10350,7 @@
      "id": "720:75926",
      "type": "SET",
      "status": "service",
-     "descLen": 540,
+     "descLen": 644,
      "descHeads": [
       "Status:",
       "Level:",
@@ -10352,7 +10358,8 @@
       "Когда использовать:",
       "Правила:",
       "A11y:",
-      "Поиск:"
+      "Поиск:",
+      "Legacy:"
      ],
      "inBoard": false,
      "axes": {
@@ -10662,14 +10669,15 @@
      "id": "149:1778",
      "type": "SET",
      "status": "service",
-     "descLen": 460,
+     "descLen": 510,
      "descHeads": [
       "Status:",
       "Level:",
       "Сегмент Step progress.",
       "Когда использовать:",
       "Правила:",
-      "A11y:"
+      "A11y:",
+      "Legacy:"
      ],
      "inBoard": false,
      "axes": {
@@ -12851,14 +12859,15 @@
      "id": "317:33693",
      "type": "SET",
      "status": "service",
-     "descLen": 510,
+     "descLen": 611,
      "descHeads": [
       "Status:",
       "Level:",
       "Служебный:",
       "Когда использовать:",
       "Правила:",
-      "A11y:"
+      "A11y:",
+      "Legacy:"
      ],
      "inBoard": false,
      "axes": {

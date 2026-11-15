@@ -80,7 +80,7 @@ export const DATA = [
     platforms: PLATFORMS,
     accept: { audit: '`raw text: label` — текст без текстового стиля', vc: '`maxWidth 200 @label` числом', ap: '0 (2026-11-13)' },
     migration: ['Legacy нет (DS Web / App — «—»); состояния Hover / Pressed / Disabled — по модели 2.0. Нужен скрин прода.'],
-    todo: ['`label` — привязать текстовый стиль (у Current — свой вес).'],
+    todo: [],
   },
   {
     name: 'Button',
@@ -406,7 +406,7 @@ export const DATA = [
     ],
     defaults: { Size: 'L', State: 'Empty' },
     content: [
-      'Digit — одна цифра 0–9. Длиннее — слой `digit` не ограничен и текст выходит за ячейку (стенд: long, de, ar, hi, th, ja, kk), поэтому длину ограничивает код.',
+      'Digit — одна цифра 0–9. Длиннее — обрезается краем ячейки (корень клипует, 15.11); длину ограничивает код.',
       'Цифры не переводятся и не зеркалятся.',
       'Текст 200 %: цифра растёт, ячейка — нет (размер фиксирован осью Size); цифра помещается, обрезки нет.',
     ],
@@ -420,10 +420,7 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; зона `hit area · app` не проверена (ячейки Web); кода нет — parity props пропущена' },
     migration: ['DS Web: ячейка кода 69 × 70 из «Подтверждение операции» → Code cell Size=L (64 × 68); 6 цифр и Compact → Size=M (48 × 56); состояния → State Empty | Focus | Filled | Error | Success | Disabled.'],
     todo: [
-      'Описание: Empty — «плейсхолдер 0», в наборе цифра скрыта — свести описание.',
-      'Слой `digit` не ограничен: длинная строка выходит за ячейку — включить обрезку по корню.',
       'Ширина корня 64 / 48 и `hit area · web` 64 × 68 / 48 × 56 — числом.',
-      'В описании Figma нет строки Legacy.',
     ],
   },
   {
@@ -571,8 +568,6 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; длинный текст и языки — только на варианте без подписи; булевых свойств нет; кода нет — parity props пропущена' },
     migration: ['DS App `divider text --1.0` → Orientation=Horizontal, Label=On + Label text.', 'DS Web: разделители внутри компонентов → Divider (Orientation Horizontal | Vertical, Label=Off).'],
     todo: [
-      'Style=Dotted: в описании нет правила применения.',
-      'Label=On: линии по бокам подписи на дробной координате (бледнее, чем у Label=Off) — выровнять по пикселю.',
       'Ширина корня 320, толщина 1 и высота 40 — числом.',
     ],
   },
@@ -614,8 +609,6 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; свойства вложенного `_List row` (Selected, Leading, Description, Focus ring, Show hit area, Safe margin) не просмотрены — у набора своих свойств нет; кода нет — parity props пропущена' },
     migration: ['DS Web `Selectable list item` → Multiselect option; DS App — нет. State=Selected заменён булевым Selected базы `_List row`.'],
     todo: [
-      'Порядок оси State: Pressed после Disabled — поставить Default, Hover, Pressed, Disabled.',
-      'Описание Figma: «описание в одну строку», база `_List row` — до 2 строк; свести.',
       'Ширина корня 280 — числом.',
     ],
   },
@@ -638,7 +631,7 @@ export const DATA = [
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK + ' (вместе со Status)', vc: OK, ap: '0 (2026-11-13, вместе со Status)', not: 'отдельный стенд не снимался — проверен в составе Status; кода нет — parity props пропущена' },
     migration: ['Был набор `Dot` (атом), 2026-11-15 → служебный `_Dot`: в макетах — Status, а не голая точка.'],
-    todo: ['Описание Figma: строки Legacy нет.'],
+    todo: [],
   },
   {
     name: '_Page dot',
@@ -696,10 +689,8 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['В описании Figma строки Legacy нет.'],
     todo: [
-      'Первый вариант набора — Size=S: поставить M первым (по описанию M — по умолчанию).',
       '«…»: в наборе нет варианта или свойства для ненажимаемого пропуска.',
       '`hit area · web` 32 × 32 / 40 × 40 — числом.',
-      'В описании Figma нет строки Legacy.',
     ],
   },
   {
@@ -813,7 +804,6 @@ export const DATA = [
     migration: ['Legacy в описании не указан: state skeleton у компонентов DS Web → Skeleton-состояние компонента, собранное из кирпичей (Shape).', 'MAJOR 2026-11-15: Shape Button / Input / Chip удалены → State=Skeleton у семьи полей, Chip, Badge; кнопке Skeleton не нужен.'],
     todo: [
       'Размеры фигур числом (200×12, 160×20, 40×40, 240×120).',
-      'В описании нет строки Legacy.',
     ],
   },
   {
@@ -921,7 +911,6 @@ export const DATA = [
     todo: [
       'Ширина корня 40 — числом (образец; в продукте — поровну на ряд).',
       'Upcoming (`control/track`) в Dark на L0 и Light на L3 — перепроверить видимость стендом.',
-      'В описании нет строки Legacy.',
     ],
   },
   {
@@ -1003,7 +992,6 @@ export const DATA = [
     migration: ['DS Web: «Введи код из пуш уведомления» (Web App → Безопасность → Подтверждение операции; 4 ячейки 69 × 70, цифра 28) → Code input Length=4; новое — Length=6, State Error | Success | Disabled, Message / Show message.'],
     todo: [
       'Правило «Web 4 цифры — L, остальное — M» набором не обеспечено: на iOS / Android Length=4 из ячеек L — привязать размер ячейки к Platform или уточнить правило.',
-      'В описании строки «Движение» и «Motion» дублируют встряску — свести в одну.',
     ],
   },
   {
@@ -1080,8 +1068,6 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['Тултипы в «Песочнице графиков» (monitoring, WL Users, mining) → Rows 1–4, Show date; маркер серии → Legend swatch.'],
     todo: [
-      'Описание: «значения моноширинные», в наборе `value` — `font/family/text`; привести к одному.',
-      'Правило длинного названия серии и значения в описании не записано (сейчас: название переносится, значение — одна строка).',
     ],
   },
   {
@@ -1278,8 +1264,6 @@ export const DATA = [
     todo: [
       'Проверить Extended с длинной подписью и языками; записать поведение при подписи длиннее 20 знаков.',
       '`hit area · web` — числом (56 × 56, у Extended ширина 183): зона Extended не подстраивается под ширину кнопки.',
-      'Порядок вариантов: оба Disabled в конце набора, а не в своих группах Layout.',
-      'Строки Legacy в описании нет — добавить (или «нет аналога»).',
     ],
   },
   {
@@ -1360,9 +1344,9 @@ export const DATA = [
     defaults: { State: 'Default' },
     content: [
       'Label — что делает сумма («Пополняю»); Value — число с разделителем тысяч пробелом; Description — лимит («От 1000 USDT»); Balance — доступная сумма; Message — причина ошибки («Недостаточно средств на балансе»).',
-      'Длинный текст: подпись — одна строка ≤ 180, многоточие; Balance, Value и Description не усекаются (см. todo).',
+      'Длинный текст: подпись — одна строка ≤ 180, многоточие; Balance — одна строка до 160 с многоточием, «Макс» не сжимается; Value и Description — одна строка с многоточием (15.11).',
       'Языки (стенд): de, ar, hi, th, ja, kk — по высоте не обрезаны. RTL: цифры суммы и тикер не зеркалятся.',
-      'Текст 200 %: сумма, описание и Select compact помещаются; подпись усекается; Message в Error не переносится и выходит за рамку (см. todo).',
+      'Текст 200 %: сумма, описание и Select compact помещаются; подпись усекается; Message в Error переносится по ширине поля (15.11).',
     ],
     events: [
       '`input` / `change` — ввод суммы; `focus` / `blur`.',
@@ -1382,9 +1366,6 @@ export const DATA = [
       'DS App `input amount` + `amount slider` → Input amount; слайдер суммы (DS Web `base slider`) не переносим: набора Slider в библиотеке нет.',
     ],
     todo: [
-      'Balance не усекается: длинный баланс выталкивает «Макс» за край — усечение многоточием, «Макс» не сжимается.',
-      'Value и Description обрезаются без многоточия — задать усечение или правило для суммы, которая не помещается.',
-      'Текст 200 %: Message в Error не переносится и выходит за рамку — включить перенос.',
       'Ширина корня 395 и `hit area · web` 395 × 126 / 160 — числом.',
       'На решение: Focus — рамка 1 px, Error — 2 px; Hover на L1 почти сливается с подложкой.',
     ],
@@ -1477,9 +1458,7 @@ export const DATA = [
     accept: { audit: OK, vc: 'только реестр: maxWidth текстового слоя числом (value 200)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; правка длинного текста 13.11 стендом не перепроверена; кода нет — parity props пропущена' },
     migration: ['Web App `.sum list group` (88 вхождений) → Key-value row: Emphasis Default | Total | Muted, Key, Value.', 'Firmware «детали устройства» (ключ — точечная линия — значение) → Leader=On.'],
     todo: [
-      'Total: значение набрано `font/family/text`, по описанию числа моноширинные — выровнять набор или описание.',
       'Ширина корня 360 и max-width значения 200 — числом; в экземпляре строка — по ширине родителя.',
-      'В описании нет строки Legacy (источник — `.sum list group`).',
     ],
   },
   {
@@ -1799,7 +1778,6 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; правки 13.11 («глаз» в слоте, перенос требований) стендом не перепроверены; код — HTML/CSS' },
     migration: ['DS App `input / password` → Password field (State Default | Hover | Focus | Filled | Error | Disabled; прежние Empty / Typing / Valid → Default / Focus / Filled): база Input, «глаз» → Icon button Ghost S в слоте Trailing, список требований — под полем; DS Web — нет.'],
     todo: [
-      'На проверку: в State=Focus введённые символы серые и мельче, чем в Filled / Error, — значение должно быть `text/primary`.',
       '«Глаз» — иконка, а не экземпляр Icon button Ghost (по описанию): нет состояний, кольца фокуса и зоны нажатия; варианта «пароль показан» нет.',
       'Нет свойства, скрывающего требования (вход — без требований).',
       'Ширина корня 320 — числом.',
@@ -2846,7 +2824,7 @@ export const DATA = [
     platforms: ['По родителю: Tooltip — только Web. Размеры от режима Platform не зависят (26 × 9 числом).'],
     accept: { audit: 'отдельно не прогонялся — в составе Tooltip (прогон после замены на месте 13.11)', vc: 'корень 26 × 9 числом (4 значения без переменной)', ap: 'отдельно не прогонялся — в составе Tooltip', not: 'отдельный стенд не снимался — проверен в составе Tooltip на стенде 2026-11-13; кода нет — parity props пропущена' },
     migration: ['Legacy DS Web `tooltip arrow` (уголок `base tooltip`) → `_Tooltip arrow`.', '2026-11-15: draft → service (служебный, не публикуется); в status.json не пишется.'],
-    todo: ['Описание Figma: строки Legacy нет.'],
+    todo: [],
   },
   {
     name: 'Tooltip',

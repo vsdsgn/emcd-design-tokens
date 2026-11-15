@@ -60,7 +60,7 @@
 ## 12. Figma projection
 - Набор `_Tooltip arrow`, вариантов 2 из 2; оси: Tone.
 - Борда: «Tooltip — борда · шаблон v3», разделов 11.
-- Описание: 510 знаков, разделы: Status: Level: Служебный: Когда использовать: Правила: A11y:
+- Описание: 611 знаков, разделы: Status: Level: Служебный: Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -79,6 +79,3 @@
 ## 15. Migration
 - Legacy DS Web `tooltip arrow` (уголок `base tooltip`) → `_Tooltip arrow`.
 - 2026-11-15: draft → service (служебный, не публикуется); в status.json не пишется.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Описание Figma: строки Legacy нет.

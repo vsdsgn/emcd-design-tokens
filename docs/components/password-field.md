@@ -110,7 +110,6 @@
 - DS App `input / password` → Password field (State Default | Hover | Focus | Filled | Error | Disabled; прежние Empty / Typing / Valid → Default / Focus / Filled): база Input, «глаз» → Icon button Ghost S в слоте Trailing, список требований — под полем; DS Web — нет.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- На проверку: в State=Focus введённые символы серые и мельче, чем в Filled / Error, — значение должно быть `text/primary`.
 - «Глаз» — иконка, а не экземпляр Icon button Ghost (по описанию): нет состояний, кольца фокуса и зоны нажатия; варианта «пароль показан» нет.
 - Нет свойства, скрывающего требования (вход — без требований).
 - Ширина корня 320 — числом.
