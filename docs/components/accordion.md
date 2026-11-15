@@ -21,7 +21,7 @@
 
 ## 3. Anatomy
 - Корень (ширина 400 числом): `header` (`label` + `chevron`; отступы `space/12` / `space/20`, зазор `space/4`, `radius/inner`) + `Content` (слот, по умолчанию `text`, `text/secondary`; отступы `space/12` / `space/20`, зазор `space/8`) + `divider` (`border/subtle`).
-- `chevron` — круг 24 `action/secondary/default`, `radius/chip`, внутри иконка шеврона.
+- `chevron` — круг 24 `status/neutral/subtle`, `radius/chip`, внутри иконка шеврона.
 - L — `label` `type/label/lg`, `text` `type/body/md`; M — `type/label/md` и `type/body/sm`. Вложены только иконки шеврона.
 - Служебные — на `header` (цель — заголовок, не весь раскрытый пункт; `header` без clip): `state layer` (`radius/inner`), `focus ring`, зоны `hit area · web` / `hit area · app`, `safe area · outer`. `skeleton` — полоса `skeleton/base`, `radius/chip`.
 - Вложено: иконки ×16.
@@ -78,7 +78,7 @@
 ## 10. Tokens
 - `header`: интервал `space/4`; отступы `space/12`, `space/20`; радиус `radius/inner`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`.
-- `chevron`: заливка / цвет `action/secondary/default`; радиус `radius/chip`.
+- `chevron`: заливка / цвет `status/neutral/subtle`; радиус `radius/chip`.
 - `Content`: интервал `space/8`; отступы `space/12`, `space/20`.
 - `text`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`, `type/body/sm`.
 - `divider`: заливка / цвет `border/subtle`.

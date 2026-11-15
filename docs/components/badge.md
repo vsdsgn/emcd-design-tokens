@@ -65,7 +65,7 @@
 - Фокуса нет: бейдж не в порядке Tab.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `action/secondary/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/info/solid`, `status/info/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; maxw `size/badge/max`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/8`; радиус `radius/control-sm`, `radius/sm`.
+- `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/info/solid`, `status/info/subtle`, `status/neutral/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; maxw `size/badge/max`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/8`; радиус `radius/control-sm`, `radius/sm`.
 - `label`: заливка / цвет `accent/on-subtle`, `status/danger/on-subtle`, `status/info/on-subtle`, `status/success/on-subtle`, `status/warning/on-subtle`, `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`, `type/label/sm`.
 - Min / max корня: maxWidth 160 size/badge/max.
 

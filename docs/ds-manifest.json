@@ -9,9 +9,9 @@
    "unknown": 95
   },
   "status": {
-   "beta": 71,
-   "draft": 20,
-   "service": 3,
+   "beta": 75,
+   "draft": 15,
+   "service": 4,
    "template": 1
   },
   "variants": 1598,
@@ -169,7 +169,7 @@
        "lineHeight:type/label/md/line-height"
       ],
       "chevron": [
-       "f:action/secondary/default",
+       "f:status/neutral/subtle",
        "r:radius/chip"
       ],
       "focus ring": [
@@ -631,7 +631,7 @@
       ],
       "circle": [
        "f:accent/subtle",
-       "f:action/secondary/default",
+       "f:status/neutral/subtle",
        "h:size/media/lg",
        "h:size/media/md",
        "h:size/media/xl",
@@ -688,7 +688,7 @@
    "boards": [
     {
      "name": "Avatar group — борда · шаблон v3",
-     "id": "2110:1716",
+     "id": "2138:7463",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -768,7 +768,7 @@
        "w:size/media/xs"
       ],
       "more": [
-       "f:action/secondary/default",
+       "f:status/neutral/subtle",
        "f:surface/default",
        "r:radius/chip",
        "s:surface/current",
@@ -901,13 +901,13 @@
       "(root)": [
        "f:accent/subtle",
        "f:action/inverse/default",
-       "f:action/secondary/default",
        "f:control/checked",
        "f:skeleton/base",
        "f:status/danger/solid",
        "f:status/danger/subtle",
        "f:status/info/solid",
        "f:status/info/subtle",
+       "f:status/neutral/subtle",
        "f:status/success/solid",
        "f:status/success/subtle",
        "f:status/warning/solid",
@@ -1980,7 +1980,7 @@
        "sw:border/width/focus"
       ],
       "band": [
-       "f:action/secondary/default"
+       "f:status/neutral/subtle"
       ]
      },
      "statusFirstLine": true
@@ -3434,7 +3434,7 @@
    "boards": [
     {
      "name": "Coin stack — борда · шаблон v3",
-     "id": "2107:8367",
+     "id": "2138:9036",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -3527,7 +3527,8 @@
        "s:surface/current"
       ],
       "more": [
-       "f:action/secondary/default",
+       "f:status/neutral/subtle",
+       "f:surface/default",
        "r:radius/full",
        "s:surface/current"
       ],
@@ -3636,9 +3637,9 @@
      "raw": [],
      "tokens": {
       "(root)": [
-       "f:action/secondary/default",
        "f:control/checked",
        "f:status/danger/solid",
+       "f:status/neutral/subtle",
        "maxw:size/counter/max",
        "minh:size/counter-height/md",
        "minh:size/counter-height/sm",
@@ -5349,7 +5350,7 @@
    "boards": [
     {
      "name": "Input amount — борда · шаблон v3",
-     "id": "2109:3675",
+     "id": "2130:2768",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -6013,11 +6014,11 @@
    "level": "unknown",
    "page": "List item",
    "pageId": "367:6",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "List item — борда · шаблон v3",
-     "id": "2128:4316",
+     "id": "2138:24878",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -6025,26 +6026,26 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
+      "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08",
-    "09",
-    "12"
+    "07"
    ],
    "sets": [
     {
      "name": "List item",
      "id": "82:891",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1568,
+     "status": "beta",
+     "descLen": 1567,
      "descHeads": [
       "Status:",
       "Level:",
@@ -10497,8 +10498,8 @@
        "maxw:size/step/max"
       ],
       "symbol": [
-       "f:action/secondary/default",
        "f:control/checked",
+       "f:status/neutral/subtle",
        "f:status/success/solid",
        "h:size/media/sm",
        "r:radius/chip",
@@ -10785,8 +10786,8 @@
      "raw": [],
      "tokens": {
       "(root)": [
-       "f:action/secondary/default",
        "f:control/checked",
+       "f:status/neutral/subtle",
        "f:status/success/solid",
        "h:size/media/sm",
        "r:radius/chip",
@@ -10903,11 +10904,11 @@
    "level": "unknown",
    "page": "Suggest",
    "pageId": "366:2736",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Suggest — борда · шаблон v3",
-     "id": "1713:5681",
+     "id": "2138:18652",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -10915,6 +10916,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -10925,16 +10927,15 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
      "name": "Suggest",
      "id": "1577:3185",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1447,
+     "status": "beta",
+     "descLen": 1446,
      "descHeads": [
       "Status:",
       "Level:",
@@ -11290,7 +11291,7 @@
        "lineHeight:type/label/sm/line-height"
       ],
       "counter": [
-       "f:action/secondary/default",
+       "f:status/neutral/subtle",
        "maxw:size/counter/max",
        "minh:size/counter-height/md",
        "minh:size/counter-height/sm",
@@ -12341,11 +12342,11 @@
    "level": "unknown",
    "page": "Toast",
    "pageId": "364:1389",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Toast — борда · шаблон v3",
-     "id": "1739:2299",
+     "id": "2138:13638",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -12353,6 +12354,7 @@
       "03 · Свойства и варианты",
       "04 · Состояния",
       "06 · На поверхностях",
+      "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
@@ -12363,16 +12365,15 @@
    ],
    "boardMissing": [
     "05",
-    "07",
-    "08"
+    "07"
    ],
    "sets": [
     {
      "name": "Toast",
      "id": "1576:2",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1458,
+     "status": "beta",
+     "descLen": 1457,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12806,38 +12807,38 @@
    "level": "unknown",
    "page": "Tooltip",
    "pageId": "317:33689",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Tooltip — борда · шаблон v3",
-     "id": "622:894",
+     "id": "2138:10899",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
-      "05 · Зоны",
       "06 · На поверхностях",
-      "07 · Позиционирование",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
+      "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "12"
+    "05",
+    "07"
    ],
    "sets": [
     {
      "name": "_Tooltip arrow",
      "id": "317:33693",
      "type": "SET",
-     "status": "draft",
-     "descLen": 508,
+     "status": "service",
+     "descLen": 510,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12888,8 +12889,8 @@
      "name": "Tooltip",
      "id": "317:33734",
      "type": "SET",
-     "status": "draft",
-     "descLen": 4198,
+     "status": "beta",
+     "descLen": 4197,
      "descHeads": [
       "Status:",
       "Level:",

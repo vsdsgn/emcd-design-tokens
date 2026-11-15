@@ -185,6 +185,7 @@
   "statusInfoBorder": "#3b82f666",
   "statusInfoOnSubtle": "#1c4487",
   "statusNeutralSolid": "#0000007a",
+  "statusNeutralSubtle": "#00000014",
   "controlSurfaceDefault": "#ffffff",
   "controlSurfaceHover": "#ffffff",
   "controlSurfaceDisabled": "#00000014",

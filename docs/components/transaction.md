@@ -22,7 +22,7 @@
 
 ## 3. Anatomy
 - Корень: раскрытый экземпляр `_List row` (Type=List, Size=M), высота 64.
-- Слоты базы: Leading — плашка `action/secondary/default` (`size/media/lg`, `radius/chip`) с иконкой типа `icon/size/md` (`arrow-up` / `arrow-down` / `lightning` / `exchange`); Label — действие + монета; Description — дата; Trailing — вложенный Amount со знаком по Type и Status + вложенный Status.
+- Слоты базы: Leading — плашка `status/neutral/subtle` (`size/media/lg`, `radius/chip`) с иконкой типа `icon/size/md` (`arrow-up` / `arrow-down` / `lightning` / `exchange`); Label — действие + монета; Description — дата; Trailing — вложенный Amount со знаком по Type и Status + вложенный Status.
 - Служебные слои и свойства Focus ring, Show hit area, Safe margin — на базе `_List row` (`list-row.md`).
 - Вложено: `_List row` ×36.
 - Служебные слои (вариантов из 36): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.

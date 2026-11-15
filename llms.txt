@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-15: beta 71 наборов, draft 20, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-15: beta 75 наборов, draft 15, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -67,6 +67,7 @@
 - [Key-value row](docs/components/key-value-row.md): Строка «название — значение» в сводке: название в начале строки, значение в конце
 - [Legend item](docs/components/legend-item.md): Элемент легенды графика: маркер серии (Legend swatch) + подпись и необязательное значение
 - [Legend swatch](docs/components/legend-swatch.md): Маркер серии графика: цветная точка или отрезок линии
+- [List item](docs/components/list-item.md): Строка списка данных: монета, кошелёк, воркер, транзакция, настройка. Слот Leading слева, тексты по Content, слот Trailing справа
 - [Menu item](docs/components/menu-item.md): Пункт меню: слева необязательный слот (иконка, монета, аватар, эмодзи), затем подпись с необязательным описанием, справа необязательный слот (Badge, Counter, значение, шеврон подменю, кнопка). Нажимается вся строка, одно действие на пункт
 - [Multiselect](docs/components/multiselect.md): Поле множественного выбора: Select + список Multiselect option в Menu. Выбранное показывается строкой «Выбрано: N» в поле (Count) или чипами под полем (Chips)
 - [Multiselect option](docs/components/multiselect-option.md): Строка списка выбора (Select, Multiselect, Menu): слева необязательный слот под монету, аватар или иконку, затем подпись с необязательным описанием, справа галочка выбранного. Это строка, а не чекбокс: нажимается вся строка
@@ -95,6 +96,7 @@
 - [Step progress](docs/components/step-progress.md): Полоска из 3–7 равных сегментов: сколько шагов пройдено в линейной последовательности без названий. Источник — legacy «slider counter» (Tooltip tour, DS Web и DS App)
 - [Step symbol](docs/components/step-symbol.md): Кружок шага в Step: номер, иконка или точка в одном из трёх состояний
 - [Step trail](docs/components/step-trail.md): Линия между двумя шагами в Stepper: сплошная или пунктирная, в цвете состояния шага
+- [Suggest](docs/components/suggest.md): Сообщение или предложение внутри страницы: карточка или полоса на всю ширину — иконка слева, заголовок, описание, 0–2 кнопки, крестик. Заменяет Alert и Banner
 - [Tab](docs/components/tab.md): Переключение разделов одного экрана (История: Начисления / Выплаты / Воркеры). Выбранный — подчёркивание
 - [Tab bar item](docs/components/tab-bar-item.md): Пункт нижней навигации: иконка 24 + подпись. App и мобильный веб — одна схема
 - [Table cell](docs/components/table-cell.md): Ячейка таблицы: выравнивание, отступы, состояние и слот Content. Содержимое — текст (основная + вторая строка) или атом DS
@@ -102,8 +104,10 @@
 - [Table row](docs/components/table-row.md): Строка таблицы: экземпляры Table cell со слотом Content в колонках фиксированной ширины и разделитель снизу (`border/subtle`)
 - [Tabs](docs/components/tabs.md): Бар табов: переключение между разделами одного контекста. Внутри — экземпляры Tab, первый выбран; снизу разделитель `border/subtle` на всю ширину контейнера
 - [Textarea](docs/components/textarea.md): текст длиннее одной строки (комментарий, обращение)
+- [Toast](docs/components/toast.md): Краткое всплывающее сообщение поверх страницы — отклик на действие («Настройки сохранены», «Вывод создан»). Исчезает само
 - [Toggle](docs/components/toggle.md): Переключатель: мгновенно включает настройку, без «Сохранить». Основа — legacy `baseToggle` (дорожка 48×28 / 40×24, ползунок 20 / 16)
 - [Toggle group](docs/components/toggle-group.md): Группа переключателей: подпись группы, варианты, под ними подсказка
+- [Tooltip](docs/components/tooltip.md): Короткая подсказка к элементу на Web: что делает иконка, что значит термин, почему контрол неактивен, полный текст обрезанного значения. Без действий внутри. Форма — legacy `base tooltip`
 - [Tooltip tour](docs/components/tooltip-tour.md): Подсказка онбординга с шагами: номер шага, заголовок, пояснение и кнопки «Пропустить» и «Далее», стрелка на элемент. Для обучающих туров по экрану
 - [Transaction](docs/components/transaction.md): Строка операции в истории: вывод, пополнение, начисление, обмен. Нажимается целиком — открывает детали
 
@@ -117,10 +121,11 @@
 - [_Page dot](docs/components/page-dot.md): служебный, только внутри родителя
 - [_Dot](docs/components/dot.md): служебный, только внутри родителя
 - [_Step segment](docs/components/step-segment.md): служебный, только внутри родителя
+- [_Tooltip arrow](docs/components/tooltip-arrow.md): служебный, только внутри родителя
 
 ## Компоненты: draft — не брать
 
-- уровень не указан (20): Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, File upload, Page header, List item, Menu, Modal, Sidebar, Sheet, Side panel, Snack, Suggest, Tab bar, Toast, _Tooltip arrow, Tooltip
+- уровень не указан (15): Calendar, Chart card, Chart plot, Date range panel, Dropdown panel, Empty state, File upload, Page header, Menu, Modal, Sidebar, Sheet, Side panel, Snack, Tab bar
 - шаблоны экранов, не Base (1): Status screen
 
 ## Проверки

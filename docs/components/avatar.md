@@ -18,7 +18,7 @@
 - Не делаем: две и более буквы в инициалах; цвет фона как носитель смысла; квадратная форма; нажатие без обёртки-кнопки.
 
 ## 3. Anatomy
-- `circle` (обрезает содержимое, `radius/full`; фон `action/secondary/default`, у Icon — `accent/subtle`) → `initials` | `icon` (`icon/size/md`) | `image (заменить)` + `placeholder`.
+- `circle` (обрезает содержимое, `radius/full`; фон `status/neutral/subtle`, у Icon — `accent/subtle`) → `initials` | `icon` (`icon/size/md`) | `image (заменить)` + `placeholder`.
 - `status` — точка с обводкой `surface/current` (`border/width/strong`): на любой поверхности L0–L3 обводка совпадает с фоном.
 - Вложено: иконки ×8.
 - Служебные слои (вариантов из 24): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
@@ -65,7 +65,7 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `skeleton/base`; высота `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`; радиус `radius/full`; ширина `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`.
-- `circle`: заливка / цвет `accent/subtle`, `action/secondary/default`; высота `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`; радиус `radius/full`; ширина `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`.
+- `circle`: заливка / цвет `accent/subtle`, `status/neutral/subtle`; высота `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`; радиус `radius/full`; ширина `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`.
 - `initials`: заливка / цвет `accent/on-subtle`, `text/secondary`; типографика `font-weight/bold`, `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/sm`, `type/label/md`, `type/label/sm`.
 - `status`: заливка / цвет `status/success/solid`; обводка `surface/current`; толщина обводки `border/width/strong`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.

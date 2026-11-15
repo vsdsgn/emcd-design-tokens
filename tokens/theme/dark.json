@@ -486,6 +486,10 @@
       "solid": {
         "$type": "color",
         "$value": "{color.alpha.white.40}"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.alpha.white.8}"
       }
     }
   },

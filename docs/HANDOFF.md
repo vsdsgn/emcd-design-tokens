@@ -50,6 +50,14 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
 
+## 15.11, вечер — после Publish и принятия обновлений (Стефан)
+
+- `status/neutral/subtle` опубликован; в репо — `figma/export-2.json` (значения = `action/secondary/default`), `npm run all`.
+- Перепривязка неинтерактивных подложек на `status/neutral/subtle`: Avatar, Badge, Counter, Step symbol, Transaction (плашка иконки), Coin stack, Avatar group, Chart crosshair, Accordion (шеврон) — 124 слоя. «+N» у Avatar group и Coin stack — непрозрачная подложка `surface/default` + тон.
+- Components принял `surface/raised` Dark `neutral/700`: стенд Dark 15.11 — Tooltip, Toast, Suggest, List item различимы на L0–L2, на L3 держатся на обводке → **beta**; `_Tooltip arrow` — service. Контракты (субагент, сверены с манифестом), борды пересобраны (старые ручные Tooltip / Toast / Suggest заменены). List item — тексты BTC / Bitcoin.
+- Манифест: батчи N3, N7, N8, N9, N12, N13 пересняты; beta 75, draft 15, service 4, template 1. Проверки чистые.
+- Осталось: организмы (14 draft; Pagination, File upload, Snack, Side panel — в парковке); страница генератора — удалить, когда борды больше не нужны; Claude DS — синк.
+
 ## Выполнение решений 15.11 (Стефан: «делай всё по своим рекомендациям»)
 
 Номера — из ответа 14.11 (см. `OPEN-QUESTIONS.md` «Перепроверка 14.11»). Отмечать по ходу.

@@ -12,7 +12,7 @@
     "FloatingButton": "beta",
     "IconButton": "beta",
     "Input": "beta",
-    "ListItem": "draft",
+    "ListItem": "beta",
     "Modal": "draft",
     "Notification": "beta",
     "Pagination": "beta",
@@ -23,9 +23,9 @@
     "StatusScreen": "draft",
     "Tabs": "beta",
     "Textarea": "beta",
-    "Toast": "draft",
+    "Toast": "beta",
     "Toggle": "beta",
-    "Tooltip": "draft",
+    "Tooltip": "beta",
     "Transaction": "beta"
   }
 }

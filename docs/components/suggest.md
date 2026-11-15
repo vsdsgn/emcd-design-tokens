@@ -1,34 +1,42 @@
-# Suggest — контракт · draft (2026-11-15)
+# Suggest — контракт (2026-11-15)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Suggest`. Status: draft. Level: unknown.
-- Figma: Components, страница «Suggest» (`366:2736`), набор `1577:3185`.
+- Набор: `Suggest`. Status: beta. Level: unknown.
+- Figma: Components, страница «Suggest» (`366:2736`), набор `1577:3185`. Платформы: Web, Mobile web, iOS, Android.
 
 ## 2. Intent
-- Сообщение или предложение внутри страницы: нейтральная карточка или полоса на всю ширину, слева слот (иконка статуса, логотип, монета), заголовок и описание, 0–2 кнопки, крестик…
+- Сообщение или предложение внутри страницы: карточка или полоса на всю ширину — иконка слева, заголовок, описание, 0–2 кнопки, крестик. Заменяет Alert и Banner.
 - Когда использовать: предложение действия («Создай Watcher link»), объявление («Кошелёк теперь отдельный»), ограничение или предупреждение в контексте.
 - Когда нет: краткий отклик на действие — Toast; блокирующий вопрос — Modal; промо-карточка с картинкой — Promo card.
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Правило выбора варианта:
+  - Layout: Card — в колонке или карточке, кнопки под текстом; Strip — вверху страницы на всю ширину, кнопки в строку справа.
+  - Tone: Neutral — по умолчанию (`surface/raised`); Accent — предложение (`accent/subtle`); Info, Success, Warning, Danger — системное объявление (`status/*/subtle`).
+  - Primary action / Secondary action: 0, 1 или 2 кнопки; Secondary action без Primary action не включается. Ряд кнопок скрывается вместе с Primary action (13.11).
+  - Show title / Show description: хотя бы одно включено. Leading — иконка слева (вкл / выкл). Close — крестик, если сообщение можно скрыть.
+- Не делаем: больше двух кнопок; автоскрытие по таймеру (это Toast).
 
 ## 3. Anatomy
-- Слои с токенами: `icon/info`, `content`, `text`, `title`, `description`, `actions`, `primary`, `secondary`, `close`, `icon/check-circle`, `icon/alert-triangle`, `icon/alert-circle`.
+- Корень: подложка `surface/raised` (Neutral) / `accent/subtle` (Accent) / `status/*/subtle`, обводка `border/subtle` (`border/width/default`), `radius/surface`, отступы `space/16` / `space/12`, справа `space/48` под крестик, зазор `space/16`; ширина 480 (Card) / 960 (Strip) числом.
+- Иконка `icon/size/md` по тону (`icon/info`, `icon/check-circle`, `icon/alert-triangle`, `icon/alert-circle`) → `content` (`space/12`): `text` (`space/4`; `title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) и `actions` (`space/8`).
+- `primary` — вложенная Button `control/height/sm` (Accent — Primary `action/primary/default` с 14.11, остальные — `action/accent/default`); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).
+- `close` — Icon button `control/height/sm` в правом верхнем углу.
 - Вложено: иконки ×12, `Button` ×24, `Icon button` ×12.
 - Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Оси State нет.
+- Группа модели состояний (`docs/components.md`): нет у контейнера: неинтерактивный; состояния — у вложенных Button и крестика.
+- Своих состояний нет: показан, пока причина не устранена, или скрыт крестиком. Hover / Pressed / Focus / Disabled — у вложенных кнопок и крестика.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Layout | Card · Strip | — |
-| Tone | Neutral · Accent · Info · Success · Warning · Danger | — |
+| Layout | Card · Strip | Card |
+| Tone | Neutral · Accent · Info · Success · Warning · Danger | Neutral |
 
 Матрица полная: 12 вариантов.
 
@@ -46,16 +54,24 @@
 | Close | булево | вкл | 12 из 12 |
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Title — суть одной фразой; Description — что изменилось и что делать; подпись кнопки — глагол.
+- Длинный текст: заголовок и описание переносятся по словам, блок растёт по высоте, усечения нет.
+- Языки (de, ar, hi, th, ja, kk): переносы и высота строк без обрезки.
+- Текст 200 %: текст переносится, блок растёт, обрезки нет; иконка, крестик и высота кнопок не масштабируются.
+- RTL: иконка, текст и кнопки зеркалятся; стенд RTL не проверяет.
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- Primary action, Secondary action — нажатие кнопки.
+- Close — нажатие крестика, Suggest скрывается.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Остаётся на странице, пока причина не устранена; сам не исчезает.
+- Движение кнопок — как у Button.
 
 ## 9. Accessibility
-- role="region" с aria-label, для Warning и Danger role="alert"; крестик с aria-label «Закрыть»; иконка дублируется текстом; кнопки достижимы по Tab в порядке чтения.
+- `role="region"` с `aria-label`; для Warning и Danger — `role="alert"`.
+- Крестик — кнопка с `aria-label` «Закрыть»; иконка дублируется текстом.
+- Кнопки достижимы по Tab в порядке чтения. Кольцо фокуса и зоны нажатия — у вложенных Button и крестика.
 
 ## 10. Tokens
 - `корень`: заливка / цвет `accent/subtle`, `status/danger/subtle`, `status/info/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/raised`; интервал `space/16`; отступы `space/12`, `space/16`, `space/48`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
@@ -71,15 +87,16 @@
 - `icon/check-circle`: высота `icon/size/md`; ширина `icon/size/md`.
 - `icon/alert-triangle`: высота `icon/size/md`; ширина `icon/size/md`.
 - `icon/alert-circle`: высота `icon/size/md`; ширина `icon/size/md`.
-- Значений без переменной: 12 (напр. `(root):w=480`, `(root):w=960`).
+- Значений без переменной: 12 (напр. `(root):w=480`, `(root):w=960`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
+- Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
 - Набор `Suggest`, вариантов 12 из 12; оси: Layout, Tone.
-- Борда: «Suggest — борда · шаблон v3», разделов 10.
-- Описание: 1447 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
+- Борда: «Suggest — борда · шаблон v3», разделов 11.
+- Описание: 1446 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -88,8 +105,18 @@
 - Props: `layout`: card | strip; `tone`: neutral | accent | info | success | warning | danger; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `showDescription`: boolean = true; `leading`: boolean = true; `primaryAction`: boolean = true; `secondaryAction`: boolean = false; `close`: boolean = true.
 
 ## 14. Acceptance (2026-11-15)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — не перезапускался после правок 13.11 (ряд кнопок скрывается с Primary action) и 14.11 (Accent — Button Primary).
+- `variables-check.plugin.js` — ширина корня 480 (Card) / 960 (Strip) числом.
+- `audit-parity.plugin.js` — 0 (13.11, прогон по страницам компонентов).
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; перепроверка Dark 15.11 пройдена (после принятия в Components `surface/raised` Dark → `neutral/700`): различим на L0–L2; на L3 приподнятая поверхность равна L3 и держится обводкой / тенью — правило, не дефект (Neutral; держит обводка `border/subtle`, тени у Suggest нет); Strip в кресте виден только левой частью (ячейка уже 960); RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: DS Web Banner, Alert; продукт: suggest, notifications, banner.
+- DS Web Banner, Alert → Suggest (Layout Card | Strip, Tone, Leading, Primary action, Secondary action, Close).
+- Продукт: suggest, notifications, banner → Suggest.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Основная кнопка на тонированных подложках (Info, Success, Warning, Danger) — `action/accent/default` сливается с подложкой (стенд 13.11); правлен только Accent.
+- Leading — булево; по описанию слева может быть логотип или монета, а свойства слота / замены нет — решить.
+- Geometria: Accent и Info почти неразличимы (оба синие).
+- Ширина корня 480 / 960 — числом; Strip — по правилу «на всю ширину».

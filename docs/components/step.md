@@ -21,7 +21,7 @@
 
 ## 3. Anatomy
 - Корень — горизонтальный ряд, зазор `space/8`, max-width `size/step/max` (160): `symbol` (Step symbol, вложен) → стек `label` + `description`.
-- `symbol` — круг `size/media/sm`, `radius/chip`: Default — `action/secondary/default` + обводка `border/default` (`border/width/default`); Current — `control/checked`; Success — `status/success/solid`.
+- `symbol` — круг `size/media/sm`, `radius/chip`: Default — `status/neutral/subtle` + обводка `border/default` (`border/width/default`); Current — `control/checked`; Success — `status/success/solid`.
 - `label` — Label/MD Medium: `text/secondary` в Default, `text/primary` в Current и Success.
 - `description` — Body/SM Regular, `text/tertiary`.
 - Вложено: `Step symbol` ×3.
@@ -69,7 +69,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/8`; maxw `size/step/max`.
-- `symbol`: заливка / цвет `action/secondary/default`, `control/checked`, `status/success/solid`; высота `size/media/sm`; радиус `radius/chip`; обводка `border/default`; толщина обводки `border/width/default`; ширина `size/media/sm`.
+- `symbol`: заливка / цвет `control/checked`, `status/neutral/subtle`, `status/success/solid`; высота `size/media/sm`; радиус `radius/chip`; обводка `border/default`; толщина обводки `border/width/default`; ширина `size/media/sm`.
 - `label`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `description`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - Min / max корня: maxWidth 160 size/step/max.

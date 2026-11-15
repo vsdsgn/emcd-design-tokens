@@ -84,6 +84,7 @@
   --status-info-border: var(--color-alpha-blue-32);
   --status-info-on-subtle: var(--color-blue-200);
   --status-neutral-solid: var(--color-alpha-white-40);
+  --status-neutral-subtle: var(--color-alpha-white-8);
   --control-surface-default: var(--color-neutral-950);
   --control-surface-hover: var(--color-neutral-950);
   --control-surface-disabled: var(--color-alpha-white-8);

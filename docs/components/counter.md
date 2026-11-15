@@ -17,7 +17,7 @@
   - Size: S 16 — в табах M и на иконках; M 20 — в табах L и пунктах меню.
 
 ## 3. Anatomy
-- Корень: капсула (`radius/full`), min-width = высота; заливка: Neutral — `action/secondary/default`, Accent — `control/checked`, Danger — `status/danger/solid`.
+- Корень: капсула (`radius/full`), min-width = высота; заливка: Neutral — `status/neutral/subtle`, Accent — `control/checked`, Danger — `status/danger/solid`.
 - `value` — число: Neutral — `text/primary`, Accent и Danger — `text/on-accent`.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -55,7 +55,7 @@
 - Число входит в доступное имя родителя («Воркеры, 3 неактивных»); сам счётчик — `aria-hidden`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/secondary/default`, `control/checked`, `status/danger/solid`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/full`.
+- `корень`: заливка / цвет `control/checked`, `status/danger/solid`, `status/neutral/subtle`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/full`.
 - `value`: заливка / цвет `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - Min / max корня: minWidth 16 size/counter-height/sm, maxWidth 40 size/counter/max, minHeight 16 size/counter-height/sm, minWidth 20 size/counter-height/md, minHeight 20 size/counter-height/md.
 

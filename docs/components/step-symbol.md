@@ -18,7 +18,7 @@
 - Не делаем: разные типы в одном ряду; два Current в ряду; символ вне Step; Number длиннее двух цифр.
 
 ## 3. Anatomy
-- Корень — круг `size/media/sm` (24), `radius/chip`: Default — `action/secondary/default` + обводка `border/default` (`border/width/default`); Current — `control/checked`; Success — `status/success/solid`.
+- Корень — круг `size/media/sm` (24), `radius/chip`: Default — `status/neutral/subtle` + обводка `border/default` (`border/width/default`); Current — `control/checked`; Success — `status/success/solid`.
 - `number` — цифра (`type/label/sm`, `font-weight/medium`): `text/secondary` в Default, `text/on-accent` в Current; в Success вместо цифры — галочка `text/on-accent`.
 - Иконка (Icon; галочка у Numbered · Success) — по центру круга; `bullet` — точка без круга: `border/default` / `control/checked` / `status/success/solid`.
 - Вложено: иконки ×4.
@@ -63,7 +63,7 @@
 - Иконка скрыта от читалки.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/secondary/default`, `control/checked`, `status/success/solid`; высота `size/media/sm`; радиус `radius/chip`; обводка `border/default`; толщина обводки `border/width/default`; ширина `size/media/sm`.
+- `корень`: заливка / цвет `control/checked`, `status/neutral/subtle`, `status/success/solid`; высота `size/media/sm`; радиус `radius/chip`; обводка `border/default`; толщина обводки `border/width/default`; ширина `size/media/sm`.
 - `number`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - `bullet`: заливка / цвет `border/default`, `control/checked`, `status/success/solid`.
 

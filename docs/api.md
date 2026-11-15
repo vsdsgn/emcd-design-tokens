@@ -468,6 +468,30 @@ Props нет.
 | `marker` | dot \| line | по правилу контракта | ось Marker |
 | `series` | 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7 \| 8 | по правилу контракта | ось Series |
 
+## List item
+
+уровень не указан · beta · Vue `<DsListItem>` · Flutter `DsListItem` · контракт `docs/components/list-item.md`
+
+Строка списка данных: монета, кошелёк, воркер, транзакция, настройка. Слот Leading слева, тексты по Content, слот Trailing справа.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | l \| m | по правилу контракта | ось Size |
+| `content` | text-first \| description-first \| big-value \| description-only | по правилу контракта | ось Content |
+| `label` | string | — | свойство Label (слой `_List row`, база `_List row`) |
+| `description` | string | — | свойство Description (слой `_List row`, база `_List row`) |
+| `showDescription` | boolean | false | свойство Show description (слой `_List row`, база `_List row`) |
+| `subvalue` | string | — | свойство Subvalue (слой `_List row`, база `_List row`) |
+| `showLeading` | boolean | true | свойство Show leading (слой `_List row`, база `_List row`) |
+| `showTrailing` | boolean | false | свойство Show trailing (слой `_List row`, база `_List row`) |
+| `leading` | slot | — | свойство Leading (слой `_List row`, база `_List row`) |
+| `trailing` | slot | — | свойство Trailing (слой `_List row`, база `_List row`) |
+| `selected` | boolean | false | свойство Selected (слой `_List row`, база `_List row`) |
+| `showSelection` | boolean | false | свойство Show selection (слой `_List row`, база `_List row`) |
+| `divider` | boolean | false | свойство Divider (слой `_List row`, база `_List row`) |
+
+Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+
 ## Menu item
 
 уровень не указан · beta · Vue `<DsMenuItem>` · Flutter `DsMenuItem` · контракт `docs/components/menu-item.md`
@@ -875,6 +899,25 @@ Props нет.
 
 Состояния в Figma: Default · Current · Success — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
+## Suggest
+
+уровень не указан · beta · Vue `<DsSuggest>` · Flutter `DsSuggest` · контракт `docs/components/suggest.md`
+
+Сообщение или предложение внутри страницы: карточка или полоса на всю ширину — иконка слева, заголовок, описание, 0–2 кнопки, крестик. Заменяет Alert и Banner.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `layout` | card \| strip | по правилу контракта | ось Layout |
+| `tone` | neutral \| accent \| info \| success \| warning \| danger | по правилу контракта | ось Tone |
+| `title` | string | — | свойство Title |
+| `showTitle` | boolean | true | свойство Show title |
+| `description` | string | — | свойство Description |
+| `showDescription` | boolean | true | свойство Show description |
+| `leading` | boolean | true | свойство Leading |
+| `primaryAction` | boolean | true | свойство Primary action |
+| `secondaryAction` | boolean | false | свойство Secondary action |
+| `close` | boolean | true | свойство Close |
+
 ## Tab
 
 уровень не указан · beta · Vue `<DsTab>` · Flutter `DsTab` · контракт `docs/components/tab.md`
@@ -989,6 +1032,26 @@ Props нет.
 
 Состояния в Figma: Default · Hover · Focus · Filled · Error · Disabled · Read-only · Loading · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error`, `readonly`, `loading`, `skeleton` — boolean props.
 
+## Toast
+
+уровень не указан · beta · Vue `<DsToast>` · Flutter `DsToast` · контракт `docs/components/toast.md`
+
+Краткое всплывающее сообщение поверх страницы — отклик на действие («Настройки сохранены», «Вывод создан»). Исчезает само.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `layout` | card \| informer | по правилу контракта | ось Layout |
+| `tone` | info \| success \| warning \| danger \| neutral | по правилу контракта | ось Tone |
+| `title` | string | — | свойство Title |
+| `showTitle` | boolean | true | свойство Show title |
+| `description` | string | — | свойство Description |
+| `actions` | boolean | false | свойство Actions |
+| `close` | boolean | true | свойство Close |
+| `icon` | boolean | true | свойство Icon |
+| `showDescription` | boolean | true | свойство Show description |
+| `timer` | boolean | false | свойство Timer |
+| `safeArea` | boolean | true | свойство Safe area |
+
 ## Toggle
 
 уровень не указан · beta · Vue `<DsToggle>` · Flutter `DsToggle` · контракт `docs/components/toggle.md`
@@ -1023,6 +1086,19 @@ Props нет.
 | `helper` | string | — | свойство Helper |
 
 Состояния в Figma: Default · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+
+## Tooltip
+
+уровень не указан · beta · Vue `<DsTooltip>` · Flutter `DsTooltip` · контракт `docs/components/tooltip.md`
+
+Короткая подсказка к элементу на Web: что делает иконка, что значит термин, почему контрол неактивен, полный текст обрезанного значения. Без действий внутри. Форма — legacy `base tooltip`.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `placement` | top \| bottom \| start \| end | по правилу контракта | ось Placement |
+| `tone` | neutral \| accent | по правилу контракта | ось Tone |
+| `arrow` | center \| start \| end | по правилу контракта | ось Arrow |
+| `text` | string | — | свойство Text |
 
 ## Tooltip tour
 

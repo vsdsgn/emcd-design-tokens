@@ -18,7 +18,7 @@
 
 ## 3. Anatomy
 - Line: `line` — вертикальная линия (`border/default`); `point` — точка серии (`data/1`, обводка `surface/level-1`, `border/width/focus`); `halo` — ореол точки (`data/1`, прозрачность 0.24).
-- Bar: `band` — полоса на ширину столбца (`action/secondary/default`).
+- Bar: `band` — полоса на ширину столбца (`status/neutral/subtle`).
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -53,7 +53,7 @@
 - `line`: заливка / цвет `border/default`.
 - `halo`: заливка / цвет `data/1`.
 - `point`: заливка / цвет `data/1`; обводка `surface/level-1`; толщина обводки `border/width/focus`.
-- `band`: заливка / цвет `action/secondary/default`.
+- `band`: заливка / цвет `status/neutral/subtle`.
 - Значений без переменной: 5 (напр. `(root):w=24`, `(root):h=200`, `halo:o=0.24`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms

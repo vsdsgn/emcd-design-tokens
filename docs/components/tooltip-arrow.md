@@ -1,69 +1,84 @@
-# _Tooltip arrow — контракт · draft (2026-11-15)
+# _Tooltip arrow — контракт (2026-11-15)
 
-Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
-Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
-При переводе в beta: запись в `scripts/contract-data.mjs` (разделы 2–4, 6–9, 11, 15), правки из раздела 14, плагины и стенд. Схема — `docs/component-contract.md`.
+Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
+Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `_Tooltip arrow`. Status: draft. Level: unknown.
-- Figma: Components, страница «Tooltip» (`317:33689`), набор `317:33693`.
+- Набор: `_Tooltip arrow`. Status: service. Level: unknown.
+- Figma: Components, страница «Tooltip» (`317:33689`), набор `317:33693`. Платформы: по родителю (Tooltip — Web).
+- Служебный набор (имя с «_», Status: service, с 2026-11-15): не публикуется, в макетах напрямую не используется — только внутри Tooltip (24 варианта), Tooltip tour и тултипа Icon button.
 
 ## 2. Intent
-- Служебный: уголок тултипа из legacy — вектор (+ обводка у Neutral) и маска 1 px на стыке, чтобы контур шёл одной линией. Остриё вниз; поворот — трансформацией инстанса.
-- Когда использовать: не описано
-- Когда нет: не описано
-- Правило выбора варианта: не описано — заполнить при переводе в beta.
+- Уголок тултипа из legacy: вектор (у Neutral — с обводкой) и маска 1 px на стыке с пузырём, чтобы контур шёл одной линией. Остриё вниз; ориентация — трансформацией экземпляра.
+- Когда использовать: только внутри наборов DS: Tooltip, Tooltip tour, тултип Icon button.
+- Когда нет: подсказка в макете — Tooltip (пузырь + уголок), а не голый уголок.
+- Правило выбора варианта:
+  - Tone — как у родителя: Neutral — `surface/raised` + обводка `border/default`; Accent — `action/primary/default`, без обводки.
+  - Отдельным компонентом, потому что булева форма «пузырь + уголок» в Figma при растяжении масштабирует уголок; в коде — одна SVG-форма с пузырём.
+- Не делаем: уголок без пузыря; растягивать уголок (размер 26 × 9 постоянный).
 
 ## 3. Anatomy
-- Слои с токенами: `arrow`, `mask`.
+- Корень 26 × 9 (числом).
+- `arrow` — вектор: заливка `surface/raised` | `action/primary/default`, обводка `border/default` (`border/width/default`).
+- `mask` — полоса 1 px на стыке (заливка как у `arrow`), закрывает обводку пузыря под уголком.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
-- Оси State нет.
+- Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
+- Состояний нет; Tone следует за родителем.
 
 ## 5. Properties
 Оси (варианты):
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Tone | Neutral · Accent | — |
+| Tone | Neutral · Accent | Neutral |
 
 Матрица полная: 2 вариантов.
 
 ## 6. Content / slots
-- Не описано: заполнить при переводе в beta.
+- Текста нет: длинный текст, языки и 200 % не влияют.
+- RTL: сторону и сдвиг уголка задаёт родитель (Placement / Arrow у Tooltip).
 
 ## 7. Events
-- Не описано: заполнить при переводе в beta.
+- Нет.
 
 ## 8. Behavior
-- Не описано: заполнить при переводе в beta.
+- Статичен; появляется и скрывается вместе с родителем.
 
 ## 9. Accessibility
-- |
+- Декоративен (`aria-hidden`); смысл — у родителя (`role=tooltip`).
 
 ## 10. Tokens
 - `arrow`: заливка / цвет `action/primary/default`, `surface/raised`; обводка `border/default`; толщина обводки `border/width/default`.
 - `mask`: заливка / цвет `action/primary/default`, `surface/raised`.
-- Значений без переменной: 4 (напр. `(root):w=26`, `(root):h=9`).
+- Значений без переменной: 4 (напр. `(root):w=26`, `(root):h=9`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Не описано: заполнить при переводе в beta.
+- По родителю: Tooltip — только Web. Размеры от режима Platform не зависят (26 × 9 числом).
 
 ## 12. Figma projection
 - Набор `_Tooltip arrow`, вариантов 2 из 2; оси: Tone.
-- Борда: «Tooltip — борда · шаблон v3», разделов 12.
-- Описание: 508 знаков, разделы: Status: Level: Служебный: Когда использовать: Правила: A11y:
+- Борда: «Tooltip — борда · шаблон v3», разделов 11.
+- Описание: 510 знаков, разделы: Status: Level: Служебный: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsTooltipArrow>`; Flutter: `DsTooltipArrow`.
+- Служебный набор: в публичный API библиотеки не выходит — внутренняя часть родителя.
 - Props: `tone`: neutral | accent.
 
 ## 14. Acceptance (2026-11-15)
-- Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
-- Замечаний по манифесту нет.
+- `audit.plugin.js` — отдельно не прогонялся — в составе Tooltip (прогон после замены на месте 13.11).
+- `variables-check.plugin.js` — корень 26 × 9 числом (4 значения без переменной).
+- `audit-parity.plugin.js` — отдельно не прогонялся — в составе Tooltip.
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- Не проверено: отдельный стенд не снимался — проверен в составе Tooltip на стенде 2026-11-13; кода нет — parity props пропущена.
 
 ## 15. Migration
-- Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах
+- Legacy DS Web `tooltip arrow` (уголок `base tooltip`) → `_Tooltip arrow`.
+- 2026-11-15: draft → service (служебный, не публикуется); в status.json не пишется.
+
+Осталось доделать (после пакета правок beta 2026-11-13):
+- Описание Figma: строки Legacy нет.
