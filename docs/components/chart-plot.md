@@ -33,7 +33,7 @@
 - Группа модели состояний (`docs/components.md`): График: Hover — Chart crosshair + Chart tooltip; Skeleton — загрузка; Empty — нет данных; Disabled — `action/disabled`.
 - Default — серии цветами `data/*`, сетка.
 - Hover — перекрестие в выбранной точке и тултип со значениями серий; у Bars — подсветка столбца, Chart crosshair Target=Bar и тултип (исправлено 2026-11-15).
-- Skeleton — заглушка `skeleton/base`: у Bars столбцы ровной «пилой» (не данные), у Line / Area — силуэт без сетки (исправлено 2026-11-15; в Light цвет совпадает с Disabled — различие формой и сеткой, в коде — блик).
+- Skeleton — заглушка `skeleton/base`: у Bars столбцы ровной «пилой» (не данные), у Line / Area — силуэт без сетки (исправлено 2026-11-15; токены разные — `skeleton/base` и `action/disabled`, в Light значения совпадают; визуально не разводим, различие — формой и сеткой, в коде — блик (решение Стефана 15.11)).
 - Empty — сетка и «Нет данных за период» по центру.
 - Disabled — серии `action/disabled`. Отличие от Skeleton — реальная форма данных и сетка.
 
@@ -116,7 +116,6 @@
 - DS Web .graphics (state loading / default / hover / disabled / empty) и .charts (widget Graph, «Песочница графиков») → Chart plot (Type × State; loading → Skeleton).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Skeleton и Disabled в Light одного цвета (`skeleton/base` = `action/disabled`); различие — формой и сеткой (15.11). Развести токены — на решение.
 - Стенд 2026-11-15: тултип в Hover при 200 % фиксирован по ширине — дата усечена, слова рвутся; тултип по содержимому до `size/tooltip/max`.
 - Описание: «Loading» → `Skeleton` (имя значения оси); проверить порядок вариантов (Skeleton перед Empty).
 - Размер корня 473 × 140 и прозрачности — числом.

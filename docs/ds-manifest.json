@@ -22,7 +22,7 @@
   "withFocusRing": 21,
   "withHitArea": 20,
   "withSafeMargin": 23,
-  "pagesWithoutV3Board": 1,
+  "pagesWithoutV3Board": 0,
   "pagesWithFullBoard": 19,
   "baseSets": 11
  },
@@ -11338,30 +11338,27 @@
    "pageMark": "🟡",
    "boards": [
     {
-     "name": "Tab bar — борда",
-     "id": "366:4725",
-     "v3": false,
+     "name": "Tab bar — борда · шаблон v3",
+     "id": "2153:3455",
+     "v3": true,
      "sections": [
-      "Tab bar",
-      "Tab bar item",
-      "Поверхности",
-      "Правила"
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
      ]
     }
    ],
    "boardMissing": [
-    "01",
-    "02",
-    "03",
-    "04",
     "05",
-    "06",
-    "07",
-    "08",
-    "09",
-    "10",
-    "11",
-    "12"
+    "07"
    ],
    "sets": [
     {
@@ -11381,7 +11378,7 @@
       "Legacy:",
       "Expressive (привязано):"
      ],
-     "inBoard": true,
+     "inBoard": false,
      "axes": {},
      "variants": 1,
      "full": 1,

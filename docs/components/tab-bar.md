@@ -77,7 +77,7 @@
 
 ## 12. Figma projection
 - Компонент `Tab bar`; оси: нет.
-- Борда: шаблона v3 нет.
+- Борда: «Tab bar — борда · шаблон v3», разделов 11.
 - Описание: 1015 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
 
 ## 13. Code projection
