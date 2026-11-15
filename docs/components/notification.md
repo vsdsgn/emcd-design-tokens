@@ -22,7 +22,7 @@
 
 ## 3. Anatomy
 - Корень: раскрытый экземпляр `_List row` (Type=List, Size=M), высота 76; max-width `size/toast/max`; у Unread — фон `accent/subtle`.
-- Слоты базы: Leading — плашка с иконкой `icon/size/md`; Label — заголовок; Description — текст (≤ 2 строк); Trailing — время (`type/body/sm`, `text/secondary`) + точка непрочитанного `action/primary/default`.
+- Слоты базы: Leading — плашка `surface/next` (15.11) с иконкой `icon/size/md`; Label — заголовок; Description — текст (≤ 2 строк); Trailing — время (`type/body/sm`, `text/secondary`) + точка непрочитанного `action/primary/default`.
 - Служебные слои (`state layer`, кольцо фокуса, зоны, безопасное поле) и свойства Focus ring, Show hit area, Safe margin — на базе `_List row` (`list-row.md`).
 - Вложено: `_List row` ×6.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
@@ -101,5 +101,4 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - min-width: в описании `size/toast/min`, в наборе привязан только max.
-- После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.
 - Иконка — содержимое слота Leading базы; правило выбора иконки по типу события — дописать.

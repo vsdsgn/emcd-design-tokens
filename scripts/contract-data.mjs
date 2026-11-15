@@ -472,7 +472,7 @@ export const DATA = [
     anatomy: [
       'Корень — горизонтальный ряд с отрицательным зазором: нахлёст 30 % размера (−6 / −7 / −10 для S / M / L).',
       '`coin 1`…`coin 4` — экземпляры `symbol/coin/*` с кольцом `surface/current`: на любой поверхности L0–L3 кольцо совпадает с фоном (проверено на стенде).',
-      '`more` — кружок «+N» (Show more): непрозрачная подложка `surface/default` + тон `status/neutral/subtle`, `radius/full`, кольцо `surface/current`, как у монет; `value` — текст More (`text/secondary`, `type/label/sm`, `font-weight/medium`).',
+      '`more` — кружок «+N» (Show more): непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/full`, кольцо `surface/current`, как у монет; `value` — текст More (`text/secondary`, `type/label/sm`, `font-weight/medium`).',
     ],
     group: NONE,
     states: ['Своих состояний нет. Нажимаемая стопка — внутри строки списка, Chip или Button: состояния, фокус и зона нажатия — у обёртки.'],
@@ -1690,13 +1690,13 @@ export const DATA = [
     ],
     never: 'одиночная карточка; несколько выбранных в группе; разная ширина карточек одной группы; Hover / Pressed сменой заливки вместо слоя `state/layer`.',
     anatomy: [
-      'Корень: подложка `surface/level-2`, `radius/surface`, отступы `space/16`, обводка `border/subtle` (Off) | `border/accent` (On) толщиной `border/width/default`; колонка `header` → `details` через `space/8`.',
+      'Корень: подложка `surface/next` (на уровень выше подложки, 15.11), `radius/surface`, отступы `space/16`, обводка `border/subtle` (Off) | `border/accent` (On) толщиной `border/width/default`; колонка `header` → `details` через `space/8`.',
       '`header` — Radio (круг, у первой строки подписи) + `label` (`type/label/lg`, Medium, `text/primary`) через `space/12`; `details` — пояснение (`type/label/md`, Medium, `text/secondary`), несколько строк.',
       'Служебные: `state layer` (`state/layer`, `radius/surface`), `focus ring` вокруг карточки (`radius/focus-ring-surface`), `hit area · web` / `hit area · app` на всю карточку, `safe area · outer`.',
     ],
     group: PLASHKA,
     states: [
-      'Default — подложка `surface/level-2`; Off — обводка `border/subtle`, On — `border/accent` и радио с точкой.',
+      'Default — подложка `surface/next`; Off — обводка `border/subtle`, On — `border/accent` и радио с точкой.',
       'Hover / Pressed — только слой `state/layer` (`state/hover` / `state/pressed`) поверх карточки; обводка и текст не меняются.',
       'Disabled — подпись и детали `text/disabled`, радио погашено, нажатие недоступно; у On обводка `control/border/disabled`.',
       FOCUS + ' Кольцо — вокруг всей карточки.',
@@ -1722,8 +1722,7 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; положение радио у первой строки после правки 13.11 стендом не перепроверено; кода нет — parity props пропущена' },
     migration: ['Продукт «Выгрузка»: радио-карточки расписания → Radio card (Status, State, Label, Details, Show details).'],
     todo: [
-      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
-      'Ширина корня 400 и `hit area · web` 400 × 126 — числом.',
+            'Ширина корня 400 и `hit area · web` 400 × 126 — числом.',
     ],
   },
   {
@@ -1799,7 +1798,7 @@ export const DATA = [
     ],
     never: 'больше одной промо-карточки на экран; два действия; картинка, несущая смысл без текста; возврат закрытой карточки в той же сессии.',
     anatomy: [
-      'Корень: Neutral — заливка `surface/level-1` + обводка `border/subtle` (`border/width/default`, вне раскладки — высота как у Accent); Accent — заливка `accent/subtle`; `radius/surface`, отступы `space/16`.',
+      'Корень: Neutral — заливка `surface/next` (на уровень выше подложки, 15.11) + обводка `border/subtle` (`border/width/default`, вне раскладки — высота как у Accent); Accent — заливка `accent/subtle`; `radius/surface`, отступы `space/16`.',
       '`body` — ряд `column` + `media` (зазор `space/8`); `column` — `text` и `action` (зазор `space/8`).',
       '`text` — `title` (`type/label/lg`, Medium, `text/primary`) и `description` (`type/label/md`, Medium, `text/secondary`), зазор `space/4`.',
       '`action` — вложенный Button (`control/height/sm`); у Tone=Accent — Button Primary (другой вид сливается с подложкой `accent/subtle`).',
@@ -1824,8 +1823,7 @@ export const DATA = [
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; раскладка body и обводка после правки 13.11 стендом не перепроверены; кода нет — parity props пропущена' },
     migration: ['DS Web Sidebar banner → Promo card Size=S; продукт: banner 343×152 → Size=M; Tone, Show description, Show action, Show media — новые.'],
     todo: [
-      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
-      'Ширина корня 222 / 343 — числом.',
+            'Ширина корня 222 / 343 — числом.',
     ],
   },
   {
@@ -1931,7 +1929,7 @@ export const DATA = [
     ],
     never: 'несколько чисел в одной карточке; анимация счётчика; больше одной карточки с Ambient light на экран.',
     anatomy: [
-      'Корень: `surface/level-1`, обводка `border/subtle` (`border/width/default`), `radius/container`, отступ `card/padding`, зазор `space/8`, min-width `size/card/min`.',
+      'Корень: `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` (`border/width/default`), `radius/container`, отступ `card/padding`, зазор `space/8`, min-width `size/card/min`.',
       '`label row` (зазор `space/4`): `label` (`type/body/sm`, `text/secondary`) + иконка Info.',
       '`value row` (зазор `space/6`): `value` (`type/heading/xl`, `font-weight/bold`, `font/family/display`, `text/primary`; по содержимому, max-width 180) + `unit` (`type/body/md`, `text/secondary`; max-width 64) — единица сразу за числом.',
       '`delta row` (зазор `space/6`, max-width 248): Badge S + `delta caption` (`type/body/sm`, `text/tertiary`; max-width 160).',
@@ -1955,8 +1953,7 @@ export const DATA = [
     accept: { audit: OK, vc: 'только реестр: maxWidth текстового слоя числом (value 180, unit 64, delta caption 160) и maxWidth 248 у delta row', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; Ambient light в Base не виден — проверять в Expressive; кода нет — parity props пропущена' },
     migration: ['DS Web `stat card` (widget Graph) → Stat card (Label, Value, Unit, Delta, Footer); DS App — нет. Опора — карточки дашборда Mining (Web App / App). Нужен скрин прода.'],
     todo: [
-      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
-      'Ширина корня 280 числом (min-width — `size/card/min`).',
+            'Ширина корня 280 числом (min-width — `size/card/min`).',
     ],
   },
   {
@@ -2387,7 +2384,7 @@ export const DATA = [
     anatomy: [
       'Корень — горизонтальный ряд экземпляров Avatar (`size/media/*`) с отрицательным зазором: нахлёст 20 % размера (−4 / −6 / −8 у XS / S / M).',
       'Каждый аватар и `more` — кольцо `surface/current` (`border/width/focus`, OUTSIDE): на любой поверхности L0–L3 совпадает с фоном и отделяет круг от соседа. Корни аватаров скруглены `radius/full`.',
-      '`more` — круг «+N»: непрозрачная подложка `surface/default` + тон `status/neutral/subtle`, `radius/chip`; `count` — `text/primary`, `type/label/sm`, `font-weight/medium`.',
+      '`more` — круг «+N»: непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/chip`; `count` — `text/primary`, `type/label/sm`, `font-weight/medium`.',
     ],
     group: NONE,
     states: ['Своих состояний нет. Если группа открывает список участников — она целиком внутри кнопки: состояния, фокус и зона нажатия — у обёртки.'],
@@ -2412,8 +2409,7 @@ export const DATA = [
       'Текст 200 % у XS: инициалы выходят за круг, «+N» обрезается — на решение: зафиксировать кегль или дать кругу расти.',
       'Нахлёст −4 / −6 / −8 числом — ждёт токенов.',
       'В вариантах 4 аватара: правило «до 5» в наборе не показано.',
-      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
-    ],
+          ],
   },
   {
     name: 'Legend swatch',
@@ -2502,7 +2498,7 @@ export const DATA = [
     never: 'перевод адреса или смена регистра; Short там, где адрес сверяют или вводят вручную; адрес без копирования.',
     anatomy: [
       'Корень — вертикальный стек (`space/6`), ширина 360 числом: `label` (`text/secondary`, `type/body/sm`) → `row` → `status`.',
-      '`row` — плашка `surface/raised`, `radius/control`, отступы `space/12` / `space/6` / `space/4`, зазор `space/4`: `address` (`text/primary`, `font/family/mono`, `type/body/md`) и кнопки `copy` и `show QR` (`control/height/sm`, `radius/control-sm`).',
+      '`row` — плашка `surface/next` (на уровень выше подложки, 15.11), `radius/control`, отступы `space/12` / `space/6` / `space/4`, зазор `space/4`: `address` (`text/primary`, `font/family/mono`, `type/body/md`) и кнопки `copy` и `show QR` (`control/height/sm`, `radius/control-sm`).',
       'Copied: вместо `copy` — `copied` (галочка), под строкой `status` «Адрес скопирован» (`text/success`, `type/body/sm`).',
     ],
     group: 'состояния нажатия — у кнопок внутри (по модели Icon button); у набора — только Default / Copied',
@@ -2531,8 +2527,7 @@ export const DATA = [
     todo: [
       '`copy` / `show QR` / `copied` — фреймы с иконками: заменить на экземпляры Icon button (состояния, Focus ring, зоны нажатия).',
       'QR виден во всех вариантах — нужен переключатель под правило «QR — только для адресов пополнения».',
-      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
-      'Copied выше Default на строку статуса — раскладка под компонентом сдвигается; на решение: резервировать место или статус поверх.',
+            'Copied выше Default на строку статуса — раскладка под компонентом сдвигается; на решение: резервировать место или статус поверх.',
       'Ширина корня 360 — числом.',
     ],
   },
@@ -2660,7 +2655,7 @@ export const DATA = [
     never: 'кнопки и ссылки внутри записи; непрочитанное только цветом, без точки; заголовок длиннее 2 строк.',
     anatomy: [
       'Корень: раскрытый экземпляр `_List row` (Type=List, Size=M), высота 76; max-width `size/toast/max`; у Unread — фон `accent/subtle`.',
-      'Слоты базы: Leading — плашка с иконкой `icon/size/md`; Label — заголовок; Description — текст (≤ 2 строк); Trailing — время (`type/body/sm`, `text/secondary`) + точка непрочитанного `action/primary/default`.',
+      'Слоты базы: Leading — плашка `surface/next` (15.11) с иконкой `icon/size/md`; Label — заголовок; Description — текст (≤ 2 строк); Trailing — время (`type/body/sm`, `text/secondary`) + точка непрочитанного `action/primary/default`.',
       'Служебные слои (`state layer`, кольцо фокуса, зоны, безопасное поле) и свойства Focus ring, Show hit area, Safe margin — на базе `_List row` (`list-row.md`).',
     ],
     group: 'Плашка: слой `state/layer` × `state/hover` / `state/pressed` поверх фона записи; Disabled нет',
@@ -2693,8 +2688,7 @@ export const DATA = [
     ],
     todo: [
       'min-width: в описании `size/toast/min`, в наборе привязан только max.',
-      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
-      'Иконка — содержимое слота Leading базы; правило выбора иконки по типу события — дописать.',
+            'Иконка — содержимое слота Leading базы; правило выбора иконки по типу события — дописать.',
     ],
   },
   {
@@ -3274,7 +3268,7 @@ export const DATA = [
     ],
     never: 'два графика в одной карточке; легенда сверху или сбоку от графика; своё состояние загрузки у карточки вместо Chart plot Skeleton.',
     anatomy: [
-      'Корень — `surface/level-1`, обводка `border/subtle` × `border/width/default`, `radius/container`, отступ `space/28`, зазор `space/16`; ширина 580 числом, min-width `size/card/min` (280).',
+      'Корень — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` × `border/width/default`, `radius/container`, отступ `space/28`, зазор `space/16`; ширина 580 числом, min-width `size/card/min` (280).',
       'Слот Top (зазор `space/16`): `stat` (`space/4`) — `label` (`type/label/md`, `text/primary`), `value` (`font/family/display`, `type/display/md`, bold, `text/primary`), `caption` (`type/body/md`, `text/secondary`); Tabs (зазор `space/20`, линия `border/subtle`).',
       'Слот Content (зазор `space/8`): Chart plot + подписи оси (max-width `size/chart-axis-label/max`, `type/body/sm`, `text/tertiary`).',
       'Слот Bottom (зазор `space/16`): `legend` — Legend item × 3 (зазор `space/6`, max-width `size/legend-item/max`) + `sum` (`type/body/md`, `text/secondary`).',
@@ -3307,8 +3301,7 @@ export const DATA = [
     migration: ['DS Web bar widget (type=horizont / vertical / circle) и widget Graph (.chart, .graphics, .legends, .dividers) → Chart card (слоты Top / Content / Bottom, Show bottom); форма графика → Type вложенного Chart plot.'],
     todo: [
       'Ширина корня 580 — числом (в продукте — по колонке).',
-      'После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.',
-    ],
+          ],
   },
   {
     name: 'Chart plot',
@@ -3546,7 +3539,7 @@ export const DATA = [
       'Корень — вертикальный стек, отступ `space/12`, зазор `space/8`, `radius/container`; ширина 240 / 72 и высота 800 — числом.',
       'Поверхность: Expressive — `material/regular/fill` + `material/regular/blur`, кромка `edge/hairline`; Base — непрозрачная поверхность без блюра.',
       'Header (отступ `space/12`): `logo (placeholder)` — `font/family/display`, `type/heading/lg`, `font-weight/bold`, `text/primary`.',
-      '`promo` — Promo card: `surface/level-1`, `radius/surface`, отступ `space/16`, обводка `border/subtle` × `border/width/default`.',
+      '`promo` — Promo card: `surface/next`, `radius/surface`, отступ `space/16`, обводка `border/subtle` × `border/width/default`.',
       'Nav (зазор `space/4`): Nav item (`size/row/compact`, `radius/control`); `divider` — линия `border/subtle` между группами.',
       'Footer (зазор `space/4`): Nav item настроек и профиля, прижаты к низу.',
     ],

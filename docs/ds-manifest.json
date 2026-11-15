@@ -311,7 +311,7 @@
        "lineHeight:type/body/sm/line-height"
       ],
       "row": [
-       "f:surface/raised",
+       "f:surface/next",
        "gap:space/4",
        "p:space/12",
        "p:space/4",
@@ -769,7 +769,7 @@
       ],
       "more": [
        "f:status/neutral/subtle",
-       "f:surface/default",
+       "f:surface/next",
        "r:radius/chip",
        "s:surface/current",
        "sw:border/width/focus"
@@ -1826,7 +1826,7 @@
      ],
      "tokens": {
       "(root)": [
-       "f:surface/level-1",
+       "f:surface/next",
        "gap:space/16",
        "minw:size/card/min",
        "p:space/28",
@@ -8141,7 +8141,7 @@
      "tokens": {
       "(root)": [
        "f:accent/subtle",
-       "f:surface/level-1",
+       "f:surface/next",
        "gap:space/8",
        "p:space/16",
        "r:radius/surface",
@@ -8414,7 +8414,7 @@
      ],
      "tokens": {
       "(root)": [
-       "f:surface/level-2",
+       "f:surface/next",
        "gap:space/8",
        "p:space/16",
        "r:radius/surface",
@@ -10163,7 +10163,7 @@
      ],
      "tokens": {
       "(root)": [
-       "f:surface/level-1",
+       "f:surface/next",
        "gap:space/8",
        "minw:size/card/min",
        "p:card/padding",

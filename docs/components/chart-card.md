@@ -22,7 +22,7 @@
 - Не делаем: два графика в одной карточке; легенда сверху или сбоку от графика; своё состояние загрузки у карточки вместо Chart plot Skeleton.
 
 ## 3. Anatomy
-- Корень — `surface/level-1`, обводка `border/subtle` × `border/width/default`, `radius/container`, отступ `space/28`, зазор `space/16`; ширина 580 числом, min-width `size/card/min` (280).
+- Корень — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` × `border/width/default`, `radius/container`, отступ `space/28`, зазор `space/16`; ширина 580 числом, min-width `size/card/min` (280).
 - Слот Top (зазор `space/16`): `stat` (`space/4`) — `label` (`type/label/md`, `text/primary`), `value` (`font/family/display`, `type/display/md`, bold, `text/primary`), `caption` (`type/body/md`, `text/secondary`); Tabs (зазор `space/20`, линия `border/subtle`).
 - Слот Content (зазор `space/8`): Chart plot + подписи оси (max-width `size/chart-axis-label/max`, `type/body/sm`, `text/tertiary`).
 - Слот Bottom (зазор `space/16`): `legend` — Legend item × 3 (зазор `space/6`, max-width `size/legend-item/max`) + `sum` (`type/body/md`, `text/secondary`).
@@ -70,7 +70,7 @@
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо и зоны нажатия — у вложенных Tabs и Chart plot.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-1`; интервал `space/16`; мин. ширина `size/card/min`; отступы `space/28`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `surface/next`; интервал `space/16`; мин. ширина `size/card/min`; отступы `space/28`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `Top`: интервал `space/16`.
 - `stat`: интервал `space/4`.
 - `label`: заливка / цвет `text/primary`, `text/tertiary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/sm`, `type/label/md`.
@@ -114,4 +114,3 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Ширина корня 580 — числом (в продукте — по колонке).
-- После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.

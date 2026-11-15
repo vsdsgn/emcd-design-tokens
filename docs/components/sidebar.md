@@ -23,7 +23,7 @@
 - Корень — вертикальный стек, отступ `space/12`, зазор `space/8`, `radius/container`; ширина 240 / 72 и высота 800 — числом.
 - Поверхность: Expressive — `material/regular/fill` + `material/regular/blur`, кромка `edge/hairline`; Base — непрозрачная поверхность без блюра.
 - Header (отступ `space/12`): `logo (placeholder)` — `font/family/display`, `type/heading/lg`, `font-weight/bold`, `text/primary`.
-- `promo` — Promo card: `surface/level-1`, `radius/surface`, отступ `space/16`, обводка `border/subtle` × `border/width/default`.
+- `promo` — Promo card: `surface/next`, `radius/surface`, отступ `space/16`, обводка `border/subtle` × `border/width/default`.
 - Nav (зазор `space/4`): Nav item (`size/row/compact`, `radius/control`); `divider` — линия `border/subtle` между группами.
 - Footer (зазор `space/4`): Nav item настроек и профиля, прижаты к низу.
 - Вложено: `Promo card` ×1, `Nav item` ×16.

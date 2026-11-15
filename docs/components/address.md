@@ -19,7 +19,7 @@
 
 ## 3. Anatomy
 - Корень — вертикальный стек (`space/6`), ширина 360 числом: `label` (`text/secondary`, `type/body/sm`) → `row` → `status`.
-- `row` — плашка `surface/raised`, `radius/control`, отступы `space/12` / `space/6` / `space/4`, зазор `space/4`: `address` (`text/primary`, `font/family/mono`, `type/body/md`) и кнопки `copy` и `show QR` (`control/height/sm`, `radius/control-sm`).
+- `row` — плашка `surface/next` (на уровень выше подложки, 15.11), `radius/control`, отступы `space/12` / `space/6` / `space/4`, зазор `space/4`: `address` (`text/primary`, `font/family/mono`, `type/body/md`) и кнопки `copy` и `show QR` (`control/height/sm`, `radius/control-sm`).
 - Copied: вместо `copy` — `copied` (галочка), под строкой `status` «Адрес скопирован» (`text/success`, `type/body/sm`).
 - Вложено: `Icon button` ×8.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
@@ -61,7 +61,7 @@
 ## 10. Tokens
 - `корень`: интервал `space/6`.
 - `label`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
-- `row`: заливка / цвет `surface/raised`; интервал `space/4`; отступы `space/12`, `space/4`, `space/6`; радиус `radius/control`.
+- `row`: заливка / цвет `surface/next`; интервал `space/4`; отступы `space/12`, `space/4`, `space/6`; радиус `radius/control`.
 - `address`: заливка / цвет `text/primary`; типографика `font-weight/regular`, `font/family/mono`, `type/body/md`.
 - `copy`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - `show QR`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
@@ -98,6 +98,5 @@
 Осталось доделать (после пакета правок beta 2026-11-13):
 - `copy` / `show QR` / `copied` — фреймы с иконками: заменить на экземпляры Icon button (состояния, Focus ring, зоны нажатия).
 - QR виден во всех вариантах — нужен переключатель под правило «QR — только для адресов пополнения».
-- После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.
 - Copied выше Default на строку статуса — раскладка под компонентом сдвигается; на решение: резервировать место или статус поверх.
 - Ширина корня 360 — числом.

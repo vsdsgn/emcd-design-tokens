@@ -22,7 +22,7 @@
 - Не делаем: больше одной промо-карточки на экран; два действия; картинка, несущая смысл без текста; возврат закрытой карточки в той же сессии.
 
 ## 3. Anatomy
-- Корень: Neutral — заливка `surface/level-1` + обводка `border/subtle` (`border/width/default`, вне раскладки — высота как у Accent); Accent — заливка `accent/subtle`; `radius/surface`, отступы `space/16`.
+- Корень: Neutral — заливка `surface/next` (на уровень выше подложки, 15.11) + обводка `border/subtle` (`border/width/default`, вне раскладки — высота как у Accent); Accent — заливка `accent/subtle`; `radius/surface`, отступы `space/16`.
 - `body` — ряд `column` + `media` (зазор `space/8`); `column` — `text` и `action` (зазор `space/8`).
 - `text` — `title` (`type/label/lg`, Medium, `text/primary`) и `description` (`type/label/md`, Medium, `text/secondary`), зазор `space/4`.
 - `action` — вложенный Button (`control/height/sm`); у Tone=Accent — Button Primary (другой вид сливается с подложкой `accent/subtle`).
@@ -78,7 +78,7 @@
 - Картинка — с пустым `alt`: смысла без текста не несёт.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `surface/level-1`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `accent/subtle`, `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `body`: интервал `space/8`.
 - `column`: интервал `space/8`.
 - `text`: интервал `space/4`.
@@ -115,5 +115,4 @@
 - DS Web Sidebar banner → Promo card Size=S; продукт: banner 343×152 → Size=M; Tone, Show description, Show action, Show media — новые.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.
 - Ширина корня 222 / 343 — числом.

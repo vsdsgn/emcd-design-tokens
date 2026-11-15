@@ -20,7 +20,7 @@
 - Не делаем: одиночная карточка; несколько выбранных в группе; разная ширина карточек одной группы; Hover / Pressed сменой заливки вместо слоя `state/layer`.
 
 ## 3. Anatomy
-- Корень: подложка `surface/level-2`, `radius/surface`, отступы `space/16`, обводка `border/subtle` (Off) | `border/accent` (On) толщиной `border/width/default`; колонка `header` → `details` через `space/8`.
+- Корень: подложка `surface/next` (на уровень выше подложки, 15.11), `radius/surface`, отступы `space/16`, обводка `border/subtle` (Off) | `border/accent` (On) толщиной `border/width/default`; колонка `header` → `details` через `space/8`.
 - `header` — Radio (круг, у первой строки подписи) + `label` (`type/label/lg`, Medium, `text/primary`) через `space/12`; `details` — пояснение (`type/label/md`, Medium, `text/secondary`), несколько строк.
 - Служебные: `state layer` (`state/layer`, `radius/surface`), `focus ring` вокруг карточки (`radius/focus-ring-surface`), `hit area · web` / `hit area · app` на всю карточку, `safe area · outer`.
 - Вложено: `Radio` ×8, `_Hit area` ×16, `_Safe margin` ×8.
@@ -28,7 +28,7 @@
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`.
-- Default — подложка `surface/level-2`; Off — обводка `border/subtle`, On — `border/accent` и радио с точкой.
+- Default — подложка `surface/next`; Off — обводка `border/subtle`, On — `border/accent` и радио с точкой.
 - Hover / Pressed — только слой `state/layer` (`state/hover` / `state/pressed`) поверх карточки; обводка и текст не меняются.
 - Disabled — подпись и детали `text/disabled`, радио погашено, нажатие недоступно; у On обводка `control/border/disabled`.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо — вокруг всей карточки.
@@ -80,7 +80,7 @@
 - Выбор виден не только цветом обводки: точка в радио.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-2`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/accent`, `border/subtle`, `control/border/disabled`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/accent`, `border/subtle`, `control/border/disabled`; толщина обводки `border/width/default`.
 - `header`: интервал `space/12`.
 - `radio`: maxw `size/field/max`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
@@ -115,5 +115,4 @@
 - Продукт «Выгрузка»: радио-карточки расписания → Radio card (Status, State, Label, Details, Show details).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.
 - Ширина корня 400 и `hit area · web` 400 × 126 — числом.

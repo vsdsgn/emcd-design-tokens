@@ -20,7 +20,7 @@
 ## 3. Anatomy
 - Корень — горизонтальный ряд с отрицательным зазором: нахлёст 30 % размера (−6 / −7 / −10 для S / M / L).
 - `coin 1`…`coin 4` — экземпляры `symbol/coin/*` с кольцом `surface/current`: на любой поверхности L0–L3 кольцо совпадает с фоном (проверено на стенде).
-- `more` — кружок «+N» (Show more): непрозрачная подложка `surface/default` + тон `status/neutral/subtle`, `radius/full`, кольцо `surface/current`, как у монет; `value` — текст More (`text/secondary`, `type/label/sm`, `font-weight/medium`).
+- `more` — кружок «+N» (Show more): непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/full`, кольцо `surface/current`, как у монет; `value` — текст More (`text/secondary`, `type/label/sm`, `font-weight/medium`).
 - Вложено: `symbol/coin/bitcoin-btc` ×9, `symbol/coin/ethereum-eth` ×9, `symbol/coin/litecoin-ltc` ×6, `symbol/coin/tether-usdt` ×3.
 - Служебные слои (вариантов из 9): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 

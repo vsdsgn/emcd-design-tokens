@@ -22,7 +22,7 @@
 - Не делаем: несколько чисел в одной карточке; анимация счётчика; больше одной карточки с Ambient light на экран.
 
 ## 3. Anatomy
-- Корень: `surface/level-1`, обводка `border/subtle` (`border/width/default`), `radius/container`, отступ `card/padding`, зазор `space/8`, min-width `size/card/min`.
+- Корень: `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` (`border/width/default`), `radius/container`, отступ `card/padding`, зазор `space/8`, min-width `size/card/min`.
 - `label row` (зазор `space/4`): `label` (`type/body/sm`, `text/secondary`) + иконка Info.
 - `value row` (зазор `space/6`): `value` (`type/heading/xl`, `font-weight/bold`, `font/family/display`, `text/primary`; по содержимому, max-width 180) + `unit` (`type/body/md`, `text/secondary`; max-width 64) — единица сразу за числом.
 - `delta row` (зазор `space/6`, max-width 248): Badge S + `delta caption` (`type/body/sm`, `text/tertiary`; max-width 160).
@@ -79,7 +79,7 @@
 - Дельта читается словами: «рост на 2,4 % к вчера».
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-1`; интервал `space/8`; мин. ширина `size/card/min`; отступы `card/padding`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `surface/next`; интервал `space/8`; мин. ширина `size/card/min`; отступы `card/padding`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `ambient light`: эффект `light/ambient/blur`; заливка / цвет `light/ambient/color`.
 - `label row`: интервал `space/4`.
 - `label`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
@@ -119,5 +119,4 @@
 - DS Web `stat card` (widget Graph) → Stat card (Label, Value, Unit, Delta, Footer); DS App — нет. Опора — карточки дашборда Mining (Web App / App). Нужен скрин прода.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.
 - Ширина корня 280 числом (min-width — `size/card/min`).

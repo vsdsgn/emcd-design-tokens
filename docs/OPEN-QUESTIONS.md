@@ -3,8 +3,8 @@
 ## Решено 15.11 (вечер)
 - Chart plot: Skeleton и Disabled визуально не разводим; токены уже раздельные (`skeleton/base`, `action/disabled`), в Light значения совпадают — так и оставляем.
 
-## Нужно от Стефана (15.11, ночь)
-- **Publish Foundations:** новый токен `surface/next` (Surface context: L0→level-1, L1→level-2, L2→level-3, L3→raised); `data/4` (Light amber/600→amber/800, Dark amber/300→amber/500), `data/7` (Dark orange/300→orange/400). После Publish — агент перепривязывает заливки 7 наборов на `surface/next` и принимает обновление в Components.
+## Нужно от Стефана (15.11, ночь) — выполнено
+- **Publish Foundations:** новый токен `surface/next` (Surface context: L0→level-1, L1→level-2, L2→level-3, L3→raised); `data/4` (Light amber/600→amber/800, Dark amber/300→amber/500), `data/7` (Dark orange/300→orange/400). Опубликовано; заливки 7 наборов перепривязаны на `surface/next` (Promo card, Stat card, Chart card, Address, Notification, Radio card, Avatar group), проверено мини-стендом Light / Dark × L0–L3.
 
 ## Решено 15.11 (ночь) — «делай по рекам»
 - Modal: Header=Empty — только с крестиком (как было); после Divider — 24. Доска решения удалена.

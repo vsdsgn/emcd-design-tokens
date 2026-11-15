@@ -20,7 +20,7 @@
 ## 3. Anatomy
 - Корень — горизонтальный ряд экземпляров Avatar (`size/media/*`) с отрицательным зазором: нахлёст 20 % размера (−4 / −6 / −8 у XS / S / M).
 - Каждый аватар и `more` — кольцо `surface/current` (`border/width/focus`, OUTSIDE): на любой поверхности L0–L3 совпадает с фоном и отделяет круг от соседа. Корни аватаров скруглены `radius/full`.
-- `more` — круг «+N»: непрозрачная подложка `surface/default` + тон `status/neutral/subtle`, `radius/chip`; `count` — `text/primary`, `type/label/sm`, `font-weight/medium`.
+- `more` — круг «+N»: непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/chip`; `count` — `text/primary`, `type/label/sm`, `font-weight/medium`.
 - Вложено: `Avatar` ×24.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -57,7 +57,7 @@
 
 ## 10. Tokens
 - `Avatar`: высота `size/media/lg`, `size/media/md`, `size/media/xs`; радиус `radius/full`; обводка `surface/current`; толщина обводки `border/width/focus`; ширина `size/media/lg`, `size/media/md`, `size/media/xs`.
-- `more`: заливка / цвет `status/neutral/subtle`, `surface/default`; радиус `radius/chip`; обводка `surface/current`; толщина обводки `border/width/focus`.
+- `more`: заливка / цвет `status/neutral/subtle`, `surface/next`; радиус `radius/chip`; обводка `surface/current`; толщина обводки `border/width/focus`.
 - `count`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - Значений без переменной: 6 (напр. `(root):gap=-4`, `(root):gap=-6`, `(root):gap=-8`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
@@ -89,4 +89,3 @@
 - Текст 200 % у XS: инициалы выходят за круг, «+N» обрезается — на решение: зафиксировать кегль или дать кругу расти.
 - Нахлёст −4 / −6 / −8 числом — ждёт токенов.
 - В вариантах 4 аватара: правило «до 5» в наборе не показано.
-- После Publish Foundations (`surface/next`, 2026-11-15) — заливку перепривязать на `surface/next`: карточка на уровень выше подложки на любом L.

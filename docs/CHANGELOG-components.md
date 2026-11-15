@@ -2,6 +2,10 @@
 
 Формат: дата · что · где. Пишется после каждой группы правок.
 
+## 2026-11-15 (после Publish)
+
+- **`surface/next` привязан:** Promo card (Neutral), Stat card, Chart card, Address (`row`), Notification (плашка иконки), Radio card, Avatar group («+N»). Карточка всегда на уровень выше подложки (L3 → `surface/raised`); проверено мини-стендом Light / Dark × L0–L3. `data/4`, `data/7` — новые значения в библиотеке.
+
 ## 2026-11-15 (ночь, решения «по рекам»)
 
 - **Foundations (ждут Publish):** новый `surface/next` (Surface context); `data/4` — Light amber/800, Dark amber/500; `data/7` — Dark orange/400 (различимость серий: 2↔4 Light ΔE 29→35, 3↔7 Dark 18→28; при протанопии и дейтеранопии 2↔4 больше не путаются). CSS: `--surface-next` в `surface-context.css`.
