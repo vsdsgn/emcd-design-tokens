@@ -6,7 +6,9 @@
 | `react/` | React 18: `src/index.js` (без JSX), типы `index.d.ts` |
 | `vue/` | Vue 3: `src/Ds*.vue`, `src/index.js` |
 
-Пилот: Button, Icon button, Badge, Chip, Checkbox, Radio (+ Radio group), Toggle, Input, Textarea, Modal. Props — по контрактам `docs/components/*.md`. Тема, бренд и платформа — атрибуты `data-theme`, `data-brand`, `data-platform` на `<html>` (`build/css`).
+Пилот: Button, Icon button, Badge, Chip, Checkbox, Radio (+ Radio group), Toggle, Input, Textarea, Modal.
+Пачка 2: Tabs (+ Tab), Segmented (+ Segment), Card, Stat card, Amount, Toast, Tooltip, Suggest, Status, Counter, Avatar, Divider, Spinner, Progress, List item, Transaction, Select, Menu (+ Menu item), Password field.
+Контролы неуправляемые по умолчанию (без `value` / `v-model` — своё состояние; прототип кликается), с `value` + `onChange` — управляемые. Props — по контрактам `docs/components/*.md`. Тема, бренд и платформа — атрибуты `data-theme`, `data-brand`, `data-platform` на `<html>` (`build/css`).
 
 ```html
 <html data-theme="dark" data-brand="emcd" data-platform="web">

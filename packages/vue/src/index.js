@@ -1,4 +1,4 @@
-// EMCD DS 2.0 — компоненты Vue 3 (пилот: 10 наборов beta). Стили — packages/styles/components.css (классы emcd-*), токены — build/css.
+// EMCD DS 2.0 — компоненты Vue 3 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19; все beta). Стили — packages/styles/components.css (классы emcd-*), токены — build/css.
 export { default as DsButton } from './DsButton.vue';
 export { default as DsIconButton } from './DsIconButton.vue';
 export { default as DsBadge } from './DsBadge.vue';
@@ -10,3 +10,26 @@ export { default as DsToggle } from './DsToggle.vue';
 export { default as DsInput } from './DsInput.vue';
 export { default as DsTextarea } from './DsTextarea.vue';
 export { default as DsModal } from './DsModal.vue';
+// Пачка 2
+export { default as DsCounter } from './DsCounter.vue';
+export { default as DsStatus } from './DsStatus.vue';
+export { default as DsAvatar } from './DsAvatar.vue';
+export { default as DsDivider } from './DsDivider.vue';
+export { default as DsSpinner } from './DsSpinner.vue';
+export { default as DsProgress } from './DsProgress.vue';
+export { default as DsAmount } from './DsAmount.vue';
+export { default as DsCard } from './DsCard.vue';
+export { default as DsStatCard } from './DsStatCard.vue';
+export { default as DsTooltip } from './DsTooltip.vue';
+export { default as DsToast } from './DsToast.vue';
+export { default as DsSuggest } from './DsSuggest.vue';
+export { default as DsTab } from './DsTab.vue';
+export { default as DsTabs } from './DsTabs.vue';
+export { default as DsSegment } from './DsSegment.vue';
+export { default as DsSegmented } from './DsSegmented.vue';
+export { default as DsListItem } from './DsListItem.vue';
+export { default as DsTransaction } from './DsTransaction.vue';
+export { default as DsMenuItem } from './DsMenuItem.vue';
+export { default as DsMenu } from './DsMenu.vue';
+export { default as DsSelect } from './DsSelect.vue';
+export { default as DsPasswordField } from './DsPasswordField.vue';

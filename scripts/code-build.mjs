@@ -12,13 +12,17 @@ const r = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 const w = (p, s) => { fs.mkdirSync(path.dirname(path.join(ROOT, p)), { recursive: true }); const old = fs.existsSync(path.join(ROOT, p)) ? r(p) : null; if (old !== s) fs.writeFileSync(path.join(ROOT, p), s); return old !== s; };
 const CHECK = process.argv.includes('--check');
 
-const ORDER = ['Button', 'IconButton', 'Badge', 'Chip', 'Checkbox', 'Radio', 'Toggle', 'Input', 'Textarea', 'Modal'];
+const ORDER = ['Button', 'IconButton', 'Badge', 'Chip', 'Checkbox', 'Radio', 'Toggle', 'Input', 'Textarea', 'Modal',
+  // пачка 2: простые → составные; Select после Input и Menu, Transaction после ListItem
+  'Counter', 'Status', 'Avatar', 'Divider', 'Spinner', 'Progress', 'Amount', 'Card', 'StatCard', 'Tooltip', 'Toast', 'Suggest',
+  'Tabs', 'Segmented', 'ListItem', 'Transaction', 'Menu', 'Select', 'PasswordField'];
 const dirs = fs.readdirSync(path.join(ROOT, 'claude-ds/components')).filter((d) => fs.existsSync(path.join(ROOT, 'claude-ds/components', d, 'style.css')));
 const extra = dirs.filter((d) => !ORDER.includes(d)).sort();
 // Мост имён: CSS компонентов написан под имена Claude DS (tokens.json); в build/css часть имён другая.
 const BRIDGE = `:where(:root) {
   --font-sans: var(--brand-font-family-text), "Inter", system-ui, sans-serif;
   --font-display: var(--brand-font-family-display), "Inter", system-ui, sans-serif;
+  --font-mono: var(--brand-font-family-mono), "IBM Plex Mono", ui-monospace, monospace;
   --radius-xs: var(--brand-radius-xs); --radius-sm: var(--brand-radius-sm); --radius-control-xs: var(--brand-radius-control-xs);
 }`;
 const css = ['/* EMCD DS 2.0 — стили компонентов (классы emcd-*). Генерируется scripts/code-build.mjs из claude-ds/components/<Comp>/style.css; токены — build/css (подключить раньше). */', BRIDGE]
@@ -28,7 +32,7 @@ const src = r('packages/react/src/index.js');
 const names = [...src.matchAll(/^export (?:const|function) (\w+)/gm)].map((m) => m[1]).filter((n) => n !== 'components');
 let body = src
   .replace(/^import \* as React from 'react';\n/m, '')
-  .replace(/^export const components = .*\n/m, '')
+  .replace(/^export const components = \{[\s\S]*?\};\n/m, '')
   .replace(/^export (const|function) /gm, '$1 ');
 if (/^\s*(import|export)\b/m.test(body)) throw new Error('code-build: в исходнике React остались import / export');
 if (/<\/script|<!--/i.test(body)) throw new Error('code-build: литерал </script или <!-- в бандле');

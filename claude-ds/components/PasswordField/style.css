@@ -10,3 +10,7 @@
 .emcd-password__req--met svg { color: var(--icon-success); }
 .emcd-password--disabled .emcd-password__req { color: var(--text-disabled); }
 .emcd-password--disabled .emcd-password__req svg { color: var(--icon-disabled); }
+/* Текст только для скринридера: «выполнено / не выполнено» — статус не только цветом и иконкой */
+.emcd-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* «Глаз» — Icon button Ghost: в Disabled без подложки, только погашенная иконка */
+.emcd-password .emcd-input__trailing .emcd-btn:disabled { --bg: transparent; }

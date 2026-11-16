@@ -1,14 +1,14 @@
 /* Segmented + Segment — 🟡 beta (Figma «🟡 Segmented»: Size × Items; «🟡 Segment»: Size × Selected × Tone × State).
-   Один из 2–4 вариантов, применяется сразу. Дорожка control-segment-track, выбранный — плашка control-segment; сегменты равной ширины. */
+   Один из 2–4 вариантов, применяется сразу. Дорожка control-segment-track, выбранный — плашка control-segment; сегменты равной ширины (grid 1fr — по самому длинному). */
 .emcd-segmented { --h: var(--control-height-sm, 32px); --r: var(--radius-control-sm, 10px); --fs: var(--type-label-md-size, 14px); --lh: var(--type-label-md-line-height, 20px);
-  box-sizing: border-box; display: inline-flex; gap: var(--space-2, 2px); height: var(--h); padding: var(--space-4, 4px); min-width: 0; max-width: 100%;
+  box-sizing: border-box; display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--space-2, 2px); height: var(--h); padding: var(--space-4, 4px); min-width: 0; max-width: 100%;
   border-radius: var(--r); background: var(--control-segment-track); vertical-align: middle; }
-.emcd-segmented--block { display: flex; width: 100%; }
+.emcd-segmented--block { display: grid; width: 100%; }
 .emcd-segmented--m { --h: var(--control-height-md, 40px); --r: var(--radius-control); }
 .emcd-segmented--l { --h: var(--control-height-lg, 48px); --r: var(--radius-control); --fs: var(--type-label-lg-size, 16px); --lh: var(--type-label-lg-line-height, 20px); }
 .emcd-segmented--xl { --h: var(--control-height-xl, 56px); --r: var(--radius-control); --fs: var(--type-label-lg-size, 16px); --lh: var(--type-label-lg-line-height, 20px); }
 .emcd-segment { --bg: transparent; --fg: var(--text-secondary);
-  position: relative; flex: 1 1 0; min-width: 0; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-6, 6px);
+  position: relative; min-width: 0; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-6, 6px);
   height: 100%; padding: 0 var(--space-12, 12px); margin: 0; border: 0; border-radius: calc(var(--r) - 4px);
   background: var(--bg); color: var(--fg); font: 500 var(--fs)/var(--lh) var(--font-sans); white-space: nowrap; cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent;
   transition: background-color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)), color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }

@@ -32,7 +32,7 @@
 /* Size: S 32 · M 48 · L 56 · XL 64 (текст 20, display) */
 .emcd-tab--s { --h: var(--control-height-sm, 32px); --fs: var(--type-label-sm-size, 12px); --lh: var(--type-label-sm-line-height, 16px); }
 .emcd-tab--l { --h: var(--control-height-xl, 56px); --ind: var(--size-tab-indicator-lg, 3px); --fs: var(--type-label-lg-size, 16px); --lh: var(--type-label-lg-line-height, 20px); gap: var(--space-8, 8px); }
-.emcd-tab--xl { --h: var(--control-height-2xl, 64px); --ind: var(--size-tab-indicator-lg, 3px); --fs: var(--type-heading-lg-size, 20px); --lh: var(--type-heading-lg-line-height, 28px); --ff: var(--font-display); --fw: 700; gap: var(--space-8, 8px); }
+.emcd-tab--xl { --h: var(--control-height-2xl, 64px); --ind: var(--size-tab-indicator-lg, 3px); --fs: var(--type-heading-lg-size, 20px); --lh: var(--type-heading-lg-line-height, 28px); --ff: var(--font-display, var(--font-sans)); --fw: 700; gap: var(--space-8, 8px); }
 .emcd-tab--l svg, .emcd-tab--xl svg { width: var(--icon-size-lg, 24px); height: var(--icon-size-lg, 24px); }
 .emcd-tab--s svg { width: var(--icon-size-sm, 16px); height: var(--icon-size-sm, 16px); }
 /* Skeleton */

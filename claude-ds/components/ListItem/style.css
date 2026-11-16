@@ -17,7 +17,7 @@
 .emcd-list-item__desc { font: 400 var(--fs2)/var(--lh2) var(--font-sans); color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .emcd-list-item--description-only .emcd-list-item__label { font-weight: 400; }
 .emcd-list-item__value-row { display: flex; align-items: baseline; gap: var(--space-4, 4px); min-width: 0; white-space: nowrap; }
-.emcd-list-item__value { font: 700 var(--type-heading-md-size, 20px)/var(--type-heading-md-line-height, 28px) var(--font-display); font-variant-numeric: tabular-nums; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; }
+.emcd-list-item__value { font: 700 var(--type-heading-md-size, 20px)/var(--type-heading-md-line-height, 28px) var(--font-display, var(--font-sans)); font-variant-numeric: tabular-nums; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; }
 .emcd-list-item--m .emcd-list-item__value { font-size: var(--type-heading-sm-size, 18px); line-height: var(--type-heading-sm-line-height, 24px); }
 .emcd-list-item__subvalue { font: 400 var(--fs2)/var(--lh2) var(--font-sans); color: var(--text-secondary); }
 /* Divider — линия снизу от начала текста до края */

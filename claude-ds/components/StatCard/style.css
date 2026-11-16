@@ -9,7 +9,7 @@
 .emcd-stat__info svg { width: 16px; height: 16px; }
 .emcd-stat__info:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 2px; }
 .emcd-stat__value-row { display: flex; align-items: baseline; gap: var(--space-6, 6px); min-width: 0; }
-.emcd-stat__value { max-width: 180px; font: 700 var(--type-heading-xl-size, 32px)/var(--type-heading-xl-line-height, 40px) var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-stat__value { max-width: 180px; font: 700 var(--type-heading-xl-size, 32px)/var(--type-heading-xl-line-height, 40px) var(--font-display, var(--font-sans)); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .emcd-stat__unit { max-width: 64px; font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .emcd-stat__delta-row { display: flex; align-items: center; gap: var(--space-6, 6px); max-width: 248px; min-width: 0; }
 .emcd-stat__caption { max-width: 160px; font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); color: var(--text-tertiary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

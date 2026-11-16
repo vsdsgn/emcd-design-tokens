@@ -23,6 +23,7 @@
 - `packages/vue/src/Ds*.vue` — те же компоненты на Vue 3 (`<script setup>`, `defineModel`); API совпадает, отличие — `variant` вместо `style` у Badge и `v-model` у полей и выбора.
 - `packages/styles/components.css` — общий CSS (классы `emcd-*`) из `claude-ds/components/<Comp>/style.css` + мост имён к `build/css`. Подключать после токенов `build/css/index.css`.
 - `npm run code` пересобирает CSS, `claude-ds/bundle/bundle.js` и типы; `node scripts/code-build.mjs --check` — проверка, что сборка не отстала.
+- Пачка 2 (2026-11-16): Tabs / Tab, Segmented / Segment, Card, StatCard, Amount, Toast, Tooltip, Suggest, Status, Counter, Avatar, Divider, Spinner, Progress, ListItem, Transaction, Select, Menu / MenuItem, PasswordField. `preview.html` пачки 2 сняты с React SSR — разметка совпадает с кодом. Отличия API от Figma: массивы `items` / `options` вместо булевых Tab 3 – 6 и оси Items; `counter` у Tab — число, а не булево; у Divider во Vue `variant` вместо `style`.
 - Новый компонент в коде: разметка и CSS — `claude-ds/components/<Comp>/`, React — в `packages/react/src/index.js`, Vue — `packages/vue/src/Ds<Comp>.vue`, типы — `index.d.ts`; затем `npm run code` и «обнови Claude DS». Проверка: SSR React и Vue + скриншоты Light / Dark.
 
 ## Статусы
