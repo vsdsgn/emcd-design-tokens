@@ -79,6 +79,8 @@
   "surfaceLevel1": "#1a1a1a",
   "surfaceLevel2": "#202020",
   "surfaceLevel3": "#262626",
+  "surfaceAccent": "#8f42ff",
+  "surfaceInverse": "#fafafa",
   "textPrimary": "#fafafa",
   "textSecondary": "#ffffffb8",
   "textTertiary": "#ffffff8f",

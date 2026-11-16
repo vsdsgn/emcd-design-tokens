@@ -21,6 +21,7 @@
   --surface-level-1: var(--color-neutral-850);
   --surface-level-2: var(--color-neutral-800);
   --surface-level-3: var(--color-neutral-700);
+  --surface-inverse: var(--color-neutral-50);
   --text-primary: var(--color-neutral-50);
   --text-secondary: var(--color-alpha-white-72);
   --text-tertiary: var(--color-alpha-white-56);
@@ -129,6 +130,7 @@
   --bg-base: var(--surface-level-0);
   --surface-default: var(--surface-level-1);
   --surface-nested: var(--surface-level-2);
+  --surface-accent: var(--brand-accent-solid);
   --text-on-accent: var(--brand-accent-on-solid);
   --text-on-highlight: var(--brand-highlight-on-solid);
   --text-accent-hover: var(--brand-accent-300);

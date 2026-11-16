@@ -20,6 +20,14 @@
 6. **Promo card** — действие в S и M разного вида; крестика нет, хотя по правилу закрывается. (Один вид — Button Text; Show close — свойство.)
 7. ~~**Мелочи вида**~~ — **закрыто 15.11 (стенд Light / Dark):** исправлено — Input amount Error 1 px (как семья полей); Chart crosshair: обводка точки `surface/current`; Address Copied: статус на месте подписи, высота не меняется; Tooltip tour: описание до 3 строк. Оставлено (различимо, записано в контракты) — Select compact Disabled (гаснут текст, шеврон, монета), Accordion Skeleton одинаков при Open Off / On (грузится список), Avatar group 200 % (текст в кругах не масштабируется, как иконки), Scrollbar Dark L0 дорожка (носитель — ползунок), линия Chart crosshair в Dark, иконка Menu item при 200 % (иконки не растут).
 
+## Нужно «ок» Стефана (16.11) — Info = цвет бренда
+
+Ответ 16.11: «Suggest — слот (сделано); Geometria — развести / схлопнуть / оставить; кнопки — развести (сделано, ждёт Publish)». Рекомендация по Info — **схлопнуть**: Info во всех брендах = цвет бренда (в EMCD так уже в продукте). Это правка существующих токенов Foundations — по правилам нужно явное «ок»:
+
+- `status/info/solid` → `accent/solid`; `status/info/subtle` → `accent/tint` / `accent/glow`; `status/info/border` → `accent/glow-strong` / `accent/tint-strong`; `status/info/on-subtle` → `accent/800` / `accent/200`; `text/info` → `accent/fg-on-light` / `accent/fg-on-dark`; `icon/info` → как `icon/accent`.
+- Следом в Components: у Suggest и Badge тон Info совпадёт с Accent — убрать Info (MAJOR, экземпляры → Accent). У Toast и Status тон Info остаётся (Accent там нет), становится брендовым.
+- Ответ «ок» — делаю целиком; «оставить» — Info остаётся синим `#316ed2` во всех брендах, у Geometria различие Accent / Info — только иконкой и текстом.
+
 ## ~~На решение — остаток todo контрактов (16.11)~~ — сделано по рекомендациям 16.11
 
 Выполнено: токены заведены в Foundations (ждут Publish — `size/sidebar/expanded|collapsed`, `size/menu/max-height`, `size/overlap/xs|sm|md|lg`; подпись 436 = уже существующий `size/selection/label-max`; Tab bar item — `radius/control`; Sheet — 90 % экрана правилом). Step symbol / Step trail — `border/strong`; Step trail без оси Border (MAJOR); Circle timer Progress=0; Progress Mode=Indeterminate (Accent); Coin XS без сети; Code input — правило «M везде, L только Web · 4»; Toast Card Neutral без иконки; Suggest — Primary на тонах; Chart metric — иконка в тон. Остались без рекомендации: Suggest Leading как слот, Geometria Accent ≈ Info, кнопочные токены на неинтерактивных поверхностях (п. 10).

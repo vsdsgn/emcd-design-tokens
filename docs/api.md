@@ -1072,10 +1072,11 @@ Props нет.
 | `showTitle` | boolean | true | свойство Show title |
 | `description` | string | — | свойство Description |
 | `showDescription` | boolean | true | свойство Show description |
-| `leading` | boolean | true | свойство Leading |
+| `showLeading` | boolean | true | свойство Show leading |
 | `primaryAction` | boolean | true | свойство Primary action |
 | `secondaryAction` | boolean | false | свойство Secondary action |
 | `close` | boolean | true | свойство Close |
+| `leading` | slot | — | свойство Leading |
 
 ## Tab
 

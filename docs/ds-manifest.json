@@ -11030,7 +11030,7 @@
        "bound": 12
       },
       {
-       "name": "Leading",
+       "name": "Show leading",
        "type": "BOOLEAN",
        "def": true,
        "bound": 12
@@ -11051,6 +11051,11 @@
        "name": "Close",
        "type": "BOOLEAN",
        "def": true,
+       "bound": 12
+      },
+      {
+       "name": "Leading",
+       "type": "SLOT",
        "bound": 12
       }
      ],

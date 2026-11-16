@@ -4,6 +4,8 @@
 
 ## 2026-11-16
 
+- **Suggest — MAJOR:** булево Leading → Show leading; иконка слева — в слоте Leading (можно логотип или Coin). **Foundations (ждут Publish):** `surface/accent`, `surface/inverse` — некликабельные заливки (Tooltip / Tooltip tour Accent, точка Notification, Toast Informer Neutral) вместо `action/primary|inverse/default`.
+
 - **Борды:** пересобраны 39 отстававших (Counter, Badge, Button, Tab, Toggle, Status, Spinner, Circle timer, Coin, Coin stack, Step, Step symbol, Step trail, Progress, Scrollbar, Avatar, Avatar group, Chart metric, Chart plot, Code input, Select compact, Menu item, Menu, List item, Transaction, Notification, Address, Password field, Floating button, Accordion, Toast, Suggest, Calendar, Date range panel, Dropdown panel, Sheet, Page header, Empty state, Tab bar). **Coin stack:** «+N» — `surface/next` (как у Avatar group).
 
 - **Моя часть остатка:** Accordion — слот Content Fill (шеврон у края в узком контейнере); `_List row` Trailing — max-width 240, текст в одну строку с многоточием (List item); Date range panel — «Сбросить» до 140 с многоточием; Floating button — подпись до 200 с многоточием; Multiselect — разные пункты меню (BTC, ETH, KAS, LTC, USDT). Стенд перепроверки: группы выбора 200 %, Transaction, Step progress Dark L0 / Light L3, Dropdown panel, Tooltip tour 200 %, Table cell — в порядке.

@@ -77,6 +77,14 @@
     "level-3": {
       "$type": "color",
       "$value": "{color.neutral.200}"
+    },
+    "accent": {
+      "$type": "color",
+      "$value": "{brand.accent.solid}"
+    },
+    "inverse": {
+      "$type": "color",
+      "$value": "{color.neutral.950}"
     }
   },
   "text": {
