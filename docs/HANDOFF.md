@@ -70,6 +70,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 - Манифест D13 / D14, 11 борд пересобраны; todo 43 → 34; проверки чистые.
 
 - **Код и Claude DS (16.11):** `packages/react` (React 18, без JSX) и `packages/vue` (Vue 3 SFC) — пилот 10 наборов (Button, Icon button, Badge, Chip, Checkbox, Radio + group, Toggle, Input, Textarea, Modal); общий CSS `packages/styles/components.css`; `npm run code`. Проверено: SSR React и Vue + Chromium Light / Dark, клики, indeterminate, счётчик, Esc. **Claude DS синхронизирован 2026-11-16 (v65, 65bc243):** `components/bundle.js` (window.EMCD), `index.d.ts`, libraries react / react-dom 18, Info = бренд, Badge без Info, строка «Код» в README компонентов.
+- **Конструкции (16.11):** черновик `docs/patterns.md` (агент, только чтение макетов) — ждёт решений Стефана (OPEN-QUESTIONS «Конструкции и экраны»). Дальше: после решений — шаблоны экранов в Figma (страница «📐 Шаблоны экранов») и пилот на 2–3 реальных экранах.
 - Todo 43 → 9: «числом» — в реестр исключений, решения — в правила. Остались: Pagination ×3 (beta в Figma, кандидат в парковку — решение Стефана; в HANDOFF ниже ошибочно «draft»), Pagination item «…», Sheet край (парковка), Date range panel Presets, Date range field 200 %, сверки List item и Tab bar.
 
 ## Выполнение решений 15.11 (Стефан: «делай всё по своим рекомендациям»)
