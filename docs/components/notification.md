@@ -23,7 +23,7 @@
 
 ## 3. Anatomy
 - Корень: раскрытый экземпляр `_List row` (Type=List, Size=M), высота 76; max-width `size/toast/max`; у Unread — фон `accent/subtle`.
-- Слоты базы: Leading — плашка `surface/next` (15.11) с иконкой `icon/size/md`; Label — заголовок; Description — текст (≤ 2 строк); Trailing — время (`type/body/sm`, `text/secondary`) + точка непрочитанного `action/primary/default`.
+- Слоты базы: Leading — плашка `surface/next` (15.11) с иконкой `icon/size/md`; Label — заголовок; Description — текст (≤ 2 строк); Trailing — время (`type/body/sm`, `text/secondary`) + точка непрочитанного `surface/accent`.
 - Служебные слои (`state layer`, кольцо фокуса, зоны, безопасное поле) и свойства Focus ring, Show hit area, Safe margin — на базе `_List row` (`list-row.md`).
 - Вложено: `_List row` ×6.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.

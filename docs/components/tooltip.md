@@ -15,13 +15,13 @@
 - Правило выбора варианта:
   - Placement: Top — по умолчанию; не помещается сверху — Bottom; у бокового края или в вертикальной навигации (rail, сайдбар) — Start / End. Стороны логические: в RTL Start справа.
   - Arrow: Center — по умолчанию, уголок по центру элемента; Start / End — пузырь выровнен по началу / концу элемента (элемент у края, широкий элемент). Уголок не ближе 16 к углу пузыря.
-  - Tone: Neutral — по умолчанию; Accent — бренд (`action/primary/default`, текст `text/on-accent`).
+  - Tone: Neutral — по умолчанию; Accent — бренд (`surface/accent`, текст `text/on-accent`).
   - Placement и Arrow выбирает позиционирование в коде, не автор макета: Top → Bottom → сдвиг от края (Start / End) → сбоку.
 - Не делаем: действия и ссылки внутри; тултип в приложении и на касании.
 
 ## 3. Anatomy
 - Корень: отступы `space/10` / `space/16`, радиус `radius/container`; min-ширина и min-высота `size/tooltip/min` (58), max-ширина `size/tooltip/max` (320).
-- `overlay surface` — экземпляр `_Overlay surface` (Kind=Tooltip): Neutral — `surface/raised`, Accent — `action/primary/default`; обводка `border/default` (`border/width/default`, перенесена с корня 13.11); тени `shadow/key` + `shadow/ambient`; радиус `radius/container`.
+- `overlay surface` — экземпляр `_Overlay surface` (Kind=Tooltip): Neutral — `surface/raised`, Accent — `surface/accent`; обводка `border/default` (`border/width/default`, перенесена с корня 13.11); тени `shadow/key` + `shadow/ambient`; радиус `radius/container`.
 - `text` — свойство Text, `type/label/md`, `font-weight/medium`; Neutral — `text/primary`, Accent — `text/on-accent` (14.11).
 - `_Tooltip arrow` — уголок 26 × 9, остриё в 8 от элемента. Грань с уголком не короче 58 (2 × 16 + 26) — отсюда min-ширина (Top / Bottom) и min-высота (Start / End).
 - Вложено: `_Overlay surface` ×24, `_Tooltip arrow` ×24.
@@ -69,7 +69,7 @@
 
 ## 10. Tokens
 - `корень`: maxw `size/tooltip/max`; minh `size/tooltip/min`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`.
-- `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
+- `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/accent`, `surface/raised`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
 - `text`: заливка / цвет `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Min / max корня: minWidth 58 size/tooltip/min, maxWidth 320 size/tooltip/max, minHeight 58 size/tooltip/min.
 
@@ -102,4 +102,3 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Start / End при одной строке (высота 58): Arrow Start / End выглядят как Center — уголку некуда сдвигаться (заметка стенда).
-- Accent — кнопочный `action/primary/default` на неинтерактивной поверхности (OPEN-QUESTIONS п. 10).

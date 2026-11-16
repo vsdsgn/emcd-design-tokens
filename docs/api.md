@@ -86,7 +86,7 @@
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | s \| m \| l | по правилу контракта | ось Size |
-| `tone` | neutral \| accent \| success \| warning \| danger \| info | по правилу контракта | ось Tone |
+| `tone` | neutral \| accent \| success \| warning \| danger | по правилу контракта | ось Tone |
 | `style` | subtle \| solid | по правилу контракта | ось Style |
 | `label` | string | — | свойство Label |
 | `icon` | boolean | false | свойство Icon |
@@ -1067,7 +1067,7 @@ Props нет.
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `layout` | card \| strip | по правилу контракта | ось Layout |
-| `tone` | neutral \| accent \| info \| success \| warning \| danger | по правилу контракта | ось Tone |
+| `tone` | neutral \| accent \| success \| warning \| danger | по правилу контракта | ось Tone |
 | `title` | string | — | свойство Title |
 | `showTitle` | boolean | true | свойство Show title |
 | `description` | string | — | свойство Description |

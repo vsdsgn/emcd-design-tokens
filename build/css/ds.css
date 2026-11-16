@@ -723,7 +723,6 @@ html { font-size: 100%; }
   --text-danger: var(--color-red-350);
   --text-success: var(--color-green-450);
   --text-warning: var(--color-amber-450);
-  --text-info: var(--color-blue-350);
   --text-on-warning: var(--color-neutral-950);
   --text-danger-hover: var(--color-red-300);
   --text-danger-pressed: var(--color-red-200);
@@ -736,7 +735,6 @@ html { font-size: 100%; }
   --icon-danger: var(--color-red-350);
   --icon-success: var(--color-green-450);
   --icon-warning: var(--color-amber-450);
-  --icon-info: var(--color-blue-350);
   --border-subtle: var(--color-alpha-white-8);
   --border-default: var(--color-alpha-white-12);
   --border-strong: var(--color-alpha-white-40);
@@ -773,10 +771,6 @@ html { font-size: 100%; }
   --status-warning-subtle: var(--color-alpha-amber-12);
   --status-warning-border: var(--color-alpha-amber-24);
   --status-warning-on-subtle: var(--color-amber-200);
-  --status-info-solid: var(--color-blue-600);
-  --status-info-subtle: var(--color-alpha-blue-16);
-  --status-info-border: var(--color-alpha-blue-32);
-  --status-info-on-subtle: var(--color-blue-200);
   --status-neutral-solid: var(--color-alpha-white-40);
   --status-neutral-subtle: var(--color-alpha-white-8);
   --control-surface-default: var(--color-neutral-950);
@@ -832,7 +826,6 @@ html { font-size: 100%; }
   --icon-on-subtle-success: var(--status-success-on-subtle);
   --icon-on-subtle-warning: var(--status-warning-on-subtle);
   --icon-on-subtle-danger: var(--status-danger-on-subtle);
-  --icon-on-subtle-info: var(--status-info-on-subtle);
   --icon-on-warning: var(--text-on-warning);
   --border-accent: var(--brand-accent-solid);
   --border-focus-ring: var(--border-focus);
@@ -845,6 +838,8 @@ html { font-size: 100%; }
   --accent-subtle: var(--brand-accent-glow);
   --accent-subtle-hover: var(--brand-accent-tint-strong);
   --accent-on-subtle: var(--brand-accent-200);
+  --status-info-solid: var(--brand-accent-solid);
+  --status-info-border: var(--brand-accent-tint-strong);
   --control-border-focus: var(--border-focus);
   --control-checked: var(--brand-accent-solid);
   --glow-brand: var(--brand-accent-glow-strong);
@@ -856,6 +851,11 @@ html { font-size: 100%; }
   --icon-on-subtle-accent: var(--accent-on-subtle);
   --action-primary-hover: var(--brand-accent-solid-hover);
   --action-primary-pressed: var(--brand-accent-solid-pressed);
+  --status-info-subtle: var(--accent-subtle);
+  --status-info-on-subtle: var(--accent-on-subtle);
+  --text-info: var(--text-accent);
+  --icon-info: var(--icon-accent);
+  --icon-on-subtle-info: var(--status-info-on-subtle);
 }
 
 [data-theme="light"], [data-theme="light"] [data-brand]:not([data-theme]) {
@@ -886,7 +886,6 @@ html { font-size: 100%; }
   --text-danger: var(--color-red-600);
   --text-success: var(--color-green-700);
   --text-warning: var(--color-amber-800);
-  --text-info: var(--color-blue-700);
   --text-on-warning: var(--color-neutral-950);
   --text-danger-hover: var(--color-red-700);
   --text-danger-pressed: var(--color-red-800);
@@ -899,7 +898,6 @@ html { font-size: 100%; }
   --icon-danger: var(--color-red-600);
   --icon-success: var(--color-green-700);
   --icon-warning: var(--color-amber-800);
-  --icon-info: var(--color-blue-700);
   --border-subtle: var(--color-alpha-black-8);
   --border-default: var(--color-alpha-black-12);
   --border-strong: var(--color-alpha-black-48);
@@ -936,10 +934,6 @@ html { font-size: 100%; }
   --status-warning-subtle: var(--color-alpha-amber-32);
   --status-warning-border: var(--color-amber-500);
   --status-warning-on-subtle: var(--color-amber-800);
-  --status-info-solid: var(--color-blue-600);
-  --status-info-subtle: var(--color-alpha-blue-24);
-  --status-info-border: var(--color-alpha-blue-40);
-  --status-info-on-subtle: var(--color-blue-800);
   --status-neutral-solid: var(--color-alpha-black-48);
   --status-neutral-subtle: var(--color-alpha-black-8);
   --control-surface-default: var(--color-white);
@@ -995,7 +989,6 @@ html { font-size: 100%; }
   --icon-on-subtle-success: var(--status-success-on-subtle);
   --icon-on-subtle-warning: var(--status-warning-on-subtle);
   --icon-on-subtle-danger: var(--status-danger-on-subtle);
-  --icon-on-subtle-info: var(--status-info-on-subtle);
   --icon-on-warning: var(--text-on-warning);
   --border-accent: var(--brand-accent-solid);
   --border-focus-ring: var(--border-focus);
@@ -1008,6 +1001,8 @@ html { font-size: 100%; }
   --accent-subtle: var(--brand-accent-tint);
   --accent-subtle-hover: var(--brand-accent-glow);
   --accent-on-subtle: var(--brand-accent-800);
+  --status-info-solid: var(--brand-accent-solid);
+  --status-info-border: var(--brand-accent-glow-strong);
   --control-border-focus: var(--border-focus);
   --control-checked: var(--brand-accent-solid);
   --glow-brand: var(--brand-accent-tint);
@@ -1019,6 +1014,11 @@ html { font-size: 100%; }
   --icon-on-subtle-accent: var(--accent-on-subtle);
   --action-primary-hover: var(--brand-accent-solid-hover);
   --action-primary-pressed: var(--brand-accent-solid-pressed);
+  --status-info-subtle: var(--accent-subtle);
+  --status-info-on-subtle: var(--accent-on-subtle);
+  --text-info: var(--text-accent);
+  --icon-info: var(--icon-accent);
+  --icon-on-subtle-info: var(--status-info-on-subtle);
 }
 
 :root, [data-platform="web"], [data-brand]:not([data-platform]), [data-platform="web"] [data-brand]:not([data-platform]) {
@@ -2110,8 +2110,8 @@ html { font-size: 100%; }
     --icon-success: var(--color-green-50);
     --text-warning: var(--color-amber-50);
     --icon-warning: var(--color-amber-50);
-    --text-info: var(--color-blue-50);
-    --icon-info: var(--color-blue-50);
+    --text-info: var(--text-accent);
+    --icon-info: var(--icon-accent);
   }
   [data-theme="light"] {
     --border-focus-ring: var(--border-focus);
@@ -2129,8 +2129,8 @@ html { font-size: 100%; }
     --icon-success: var(--color-green-800);
     --text-warning: var(--color-amber-900);
     --icon-warning: var(--color-amber-900);
-    --text-info: var(--color-blue-800);
-    --icon-info: var(--color-blue-800);
+    --text-info: var(--text-accent);
+    --icon-info: var(--icon-accent);
   }
   :root, [data-style] { --decor-light: false; --decor-tint: false; --decor-material: false; --decor-nav-expressive: false; --decor-nav-base: true; --light-ambient-blur: 0px; --light-accent-blur: 0px; --material-regular-blur: 0px; --material-thin-blur: 0px; --material-thick-blur: 0px; --material-edge-blur: 0px; --light-ambient-color: var(--color-alpha-black-0); --light-tint: var(--color-alpha-black-0); --light-status-neutral: var(--color-alpha-black-0); --light-status-attention: var(--color-alpha-black-0); --light-status-error: var(--color-alpha-black-0); --light-status-success: var(--color-alpha-black-0); --light-status-brand: var(--color-alpha-black-0); --light-accent-color: var(--color-alpha-black-0); --light-tint-end: var(--color-alpha-black-0); --edge-highlight: var(--color-alpha-black-0); --edge-hairline: var(--border-subtle); --edge-accent: var(--border-subtle); --material-thick-fill: var(--surface-raised); --material-scrim: var(--surface-overlay); --material-regular-fill: var(--surface-default); --material-thin-fill: var(--surface-default); }
 }

@@ -16,8 +16,8 @@
     --icon-success: var(--color-green-50);
     --text-warning: var(--color-amber-50);
     --icon-warning: var(--color-amber-50);
-    --text-info: var(--color-blue-50);
-    --icon-info: var(--color-blue-50);
+    --text-info: var(--text-accent);
+    --icon-info: var(--icon-accent);
   }
   [data-theme="light"] {
     --border-focus-ring: var(--border-focus);
@@ -35,8 +35,8 @@
     --icon-success: var(--color-green-800);
     --text-warning: var(--color-amber-900);
     --icon-warning: var(--color-amber-900);
-    --text-info: var(--color-blue-800);
-    --icon-info: var(--color-blue-800);
+    --text-info: var(--text-accent);
+    --icon-info: var(--icon-accent);
   }
   :root, [data-style] { --decor-light: false; --decor-tint: false; --decor-material: false; --decor-nav-expressive: false; --decor-nav-base: true; --light-ambient-blur: 0px; --light-accent-blur: 0px; --material-regular-blur: 0px; --material-thin-blur: 0px; --material-thick-blur: 0px; --material-edge-blur: 0px; --light-ambient-color: var(--color-alpha-black-0); --light-tint: var(--color-alpha-black-0); --light-status-neutral: var(--color-alpha-black-0); --light-status-attention: var(--color-alpha-black-0); --light-status-error: var(--color-alpha-black-0); --light-status-success: var(--color-alpha-black-0); --light-status-brand: var(--color-alpha-black-0); --light-accent-color: var(--color-alpha-black-0); --light-tint-end: var(--color-alpha-black-0); --edge-highlight: var(--color-alpha-black-0); --edge-hairline: var(--border-subtle); --edge-accent: var(--border-subtle); --material-thick-fill: var(--surface-raised); --material-scrim: var(--surface-overlay); --material-regular-fill: var(--surface-default); --material-thin-fill: var(--surface-default); }
 }

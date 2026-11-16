@@ -18,7 +18,7 @@
 - Не делаем: больше четырёх монет в стопке без «+N».
 
 ## 3. Anatomy
-- Корень — горизонтальный ряд с отрицательным зазором: нахлёст ≈ 25 % размера (−6 / −7 / −10 для S / M / L; после Publish — `size/overlap/sm|md|lg`, M станет −8).
+- Корень — горизонтальный ряд с отрицательным зазором: нахлёст ≈ 25 % размера — `size/overlap/sm` / `md` / `lg` (−6 / −8 / −10 для S / M / L; привязано 2026-11-16).
 - `coin 1`…`coin 4` — экземпляры `symbol/coin/*` с кольцом `surface/current`: на любой поверхности L0–L3 кольцо совпадает с фоном (проверено на стенде).
 - `more` — кружок «+N» (Show more): непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/full`, кольцо `surface/current`, как у монет; `value` — текст More (`text/secondary`, `type/label/sm`, `font-weight/medium`).
 - Вложено: `symbol/coin/bitcoin-btc` ×9, `symbol/coin/ethereum-eth` ×9, `symbol/coin/litecoin-ltc` ×6, `symbol/coin/tether-usdt` ×3.
@@ -60,13 +60,13 @@
 - Декоративна (`aria-hidden`); список монет дублируется текстом.
 
 ## 10. Tokens
+- `корень`: интервал `size/overlap/lg`, `size/overlap/md`, `size/overlap/sm`.
 - `coin 1`: обводка `surface/current`.
 - `coin 2`: обводка `surface/current`.
 - `more`: заливка / цвет `status/neutral/subtle`, `surface/next`; радиус `radius/full`; обводка `surface/current`.
 - `value`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - `coin 3`: обводка `surface/current`.
 - `coin 4`: обводка `surface/current`.
-- Значений без переменной: 9 (напр. `(root):gap=-6`, `(root):gap=-7`, `(root):gap=-10`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -91,6 +91,3 @@
 
 ## 15. Migration
 - DS Web CoinStack (base coinstack / group line, pair vertical) → Coin stack: число монет → Count 2 | 3 | 4; размер → Size S | M | L; «+N» → Show more + More.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Нахлёст → `size/overlap/sm` / `md` / `lg` (−6 / −8 / −10; M было −7) — привязать после Publish Foundations (заведены 2026-11-16).

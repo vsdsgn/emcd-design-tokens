@@ -16,7 +16,7 @@
   - Size: M — меню действий и выпадающие списки (Menu item M 44); L — выбор монеты, кошелька, сети и меню в Sheet на Compact (Menu item L 56). В одном меню — один размер пунктов.
   - Search: On — от 10 пунктов; меньше — Off.
   - Ширина ≥ ширины триггера (у Select — ширина поля), в пределах `size/menu/min` 160 … `size/menu/max` 320.
-  - Max-height — `size/menu/max-height` (320, ~8 пунктов; токен ждёт Publish), дальше скролл.
+  - Max-height — `size/menu/max-height` (320, ~8 пунктов, на слое `Items`), дальше скролл.
   - Разрушающее действие — Menu item Tone=Danger последним, после разделителя.
   - На Compact (мобилка) меню открывается шторкой (Sheet) с Menu item размера L.
 - Не делаем: поиск в меню короче 10 пунктов; разные размеры пунктов в одном меню; Danger не последним или без разделителя; меню уже триггера.
@@ -78,6 +78,7 @@
 - `корень`: интервал `space/4`; maxw `size/menu/max`; мин. ширина `size/menu/min`; отступы `space/8`; радиус `radius/control`.
 - `overlay surface`: эффект `material/thick/blur`, `shadow/ambient`, `shadow/key`; заливка / цвет `material/thick/fill`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `search`: мин. ширина `size/field/min`.
+- `Items`: maxh `size/menu/max-height`.
 - `group label`: отступы `space/10`, `space/12`.
 - `Воркеры`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - `line`: заливка / цвет `border/subtle`.
@@ -111,4 +112,3 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Ширина корня 300 — числом; правило «ширина ≥ триггера» в наборе не выражено.
-- Max-height → `size/menu/max-height` (320, ~8 пунктов) — привязать после Publish Foundations (заведён 2026-11-16).

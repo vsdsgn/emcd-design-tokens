@@ -63,6 +63,12 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 - **Todo атомов и молекул (15.11, ночь):** закрыто 25 пунктов (порядок вариантов, усечение Input amount, Focus Password field, Code cell, Divider, строки Legacy, расхождения описаний) — `docs/CHANGELOG-components.md`. Манифест N3 / N5 / N7 / N9 / N10 пропатчен вручную (descLen) — при следующем заходе переснять целиком и пересобрать борды 15 наборов из записи.
 - Организмы: пакеты 1 и 2 (12 наборов) → beta 15.11 по стенду, правки и todo — `docs/CHANGELOG-components.md`. Draft — только парковка: Pagination, File upload, Snack, Side panel. Tab bar вынесен из старой борды, борда v3 собрана (15.11, вечер). Modal — доска «⚑ Решение · Modal» ждёт Стефана (OPEN-QUESTIONS). Рецепт пакета: стенд → разбор (субагенты по REVIEW-BRIEF) → правки → `entries/*.mjs` в `contract-data.mjs` (propsNote — массив строк, never — строка через «; ») → описание Status: beta, 🟡 → манифест батчами → contracts / agent-docs / parity / draft-audit → борды → удалить стенд. Страница генератора — удалить, когда борды больше не нужны.
 
+## 16.11 (после Publish 9 токенов)
+
+- Привязано: `surface/accent` — Tooltip / `_Tooltip arrow` / Tooltip tour Accent, точка Notification; `surface/inverse` — Toast Informer Neutral; `size/overlap/*` — Avatar group, Coin stack (M −7 → −8); `size/sidebar/*` — Sidebar; `size/menu/max-height` — Menu `Items`; Avatar корень — `size/media/*`.
+- Info = бренд («ок» 16.11): в Foundations `status/info/*`, `text/info`, `icon/info` → алиасы accent (**ждёт Publish Стефана**; в репо `export-2.json` уже так). Suggest и Badge — тон Info удалён (MAJOR, 16 экземпляров → Accent).
+- Манифест D13 / D14, 11 борд пересобраны; todo 43 → 34; проверки чистые.
+
 ## Выполнение решений 15.11 (Стефан: «делай всё по своим рекомендациям»)
 
 Номера — из ответа 14.11 (см. `OPEN-QUESTIONS.md` «Перепроверка 14.11»). Отмечать по ходу.

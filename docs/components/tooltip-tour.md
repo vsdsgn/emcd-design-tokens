@@ -15,14 +15,14 @@
 - Правило выбора варианта:
   - Title — до 2 строк, Description — до 3, дальше многоточие (решение 2026-11-15).
   - Placement: Top — подсказка над элементом (стрелка снизу); Bottom — под элементом (стрелка сверху). Выбирается по месту на экране.
-  - Tone: Neutral — по умолчанию (`surface/raised`, обводка `border/default`); Accent — шаг, который надо выделить на нагруженном экране (`action/primary/default`, текст `text/on-accent`).
+  - Tone: Neutral — по умолчанию (`surface/raised`, обводка `border/default`); Accent — шаг, который надо выделить на нагруженном экране (`surface/accent`, текст `text/on-accent`).
   - Один шаг — одна подсказка; ширина до 320 (`size/tooltip/max`).
   - Show step — номер шага («Шаг 1 из 4») в туре из 2 и более шагов; Off — одиночная подсказка.
   - «Пропустить» доступен на каждом шаге; Show skip = Off — только на последнем шаге, где «Далее» меняется на «Готово».
 - Не делаем: больше одной подсказки тура на экране; Show skip = Off не на последнем шаге; повторный показ пройденного тура; подсказка без затемнения (`surface/overlay`).
 
 ## 3. Anatomy
-- Корень: `surface/raised` (Accent — `action/primary/default`), обводка `border/default` / `border/width/default`, `radius/container`, тени `shadow/key` + `shadow/ambient`, отступы `space/16`, зазор `space/8`, ширина от `size/tooltip/min` до `size/tooltip/max`.
+- Корень: `surface/raised` (Accent — `surface/accent`), обводка `border/default` / `border/width/default`, `radius/container`, тени `shadow/key` + `shadow/ambient`, отступы `space/16`, зазор `space/8`, ширина от `size/tooltip/min` до `size/tooltip/max`.
 - `step` (`type/label/md`, `text/tertiary`, без прозрачности) → `title` (`type/label/lg`, `text/primary`) → `description` (`type/label/md`, `text/secondary`). В Accent весь текст — `text/on-accent`.
 - `footer` (`space/8`): `skip` (вложенная Button, текстовая) — распорка — `next` (вложенная Button `control/height/sm`; Accent — `action/inverse/default`). «Далее» всегда у конца строки, в том числе при Show skip = Off.
 - Стрелка — `_Tooltip arrow`.
@@ -75,7 +75,7 @@
 - Зоны нажатия и кольцо фокуса — у вложенных Button.
 
 ## 10. Tokens
-- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/primary/default`, `surface/raised`; интервал `space/8`; maxw `size/tooltip/max`; мин. ширина `size/tooltip/min`; отступы `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
+- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/accent`, `surface/raised`; интервал `space/8`; maxw `size/tooltip/max`; мин. ширина `size/tooltip/min`; отступы `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
 - `step`: заливка / цвет `text/on-accent`, `text/tertiary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `title`: заливка / цвет `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.

@@ -20,7 +20,7 @@
 - Не делаем: сайдбар на Compact; развёрнутые и свёрнутые пункты в одном сайдбаре; два выбранных пункта; сайдбар на подложке L1–L3 (он сам — L1 на `bg/base`).
 
 ## 3. Anatomy
-- Корень — вертикальный стек, отступ `space/12`, зазор `space/8`, `radius/container`; ширина 240 / 72 и высота 800 — числом.
+- Корень — вертикальный стек, отступ `space/12`, зазор `space/8`, `radius/container`; ширина `size/sidebar/expanded` / `collapsed` (240 / 72), высота 800 — числом (образец).
 - Поверхность: Expressive — `material/regular/fill` + `material/regular/blur`, кромка `edge/hairline`; Base — непрозрачная поверхность без блюра.
 - Header (отступ `space/12`): `logo (placeholder)` — `font/family/display`, `type/heading/lg`, `font-weight/bold`, `text/primary`.
 - `promo` — Promo card: `surface/next`, `radius/surface`, отступ `space/16`, обводка `border/subtle` × `border/width/default`.
@@ -79,7 +79,7 @@
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо и зоны нажатия — у вложенных Nav item.
 
 ## 10. Tokens
-- `корень`: эффект `material/regular/blur`; заливка / цвет `material/regular/fill`; интервал `space/8`; отступы `space/12`; радиус `radius/container`; обводка `edge/hairline`.
+- `корень`: эффект `material/regular/blur`; заливка / цвет `material/regular/fill`; интервал `space/8`; отступы `space/12`; радиус `radius/container`; обводка `edge/hairline`; ширина `size/sidebar/collapsed`, `size/sidebar/expanded`.
 - `Header`: отступы `space/12`.
 - `logo (placeholder)`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
 - `promo`: заливка / цвет `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
@@ -88,7 +88,7 @@
 - `divider`: отступы `space/6`, `space/8`.
 - `Rectangle`: заливка / цвет `border/subtle`.
 - `Footer`: интервал `space/4`.
-- Значений без переменной: 4 (напр. `(root):w=240`, `(root):h=800`, `(root):w=72`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 2 (напр. `(root):h=800`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Только Web: Expanded и шире — Collapsed=Off, Medium — Collapsed=On.
@@ -107,7 +107,7 @@
 
 ## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
-- `variables-check.plugin.js` — ширина 240 / 72 и высота 800 корня — числом.
+- `variables-check.plugin.js` — высота 800 корня — числом (образец).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; набор только Web — iOS / Android-ячейки для формы; Expressive не снят; RTL на стенде не зеркалится; кода нет — parity props пропущена.
@@ -116,5 +116,4 @@
 - DS Web `sidebar / default` → Sidebar (Collapsed Off | On, слоты Header / Nav / Footer); `Sidebar banner` → Promo card в Sidebar (свойство Promo).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширины → `size/sidebar/expanded` / `collapsed` (240 / 72) — привязать после Publish Foundations (заведены 2026-11-16).
 - Promo card: подпись действия — 1–2 слова; длинная подпись в узком сайдбаре (215) режется (стенд подменял все тексты).

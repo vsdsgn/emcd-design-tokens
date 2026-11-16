@@ -18,7 +18,7 @@
 - Не делаем: больше 5 аватаров в ряд; разные размеры в одной группе.
 
 ## 3. Anatomy
-- Корень — горизонтальный ряд экземпляров Avatar (`size/media/*`) с отрицательным зазором: нахлёст 20 % размера (−4 / −6 / −8 у XS / S / M).
+- Корень — горизонтальный ряд экземпляров Avatar (`size/media/*`) с отрицательным зазором: нахлёст 20 % размера — `size/overlap/xs` / `sm` / `md` (−4 / −6 / −8 у XS / S / M; привязано 2026-11-16).
 - Каждый аватар и `more` — кольцо `surface/current` (`border/width/focus`, OUTSIDE): на любой поверхности L0–L3 совпадает с фоном и отделяет круг от соседа. Корни аватаров скруглены `radius/full`.
 - `more` — круг «+N»: непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/chip`; `count` — `text/primary`, `type/label/sm`, `font-weight/medium`.
 - Вложено: `Avatar` ×24.
@@ -56,10 +56,10 @@
 - Если открывает список — кнопка: фокус и зона нажатия — у обёртки.
 
 ## 10. Tokens
+- `корень`: интервал `size/overlap/md`, `size/overlap/sm`, `size/overlap/xs`.
 - `Avatar`: высота `size/media/lg`, `size/media/md`, `size/media/xs`; радиус `radius/full`; обводка `surface/current`; толщина обводки `border/width/focus`; ширина `size/media/lg`, `size/media/md`, `size/media/xs`.
 - `more`: заливка / цвет `status/neutral/subtle`, `surface/next`; радиус `radius/chip`; обводка `surface/current`; толщина обводки `border/width/focus`.
 - `count`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- Значений без переменной: 6 (напр. `(root):gap=-4`, `(root):gap=-6`, `(root):gap=-8`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - От режима Platform не зависит: на стенде iOS / Android совпадают с Web.
@@ -86,5 +86,4 @@
 - DS Web base avatar / group line (size, more, RTL) → Avatar group: size → Size, more → More; RTL — в коде, направление по `dir`.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Нахлёст → `size/overlap/xs` / `sm` / `md` — привязать после Publish Foundations (заведены 2026-11-16).
 - В вариантах 4 аватара: правило «до 5» в наборе не показано.

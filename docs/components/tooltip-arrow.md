@@ -13,13 +13,13 @@
 - Когда использовать: только внутри наборов DS: Tooltip, Tooltip tour, тултип Icon button.
 - Когда нет: подсказка в макете — Tooltip (пузырь + уголок), а не голый уголок.
 - Правило выбора варианта:
-  - Tone — как у родителя: Neutral — `surface/raised` + обводка `border/default`; Accent — `action/primary/default`, без обводки.
+  - Tone — как у родителя: Neutral — `surface/raised` + обводка `border/default`; Accent — `surface/accent`, без обводки.
   - Отдельным компонентом, потому что булева форма «пузырь + уголок» в Figma при растяжении масштабирует уголок; в коде — одна SVG-форма с пузырём.
 - Не делаем: уголок без пузыря; растягивать уголок (размер 26 × 9 постоянный).
 
 ## 3. Anatomy
 - Корень 26 × 9 (числом).
-- `arrow` — вектор: заливка `surface/raised` | `action/primary/default`, обводка `border/default` (`border/width/default`).
+- `arrow` — вектор: заливка `surface/raised` | `surface/accent`, обводка `border/default` (`border/width/default`).
 - `mask` — полоса 1 px на стыке (заливка как у `arrow`), закрывает обводку пузыря под уголком.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -50,8 +50,8 @@
 - Декоративен (`aria-hidden`); смысл — у родителя (`role=tooltip`).
 
 ## 10. Tokens
-- `arrow`: заливка / цвет `action/primary/default`, `surface/raised`; обводка `border/default`; толщина обводки `border/width/default`.
-- `mask`: заливка / цвет `action/primary/default`, `surface/raised`.
+- `arrow`: заливка / цвет `surface/accent`, `surface/raised`; обводка `border/default`; толщина обводки `border/width/default`.
+- `mask`: заливка / цвет `surface/accent`, `surface/raised`.
 - Значений без переменной: 4 (напр. `(root):w=26`, `(root):h=9`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms

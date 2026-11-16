@@ -13,19 +13,19 @@
 - Когда нет: краткий отклик на действие — Toast; блокирующий вопрос — Modal; промо-карточка с картинкой — Promo card.
 - Правило выбора варианта:
   - Layout: Card — в колонке или карточке, кнопки под текстом; Strip — вверху страницы на всю ширину, кнопки в строку справа.
-  - Tone: Neutral — по умолчанию (`surface/raised`); Accent — предложение (`accent/subtle`); Info, Success, Warning, Danger — системное объявление (`status/*/subtle`).
+  - Tone: Neutral — по умолчанию (`surface/raised`); Accent — предложение и информационное объявление (`accent/subtle`; тона Info нет — Info = цвет бренда, 2026-11-16); Success, Warning, Danger — системное объявление (`status/*/subtle`).
   - Primary action / Secondary action: 0, 1 или 2 кнопки; Secondary action без Primary action не включается. Ряд кнопок скрывается вместе с Primary action (13.11).
   - Show title / Show description: хотя бы одно включено. Show leading — левый блок вкл / выкл; Leading — слот: по умолчанию иконка тона, можно логотип продукта или монету (Coin) (слот с 2026-11-16). Close — крестик, если сообщение можно скрыть.
-  - Основная кнопка: на Neutral — Secondary, на Accent и тонах Info / Success / Warning / Danger — Primary (на тонированной подложке Secondary сливается; решение 2026-11-16).
+  - Основная кнопка: на Neutral — Secondary, на Accent и тонах Success / Warning / Danger — Primary (на тонированной подложке Secondary сливается; решение 2026-11-16).
 - Не делаем: больше двух кнопок; автоскрытие по таймеру (это Toast).
 
 ## 3. Anatomy
 - Корень: подложка `surface/raised` (Neutral) / `accent/subtle` (Accent) / `status/*/subtle`, обводка `border/subtle` (`border/width/default`), `radius/surface`, отступы `space/16` / `space/12`, справа `space/48` под крестик, зазор `space/16`; ширина 480 (Card) / 960 (Strip) числом.
 - Иконка `icon/size/md` по тону (`icon/info`, `icon/check-circle`, `icon/alert-triangle`, `icon/alert-circle`) → `content` (`space/12`): `text` (`space/4`; `title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) и `actions` (`space/8`).
-- `primary` — вложенная Button `control/height/sm` (Neutral — Secondary, `action/accent/default`; Accent и тона Info / Success / Warning / Danger — Primary `action/primary/default`, 2026-11-16); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).
+- `primary` — вложенная Button `control/height/sm` (Neutral — Secondary, `action/accent/default`; Accent и тона Success / Warning / Danger — Primary `action/primary/default`, 2026-11-16); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).
 - `close` — Icon button `control/height/sm` в правом верхнем углу.
-- Вложено: иконки ×12, `Button` ×24, `Icon button` ×12.
-- Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: иконки ×10, `Button` ×20, `Icon button` ×10.
+- Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет у контейнера: неинтерактивный; состояния — у вложенных Button и крестика.
@@ -37,23 +37,23 @@
 | Ось | Значения | По умолчанию |
 |---|---|---|
 | Layout | Card · Strip | Card |
-| Tone | Neutral · Accent · Info · Success · Warning · Danger | Neutral |
+| Tone | Neutral · Accent · Success · Warning · Danger | Neutral |
 
-Матрица полная: 12 вариантов.
+Матрица полная: 10 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Title | текст | «Кошелёк EMCD Coinhold Wallet — ранее Основной счёт» | 12 из 12 |
-| Show title | булево | вкл | 12 из 12 |
-| Description | текст | «Теперь у него отдельный адрес, и мы установили его автоматически, чтобы сохранить выплаты» | 12 из 12 |
-| Show description | булево | вкл | 12 из 12 |
-| Show leading | булево | вкл | 12 из 12 |
-| Primary action | булево | вкл | 12 из 12 |
-| Secondary action | булево | выкл | 12 из 12 |
-| Close | булево | вкл | 12 из 12 |
-| Leading | слот | — | 12 из 12 |
+| Title | текст | «Кошелёк EMCD Coinhold Wallet — ранее Основной счёт» | 10 из 10 |
+| Show title | булево | вкл | 10 из 10 |
+| Description | текст | «Теперь у него отдельный адрес, и мы установили его автоматически, чтобы сохранить выплаты» | 10 из 10 |
+| Show description | булево | вкл | 10 из 10 |
+| Show leading | булево | вкл | 10 из 10 |
+| Primary action | булево | вкл | 10 из 10 |
+| Secondary action | булево | выкл | 10 из 10 |
+| Close | булево | вкл | 10 из 10 |
+| Leading | слот | — | 10 из 10 |
 
 ## 6. Content / slots
 - Title — суть одной фразой; Description — что изменилось и что делать; подпись кнопки — глагол.
@@ -76,7 +76,7 @@
 - Кнопки достижимы по Tab в порядке чтения. Кольцо фокуса и зоны нажатия — у вложенных Button и крестика.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `status/danger/subtle`, `status/info/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/raised`; интервал `space/16`; отступы `space/12`, `space/16`, `space/48`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `accent/subtle`, `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/raised`; интервал `space/16`; отступы `space/12`, `space/16`, `space/48`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `icon/info`: высота `icon/size/md`; ширина `icon/size/md`.
 - `content`: интервал `space/12`.
 - `text`: интервал `space/4`.
@@ -89,22 +89,22 @@
 - `icon/check-circle`: высота `icon/size/md`; ширина `icon/size/md`.
 - `icon/alert-triangle`: высота `icon/size/md`; ширина `icon/size/md`.
 - `icon/alert-circle`: высота `icon/size/md`; ширина `icon/size/md`.
-- Значений без переменной: 12 (напр. `(root):w=480`, `(root):w=960`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 10 (напр. `(root):w=480`, `(root):w=960`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Suggest`, вариантов 12 из 12; оси: Layout, Tone.
+- Набор `Suggest`, вариантов 10 из 10; оси: Layout, Tone.
 - Борда: «Suggest — борда · шаблон v3», разделов 11.
-- Описание: 1446 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
+- Описание: 1510 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsSuggest>`; Flutter: `DsSuggest`.
-- Props: `layout`: card | strip; `tone`: neutral | accent | info | success | warning | danger; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `showDescription`: boolean = true; `showLeading`: boolean = true; `primaryAction`: boolean = true; `secondaryAction`: boolean = false; `close`: boolean = true; `leading`: string или слот.
+- Props: `layout`: card | strip; `tone`: neutral | accent | success | warning | danger; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `showDescription`: boolean = true; `showLeading`: boolean = true; `primaryAction`: boolean = true; `secondaryAction`: boolean = false; `close`: boolean = true; `leading`: string или слот.
 
 ## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — не перезапускался после правок 13.11 (ряд кнопок скрывается с Primary action) и 14.11 (Accent — Button Primary).
@@ -115,8 +115,6 @@
 
 ## 15. Migration
 - DS Web Banner, Alert → Suggest (Layout Card | Strip, Tone, Leading, Primary action, Secondary action, Close).
+- MAJOR 2026-11-16: тон Info удалён (Info = цвет бренда) — экземпляры Info → Accent.
 - MAJOR 2026-11-16: булево Leading → Show leading, иконка — в слоте Leading (оверрайды иконки в макетах сбросятся).
 - Продукт: suggest, notifications, banner → Suggest.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Geometria: Accent и Info почти неразличимы (оба синие).

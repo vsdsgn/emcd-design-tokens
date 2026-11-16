@@ -142,7 +142,7 @@
     },
     "info": {
       "$type": "color",
-      "$value": "{color.blue.700}"
+      "$value": "{text.accent}"
     },
     "on-warning": {
       "$type": "color",
@@ -216,7 +216,7 @@
     },
     "info": {
       "$type": "color",
-      "$value": "{color.blue.700}"
+      "$value": "{icon.accent}"
     },
     "on-subtle": {
       "accent": {
@@ -475,19 +475,19 @@
     "info": {
       "solid": {
         "$type": "color",
-        "$value": "{color.blue.600}"
+        "$value": "{brand.accent.solid}"
       },
       "subtle": {
         "$type": "color",
-        "$value": "{color.alpha.blue.24}"
+        "$value": "{accent.subtle}"
       },
       "border": {
         "$type": "color",
-        "$value": "{color.alpha.blue.40}"
+        "$value": "{brand.accent.glow-strong}"
       },
       "on-subtle": {
         "$type": "color",
-        "$value": "{color.blue.800}"
+        "$value": "{accent.on-subtle}"
       }
     },
     "neutral": {

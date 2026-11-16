@@ -30,7 +30,6 @@
   --text-danger: var(--color-red-600);
   --text-success: var(--color-green-700);
   --text-warning: var(--color-amber-800);
-  --text-info: var(--color-blue-700);
   --text-on-warning: var(--color-neutral-950);
   --text-danger-hover: var(--color-red-700);
   --text-danger-pressed: var(--color-red-800);
@@ -43,7 +42,6 @@
   --icon-danger: var(--color-red-600);
   --icon-success: var(--color-green-700);
   --icon-warning: var(--color-amber-800);
-  --icon-info: var(--color-blue-700);
   --border-subtle: var(--color-alpha-black-8);
   --border-default: var(--color-alpha-black-12);
   --border-strong: var(--color-alpha-black-48);
@@ -80,10 +78,6 @@
   --status-warning-subtle: var(--color-alpha-amber-32);
   --status-warning-border: var(--color-amber-500);
   --status-warning-on-subtle: var(--color-amber-800);
-  --status-info-solid: var(--color-blue-600);
-  --status-info-subtle: var(--color-alpha-blue-24);
-  --status-info-border: var(--color-alpha-blue-40);
-  --status-info-on-subtle: var(--color-blue-800);
   --status-neutral-solid: var(--color-alpha-black-48);
   --status-neutral-subtle: var(--color-alpha-black-8);
   --control-surface-default: var(--color-white);
@@ -139,7 +133,6 @@
   --icon-on-subtle-success: var(--status-success-on-subtle);
   --icon-on-subtle-warning: var(--status-warning-on-subtle);
   --icon-on-subtle-danger: var(--status-danger-on-subtle);
-  --icon-on-subtle-info: var(--status-info-on-subtle);
   --icon-on-warning: var(--text-on-warning);
   --border-accent: var(--brand-accent-solid);
   --border-focus-ring: var(--border-focus);
@@ -152,6 +145,8 @@
   --accent-subtle: var(--brand-accent-tint);
   --accent-subtle-hover: var(--brand-accent-glow);
   --accent-on-subtle: var(--brand-accent-800);
+  --status-info-solid: var(--brand-accent-solid);
+  --status-info-border: var(--brand-accent-glow-strong);
   --control-border-focus: var(--border-focus);
   --control-checked: var(--brand-accent-solid);
   --glow-brand: var(--brand-accent-tint);
@@ -163,4 +158,9 @@
   --icon-on-subtle-accent: var(--accent-on-subtle);
   --action-primary-hover: var(--brand-accent-solid-hover);
   --action-primary-pressed: var(--brand-accent-solid-pressed);
+  --status-info-subtle: var(--accent-subtle);
+  --status-info-on-subtle: var(--accent-on-subtle);
+  --text-info: var(--text-accent);
+  --icon-info: var(--icon-accent);
+  --icon-on-subtle-info: var(--status-info-on-subtle);
 }

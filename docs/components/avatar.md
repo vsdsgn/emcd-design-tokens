@@ -90,13 +90,10 @@
 
 ## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний сверх реестра.
-- `variables-check.plugin.js` — ширина и высота корня 20 / 32 / 40 / 56 числом — временная строка реестра до Publish `size/media/*`.
+- `variables-check.plugin.js` — нет: корень — `size/media/xs` / `md` / `lg` / `xl` (привязано 2026-11-16).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
 - Не проверено: полный крест 72 ячейки — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, Status = On; кода нет — parity props пропущена.
 
 ## 15. Migration
 - DS Web: avatar (status, size md / sm, state), base avatar / single → Avatar (Size XS–L, Type, Status); интерактивные state убраны — у обёртки; загрузка — State=Skeleton.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Корень — на `size/media/*` после Publish Foundations (`bind-dims.plugin.js`), затем снять строку реестра.

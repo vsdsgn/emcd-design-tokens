@@ -25,14 +25,14 @@ export const DATA = [
     use: 'статус строки или карточки, пометки «Новое», «Beta».',
     dont: 'действие — Button / Chip; количество — Counter; длинный текст — Alert; состояние, которое обновляется само, — Status.',
     rule: [
-      'Tone: Success — работает / выплачено; Warning — требует внимания; Danger — ошибка / неактивен; Info — нейтральное сообщение; Accent — промо / новое; Neutral — свойство без оценки.',
+      'Tone: Success — работает / выплачено; Warning — требует внимания; Danger — ошибка / неактивен; Accent — промо / новое, информационная метка (Info = цвет бренда, тона Info нет — 2026-11-16); Neutral — свойство без оценки.',
       'Style: Subtle — по умолчанию (таблицы, списки); Solid — одна главная метка на карточке или экране.',
       'Size: S 20 — таблицы и плотные списки; M 24 — карточки и шапки; L 32 — крупные заголовки, промо. Рядом с Button S — Badge L.',
     ],
     never: 'больше двух бейджей подряд; декоративная иконка; цвет как единственный носитель смысла.',
     anatomy: ['Корень: подложка (тон × стиль), радиус, отступы.', '`label` — текст; `icon` — смысловая иконка слева (Icon + Icon · swap). Свойства Focus ring, `Close · deprecated`, `Chevron · deprecated` удалены 14.11: бейдж неинтерактивный, интерактив — Chip.'],
     group: NONE + '; Skeleton — загрузка',
-    states: ['Default; Skeleton — одна плашка `skeleton/base` на размер, от тона и стиля не зависит (поэтому матрица 39 из 72: 36 Default + 3 Skeleton).', 'Кольца фокуса нет: бейдж не нажимается; с крестиком или шевроном — это Chip.'],
+    states: ['Default; Skeleton — одна плашка `skeleton/base` на размер, от тона и стиля не зависит (поэтому матрица 33 из 60: 30 Default + 3 Skeleton).', 'Кольца фокуса нет: бейдж не нажимается; с крестиком или шевроном — это Chip.'],
     defaults: { Size: 'S', Tone: 'Neutral', Style: 'Subtle', State: 'Default' },
     content: [LONG('160 (подпись 112)'), 'Иконка — только смысловая: галочка, часы, монета.', RTL],
     events: ['Нет. Удаляемый, раскрывающийся или нажимаемый — Chip, не Badge.'],
@@ -40,7 +40,7 @@ export const DATA = [
     a11y: ['Текст читается как часть строки; цвет не единственный носитель смысла — текст есть всегда.', 'Контраст текста: Subtle — `status/*/on-subtle`, `accent/on-subtle` (≥ 5.7:1); Solid — `text/on-accent`, у Warning — `text/on-warning`.', 'Фокуса нет: бейдж не в порядке Tab.'],
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: '`maxWidth 112 @label` числом (корень — `size/badge/max`)', ap: '0 (2026-11-13)' },
-    migration: ['DS Web `base badge / {neutral|brand|danger|success|warning} --1.5` → Tone Neutral | Accent | Danger | Success | Warning; Info — новый тон.', 'size lg | md | sm → Size L | M | S; style tinted | filled → Style Subtle | Solid; state skeleton → State=Skeleton.', 'var `text eraseble` → Chip с Remove; `next` → Chip с Trailing icon; `text counter` → Counter; `coin` → Icon + Icon · swap (монеты — в Symbols).'],
+    migration: ['DS Web `base badge / {neutral|brand|danger|success|warning} --1.5` → Tone Neutral | Accent | Danger | Success | Warning. MAJOR 2026-11-16: тон Info удалён (Info = цвет бренда) — экземпляры Info → Accent.', 'size lg | md | sm → Size L | M | S; style tinted | filled → Style Subtle | Solid; state skeleton → State=Skeleton.', 'var `text eraseble` → Chip с Remove; `next` → Chip с Trailing icon; `text counter` → Counter; `coin` → Icon + Icon · swap (монеты — в Symbols).'],
     todo: ['max-width подписи 112 — числом (вложенный слой).'],
   },
   {
@@ -346,9 +346,9 @@ export const DATA = [
     behavior: ['Статичен. Смена Type при загрузке фото — без анимации.', 'Skeleton — блик `Skeleton` (1.2 с; «Уменьшить движение» — пульсация прозрачности).'],
     a11y: ['Рядом есть имя — `aria-hidden`; имени рядом нет — `alt` / доступное имя = имя пользователя.', 'Status — в доступном имени («в сети»), не только цветом.'],
     platforms: PLATFORMS.slice(0, 1),
-    accept: { audit: OK + ' сверх реестра', vc: 'ширина и высота корня 20 / 32 / 40 / 56 числом — временная строка реестра до Publish `size/media/*`', ap: '0 (2026-11-13)', not: 'полный крест 72 ячейки — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, Status = On; кода нет — parity props пропущена' },
+    accept: { audit: OK + ' сверх реестра', vc: 'нет: корень — `size/media/xs` / `md` / `lg` / `xl` (привязано 2026-11-16)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячейки — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, Status = On; кода нет — parity props пропущена' },
     migration: ['DS Web: avatar (status, size md / sm, state), base avatar / single → Avatar (Size XS–L, Type, Status); интерактивные state убраны — у обёртки; загрузка — State=Skeleton.'],
-    todo: ['Корень — на `size/media/*` после Publish Foundations (`bind-dims.plugin.js`), затем снять строку реестра.'],
+    todo: [],
   },
   {
     name: 'Circle timer',
@@ -467,7 +467,7 @@ export const DATA = [
     ],
     never: 'больше четырёх монет в стопке без «+N».',
     anatomy: [
-      'Корень — горизонтальный ряд с отрицательным зазором: нахлёст ≈ 25 % размера (−6 / −7 / −10 для S / M / L; после Publish — `size/overlap/sm|md|lg`, M станет −8).',
+      'Корень — горизонтальный ряд с отрицательным зазором: нахлёст ≈ 25 % размера — `size/overlap/sm` / `md` / `lg` (−6 / −8 / −10 для S / M / L; привязано 2026-11-16).',
       '`coin 1`…`coin 4` — экземпляры `symbol/coin/*` с кольцом `surface/current`: на любой поверхности L0–L3 кольцо совпадает с фоном (проверено на стенде).',
       '`more` — кружок «+N» (Show more): непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/full`, кольцо `surface/current`, как у монет; `value` — текст More (`text/secondary`, `type/label/sm`, `font-weight/medium`).',
     ],
@@ -485,7 +485,7 @@ export const DATA = [
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: 'только реестр: отрицательный зазор −6 / −7 / −10 (нахлёст монет)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текстовых и булевых свойств у набора нет — текстовые ячейки совпадают с умолчанием; кода нет — parity props пропущена' },
     migration: ['DS Web CoinStack (base coinstack / group line, pair vertical) → Coin stack: число монет → Count 2 | 3 | 4; размер → Size S | M | L; «+N» → Show more + More.'],
-    todo: ['Нахлёст → `size/overlap/sm` / `md` / `lg` (−6 / −8 / −10; M было −7) — привязать после Publish Foundations (заведены 2026-11-16).'],
+    todo: [],
   },
   {
     name: 'Date cell',
@@ -2079,14 +2079,14 @@ export const DATA = [
     rule: [
       'Title — до 2 строк, Description — до 3, дальше многоточие (решение 2026-11-15).',
       'Placement: Top — подсказка над элементом (стрелка снизу); Bottom — под элементом (стрелка сверху). Выбирается по месту на экране.',
-      'Tone: Neutral — по умолчанию (`surface/raised`, обводка `border/default`); Accent — шаг, который надо выделить на нагруженном экране (`action/primary/default`, текст `text/on-accent`).',
+      'Tone: Neutral — по умолчанию (`surface/raised`, обводка `border/default`); Accent — шаг, который надо выделить на нагруженном экране (`surface/accent`, текст `text/on-accent`).',
       'Один шаг — одна подсказка; ширина до 320 (`size/tooltip/max`).',
       'Show step — номер шага («Шаг 1 из 4») в туре из 2 и более шагов; Off — одиночная подсказка.',
       '«Пропустить» доступен на каждом шаге; Show skip = Off — только на последнем шаге, где «Далее» меняется на «Готово».',
     ],
     never: 'больше одной подсказки тура на экране; Show skip = Off не на последнем шаге; повторный показ пройденного тура; подсказка без затемнения (`surface/overlay`).',
     anatomy: [
-      'Корень: `surface/raised` (Accent — `action/primary/default`), обводка `border/default` / `border/width/default`, `radius/container`, тени `shadow/key` + `shadow/ambient`, отступы `space/16`, зазор `space/8`, ширина от `size/tooltip/min` до `size/tooltip/max`.',
+      'Корень: `surface/raised` (Accent — `surface/accent`), обводка `border/default` / `border/width/default`, `radius/container`, тени `shadow/key` + `shadow/ambient`, отступы `space/16`, зазор `space/8`, ширина от `size/tooltip/min` до `size/tooltip/max`.',
       '`step` (`type/label/md`, `text/tertiary`, без прозрачности) → `title` (`type/label/lg`, `text/primary`) → `description` (`type/label/md`, `text/secondary`). В Accent весь текст — `text/on-accent`.',
       '`footer` (`space/8`): `skip` (вложенная Button, текстовая) — распорка — `next` (вложенная Button `control/height/sm`; Accent — `action/inverse/default`). «Далее» всегда у конца строки, в том числе при Show skip = Off.',
       'Стрелка — `_Tooltip arrow`.',
@@ -2299,7 +2299,7 @@ export const DATA = [
     ],
     never: 'больше 5 аватаров в ряд; разные размеры в одной группе.',
     anatomy: [
-      'Корень — горизонтальный ряд экземпляров Avatar (`size/media/*`) с отрицательным зазором: нахлёст 20 % размера (−4 / −6 / −8 у XS / S / M).',
+      'Корень — горизонтальный ряд экземпляров Avatar (`size/media/*`) с отрицательным зазором: нахлёст 20 % размера — `size/overlap/xs` / `sm` / `md` (−4 / −6 / −8 у XS / S / M; привязано 2026-11-16).',
       'Каждый аватар и `more` — кольцо `surface/current` (`border/width/focus`, OUTSIDE): на любой поверхности L0–L3 совпадает с фоном и отделяет круг от соседа. Корни аватаров скруглены `radius/full`.',
       '`more` — круг «+N»: непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/chip`; `count` — `text/primary`, `type/label/sm`, `font-weight/medium`.',
     ],
@@ -2324,7 +2324,6 @@ export const DATA = [
     migration: ['DS Web base avatar / group line (size, more, RTL) → Avatar group: size → Size, more → More; RTL — в коде, направление по `dir`.'],
     todo: [
       
-      'Нахлёст → `size/overlap/xs` / `sm` / `md` — привязать после Publish Foundations (заведены 2026-11-16).',
       'В вариантах 4 аватара: правило «до 5» в наборе не показано.',
           ],
   },
@@ -2560,7 +2559,7 @@ export const DATA = [
     never: 'кнопки и ссылки внутри записи; непрочитанное только цветом, без точки; заголовок длиннее 2 строк.',
     anatomy: [
       'Корень: раскрытый экземпляр `_List row` (Type=List, Size=M), высота 76; max-width `size/toast/max`; у Unread — фон `accent/subtle`.',
-      'Слоты базы: Leading — плашка `surface/next` (15.11) с иконкой `icon/size/md`; Label — заголовок; Description — текст (≤ 2 строк); Trailing — время (`type/body/sm`, `text/secondary`) + точка непрочитанного `action/primary/default`.',
+      'Слоты базы: Leading — плашка `surface/next` (15.11) с иконкой `icon/size/md`; Label — заголовок; Description — текст (≤ 2 строк); Trailing — время (`type/body/sm`, `text/secondary`) + точка непрочитанного `surface/accent`.',
       'Служебные слои (`state layer`, кольцо фокуса, зоны, безопасное поле) и свойства Focus ring, Show hit area, Safe margin — на базе `_List row` (`list-row.md`).',
     ],
     group: 'Плашка: слой `state/layer` × `state/hover` / `state/pressed` поверх фона записи; Disabled нет',
@@ -2698,9 +2697,9 @@ export const DATA = [
     what: 'Уголок тултипа из legacy: вектор (у Neutral — с обводкой) и маска 1 px на стыке с пузырём, чтобы контур шёл одной линией. Остриё вниз; ориентация — трансформацией экземпляра.',
     use: 'только внутри наборов DS: Tooltip, Tooltip tour, тултип Icon button.',
     dont: 'подсказка в макете — Tooltip (пузырь + уголок), а не голый уголок.',
-    rule: ['Tone — как у родителя: Neutral — `surface/raised` + обводка `border/default`; Accent — `action/primary/default`, без обводки.', 'Отдельным компонентом, потому что булева форма «пузырь + уголок» в Figma при растяжении масштабирует уголок; в коде — одна SVG-форма с пузырём.'],
+    rule: ['Tone — как у родителя: Neutral — `surface/raised` + обводка `border/default`; Accent — `surface/accent`, без обводки.', 'Отдельным компонентом, потому что булева форма «пузырь + уголок» в Figma при растяжении масштабирует уголок; в коде — одна SVG-форма с пузырём.'],
     never: 'уголок без пузыря; растягивать уголок (размер 26 × 9 постоянный).',
-    anatomy: ['Корень 26 × 9 (числом).', '`arrow` — вектор: заливка `surface/raised` | `action/primary/default`, обводка `border/default` (`border/width/default`).', '`mask` — полоса 1 px на стыке (заливка как у `arrow`), закрывает обводку пузыря под уголком.'],
+    anatomy: ['Корень 26 × 9 (числом).', '`arrow` — вектор: заливка `surface/raised` | `surface/accent`, обводка `border/default` (`border/width/default`).', '`mask` — полоса 1 px на стыке (заливка как у `arrow`), закрывает обводку пузыря под уголком.'],
     group: NONE,
     states: ['Состояний нет; Tone следует за родителем.'],
     defaults: { Tone: 'Neutral' },
@@ -2723,13 +2722,13 @@ export const DATA = [
     rule: [
       'Placement: Top — по умолчанию; не помещается сверху — Bottom; у бокового края или в вертикальной навигации (rail, сайдбар) — Start / End. Стороны логические: в RTL Start справа.',
       'Arrow: Center — по умолчанию, уголок по центру элемента; Start / End — пузырь выровнен по началу / концу элемента (элемент у края, широкий элемент). Уголок не ближе 16 к углу пузыря.',
-      'Tone: Neutral — по умолчанию; Accent — бренд (`action/primary/default`, текст `text/on-accent`).',
+      'Tone: Neutral — по умолчанию; Accent — бренд (`surface/accent`, текст `text/on-accent`).',
       'Placement и Arrow выбирает позиционирование в коде, не автор макета: Top → Bottom → сдвиг от края (Start / End) → сбоку.',
     ],
     never: 'действия и ссылки внутри; тултип в приложении и на касании.',
     anatomy: [
       'Корень: отступы `space/10` / `space/16`, радиус `radius/container`; min-ширина и min-высота `size/tooltip/min` (58), max-ширина `size/tooltip/max` (320).',
-      '`overlay surface` — экземпляр `_Overlay surface` (Kind=Tooltip): Neutral — `surface/raised`, Accent — `action/primary/default`; обводка `border/default` (`border/width/default`, перенесена с корня 13.11); тени `shadow/key` + `shadow/ambient`; радиус `radius/container`.',
+      '`overlay surface` — экземпляр `_Overlay surface` (Kind=Tooltip): Neutral — `surface/raised`, Accent — `surface/accent`; обводка `border/default` (`border/width/default`, перенесена с корня 13.11); тени `shadow/key` + `shadow/ambient`; радиус `radius/container`.',
       '`text` — свойство Text, `type/label/md`, `font-weight/medium`; Neutral — `text/primary`, Accent — `text/on-accent` (14.11).',
       '`_Tooltip arrow` — уголок 26 × 9, остриё в 8 от элемента. Грань с уголком не короче 58 (2 × 16 + 26) — отсюда min-ширина (Top / Bottom) и min-высота (Start / End).',
     ],
@@ -2763,7 +2762,6 @@ export const DATA = [
     ],
     todo: [
       'Start / End при одной строке (высота 58): Arrow Start / End выглядят как Center — уголку некуда сдвигаться (заметка стенда).',
-      'Accent — кнопочный `action/primary/default` на неинтерактивной поверхности (OPEN-QUESTIONS п. 10).',
     ],
   },
   {
@@ -2774,7 +2772,7 @@ export const DATA = [
     dont: 'сообщение, которое должно остаться на странице, — Suggest; блокирующий вопрос — Modal; событие без участия пользователя в ленте — Notification.',
     rule: [
       'Layout: Card — Web (справа сверху): карточка, иконка статуса, заголовок, необязательные описание и кнопки; Informer — App (сверху под статус-баром): цветная полоса на всю ширину, заголовок и крестик.',
-      'Tone: Success — выполнено; Info — справка о фоновой операции; Warning — выполнено с оговоркой; Danger — не выполнено; Neutral — без оценки, у Card без иконки (отличие от Info; 2026-11-16). У Card тон несёт иконка, у Informer — заливка полосы (`status/*/solid`, Neutral — `action/inverse/default`).',
+      'Tone: Success — выполнено; Info — справка о фоновой операции (цвет бренда — Info = Accent, 2026-11-16); Warning — выполнено с оговоркой; Danger — не выполнено; Neutral — без оценки, у Card без иконки (отличие от Info; 2026-11-16). У Card тон несёт иконка, у Informer — заливка полосы (`status/*/solid`, Neutral — `surface/inverse`).',
       'Show description, Actions, Icon, Timer — только Card (привязаны в 5 вариантах из 10; Icon — в 4: у Neutral иконки нет). Timer — оставшееся время автоскрытия (Circle timer у крестика).',
       'Safe area — только Informer: полоса под статус-баром (`os/safe-area/top`).',
       'Close — по умолчанию вкл.',
@@ -2782,7 +2780,7 @@ export const DATA = [
     never: 'Informer на Web; больше 3 Toast одновременно; Toast вместо сообщения, которое должно остаться на странице.',
     anatomy: [
       'Корень: зазор `space/12`, отступы `space/12` / `space/16` / `space/20` / `space/48`, радиус `radius/control`, min-ширина `size/toast/min` (280), ширина 400 (Card) / 375 (Informer) числом.',
-      '`overlay surface` — экземпляр `_Overlay surface` (Kind=Toast): Card — `surface/raised`, обводка `border/subtle`, тени `shadow/key` + `shadow/ambient`; Informer — `status/*/solid` / `action/inverse/default`.',
+      '`overlay surface` — экземпляр `_Overlay surface` (Kind=Toast): Card — `surface/raised`, обводка `border/subtle`, тени `shadow/key` + `shadow/ambient`; Informer — `status/*/solid` / `surface/inverse` (Neutral).',
       'Card: иконка `media/status/*` → `content` (`title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) → `actions` (вложенные Button, `control/height/sm`); `timer` (Circle timer, `icon/size/sm`) и `close` (Icon button, `control/height/sm`).',
       'Informer: `safe area` (`os/safe-area/top`) → `row`: `title` (`text/on-accent`; Warning — `text/on-warning`; Neutral — `text/inverse`) и `close`.',
     ],
@@ -2815,7 +2813,6 @@ export const DATA = [
     },
     migration: ['DS Web Toast (`base notification`) → Layout=Card; App `informer` → Layout=Informer. Snack вынесен в отдельный набор 2026-11-09 и запаркован.'],
     todo: [
-      'Informer Neutral — кнопочный `action/inverse/default` на неинтерактивной поверхности (OPEN-QUESTIONS п. 10).',
     ],
   },
   {
@@ -2825,16 +2822,16 @@ export const DATA = [
     dont: 'краткий отклик на действие — Toast; блокирующий вопрос — Modal; промо-карточка с картинкой — Promo card.',
     rule: [
       'Layout: Card — в колонке или карточке, кнопки под текстом; Strip — вверху страницы на всю ширину, кнопки в строку справа.',
-      'Tone: Neutral — по умолчанию (`surface/raised`); Accent — предложение (`accent/subtle`); Info, Success, Warning, Danger — системное объявление (`status/*/subtle`).',
+      'Tone: Neutral — по умолчанию (`surface/raised`); Accent — предложение и информационное объявление (`accent/subtle`; тона Info нет — Info = цвет бренда, 2026-11-16); Success, Warning, Danger — системное объявление (`status/*/subtle`).',
       'Primary action / Secondary action: 0, 1 или 2 кнопки; Secondary action без Primary action не включается. Ряд кнопок скрывается вместе с Primary action (13.11).',
       'Show title / Show description: хотя бы одно включено. Show leading — левый блок вкл / выкл; Leading — слот: по умолчанию иконка тона, можно логотип продукта или монету (Coin) (слот с 2026-11-16). Close — крестик, если сообщение можно скрыть.',
-      'Основная кнопка: на Neutral — Secondary, на Accent и тонах Info / Success / Warning / Danger — Primary (на тонированной подложке Secondary сливается; решение 2026-11-16).',
+      'Основная кнопка: на Neutral — Secondary, на Accent и тонах Success / Warning / Danger — Primary (на тонированной подложке Secondary сливается; решение 2026-11-16).',
     ],
     never: 'больше двух кнопок; автоскрытие по таймеру (это Toast).',
     anatomy: [
       'Корень: подложка `surface/raised` (Neutral) / `accent/subtle` (Accent) / `status/*/subtle`, обводка `border/subtle` (`border/width/default`), `radius/surface`, отступы `space/16` / `space/12`, справа `space/48` под крестик, зазор `space/16`; ширина 480 (Card) / 960 (Strip) числом.',
       'Иконка `icon/size/md` по тону (`icon/info`, `icon/check-circle`, `icon/alert-triangle`, `icon/alert-circle`) → `content` (`space/12`): `text` (`space/4`; `title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) и `actions` (`space/8`).',
-      '`primary` — вложенная Button `control/height/sm` (Neutral — Secondary, `action/accent/default`; Accent и тона Info / Success / Warning / Danger — Primary `action/primary/default`, 2026-11-16); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).',
+      '`primary` — вложенная Button `control/height/sm` (Neutral — Secondary, `action/accent/default`; Accent и тона Success / Warning / Danger — Primary `action/primary/default`, 2026-11-16); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).',
       '`close` — Icon button `control/height/sm` в правом верхнем углу.',
     ],
     group: 'нет у контейнера: неинтерактивный; состояния — у вложенных Button и крестика',
@@ -2862,9 +2859,8 @@ export const DATA = [
       not: STAND13 + ', булевы свойства; ' + DARK15 + ' (Neutral; держит обводка `border/subtle`, тени у Suggest нет); Strip в кресте виден только левой частью (ячейка уже 960); RTL стенд не проверяет; кода нет — parity props пропущена',
     },
     migration: ['DS Web Banner, Alert → Suggest (Layout Card | Strip, Tone, Leading, Primary action, Secondary action, Close).',
-      'MAJOR 2026-11-16: булево Leading → Show leading, иконка — в слоте Leading (оверрайды иконки в макетах сбросятся).', 'Продукт: suggest, notifications, banner → Suggest.'],
+      'MAJOR 2026-11-16: тон Info удалён (Info = цвет бренда) — экземпляры Info → Accent.', 'MAJOR 2026-11-16: булево Leading → Show leading, иконка — в слоте Leading (оверрайды иконки в макетах сбросятся).', 'Продукт: suggest, notifications, banner → Suggest.'],
     todo: [
-      'Geometria: Accent и Info почти неразличимы (оба синие).',
       ],
   },
   {
@@ -3092,7 +3088,7 @@ export const DATA = [
       'Size: M — меню действий и выпадающие списки (Menu item M 44); L — выбор монеты, кошелька, сети и меню в Sheet на Compact (Menu item L 56). В одном меню — один размер пунктов.',
       'Search: On — от 10 пунктов; меньше — Off.',
       'Ширина ≥ ширины триггера (у Select — ширина поля), в пределах `size/menu/min` 160 … `size/menu/max` 320.',
-      'Max-height — `size/menu/max-height` (320, ~8 пунктов; токен ждёт Publish), дальше скролл.',
+      'Max-height — `size/menu/max-height` (320, ~8 пунктов, на слое `Items`), дальше скролл.',
       'Разрушающее действие — Menu item Tone=Danger последним, после разделителя.',
       'На Compact (мобилка) меню открывается шторкой (Sheet) с Menu item размера L.',
     ],
@@ -3137,7 +3133,6 @@ export const DATA = [
     migration: ['DS Web Dropdown (Type=Menu / Multiselect / Coins / …) → Menu (Size, Search, пункты Menu item в слоте Items); разбор по типам в описании не дан.'],
     todo: [
       'Ширина корня 300 — числом; правило «ширина ≥ триггера» в наборе не выражено.',
-      'Max-height → `size/menu/max-height` (320, ~8 пунктов) — привязать после Publish Foundations (заведён 2026-11-16).',
     ],
   },
   {
@@ -3414,7 +3409,7 @@ export const DATA = [
     ],
     never: 'сайдбар на Compact; развёрнутые и свёрнутые пункты в одном сайдбаре; два выбранных пункта; сайдбар на подложке L1–L3 (он сам — L1 на `bg/base`).',
     anatomy: [
-      'Корень — вертикальный стек, отступ `space/12`, зазор `space/8`, `radius/container`; ширина 240 / 72 и высота 800 — числом.',
+      'Корень — вертикальный стек, отступ `space/12`, зазор `space/8`, `radius/container`; ширина `size/sidebar/expanded` / `collapsed` (240 / 72), высота 800 — числом (образец).',
       'Поверхность: Expressive — `material/regular/fill` + `material/regular/blur`, кромка `edge/hairline`; Base — непрозрачная поверхность без блюра.',
       'Header (отступ `space/12`): `logo (placeholder)` — `font/family/display`, `type/heading/lg`, `font-weight/bold`, `text/primary`.',
       '`promo` — Promo card: `surface/next`, `radius/surface`, отступ `space/16`, обводка `border/subtle` × `border/width/default`.',
@@ -3452,10 +3447,9 @@ export const DATA = [
       FOCUS + ' Кольцо и зоны нажатия — у вложенных Nav item.',
     ],
     platforms: ['Только Web: Expanded и шире — Collapsed=Off, Medium — Collapsed=On.', 'Compact (App, мобильный веб) — Tab bar.'],
-    accept: { audit: OK, vc: 'ширина 240 / 72 и высота 800 корня — числом', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; набор только Web — iOS / Android-ячейки для формы; Expressive не снят; RTL на стенде не зеркалится; кода нет — parity props пропущена' },
+    accept: { audit: OK, vc: 'высота 800 корня — числом (образец)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; набор только Web — iOS / Android-ячейки для формы; Expressive не снят; RTL на стенде не зеркалится; кода нет — parity props пропущена' },
     migration: ['DS Web `sidebar / default` → Sidebar (Collapsed Off | On, слоты Header / Nav / Footer); `Sidebar banner` → Promo card в Sidebar (свойство Promo).'],
     todo: [
-      'Ширины → `size/sidebar/expanded` / `collapsed` (240 / 72) — привязать после Publish Foundations (заведены 2026-11-16).',
       'Promo card: подпись действия — 1–2 слова; длинная подпись в узком сайдбаре (215) режется (стенд подменял все тексты).',
       ],
   },

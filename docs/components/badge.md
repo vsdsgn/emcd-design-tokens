@@ -12,7 +12,7 @@
 - Когда использовать: статус строки или карточки, пометки «Новое», «Beta».
 - Когда нет: действие — Button / Chip; количество — Counter; длинный текст — Alert; состояние, которое обновляется само, — Status.
 - Правило выбора варианта:
-  - Tone: Success — работает / выплачено; Warning — требует внимания; Danger — ошибка / неактивен; Info — нейтральное сообщение; Accent — промо / новое; Neutral — свойство без оценки.
+  - Tone: Success — работает / выплачено; Warning — требует внимания; Danger — ошибка / неактивен; Accent — промо / новое, информационная метка (Info = цвет бренда, тона Info нет — 2026-11-16); Neutral — свойство без оценки.
   - Style: Subtle — по умолчанию (таблицы, списки); Solid — одна главная метка на карточке или экране.
   - Size: S 20 — таблицы и плотные списки; M 24 — карточки и шапки; L 32 — крупные заголовки, промо. Рядом с Button S — Badge L.
 - Не делаем: больше двух бейджей подряд; декоративная иконка; цвет как единственный носитель смысла.
@@ -20,12 +20,12 @@
 ## 3. Anatomy
 - Корень: подложка (тон × стиль), радиус, отступы.
 - `label` — текст; `icon` — смысловая иконка слева (Icon + Icon · swap). Свойства Focus ring, `Close · deprecated`, `Chevron · deprecated` удалены 14.11: бейдж неинтерактивный, интерактив — Chip.
-- Вложено: иконки ×39.
-- Служебные слои (вариантов из 39): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: иконки ×33.
+- Служебные слои (вариантов из 33): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; Skeleton — загрузка.
-- Default; Skeleton — одна плашка `skeleton/base` на размер, от тона и стиля не зависит (поэтому матрица 39 из 72: 36 Default + 3 Skeleton).
+- Default; Skeleton — одна плашка `skeleton/base` на размер, от тона и стиля не зависит (поэтому матрица 33 из 60: 30 Default + 3 Skeleton).
 - Кольца фокуса нет: бейдж не нажимается; с крестиком или шевроном — это Chip.
 
 ## 5. Properties
@@ -34,19 +34,19 @@
 | Ось | Значения | По умолчанию |
 |---|---|---|
 | Size | S · M · L | S |
-| Tone | Neutral · Accent · Success · Warning · Danger · Info | Neutral |
+| Tone | Neutral · Accent · Success · Warning · Danger | Neutral |
 | Style | Subtle · Solid | Subtle |
 | State | Skeleton · Default | Default |
 
-Матрица: 39 из 72.
+Матрица: 33 из 60.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «Активен» | 39 из 39 |
-| Icon | булево | выкл | 39 из 39 |
-| Icon · swap | замена экземпляра | `icon/plus` | 39 из 39 |
+| Label | текст | «Активен» | 33 из 33 |
+| Icon | булево | выкл | 33 из 33 |
+| Icon · swap | замена экземпляра | `icon/plus` | 33 из 33 |
 
 ## 6. Content / slots
 - Длинный текст: одна строка, усечение многоточием по max-width 160 (подпись 112); полный текст — в `title` / тултипе.
@@ -65,23 +65,23 @@
 - Фокуса нет: бейдж не в порядке Tab.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/info/solid`, `status/info/subtle`, `status/neutral/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; maxw `size/badge/max`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/8`; радиус `radius/control-sm`, `radius/sm`.
-- `label`: заливка / цвет `accent/on-subtle`, `status/danger/on-subtle`, `status/info/on-subtle`, `status/success/on-subtle`, `status/warning/on-subtle`, `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`, `type/label/sm`.
+- `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/neutral/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; maxw `size/badge/max`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/8`; радиус `radius/control-sm`, `radius/sm`.
+- `label`: заливка / цвет `accent/on-subtle`, `status/danger/on-subtle`, `status/success/on-subtle`, `status/warning/on-subtle`, `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`, `type/label/sm`.
 - Min / max корня: maxWidth 160 size/badge/max.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Badge`, вариантов 39 из 72; оси: Size, Tone, Style, State.
+- Набор `Badge`, вариантов 33 из 60; оси: Size, Tone, Style, State.
 - Борда: «Badge — борда · шаблон v3», разделов 12.
-- Описание: 1665 знаков, разделы: Status: Level: Бейдж: Когда использовать: Правила тона: Правила стиля: Размер: Цвета текста: Иконка: A11y: Поиск: Legacy:
+- Описание: 1706 знаков, разделы: Status: Level: Бейдж: Когда использовать: Правила тона: Правила стиля: Размер: Цвета текста: Иконка: A11y: Поиск: Legacy:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsBadge>`; Flutter: `DsBadge`.
-- Props: `size`: s | m | l; `tone`: neutral | accent | success | warning | danger | info; `style`: subtle | solid; `label`: string или слот; `icon`: boolean = false.
+- Props: `size`: s | m | l; `tone`: neutral | accent | success | warning | danger; `style`: subtle | solid; `label`: string или слот; `icon`: boolean = false.
 - Состояния (Skeleton, Default) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-16)
@@ -92,7 +92,7 @@
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
 ## 15. Migration
-- DS Web `base badge / {neutral|brand|danger|success|warning} --1.5` → Tone Neutral | Accent | Danger | Success | Warning; Info — новый тон.
+- DS Web `base badge / {neutral|brand|danger|success|warning} --1.5` → Tone Neutral | Accent | Danger | Success | Warning. MAJOR 2026-11-16: тон Info удалён (Info = цвет бренда) — экземпляры Info → Accent.
 - size lg | md | sm → Size L | M | S; style tinted | filled → Style Subtle | Solid; state skeleton → State=Skeleton.
 - var `text eraseble` → Chip с Remove; `next` → Chip с Trailing icon; `text counter` → Counter; `coin` → Icon + Icon · swap (монеты — в Symbols).
 
