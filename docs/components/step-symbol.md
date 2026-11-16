@@ -21,7 +21,7 @@
 ## 3. Anatomy
 - Корень — круг `size/media/sm` (24), `radius/chip`: Default — `status/neutral/subtle` + обводка `border/default` (`border/width/default`); Current — `control/checked`; Success — `status/success/solid`.
 - `number` — цифра (`type/label/sm`, `font-weight/medium`): `text/secondary` в Default, `text/on-accent` в Current; в Success вместо цифры — галочка `text/on-accent`.
-- Иконка (Icon; галочка у Numbered · Success) — по центру круга; `bullet` — точка без круга: `border/default` / `control/checked` / `status/success/solid`.
+- Иконка (Icon; галочка у Numbered · Success) — по центру круга; `bullet` — точка без круга: `border/strong` / `control/checked` / `status/success/solid`.
 - Вложено: иконки ×4.
 - Служебные слои (вариантов из 9): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 

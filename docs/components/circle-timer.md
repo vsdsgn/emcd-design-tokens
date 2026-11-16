@@ -77,4 +77,4 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текстовых и булевых свойств у набора нет — текстовые ячейки совпадают с умолчанием; кода нет — parity props пропущена.
 
 ## 15. Migration
-- DS Web Toast / Circle timer → Circle timer (Size S | M, Progress 100 | 75 | 50 | 25).
+- DS Web Toast / Circle timer → Circle timer (Size S | M, Progress 100 | 75 | 50 | 25 | 0).

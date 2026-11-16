@@ -17,12 +17,12 @@
 - Не делаем: линия вне Stepper; State, не совпадающий с шагом-источником.
 
 ## 3. Anatomy
-- Корень высотой `size/media/sm` (24 — высота Step symbol); `line` по центру высоты — обводка `border/width/default`: `border/default` (Default), `control/checked` (Current), `status/success/solid` (Success).
+- Корень высотой `size/media/sm` (24 — высота Step symbol); `line` по центру высоты — обводка `border/width/default`: Default — `border/strong` пунктиром, Current — `control/checked`, Success — `status/success/solid` (сплошные).
 - Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
-- Default — линия `border/default`.
+- Default — пунктир `border/strong`.
 - Current — линия `control/checked`.
 - Success — линия `status/success/solid`.
 
@@ -43,7 +43,7 @@
 - Нет.
 
 ## 8. Behavior
-- Статична. Смену Border и State задаёт Stepper.
+- Статична. Смену State задаёт Stepper.
 
 ## 9. Accessibility
 - Декоративная, скрыта от читалки (`aria-hidden`).

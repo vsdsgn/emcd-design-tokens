@@ -18,7 +18,7 @@
 - Не делаем: больше четырёх монет в стопке без «+N».
 
 ## 3. Anatomy
-- Корень — горизонтальный ряд с отрицательным зазором: нахлёст 30 % размера (−6 / −7 / −10 для S / M / L).
+- Корень — горизонтальный ряд с отрицательным зазором: нахлёст ≈ 25 % размера (−6 / −7 / −10 для S / M / L; после Publish — `size/overlap/sm|md|lg`, M станет −8).
 - `coin 1`…`coin 4` — экземпляры `symbol/coin/*` с кольцом `surface/current`: на любой поверхности L0–L3 кольцо совпадает с фоном (проверено на стенде).
 - `more` — кружок «+N» (Show more): непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/full`, кольцо `surface/current`, как у монет; `value` — текст More (`text/secondary`, `type/label/sm`, `font-weight/medium`).
 - Вложено: `symbol/coin/bitcoin-btc` ×9, `symbol/coin/ethereum-eth` ×9, `symbol/coin/litecoin-ltc` ×6, `symbol/coin/tether-usdt` ×3.
@@ -62,7 +62,7 @@
 ## 10. Tokens
 - `coin 1`: обводка `surface/current`.
 - `coin 2`: обводка `surface/current`.
-- `more`: заливка / цвет `status/neutral/subtle`, `surface/default`; радиус `radius/full`; обводка `surface/current`.
+- `more`: заливка / цвет `status/neutral/subtle`, `surface/next`; радиус `radius/full`; обводка `surface/current`.
 - `value`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - `coin 3`: обводка `surface/current`.
 - `coin 4`: обводка `surface/current`.

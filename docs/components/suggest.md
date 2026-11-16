@@ -22,7 +22,7 @@
 ## 3. Anatomy
 - Корень: подложка `surface/raised` (Neutral) / `accent/subtle` (Accent) / `status/*/subtle`, обводка `border/subtle` (`border/width/default`), `radius/surface`, отступы `space/16` / `space/12`, справа `space/48` под крестик, зазор `space/16`; ширина 480 (Card) / 960 (Strip) числом.
 - Иконка `icon/size/md` по тону (`icon/info`, `icon/check-circle`, `icon/alert-triangle`, `icon/alert-circle`) → `content` (`space/12`): `text` (`space/4`; `title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) и `actions` (`space/8`).
-- `primary` — вложенная Button `control/height/sm` (Accent — Primary `action/primary/default` с 14.11, остальные — `action/accent/default`); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).
+- `primary` — вложенная Button `control/height/sm` (Neutral — Secondary, `action/accent/default`; Accent и тона Info / Success / Warning / Danger — Primary `action/primary/default`, 2026-11-16); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).
 - `close` — Icon button `control/height/sm` в правом верхнем углу.
 - Вложено: иконки ×12, `Button` ×24, `Icon button` ×12.
 - Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.

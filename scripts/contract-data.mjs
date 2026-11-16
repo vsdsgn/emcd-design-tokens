@@ -376,7 +376,7 @@ export const DATA = [
     a11y: ['Декоративен (`aria-hidden`), оставшееся время не озвучивается.', 'Срок сообщает родитель: текст «Отправить повторно через N с» или Toast (`role="status"`).'],
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текстовых и булевых свойств у набора нет — текстовые ячейки совпадают с умолчанием; кода нет — parity props пропущена' },
-    migration: ['DS Web Toast / Circle timer → Circle timer (Size S | M, Progress 100 | 75 | 50 | 25).'],
+    migration: ['DS Web Toast / Circle timer → Circle timer (Size S | M, Progress 100 | 75 | 50 | 25 | 0).'],
     todo: [],
   },
   {
@@ -467,7 +467,7 @@ export const DATA = [
     ],
     never: 'больше четырёх монет в стопке без «+N».',
     anatomy: [
-      'Корень — горизонтальный ряд с отрицательным зазором: нахлёст 30 % размера (−6 / −7 / −10 для S / M / L).',
+      'Корень — горизонтальный ряд с отрицательным зазором: нахлёст ≈ 25 % размера (−6 / −7 / −10 для S / M / L; после Publish — `size/overlap/sm|md|lg`, M станет −8).',
       '`coin 1`…`coin 4` — экземпляры `symbol/coin/*` с кольцом `surface/current`: на любой поверхности L0–L3 кольцо совпадает с фоном (проверено на стенде).',
       '`more` — кружок «+N» (Show more): непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/full`, кольцо `surface/current`, как у монет; `value` — текст More (`text/secondary`, `type/label/sm`, `font-weight/medium`).',
     ],
@@ -689,7 +689,7 @@ export const DATA = [
     name: 'Progress',
     what: 'Линейный прогресс: доля выполненного, когда длительность или объём известны (лимит вывода, заполненность, шаг загрузки файла, срок до выплаты).',
     use: 'известно «сколько из скольких».',
-    dont: 'неизвестная длительность — Spinner; загрузка контента — Skeleton; шаги мастера — Stepper; мало места или прогресс — главное на карточке — Progress circle.',
+    dont: 'неизвестная длительность в кнопке или небольшом блоке — Spinner (линия во всю ширину блока — Mode=Indeterminate); загрузка контента — Skeleton; шаги мастера — Stepper; мало места или прогресс — главное на карточке — Progress circle.',
     rule: [
       'Size: S (дорожка 4) — внутри строк и карточек; M (дорожка 8) — отдельный блок.',
       'Tone: Accent — нейтральный прогресс; Success — цель достигнута; Warning — близко к лимиту (≥ 80 %); Danger — лимит превышен.',
@@ -810,7 +810,7 @@ export const DATA = [
     anatomy: [
       'Корень — круг `size/media/sm` (24), `radius/chip`: Default — `status/neutral/subtle` + обводка `border/default` (`border/width/default`); Current — `control/checked`; Success — `status/success/solid`.',
       '`number` — цифра (`type/label/sm`, `font-weight/medium`): `text/secondary` в Default, `text/on-accent` в Current; в Success вместо цифры — галочка `text/on-accent`.',
-      'Иконка (Icon; галочка у Numbered · Success) — по центру круга; `bullet` — точка без круга: `border/default` / `control/checked` / `status/success/solid`.',
+      'Иконка (Icon; галочка у Numbered · Success) — по центру круга; `bullet` — точка без круга: `border/strong` / `control/checked` / `status/success/solid`.',
     ],
     group: NONE,
     states: [
@@ -844,10 +844,10 @@ export const DATA = [
       'Ширина — всё свободное место между символами шагов.',
     ],
     never: 'линия вне Stepper; State, не совпадающий с шагом-источником.',
-    anatomy: ['Корень высотой `size/media/sm` (24 — высота Step symbol); `line` по центру высоты — обводка `border/width/default`: `border/default` (Default), `control/checked` (Current), `status/success/solid` (Success).'],
+    anatomy: ['Корень высотой `size/media/sm` (24 — высота Step symbol); `line` по центру высоты — обводка `border/width/default`: Default — `border/strong` пунктиром, Current — `control/checked`, Success — `status/success/solid` (сплошные).'],
     group: NONE,
     states: [
-      'Default — линия `border/default`.',
+      'Default — пунктир `border/strong`.',
       'Current — линия `control/checked`.',
       'Success — линия `status/success/solid`.',
     ],
@@ -857,7 +857,7 @@ export const DATA = [
       'RTL: линия симметрична; направление шагов зеркалит Stepper.',
     ],
     events: ['Нет.'],
-    behavior: ['Статична. Смену Border и State задаёт Stepper.'],
+    behavior: ['Статична. Смену State задаёт Stepper.'],
     a11y: ['Декоративная, скрыта от читалки (`aria-hidden`).'],
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текста и булевых свойств нет; кода нет — parity props пропущена' },
@@ -902,7 +902,7 @@ export const DATA = [
     use: 'короткое действие с неизвестной длительностью — в кнопке, в блоке.',
     dont: 'загрузка данных — Skeleton.',
     rule: [
-      'Size: по соседней иконке или тексту — S `icon/size/sm`, M `icon/size/md`, L `icon/size/lg`.',
+      'Size: по соседней иконке или тексту — S `icon/size/sm`, M `icon/size/control` (как иконка в контроле), L `icon/size/lg`.',
       'Один спиннер на блок; в кнопке — вместо иконки или подписи, ширина кнопки не меняется.',
       'Дольше 10 с — добавить текст, что происходит.',
     ],
@@ -2787,7 +2787,7 @@ export const DATA = [
       'Informer: `safe area` (`os/safe-area/top`) → `row`: `title` (`text/on-accent`; Warning — `text/on-warning`; Neutral — `text/inverse`) и `close`.',
     ],
     group: 'нет у самого Toast: неинтерактивен; крестик и кнопки — вложенные Icon button / Button со своими состояниями',
-    states: ['Оси State нет. Появление, пауза и автоскрытие — поведение, не варианты.', 'Tone у Card меняет иконку (Info и Neutral — одна `media/status/info`, см. todo); у Informer — заливку полосы и цвет текста и крестика.'],
+    states: ['Оси State нет. Появление, пауза и автоскрытие — поведение, не варианты.', 'Tone у Card меняет иконку (Neutral — без иконки, 2026-11-16); у Informer — заливку полосы и цвет текста и крестика.'],
     defaults: { Layout: 'Card', Tone: 'Info' },
     content: [
       'Title — короткий итог действия («Вывод создан»); Description — что дальше. У Card заголовок и описание переносятся, карточка растёт по высоте.',
@@ -2834,7 +2834,7 @@ export const DATA = [
     anatomy: [
       'Корень: подложка `surface/raised` (Neutral) / `accent/subtle` (Accent) / `status/*/subtle`, обводка `border/subtle` (`border/width/default`), `radius/surface`, отступы `space/16` / `space/12`, справа `space/48` под крестик, зазор `space/16`; ширина 480 (Card) / 960 (Strip) числом.',
       'Иконка `icon/size/md` по тону (`icon/info`, `icon/check-circle`, `icon/alert-triangle`, `icon/alert-circle`) → `content` (`space/12`): `text` (`space/4`; `title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) и `actions` (`space/8`).',
-      '`primary` — вложенная Button `control/height/sm` (Accent — Primary `action/primary/default` с 14.11, остальные — `action/accent/default`); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).',
+      '`primary` — вложенная Button `control/height/sm` (Neutral — Secondary, `action/accent/default`; Accent и тона Info / Success / Warning / Danger — Primary `action/primary/default`, 2026-11-16); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).',
       '`close` — Icon button `control/height/sm` в правом верхнем углу.',
     ],
     group: 'нет у контейнера: неинтерактивный; состояния — у вложенных Button и крестика',
