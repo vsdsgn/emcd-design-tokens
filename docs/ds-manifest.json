@@ -3,26 +3,26 @@
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
-   "unknown": 93
+   "unknown": 94
   },
   "sets": {
-   "unknown": 95
+   "unknown": 96
   },
   "status": {
    "beta": 87,
-   "draft": 3,
+   "draft": 4,
    "service": 4,
    "template": 1
   },
-  "variants": 1589,
+  "variants": 1599,
   "incompleteMatrix": 16,
-  "propsNotBoundEverywhere": 14,
+  "propsNotBoundEverywhere": 15,
   "rawMinMax": 0,
   "withRawValues": 65,
   "withFocusRing": 21,
   "withHitArea": 20,
   "withSafeMargin": 23,
-  "pagesWithoutV3Board": 0,
+  "pagesWithoutV3Board": 1,
   "pagesWithFullBoard": 19,
   "baseSets": 11
  },
@@ -1660,7 +1660,7 @@
      "id": "664:73999",
      "type": "SET",
      "status": "beta",
-     "descLen": 1526,
+     "descLen": 1540,
      "descHeads": [
       "Status:",
       "Level:",
@@ -1697,7 +1697,13 @@
      },
      "variants": 72,
      "full": 72,
-     "props": [],
+     "props": [
+      {
+       "name": "Content",
+       "type": "SLOT",
+       "bound": 72
+      }
+     ],
      "nested": {},
      "minmax": [],
      "layers": {
@@ -1724,11 +1730,6 @@
        "r:radius/inner",
        "r:radius/surface",
        "s:border/subtle",
-       "sw:border/width/default"
-      ],
-      "content": [
-       "r:radius/xs",
-       "s:border/default",
        "sw:border/width/default"
       ]
      },
@@ -2030,11 +2031,11 @@
      "id": "101:1011",
      "type": "SET",
      "status": "beta",
-     "descLen": 884,
+     "descLen": 1039,
      "descHeads": [
       "Status:",
       "Level:",
-      "Показатель над графиком:",
+      "Показатель:",
       "Когда использовать:",
       "Правила:",
       "A11y:"
@@ -2060,7 +2061,7 @@
       {
        "name": "Value",
        "type": "TEXT",
-       "def": "89.94 TH/s",
+       "def": "89.94",
        "bound": 4
       },
       {
@@ -2073,6 +2074,18 @@
        "name": "Icon · swap",
        "type": "INSTANCE_SWAP",
        "def": "icon/lightning",
+       "bound": 4
+      },
+      {
+       "name": "Unit",
+       "type": "TEXT",
+       "def": "TH/s",
+       "bound": 4
+      },
+      {
+       "name": "Show unit",
+       "type": "BOOLEAN",
+       "def": true,
        "bound": 4
       }
      ],
@@ -2115,6 +2128,13 @@
        "f:text/primary",
        "f:text/success",
        "f:text/warning",
+       "fontFamily:font/family/display",
+       "fontSize:type/heading/md/size",
+       "fontWeight:font-weight/bold",
+       "lineHeight:type/heading/md/line-height"
+      ],
+      "unit": [
+       "f:text/secondary",
        "fontFamily:font/family/display",
        "fontSize:type/heading/md/size",
        "fontWeight:font-weight/bold",
@@ -6784,7 +6804,7 @@
      "id": "65:82",
      "type": "SET",
      "status": "beta",
-     "descLen": 1200,
+     "descLen": 1411,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6794,7 +6814,8 @@
       "Expressive:",
       "Поиск:",
       "Legacy:",
-      "Expressive (привязано):"
+      "Expressive (привязано):",
+      "Badge (16."
      ],
      "inBoard": false,
      "axes": {
@@ -6850,10 +6871,17 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 12
+      },
+      {
+       "name": "Badge",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 6
       }
      ],
      "nested": {
       "(icons)": 12,
+      "Badge": 6,
       "Counter": 12
      },
      "minmax": [],
@@ -6887,6 +6915,14 @@
        "fontSize:type/label/lg/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/lg/line-height"
+      ],
+      "badge": [
+       "f:status/neutral/subtle",
+       "gap:space/4",
+       "h:size/badge-height/sm",
+       "maxw:size/badge/max",
+       "p:space/8",
+       "r:radius/sm"
       ],
       "counter": [
        "f:status/danger/solid",
@@ -7018,8 +7054,8 @@
       }
      ],
      "nested": {
-      "Promo card": 1,
-      "Nav item": 16
+      "Nav item": 16,
+      "Promo card": 1
      },
      "minmax": [],
      "layers": {
@@ -7054,14 +7090,6 @@
        "fontWeight:font-weight/bold",
        "lineHeight:type/heading/lg/line-height"
       ],
-      "promo": [
-       "f:surface/next",
-       "gap:space/8",
-       "p:space/16",
-       "r:radius/surface",
-       "s:border/subtle",
-       "sw:border/width/default"
-      ],
       "Nav": [
        "gap:space/4"
       ],
@@ -7079,6 +7107,14 @@
       ],
       "Rectangle": [
        "f:border/subtle"
+      ],
+      "promo": [
+       "f:surface/next",
+       "gap:space/8",
+       "p:space/16",
+       "r:radius/surface",
+       "s:border/subtle",
+       "sw:border/width/default"
       ],
       "Footer": [
        "gap:space/4"
@@ -8747,6 +8783,118 @@
   },
   {
    "level": "unknown",
+   "page": "Search",
+   "pageId": "2233:839",
+   "pageMark": "🟠",
+   "boards": [],
+   "boardMissing": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+   ],
+   "sets": [
+    {
+     "name": "Search",
+     "id": "2233:913",
+     "type": "SET",
+     "status": "draft",
+     "descLen": 770,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Search —",
+      "Когда использовать:",
+      "Доступность:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Size": [
+       "S",
+       "M"
+      ],
+      "State": [
+       "Default",
+       "Hover",
+       "Focus",
+       "Filled",
+       "Disabled"
+      ]
+     },
+     "variants": 10,
+     "full": 10,
+     "props": [
+      {
+       "name": "Text",
+       "type": "TEXT",
+       "def": "Поиск",
+       "bound": 10
+      }
+     ],
+     "nested": {
+      "(icons)": 10,
+      "Icon button": 2
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 10,
+     "raw": [
+      "(root):w=320"
+     ],
+     "tokens": {
+      "(root)": [
+       "f:surface/level-2",
+       "gap:space/8",
+       "h:control/height/md",
+       "h:control/height/sm",
+       "p:space/12",
+       "p:space/4",
+       "r:radius/control",
+       "s:border/focus",
+       "s:border/subtle",
+       "sw:border/width/default"
+      ],
+      "icon": [
+       "h:icon/size/md",
+       "w:icon/size/md"
+      ],
+      "text": [
+       "f:text/disabled",
+       "f:text/primary",
+       "f:text/tertiary",
+       "fontFamily:font/family/text",
+       "fontSize:type/body/md/size",
+       "fontSize:type/body/sm/size",
+       "lineHeight:type/body/md/line-height",
+       "lineHeight:type/body/sm/line-height"
+      ],
+      "clear": [
+       "gap:space/6",
+       "h:control/height/sm",
+       "r:radius/control-sm",
+       "w:control/height/sm"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
    "page": "Segment",
    "pageId": "1012:9",
    "pageMark": "🟡",
@@ -9026,13 +9174,8 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 12,
-     "raw": [
-      "(root):w=240",
-      "(root):w=280",
-      "(root):w=320",
-      "(root):w=360"
-     ],
+     "rawCount": 0,
+     "raw": [],
      "tokens": {
       "(root)": [
        "f:control/segment-track",
@@ -11731,7 +11874,7 @@
      "tokens": {
       "(root)": [
        "gap:space/8",
-       "h:size/table/row-lg",
+       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/12"
       ],
@@ -11893,12 +12036,13 @@
        "p:space/12"
       ],
       "label": [
-       "f:text/primary",
-       "f:text/tertiary",
+       "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/label/lg/size",
+       "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height"
+       "lineHeight:type/label/lg/line-height",
+       "lineHeight:type/label/md/line-height"
       ],
       "focus ring": [
        "s:border/focus-ring",
@@ -12036,50 +12180,50 @@
      "raw": [
       "hit area · web:w=856",
       "hit area · web:h=48",
-      "hit area · web:h=80"
+      "hit area · web:h=64"
      ],
      "tokens": {
       "(root)": [
        "f:accent/subtle",
-       "h:size/table/row-lg",
+       "h:size/row/lg",
        "h:size/table/row-sm",
        "p:space/8",
        "s:border/subtle"
       ],
       "cell · Дата": [
        "gap:space/8",
-       "h:size/table/row-lg",
+       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Монета": [
        "gap:space/sm",
        "gap:space/xs",
-       "h:size/table/row-lg",
+       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Сумма": [
        "gap:space/2xs",
-       "h:size/table/row-lg",
+       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Адрес": [
        "gap:space/8",
-       "h:size/table/row-lg",
+       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Статус": [
        "gap:space/8",
-       "h:size/table/row-lg",
+       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/12"
       ],
       "cell · ⋯": [
        "gap:space/8",
-       "h:size/table/row-lg",
+       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/xs"
       ],

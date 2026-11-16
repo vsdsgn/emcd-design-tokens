@@ -6,7 +6,7 @@
 ## 1. Identity
 - Набор: `Card`. Status: beta. Level: unknown.
 - Figma: Components, страница «Card» (`664:73890`), набор `664:73999`. Платформы: Web, Mobile web, iOS, Android.
-- Атом-шаблон: внутри один слот `content`. Заголовки, отступы между блоками и состав задают виджеты и организмы, которые кладут в Card содержимое.
+- Атом-шаблон: внутри один слот `Content` (SLOT, 16.11). Заголовки, отступы между блоками и состав задают виджеты и организмы, которые кладут в Card содержимое.
 
 ## 2. Intent
 - Контейнер-подложка: уровень поверхности, радиус, внутренний отступ и обводка. Своего содержимого нет.
@@ -20,8 +20,8 @@
 - Не делаем: тень; Level ради украшения, а не по вложенности; разные Padding в одной группе карточек; Level 0 на L0 без обводки.
 
 ## 3. Anatomy
-- Корень: заливка `surface/level-0…3` (по Level), радиус `radius/surface` | `radius/container` | `radius/inner`, отступ `space/12` | `space/16` | `space/24`; обводка `border/subtle` (`border/width/default`) при Border = On — вне раскладки: размер и положение `content` не меняются.
-- Слот `content` — заглушка (пунктир `border/default`, `radius/xs`), заменяется содержимым.
+- Корень: заливка `surface/level-0…3` (по Level), радиус `radius/surface` | `radius/container` | `radius/inner`, отступ `space/12` | `space/16` | `space/24`; обводка `border/subtle` (`border/width/default`) при Border = On — вне раскладки: размер и положение `Content` не меняются.
+- Слот `Content` (SLOT): вертикальный стек, Fill по ширине, высота по содержимому; пустой — заглушка Figma. Содержимое — любые компоненты DS.
 - Служебные слои (вариантов из 72): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -40,6 +40,12 @@
 
 Матрица полная: 72 вариантов.
 
+Свойства:
+
+| Свойство | Тип | По умолчанию | Привязано в вариантах |
+|---|---|---|---|
+| Content | слот | — | 72 из 72 |
+
 ## 6. Content / slots
 - Текста у карточки нет — длинный текст, перенос и усечение задаёт содержимое слота. Языки на стенде (de, ar, hi, th, ja, kk) раскладку не меняют.
 - RTL: зеркалится содержимое слота; у самой карточки отступы и радиусы симметричны.
@@ -57,7 +63,6 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `surface/level-0`, `surface/level-1`, `surface/level-2`, `surface/level-3`; отступы `space/12`, `space/16`, `space/24`; радиус `radius/container`, `radius/inner`, `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
-- `content`: радиус `radius/xs`; обводка `border/default`; толщина обводки `border/width/default`.
 - Значений без переменной: 72 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -66,13 +71,13 @@
 ## 12. Figma projection
 - Набор `Card`, вариантов 72 из 72; оси: Level, Radius, Padding, Border.
 - Борда: «Card — борда · шаблон v3», разделов 11.
-- Описание: 1526 знаков, разделы: Status: Level: Card — Атом-шаблон: Level — Когда использовать: Правила: Legacy: A11y:
+- Описание: 1540 знаков, разделы: Status: Level: Card — Атом-шаблон: Level — Когда использовать: Правила: Legacy: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsCard>`; Flutter: `DsCard`.
-- Props: `level`: 1 | 2 | 3 | 0; `radius`: container | surface | inner; `padding`: s | m | l; `border`: boolean.
+- Props: `level`: 1 | 2 | 3 | 0; `radius`: container | surface | inner; `padding`: s | m | l; `border`: boolean; `content`: string или слот.
 
 ## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.

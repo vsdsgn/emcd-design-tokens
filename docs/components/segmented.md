@@ -19,6 +19,7 @@
   - Только иконки — Show label = off у вложенных Segment, обязательно `aria-label`.
   - Ставится на L1 и L2: подложка полупрозрачная.
   - Период графика (24 ч · 7 д · 30 д) — Segmented S в шапке Chart card; не отдельные Button и не тулбар страницы (решение 2026-11-16).
+  - Ширина — по содержимому (сегменты Hug, 16.11; было фиксированно 240–360); на всю ширину контейнера — Fill у экземпляра (мобильные формы).
 - Не делаем: больше 4 сегментов; длинные подписи; сегменты разной ширины; навигация между разделами экрана.
 
 ## 3. Anatomy
@@ -73,7 +74,6 @@
 - `segment 2`: интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `segment 3`: интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `segment 4`: интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
-- Значений без переменной: 12 (напр. `(root):w=240`, `(root):w=280`, `(root):w=320`, `(root):w=360`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.

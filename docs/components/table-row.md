@@ -13,11 +13,12 @@
 - Когда использовать: строка данных в Table на Web.
 - Когда нет: Compact — List item; пара «название — значение» — Key-value row.
 - Правило выбора варианта:
-  - Density: Compact 48 (`size/table/row-sm`) — одна строка в ячейке, плотные списки; Regular 80 (`size/table/row-lg`) — две строки и медиа. В одной таблице одна плотность.
+  - Density: Compact 48 (`size/table/row-sm`) — одна строка в ячейке, плотные списки; Regular 64 (`size/row/lg`, 16.11 — по продукту Web App «Воркеры», было 80) — две строки и медиа. В одной таблице одна плотность.
   - State: Hover — только если строка открывает детали (Side panel); Pressed — нажатие на кликабельную строку.
   - Selected=On — строка выбрана (массовые действия, открыта в Side panel); у выбранной есть Hover / Pressed.
   - Колонки: одна колонка — одно выравнивание и один тип содержимого; текст и даты — у начала, числа и суммы — у конца; действия (Icon button Ghost S, «⋯» → Menu) — последней колонкой.
   - Ячейки — только экземпляры Table cell; содержимое — в слоте Content (текст или атом DS, правила — `table-cell.md`); ширины колонок задаются в макете.
+  - Действия строки — Icon button Tertiary S в последней колонке (16.11, по продукту: кнопки на подложке; было Ghost).
 - Не делаем: две плотности в одной таблице; Hover у строки, которая ничего не открывает; произвольная вёрстка вместо Table cell и атома DS в слоте; действия не в последней колонке.
 
 ## 3. Anatomy
@@ -58,7 +59,7 @@
 ## 6. Content / slots
 - Содержимое — у ячеек, по их правилам; ширина колонки фиксирована, текст ячейки не выходит за колонку.
 - Длинный текст и языки: текст в ячейке — одна строка, усечение многоточием по ширине колонки (у End — выравнивание вправо); сумма (Amount) не усекается (ширина колонки — по самой длинной сумме); Status — одна строка с многоточием.
-- Текст 200 %: высота строки 48 / 80 не растёт; текст усекается в пределах своей колонки, без наложения на соседние.
+- Текст 200 %: высота строки 48 / 64 не растёт; текст усекается в пределах своей колонки, без наложения на соседние.
 - RTL: порядок колонок зеркалится, текст и даты — у начала, числа — у конца; цифры, адреса и тикеры не зеркалятся.
 
 ## 7. Events
@@ -75,18 +76,18 @@
 - Выбор — чекбокс в первой колонке с `aria-label`.
 - Клавиатура: Tab — по интерактивным ячейкам и строкам, Enter — открыть детали.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо — внутреннее, чтобы не наезжать на соседние строки.
-- Зона нажатия — вся строка: 48 / 80 (слои `hit area · web` / `hit area · app`, проверка — Show hit area); безопасное поле — `control/safe-margin`.
+- Зона нажатия — вся строка: 48 / 64 (слои `hit area · web` / `hit area · app`, проверка — Show hit area); безопасное поле — `control/safe-margin`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`; высота `size/table/row-lg`, `size/table/row-sm`; отступы `space/8`; обводка `border/subtle`.
-- `cell · Дата`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Монета`: интервал `space/sm`, `space/xs`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Сумма`: интервал `space/2xs`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Адрес`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Статус`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
-- `cell · ⋯`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/xs`.
+- `корень`: заливка / цвет `accent/subtle`; высота `size/row/lg`, `size/table/row-sm`; отступы `space/8`; обводка `border/subtle`.
+- `cell · Дата`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Монета`: интервал `space/sm`, `space/xs`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Сумма`: интервал `space/2xs`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Адрес`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Статус`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `cell · ⋯`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/xs`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`.
-- Значений без переменной: 24 (напр. `hit area · web:w=856`, `hit area · web:h=48`, `hit area · web:h=80`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 24 (напр. `hit area · web:w=856`, `hit area · web:h=48`, `hit area · web:h=64`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Только Web: строка данных в Table; на Compact — List item.
@@ -112,4 +113,4 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; строка 856 шире ячейки стенда — колонки Статус и «⋯» видны только на 200 % в Light; усечение в ячейках после правок стендом в строке не перепроверено; RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- DS Web `.table / raw` → Table row: Density Compact 48 | Regular 80 (Regular — как legacy-ячейки 80), Selected Off | On, State Default | Hover | Pressed; ячейки — Table cell со слотом Content (14 наборов `Table cell / *` слиты 2026-11-15).
+- DS Web `.table / raw` → Table row: Density Compact 48 | Regular 64 (Web App «Воркеры» — 66), Selected Off | On, State Default | Hover | Pressed; ячейки — Table cell со слотом Content (14 наборов `Table cell / *` слиты 2026-11-15).

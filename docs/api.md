@@ -159,6 +159,7 @@
 | `radius` | container \| surface \| inner | по правилу контракта | ось Radius |
 | `padding` | s \| m \| l | по правилу контракта | ось Padding |
 | `border` | on \| off | по правилу контракта | ось Border |
+| `content` | slot | — | свойство Content |
 
 ## Chart card
 
@@ -195,6 +196,8 @@
 | `label` | string | — | свойство Label |
 | `value` | string | — | свойство Value |
 | `icon` | boolean | false | свойство Icon |
+| `unit` | string | — | свойство Unit |
+| `showUnit` | boolean | true | свойство Show unit |
 
 Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
 
@@ -688,6 +691,7 @@ Props нет.
 | `selected` | off \| on | по правилу контракта | ось Selected |
 | `label` | string | — | свойство Label |
 | `counter` | boolean | false | свойство Counter |
+| `badge` | boolean | false | свойство Badge |
 
 Состояния в Figma: Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 

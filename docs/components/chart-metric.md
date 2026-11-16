@@ -15,6 +15,7 @@
   - Tone отражает смысл значения, а не оценку: Default — значение в норме; Danger — вне нормы, критично («Отключен»); Warning — вне нормы, требует внимания (реджекты выше нормы); Success — подтверждённо хорошее значение.
   - Icon: Off — по умолчанию; On — иконка слева от значения (Icon · swap — иконка из `icon/*`), цвет — как у значения по Tone (`text/primary`, `text/danger`, `text/warning`, `text/success`; 2026-11-16).
   - Value — число до 228 по ширине, длиннее — формат K / M / T; единицы отделяются тонким пробелом.
+  - Unit (16.11): единица отдельным текстом `text/secondary` того же кегля, по базовой линии (TH/s, %); Show unit = Off — единица уже в значении или не нужна. Ряд показателей в карточке — Chart metric через Divider Vertical (сводка «Воркеры»).
 - Не делаем: длинное число без формата K / M / T; цвет как единственный носитель тона.
 
 ## 3. Anatomy
@@ -41,9 +42,11 @@
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
 | Label | текст | «Текущий хешрейт» | 4 из 4 |
-| Value | текст | «89.94 TH/s» | 4 из 4 |
+| Value | текст | «89.94» | 4 из 4 |
 | Icon | булево | выкл | 4 из 4 |
 | Icon · swap | замена экземпляра | `icon/lightning` | 4 из 4 |
+| Unit | текст | «TH/s» | 4 из 4 |
+| Show unit | булево | вкл | 4 из 4 |
 
 ## 6. Content / slots
 - Label — короткое название показателя: одна строка, max-width 228, усечение многоточием; полный текст — в `title` / тултипе.
@@ -68,6 +71,7 @@
 - `value row`: интервал `space/4`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `value`: заливка / цвет `text/danger`, `text/primary`, `text/success`, `text/warning`; типографика `font-weight/bold`, `font/family/display`, `type/heading/md`.
+- `unit`: заливка / цвет `text/secondary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/md`.
 - Min / max корня: maxWidth 240 size/chart-metric/max.
 
 ## 11. Platforms
@@ -76,13 +80,13 @@
 ## 12. Figma projection
 - Набор `Chart metric`, вариантов 4 из 4; оси: Tone.
 - Борда: «Chart metric — борда · шаблон v3», разделов 11.
-- Описание: 884 знаков, разделы: Status: Level: Показатель над графиком: Когда использовать: Правила: A11y:
+- Описание: 1039 знаков, разделы: Status: Level: Показатель: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsChartMetric>`; Flutter: `DsChartMetric`.
-- Props: `tone`: default | danger | warning | success; `label`: string или слот; `value`: string или слот; `icon`: boolean = false.
+- Props: `tone`: default | danger | warning | success; `label`: string или слот; `value`: string или слот; `icon`: boolean = false; `unit`: string или слот; `showUnit`: boolean = true.
 
 ## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.

@@ -23,7 +23,7 @@
 - Не делаем: перенос текста на несколько строк; разное выравнивание или разные типы содержимого в одной колонке; действия не в последней колонке; произвольная вёрстка в слоте вместо атома DS.
 
 ## 3. Anatomy
-- Корень — высота `size/table/row-lg`, отступы `space/12`, зазор `space/8`, min-width `size/table-cell/min` (80).
+- Корень — высота `size/row/lg` (64, с 16.11; было `size/table/row-lg` 80), отступы `space/12`, зазор `space/8`, min-width `size/table-cell/min` (80).
 - Слот `Content`: по умолчанию `primary` — `text/primary`, `type/label/lg`, `font-weight/medium`; `secondary` — `text/secondary`, тот же кегль; обе строки — Fill, одна строка.
 - `skeleton` — полоса `skeleton/base`, `radius/chip` (State=Skeleton).
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
@@ -68,7 +68,7 @@
 - Атом в слоте — со своей доступностью (Icon button — `aria-label`, Toggle — `role="switch"`); Tab — по интерактивным ячейкам строки.
 
 ## 10. Tokens
-- `корень`: интервал `space/8`; высота `size/table/row-lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `корень`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `primary`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `secondary`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.

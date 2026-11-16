@@ -17,6 +17,7 @@
   - Icon · swap — обязательна, одна стилистика (Icons). Label — одно-два слова.
   - Counter — только для того, что требует действия (Danger), не для количества.
   - 5–8 пунктов верхнего уровня.
+  - Badge (16.11): метка справа от подписи — акция, условие, «Новое» («0% Комиссия», «14% APY»); Badge S, тон и текст — у вложенного экземпляра; только Collapsed=Off. Число — Counter, не Badge; Badge и Counter вместе не включаем.
 - Не делаем: пункт без иконки; два выбранных пункта; Counter как счётчик количества; развёрнутые и свёрнутые пункты в одном сайдбаре.
 
 ## 3. Anatomy
@@ -25,7 +26,7 @@
 - Selected=On: плашка `action/secondary/default` (нейтральная, без тинта бренда) + `indicator` слева — `border/accent`, 2 × 20 (`size/tab-indicator/sm` × `icon/size/md`).
 - `accent glow` — свечение за иконкой у Selected (`light/accent/color`, блюр `light/accent/blur`), только в Expressive (`decor/light`).
 - Служебные: `state layer`, `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer`.
-- Вложено: иконки ×12, `Counter` ×12.
+- Вложено: иконки ×12, `Badge` ×6, `Counter` ×12.
 - Служебные слои (вариантов из 12): кольцо фокуса 12 · зона Web 12 · зона касания 12 · безопасное поле 12.
 
 ## 4. States
@@ -55,6 +56,7 @@
 | Focus ring | булево | выкл | 12 из 12 · служебное |
 | Show hit area | булево | выкл | 12 из 12 · служебное |
 | Safe margin | булево | выкл | 12 из 12 · служебное |
+| Badge | булево | выкл | 6 из 12 |
 
 ## 6. Content / slots
 - Label — одно-два слова. Длинный текст: одна строка, усечение многоточием; ширина пункта от текста не растёт (218).
@@ -79,6 +81,7 @@
 ## 10. Tokens
 - `корень`: заливка / цвет `action/secondary/default`; интервал `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
 - `label`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
+- `badge`: заливка / цвет `status/neutral/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/sm`.
 - `counter`: заливка / цвет `status/danger/solid`; maxw `size/counter/max`; minh `size/counter-height/sm`; мин. ширина `size/counter-height/sm`; отступы `space/2xs`; радиус `radius/full`.
 - `indicator`: заливка / цвет `border/accent`; высота `icon/size/md`; радиус `radius/full`; ширина `size/tab-indicator/sm`.
 - `accent glow`: эффект `light/accent/blur`; заливка / цвет `light/accent/color`; видимость `decor/light`.
@@ -92,13 +95,13 @@
 ## 12. Figma projection
 - Набор `Nav item`, вариантов 12 из 12; оси: Collapsed, Selected, State.
 - Борда: «Nav item — борда · шаблон v3», разделов 12.
-- Описание: 1200 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
+- Описание: 1411 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано): Badge (16.
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsNavItem>`; Flutter: `DsNavItem`.
-- Props: `collapsed`: boolean; `selected`: boolean; `label`: string или слот; `counter`: boolean = false.
+- Props: `collapsed`: boolean; `selected`: boolean; `label`: string или слот; `counter`: boolean = false; `badge`: boolean = false.
 - Состояния (Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
 ## 14. Acceptance (2026-11-16)

@@ -17,6 +17,7 @@
   - Все Nav item в сайдбаре — в одном значении Collapsed с корнем; Selected — ровно один пункт.
   - Promo: On — промо-карточка (Promo card) в развёрнутом сайдбаре; при Collapsed=On промо нет.
   - Header — логотип продукта / бренда (WL подставляет свой), опционально виджет баланса; Footer — настройки, профиль / аккаунт.
+  - Порядок (16.11, по продукту Web App): Header → Nav → Promo card → Footer; промо стоит над профилем, Nav занимает оставшуюся высоту.
 - Не делаем: сайдбар на Compact; развёрнутые и свёрнутые пункты в одном сайдбаре; два выбранных пункта; сайдбар на подложке L1–L3 (он сам — L1 на `bg/base`).
 
 ## 3. Anatomy
@@ -26,7 +27,7 @@
 - `promo` — Promo card: `surface/next`, `radius/surface`, отступ `space/16`, обводка `border/subtle` × `border/width/default`.
 - Nav (зазор `space/4`): Nav item (`size/row/compact`, `radius/control`); `divider` — линия `border/subtle` между группами.
 - Footer (зазор `space/4`): Nav item настроек и профиля, прижаты к низу.
-- Вложено: `Promo card` ×1, `Nav item` ×16.
+- Вложено: `Nav item` ×16, `Promo card` ×1.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -83,11 +84,11 @@
 - `корень`: эффект `material/regular/blur`; заливка / цвет `material/regular/fill`; интервал `space/8`; отступы `space/12`; радиус `radius/container`; обводка `edge/hairline`; ширина `size/sidebar/collapsed`, `size/sidebar/expanded`.
 - `Header`: отступы `space/12`.
 - `logo (placeholder)`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
-- `promo`: заливка / цвет `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `Nav`: интервал `space/4`.
 - `Nav item`: заливка / цвет `action/secondary/default`; интервал `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
 - `divider`: отступы `space/6`, `space/8`.
 - `Rectangle`: заливка / цвет `border/subtle`.
+- `promo`: заливка / цвет `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `Footer`: интервал `space/4`.
 - Значений без переменной: 2 (напр. `(root):h=800`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
