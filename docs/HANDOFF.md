@@ -66,7 +66,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 ## 16.11 (после Publish 9 токенов)
 
 - Привязано: `surface/accent` — Tooltip / `_Tooltip arrow` / Tooltip tour Accent, точка Notification; `surface/inverse` — Toast Informer Neutral; `size/overlap/*` — Avatar group, Coin stack (M −7 → −8); `size/sidebar/*` — Sidebar; `size/menu/max-height` — Menu `Items`; Avatar корень — `size/media/*`.
-- Info = бренд («ок» 16.11): в Foundations `status/info/*`, `text/info`, `icon/info` → алиасы accent (**ждёт Publish Стефана**; в репо `export-2.json` уже так). Suggest и Badge — тон Info удалён (MAJOR, 16 экземпляров → Accent).
+- Info = бренд («ок» 16.11): в Foundations `status/info/*`, `text/info`, `icon/info` → алиасы accent — **опубликовано, Components обновлён и опубликован 16.11** (проверено: Toast Info → `accent/solid`). Suggest и Badge — тон Info удалён (MAJOR, 16 экземпляров → Accent).
 - Манифест D13 / D14, 11 борд пересобраны; todo 43 → 34; проверки чистые.
 
 - **Код и Claude DS (16.11):** `packages/react` (React 18, без JSX) и `packages/vue` (Vue 3 SFC) — пилот 10 наборов (Button, Icon button, Badge, Chip, Checkbox, Radio + group, Toggle, Input, Textarea, Modal); общий CSS `packages/styles/components.css`; `npm run code`. Проверено: SSR React и Vue + Chromium Light / Dark, клики, indeterminate, счётчик, Esc. **Claude DS синхронизирован 2026-11-16 (v65, 65bc243):** `components/bundle.js` (window.EMCD), `index.d.ts`, libraries react / react-dom 18, Info = бренд, Badge без Info, строка «Код» в README компонентов.
