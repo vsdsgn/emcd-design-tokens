@@ -114,6 +114,3 @@
 
 ## 15. Migration
 - DS Web Dropdown wrapper: Default → Content=List; Scroll → список с max-height `size/dropdown-panel/max-height`; With divider → линия Tabs (`border/subtle`); Not found → Content=Empty.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 480 — числом: токен или правило ширины.

@@ -95,6 +95,3 @@
 - DS Web `base badge / {neutral|brand|danger|success|warning} --1.5` → Tone Neutral | Accent | Danger | Success | Warning. MAJOR 2026-11-16: тон Info удалён (Info = цвет бренда) — экземпляры Info → Accent.
 - size lg | md | sm → Size L | M | S; style tinted | filled → Style Subtle | Solid; state skeleton → State=Skeleton.
 - var `text eraseble` → Chip с Remove; `next` → Chip с Trailing icon; `text counter` → Counter; `coin` → Icon + Icon · swap (монеты — в Symbols).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- max-width подписи 112 — числом (вложенный слой).

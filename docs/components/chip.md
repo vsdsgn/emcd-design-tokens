@@ -109,6 +109,3 @@
 - DS Web `baseChip / base --1.5`: size md | sm → Size M | S (44 → 40, 36 → 32); active → Selected; state + disable → State.
 - subtext → Meta; focus → Focus ring; `baseChip / vertical` — не переносим.
 - Строка csv «Layout=Vertical» устарела: раскладка убрана 2026-10-18.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- max-width подписи 192 — числом (вложенный слой).

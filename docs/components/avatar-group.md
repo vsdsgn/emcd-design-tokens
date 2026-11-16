@@ -84,6 +84,3 @@
 
 ## 15. Migration
 - DS Web base avatar / group line (size, more, RTL) → Avatar group: size → Size, more → More; RTL — в коде, направление по `dir`.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- В вариантах 4 аватара: правило «до 5» в наборе не показано.

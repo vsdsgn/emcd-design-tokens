@@ -84,6 +84,3 @@
 
 ## 15. Migration
 - DS Web: status dots в таблицах воркеров → Status; Tone Success | Warning | Danger | Info | Neutral, Size S | M; подпись обязательна.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- max-width подписи 240 — числом (вложенный слой).

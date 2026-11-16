@@ -60,6 +60,7 @@
 - Label, Value, Show value — у всех, кроме Skeleton; Focus ring, Show hit area, Safe margin — у всех четырёх.
 
 ## 6. Content / slots
+- RTL: зазор между маркером и подписью — логическим свойством (`gap`, `margin-inline`), многоточие — у конца строки; стенд направление не переключает (2026-11-16).
 - Label — название серии, обязательно; Value — значение с единицей («124.5 TH/s»).
 - Длинный текст: одна строка, многоточие; подпись ≤ 148, корень ≤ `size/legend-item/max` (160).
 - Языки (стенд): de, th, kk усекаются многоточием, hi, ja помещаются, обрезки по высоте нет.
@@ -113,6 +114,3 @@
 
 ## 15. Migration
 - DS Web widget Graph `.legends` (state=default | hover | active | skeleton) → State Default | Hover | Skeleton, active → Selected=On; маркер — вложенный Legend swatch (Marker, Series); значение — Show value + Value.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- ar: многоточие усечённой подписи вплотную к маркеру — проверить в RTL-раскладке.

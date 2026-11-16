@@ -105,6 +105,3 @@
 ## 15. Migration
 - DS Web `base tab item`, `tab item`: size desktop | mobile → Size L | M (60 → 56, 44 → 48); selected → Selected; state skeleton | default | hover | pressed | disabled → State; focus → Focus ring; counter badge → Counter.
 - `widget Navigation header / .tab` → Size XL / M; `.tabs` в bar widget (30) → Size S (32).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- max-width подписи 240 — числом (вложенный слой).

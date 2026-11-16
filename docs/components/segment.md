@@ -100,6 +100,3 @@
 
 ## 15. Migration
 - DS Web `base segmented picker item / text | icon only`: status | color neutral | brand → Tone Neutral | Accent (danger | success — MAJOR: тонов нет с 2026-11-15, → Neutral); size lg | sm → Size XL | M; active → Selected; icon only → Show label=false.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- max-width подписи 200 — числом (вложенный слой).

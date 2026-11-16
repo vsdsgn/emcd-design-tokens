@@ -13,6 +13,7 @@
 - Когда использовать: заголовок страницы на Web с действиями справа; заголовок под Top bar на корневых экранах App / мобильного веба.
 - Когда нет: вложенный экран на Compact — Top bar; описание раздела — текст в контенте, не подзаголовок.
 - Правило выбора варианта:
+  - Compact: Show actions по умолчанию On (свойство общее для Size); на корневых экранах App действия — в Top bar, в экземпляре Show actions = Off.
   - Size: Large — Web (Large+), Heading/XL, действия справа (до двух: Secondary M + Primary M); Compact — под Top bar на корневых экранах App / мобильного веба, Heading/LG, действия — в Top bar; если действие нужно на экране — ряд под заголовком (Show actions), кнопки переносятся.
   - Breadcrumbs: On — только на вложенных страницах Web (2+ уровня); иначе Off.
   - Show tabs: On — табы разделов; в слоте Tabs — Tabs того же размера, что шапка (L / M); табы — последним элементом, контент сразу под ними.
@@ -113,6 +114,3 @@
 
 ## 15. Migration
 - DS Web widget Navigation header → Page header (Size Large / Compact; Breadcrumbs, Show subtitle, Show actions, Show tabs; слоты Actions, Tabs).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Compact: Show actions = On по умолчанию (свойство общее для Size); на корневых экранах App действия чаще в Top bar — выключать в экземпляре.

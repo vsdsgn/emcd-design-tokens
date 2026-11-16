@@ -83,6 +83,3 @@
 
 ## 15. Migration
 - DS Web `Card`, `Surface` → Card (Level, Radius, Padding, Border); DS App — нет. Радиусы и отступы сверить с DS Web.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Level 0 — только на L0 (на L1+ — Level 1–3); правило решения 2026-11-15.

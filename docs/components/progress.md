@@ -62,6 +62,7 @@
 - Неопределённый режим — бегущий отрезок 1.5 с; «Уменьшить движение» — статичный.
 
 ## 9. Accessibility
+- Контраст заливки с дорожкой в Dark ниже 3:1 у всех тонов, кроме Warning (Success 2.5 / Accent 2.7 / Danger 2.7 на L0, на L3 — 1.7–1.9; замер 2026-11-16), с поверхностью ≥ 3:1 (Success на L3 — 2.9). Поэтому значение всегда дублируется текстом (подпись процента или `aria-valuenow` + видимый итог) — WCAG 1.4.11 выполняется через текст; Success на L3 не ставить.
 - `role="progressbar"`, `aria-valuenow` / `aria-valuemin` / `aria-valuemax`, `aria-label` = Label.
 - Тон не единственный носитель смысла: значение стоит текстом в `label row`; при Show label = Off текст даёт родитель.
 
@@ -97,6 +98,3 @@
 
 ## 15. Migration
 - DS App `Progress` → Progress (линейный); DS Web — нет. Tone, Size, Label, Value, Show label — по набору 2.0; высоту дорожки и подписи сверить с DS App.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Dark: `status/success/solid` на `control/track` читается хуже остальных тонов (S) — проверить контраст.

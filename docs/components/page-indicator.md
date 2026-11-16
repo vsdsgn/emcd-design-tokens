@@ -78,6 +78,3 @@
 
 ## 15. Migration
 - DS Web `base carousel indicator` → Page indicator: Count 2–5, Selected 1–5.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина выбранной точки 16 — числом (во вложенном `_Page dot`).
