@@ -97,6 +97,3 @@
 
 ## 15. Migration
 - DS App: нижняя навигация, active → Selected Off | On; Badge dot и Focus ring — новые.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Радиус `state layer` 12 — на переменную.

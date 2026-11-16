@@ -4,6 +4,9 @@
 
 ## 2026-11-16
 
+- **По рекомендациям:** Step symbol Bullet · Default и Step trail Default — `border/strong` (видны в Dark на L0). **Step trail — MAJOR:** ось Border удалена (Default — пунктир, Current / Success — сплошная). **Circle timer:** Progress=0. **Progress:** ось Mode (Indeterminate — только Accent, 10 из 16). **Coin:** XS · Network=On удалены (18 из 20). **Toast:** Card Neutral без иконки. **Suggest:** основная кнопка Primary на Info / Success / Warning / Danger. **Chart metric:** иконка в цвет значения. **Tab bar item:** радиус слоя состояния — `radius/control`.
+- **Foundations (ждут Publish):** `size/sidebar/expanded` 240, `size/sidebar/collapsed` 72, `size/menu/max-height` 320, `size/overlap/xs|sm|md|lg` −4 / −6 / −8 / −10.
+
 - **Address:** свойство Show QR (On — только адреса пополнения). **Password field:** свойство Show requirements (Off — вход). Минор: новые свойства, макеты не ломаются.
 - **Spinner M:** дорожка на `icon/size/control`, как корень. **Table row:** варианты разложены сеткой Density × Selected × State.
 - **Toast:** Informer — заголовок всегда виден (Show title только у Card); Card max-width `size/toast/max`. **Notification:** min-width `size/toast/min`.

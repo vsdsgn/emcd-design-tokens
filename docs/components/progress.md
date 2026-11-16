@@ -16,12 +16,13 @@
   - Tone: Accent — нейтральный прогресс; Success — цель достигнута; Warning — близко к лимиту (≥ 80 %); Danger — лимит превышен.
   - Ширина `fill` = доля (в макете растянуть слой `fill`; constraints Scale).
   - Show label: On — подпись слева и значение справа над дорожкой; Off — только дорожка, когда подпись и значение уже есть у родителя.
+  - Mode: Determinate — доля известна; Indeterminate — доля неизвестна: отрезок 40 % бежит по дорожке, значения нет; только Tone=Accent (матрица 10 из 16; добавлено 2026-11-16).
 
 ## 3. Anatomy
 - Корень — вертикальный стек, зазор `space/8`.
 - `label row` (`space/8`): `label` (`text/primary`, `type/label/md`, `font-weight/medium`) слева, `value` (`text/secondary`, `font/family/mono`, `type/body/md`) справа.
 - `track` — дорожка `control/track`, высота `size/track/sm` (S) / `size/track/md` (M), `radius/chip`; `fill` — заполнение той же высоты: Accent — `control/checked`, остальные — `status/{success|warning|danger}/solid`.
-- Служебные слои (вариантов из 8): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
@@ -34,16 +35,17 @@
 |---|---|---|
 | Size | S · M | S |
 | Tone | Accent · Success · Warning · Danger | Accent |
+| Mode | Determinate · Indeterminate | — |
 
-Матрица полная: 8 вариантов.
+Матрица: 10 из 16.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «Лимит вывода» | 8 из 8 |
-| Value | текст | «6 000 / 10 000 USDT» | 8 из 8 |
-| Show label | булево | вкл | 8 из 8 |
+| Label | текст | «Лимит вывода» | 8 из 10 |
+| Value | текст | «6 000 / 10 000 USDT» | 8 из 10 |
+| Show label | булево | вкл | 8 из 10 |
 
 ## 6. Content / slots
 - Label — что измеряем («Лимит вывода»); Value — «сколько из скольких» с единицей («6 000 / 10 000 USDT»).
@@ -70,13 +72,13 @@
 - `value`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/mono`, `type/body/md`.
 - `track`: заливка / цвет `control/track`; высота `size/track/md`, `size/track/sm`; радиус `radius/chip`.
 - `fill`: заливка / цвет `control/checked`, `status/danger/solid`, `status/success/solid`, `status/warning/solid`; высота `size/track/md`, `size/track/sm`; радиус `radius/chip`.
-- Значений без переменной: 8 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 10 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Progress`, вариантов 8 из 8; оси: Size, Tone.
+- Набор `Progress`, вариантов 10 из 16; оси: Size, Tone, Mode.
 - Борда: «Progress — борда · шаблон v3», разделов 11.
 - Описание: 922 знаков, разделы: Status: Level: Progress: Когда использовать: Правила: A11y: Поиск: Legacy: Motion:
 
@@ -84,7 +86,7 @@
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsProgress>`; Flutter: `DsProgress`.
-- Props: `size`: s | m; `tone`: accent | success | warning | danger; `label`: string или слот; `value`: string или слот; `showLabel`: boolean = true.
+- Props: `size`: s | m; `tone`: accent | success | warning | danger; `mode`: determinate | indeterminate; `label`: string или слот; `value`: string или слот; `showLabel`: boolean = true.
 
 ## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
@@ -97,5 +99,4 @@
 - DS App `Progress` → Progress (линейный); DS Web — нет. Tone, Size, Label, Value, Show label — по набору 2.0; высоту дорожки и подписи сверить с DS App.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Неопределённый режим есть в Motion описания, варианта нет — на решение.
 - Dark: `status/success/solid` на `control/track` читается хуже остальных тонов (S) — проверить контраст.

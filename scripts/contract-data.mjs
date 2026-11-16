@@ -126,7 +126,7 @@ export const DATA = [
     figma: ['Заменён на месте 2026-11-13: набор собран от базы `_Selection control` (`selection-control.md`), ид. набора и экземпляры в продуктах сохранены.', 'Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.'],
     accept: { audit: OK, vc: '`maxWidth 436 @label` числом в базе — ждёт токена `size/*`', ap: '0 (2026-11-13)' },
     migration: ['DS Web `baseCheckbox with text`: status default | active | intermediate → Status Off | On | Indeterminate.', 'disable → State=Disabled; danger → Tone=Danger; size md | sm → Size M | S; secondary не переносим; цвета → `control/*`.'],
-    todo: ['max-width подписи 436 в базе — токен `size/*` (публикует Стефан).', 'Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.'],
+    todo: ['Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.'],
   },
   {
     name: 'Chip',
@@ -187,7 +187,7 @@ export const DATA = [
     figma: ['Заменён на месте 2026-11-13: набор собран от базы `_Selection control` (`selection-control.md`), ид. набора и экземпляры в продуктах сохранены.', 'Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.'],
     accept: { audit: OK, vc: '`maxWidth 436 @label` числом в базе — ждёт токена `size/*`', ap: '0 (2026-11-13)' },
     migration: ['DS Web `baseRadio with text`: active → Status Off | On; disable → State=Disabled; danger → Tone=Danger; secondary не переносим.'],
-    todo: ['max-width подписи 436 в базе — токен `size/*` (публикует Стефан).', 'Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.'],
+    todo: ['Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.'],
   },
   {
     name: 'Segment',
@@ -265,7 +265,7 @@ export const DATA = [
     figma: ['Заменён на месте 2026-11-13: набор собран от базы `_Selection control` (`selection-control.md`), ид. набора и экземпляры в продуктах сохранены.', 'Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.'],
     accept: { audit: OK, vc: '`maxWidth 436 @label` числом в базе — ждёт токена `size/*`', ap: '0 (2026-11-13)' },
     migration: ['DS Web `baseToggle with text`: active → Status Off | On; disable → State=Disabled; size md | sm → Size M | S; danger не переносим (ошибка → откат + Toast).'],
-    todo: ['max-width подписи 436 в базе — токен `size/*` (публикует Стефан).', 'Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.'],
+    todo: ['Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.'],
   },
   {
     name: 'Tab bar item',
@@ -287,7 +287,7 @@ export const DATA = [
     platforms: ['Только касание: iOS, Android, Mobile web. На Web (Large) навигация — Sidebar.', 'Нижний отступ safe area — у Tab bar, не у пункта.'],
     accept: { audit: '`raw radius 12 @state layer` — радиус слоя состояния числом', vc: '`maxWidth 72 @label` числом', ap: '0 (2026-11-13)' },
     migration: ['DS App: нижняя навигация, active → Selected Off | On; Badge dot и Focus ring — новые.'],
-    todo: ['Радиус `state layer` 12 — на переменную.'],
+    todo: [],
   },
   {
     name: 'Amount',
@@ -357,7 +357,7 @@ export const DATA = [
     dont: 'загрузка без срока — Spinner; прогресс выполнения — Progress.',
     rule: [
       'Size: S 16 (`icon/size/sm`) — в строке с текстом (повторная отправка кода); M 24 (`icon/size/lg`) — в Toast, на месте иконки.',
-      'Progress: 100 / 75 / 50 / 25 — доля оставшегося времени; в макете — ближайший кадр, в коде значение непрерывное от 100 до 0.',
+      'Progress: 100 / 75 / 50 / 25 / 0 — доля оставшегося времени (0 — отсчёт закончен, пустой трек; добавлен 2026-11-16); в макете — ближайший кадр, в коде значение непрерывное от 100 до 0.',
     ],
     anatomy: [
       '`track` — полное кольцо, обводка `control/track`, `border/width/strong`; размер — по корню (`icon/size/sm` | `icon/size/lg`).',
@@ -377,7 +377,7 @@ export const DATA = [
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текстовых и булевых свойств у набора нет — текстовые ячейки совпадают с умолчанием; кода нет — parity props пропущена' },
     migration: ['DS Web Toast / Circle timer → Circle timer (Size S | M, Progress 100 | 75 | 50 | 25).'],
-    todo: ['Нет варианта Progress=0 (конец отсчёта, пустой трек) — на решение.'],
+    todo: [],
   },
   {
     name: 'Code cell',
@@ -428,7 +428,7 @@ export const DATA = [
     dont: 'иконка действия — Icon (`icon/*`); фиатный знак — монетой не показываем; пользователь или контрагент — Avatar.',
     rule: [
       'Size: XS 16, S 20, M 24, L 32, XL 40 — по высоте строки или контрола, в который встаёт монета.',
-      'Network: Off — монета без сети; On — у монеты несколько сетей и сеть нужно различать (USDT TRC-20 / ERC-20).',
+      'Network: Off — монета без сети; On — у монеты несколько сетей и сеть нужно различать (USDT TRC-20 / ERC-20). У XS сети нет: значок ≈ 7 px неразличим (варианты XS · Network=On удалены 2026-11-16, матрица 18 из 20).',
       'Coin — монета из `symbol/coin/*`; Network coin — монета сети из `symbol/coin/*` (видна при Network=On).',
     ],
     never: 'фиат монетой.',
@@ -452,7 +452,6 @@ export const DATA = [
     migration: ['DS Web CoinStack (coin, base coinstack / single) → Coin: single → Network=Off, coinstack → Network=On; монета → Coin, монета сети → Network coin.'],
     todo: [
       '`network` с кольцом выступает за границы корня вниз и вправо (родитель с clip обрежет) — уместить в корень или записать выступ в правила; на решение.',
-      'Network=On у XS (сеть ≈ 7 px, глиф неразличим) — допускать ли; на решение.',
       'Радиусы `network` 3.5 / 4.5 / 5.5 / 7 / 9 — числом (в реестре).',
     ],
   },
@@ -486,7 +485,7 @@ export const DATA = [
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: 'только реестр: отрицательный зазор −6 / −7 / −10 (нахлёст монет)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текстовых и булевых свойств у набора нет — текстовые ячейки совпадают с умолчанием; кода нет — parity props пропущена' },
     migration: ['DS Web CoinStack (base coinstack / group line, pair vertical) → Coin stack: число монет → Count 2 | 3 | 4; размер → Size S | M | L; «+N» → Show more + More.'],
-    todo: ['Нахлёст −6 / −7 / −10 — числом (в реестре).'],
+    todo: ['Нахлёст → `size/overlap/sm` / `md` / `lg` (−6 / −8 / −10; M было −7) — привязать после Publish Foundations (заведены 2026-11-16).'],
   },
   {
     name: 'Date cell',
@@ -696,6 +695,7 @@ export const DATA = [
       'Tone: Accent — нейтральный прогресс; Success — цель достигнута; Warning — близко к лимиту (≥ 80 %); Danger — лимит превышен.',
       'Ширина `fill` = доля (в макете растянуть слой `fill`; constraints Scale).',
       'Show label: On — подпись слева и значение справа над дорожкой; Off — только дорожка, когда подпись и значение уже есть у родителя.',
+      'Mode: Determinate — доля известна; Indeterminate — доля неизвестна: отрезок 40 % бежит по дорожке, значения нет; только Tone=Accent (матрица 10 из 16; добавлено 2026-11-16).',
     ],
     anatomy: [
       'Корень — вертикальный стек, зазор `space/8`.',
@@ -725,7 +725,6 @@ export const DATA = [
     accept: { audit: OK, vc: 'только реестр: maxWidth текстового слоя числом (value 200)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; доля показана одна (60 %), 0 %, 100 % и неопределённый режим не показаны; кода нет — parity props пропущена' },
     migration: ['DS App `Progress` → Progress (линейный); DS Web — нет. Tone, Size, Label, Value, Show label — по набору 2.0; высоту дорожки и подписи сверить с DS App.'],
     todo: [
-      'Неопределённый режим есть в Motion описания, варианта нет — на решение.',
       'Dark: `status/success/solid` на `control/track` читается хуже остальных тонов (S) — проверить контраст.',
     ],
   },
@@ -805,6 +804,7 @@ export const DATA = [
       'Type: Numbered — шаги по порядку (в State=Success вместо номера — галочка); Icon — шаг со смысловой иконкой; Bullet — шаги без номера. В одном ряду — один тип.',
       'State: Default — шаг впереди; Current — текущий (ровно один); Success — пройден.',
       'Number — номер шага, 1–2 цифры; есть только у Type=Numbered (в Success скрыт галочкой).',
+      'Bullet · Default — точка `border/strong` (было `border/default`, в Dark на L0 не видна; решение 2026-11-16).',
     ],
     never: 'разные типы в одном ряду; два Current в ряду; символ вне Step; Number длиннее двух цифр.',
     anatomy: [
@@ -831,9 +831,7 @@ export const DATA = [
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; булевых свойств нет; кода нет — parity props пропущена' },
     migration: ['DS Web Stepper: Step Symbol (Type, State) → Step symbol (Type Numbered | Icon | Bullet, State Default | Current | Success). MAJOR 2026-11-15: Type=Checked удалён → Numbered + State=Success (галочка вместо номера).'],
-    todo: [
-      'Bullet · Default в Dark на L0 почти не виден (`border/default`) — на решение (токен).',
-    ],
+    todo: [],
   },
   {
     name: 'Step trail',
@@ -841,8 +839,8 @@ export const DATA = [
     use: 'только внутри Stepper — линия между двумя Step.',
     dont: 'разделить блоки — Divider; отдельно в макете не ставится.',
     rule: [
-      'Border: Solid — шаг до линии пройден или текущий; Dotted — шаг впереди.',
-      'State повторяет состояние шага, из которого линия выходит: Default — впереди; Current — текущий; Success — пройден.',
+      
+      'State повторяет состояние шага, из которого линия выходит: Default — впереди, пунктир `border/strong`; Current — текущий и Success — пройден, сплошная линия (ось Border снята 2026-11-16: вид линии задаёт State).',
       'Ширина — всё свободное место между символами шагов.',
     ],
     never: 'линия вне Stepper; State, не совпадающий с шагом-источником.',
@@ -863,11 +861,9 @@ export const DATA = [
     a11y: ['Декоративная, скрыта от читалки (`aria-hidden`).'],
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текста и булевых свойств нет; кода нет — parity props пропущена' },
-    migration: ['DS Web: Step Trail (Border type, State) → Step trail (Border Solid | Dotted, State Default | Current | Success).'],
-    todo: [
-      'Solid · Default и Dotted · Current / Success по правилу не применяются, но есть в матрице — сузить или уточнить правило.',
-      'Default в Dark на L0 почти не видна (`border/default`) — на решение (токен).',
-    ],
+    migration: ['DS Web: Step Trail (Border type, State) → Step trail (State Default | Current | Success).',
+      'MAJOR 2026-11-16: ось Border удалена — Default всегда пунктир, Current и Success всегда сплошные; экземпляры Solid · Default и Dotted · Current / Success в макетах переключить.'],
+    todo: [],
   },
   {
     name: '_Step segment',
@@ -934,7 +930,7 @@ export const DATA = [
     rule: [
       'Length: 4 или 6 — по источнику кода (сколько цифр присылает сервис).',
       'State: Default — ввод; Error — код неверный; Success — код принят; Disabled — ввод заблокирован (лимит попыток).',
-      'Ячейки одного размера: Web 4 цифры — Code cell L, остальное — M.',
+      'Ячейки одного размера: Code cell M везде; L — только Web при Length=4. Размер ячейки к Platform не привязан — выбирается в экземпляре по этому правилу (решение 2026-11-16).',
       'Message — одно сообщение за раз: таймер повторной отправки, ошибка или блокировка. Show message = Off — когда сообщение показывает родитель.',
       'Ширина не больше `size/code-input/max`. Отправка — автоматически после последней цифры; кнопка «Подтвердить» остаётся для доступности и вставки.',
     ],
@@ -978,9 +974,7 @@ export const DATA = [
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: 'только реестр: maxWidth текстового слоя числом (message 356)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['DS Web: «Введи код из пуш уведомления» (Web App → Безопасность → Подтверждение операции; 4 ячейки 69 × 70, цифра 28) → Code input Length=4; новое — Length=6, State Error | Success | Disabled, Message / Show message.'],
-    todo: [
-      'Правило «Web 4 цифры — L, остальное — M» набором не обеспечено: на iOS / Android Length=4 из ячеек L — привязать размер ячейки к Platform или уточнить правило.',
-    ],
+    todo: [],
   },
   {
     name: 'Chart metric',
@@ -989,7 +983,7 @@ export const DATA = [
     dont: 'список показателей — Key-value row; карточка с динамикой — Stat card.',
     rule: [
       'Tone отражает смысл значения, а не оценку: Default — значение в норме; Danger — вне нормы, критично («Отключен»); Warning — вне нормы, требует внимания (реджекты выше нормы); Success — подтверждённо хорошее значение.',
-      'Icon: Off — по умолчанию; On — иконка слева от значения (Icon · swap — иконка из `icon/*`).',
+      'Icon: Off — по умолчанию; On — иконка слева от значения (Icon · swap — иконка из `icon/*`), цвет — как у значения по Tone (`text/primary`, `text/danger`, `text/warning`, `text/success`; 2026-11-16).',
       'Value — число до 228 по ширине, длиннее — формат K / M / T; единицы отделяются тонким пробелом.',
     ],
     never: 'длинное число без формата K / M / T; цвет как единственный носитель тона.',
@@ -1016,9 +1010,7 @@ export const DATA = [
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: 'только реестр: maxWidth текстового слоя числом (label 228, value 228)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['Песочница графиков: «Текущий хешрейт / Хешрейт за 1 день / Реджекты» (mining, WL), «Средняя температура / Плата N» (monitoring) → Label + Value; значение вне нормы → Tone Danger | Warning.'],
-    todo: [
-      'Иконка при Icon = On не красится в тон (у `icon` нет токена цвета) — решить, наследует ли она цвет значения.',
-    ],
+    todo: [],
   },
   {
     name: 'Chart tooltip',
@@ -2308,7 +2300,6 @@ export const DATA = [
     migration: ['DS Web `Card`, `Surface` → Card (Level, Radius, Padding, Border); DS App — нет. Радиусы и отступы сверить с DS Web.'],
     todo: [
       'Level 0 — только на L0 (на L1+ — Level 1–3); правило решения 2026-11-15.',
-      'Обводка `border/subtle` у Level 0 на L0 едва видна (Light ≈ 1.2:1) — на решение.',
       ],
   },
   {
@@ -2348,7 +2339,7 @@ export const DATA = [
     migration: ['DS Web base avatar / group line (size, more, RTL) → Avatar group: size → Size, more → More; RTL — в коде, направление по `dir`.'],
     todo: [
       
-      'Нахлёст −4 / −6 / −8 числом — ждёт токенов.',
+      'Нахлёст → `size/overlap/xs` / `sm` / `md` — привязать после Publish Foundations (заведены 2026-11-16).',
       'В вариантах 4 аватара: правило «до 5» в наборе не показано.',
           ],
   },
@@ -2801,8 +2792,8 @@ export const DATA = [
     dont: 'сообщение, которое должно остаться на странице, — Suggest; блокирующий вопрос — Modal; событие без участия пользователя в ленте — Notification.',
     rule: [
       'Layout: Card — Web (справа сверху): карточка, иконка статуса, заголовок, необязательные описание и кнопки; Informer — App (сверху под статус-баром): цветная полоса на всю ширину, заголовок и крестик.',
-      'Tone: Success — выполнено; Info — справка о фоновой операции; Warning — выполнено с оговоркой; Danger — не выполнено; Neutral — без оценки. У Card тон несёт иконка, у Informer — заливка полосы (`status/*/solid`, Neutral — `action/inverse/default`).',
-      'Show description, Actions, Icon, Timer — только Card (привязаны в 5 вариантах из 10). Timer — оставшееся время автоскрытия (Circle timer у крестика).',
+      'Tone: Success — выполнено; Info — справка о фоновой операции; Warning — выполнено с оговоркой; Danger — не выполнено; Neutral — без оценки, у Card без иконки (отличие от Info; 2026-11-16). У Card тон несёт иконка, у Informer — заливка полосы (`status/*/solid`, Neutral — `action/inverse/default`).',
+      'Show description, Actions, Icon, Timer — только Card (привязаны в 5 вариантах из 10; Icon — в 4: у Neutral иконки нет). Timer — оставшееся время автоскрытия (Circle timer у крестика).',
       'Safe area — только Informer: полоса под статус-баром (`os/safe-area/top`).',
       'Close — по умолчанию вкл.',
     ],
@@ -2842,7 +2833,6 @@ export const DATA = [
     },
     migration: ['DS Web Toast (`base notification`) → Layout=Card; App `informer` → Layout=Informer. Snack вынесен в отдельный набор 2026-11-09 и запаркован.'],
     todo: [
-      'Card Neutral неотличим от Card Info (одна иконка `media/status/info`) — своя иконка или правило различия.',
       'Informer Neutral — кнопочный `action/inverse/default` на неинтерактивной поверхности (OPEN-QUESTIONS п. 10).',
     ],
   },
@@ -2856,6 +2846,7 @@ export const DATA = [
       'Tone: Neutral — по умолчанию (`surface/raised`); Accent — предложение (`accent/subtle`); Info, Success, Warning, Danger — системное объявление (`status/*/subtle`).',
       'Primary action / Secondary action: 0, 1 или 2 кнопки; Secondary action без Primary action не включается. Ряд кнопок скрывается вместе с Primary action (13.11).',
       'Show title / Show description: хотя бы одно включено. Leading — иконка слева (вкл / выкл). Close — крестик, если сообщение можно скрыть.',
+      'Основная кнопка: на Neutral — Secondary, на Accent и тонах Info / Success / Warning / Danger — Primary (на тонированной подложке Secondary сливается; решение 2026-11-16).',
     ],
     never: 'больше двух кнопок; автоскрытие по таймеру (это Toast).',
     anatomy: [
@@ -2890,7 +2881,6 @@ export const DATA = [
     },
     migration: ['DS Web Banner, Alert → Suggest (Layout Card | Strip, Tone, Leading, Primary action, Secondary action, Close).', 'Продукт: suggest, notifications, banner → Suggest.'],
     todo: [
-      'Основная кнопка на тонированных подложках (Info, Success, Warning, Danger) — `action/accent/default` сливается с подложкой (стенд 13.11); правлен только Accent.',
       'Leading — булево; по описанию слева может быть логотип или монета, а свойства слота / замены нет — решить.',
       'Geometria: Accent и Info почти неразличимы (оба синие).',
       ],
@@ -3171,7 +3161,7 @@ export const DATA = [
     migration: ['DS Web Dropdown (Type=Menu / Multiselect / Coins / …) → Menu (Size, Search, пункты Menu item в слоте Items); разбор по типам в описании не дан.'],
     todo: [
       'Ширина корня 300 — числом; правило «ширина ≥ триггера» в наборе не выражено.',
-      'Max-height ~8 пунктов — токена нет.',
+      'Max-height → `size/menu/max-height` (320, ~8 пунктов) — привязать после Publish Foundations (заведён 2026-11-16).',
     ],
   },
   {
@@ -3489,7 +3479,7 @@ export const DATA = [
     accept: { audit: OK, vc: 'ширина 240 / 72 и высота 800 корня — числом', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; набор только Web — iOS / Android-ячейки для формы; Expressive не снят; RTL на стенде не зеркалится; кода нет — parity props пропущена' },
     migration: ['DS Web `sidebar / default` → Sidebar (Collapsed Off | On, слоты Header / Nav / Footer); `Sidebar banner` → Promo card в Sidebar (свойство Promo).'],
     todo: [
-      'Ширины 240 / 72 — числом, ждут токена `size/*`.',
+      'Ширины → `size/sidebar/expanded` / `collapsed` (240 / 72) — привязать после Publish Foundations (заведены 2026-11-16).',
       'Promo card: подпись действия — 1–2 слова; длинная подпись в узком сайдбаре (215) режется (стенд подменял все тексты).',
       ],
   },
@@ -3505,7 +3495,7 @@ export const DATA = [
       'Show footer — On, когда есть действие (кнопки L в слоте Footer); Off — просмотр без действия и меню действий.',
       'Show header actions — Off по умолчанию; On — дополнительные иконки-действия в шапке (слот Header actions).',
       'Меню действий (legacy bottom sheet menu) — слот Body: Menu item L с описанием и разделители, Show footer=Off; отдельного типа и слота нет.',
-      'Высота по контенту до ~90 % экрана, дальше скролл; снизу — Safe area.',
+      'Высота по контенту до 90 % высоты экрана, дальше скролл; снизу — Safe area. Предел — доля экрана, а не токен px (решение 2026-11-16).',
     ],
     never: 'подтверждение опасного действия в шторке; шторка на Web Expanded вместо Modal; шторка поверх шторки.',
     anatomy: [
@@ -3547,7 +3537,7 @@ export const DATA = [
     accept: { audit: OK, vc: 'ширина корня 375 — числом (max — `size/sheet/max`)', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; Expressive (`material/thick`), слот Header actions и скролл после ~90 % не проверены; RTL на стенде не зеркалится; кода нет — parity props пропущена' },
     migration: ['DS App bottom sheet menu (var = more / send / top up / top up coinhold / exchange / coin change) → Sheet, Menu item L с описанием и разделители в слоте Body; разбор по var в описании не дан.'],
     todo: [
-      'Ширина корня 375 — числом; max-height ~90 % экрана — токена нет.',
+      
       'Край шторки без обводки: Light L0 и Dark L3 — только тень (в Dark не видна); вопрос в парковке OPEN-QUESTIONS.',
     ],
   },

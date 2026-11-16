@@ -14,8 +14,8 @@
 - Когда нет: сообщение, которое должно остаться на странице, — Suggest; блокирующий вопрос — Modal; событие без участия пользователя в ленте — Notification.
 - Правило выбора варианта:
   - Layout: Card — Web (справа сверху): карточка, иконка статуса, заголовок, необязательные описание и кнопки; Informer — App (сверху под статус-баром): цветная полоса на всю ширину, заголовок и крестик.
-  - Tone: Success — выполнено; Info — справка о фоновой операции; Warning — выполнено с оговоркой; Danger — не выполнено; Neutral — без оценки. У Card тон несёт иконка, у Informer — заливка полосы (`status/*/solid`, Neutral — `action/inverse/default`).
-  - Show description, Actions, Icon, Timer — только Card (привязаны в 5 вариантах из 10). Timer — оставшееся время автоскрытия (Circle timer у крестика).
+  - Tone: Success — выполнено; Info — справка о фоновой операции; Warning — выполнено с оговоркой; Danger — не выполнено; Neutral — без оценки, у Card без иконки (отличие от Info; 2026-11-16). У Card тон несёт иконка, у Informer — заливка полосы (`status/*/solid`, Neutral — `action/inverse/default`).
+  - Show description, Actions, Icon, Timer — только Card (привязаны в 5 вариантах из 10; Icon — в 4: у Neutral иконки нет). Timer — оставшееся время автоскрытия (Circle timer у крестика).
   - Safe area — только Informer: полоса под статус-баром (`os/safe-area/top`).
   - Close — по умолчанию вкл.
 - Не делаем: Informer на Web; больше 3 Toast одновременно; Toast вместо сообщения, которое должно остаться на странице.
@@ -52,7 +52,7 @@
 | Description | текст | «Средства поступят в течение 30 минут. Статус — в истории выплат.» | 5 из 10 |
 | Actions | булево | выкл | 5 из 10 |
 | Close | булево | вкл | 10 из 10 |
-| Icon | булево | вкл | 5 из 10 |
+| Icon | булево | вкл | 4 из 10 |
 | Show description | булево | вкл | 5 из 10 |
 | Timer | булево | выкл | 5 из 10 |
 | Safe area | булево | вкл | 5 из 10 |
@@ -119,5 +119,4 @@
 - DS Web Toast (`base notification`) → Layout=Card; App `informer` → Layout=Informer. Snack вынесен в отдельный набор 2026-11-09 и запаркован.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Card Neutral неотличим от Card Info (одна иконка `media/status/info`) — своя иконка или правило различия.
 - Informer Neutral — кнопочный `action/inverse/default` на неинтерактивной поверхности (OPEN-QUESTIONS п. 10).

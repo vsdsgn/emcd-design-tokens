@@ -287,7 +287,7 @@
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | s \| m | по правилу контракта | ось Size |
-| `progress` | 100 \| 75 \| 50 \| 25 | по правилу контракта | ось Progress |
+| `progress` | 100 \| 75 \| 50 \| 25 \| 0 | по правилу контракта | ось Progress |
 
 ## Code cell
 
@@ -788,6 +788,7 @@ Props нет.
 |---|---|---|---|
 | `size` | s \| m | по правилу контракта | ось Size |
 | `tone` | accent \| success \| warning \| danger | по правилу контракта | ось Tone |
+| `mode` | determinate \| indeterminate | по правилу контракта | ось Mode |
 | `label` | string | — | свойство Label |
 | `value` | string | — | свойство Value |
 | `showLabel` | boolean | true | свойство Show label |
@@ -1053,9 +1054,7 @@ Props нет.
 
 Линия между двумя шагами в Stepper: сплошная или пунктирная, в цвете состояния шага.
 
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `border` | solid \| dotted | по правилу контракта | ось Border |
+Props нет.
 
 Состояния в Figma: Default · Current · Success — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 

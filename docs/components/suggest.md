@@ -16,6 +16,7 @@
   - Tone: Neutral — по умолчанию (`surface/raised`); Accent — предложение (`accent/subtle`); Info, Success, Warning, Danger — системное объявление (`status/*/subtle`).
   - Primary action / Secondary action: 0, 1 или 2 кнопки; Secondary action без Primary action не включается. Ряд кнопок скрывается вместе с Primary action (13.11).
   - Show title / Show description: хотя бы одно включено. Leading — иконка слева (вкл / выкл). Close — крестик, если сообщение можно скрыть.
+  - Основная кнопка: на Neutral — Secondary, на Accent и тонах Info / Success / Warning / Danger — Primary (на тонированной подложке Secondary сливается; решение 2026-11-16).
 - Не делаем: больше двух кнопок; автоскрытие по таймеру (это Toast).
 
 ## 3. Anatomy
@@ -116,6 +117,5 @@
 - Продукт: suggest, notifications, banner → Suggest.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Основная кнопка на тонированных подложках (Info, Success, Warning, Danger) — `action/accent/default` сливается с подложкой (стенд 13.11); правлен только Accent.
 - Leading — булево; по описанию слева может быть логотип или монета, а свойства слота / замены нет — решить.
 - Geometria: Accent и Info почти неразличимы (оба синие).

@@ -93,4 +93,4 @@
 - DS Web CoinStack (base coinstack / group line, pair vertical) → Coin stack: число монет → Count 2 | 3 | 4; размер → Size S | M | L; «+N» → Show more + More.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Нахлёст −6 / −7 / −10 — числом (в реестре).
+- Нахлёст → `size/overlap/sm` / `md` / `lg` (−6 / −8 / −10; M было −7) — привязать после Publish Foundations (заведены 2026-11-16).

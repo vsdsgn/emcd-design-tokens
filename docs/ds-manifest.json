@@ -14,9 +14,9 @@
    "service": 4,
    "template": 1
   },
-  "variants": 1598,
-  "incompleteMatrix": 14,
-  "propsNotBoundEverywhere": 13,
+  "variants": 1597,
+  "incompleteMatrix": 16,
+  "propsNotBoundEverywhere": 14,
   "rawMinMax": 0,
   "withRawValues": 67,
   "withFocusRing": 21,
@@ -2994,11 +2994,12 @@
        "100",
        "75",
        "50",
-       "25"
+       "25",
+       "0"
       ]
      },
-     "variants": 8,
-     "full": 8,
+     "variants": 10,
+     "full": 10,
      "props": [],
      "nested": {},
      "minmax": [],
@@ -3389,25 +3390,25 @@
        "Skeleton"
       ]
      },
-     "variants": 20,
+     "variants": 18,
      "full": 20,
      "props": [
       {
        "name": "Coin",
        "type": "INSTANCE_SWAP",
        "def": "symbol/coin/bitcoin-btc",
-       "bound": 20
+       "bound": 18
       },
       {
        "name": "Network coin",
        "type": "INSTANCE_SWAP",
        "def": "symbol/coin/tether-usdt",
-       "bound": 20
+       "bound": 18
       }
      ],
      "nested": {
-      "symbol/coin/bitcoin-btc": 20,
-      "symbol/coin/tether-usdt": 20
+      "symbol/coin/bitcoin-btc": 18,
+      "symbol/coin/tether-usdt": 18
      },
      "minmax": [],
      "layers": {
@@ -3417,7 +3418,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 5,
+     "rawCount": 4,
      "raw": [
       "network:o=0"
      ],
@@ -7844,10 +7845,14 @@
        "Success",
        "Warning",
        "Danger"
+      ],
+      "Mode": [
+       "Determinate",
+       "Indeterminate"
       ]
      },
-     "variants": 8,
-     "full": 8,
+     "variants": 10,
+     "full": 16,
      "props": [
       {
        "name": "Label",
@@ -7877,7 +7882,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 8,
+     "rawCount": 10,
      "raw": [
       "(root):w=320"
      ],
@@ -10845,7 +10850,7 @@
        "lineHeight:type/label/sm/line-height"
       ],
       "bullet": [
-       "f:border/default",
+       "f:border/strong",
        "f:control/checked",
        "f:status/success/solid"
       ]
@@ -10900,18 +10905,14 @@
      ],
      "inBoard": false,
      "axes": {
-      "Border": [
-       "Solid",
-       "Dotted"
-      ],
       "State": [
        "Default",
        "Current",
        "Success"
       ]
      },
-     "variants": 6,
-     "full": 6,
+     "variants": 3,
+     "full": 3,
      "props": [],
      "nested": {},
      "minmax": [],
@@ -10922,7 +10923,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 6,
+     "rawCount": 3,
      "raw": [
       "(root):w=80"
      ],
@@ -10931,7 +10932,7 @@
        "h:size/media/sm"
       ],
       "line": [
-       "s:border/default",
+       "s:border/strong",
        "s:control/checked",
        "s:status/success/solid",
        "sw:border/width/default"
@@ -12473,7 +12474,7 @@
        "name": "Icon",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 5
+       "bound": 4
       },
       {
        "name": "Show description",

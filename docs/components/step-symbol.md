@@ -15,6 +15,7 @@
   - Type: Numbered — шаги по порядку (в State=Success вместо номера — галочка); Icon — шаг со смысловой иконкой; Bullet — шаги без номера. В одном ряду — один тип.
   - State: Default — шаг впереди; Current — текущий (ровно один); Success — пройден.
   - Number — номер шага, 1–2 цифры; есть только у Type=Numbered (в Success скрыт галочкой).
+  - Bullet · Default — точка `border/strong` (было `border/default`, в Dark на L0 не видна; решение 2026-11-16).
 - Не делаем: разные типы в одном ряду; два Current в ряду; символ вне Step; Number длиннее двух цифр.
 
 ## 3. Anatomy
@@ -65,7 +66,7 @@
 ## 10. Tokens
 - `корень`: заливка / цвет `control/checked`, `status/neutral/subtle`, `status/success/solid`; высота `size/media/sm`; радиус `radius/chip`; обводка `border/default`; толщина обводки `border/width/default`; ширина `size/media/sm`.
 - `number`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- `bullet`: заливка / цвет `border/default`, `control/checked`, `status/success/solid`.
+- `bullet`: заливка / цвет `border/strong`, `control/checked`, `status/success/solid`.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -91,6 +92,3 @@
 
 ## 15. Migration
 - DS Web Stepper: Step Symbol (Type, State) → Step symbol (Type Numbered | Icon | Bullet, State Default | Current | Success). MAJOR 2026-11-15: Type=Checked удалён → Numbered + State=Success (галочка вместо номера).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Bullet · Default в Dark на L0 почти не виден (`border/default`) — на решение (токен).

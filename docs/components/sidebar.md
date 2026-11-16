@@ -116,5 +116,5 @@
 - DS Web `sidebar / default` → Sidebar (Collapsed Off | On, слоты Header / Nav / Footer); `Sidebar banner` → Promo card в Sidebar (свойство Promo).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширины 240 / 72 — числом, ждут токена `size/*`.
+- Ширины → `size/sidebar/expanded` / `collapsed` (240 / 72) — привязать после Publish Foundations (заведены 2026-11-16).
 - Promo card: подпись действия — 1–2 слова; длинная подпись в узком сайдбаре (215) режется (стенд подменял все тексты).

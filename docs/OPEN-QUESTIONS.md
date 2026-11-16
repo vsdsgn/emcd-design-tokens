@@ -20,7 +20,11 @@
 6. **Promo card** — действие в S и M разного вида; крестика нет, хотя по правилу закрывается. (Один вид — Button Text; Show close — свойство.)
 7. ~~**Мелочи вида**~~ — **закрыто 15.11 (стенд Light / Dark):** исправлено — Input amount Error 1 px (как семья полей); Chart crosshair: обводка точки `surface/current`; Address Copied: статус на месте подписи, высота не меняется; Tooltip tour: описание до 3 строк. Оставлено (различимо, записано в контракты) — Select compact Disabled (гаснут текст, шеврон, монета), Accordion Skeleton одинаков при Open Off / On (грузится список), Avatar group 200 % (текст в кругах не масштабируется, как иконки), Scrollbar Dark L0 дорожка (носитель — ползунок), линия Chart crosshair в Dark, иконка Menu item при 200 % (иконки не растут).
 
-## На решение — остаток todo контрактов (16.11)
+## ~~На решение — остаток todo контрактов (16.11)~~ — сделано по рекомендациям 16.11
+
+Выполнено: токены заведены в Foundations (ждут Publish — `size/sidebar/expanded|collapsed`, `size/menu/max-height`, `size/overlap/xs|sm|md|lg`; подпись 436 = уже существующий `size/selection/label-max`; Tab bar item — `radius/control`; Sheet — 90 % экрана правилом). Step symbol / Step trail — `border/strong`; Step trail без оси Border (MAJOR); Circle timer Progress=0; Progress Mode=Indeterminate (Accent); Coin XS без сети; Code input — правило «M везде, L только Web · 4»; Toast Card Neutral без иконки; Suggest — Primary на тонах; Chart metric — иконка в тон. Остались без рекомендации: Suggest Leading как слот, Geometria Accent ≈ Info, кнопочные токены на неинтерактивных поверхностях (п. 10).
+
+Исходный список:
 
 Из 141 todo закрыто 63 (правило «размер образца», описания, привязки, свойства Show QR / Show requirements). Осталось 78: из них на решение Стефана —
 

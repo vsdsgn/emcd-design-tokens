@@ -12,14 +12,13 @@
 - Когда использовать: только внутри Stepper — линия между двумя Step.
 - Когда нет: разделить блоки — Divider; отдельно в макете не ставится.
 - Правило выбора варианта:
-  - Border: Solid — шаг до линии пройден или текущий; Dotted — шаг впереди.
-  - State повторяет состояние шага, из которого линия выходит: Default — впереди; Current — текущий; Success — пройден.
+  - State повторяет состояние шага, из которого линия выходит: Default — впереди, пунктир `border/strong`; Current — текущий и Success — пройден, сплошная линия (ось Border снята 2026-11-16: вид линии задаёт State).
   - Ширина — всё свободное место между символами шагов.
 - Не делаем: линия вне Stepper; State, не совпадающий с шагом-источником.
 
 ## 3. Anatomy
 - Корень высотой `size/media/sm` (24 — высота Step symbol); `line` по центру высоты — обводка `border/width/default`: `border/default` (Default), `control/checked` (Current), `status/success/solid` (Success).
-- Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
@@ -32,10 +31,9 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Border | Solid · Dotted | Solid |
 | State | Default · Current · Success | Default |
 
-Матрица полная: 6 вариантов.
+Матрица полная: 3 вариантов.
 
 ## 6. Content / slots
 - Текста нет: длинный текст, языки и 200 % на линию не влияют.
@@ -52,14 +50,14 @@
 
 ## 10. Tokens
 - `корень`: высота `size/media/sm`.
-- `line`: обводка `border/default`, `control/checked`, `status/success/solid`; толщина обводки `border/width/default`.
-- Значений без переменной: 6 (напр. `(root):w=80`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- `line`: обводка `border/strong`, `control/checked`, `status/success/solid`; толщина обводки `border/width/default`.
+- Значений без переменной: 3 (напр. `(root):w=80`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Step trail`, вариантов 6 из 6; оси: Border, State.
+- Набор `Step trail`, вариантов 3 из 3; оси: State.
 - Борда: «Step trail — борда · шаблон v3», разделов 11.
 - Описание: 496 знаков, разделы: Status: Level: Линия между шагами: Когда использовать: Правила: A11y:
 
@@ -67,7 +65,7 @@
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsStepTrail>`; Flutter: `DsStepTrail`.
-- Props: `border`: solid | dotted.
+- Props: нет.
 - Состояния (Default, Current, Success) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
 ## 14. Acceptance (2026-11-16)
@@ -78,8 +76,5 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текста и булевых свойств нет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- DS Web: Step Trail (Border type, State) → Step trail (Border Solid | Dotted, State Default | Current | Success).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Solid · Default и Dotted · Current / Success по правилу не применяются, но есть в матрице — сузить или уточнить правило.
-- Default в Dark на L0 почти не видна (`border/default`) — на решение (токен).
+- DS Web: Step Trail (Border type, State) → Step trail (State Default | Current | Success).
+- MAJOR 2026-11-16: ось Border удалена — Default всегда пунктир, Current и Success всегда сплошные; экземпляры Solid · Default и Dotted · Current / Success в макетах переключить.
