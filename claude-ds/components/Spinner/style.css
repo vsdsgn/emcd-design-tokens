@@ -1,0 +1,7 @@
+/* Spinner — 🟡 beta (Figma «🟡 Spinner»: Size). Неизвестная длительность; цвет — от родителя (currentColor). */
+.emcd-spinner { display: inline-block; flex: none; width: var(--icon-size-sm, 16px); height: var(--icon-size-sm, 16px); vertical-align: middle; color: inherit;
+  animation: emcd-spin 800ms linear infinite; }
+.emcd-spinner--m { width: var(--icon-size-control, 20px); height: var(--icon-size-control, 20px); }
+.emcd-spinner--l { width: var(--icon-size-lg, 24px); height: var(--icon-size-lg, 24px); }
+@keyframes emcd-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .emcd-spinner { animation-duration: 2400ms; } }

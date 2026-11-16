@@ -1,0 +1,18 @@
+/* Select — 🟡 beta (Figma «🟡 Select»: Size × State; корень — Input). Закрытое поле как у Input + шеврон; по нажатию — Menu под полем (на Compact — Sheet).
+   База поля — классы .emcd-field / .emcd-input (Input); здесь — триггер, значение, шеврон и меню. Ширина меню = ширине поля. */
+.emcd-select { position: relative; min-width: var(--size-field-min, 160px); }
+.emcd-select__trigger { width: 100%; margin: 0; font: inherit; text-align: start; cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+.emcd-select__trigger:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-select__value { flex: 1; min-width: 0; font: 400 var(--fs)/var(--lh) var(--font-sans); color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-select__value--placeholder { color: var(--text-tertiary); }
+.emcd-select__chevron { flex: none; width: 20px; height: 20px; color: var(--icon-secondary); transition: transform var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+/* Open — рамка фокуса, шеврон вверх */
+.emcd-select--open .emcd-input { border-color: var(--control-border-focus); }
+.emcd-select--open .emcd-input::before { opacity: 0; }
+.emcd-select--open .emcd-select__chevron { transform: rotate(180deg); }
+/* Специфичнее .emcd-menu: порядок секций в bundle.css Claude DS другой */
+.emcd-select .emcd-select__menu { position: absolute; z-index: 40; top: calc(100% + var(--space-4, 4px)); left: 0; width: 100%; min-width: 0; max-width: none; }
+.emcd-field--disabled .emcd-select__trigger { cursor: not-allowed; }
+.emcd-field--disabled :is(.emcd-select__value, .emcd-select__chevron) { color: var(--text-disabled); }
+.emcd-field--skeleton .emcd-select__trigger { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .emcd-select__chevron { transition: none; } }

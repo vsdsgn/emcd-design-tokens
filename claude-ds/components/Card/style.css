@@ -1,0 +1,20 @@
+/* Card — 🟡 beta (Figma «🟡 Card»: Level × Radius × Padding × Border). Подложка без своего содержимого; без тени.
+   Обводка — вне раскладки (inset box-shadow): размер content не меняется. */
+.emcd-card { --bg: var(--surface-level-1); position: relative; box-sizing: border-box; display: flex; flex-direction: column; gap: var(--space-12, 12px); min-width: 0;
+  padding: var(--space-12, 12px); border-radius: var(--radius-container); background: var(--bg); color: var(--text-primary); }
+.emcd-card--level-0 { --bg: var(--surface-level-0); }
+.emcd-card--level-2 { --bg: var(--surface-level-2); }
+.emcd-card--level-3 { --bg: var(--surface-level-3); }
+.emcd-card--radius-surface { border-radius: var(--radius-surface); }
+.emcd-card--radius-inner { border-radius: var(--radius-inner); }
+.emcd-card--padding-m { padding: var(--space-16, 16px); gap: var(--space-16, 16px); }
+.emcd-card--padding-l { padding: var(--space-24, 24px); gap: var(--space-16, 16px); }
+.emcd-card--border { box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); }
+/* Кликабельная карточка — одна ссылка или кнопка на всю площадь: слой состояний, кольцо фокуса с зазором 2 */
+.emcd-card--interactive { cursor: pointer; text-decoration: none; text-align: inherit; font: inherit; border: 0; outline: none; width: 100%; }
+.emcd-card--interactive::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-card--interactive:hover::before { opacity: var(--state-hover, 0.06); }
+.emcd-card--interactive:active::before { opacity: var(--state-pressed, 0.10); }
+.emcd-card--interactive:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .emcd-card--interactive::before { transition: none; } }

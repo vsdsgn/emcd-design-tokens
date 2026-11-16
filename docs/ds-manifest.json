@@ -2721,7 +2721,7 @@
    "boards": [
     {
      "name": "Chip — борда · шаблон v3",
-     "id": "641:2170",
+     "id": "2216:13130",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -5635,7 +5635,7 @@
    "boards": [
     {
      "name": "Key-value row — борда · шаблон v3",
-     "id": "2164:3364",
+     "id": "2215:6207",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -5737,7 +5737,6 @@
        "f:text/primary",
        "f:text/secondary",
        "fontFamily:font/family/mono",
-       "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
@@ -6365,7 +6364,7 @@
    "boards": [
     {
      "name": "Modal — борда · шаблон v3",
-     "id": "2166:2746",
+     "id": "2216:8945",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -8054,7 +8053,7 @@
    "boards": [
     {
      "name": "Promo card — борда · шаблон v3",
-     "id": "2164:15337",
+     "id": "2216:4602",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -8959,7 +8958,7 @@
    "boards": [
     {
      "name": "Segmented — борда · шаблон v3",
-     "id": "2128:55031",
+     "id": "2216:1565",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -9108,7 +9107,7 @@
    "boards": [
     {
      "name": "Select — борда · шаблон v3",
-     "id": "2128:65781",
+     "id": "2215:6681",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -11391,7 +11390,7 @@
    "boards": [
     {
      "name": "Tab bar — борда · шаблон v3",
-     "id": "2189:12833",
+     "id": "2215:9731",
      "v3": true,
      "sections": [
       "01 · Когда применять",

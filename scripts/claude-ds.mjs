@@ -134,7 +134,9 @@ for (const c of fs.readdirSync(repoComp)) {
   if (marked.test(css)) css = css.replace(marked, block);
   else {
     // заголовок секции: «/* Comp */» или общий «/* Comp & Other */» — блок встаёт на место секции
-    const start = css.search(new RegExp(`^/\\* ${c}( &[^*]*)? \\*/`, 'm'));
+    // «ListItem» ↔ «List item», «Select» ↔ «Select (native)»
+    const spaced = c.replace(/([a-z])([A-Z])/g, '$1 $2');
+    const start = css.search(new RegExp(`^/\\* (${c}|${spaced})( \\([^)]*\\))?( &[^*]*)? \\*/`, 'mi'));
     if (start < 0) css += '\n' + block;
     else {
       const after = css.slice(start + 1).search(/^\/\* (@claude-ds:begin )?[A-Z][A-Za-z &()]* \*\/$/m);

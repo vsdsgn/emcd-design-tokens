@@ -1,0 +1,40 @@
+/* Menu + Menu item — 🟡 beta (Figma «🟡 Menu»: Size; «🟡 Menu item»: Size × Tone × State; база _List row, Type=Menu).
+   Overlay surface Kind=Popover: в Base — surface-raised, обводка border-subtle, тени. Ширина 160–320, высота до 320, дальше скролл. */
+.emcd-menu { box-sizing: border-box; display: flex; flex-direction: column; gap: var(--space-4, 4px); width: max-content; min-width: var(--size-menu-min, 160px); max-width: var(--size-menu-max, 320px);
+  padding: var(--space-8, 8px); border-radius: var(--radius-control); background: var(--material-thick-fill, var(--surface-raised)); backdrop-filter: blur(var(--material-thick-blur, 0px));
+  box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle), var(--shadow-key, 0 8px 24px rgb(0 0 0 / .12)), var(--shadow-ambient, 0 0 2px rgb(0 0 0 / .08)); color: var(--text-primary); }
+.emcd-menu__items { display: flex; flex-direction: column; gap: 2px; max-height: var(--size-menu-max-height, 320px); overflow-y: auto; margin: 0; padding: 0; list-style: none; outline: none; }
+.emcd-menu__search { min-width: 0; max-width: none; }
+.emcd-menu__group { padding: var(--space-10, 10px) var(--space-12, 12px) var(--space-4, 4px); font: 500 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-sans); color: var(--text-secondary); }
+.emcd-menu__line { flex: none; height: 0; margin: var(--space-4, 4px) 0; border: 0; border-top: var(--border-width-default, 1px) solid var(--border-subtle); }
+.emcd-menu__empty { padding: var(--space-10, 10px) var(--space-12, 12px); font: 400 14px/20px var(--font-sans); color: var(--text-tertiary); }
+.emcd-menu-item { --h: 44px; --py: var(--space-10, 10px); --fg: var(--text-primary); --ic: var(--icon-primary);
+  position: relative; box-sizing: border-box; display: flex; align-items: center; gap: var(--space-12, 12px); width: 100%; min-height: var(--h); padding: var(--py) var(--space-12, 12px);
+  margin: 0; border: 0; border-radius: var(--radius-sm, 8px); background: none; color: var(--fg); text-align: start; font: inherit; cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+.emcd-menu-item--l { --h: 56px; --py: var(--space-8, 8px); padding-left: var(--space-16, 16px); padding-right: var(--space-16, 16px); }
+.emcd-menu-item::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-menu-item > * { position: relative; }
+.emcd-menu-item:hover::before, .emcd-menu-item[data-active]::before { opacity: var(--state-hover, .06); }
+.emcd-menu-item:active::before { opacity: var(--state-pressed, .10); }
+.emcd-menu-item:focus-visible { box-shadow: inset 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); }
+.emcd-menu-item__leading { flex: none; display: inline-flex; color: var(--ic); }
+.emcd-menu-item__leading svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
+.emcd-menu-item--l .emcd-menu-item__leading svg { width: var(--icon-size-lg, 24px); height: var(--icon-size-lg, 24px); }
+.emcd-menu-item__content { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.emcd-menu-item__label { font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); color: var(--fg); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-menu-item--l .emcd-menu-item__label { font-size: var(--type-label-lg-size, 16px); line-height: var(--type-label-lg-line-height, 20px); }
+.emcd-menu-item__desc { font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-menu-item__trailing { flex: none; display: inline-flex; align-items: center; gap: var(--space-8, 8px); color: var(--text-secondary); font: 400 14px/20px var(--font-sans); }
+.emcd-menu-item__check { flex: none; width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); color: var(--icon-accent); }
+/* Show selection — глиф Checkbox слева (множественный выбор) */
+.emcd-menu-item__box { flex: none; display: grid; place-items: center; box-sizing: border-box; width: 20px; height: 20px; border-radius: var(--radius-xs, 4px);
+  box-shadow: inset 0 0 0 1.5px var(--control-border-default); color: transparent; }
+.emcd-menu-item__box svg { width: 14px; height: 14px; }
+.emcd-menu-item[aria-checked="true"] .emcd-menu-item__box, .emcd-menu-item[aria-selected="true"] .emcd-menu-item__box { background: var(--control-checked); box-shadow: none; color: var(--text-on-accent); }
+/* Tone = Danger — подпись и иконка цветом ошибки (кроме Disabled) */
+.emcd-menu-item--danger { --fg: var(--text-danger); --ic: var(--icon-danger); }
+.emcd-menu-item:disabled, .emcd-menu-item[aria-disabled="true"] { --fg: var(--text-disabled); --ic: var(--icon-disabled); cursor: not-allowed; }
+:is(.emcd-menu-item:disabled, .emcd-menu-item[aria-disabled="true"])::before { display: none; }
+:is(.emcd-menu-item:disabled, .emcd-menu-item[aria-disabled="true"]) .emcd-menu-item__desc { color: var(--text-disabled); }
+@media (prefers-reduced-motion: reduce) { .emcd-menu-item::before { transition: none; } }

@@ -1,0 +1,37 @@
+/* List item — 🟡 beta (Figma «🟡 List item»: Size × Content × State; база _List row, Type=List).
+   Слот Leading → тексты по Content → слот Trailing. Hover / Pressed — только у строки, которая открывает детали. */
+.emcd-list-item { --py: var(--space-16, 16px); --px: var(--space-16, 16px); --mh: 76px;
+  --fs: var(--type-body-lg-size, 16px); --lh: var(--type-body-lg-line-height, 24px); --fs2: var(--type-body-md-size, 14px); --lh2: var(--type-body-md-line-height, 20px);
+  position: relative; box-sizing: border-box; display: flex; align-items: center; gap: var(--space-12, 12px); width: 100%; min-height: var(--mh);
+  padding: var(--py) var(--px); margin: 0; border: 0; background: none; color: var(--text-primary); text-align: start; font: inherit; text-decoration: none; outline: none; -webkit-tap-highlight-color: transparent; }
+.emcd-list-item--m { --py: var(--space-12, 12px); --mh: 60px; --fs: var(--type-body-md-size, 14px); --lh: var(--type-body-md-line-height, 20px); --fs2: var(--type-body-sm-size, 12px); --lh2: var(--type-body-sm-line-height, 16px); }
+.emcd-list-item--big-value { --mh: 84px; }
+.emcd-list-item--m.emcd-list-item--big-value { --mh: 68px; }
+.emcd-list-item--description-only { --mh: 68px; }
+.emcd-list-item--m.emcd-list-item--description-only { --mh: 60px; }
+.emcd-list-item__leading, .emcd-list-item__trailing { position: relative; flex: none; display: inline-flex; align-items: center; gap: var(--space-8, 8px); color: var(--icon-primary); }
+.emcd-list-item__leading svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
+.emcd-list-item__trailing { margin-left: auto; color: var(--text-secondary); text-align: end; flex-direction: column; align-items: flex-end; gap: var(--space-4, 4px); }
+.emcd-list-item__content { position: relative; flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.emcd-list-item__label { font: 500 var(--fs)/var(--lh) var(--font-sans); color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-list-item__desc { font: 400 var(--fs2)/var(--lh2) var(--font-sans); color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-list-item--description-only .emcd-list-item__label { font-weight: 400; }
+.emcd-list-item__value-row { display: flex; align-items: baseline; gap: var(--space-4, 4px); min-width: 0; white-space: nowrap; }
+.emcd-list-item__value { font: 700 var(--type-heading-md-size, 20px)/var(--type-heading-md-line-height, 28px) var(--font-display); font-variant-numeric: tabular-nums; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; }
+.emcd-list-item--m .emcd-list-item__value { font-size: var(--type-heading-sm-size, 18px); line-height: var(--type-heading-sm-line-height, 24px); }
+.emcd-list-item__subvalue { font: 400 var(--fs2)/var(--lh2) var(--font-sans); color: var(--text-secondary); }
+/* Divider — линия снизу от начала текста до края */
+.emcd-list-item--divider::after { content: ""; position: absolute; left: var(--px); right: 0; bottom: 0; border-bottom: var(--border-width-default, 1px) solid var(--border-subtle); }
+/* Интерактивная строка: слой состояния во всю ширину, разделитель остаётся */
+.emcd-list-item--interactive { cursor: pointer; }
+.emcd-list-item--interactive::before { content: ""; position: absolute; inset: 0; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-list-item--interactive:hover::before { opacity: var(--state-hover, .06); }
+.emcd-list-item--interactive:active::before { opacity: var(--state-pressed, .10); }
+.emcd-list-item--interactive:focus-visible { box-shadow: inset 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); border-radius: var(--radius-focus-ring-inner, 8px); }
+.emcd-list-item:disabled, .emcd-list-item--disabled { cursor: not-allowed; }
+:is(.emcd-list-item:disabled, .emcd-list-item--disabled)::before { display: none; }
+:is(.emcd-list-item:disabled, .emcd-list-item--disabled) :is(.emcd-list-item__label, .emcd-list-item__desc, .emcd-list-item__value, .emcd-list-item__subvalue, .emcd-list-item__trailing) { color: var(--text-disabled); }
+:is(.emcd-list-item:disabled, .emcd-list-item--disabled) .emcd-list-item__leading { color: var(--icon-disabled); opacity: .64; }
+.emcd-list { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+@media (prefers-reduced-motion: reduce) { .emcd-list-item--interactive::before { transition: none; } }

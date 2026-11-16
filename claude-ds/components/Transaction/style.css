@@ -1,0 +1,7 @@
+/* Transaction — 🟡 beta (Figma «🟡 Transaction»: Type × Status × State; база _List row, Type=List, Size=M, высота 64).
+   Нажимается вся строка. Leading — плашка с иконкой типа; Trailing — Amount со знаком + Status (точка и слово). */
+.emcd-tx { --mh: 64px; }
+.emcd-tx__icon { display: grid; place-items: center; width: var(--size-media-lg, 40px); height: var(--size-media-lg, 40px); border-radius: var(--radius-chip, 12px);
+  background: var(--status-neutral-subtle); color: var(--icon-primary); }
+.emcd-tx__icon svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
+.emcd-tx .emcd-list-item__trailing { gap: 2px; }

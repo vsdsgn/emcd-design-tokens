@@ -1,0 +1,36 @@
+/* Tooltip — 🟡 beta (Figma «🟡 Tooltip»: Placement × Tone × Arrow). Только Web и указатель; без действий внутри.
+   Пузырь — overlay surface (surface-raised, обводка border-default, тени); уголок 26 × 9 — одна SVG-форма с пузырём, остриё в 8 от элемента. */
+.emcd-tooltip { --bg: var(--surface-raised); --bd: var(--border-default); --fg: var(--text-primary);
+  position: relative; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
+  min-width: var(--size-tooltip-min, 58px); min-height: var(--size-tooltip-min, 58px); max-width: var(--size-tooltip-max, 320px); width: max-content;
+  padding: var(--space-10, 10px) var(--space-16, 16px); border-radius: var(--radius-container); background: var(--bg); color: var(--fg);
+  box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--bd), var(--shadow-key, 0 8px 24px rgb(0 0 0 / .12)), var(--shadow-ambient, 0 0 2px rgb(0 0 0 / .08));
+  font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); text-align: center; white-space: normal; overflow-wrap: anywhere; }
+.emcd-tooltip--top, .emcd-tooltip--bottom { min-height: 0; }
+.emcd-tooltip--start, .emcd-tooltip--end { min-width: 0; }
+.emcd-tooltip--accent { --bg: var(--surface-accent); --bd: transparent; --fg: var(--text-on-accent); }
+.emcd-tooltip__arrow { position: absolute; width: 26px; height: 9px; overflow: visible; pointer-events: none; color: var(--bg); }
+.emcd-tooltip__arrow .emcd-tooltip__arrow-fill { fill: var(--bg); }
+.emcd-tooltip__arrow .emcd-tooltip__arrow-edge { fill: none; stroke: var(--bd); stroke-width: var(--border-width-default, 1px); stroke-linejoin: round; }
+/* Top — уголок снизу; Bottom — сверху; Start — справа; End — слева. Arrow: Center | Start | End (не ближе 16 к углу). */
+.emcd-tooltip--top .emcd-tooltip__arrow { top: calc(100% - 1px); left: calc(50% - 13px); }
+.emcd-tooltip--bottom .emcd-tooltip__arrow { bottom: calc(100% - 1px); left: calc(50% - 13px); transform: rotate(180deg); }
+.emcd-tooltip--start .emcd-tooltip__arrow { left: calc(100% - 9.5px); top: calc(50% - 4.5px); transform: rotate(-90deg); }
+.emcd-tooltip--end .emcd-tooltip__arrow { right: calc(100% - 9.5px); top: calc(50% - 4.5px); transform: rotate(90deg); }
+:is(.emcd-tooltip--top, .emcd-tooltip--bottom).emcd-tooltip--arrow-start .emcd-tooltip__arrow { left: 16px; }
+:is(.emcd-tooltip--top, .emcd-tooltip--bottom).emcd-tooltip--arrow-end .emcd-tooltip__arrow { left: auto; right: 16px; }
+:is(.emcd-tooltip--start, .emcd-tooltip--end).emcd-tooltip--arrow-start .emcd-tooltip__arrow { top: calc(16px + 8.5px); }
+:is(.emcd-tooltip--start, .emcd-tooltip--end).emcd-tooltip--arrow-end .emcd-tooltip__arrow { top: auto; bottom: calc(16px + 8.5px); }
+/* Привязка к триггеру: показ по наведению и фокусу с клавиатуры. Отступ 17 = уголок 9 + 8. */
+.emcd-tooltip-anchor { position: relative; display: inline-flex; vertical-align: middle; }
+.emcd-tooltip-anchor > .emcd-tooltip { position: absolute; z-index: 30; opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, ease), visibility 0s linear var(--motion-duration-feedback, 120ms); }
+.emcd-tooltip-anchor:hover > .emcd-tooltip, .emcd-tooltip-anchor:focus-within > .emcd-tooltip, .emcd-tooltip-anchor[data-open] > .emcd-tooltip {
+  opacity: 1; visibility: visible; transition-delay: 0s; }
+.emcd-tooltip-anchor > .emcd-tooltip--top { bottom: calc(100% + 17px); left: 50%; transform: translateX(-50%); }
+.emcd-tooltip-anchor > .emcd-tooltip--bottom { top: calc(100% + 17px); left: 50%; transform: translateX(-50%); }
+.emcd-tooltip-anchor > .emcd-tooltip--start { right: calc(100% + 17px); top: 50%; transform: translateY(-50%); }
+.emcd-tooltip-anchor > .emcd-tooltip--end { left: calc(100% + 17px); top: 50%; transform: translateY(-50%); }
+.emcd-tooltip-anchor > :is(.emcd-tooltip--top, .emcd-tooltip--bottom).emcd-tooltip--arrow-start { left: 50%; transform: translateX(-29px); }
+.emcd-tooltip-anchor > :is(.emcd-tooltip--top, .emcd-tooltip--bottom).emcd-tooltip--arrow-end { left: auto; right: 50%; transform: translateX(29px); }
+@media (prefers-reduced-motion: reduce) { .emcd-tooltip-anchor > .emcd-tooltip { transition: none; } }

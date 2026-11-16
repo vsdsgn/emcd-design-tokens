@@ -215,3 +215,8 @@
 - MAJOR Suggest, Badge: тон Info удалён (Info = цвет бренда, `status/info/*` → accent); экземпляры Info → Accent.
 - Tooltip, `_Tooltip arrow`, Tooltip tour Accent, точка Notification → `surface/accent`; Toast Informer Neutral → `surface/inverse`.
 - Avatar group, Coin stack — нахлёст `size/overlap/*` (Coin stack M −7 → −8); Sidebar — ширины `size/sidebar/*`; Menu `Items` — max-height `size/menu/max-height`; Avatar — корень `size/media/*`.
+
+## 2026-11-16 — пилот экранов
+
+- Select: внутренний `field` — Fill по ширине корня (было 320 числом, экземпляр не растягивался); кольцо фокуса тянется по ширине.
+- Key-value row: значение Total — `font/family/mono`, Medium (как Default — числа в столбце выравниваются).

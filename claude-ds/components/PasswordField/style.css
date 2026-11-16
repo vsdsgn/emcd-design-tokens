@@ -1,0 +1,12 @@
+/* Password field — 🟡 beta (Figma «🟡 Password field»: State; Show requirements). Поле Input + «глаз» + список требований.
+   Требования видны до ввода и отмечаются сразу; ошибка — только после отправки или ухода из поля. Не только цветом: прочерк / галочка. */
+.emcd-password { display: flex; flex-direction: column; gap: var(--space-10, 10px); min-width: var(--size-field-min, 160px); max-width: var(--size-field-max, 480px); }
+.emcd-password .emcd-input__trailing { margin-right: calc(-1 * var(--space-8, 8px)); }
+.emcd-password .emcd-input__trailing .emcd-btn { --h: 32px; color: var(--icon-secondary); }
+.emcd-password__reqs { display: flex; flex-direction: column; gap: var(--space-6, 6px); margin: 0; padding: 0; list-style: none; }
+.emcd-password__req { display: flex; align-items: flex-start; gap: var(--space-6, 6px); font: 400 var(--type-body-sm-size, 12px)/var(--icon-size-md, 20px) var(--font-sans); color: var(--text-secondary); }
+.emcd-password__req svg { flex: none; width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); color: var(--icon-tertiary); }
+.emcd-password__req--met { color: var(--text-success); }
+.emcd-password__req--met svg { color: var(--icon-success); }
+.emcd-password--disabled .emcd-password__req { color: var(--text-disabled); }
+.emcd-password--disabled .emcd-password__req svg { color: var(--icon-disabled); }

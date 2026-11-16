@@ -1,0 +1,9 @@
+/* Counter — 🟡 beta (Figma «🟡 Counter»: Size × Tone). Число у таба, пункта меню, иконки. Не статус. */
+.emcd-counter { --h: var(--size-counter-height-sm, 16px); --bg: var(--status-neutral-subtle); --fg: var(--text-primary);
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; flex: none; vertical-align: middle;
+  min-width: var(--h); min-height: var(--h); max-width: var(--size-counter-max, 48px); padding: 0 var(--space-2xs, 4px); border-radius: 999px;
+  font: 500 11px/var(--h) var(--font-sans); font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  background: var(--bg); color: var(--fg); }
+.emcd-counter--m { --h: var(--size-counter-height-md, 20px); padding: 0 var(--space-6, 6px); font-size: 12px; }
+.emcd-counter--accent { --bg: var(--control-checked); --fg: var(--text-on-accent); }
+.emcd-counter--danger { --bg: var(--status-danger-solid); --fg: var(--text-on-accent); }

@@ -1,0 +1,9 @@
+/* Divider — 🟡 beta (Figma «🟡 Divider»: Orientation × Label × Style). Линия border-subtle толщиной border-width-default. */
+.emcd-divider { --w: var(--border-width-default, 1px); --c: var(--border-subtle); --st: solid;
+  flex: none; display: block; box-sizing: border-box; width: 100%; height: 0; margin: 0; border: 0; border-top: var(--w) var(--st) var(--c); }
+.emcd-divider--dotted { --st: dotted; }
+.emcd-divider--vertical { display: inline-block; width: 0; height: auto; min-height: 16px; align-self: stretch; vertical-align: middle; border-top: 0; border-left: var(--w) var(--st) var(--c); }
+/* Label = On — «или» между двумя линиями (только Horizontal) */
+.emcd-divider--label { display: flex; align-items: center; gap: var(--space-12, 12px); height: auto; border-top: 0;
+  font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); color: var(--text-tertiary); white-space: nowrap; }
+.emcd-divider--label::before, .emcd-divider--label::after { content: ""; flex: 1; border-top: var(--w) var(--st) var(--c); }

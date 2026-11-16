@@ -1,0 +1,45 @@
+/* Toast — 🟡 beta (Figma «🟡 Toast»: Layout Card · Informer × Tone). Отклик на действие; исчезает сам.
+   Card — Web, справа сверху: overlay surface, иконка тона, заголовок, описание, кнопки, таймер, крестик.
+   Informer — App, сверху под статус-баром: заливка тона на всю ширину. */
+.emcd-toast { position: relative; box-sizing: border-box; display: flex; align-items: flex-start; gap: var(--space-12, 12px);
+  width: 400px; min-width: var(--size-toast-min, 280px); max-width: 100%;
+  padding: var(--space-16, 16px) var(--space-48, 48px) var(--space-16, 16px) var(--space-16, 16px); border-radius: var(--radius-control);
+  background: var(--surface-raised); color: var(--text-primary);
+  box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle), var(--shadow-key, 0 8px 24px rgb(0 0 0 / .12)), var(--shadow-ambient, 0 0 2px rgb(0 0 0 / .08)); }
+.emcd-toast__icon { flex: none; display: inline-flex; width: 24px; height: 24px; }
+.emcd-toast__icon svg { width: 100%; height: 100%; }
+/* Иконка тона (media/status): круг цвета тона и знак; у Neutral иконки нет */
+.emcd-toast__icon { --c: var(--control-checked); --g: var(--text-on-accent); }
+.emcd-toast__icon circle { fill: var(--c); }
+.emcd-toast__icon path { fill: none; stroke: var(--g); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.emcd-toast--success .emcd-toast__icon { --c: var(--status-success-solid); }
+.emcd-toast--warning .emcd-toast__icon { --c: var(--status-warning-solid); --g: var(--text-on-warning); }
+.emcd-toast--danger .emcd-toast__icon { --c: var(--status-danger-solid); }
+.emcd-toast__content { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-4, 4px); padding-top: 2px; }
+.emcd-toast__title { margin: 0; font: 500 var(--type-label-lg-size, 16px)/var(--type-label-lg-line-height, 20px) var(--font-sans); color: var(--text-primary); }
+.emcd-toast__desc { margin: 0; font: 400 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); color: var(--text-secondary); }
+.emcd-toast__actions { display: flex; flex-wrap: wrap; gap: var(--space-8, 8px); margin-top: var(--space-8, 8px); }
+.emcd-toast__tools { position: absolute; top: var(--space-12, 12px); right: var(--space-12, 12px); display: flex; align-items: center; gap: var(--space-4, 4px); }
+.emcd-toast__timer { width: 16px; height: 16px; color: var(--icon-secondary); transform: rotate(-90deg); }
+.emcd-toast__timer circle { fill: none; stroke: currentColor; stroke-width: 2; }
+.emcd-toast__timer circle:first-child { opacity: .2; }
+.emcd-toast__timer circle + circle { stroke-dasharray: 37.7; stroke-dashoffset: 0; animation: emcd-toast-timer var(--emcd-toast-duration, 5000ms) linear forwards; }
+.emcd-toast:hover .emcd-toast__timer circle + circle { animation-play-state: paused; }
+@keyframes emcd-toast-timer { to { stroke-dashoffset: 37.7; } }
+.emcd-toast__close.emcd-btn { --h: 32px; }
+/* Informer — полоса тона; Warning — тёмный текст, Neutral — surface-inverse */
+.emcd-toast--informer { --bg: var(--control-checked); --fg: var(--text-on-accent);
+  width: 375px; min-width: 0; align-items: center; padding: var(--space-12, 12px) var(--space-48, 48px) var(--space-12, 12px) var(--space-16, 16px);
+  border-radius: 0; background: var(--bg); color: var(--fg); box-shadow: none; }
+.emcd-toast--informer.emcd-toast--safe-area { padding-top: calc(var(--space-12, 12px) + var(--os-safe-area-top, env(safe-area-inset-top, 0px))); }
+.emcd-toast--informer .emcd-toast__title { color: inherit; }
+.emcd-toast--informer .emcd-toast__tools { top: auto; bottom: 6px; right: 8px; }
+.emcd-toast--informer .emcd-toast__close.emcd-btn { --fg: currentColor; --layer: currentColor; }
+.emcd-toast--informer.emcd-toast--success { --bg: var(--status-success-solid); }
+.emcd-toast--informer.emcd-toast--warning { --bg: var(--status-warning-solid); --fg: var(--text-on-warning); }
+.emcd-toast--informer.emcd-toast--danger { --bg: var(--status-danger-solid); }
+.emcd-toast--informer.emcd-toast--neutral { --bg: var(--surface-inverse); --fg: var(--text-inverse); }
+/* Стек Toast на Web — справа сверху, не больше 3 */
+.emcd-toast-stack { position: fixed; z-index: 60; top: var(--space-16, 16px); right: var(--space-16, 16px); display: flex; flex-direction: column; gap: var(--space-8, 8px); }
+@media (prefers-reduced-motion: no-preference) { .emcd-toast { animation: emcd-toast-in var(--motion-duration-enter, 240ms) var(--motion-easing-enter, cubic-bezier(0,0,0,1)); } }
+@keyframes emcd-toast-in { from { opacity: 0; transform: translateY(-8px); } }

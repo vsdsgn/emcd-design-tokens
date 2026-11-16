@@ -1,0 +1,24 @@
+/* Stat card — 🟡 beta (Figma «🟡 Stat card»: State Default · Skeleton). Один показатель: подпись, число, единица, дельта.
+   Подложка — на уровень выше текущей (surface-next). Высота Default и Skeleton одинаковая. */
+.emcd-stat { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; gap: var(--space-8, 8px);
+  min-width: var(--size-card-min, 200px); padding: var(--card-padding, 16px); border-radius: var(--radius-container); overflow: hidden;
+  background: var(--surface-next, var(--surface-level-1)); box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); color: var(--text-primary); }
+.emcd-stat__label-row { display: flex; align-items: center; gap: var(--space-4, 4px); min-width: 0; }
+.emcd-stat__label { min-width: 0; font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-stat__info { display: inline-flex; flex: none; padding: 0; border: 0; background: none; color: var(--icon-tertiary); cursor: help; border-radius: 50%; }
+.emcd-stat__info svg { width: 16px; height: 16px; }
+.emcd-stat__info:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-stat__value-row { display: flex; align-items: baseline; gap: var(--space-6, 6px); min-width: 0; }
+.emcd-stat__value { max-width: 180px; font: 700 var(--type-heading-xl-size, 32px)/var(--type-heading-xl-line-height, 40px) var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-stat__unit { max-width: 64px; font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-stat__delta-row { display: flex; align-items: center; gap: var(--space-6, 6px); max-width: 248px; min-width: 0; }
+.emcd-stat__caption { max-width: 160px; font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); color: var(--text-tertiary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-stat__footer { margin-top: var(--space-4, 4px); min-width: 0; }
+/* Ambient light — одна герой-карточка на экран; в стиле Base пятно прозрачное (токен) */
+.emcd-stat--ambient::before { content: ""; position: absolute; z-index: -1; right: -20%; top: -40%; width: 70%; aspect-ratio: 1; border-radius: 50%;
+  background: var(--light-ambient-color, transparent); filter: blur(var(--light-ambient-blur, 48px)); pointer-events: none; }
+/* Skeleton — три полосы на месте подписи, числа и дельты */
+.emcd-stat__bone { display: block; border-radius: var(--radius-inner); background: var(--skeleton-base); }
+.emcd-stat--skeleton .emcd-stat__label-row, .emcd-stat--skeleton .emcd-stat__delta-row { height: var(--type-body-sm-line-height, 16px); }
+.emcd-stat--skeleton .emcd-stat__delta-row { height: 20px; }
+.emcd-stat--skeleton .emcd-stat__value-row { height: var(--type-heading-xl-line-height, 40px); align-items: center; }

@@ -1392,7 +1392,7 @@ export const DATA = [
     anatomy: [
       'Корень — горизонтальный ряд, зазор `space/16`, вертикальные отступы `space/8` / `space/12`; у Total — линия сверху `border/subtle` (`border/width/default`).',
       '`key` — `text/secondary`, Body/MD Regular; у Total — Label/MD Medium.',
-      '`value` — Default: `text/primary`, `font/family/mono`; Muted: `text/secondary`; Total: Label/MD Medium, `font/family/text`; max-width 200.',
+      '`value` — Default: `text/primary`, `font/family/mono`; Muted: `text/secondary`; Total: Label/MD Medium, `font/family/mono` (как Default: числа в столбце выравниваются; 2026-11-16, пилот «Вывод»); max-width 200.',
       '`leader` (Leader=On) — точечная линия между `key` и `value`: обводка `border/strong`, пунктир; заполняет промежуток.',
     ],
     group: NONE,
@@ -2124,7 +2124,7 @@ export const DATA = [
     ],
     never: 'Select для 2–4 вариантов; ввод текста в поле Select; множественный выбор в Select; Menu уже или шире поля; лейбл сбоку или внутри поля.',
     anatomy: [
-      'Корень — экземпляр Input (вложен во все 24 варианта): лейбл, поле, helper / ошибка под полем; min-width корня и `field` — `size/field/min`.',
+      'Корень — экземпляр Input (вложен во все 24 варианта): лейбл, поле, helper / ошибка под полем; min-width корня и `field` — `size/field/min`; `field` — Fill по ширине корня (исправлено 2026-11-16: было 320 числом, в экземпляре не растягивалось — пилот «Вывод»).',
       'Справа в поле — шеврон (иконка в слоте Trailing): `icon/chevron-down`, в Open — `icon/chevron-up`; в Loading перед шевроном — спиннер; слева — необязательный слот Leading (Show leading у вложенного Input).',
       'Служебный слой `focus ring` (`border/focus-ring`, `border/width/focus-ring`, радиусы `radius/focus-ring-sm` / `radius/focus-ring-inner`) — свойство Focus ring.',
     ],

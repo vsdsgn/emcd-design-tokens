@@ -1,0 +1,14 @@
+/* Amount — 🟡 beta (Figma «🟡 Amount»: Size × Sign). Сумма, тикер через неразрывный пробел, фиат второй строкой.
+   S / M — моно (колонки выравниваются); L / XL — display. Списание не красное. */
+.emcd-amount { --fs: 14px; --lh: 20px; --ff: var(--font-mono); --fw: 400; --tfs: 14px; --tlh: 20px; --ffs: 12px; --flh: 16px;
+  display: inline-flex; flex-direction: column; gap: 2px; min-width: 0; vertical-align: middle; }
+.emcd-amount__row { display: inline-flex; align-items: baseline; white-space: nowrap; }
+.emcd-amount__value { font: var(--fw) var(--fs)/var(--lh) var(--ff); font-variant-numeric: tabular-nums; color: var(--text-primary); }
+.emcd-amount__ticker { font: 400 var(--tfs)/var(--tlh) var(--font-sans); color: var(--text-secondary); }
+.emcd-amount__fiat { font: 400 var(--ffs)/var(--flh) var(--font-sans); color: var(--text-secondary); white-space: nowrap; }
+.emcd-amount--m { --fs: 16px; --lh: 24px; --tfs: 16px; --tlh: 24px; --ffs: 14px; --flh: 20px; }
+.emcd-amount--l { --fs: 24px; --lh: 32px; --ff: var(--font-display); --fw: 700; --tfs: 16px; --tlh: 24px; --ffs: 14px; --flh: 20px; }
+.emcd-amount--xl { --fs: 32px; --lh: 40px; --ff: var(--font-display); --fw: 700; --tfs: 20px; --tlh: 28px; --ffs: 16px; --flh: 24px; }
+.emcd-amount--l .emcd-amount__value, .emcd-amount--xl .emcd-amount__value { letter-spacing: -0.01em; }
+.emcd-amount--end { align-items: flex-end; text-align: right; }
+.emcd-amount--positive .emcd-amount__value { color: var(--text-success); }

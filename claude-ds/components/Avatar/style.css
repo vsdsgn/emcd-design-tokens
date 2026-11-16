@@ -1,0 +1,18 @@
+/* Avatar — 🟡 beta (Figma «🟡 Avatar»: Size × Type × State). Круг: инициал, иконка или фото; точка «в сети». */
+.emcd-avatar { --s: 20px; --fs: 10px; --dot: 6px;
+  position: relative; display: inline-flex; flex: none; width: var(--s); height: var(--s); vertical-align: middle; }
+.emcd-avatar__circle { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
+  background: var(--status-neutral-subtle); color: var(--text-primary); font: 600 var(--fs)/1 var(--font-sans); text-transform: uppercase; user-select: none; }
+.emcd-avatar__circle img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.emcd-avatar__circle svg { width: 60%; height: 60%; max-width: var(--icon-size-md, 20px); max-height: var(--icon-size-md, 20px); }
+.emcd-avatar--s { --s: 32px; --fs: 14px; --dot: 8px; }
+.emcd-avatar--m { --s: 40px; --fs: 16px; --dot: 10px; }
+.emcd-avatar--l { --s: 56px; --fs: 24px; --dot: 12px; }
+.emcd-avatar--icon .emcd-avatar__circle { background: var(--accent-subtle); color: var(--accent-on-subtle); }
+.emcd-avatar--l.emcd-avatar--icon .emcd-avatar__circle svg { max-width: var(--icon-size-lg, 24px); max-height: var(--icon-size-lg, 24px); }
+/* Status — точка «в сети»; обводка цветом текущей поверхности (L0–L3) */
+.emcd-avatar__status { position: absolute; right: -1px; bottom: -1px; width: var(--dot); height: var(--dot); border-radius: 50%;
+  background: var(--status-success-solid); box-shadow: 0 0 0 var(--border-width-strong, 2px) var(--surface-current, var(--surface-level-0)); }
+/* Skeleton */
+.emcd-avatar--skeleton .emcd-avatar__circle { background: var(--skeleton-base); color: transparent; }
+.emcd-avatar--skeleton .emcd-avatar__circle > * { visibility: hidden; }
