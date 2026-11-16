@@ -95,6 +95,7 @@
 
 ## 15. Migration
 - DS App: нижняя навигация → Tab bar (слот Items с Tab bar item, Safe area).
+- Мобильный веб пула: меню-бургер → Tab bar, как в App и WL (решение 2026-11-16, `docs/patterns.md`).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Base-поверхность сверить с «`surface/raised`» в A11y (reduced transparency).
