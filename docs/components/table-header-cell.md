@@ -23,7 +23,7 @@
 
 ## 3. Anatomy
 - Корень: высота `size/table/header`, отступы `space/12`, зазор `space/4`, min-width `size/table-cell/min`, ширина — по колонке.
-- `label` — Fill, `type/label/md/*`, `font-weight/medium`; стрелка сортировки, иконки фильтра и info (Show filter / Show info).
+- `label` — Align=Start: по содержимому, стрелка сортировки сразу после подписи (16.11, по продукту); Align=End: Fill с выравниванием к концу; `type/label/md/*`, `font-weight/medium`; стрелка сортировки, иконки фильтра и info (Show filter / Show info).
 - Служебные: `state layer` (`state/layer` × `state/hover` / `state/pressed`), `focus ring` (внутри ячейки), зоны `hit area · web` / `· app`, `safe area · outer`; `skeleton` (`skeleton/base`, `radius/chip`).
 - Вложено: иконки ×48.
 - Служебные слои (вариантов из 20): кольцо фокуса 20 · зона Web 20 · зона касания 20 · безопасное поле 20.
@@ -60,7 +60,7 @@
 - Label — текст заголовка (по умолчанию «Сумма»); Focus ring, Show hit area, Safe margin — служебные; Show filter, Show info — нет у Skeleton.
 
 ## 6. Content / slots
-- Длинный текст: `label` Fill по ширине колонки, одна строка, усечение многоточием; полный текст — в `title` / тултипе.
+- Длинный текст: одна строка, усечение многоточием по ширине колонки (в коде — `min-width: 0` + `text-overflow: ellipsis`; в Figma у Align=Start подпись по содержимому — длинную сокращать в макете); полный текст — в `title` / тултипе.
 - Языки (de, ar, hi, th, ja, kk): по высоте не обрезаются.
 - Текст 200 %: ячейка растёт по высоте, обрезки нет.
 - RTL: порядок слотов зеркалится (leading ↔ trailing), смысловые стрелки и шевроны отражаются, цифры и латиница — нет.

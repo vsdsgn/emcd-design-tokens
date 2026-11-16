@@ -1993,7 +1993,7 @@ export const DATA = [
     never: 'активная сортировка без стрелки; Align End для текстовых колонок; заголовок вне таблицы.',
     anatomy: [
       'Корень: высота `size/table/header`, отступы `space/12`, зазор `space/4`, min-width `size/table-cell/min`, ширина — по колонке.',
-      '`label` — Fill, `type/label/md/*`, `font-weight/medium`; стрелка сортировки, иконки фильтра и info (Show filter / Show info).',
+      '`label` — Align=Start: по содержимому, стрелка сортировки сразу после подписи (16.11, по продукту); Align=End: Fill с выравниванием к концу; `type/label/md/*`, `font-weight/medium`; стрелка сортировки, иконки фильтра и info (Show filter / Show info).',
       'Служебные: `state layer` (`state/layer` × `state/hover` / `state/pressed`), `focus ring` (внутри ячейки), зоны `hit area · web` / `· app`, `safe area · outer`; `skeleton` (`skeleton/base`, `radius/chip`).',
     ],
     group: PLASHKA + '; Skeleton — загрузка',
@@ -2006,7 +2006,7 @@ export const DATA = [
     defaults: { Align: 'Start', Sort: 'None', State: 'Default' },
     propsNote: ['Label — текст заголовка (по умолчанию «Сумма»); Focus ring, Show hit area, Safe margin — служебные; Show filter, Show info — нет у Skeleton.'],
     content: [
-      'Длинный текст: `label` Fill по ширине колонки, одна строка, усечение многоточием; полный текст — в `title` / тултипе.',
+      'Длинный текст: одна строка, усечение многоточием по ширине колонки (в коде — `min-width: 0` + `text-overflow: ellipsis`; в Figma у Align=Start подпись по содержимому — длинную сокращать в макете); полный текст — в `title` / тултипе.',
       'Языки (de, ar, hi, th, ja, kk): по высоте не обрезаются.',
       'Текст 200 %: ячейка растёт по высоте, обрезки нет.',
       RTL,
