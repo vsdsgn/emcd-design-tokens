@@ -1,0 +1,301 @@
+/* EMCD DS 2.0 — стили компонентов (классы emcd-*). Генерируется scripts/code-build.mjs из claude-ds/components/<Comp>/style.css; токены — build/css (подключить раньше). */
+
+:where(:root) {
+  --font-sans: var(--brand-font-family-text), "Inter", system-ui, sans-serif;
+  --font-display: var(--brand-font-family-display), "Inter", system-ui, sans-serif;
+  --radius-xs: var(--brand-radius-xs); --radius-sm: var(--brand-radius-sm); --radius-control-xs: var(--brand-radius-control-xs);
+}
+
+/* Button — 🟡 beta (Figma «🟡 Button»: Type × Tone × Size × State; Loading — свойство).
+   Токены DS 2.0 с запасными значениями: до экспорта Foundations в репо часть имён ещё старые. */
+.emcd-btn { --h: 40px; --px: 12px; --r: var(--radius-control); --fs: 14px; --lh: 20px;
+  --bg: transparent; --fg: var(--text-primary);
+  --layer: var(--state-layer, var(--text-primary)); --layer-hover: 0.06; --layer-pressed: 0.10;
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 6px; vertical-align: middle;
+  height: var(--h); padding: 0 var(--px); border: 0; border-radius: var(--r); margin: 0;
+  font: 500 var(--fs)/var(--lh) var(--font-sans); font-feature-settings: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
+  background: var(--bg); color: var(--fg); max-width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  cursor: pointer; -webkit-tap-highlight-color: transparent; outline: none; text-decoration: none;
+  transition: transform var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)), color 120ms cubic-bezier(.2,0,0,1); }
+.emcd-btn > * { position: relative; z-index: 1; }
+.emcd-btn svg { width: 20px; height: 20px; flex: none; }
+/* Hover / Pressed — слой «краски» темы: в светлой кнопка темнее, в тёмной светлее. Одно правило на все типы. */
+.emcd-btn::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--layer); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-btn:hover::before { opacity: var(--layer-hover); }
+.emcd-btn:active::before { opacity: var(--layer-pressed); }
+.emcd-btn:active { transform: scale(var(--motion-scale-press, 0.96)); }
+/* Фокус: нейтральное кольцо 2 px, зазор 2 px, повторяет скругление */
+.emcd-btn:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+/* Зона нажатия = max(размер, touch-min) */
+.emcd-btn::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: max(100%, var(--touch-min, 24px)); height: max(100%, var(--touch-min, 24px)); }
+.emcd-btn--s { --h: 32px; --px: 10px; --r: var(--radius-control-sm); }
+.emcd-btn--l { --h: 48px; --px: 16px; --fs: 16px; --lh: 24px; }
+.emcd-btn--xl { --h: 56px; --px: 20px; --fs: 16px; --lh: 24px; }
+.emcd-btn--l svg, .emcd-btn--xl svg { width: 24px; height: 24px; }
+.emcd-btn--s svg { width: 16px; height: 16px; }
+/* Type × Tone */
+.emcd-btn--primary { --bg: var(--action-primary-default); --fg: var(--fixed-light); }
+.emcd-btn--primary.emcd-btn--danger { --bg: var(--action-danger-default); --fg: var(--fixed-light); }
+.emcd-btn--secondary { --bg: var(--action-accent-default, var(--accent-subtle)); --fg: var(--text-accent); }
+.emcd-btn--secondary.emcd-btn--danger { --bg: var(--action-danger-subtle-default, var(--status-danger-subtle)); --fg: var(--text-danger); }
+.emcd-btn--tertiary { --bg: var(--action-secondary-default); --fg: var(--text-primary); }
+.emcd-btn--outline { --bg: transparent; --fg: var(--text-primary); box-shadow: inset 0 0 0 1px var(--border-default); }
+.emcd-btn--inverted { --bg: var(--action-inverse-default); --fg: var(--text-inverse); --layer: var(--state-layer-inverse, var(--text-inverse)); }
+.emcd-btn--text { --bg: transparent; --fg: var(--text-accent); --fg-hover: var(--text-accent-hover, var(--text-link-hover)); --fg-pressed: var(--text-accent-pressed, var(--text-link-hover));
+  height: auto; padding: 0 4px; gap: 4px; --r: var(--radius-xs, 4px); max-width: none; }
+.emcd-btn--text.emcd-btn--danger { --fg: var(--text-danger); --fg-hover: var(--text-danger-hover, var(--text-danger)); --fg-pressed: var(--text-danger-pressed, var(--text-danger)); }
+.emcd-btn--text::before { display: none; }
+.emcd-btn--text:hover { color: var(--fg-hover); text-decoration: underline; }
+.emcd-btn--text:active { color: var(--fg-pressed); transform: none; }
+/* Disabled / Loading */
+.emcd-btn:disabled { cursor: not-allowed; --fg: var(--text-disabled); transform: none; }
+.emcd-btn:disabled:not(.emcd-btn--text):not(.emcd-btn--outline) { --bg: var(--action-disabled); }
+.emcd-btn--outline:disabled { box-shadow: inset 0 0 0 1px var(--border-subtle); }
+.emcd-btn:disabled::before { opacity: 0 !important; }
+.emcd-btn[aria-busy="true"] { cursor: progress; }
+@media (prefers-reduced-motion: reduce) { .emcd-btn, .emcd-btn::before { transition: none; } .emcd-btn:active { transform: none; } }
+
+/* Icon button — 🟡 beta (Figma «🟡 Icon button»: Type × Tone × Size × State). Наследует .emcd-btn: те же заливки, слой состояний, фокус, зона нажатия. */
+.emcd-icon-btn { width: var(--h); padding: 0; max-width: none; }
+.emcd-icon-btn svg { width: 20px; height: 20px; }
+.emcd-icon-btn.emcd-btn--s svg { width: 16px; height: 16px; }
+.emcd-icon-btn.emcd-btn--l svg, .emcd-icon-btn.emcd-btn--xl svg { width: 24px; height: 24px; }
+/* Ghost — нейтральная, без подложки; подложка появляется слоем состояний на Hover / Pressed */
+.emcd-btn--ghost { --bg: transparent; --fg: var(--text-primary); }
+/* Text в иконочной кнопке — без подложки, цветом; квадрат и зона нажатия сохраняются */
+.emcd-icon-btn.emcd-btn--text { height: var(--h); padding: 0; }
+.emcd-icon-btn.emcd-btn--text:hover { text-decoration: none; }
+/* Тултип с Label — только Web (точный указатель); в приложении подпись — через aria-label.
+   На наведении ::after (зона нажатия) становится тултипом — указатель уже над кнопкой. */
+@media (hover: hover) and (pointer: fine) {
+  .emcd-icon-btn[data-tooltip] { overflow: visible; }
+  .emcd-icon-btn[data-tooltip]:hover::after, .emcd-icon-btn[data-tooltip]:focus-visible::after {
+    content: attr(data-tooltip); position: absolute; top: auto; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%);
+    width: max-content; max-width: 320px; height: auto; padding: 10px 16px; border-radius: 16px;
+    background: var(--surface-raised); color: var(--text-primary); box-shadow: inset 0 0 0 1px var(--border-default);
+    font: 500 14px/20px var(--font-sans); white-space: nowrap; pointer-events: none; z-index: 2; }
+}
+
+/* Badge — 🟡 beta (Figma «🟡 Badge»: Size × Tone × Style). Неинтерактивная метка; радиус не pill. */
+.emcd-badge { --bg: var(--action-secondary-default); --fg: var(--text-primary);
+  display: inline-flex; align-items: center; gap: 4px; box-sizing: border-box; height: 24px; padding: 0 10px; border-radius: var(--radius-sm, 8px); vertical-align: middle;
+  font: 500 12px/16px var(--font-sans); max-width: 160px; white-space: nowrap; background: var(--bg); color: var(--fg); }
+.emcd-badge__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.emcd-badge svg { width: 12px; height: 12px; flex: none; }
+.emcd-badge__dot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: currentColor; }
+/* Size */
+.emcd-badge--s { height: 20px; padding: 0 8px; }
+.emcd-badge--l { height: 32px; padding: 0 12px; gap: 6px; border-radius: var(--radius-control-sm, 10px); font: 500 14px/20px var(--font-sans); }
+.emcd-badge--l svg { width: 16px; height: 16px; }
+/* Tone × Style=Subtle (по умолчанию) */
+.emcd-badge--accent { --bg: var(--accent-subtle); --fg: var(--accent-on-subtle); }
+.emcd-badge--success { --bg: var(--status-success-subtle); --fg: var(--status-success-on-subtle); }
+.emcd-badge--warning { --bg: var(--status-warning-subtle); --fg: var(--status-warning-on-subtle); }
+.emcd-badge--danger { --bg: var(--status-danger-subtle); --fg: var(--status-danger-on-subtle); }
+/* Tone × Style=Solid — одна главная метка на карточке или экране */
+.emcd-badge--solid { --bg: var(--action-inverse-default); --fg: var(--text-inverse); }
+.emcd-badge--solid.emcd-badge--accent { --bg: var(--control-checked); --fg: var(--text-on-accent); }
+.emcd-badge--solid.emcd-badge--success { --bg: var(--status-success-solid); --fg: var(--text-on-accent); }
+.emcd-badge--solid.emcd-badge--warning { --bg: var(--status-warning-solid); --fg: var(--text-on-warning); }
+.emcd-badge--solid.emcd-badge--danger { --bg: var(--status-danger-solid); --fg: var(--text-on-accent); }
+/* Close / Chevron — только у интерактивного бейджа; Close — отдельная кнопка с aria-label */
+/* Skeleton */
+.emcd-badge--skeleton { --bg: var(--skeleton-base); color: transparent; min-width: 56px; }
+.emcd-badge--skeleton > * { visibility: hidden; }
+
+/* Chip — 🟡 beta (Figma «🟡 Chip»: Size × Selected × State). Радиус — как у контролов, не pill. */
+.emcd-chip { --h: 32px; --px: 10px; --r: var(--radius-control-sm, 10px); --bg: transparent; --fg: var(--text-primary); --meta: var(--text-secondary);
+  --layer: var(--state-layer, var(--text-primary));
+  all: unset; position: relative; display: inline-flex; align-items: center; gap: 6px; box-sizing: border-box; height: var(--h); padding: 0 var(--px); border-radius: var(--r); vertical-align: middle;
+  border: 1px solid var(--control-border-default); background: var(--bg); color: var(--fg);
+  font: 500 14px/20px var(--font-sans); max-width: 240px; white-space: nowrap; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-chip--m { --h: 40px; --px: 12px; --r: var(--radius-control); }
+.emcd-chip > * { position: relative; z-index: 1; }
+.emcd-chip svg { width: 16px; height: 16px; flex: none; }
+.emcd-chip__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.emcd-chip__meta { flex: none; color: var(--meta); }
+/* Selected = On — инверсия; слой состояний тоже инверсный */
+.emcd-chip[aria-pressed="true"], .emcd-chip--selected { --bg: var(--action-inverse-default); --fg: var(--text-inverse); --meta: var(--text-inverse); --layer: var(--state-layer-inverse, var(--text-inverse)); border-color: transparent; }
+/* Hover / Pressed — слой 6 % / 10 %, Pressed — масштаб 0.96 */
+.emcd-chip::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; background: var(--layer); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-chip:hover::before { opacity: 0.06; }
+.emcd-chip:active::before { opacity: 0.10; }
+.emcd-chip:active { transform: scale(var(--motion-scale-press, 0.96)); }
+.emcd-chip:focus-visible, .emcd-chip:has(.emcd-chip__action:focus-visible) { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+/* Зона нажатия ≥ touch-min */
+.emcd-chip::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 100%; height: max(100%, var(--touch-min, 24px)); }
+/* Remove — только у выбранных фильтров: чип-обёртка <span>, внутри кнопка выбора и отдельная кнопка «Убрать фильтр …» */
+.emcd-chip__action { all: unset; display: inline-flex; align-items: center; gap: 6px; min-width: 0; cursor: pointer; }
+.emcd-chip__remove { all: unset; position: relative; z-index: 2; display: inline-flex; flex: none; margin-right: -2px; border-radius: var(--radius-xs, 4px); cursor: pointer; }
+.emcd-chip__remove::after { content: ""; position: absolute; left: 50%; top: 50%; width: 24px; height: 24px; transform: translate(-50%, -50%); }
+.emcd-chip__remove:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+/* Disabled */
+.emcd-chip:disabled, .emcd-chip[aria-disabled="true"] { --bg: var(--action-disabled); --fg: var(--text-disabled); --meta: var(--text-disabled); border-color: transparent; cursor: not-allowed; transform: none; }
+.emcd-chip:disabled::before, .emcd-chip[aria-disabled="true"]::before { display: none; }
+@media (prefers-reduced-motion: reduce) { .emcd-chip, .emcd-chip::before { transition: none; } .emcd-chip:active { transform: none; } }
+
+/* Checkbox — 🟡 beta (Figma «🟡 Checkbox»: Status × Tone × Size × Control × State).
+   Строка .emcd-check (коробочка + подпись + описание) — общая с Radio. */
+.emcd-check { --lh: 24px; display: flex; align-items: flex-start; gap: 12px; width: fit-content; max-width: 480px;
+  font: 500 16px/24px var(--font-sans); color: var(--text-primary); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.emcd-check--s { --lh: 20px; gap: 8px; font: 500 14px/20px var(--font-sans); }
+/* Control position = End — строки настроек: подпись на всю ширину, коробочка у конца */
+.emcd-check--end { flex-direction: row-reverse; justify-content: space-between; width: 100%; }
+.emcd-check__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.emcd-check__desc { font: 500 12px/16px var(--font-sans); color: var(--text-secondary); }
+.emcd-check input { appearance: none; -webkit-appearance: none; position: relative; flex: none; box-sizing: border-box; width: 20px; height: 20px; margin: calc((var(--lh) - 20px) / 2) 0;
+  border-radius: var(--radius-control-xs, 6px); border: 1px solid var(--border-strong); background-color: var(--control-box);
+  display: grid; place-content: center; cursor: pointer; outline: none;
+  transition: background-color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)), border-color 120ms cubic-bezier(.2,0,0,1), transform 120ms cubic-bezier(.2,0,0,1); }
+/* Hover / Pressed — слой состояний на коробочке 6 % / 10 %; Pressed — масштаб 0.96 */
+.emcd-check:hover input:not(:disabled) { background-image: linear-gradient(color-mix(in srgb, var(--state-layer, var(--text-primary)) 6%, transparent) 0 0); }
+.emcd-check:active input:not(:disabled) { background-image: linear-gradient(color-mix(in srgb, var(--state-layer, var(--text-primary)) 10%, transparent) 0 0); transform: scale(var(--motion-scale-press, 0.96)); }
+.emcd-check input:checked, .emcd-check input[type="checkbox"]:indeterminate { background-color: var(--control-checked); border-color: var(--control-checked); }
+.emcd-check input:checked::after { content: ""; width: 10px; height: 6px; box-sizing: border-box; border: 2px solid var(--icon-on-accent, var(--text-on-accent)); border-top: 0; border-right: 0; transform: translateY(-1px) rotate(-45deg); }
+.emcd-check input[type="checkbox"]:indeterminate::after { content: ""; width: 10px; height: 2px; border: 0; border-radius: 1px; background: var(--icon-on-accent, var(--text-on-accent)); transform: none; }
+/* Tone = Danger — ошибка проверки; рядом текст ошибки */
+.emcd-check--danger input { border-color: var(--control-border-error); }
+.emcd-check--danger input:checked, .emcd-check--danger input[type="checkbox"]:indeterminate { background-color: var(--action-danger-default); border-color: var(--action-danger-default); }
+/* Фокус — кольцо на коробочке; зона нажатия — вся строка */
+.emcd-check input:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-check input:disabled { background-color: var(--control-surface-disabled); border-color: var(--control-border-disabled); cursor: not-allowed; }
+.emcd-check input:disabled::after { border-color: var(--text-disabled); }
+.emcd-check input[type="checkbox"]:disabled:indeterminate::after { background: var(--text-disabled); }
+.emcd-check:has(input:disabled) { cursor: not-allowed; }
+.emcd-check:has(input:disabled), .emcd-check:has(input:disabled) .emcd-check__desc { color: var(--text-disabled); }
+@media (prefers-reduced-motion: reduce) { .emcd-check input { transition: none; } .emcd-check:active input { transform: none; } }
+
+/* Radio — 🟡 beta (Figma «🟡 Radio»: Status × Tone × Size × Control × State).
+   Строка, размеры, Control, Tone, состояния и фокус — из блока Checkbox (.emcd-check); здесь только круг и точка. */
+.emcd-check input[type="radio"] { border-radius: 50%; }
+.emcd-check input[type="radio"]:checked::after { width: 8px; height: 8px; border: 0; border-radius: 50%; background: var(--icon-on-accent, var(--text-on-accent)); transform: none; }
+.emcd-check input[type="radio"]:disabled:checked::after { background: var(--text-disabled); }
+.emcd-radio-group { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; border: 0; min-width: 0; max-width: 480px; }
+.emcd-radio-group > legend { padding: 0; margin-bottom: 12px; font: 500 14px/20px var(--font-sans); color: var(--text-secondary); }
+
+/* Toggle — 🟡 beta (Figma «🟡 Toggle»: Status × Size × Control × State). Без Tone=Danger: неудача → откат + Toast. */
+.emcd-toggle { --w: 48px; --h: 28px; --knob: 20px; --lh: 24px;
+  display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%; max-width: 480px; box-sizing: border-box;
+  font: 500 16px/24px var(--font-sans); color: var(--text-primary); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.emcd-toggle--s { --w: 40px; --h: 24px; --knob: 16px; --lh: 20px; gap: 8px; font: 500 14px/20px var(--font-sans); }
+/* Control position = Start — дорожка перед подписью (по умолчанию — End, у конца строки) */
+.emcd-toggle--start { flex-direction: row; justify-content: flex-start; width: fit-content; }
+.emcd-toggle__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.emcd-toggle__desc { font: 500 12px/16px var(--font-sans); color: var(--text-secondary); }
+.emcd-toggle input { appearance: none; -webkit-appearance: none; position: relative; flex: none; width: var(--w); height: var(--h); margin: 0; border-radius: var(--radius-chip, 9999px);
+  background-color: var(--control-track); cursor: pointer; outline: none;
+  transition: background-color var(--motion-duration-enter, 200ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-toggle input::after { content: ""; position: absolute; top: calc((var(--h) - var(--knob)) / 2); left: calc((var(--h) - var(--knob)) / 2); width: var(--knob); height: var(--knob); border-radius: 50%; background: var(--control-knob);
+  transition: transform var(--motion-duration-enter, 200ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-toggle input:checked { background-color: var(--control-checked); }
+.emcd-toggle input:checked::after { transform: translateX(calc(var(--w) - var(--h))); }
+/* Hover / Pressed — слой состояний на дорожке 6 % / 10 % */
+.emcd-toggle:hover input:not(:disabled) { background-image: linear-gradient(color-mix(in srgb, var(--state-layer, var(--text-primary)) 6%, transparent) 0 0); }
+.emcd-toggle:active input:not(:disabled) { background-image: linear-gradient(color-mix(in srgb, var(--state-layer, var(--text-primary)) 10%, transparent) 0 0); }
+.emcd-toggle input:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-toggle input:disabled { background-color: var(--control-track-disabled); cursor: not-allowed; }
+.emcd-toggle input:disabled::after { background: var(--control-knob-disabled); }
+.emcd-toggle:has(input:disabled) { cursor: not-allowed; }
+.emcd-toggle:has(input:disabled), .emcd-toggle:has(input:disabled) .emcd-toggle__desc { color: var(--text-disabled); }
+@media (prefers-reduced-motion: reduce) { .emcd-toggle input, .emcd-toggle input::after { transition: none; } }
+
+/* Input — 🟡 beta (Figma «🟡 Input», надстройка над _Field base: Size × Label position × State).
+   Классы .emcd-field* — общая база поля: её же используют Textarea, Password field, Select. */
+.emcd-field { --h: 40px; --px: 12px; --r: var(--radius-control-sm, 10px); --fs: 14px; --lh: 20px;
+  --layer: var(--state-layer, var(--text-primary)); --page: var(--surface-level-0, var(--bg-base));
+  position: relative; display: flex; flex-direction: column; gap: 6px; width: 100%; min-width: 160px; max-width: 480px; }
+.emcd-field--l { --h: 48px; --px: 16px; --r: var(--radius-control); --fs: 16px; --lh: 24px; }
+.emcd-field--xl { --h: 56px; --px: 16px; --r: var(--radius-control); --fs: 16px; --lh: 24px; }
+.emcd-field__label { font: 500 14px/20px var(--font-sans); color: var(--text-secondary); }
+/* Label position = On border: короткая подпись в разрыве рамки */
+.emcd-field--on-border .emcd-field__label { position: absolute; z-index: 2; top: -8px; left: calc(var(--px) - 4px); padding: 0 4px; max-width: calc(100% - 2 * var(--px));
+  font: 500 12px/16px var(--font-sans); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  background: linear-gradient(to bottom, var(--page) 50%, var(--control-surface-default) 50%); }
+.emcd-input { position: relative; display: flex; align-items: center; gap: 6px; min-height: var(--h); box-sizing: border-box; padding: 0 var(--px); border-radius: var(--r);
+  background: var(--control-surface-default); border: 1px solid var(--control-border-default); color: var(--text-primary);
+  transition: border-color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-input > * { position: relative; z-index: 1; }
+/* Hover — слой состояний 6 % поверх фона поля */
+.emcd-input::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--layer); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-input:hover::before { opacity: 0.06; }
+.emcd-input:focus-within::before { opacity: 0; }
+/* Focus — рамка control-border-focus; с клавиатуры ещё кольцо 2 px снаружи с зазором 2 px */
+.emcd-input:focus-within { border-color: var(--control-border-focus); }
+.emcd-input:has(:focus-visible) { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-input input { all: unset; flex: 1; min-width: 0; height: var(--lh); font: 400 var(--fs)/var(--lh) var(--font-sans); color: var(--text-primary); text-overflow: ellipsis; }
+.emcd-input input::placeholder { color: var(--text-tertiary); }
+/* Слоты: leading (иконка, монета) · inline (суффикс, единица) · trailing (действие, спиннер) */
+.emcd-input__leading, .emcd-input__trailing { display: inline-flex; flex: none; color: var(--icon-secondary, var(--text-secondary)); }
+.emcd-input__leading svg, .emcd-input__trailing svg { width: 20px; height: 20px; }
+.emcd-input__trailing { margin-left: 2px; }
+.emcd-input__suffix { flex: none; font: 400 var(--fs)/var(--lh) var(--font-sans); color: var(--text-secondary); }
+/* Helper переносится, Counter прижат к концу */
+.emcd-field__row { display: flex; gap: 8px; align-items: flex-start; }
+.emcd-field__hint { font: 400 12px/16px var(--font-sans); color: var(--text-tertiary); }
+.emcd-field__counter { flex: none; margin-left: auto; font: 400 12px/16px var(--font-sans); font-variant-numeric: tabular-nums; color: var(--text-tertiary); }
+/* Error */
+.emcd-field--error .emcd-input, .emcd-field--error .emcd-textarea { border-color: var(--control-border-error); }
+.emcd-field--error .emcd-field__hint { color: var(--text-danger); }
+/* Disabled */
+.emcd-field--disabled .emcd-input, .emcd-field--disabled .emcd-textarea { background: var(--control-surface-disabled); border-color: var(--control-border-disabled); cursor: not-allowed; }
+.emcd-field--disabled .emcd-input::before { display: none; }
+.emcd-field--disabled :is(input, textarea, .emcd-field__label, .emcd-field__hint, .emcd-field__counter, .emcd-input__suffix, .emcd-input__leading, .emcd-input__trailing) { color: var(--text-disabled); }
+.emcd-field--disabled.emcd-field--on-border .emcd-field__label { background: linear-gradient(to bottom, var(--page) 50%, var(--control-surface-disabled) 50%); }
+/* Read-only: фон как у Disabled, рамка тише, значение читается */
+.emcd-field--readonly .emcd-input, .emcd-field--readonly .emcd-textarea { background: var(--control-surface-disabled); border-color: var(--border-subtle); }
+.emcd-field--readonly .emcd-input::before { display: none; }
+.emcd-field--readonly.emcd-field--on-border .emcd-field__label { background: linear-gradient(to bottom, var(--page) 50%, var(--control-surface-disabled) 50%); }
+/* Loading — спиннер в конце поля */
+.emcd-field__spinner { width: 20px; height: 20px; animation: emcd-field-spin 800ms linear infinite; }
+@keyframes emcd-field-spin { to { transform: rotate(360deg); } }
+/* Skeleton */
+.emcd-field--skeleton .emcd-input, .emcd-field--skeleton .emcd-textarea { background: var(--skeleton-base); border-color: transparent; pointer-events: none; }
+.emcd-field--skeleton .emcd-input > *, .emcd-field--skeleton textarea { visibility: hidden; }
+.emcd-field--skeleton :is(.emcd-field__label, .emcd-field__hint) { width: fit-content; border-radius: var(--radius-xs, 4px); background: var(--skeleton-base); color: transparent; }
+@media (prefers-reduced-motion: reduce) { .emcd-input, .emcd-input::before { transition: none; } .emcd-field__spinner { animation-duration: 0s; } }
+
+/* Textarea — 🟡 beta (Figma «🟡 Textarea», надстройка над _Field base: Size × State; подпись только Above).
+   База поля (.emcd-field, подпись, helper, counter, Error / Disabled / Read-only / Skeleton) — в блоке Input. */
+.emcd-textarea { display: block; width: 100%; box-sizing: border-box; min-height: 96px; max-height: calc(8 * var(--lh, 20px) + 20px); padding: 9px var(--px, 12px); margin: 0;
+  resize: none; field-sizing: content; overflow-y: auto; border-radius: var(--r, var(--radius-control-sm, 10px));
+  background-color: var(--control-surface-default); border: 1px solid var(--control-border-default); outline: none;
+  font: 400 var(--fs, 14px)/var(--lh, 20px) var(--font-sans); color: var(--text-primary);
+  transition: border-color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-textarea::placeholder { color: var(--text-tertiary); }
+/* Hover — слой состояний 6 % */
+.emcd-textarea:hover:not(:focus):not(:disabled):not([readonly]) { background-image: linear-gradient(color-mix(in srgb, var(--state-layer, var(--text-primary)) 6%, transparent) 0 0); }
+.emcd-textarea:focus { border-color: var(--control-border-focus); }
+.emcd-textarea:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .emcd-textarea { transition: none; } }
+
+/* Modal — 🟡 beta (Figma «🟡 Modal»: Header Title · Coin · Empty × Footer Single · Stacked · Horizontal · None; Divider, Show close).
+   Поверхность — _Overlay surface Kind=Modal: surface/level-1, обводка border/subtle, Elevation/4. Кнопки — Button XL на всю ширину. */
+.emcd-modal-scrim { display: grid; place-items: center; padding: 24px; background: var(--surface-overlay); }
+.emcd-modal { width: var(--size-modal-md, 560px); max-width: 100%; box-sizing: border-box; display: flex; flex-direction: column;
+  border-radius: var(--radius-surface); background: var(--surface-level-1, var(--surface-default)); color: var(--text-primary);
+  box-shadow: inset 0 0 0 1px var(--border-subtle), var(--shadow-key, 0 12px 32px rgb(0 0 0 / 0.16)), var(--shadow-ambient, 0 0 2px rgb(0 0 0 / 0.08)); }
+.emcd-modal--sm { width: var(--size-modal-sm, 400px); }
+.emcd-modal--lg { width: var(--size-modal-lg, 720px); }
+.emcd-modal__header { display: flex; align-items: flex-start; gap: var(--space-8); padding: var(--space-32) var(--space-32) var(--space-16); }
+.emcd-modal__heading { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--space-12); }
+.emcd-modal__title { margin: 0; font: 700 28px/36px var(--font-display, var(--font-sans)); letter-spacing: -0.02em; overflow-wrap: anywhere; }
+.emcd-modal__heading .emcd-modal__title { font-size: 24px; line-height: 32px; letter-spacing: -0.01em; } /* Header=Coin — heading/lg */
+.emcd-modal__desc { margin: 2px 0 0; font: 400 14px/20px var(--font-sans); color: var(--text-secondary); }
+.emcd-modal__coin { width: 32px; height: 32px; flex: none; border-radius: 50%; }
+.emcd-modal__close { margin-left: auto; flex: none; }
+.emcd-modal__divider { height: 1px; margin: 0; border: 0; background: var(--border-subtle); }
+.emcd-modal__body { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-8) var(--space-32); font: 400 16px/24px var(--font-sans); color: var(--text-secondary); }
+.emcd-modal__body p { margin: 0; }
+.emcd-modal__divider + .emcd-modal__body { padding-top: var(--space-24); }
+.emcd-modal__footer { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-24) var(--space-32) var(--space-32); }
+.emcd-modal__footer .emcd-btn { width: 100%; max-width: none; }
+.emcd-modal__footer--horizontal { flex-direction: row; gap: var(--space-16); }
+.emcd-modal__footer--horizontal .emcd-btn { flex: 1; width: auto; }
+.emcd-modal--no-footer .emcd-modal__body { padding-bottom: var(--space-32); }
+@media (prefers-reduced-motion: no-preference) { .emcd-modal[data-open] { animation: emcd-modal-in 200ms cubic-bezier(0.2, 0, 0, 1); } }
+@keyframes emcd-modal-in { from { opacity: 0; transform: scale(0.96); } }

@@ -2,9 +2,9 @@
 
 Неинтерактивная метка статуса или свойства: «Активен», «Новое», «−5 %», монета. Нажать нельзя.
 
-**Оси (как в Figma «🟡 Badge»):** Size — S 20 · M 24 · L 32; Tone — Neutral · Accent · Success · Warning · Danger · Info; Style — Subtle (по умолчанию) · Solid. Свойства: Label, Icon, Close, Chevron, Skeleton.
+**Оси (как в Figma «🟡 Badge»):** Size — S 20 · M 24 · L 32; Tone — Neutral · Accent · Success · Warning · Danger; Style — Subtle (по умолчанию) · Solid; State — Default · Skeleton. Свойства: Label, Icon.
 
-**Когда какой:** Success — работает, выплачено; Warning — требует внимания; Danger — ошибка, неактивен; Info — нейтральное сообщение; Accent — промо, новое; Neutral — свойство без оценки. Subtle — таблицы и списки; Solid — одна главная метка на карточке или экране.
+**Когда какой:** Success — работает, выплачено; Warning — требует внимания; Danger — ошибка, неактивен; Accent — промо, новое, информационная метка; Neutral — свойство без оценки. Subtle — таблицы и списки; Solid — одна главная метка на карточке или экране.
 
 **Размер:** S — таблицы и плотные списки; M — карточки и шапки; L — крупные заголовки, промо (рядом с Button S — Badge L).
 
@@ -12,6 +12,6 @@
 
 **Правила:** не больше двух бейджей подряд; иконка — только смысловая (галочка, часы, монета), слева; цвет — не единственный носитель смысла. Одна строка, ширина ≤ 160 px, дальше многоточие, полный текст — в `title`. Радиус — `radius-sm` (S, M) и `radius-control-sm` (L), не «пилюля».
 
-**Доступность:** текст читается как обычный; Close — отдельная кнопка с `aria-label` («Убрать …»), зона нажатия ≥ 24. Skeleton — `aria-hidden`.
+**Доступность:** текст читается как обычный; бейдж не нажимается и не в порядке Tab: закрываемая метка — Chip. Skeleton — `aria-hidden`.
 
-Классы: `emcd-badge [emcd-badge--{s|l}] [emcd-badge--{accent|success|warning|danger|info}] [emcd-badge--solid] [emcd-badge--skeleton]`; внутри — `svg` (иконка), `emcd-badge__label`, `emcd-badge__close`.
+Классы: `emcd-badge [emcd-badge--{s|l}] [emcd-badge--{accent|success|warning|danger}] [emcd-badge--solid] [emcd-badge--skeleton]`; внутри — `svg` (иконка), `emcd-badge__label`. Тона Info нет: Info = цвет бренда, это Accent (2026-11-16).

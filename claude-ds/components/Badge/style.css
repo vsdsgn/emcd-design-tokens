@@ -14,18 +14,13 @@
 .emcd-badge--success { --bg: var(--status-success-subtle); --fg: var(--status-success-on-subtle); }
 .emcd-badge--warning { --bg: var(--status-warning-subtle); --fg: var(--status-warning-on-subtle); }
 .emcd-badge--danger { --bg: var(--status-danger-subtle); --fg: var(--status-danger-on-subtle); }
-.emcd-badge--info { --bg: var(--status-info-subtle); --fg: var(--status-info-on-subtle); }
 /* Tone × Style=Solid — одна главная метка на карточке или экране */
 .emcd-badge--solid { --bg: var(--action-inverse-default); --fg: var(--text-inverse); }
 .emcd-badge--solid.emcd-badge--accent { --bg: var(--control-checked); --fg: var(--text-on-accent); }
 .emcd-badge--solid.emcd-badge--success { --bg: var(--status-success-solid); --fg: var(--text-on-accent); }
 .emcd-badge--solid.emcd-badge--warning { --bg: var(--status-warning-solid); --fg: var(--text-on-warning); }
 .emcd-badge--solid.emcd-badge--danger { --bg: var(--status-danger-solid); --fg: var(--text-on-accent); }
-.emcd-badge--solid.emcd-badge--info { --bg: var(--status-info-solid); --fg: var(--text-on-accent); }
 /* Close / Chevron — только у интерактивного бейджа; Close — отдельная кнопка с aria-label */
-.emcd-badge__close { all: unset; position: relative; display: inline-flex; flex: none; margin-right: -2px; border-radius: var(--radius-xs, 4px); color: inherit; cursor: pointer; }
-.emcd-badge__close::after { content: ""; position: absolute; left: 50%; top: 50%; width: 24px; height: 24px; transform: translate(-50%, -50%); }
-.emcd-badge__close:focus-visible { outline: 2px solid var(--border-focus-ring); outline-offset: 2px; }
 /* Skeleton */
 .emcd-badge--skeleton { --bg: var(--skeleton-base); color: transparent; min-width: 56px; }
 .emcd-badge--skeleton > * { visibility: hidden; }

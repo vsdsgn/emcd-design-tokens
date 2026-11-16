@@ -92,6 +92,10 @@ const repoComp = path.join(ROOT, 'claude-ds/components');
 const names = new Set([...(exists(baseComp) ? fs.readdirSync(baseComp) : []), ...fs.readdirSync(repoComp)]
   .filter((n) => n !== 'Cover' && (exists(path.join(baseComp, n, 'README.md')) || exists(path.join(repoComp, n)))));
 const warn = [];
+// Код: бандл React (window.EMCD) и типы — из claude-ds/bundle (npm run code)
+const bundleJs = exists(path.join(ROOT, 'claude-ds/bundle/bundle.js')) ? read(path.join(ROOT, 'claude-ds/bundle/bundle.js')) : '';
+const CODE = new Set(((bundleJs.match(/@ds-bundle: (\{.*?\}) \*\//) || [])[1] ? JSON.parse(bundleJs.match(/@ds-bundle: (\{.*?\}) \*\//)[1]).components.map((x) => x.name) : []));
+if (bundleJs) { files.set('components/bundle.js', bundleJs); files.set('components/index.d.ts', read(path.join(ROOT, 'claude-ds/bundle/index.d.ts'))); }
 const pick = (c, f) => (exists(path.join(repoComp, c, f)) ? read(path.join(repoComp, c, f)) : exists(path.join(baseComp, c, f)) ? read(path.join(baseComp, c, f)) : null);
 for (const c of [...names].sort()) {
   const st = status[c] || (warn.push(`нет статуса у ${c} в claude-ds/status.json — draft`), 'draft');
@@ -113,6 +117,10 @@ for (const c of [...names].sort()) {
     const line = `**Статус: ${S.e} ${st}** — ${S.note}`;
     if (/^\*\*Статус: .*$/m.test(md)) md = md.replace(/^\*\*Статус: .*$/m, line);
     else { const p = md.split(/\n\n/); p.splice(p[0].startsWith('#') ? 2 : 1, 0, line); md = p.join('\n\n'); }
+    if (CODE.has(c)) {
+      const codeLine = `**Код:** React — \`${c}\` из \`window.EMCD\` (props — карточка API); Vue 3 — \`<Ds${c}>\` (\`packages/vue\`). Классы и токены те же.`;
+      md = /^\*\*Код:\*\* .*$/m.test(md) ? md.replace(/^\*\*Код:\*\* .*$/m, codeLine) : md.replace(/^(\*\*Статус: .*)$/m, `$1\n\n${codeLine}`);
+    }
     files.set(`components/${c}/README.md`, md);
   }
 }
@@ -148,6 +156,12 @@ const blockMd = ['<!-- claude-ds:status -->', '## Статусы компоне�
 let readme = read(path.join(BASE, 'README.md'));
 const MARK = /<!-- claude-ds:status -->[\s\S]*?<!-- \/claude-ds:status -->/;
 readme = MARK.test(readme) ? readme.replace(MARK, blockMd) : `${readme.trimEnd()}\n\n${blockMd}\n`;
+const codeMd = ['<!-- claude-ds:code -->', '## Код: React и Vue', '',
+  `Компоненты с кодом (${[...CODE].join(', ')}) — React 18: \`window.EMCD.<Имя>\` (бандл \`components/bundle.js\`, props — карточки API); Vue 3: \`<Ds<Имя>>\` из \`packages/vue\` репозитория. Разметка, классы \`emcd-*\` (\`components/bundle.css\`) и токены — одни на HTML, React и Vue.`, '',
+  'Собирая экран, бери компонент из бандла, если он есть; остальные — по README компонента (HTML и классы). Своих стилей поверх компонентов не пиши.',
+  '<!-- /claude-ds:code -->'].join('\n');
+const CODE_MARK = /<!-- claude-ds:code -->[\s\S]*?<!-- \/claude-ds:code -->/;
+if (CODE.size) readme = CODE_MARK.test(readme) ? readme.replace(CODE_MARK, codeMd) : readme.replace(MARK, (m) => `${codeMd}\n\n${m}`);
 files.set('README.md', readme);
 
 // ---- проверка var() без значения ----
