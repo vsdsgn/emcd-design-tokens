@@ -31,7 +31,7 @@
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Навигация: выбранное — нейтральная плашка + индикатор `border/accent`; Hover / Pressed — слой `state/layer` × `state/hover` / `state/pressed`; Disabled нет.
-- Default — без подложки, подпись `text/secondary`; Hover — слой состояния, подпись `text/primary`; Pressed — слой состояния, подпись `text/primary`.
+- Default — без подложки, подпись `text/primary`, иконка `icon/tertiary` (16.11, по продукту Web App: подписи белые, иконки приглушённые); Hover / Pressed — слой состояния.
 - Selected=On — плашка `action/secondary/default`, индикатор `border/accent` слева, подпись `text/primary`; Hover / Pressed выбранного — слой состояния поверх плашки.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
 
@@ -80,7 +80,7 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `action/secondary/default`; интервал `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
-- `label`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
+- `label`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `badge`: заливка / цвет `status/neutral/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/sm`.
 - `counter`: заливка / цвет `status/danger/solid`; maxw `size/counter/max`; minh `size/counter-height/sm`; мин. ширина `size/counter-height/sm`; отступы `space/2xs`; радиус `radius/full`.
 - `indicator`: заливка / цвет `border/accent`; высота `icon/size/md`; радиус `radius/full`; ширина `size/tab-indicator/sm`.

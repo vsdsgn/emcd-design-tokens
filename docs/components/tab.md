@@ -12,7 +12,7 @@
 - Когда использовать: 2–7 разделов одного уровня, контент меняется под табами.
 - Когда нет: выбор значения или режима в форме — Segmented; фильтр списка — Chip; переход на другой экран — навигация.
 - Правило выбора варианта:
-  - Size: S 32 — мини-табы внутри виджета или карточки; M 48 — App и мобильный веб; L 56 — Web, разделы внутри страницы; XL 64 (текст 20) — табы-заголовок страницы. В одном баре один размер.
+  - Size: S 32 — мини-табы внутри виджета или карточки; M 48 — App и мобильный веб; L 56 — Web, разделы внутри страницы; XL 64 (текст 20, `type/heading/md`, Medium — 16.11 по продукту Web App; было `type/heading/lg` Bold, на десктопе 24) — табы-заголовок страницы. В одном баре один размер.
   - Counter — `Counter` Neutral; Accent / Danger — только если требует действия.
   - Icon — редко, только если у всех табов.
 
@@ -71,7 +71,7 @@
 ## 10. Tokens
 - `корень`: интервал `space/6`, `space/8`; высота `control/height/2xl`, `control/height/lg`, `control/height/sm`, `control/height/xl`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
-- `label`: заливка / цвет `text/disabled`, `text/primary`, `text/secondary`; типографика `font-weight/bold`, `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/lg`, `type/label/lg`, `type/label/md`, `type/label/sm`.
+- `label`: заливка / цвет `text/disabled`, `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/md`, `type/label/lg`, `type/label/md`, `type/label/sm`.
 - `counter`: заливка / цвет `status/neutral/subtle`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/2xs`, `space/6`; радиус `radius/full`.
 - `indicator`: заливка / цвет `border/accent`, `border/default`, `border/strong`, `control/border/disabled`; высота `size/tab-indicator/lg`, `size/tab-indicator/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`, `radius/control-xs`.
@@ -85,7 +85,7 @@
 
 ## 12. Figma projection
 - Набор `Tab`, вариантов 36 из 40; оси: Size, Selected, State.
-- Борда: «Tab — борда · шаблон v3», разделов 13.
+- Борда: «Tab — борда · шаблон v3», разделов 12.
 - Описание: 1278 знаков, разделы: Status: Level: Таб: Когда использовать: Правила: Матрица: Overflow: A11y: Поиск: Legacy:
 
 ## 13. Code projection

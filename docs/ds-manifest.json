@@ -18,7 +18,7 @@
   "incompleteMatrix": 16,
   "propsNotBoundEverywhere": 15,
   "rawMinMax": 0,
-  "withRawValues": 65,
+  "withRawValues": 66,
   "withFocusRing": 21,
   "withHitArea": 20,
   "withSafeMargin": 23,
@@ -1193,7 +1193,7 @@
       "04 · Состояния",
       "05 · Зоны",
       "06 · На поверхностях",
-      "07 · Раскладка и сочетания",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
@@ -1358,7 +1358,6 @@
        "p:space/4",
        "p:space/6",
        "p:space/8",
-       "r:radius/container",
        "r:radius/control",
        "r:radius/control-sm",
        "r:radius/xs",
@@ -1371,7 +1370,6 @@
        "f:state/layer-inverse",
        "o:state/hover",
        "o:state/pressed",
-       "r:radius/container",
        "r:radius/control",
        "r:radius/control-sm"
       ],
@@ -2113,7 +2111,7 @@
        "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/body/sm/size",
-       "fontWeight:font-weight/regular",
+       "fontWeight:font-weight/medium",
        "lineHeight:type/body/sm/line-height"
       ],
       "value row": [
@@ -2129,16 +2127,16 @@
        "f:text/success",
        "f:text/warning",
        "fontFamily:font/family/display",
-       "fontSize:type/heading/md/size",
+       "fontSize:type/heading/lg/size",
        "fontWeight:font-weight/bold",
-       "lineHeight:type/heading/md/line-height"
+       "lineHeight:type/heading/lg/line-height"
       ],
       "unit": [
        "f:text/secondary",
        "fontFamily:font/family/display",
-       "fontSize:type/heading/md/size",
+       "fontSize:type/heading/lg/size",
        "fontWeight:font-weight/bold",
-       "lineHeight:type/heading/md/line-height"
+       "lineHeight:type/heading/lg/line-height"
       ]
      },
      "statusFirstLine": true
@@ -6910,7 +6908,6 @@
       ],
       "label": [
        "f:text/primary",
-       "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/label/lg/size",
        "fontWeight:font-weight/medium",
@@ -8202,6 +8199,7 @@
        "f:surface/next",
        "gap:space/8",
        "p:space/16",
+       "r:radius/container",
        "r:radius/surface",
        "s:border/subtle",
        "sw:border/width/default"
@@ -8219,15 +8217,19 @@
        "f:text/primary",
        "fontFamily:font/family/text",
        "fontSize:type/label/lg/size",
+       "fontSize:type/label/sm/size",
        "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height"
+       "lineHeight:type/label/lg/line-height",
+       "lineHeight:type/label/sm/line-height"
       ],
       "description": [
        "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
+       "fontSize:type/label/sm/size",
        "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height"
+       "lineHeight:type/label/md/line-height",
+       "lineHeight:type/label/sm/line-height"
       ],
       "action": [
        "gap:space/2",
@@ -9175,8 +9177,21 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 0,
-     "raw": [],
+     "rawCount": 12,
+     "raw": [
+      "(root):w=138",
+      "(root):w=204",
+      "(root):w=170",
+      "(root):w=252",
+      "(root):w=202",
+      "(root):w=300",
+      "(root):w=218",
+      "(root):w=324",
+      "(root):w=270",
+      "(root):w=334",
+      "(root):w=398",
+      "(root):w=430"
+     ],
      "tokens": {
       "(root)": [
        "f:control/segment-track",
@@ -11321,13 +11336,12 @@
       "04 · Состояния",
       "05 · Зоны",
       "06 · На поверхностях",
-      "07 · Группы и раскладка",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
       "11 · Код и токены",
-      "12 · Локали и RTL",
-      "13 · Группа: Tabs"
+      "12 · Локали и RTL"
      ]
     }
    ],
@@ -11440,9 +11454,9 @@
       "indicator:r=1.5",
       "indicator:w=69",
       "hit area · web:w=64",
-      "hit area · web:w=85",
+      "hit area · web:w=76",
       "hit area · web:h=64",
-      "indicator:w=85",
+      "indicator:w=76",
       "hit area · web:w=80",
       "hit area · web:w=52",
       "hit area · web:h=32",
@@ -11468,13 +11482,12 @@
        "f:text/secondary",
        "fontFamily:font/family/display",
        "fontFamily:font/family/text",
-       "fontSize:type/heading/lg/size",
+       "fontSize:type/heading/md/size",
        "fontSize:type/label/lg/size",
        "fontSize:type/label/md/size",
        "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/bold",
        "fontWeight:font-weight/medium",
-       "lineHeight:type/heading/lg/line-height",
+       "lineHeight:type/heading/md/line-height",
        "lineHeight:type/label/lg/line-height",
        "lineHeight:type/label/md/line-height",
        "lineHeight:type/label/sm/line-height"
@@ -12038,7 +12051,7 @@
       ],
       "label": [
        "f:text/primary",
-       "f:text/secondary",
+       "f:text/tertiary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",

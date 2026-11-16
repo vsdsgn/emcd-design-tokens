@@ -94,7 +94,7 @@ export const DATA = [
       'Кнопки в группе — одного размера; рядом с полем — размер поля (Input M ↔ Button M). Primary — на L0–L2.',
     ],
     never: 'две Primary рядом; Tone=Danger для обычных действий; иконку без подписи; подпись в две строки.',
-    anatomy: ['Корень: подложка, радиус, отступы, min-width 64.', '`icon left`, `label`, `icon right`; `Spinner` (Loading) — вместо содержимого, ширина не меняется; цвет спиннера — по тону кнопки (дорожка и дуга; у Danger — `text/danger` / `icon/danger`), Disabled — дуга `icon/disabled`.', 'Служебные: `state layer`, `focus ring`, зоны `hit area · web` / `· app`, `safe area · outer`.'],
+    anatomy: ['Корень: подложка, радиус `radius/control` (12; 16.11 по продукту Web App, было `radius/container` 16), отступы, min-width 64.', '`icon left`, `label`, `icon right`; `Spinner` (Loading) — вместо содержимого, ширина не меняется; цвет спиннера — по тону кнопки (дорожка и дуга; у Danger — `text/danger` / `icon/danger`), Disabled — дуга `icon/disabled`.', 'Служебные: `state layer`, `focus ring`, зоны `hit area · web` / `· app`, `safe area · outer`.'],
     group: PLASHKA + '; Pressed — ещё масштаб 0.96; у Inverted — `state/layer-inverse`; у Type=Text меняется цвет текста',
     states: ['Default, Hover, Pressed, Disabled — ось State. Loading — свойство (спиннер, кнопка не нажимается).', FOCUS, 'Disabled — не реагирует; причину объяснить рядом.'],
     defaults: { Type: 'Primary', Tone: 'Default', Size: 'M', State: 'Default' },
@@ -234,7 +234,7 @@ export const DATA = [
     what: 'Переключение разделов одного экрана (История: Начисления / Выплаты / Воркеры). Выбранный — подчёркивание.',
     use: '2–7 разделов одного уровня, контент меняется под табами.',
     dont: 'выбор значения или режима в форме — Segmented; фильтр списка — Chip; переход на другой экран — навигация.',
-    rule: ['Size: S 32 — мини-табы внутри виджета или карточки; M 48 — App и мобильный веб; L 56 — Web, разделы внутри страницы; XL 64 (текст 20) — табы-заголовок страницы. В одном баре один размер.', 'Counter — `Counter` Neutral; Accent / Danger — только если требует действия.', 'Icon — редко, только если у всех табов.'],
+    rule: ['Size: S 32 — мини-табы внутри виджета или карточки; M 48 — App и мобильный веб; L 56 — Web, разделы внутри страницы; XL 64 (текст 20, `type/heading/md`, Medium — 16.11 по продукту Web App; было `type/heading/lg` Bold, на десктопе 24) — табы-заголовок страницы. В одном баре один размер.', 'Counter — `Counter` Neutral; Accent / Danger — только если требует действия.', 'Icon — редко, только если у всех табов.'],
     anatomy: ['Корень: `icon` · `label` · `Counter`; `indicator` — подчёркивание выбранного (3 px у L / XL, 2 px у S / M).', 'Служебные: `state layer`, `focus ring`, зоны, `safe area · outer`.'],
     group: 'Навигация: индикатор `border/accent`; Hover / Pressed — слой состояния и цвет текста',
     states: ['Default, Hover, Pressed, Disabled × Selected Off | On; Skeleton — загрузка (без Selected: 36 из 40).', 'Индикатор: Selected=On — `border/accent`; Pressed (Off) — `border/strong`; Disabled·On — `control/border/disabled`.', FOCUS],
@@ -987,7 +987,7 @@ export const DATA = [
     never: 'длинное число без формата K / M / T; цвет как единственный носитель тона.',
     anatomy: [
       'Корень — вертикальный стек (`space/4`), max-width `size/chart-metric/max`: `label` (`text/secondary`, `type/body/sm`) и `value row`.',
-      '`value row` (`space/4`): `icon` (`icon/size/md`, свойства Icon и Icon · swap) + `value` (`font/family/display`, `type/heading/md`, `font-weight/bold`; цвет по Tone: `text/primary` / `text/danger` / `text/warning` / `text/success`).',
+      '`value row` (`space/4`): `icon` (`icon/size/md`, свойства Icon и Icon · swap) + `value` (`font/family/display`, `type/heading/lg` — 24 на Web, 16.11 по продукту; было `type/heading/md`, `font-weight/bold`; цвет по Tone: `text/primary` / `text/danger` / `text/warning` / `text/success`).',
     ],
     group: NONE,
     states: ['Своих состояний нет. Tone — не состояние, а смысл значения. Загрузка — Skeleton у родителя.'],
@@ -1537,7 +1537,7 @@ export const DATA = [
     ],
     group: 'Навигация: выбранное — нейтральная плашка + индикатор `border/accent`; Hover / Pressed — слой `state/layer` × `state/hover` / `state/pressed`; Disabled нет',
     states: [
-      'Default — без подложки, подпись `text/secondary`; Hover — слой состояния, подпись `text/primary`; Pressed — слой состояния, подпись `text/primary`.',
+      'Default — без подложки, подпись `text/primary`, иконка `icon/tertiary` (16.11, по продукту Web App: подписи белые, иконки приглушённые); Hover / Pressed — слой состояния.',
       'Selected=On — плашка `action/secondary/default`, индикатор `border/accent` слева, подпись `text/primary`; Hover / Pressed выбранного — слой состояния поверх плашки.',
       FOCUS,
     ],
@@ -1742,7 +1742,7 @@ export const DATA = [
     anatomy: [
       'Корень: Neutral — заливка `surface/next` (на уровень выше подложки, 15.11) + обводка `border/subtle` (`border/width/default`, вне раскладки — высота как у Accent); Accent — заливка `accent/subtle`; `radius/surface`, отступы `space/16`.',
       '`body` — ряд `column` + `media` (зазор `space/8`); `column` — `text` и `action` (зазор `space/8`).',
-      '`text` — `title` (`type/label/lg`, Medium, `text/primary`) и `description` (`type/label/md`, Medium, `text/secondary`), зазор `space/4`.',
+      '`text` — `title` (`type/label/lg`, Medium, `text/primary`) и `description` (`type/label/md`, Medium, `text/secondary`), зазор `space/4`; у Size=S (сайдбар) — оба `type/label/sm` (12) и радиус `radius/container` (16.11, по баннеру сайдбара Web App).',
       '`action` — вложенный Button (`control/height/sm`); у Tone=Accent — Button Primary (другой вид сливается с подложкой `accent/subtle`).',
       '`media` — картинка в потоке справа (`radius/inner`; плейсхолдер `surface/level-2`); при Show media = Off места под неё нет, текст — на всю ширину.',
       'Служебных слоёв нет.',
@@ -1779,7 +1779,7 @@ export const DATA = [
       'Только иконки — Show label = off у вложенных Segment, обязательно `aria-label`.',
       'Ставится на L1 и L2: подложка полупрозрачная.',
       'Период графика (24 ч · 7 д · 30 д) — Segmented S в шапке Chart card; не отдельные Button и не тулбар страницы (решение 2026-11-16).',
-      'Ширина — Items × сегмент (S 72 · M 88 · L 104 · XL 120) + дорожка; сегменты равной ширины (16.11, по продукту Web App: «Список / Группы» L — 220; было 240–360 на 2 сегмента). На всю ширину контейнера — Fill у экземпляра (мобильные формы).',
+      'Ширина — Items × сегмент (S 64 · M 80 · L 96 · XL 104) + дорожка; сегменты равной ширины (16.11, по продукту Web App: «Список / Группы» XL — 220). Длинная подпись («Начисления») — растянуть экземпляр, сегменты делят ширину поровну; на всю ширину контейнера — Fill (мобильные формы).',
     ],
     never: 'больше 4 сегментов; длинные подписи; сегменты разной ширины; навигация между разделами экрана.',
     anatomy: [
@@ -1984,11 +1984,11 @@ export const DATA = [
     dont: 'заголовок блока или карточки — текстовый стиль Heading; вне таблицы не используется.',
     rule: [
       'Align: Start — текст, даты, статусы; End — числа и суммы (заголовок у конца строки, стрелка перед текстом). Start / End — логические стороны, в RTL зеркалятся.',
-      'Sort: None — колонка не отсортирована или не сортируется (`text/secondary`); Ascending / Descending — активная сортировка (`text/primary` + стрелка).',
+      'Sort: None — колонка не отсортирована или не сортируется (`text/tertiary`); Ascending / Descending — активная сортировка (`text/primary` + стрелка).',
       'Клик по сортируемому заголовку: None → Descending → Ascending.',
       'Show filter — у колонки есть фильтр (иконка перед подписью, у End — перед стрелкой); Show info — у заголовка есть пояснение (иконка после подписи).',
       'Ширина — по колонке.',
-      'Подпись — `type/label/md` (14, 16.11 — по продукту Web App «Воркеры»; было `type/label/lg` 16); несортированная колонка — `text/secondary` (было `text/tertiary`).',
+      'Подпись — `type/label/md` (14, 16.11 — по продукту Web App «Воркеры»; было `type/label/lg` 16); несортированная колонка — `text/tertiary`, отсортированная — `text/primary`.',
     ],
     never: 'активная сортировка без стрелки; Align End для текстовых колонок; заголовок вне таблицы.',
     anatomy: [

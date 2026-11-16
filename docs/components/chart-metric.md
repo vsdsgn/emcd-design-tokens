@@ -20,7 +20,7 @@
 
 ## 3. Anatomy
 - Корень — вертикальный стек (`space/4`), max-width `size/chart-metric/max`: `label` (`text/secondary`, `type/body/sm`) и `value row`.
-- `value row` (`space/4`): `icon` (`icon/size/md`, свойства Icon и Icon · swap) + `value` (`font/family/display`, `type/heading/md`, `font-weight/bold`; цвет по Tone: `text/primary` / `text/danger` / `text/warning` / `text/success`).
+- `value row` (`space/4`): `icon` (`icon/size/md`, свойства Icon и Icon · swap) + `value` (`font/family/display`, `type/heading/lg` — 24 на Web, 16.11 по продукту; было `type/heading/md`, `font-weight/bold`; цвет по Tone: `text/primary` / `text/danger` / `text/warning` / `text/success`).
 - Вложено: иконки ×4.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -67,11 +67,11 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/4`; maxw `size/chart-metric/max`.
-- `label`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
+- `label`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/body/sm`.
 - `value row`: интервал `space/4`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
-- `value`: заливка / цвет `text/danger`, `text/primary`, `text/success`, `text/warning`; типографика `font-weight/bold`, `font/family/display`, `type/heading/md`.
-- `unit`: заливка / цвет `text/secondary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/md`.
+- `value`: заливка / цвет `text/danger`, `text/primary`, `text/success`, `text/warning`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
+- `unit`: заливка / цвет `text/secondary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
 - Min / max корня: maxWidth 240 size/chart-metric/max.
 
 ## 11. Platforms

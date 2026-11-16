@@ -25,7 +25,7 @@
 ## 3. Anatomy
 - Корень: Neutral — заливка `surface/next` (на уровень выше подложки, 15.11) + обводка `border/subtle` (`border/width/default`, вне раскладки — высота как у Accent); Accent — заливка `accent/subtle`; `radius/surface`, отступы `space/16`.
 - `body` — ряд `column` + `media` (зазор `space/8`); `column` — `text` и `action` (зазор `space/8`).
-- `text` — `title` (`type/label/lg`, Medium, `text/primary`) и `description` (`type/label/md`, Medium, `text/secondary`), зазор `space/4`.
+- `text` — `title` (`type/label/lg`, Medium, `text/primary`) и `description` (`type/label/md`, Medium, `text/secondary`), зазор `space/4`; у Size=S (сайдбар) — оба `type/label/sm` (12) и радиус `radius/container` (16.11, по баннеру сайдбара Web App).
 - `action` — вложенный Button (`control/height/sm`); у Tone=Accent — Button Primary (другой вид сливается с подложкой `accent/subtle`).
 - `media` — картинка в потоке справа (`radius/inner`; плейсхолдер `surface/level-2`); при Show media = Off места под неё нет, текст — на всю ширину.
 - Служебных слоёв нет.
@@ -79,12 +79,12 @@
 - Картинка — с пустым `alt`: смысла без текста не несёт.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `accent/subtle`, `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/container`, `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `body`: интервал `space/8`.
 - `column`: интервал `space/8`.
 - `text`: интервал `space/4`.
-- `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
-- `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/sm`.
+- `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`, `type/label/sm`.
 - `action`: интервал `space/2`; мин. ширина `size/button/min`; отступы `space/4`; радиус `radius/xs`.
 - `media`: заливка / цвет `surface/level-2`; радиус `radius/inner`.
 - `close`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.

@@ -19,7 +19,7 @@
   - Только иконки — Show label = off у вложенных Segment, обязательно `aria-label`.
   - Ставится на L1 и L2: подложка полупрозрачная.
   - Период графика (24 ч · 7 д · 30 д) — Segmented S в шапке Chart card; не отдельные Button и не тулбар страницы (решение 2026-11-16).
-  - Ширина — Items × сегмент (S 72 · M 88 · L 104 · XL 120) + дорожка; сегменты равной ширины (16.11, по продукту Web App: «Список / Группы» L — 220; было 240–360 на 2 сегмента). На всю ширину контейнера — Fill у экземпляра (мобильные формы).
+  - Ширина — Items × сегмент (S 64 · M 80 · L 96 · XL 104) + дорожка; сегменты равной ширины (16.11, по продукту Web App: «Список / Группы» XL — 220). Длинная подпись («Начисления») — растянуть экземпляр, сегменты делят ширину поровну; на всю ширину контейнера — Fill (мобильные формы).
 - Не делаем: больше 4 сегментов; длинные подписи; сегменты разной ширины; навигация между разделами экрана.
 
 ## 3. Anatomy
@@ -74,6 +74,7 @@
 - `segment 2`: интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `segment 3`: интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `segment 4`: интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
+- Значений без переменной: 12 (напр. `(root):w=138`, `(root):w=204`, `(root):w=170`, `(root):w=252`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
