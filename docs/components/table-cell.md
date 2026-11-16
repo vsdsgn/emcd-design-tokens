@@ -16,10 +16,10 @@
 - Правило выбора варианта:
   - Одна колонка — одно выравнивание и один тип содержимого.
   - Align: Start — текст, даты, монеты, имена; End — числа и суммы (Amount). Стороны логические: в RTL меняются местами.
-  - Content (слот): по умолчанию — две строки текста (основная `text/primary` + вторая `text/secondary`, вторая необязательна). Иначе — атом DS: Coin с тикером, Avatar с именем, Amount (сумма со знаком), Badge, Status, Toggle S, Progress, Icon button Ghost S (до трёх), Button. Своих вёрсток в слоте нет.
+  - Content (слот): по умолчанию — две строки текста (основная `text/primary` + вторая `text/secondary`, вторая необязательна). Иначе — атом DS: Coin с тикером, Avatar с именем, Amount (сумма со знаком), Badge, Status, Toggle S, Progress, Icon button Tertiary S (до трёх), Button. Своих вёрсток в слоте нет.
   - Действия строки (Icon button, «⋯» → Menu) — только последней колонкой, Align=End.
   - State: Default — данные есть; Skeleton — данные строки загружаются (одна полоса); Disabled — строка недоступна (атомы в слоте — тоже Disabled).
-  - Высота — по строке (Table row): 48 или 80; ширина — по колонке.
+  - Высота — по строке (Table row): 48 или 64; ширина — по колонке.
 - Не делаем: перенос текста на несколько строк; разное выравнивание или разные типы содержимого в одной колонке; действия не в последней колонке; произвольная вёрстка в слоте вместо атома DS.
 
 ## 3. Anatomy
@@ -103,4 +103,4 @@
 - DS Web `table / coin md | sm label text` → Coin с тикером; `table / avatar label text` → Avatar с именем; `table / image label text` → текст + медиа по согласованию (атома картинки в ячейке нет).
 - DS Web `table / transaction` → Amount (знак и тон по правилам Amount), Align=End.
 - DS Web `table / progress line` → Progress; `table / badge` → Badge; `table / toggle` → Toggle S; `table cell / status` → Status; `table / icon` → иконка в слоте.
-- DS Web `table / small buttons`, `table / more button`, `table / star` → Icon button Ghost S (до трёх, «⋯» открывает Menu), последней колонкой.
+- DS Web `table / small buttons`, `table / more button`, `table / star` → Icon button Tertiary S (до трёх, «⋯» открывает Menu), последней колонкой.

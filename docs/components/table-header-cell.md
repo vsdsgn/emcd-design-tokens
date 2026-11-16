@@ -14,16 +14,16 @@
 - Когда нет: заголовок блока или карточки — текстовый стиль Heading; вне таблицы не используется.
 - Правило выбора варианта:
   - Align: Start — текст, даты, статусы; End — числа и суммы (заголовок у конца строки, стрелка перед текстом). Start / End — логические стороны, в RTL зеркалятся.
-  - Sort: None — колонка не отсортирована или не сортируется (`text/tertiary`); Ascending / Descending — активная сортировка (`text/primary` + стрелка).
+  - Sort: None — колонка не отсортирована или не сортируется (`text/secondary`); Ascending / Descending — активная сортировка (`text/primary` + стрелка).
   - Клик по сортируемому заголовку: None → Descending → Ascending.
   - Show filter — у колонки есть фильтр (иконка перед подписью, у End — перед стрелкой); Show info — у заголовка есть пояснение (иконка после подписи).
   - Ширина — по колонке.
-  - Подпись — `type/label/md` (14), `text/secondary` (16.11, по продукту Web App «Воркеры»; было `type/label/lg` 16, `text/tertiary`).
+  - Подпись — `type/label/md` (14, 16.11 — по продукту Web App «Воркеры»; было `type/label/lg` 16); несортированная колонка — `text/secondary` (было `text/tertiary`).
 - Не делаем: активная сортировка без стрелки; Align End для текстовых колонок; заголовок вне таблицы.
 
 ## 3. Anatomy
 - Корень: высота `size/table/header`, отступы `space/12`, зазор `space/4`, min-width `size/table-cell/min`, ширина — по колонке.
-- `label` — Fill, `type/label/lg/*`, `font-weight/medium`; стрелка сортировки, иконки фильтра и info (Show filter / Show info).
+- `label` — Fill, `type/label/md/*`, `font-weight/medium`; стрелка сортировки, иконки фильтра и info (Show filter / Show info).
 - Служебные: `state layer` (`state/layer` × `state/hover` / `state/pressed`), `focus ring` (внутри ячейки), зоны `hit area · web` / `· app`, `safe area · outer`; `skeleton` (`skeleton/base`, `radius/chip`).
 - Вложено: иконки ×48.
 - Служебные слои (вариантов из 20): кольцо фокуса 20 · зона Web 20 · зона касания 20 · безопасное поле 20.
@@ -78,7 +78,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/4`; высота `size/table/header`; мин. ширина `size/table-cell/min`; отступы `space/12`.
-- `label`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`.
+- `label`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`.
 - Min / max корня: minWidth 80 size/table-cell/min.

@@ -16,13 +16,13 @@
   - Density: Compact 48 (`size/table/row-sm`) — одна строка в ячейке, плотные списки; Regular 64 (`size/row/lg`, 16.11 — по продукту Web App «Воркеры», было 80) — две строки и медиа. В одной таблице одна плотность.
   - State: Hover — только если строка открывает детали (Side panel); Pressed — нажатие на кликабельную строку.
   - Selected=On — строка выбрана (массовые действия, открыта в Side panel); у выбранной есть Hover / Pressed.
-  - Колонки: одна колонка — одно выравнивание и один тип содержимого; текст и даты — у начала, числа и суммы — у конца; действия (Icon button Ghost S, «⋯» → Menu) — последней колонкой.
+  - Колонки: одна колонка — одно выравнивание и один тип содержимого; текст и даты — у начала, числа и суммы — у конца; действия (Icon button Tertiary S, «⋯» → Menu) — последней колонкой.
   - Ячейки — только экземпляры Table cell; содержимое — в слоте Content (текст или атом DS, правила — `table-cell.md`); ширины колонок задаются в макете.
   - Действия строки — Icon button Tertiary S в последней колонке (16.11, по продукту: кнопки на подложке; было Ghost).
 - Не делаем: две плотности в одной таблице; Hover у строки, которая ничего не открывает; произвольная вёрстка вместо Table cell и атома DS в слоте; действия не в последней колонке.
 
 ## 3. Anatomy
-- Корень — горизонтальный ряд ячеек, высота `size/table/row-sm` / `size/table/row-lg`, отступы `space/8`, обводка снизу `border/subtle`; Selected — заливка `accent/subtle`.
+- Корень — горизонтальный ряд ячеек, высота `size/table/row-sm` (Compact 48) / `size/row/lg` (Regular 64), отступы `space/8`, обводка снизу `border/subtle`; Selected — заливка `accent/subtle`.
 - На макете шесть ячеек — экземпляры Table cell со своим содержимым слота: `cell · Дата` (текст, две строки), `cell · Монета` (Coin с тикером), `cell · Сумма` (Amount, End), `cell · Адрес` (текст), `cell · Статус` (Status), `cell · ⋯` (Icon button, End); у каждой min-width `size/table-cell/min`.
 - `state layer` — `state/layer` × `state/hover` / `state/pressed`.
 - Служебные: `focus ring` (`border/focus-ring`, `border/width/focus-ring`, внутреннее), `hit area · web` / `hit area · app`, `safe area · outer` (`control/safe-margin`).

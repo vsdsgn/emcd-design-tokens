@@ -1633,7 +1633,7 @@
    "boards": [
     {
      "name": "Card — борда · шаблон v3",
-     "id": "2108:72577",
+     "id": "2236:182",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -2004,7 +2004,7 @@
    "boards": [
     {
      "name": "Chart metric — борда · шаблон v3",
-     "id": "2189:11588",
+     "id": "2236:1340",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -6779,7 +6779,7 @@
    "boards": [
     {
      "name": "Nav item — борда · шаблон v3",
-     "id": "2206:891",
+     "id": "2237:8048",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -6980,7 +6980,7 @@
    "boards": [
     {
      "name": "Sidebar — борда · шаблон v3",
-     "id": "2207:26275",
+     "id": "2237:12452",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -8807,13 +8807,14 @@
      "id": "2233:913",
      "type": "SET",
      "status": "draft",
-     "descLen": 770,
+     "descLen": 1026,
      "descHeads": [
       "Status:",
       "Level:",
       "Search —",
       "Когда использовать:",
-      "Доступность:"
+      "Правила:",
+      "A11y:"
      ],
      "inBoard": false,
      "axes": {
@@ -9106,7 +9107,7 @@
    "boards": [
     {
      "name": "Segmented — борда · шаблон v3",
-     "id": "2216:1565",
+     "id": "2238:1565",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -11796,7 +11797,7 @@
    "boards": [
     {
      "name": "Table cell — борда · шаблон v3",
-     "id": "2132:10421",
+     "id": "2237:6436",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -11911,7 +11912,7 @@
    "boards": [
     {
      "name": "Table header cell — борда · шаблон v3",
-     "id": "2111:5650",
+     "id": "2236:3331",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -12036,12 +12037,11 @@
        "p:space/12"
       ],
       "label": [
+       "f:text/primary",
        "f:text/secondary",
        "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height",
        "lineHeight:type/label/md/line-height"
       ],
       "focus ring": [
@@ -12083,7 +12083,7 @@
    "boards": [
     {
      "name": "Table row — борда · шаблон v3",
-     "id": "2129:3172",
+     "id": "2237:3172",
      "v3": true,
      "sections": [
       "01 · Когда применять",
