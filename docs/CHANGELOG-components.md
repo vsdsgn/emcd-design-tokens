@@ -4,6 +4,8 @@
 
 ## 2026-11-16
 
+- **Борды:** пересобраны 39 отстававших (Counter, Badge, Button, Tab, Toggle, Status, Spinner, Circle timer, Coin, Coin stack, Step, Step symbol, Step trail, Progress, Scrollbar, Avatar, Avatar group, Chart metric, Chart plot, Code input, Select compact, Menu item, Menu, List item, Transaction, Notification, Address, Password field, Floating button, Accordion, Toast, Suggest, Calendar, Date range panel, Dropdown panel, Sheet, Page header, Empty state, Tab bar). **Coin stack:** «+N» — `surface/next` (как у Avatar group).
+
 - **Моя часть остатка:** Accordion — слот Content Fill (шеврон у края в узком контейнере); `_List row` Trailing — max-width 240, текст в одну строку с многоточием (List item); Date range panel — «Сбросить» до 140 с многоточием; Floating button — подпись до 200 с многоточием; Multiselect — разные пункты меню (BTC, ETH, KAS, LTC, USDT). Стенд перепроверки: группы выбора 200 %, Transaction, Step progress Dark L0 / Light L3, Dropdown panel, Tooltip tour 200 %, Table cell — в порядке.
 
 - **По рекомендациям:** Step symbol Bullet · Default и Step trail Default — `border/strong` (видны в Dark на L0). **Step trail — MAJOR:** ось Border удалена (Default — пунктир, Current / Success — сплошная). **Circle timer:** Progress=0. **Progress:** ось Mode (Indeterminate — только Accent, 10 из 16). **Coin:** XS · Network=On удалены (18 из 20). **Toast:** Card Neutral без иконки. **Suggest:** основная кнопка Primary на Info / Success / Warning / Danger. **Chart metric:** иконка в цвет значения. **Tab bar item:** радиус слоя состояния — `radius/control`.
