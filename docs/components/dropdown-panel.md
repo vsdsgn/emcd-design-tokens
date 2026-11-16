@@ -116,5 +116,4 @@
 - DS Web Dropdown wrapper: Default → Content=List; Scroll → список с max-height `size/dropdown-panel/max-height`; With divider → линия Tabs (`border/subtle`); Not found → Content=Empty.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Стенд 2026-11-15, на проверку: «Текст · long» — строки списка разной высоты (~66 и ~56 при двух строках текста); проверить отступы Multiselect option.
 - Ширина корня 480 — числом: токен или правило ширины.

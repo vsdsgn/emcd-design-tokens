@@ -104,6 +104,3 @@
 - DS Web `table / transaction` → Amount (знак и тон по правилам Amount), Align=End.
 - DS Web `table / progress line` → Progress; `table / badge` → Badge; `table / toggle` → Toggle S; `table cell / status` → Status; `table / icon` → иконка в слоте.
 - DS Web `table / small buttons`, `table / more button`, `table / star` → Icon button Ghost S (до трёх, «⋯» открывает Menu), последней колонкой.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Стенд и плагины после слияния — перепрогнать.

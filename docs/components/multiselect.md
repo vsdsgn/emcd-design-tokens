@@ -103,7 +103,3 @@
 
 ## 15. Migration
 - DS Web `multiselect_input` → Multiselect (поле, чипы / счётчик); `Dropdown wrapper` (Multiselect menu) → Menu с Search и Multiselect option; `Dropdown` Type=Multiselect → слот Items. DS App — нет.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- На проверку: при тексте 200 % первая строка меню не увеличивается — проверить текстовый слой первого Multiselect option в Menu.
-- Пункты меню по умолчанию — пять одинаковых «Bitcoin (BTC)»: развести подписи и согласовать с чипами; «+N» в Chips в наборе не показан.

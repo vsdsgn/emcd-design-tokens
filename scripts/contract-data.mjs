@@ -126,7 +126,7 @@ export const DATA = [
     figma: ['Заменён на месте 2026-11-13: набор собран от базы `_Selection control` (`selection-control.md`), ид. набора и экземпляры в продуктах сохранены.', 'Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.'],
     accept: { audit: OK, vc: '`maxWidth 436 @label` числом в базе — ждёт токена `size/*`', ap: '0 (2026-11-13)' },
     migration: ['DS Web `baseCheckbox with text`: status default | active | intermediate → Status Off | On | Indeterminate.', 'disable → State=Disabled; danger → Tone=Danger; size md | sm → Size M | S; secondary не переносим; цвета → `control/*`.'],
-    todo: ['Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.'],
+    todo: [],
   },
   {
     name: 'Chip',
@@ -187,7 +187,7 @@ export const DATA = [
     figma: ['Заменён на месте 2026-11-13: набор собран от базы `_Selection control` (`selection-control.md`), ид. набора и экземпляры в продуктах сохранены.', 'Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.'],
     accept: { audit: OK, vc: '`maxWidth 436 @label` числом в базе — ждёт токена `size/*`', ap: '0 (2026-11-13)' },
     migration: ['DS Web `baseRadio with text`: active → Status Off | On; disable → State=Disabled; danger → Tone=Danger; secondary не переносим.'],
-    todo: ['Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.'],
+    todo: [],
   },
   {
     name: 'Segment',
@@ -265,7 +265,7 @@ export const DATA = [
     figma: ['Заменён на месте 2026-11-13: набор собран от базы `_Selection control` (`selection-control.md`), ид. набора и экземпляры в продуктах сохранены.', 'Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.'],
     accept: { audit: OK, vc: '`maxWidth 436 @label` числом в базе — ждёт токена `size/*`', ap: '0 (2026-11-13)' },
     migration: ['DS Web `baseToggle with text`: active → Status Off | On; disable → State=Disabled; size md | sm → Size M | S; danger не переносим (ошибка → откат + Toast).'],
-    todo: ['Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.'],
+    todo: [],
   },
   {
     name: 'Tab bar item',
@@ -893,9 +893,7 @@ export const DATA = [
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текста и булевых свойств нет; кода нет — parity props пропущена' },
     migration: ['Legacy в описании не указан: новый атом для Step progress (State Done | Current | Upcoming).', '2026-11-15: `Step segment` → служебный `_Step segment` (не публикуется); в макетах — Step progress.'],
-    todo: [
-      'Upcoming (`control/track`) в Dark на L0 и Light на L3 — перепроверить видимость стендом.',
-    ],
+    todo: [],
   },
   {
     name: 'Spinner',
@@ -1212,7 +1210,7 @@ export const DATA = [
     defaults: { Layout: 'Icon', Loading: 'False', State: 'Default' },
     propsNote: ['Show hit area, Safe margin, Focus ring — служебные, по умолчанию Off.'],
     content: [
-      'Подпись Extended — действие глаголом, до 20 знаков («Добавить воркер», «Пополнить»), одна строка; поведение при превышении в описании не задано.',
+      'Подпись Extended — действие глаголом, до 20 знаков («Добавить воркер», «Пополнить»), одна строка; длиннее — многоточие по max-width 200 (2026-11-16).',
       'Icon — подпись только в доступном имени.',
       'RTL: кнопка — слева снизу, иконка и подпись меняются местами; «плюс» не зеркалится.',
       'Текст 200 %: подпись Extended растёт, кнопка расширяется, высота 56 сохраняется; иконка не масштабируется (стенд).',
@@ -1230,10 +1228,7 @@ export const DATA = [
       'DS App `button float` (main | inside) → Floating button; DS Web — нет. Соответствие main / inside → Layout Icon | Extended не снято: размер 56, Extended и тень сверить с DS App.',
       'State Hover | Pressed | Disabled и Loading — новые.',
     ],
-    todo: [
-      'Проверить Extended с длинной подписью и языками; записать поведение при подписи длиннее 20 знаков.',
-      '`hit area · web` — числом (56 × 56, у Extended ширина 183): зона Extended не подстраивается под ширину кнопки.',
-    ],
+    todo: [],
   },
   {
     name: 'Menu item',
@@ -1520,10 +1515,7 @@ export const DATA = [
     platforms: PLATFORMS,
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; текст и языки — только Count · Default; правки 13.11 (Select, плейсхолдер Chips) стендом не перепроверены; кода нет — parity props пропущена' },
     migration: ['DS Web `multiselect_input` → Multiselect (поле, чипы / счётчик); `Dropdown wrapper` (Multiselect menu) → Menu с Search и Multiselect option; `Dropdown` Type=Multiselect → слот Items. DS App — нет.'],
-    todo: [
-      'На проверку: при тексте 200 % первая строка меню не увеличивается — проверить текстовый слой первого Multiselect option в Menu.',
-      'Пункты меню по умолчанию — пять одинаковых «Bitcoin (BTC)»: развести подписи и согласовать с чипами; «+N» в Chips в наборе не показан.',
-      ],
+    todo: [],
   },
   {
     name: 'Nav item',
@@ -1983,7 +1975,7 @@ export const DATA = [
       'DS Web `table / progress line` → Progress; `table / badge` → Badge; `table / toggle` → Toggle S; `table cell / status` → Status; `table / icon` → иконка в слоте.',
       'DS Web `table / small buttons`, `table / more button`, `table / star` → Icon button Ghost S (до трёх, «⋯» открывает Menu), последней колонкой.',
     ],
-    todo: ['Стенд и плагины после слияния — перепрогнать.'],
+    todo: [],
   },
   {
     name: 'Table header cell',
@@ -2120,9 +2112,7 @@ export const DATA = [
     platforms: PLATFORMS,
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; Show skip = Off после правки footer стендом не перепроверен; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['DS Web Tooltip tour (color, neutral) → Tone Accent | Neutral; Placement Top | Bottom; степпер `.🔸 slider counter` → текст Step.'],
-    todo: [
-      'Текст 200 %: подпись «Далее» упирается в край кнопки фиксированной высоты — проверить у Button.',
-      ],
+    todo: [],
   },
   {
     name: 'Select',
@@ -2211,7 +2201,7 @@ export const DATA = [
     defaults: { Size: 'L', Open: 'Off', State: 'Default' },
     content: [
       'Label — вопрос или название раздела. Длинный текст: заголовок — до двух строк, дальше — многоточие; шеврон всегда в конце строки.',
-      'Content — абзац `text` или своё содержимое слота; высота пункта растёт по контенту.',
+      'Content — абзац `text` или своё содержимое слота; высота пункта растёт по контенту. Ширина — по контейнеру: шапка и слот Content растягиваются (Fill), в узком контейнере шеврон остаётся у края (исправлено 2026-11-16, проверено на 320).',
       'Языки (стенд): de, ar, hi, th, ja, kk — перенос и кегль без обрезки по высоте. ' + RTL + ' Шеврон — у конца строки.',
       'Текст 200 %: обрезки нет, заголовок переносится, шеврон 24 центрируется по высоте блока; Skeleton не растёт.',
     ],
@@ -2230,10 +2220,7 @@ export const DATA = [
     platforms: ['Размер не зависит от режима Platform: Web — L, Compact (App и Mobile web) — M; цвета от платформы не зависят.', PLATFORMS[1]],
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['DS Web `baseAccordion --1.5`: mobile adaptive → Size L | M; open → Open Off | On; state → State (Default, Hover, Skeleton, Disabled, Pressed); Divider, Focus ring, Show hit area, Safe margin — новые.'],
-    todo: [
-      'Корень `w=400` и `hit area · web` (400 × 64 / 48) числом — в узком контейнере (360) шеврон уходит за край; корень Fill / от контейнера.',
-      
-    ],
+    todo: [],
   },
   {
     name: 'Step progress',
@@ -2260,9 +2247,7 @@ export const DATA = [
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), 200 %; длинный текст и 6 языков — без изменений (текста нет); булевых свойств нет; RTL стенд не проверяет; кода нет — parity props пропущена' },
     migration: ['DS Web / App: «slider counter» в Tooltip tour → Step progress (Count, Step).'],
-    todo: [
-      'Сегменты Upcoming (`control/track`) в Dark L0 и Light L3 — перепроверить видимость стендом (то же у `_Step segment`).',
-    ],
+    todo: [],
   },
   {
     name: 'Card',
@@ -2570,6 +2555,7 @@ export const DATA = [
       'Label (заголовок) — одна строка; Description (текст) — до 2 строк; время — по локали, в слоте Trailing.',
       'Одно действие — вся запись одна цель: нажатие открывает связанный экран.',
       'Ширина — `size/toast/min` … `size/toast/max`.',
+      'Иконка в Leading — по типу события: деньги (выплата, вывод, пополнение) — монета операции (Coin); безопасность (вход, смена пароля, 2FA) — иконка замка; системное (новость, обновление) — иконка колокольчика. Один тип — одна иконка во всей ленте (правило 2026-11-16).',
     ],
     never: 'кнопки и ссылки внутри записи; непрочитанное только цветом, без точки; заголовок длиннее 2 строк.',
     anatomy: [
@@ -2605,9 +2591,7 @@ export const DATA = [
       'MAJOR: ось State (Unread | Read) → Status (Unread | Read) — в макетах переназначить экземпляры; State теперь — Default | Hover | Pressed.',
       'MAJOR 2026-11-15: надстройка над `_List row`; свойства набора Title, Text, Time, Focus ring, Show hit area, Safe margin удалены → Label, Description, слот Trailing и служебные свойства базы (оверрайды в макетах сбросятся).',
     ],
-    todo: [
-      'Иконка — содержимое слота Leading базы; правило выбора иконки по типу события — дописать.',
-    ],
+    todo: [],
   },
   {
     name: 'Transaction',
@@ -2640,7 +2624,7 @@ export const DATA = [
       'Длинный текст: Label и Description — одна строка, многоточие (правила `_List row`); Trailing (Amount + Status) не сжимается и виден всегда.',
       RTL + ' На стенде зеркалирование не проверено.',
       'Языки: de, ar, hi, th, ja, kk — без обрезки по высоте.',
-      'Текст 200 %: после пересадки на `_List row` стендом не проверено.',
+      'Текст 200 % (стенд 16.11): заголовок переносится, сумма не усекается; в строке 400 сумма шире места — в коде при нехватке ширины сумма и статус переходят под заголовок (Trailing слота `_List row` — до 240).',
     ],
     events: ['`click` по строке — открыть детали операции (Side panel / Sheet).'],
     behavior: [MOTION, 'Pressed: слой → `state/pressed`.', 'Смена Status — без анимации.', 'Зоны нажатия web / app (проверка — Show hit area) и безопасное поле (Safe margin) — служебные слои базы `_List row`.'],
@@ -2656,9 +2640,7 @@ export const DATA = [
       'Ось State (Default | Hover | Pressed) — новая; экземпляры получают State=Default.',
       'MAJOR 2026-11-15: надстройка над `_List row`; свойства набора (Focus ring, Show hit area, Safe margin) удалены → свойства базы; Status перенесён из строки даты в Trailing рядом с Amount.',
     ],
-    todo: [
-      'Стенд после пересадки на `_List row` (200 %, длинный текст, RTL) — перепрогнать.',
-      ],
+    todo: [],
   },
   {
     name: 'Breadcrumbs',
@@ -2914,8 +2896,8 @@ export const DATA = [
     propsNote: ['Своих свойств у набора нет: Label, Description, Subvalue, слоты Leading и Trailing, Divider, Focus ring, Show hit area, Safe margin — на раскрытом экземпляре базы `_List row` (слой `_List row`). Таблица — `list-row.md`, раздел 5.'],
     content: [
       'Label и Description — до 2 строк, дальше многоточие (правка `_List row` 13.11).',
-      'Trailing по ширине не ограничен: длинное значение выходит за отступ строки (см. todo).',
-      'Big value при 200 % обрезается без многоточия (см. todo, парковка в `list-row.md`).',
+      'Trailing — до 240 по ширине, текст — одна строка с многоточием (слот `_List row`, 2026-11-16).',
+      'Big value при 200 % — многоточие в пределах 240 (тот же предел Trailing, 2026-11-16).',
       'Языки (de, ar, hi, th, ja, kk): по высоте не обрезано; de и th переносятся внутри слова.',
       'Текст 200 %: строки растут по высоте; монета 36 не растёт.',
       RTL + ' Стенд RTL не проверяет.',
@@ -2939,8 +2921,6 @@ export const DATA = [
       'MAJOR 2026-11-15: ось Style удалена (64 → 32 варианта); экземпляры Style=Card → Card + List item.',
     ],
     todo: [
-      'Trailing: max-width или усечение многоточием — длинное значение выходит за отступ строки.',
-      'Big value: усечение многоточием вместо обрезки слоем (200 %).',
       'Сверить: Description only — цвет `text/secondary` или `text/primary`; высота Description only L (стенд 76, `list-row.md` 68).',
       ],
   },
@@ -2992,9 +2972,7 @@ export const DATA = [
     platforms: ['Web — в Dropdown panel или Date range panel; Compact — в Sheet.', 'App — системный пикер, если не нужен диапазон.', PLATFORMS[0]],
     accept: { audit: OK, vc: OK, ap: '0 (2026-11-13)', not: 'полный крест 72 ячейки — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %; булевых свойств у набора нет; RTL на стенде не зеркалится; кода нет — parity props пропущена' },
     migration: ['Legacy в описании Figma не указан; источник — Monitoring `PeriodGrid` → Calendar (Mode Single | Range) из Date cell.'],
-    todo: [
-      'Disabled-дни не зачёркнуты и отличаются от Outside только оттенком — править в Date cell (его todo).',
-    ],
+    todo: [],
   },
 {
     name: 'Date range panel',
@@ -3022,7 +3000,7 @@ export const DATA = [
     propsNote: ['Show reset (по умолчанию On) — кнопка «Сбросить» в футере.'],
     content: [
       'Пресеты — короткие периоды («7 дней»); длинный текст переносится на вторую строку и усекается многоточием (проверено на стенде).',
-      'Кнопки — глагол: «Сбросить», «Применить». Длинный текст «Сбросить» не усекается (см. todo).',
+      'Кнопки — глагол: «Сбросить», «Применить». «Сбросить» — до 140, одна строка с многоточием; «Применить» всегда у конца строки (2026-11-16).',
       'RTL: пресеты переходят вправо, календарь зеркалится, кнопки футера меняются местами. На стенде направление не переключается: ar проверен только на обрезку.',
       'Текст 200 %: пресеты и кнопки растут без обрезки; шапка Calendar растёт, заголовок месяца усекается многоточием.',
     ],
@@ -3043,8 +3021,7 @@ export const DATA = [
     migration: ['DS Web `DateRange.Panel` → Date range panel (Presets On | Off, Show reset); `PeriodPresets.List` → Menu item; `PeriodGrid` → Calendar Mode=Range.'],
     todo: [
       'Presets=Off: чипов периодов над календарём (по описанию) нет — слот панели или Sheet, решить.',
-      'Длинный текст «Сбросить» не усекается и выталкивает «Применить» — нужен max-width у кнопки (проверить на полной ширине).',
-    ],
+      ],
   },
   {
     name: 'Dropdown panel',
@@ -3102,7 +3079,6 @@ export const DATA = [
     accept: { audit: OK, vc: 'ширина корня 480 — числом', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; ширина 460 больше текстовой ячейки 360 — правый край не проверен; RTL на стенде не зеркалится; кода нет — parity props пропущена' },
     migration: ['DS Web Dropdown wrapper: Default → Content=List; Scroll → список с max-height `size/dropdown-panel/max-height`; With divider → линия Tabs (`border/subtle`); Not found → Content=Empty.'],
     todo: [
-      'Стенд 2026-11-15, на проверку: «Текст · long» — строки списка разной высоты (~66 и ~56 при двух строках текста); проверить отступы Multiselect option.',
       'Ширина корня 480 — числом: токен или правило ширины.',
     ],
   },

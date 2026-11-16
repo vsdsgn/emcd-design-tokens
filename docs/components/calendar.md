@@ -106,6 +106,3 @@
 
 ## 15. Migration
 - Legacy в описании Figma не указан; источник — Monitoring `PeriodGrid` → Calendar (Mode Single | Range) из Date cell.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Disabled-дни не зачёркнуты и отличаются от Outside только оттенком — править в Date cell (его todo).

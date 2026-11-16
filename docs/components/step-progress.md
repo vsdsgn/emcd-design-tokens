@@ -78,6 +78,3 @@
 
 ## 15. Migration
 - DS Web / App: «slider counter» в Tooltip tour → Step progress (Count, Step).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Сегменты Upcoming (`control/track`) в Dark L0 и Light L3 — перепроверить видимость стендом (то же у `_Step segment`).

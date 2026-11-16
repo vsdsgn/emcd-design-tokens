@@ -78,6 +78,3 @@
 ## 15. Migration
 - Legacy в описании не указан: новый атом для Step progress (State Done | Current | Upcoming).
 - 2026-11-15: `Step segment` → служебный `_Step segment` (не публикуется); в макетах — Step progress.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Upcoming (`control/track`) в Dark на L0 и Light на L3 — перепроверить видимость стендом.

@@ -90,6 +90,3 @@
 
 ## 15. Migration
 - DS Web `baseRadio with text`: active → Status Off | On; disable → State=Disabled; danger → Tone=Danger; secondary не переносим.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.

@@ -109,6 +109,3 @@
 
 ## 15. Migration
 - DS Web Tooltip tour (color, neutral) → Tone Accent | Neutral; Placement Top | Bottom; степпер `.🔸 slider counter` → текст Step.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Текст 200 %: подпись «Далее» упирается в край кнопки фиксированной высоты — проверить у Button.

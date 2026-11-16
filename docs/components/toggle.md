@@ -91,6 +91,3 @@
 
 ## 15. Migration
 - DS Web `baseToggle with text`: active → Status Off | On; disable → State=Disabled; size md | sm → Size M | S; danger не переносим (ошибка → откат + Toast).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.

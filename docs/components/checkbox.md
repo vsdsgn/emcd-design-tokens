@@ -93,6 +93,3 @@
 ## 15. Migration
 - DS Web `baseCheckbox with text`: status default | active | intermediate → Status Off | On | Indeterminate.
 - disable → State=Disabled; danger → Tone=Danger; size md | sm → Size M | S; secondary не переносим; цвета → `control/*`.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Стенд бренды × платформы и текст 200 % по всем вариантам — не снят.
