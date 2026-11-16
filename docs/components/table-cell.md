@@ -1,4 +1,4 @@
-# Table cell — контракт (2026-11-15)
+# Table cell — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -90,7 +90,7 @@
 - Props: `align`: start | end; `content`: string или слот.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13, до слияния в одну ячейку).
@@ -106,5 +106,4 @@
 - DS Web `table / small buttons`, `table / more button`, `table / star` → Icon button Ghost S (до трёх, «⋯» открывает Menu), последней колонкой.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 184 числом (ширину задаёт колонка; min-width — `size/table-cell/min`).
 - Стенд и плагины после слияния — перепрогнать.

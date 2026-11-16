@@ -1,4 +1,4 @@
-# Step progress — контракт (2026-11-15)
+# Step progress — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -69,7 +69,7 @@
 - Vue: `<DsStepProgress>`; Flutter: `DsStepProgress`.
 - Props: `count`: 3 | 4 | 5 | 6 | 7; `step`: 1 | 2 | 3 | 4 | 5 | 6 | 7.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -80,5 +80,4 @@
 - DS Web / App: «slider counter» в Tooltip tour → Step progress (Count, Step).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 240 числом — образец; в макете Fill container.
 - Сегменты Upcoming (`control/track`) в Dark L0 и Light L3 — перепроверить видимость стендом (то же у `_Step segment`).

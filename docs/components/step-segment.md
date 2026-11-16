@@ -1,4 +1,4 @@
-# _Step segment — контракт (2026-11-15)
+# _Step segment — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -68,7 +68,7 @@
 - Props: нет.
 - Состояния (Done, Current, Upcoming) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -80,5 +80,4 @@
 - 2026-11-15: `Step segment` → служебный `_Step segment` (не публикуется); в макетах — Step progress.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 40 — числом (образец; в продукте — поровну на ряд).
 - Upcoming (`control/track`) в Dark на L0 и Light на L3 — перепроверить видимость стендом.

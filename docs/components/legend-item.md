@@ -1,4 +1,4 @@
-# Legend item — контракт (2026-11-15)
+# Legend item — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -95,7 +95,7 @@
 ## 12. Figma projection
 - Набор `Legend item`, вариантов 4 из 6; оси: Selected, State.
 - Борда: «Legend item — борда · шаблон v3», разделов 12.
-- Описание: 1087 знаков, разделы: Status: Level: Элемент легенды графика: State как у legacy . Правила: A11y: Когда использовать: Поиск: Legacy: Матрица:
+- Описание: 1148 знаков, разделы: Status: Level: Элемент легенды графика: State как у legacy . Правила: A11y: Когда использовать: Поиск: Legacy: Матрица:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -104,7 +104,7 @@
 - Props: `selected`: boolean; `label`: string или слот; `value`: string или слот; `showValue`: boolean = false.
 - Состояния (Default, Hover, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 148).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -115,6 +115,4 @@
 - DS Web widget Graph `.legends` (state=default | hover | active | skeleton) → State Default | Hover | Skeleton, active → Selected=On; маркер — вложенный Legend swatch (Marker, Series); значение — Show value + Value.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- На решение: Focus ring у Skeleton включается — убрать слой из Skeleton или оставить запрет «не включать».
 - ar: многоточие усечённой подписи вплотную к маркеру — проверить в RTL-раскладке.
-- `hit area · web` — числом (68 / 69 / 64 × 24).

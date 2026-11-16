@@ -1,4 +1,4 @@
-# Radio card — контракт (2026-11-15)
+# Radio card — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -104,7 +104,7 @@
 - Props: `status`: boolean; `label`: string или слот; `details`: string или слот; `showDetails`: boolean = true.
 - Состояния (Default, Hover, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -113,6 +113,3 @@
 
 ## 15. Migration
 - Продукт «Выгрузка»: радио-карточки расписания → Radio card (Status, State, Label, Details, Show details).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 400 и `hit area · web` 400 × 126 — числом.

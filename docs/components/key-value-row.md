@@ -1,4 +1,4 @@
-# Key-value row — контракт (2026-11-15)
+# Key-value row — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -86,7 +86,7 @@
 - Vue: `<DsKeyValueRow>`; Flutter: `DsKeyValueRow`.
 - Props: `emphasis`: default | total | muted; `leader`: boolean; `key`: string или слот; `value`: string или слот.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 200).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -96,6 +96,3 @@
 ## 15. Migration
 - Web App `.sum list group` (88 вхождений) → Key-value row: Emphasis Default | Total | Muted, Key, Value.
 - Firmware «детали устройства» (ключ — точечная линия — значение) → Leader=On.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 360 и max-width значения 200 — числом; в экземпляре строка — по ширине родителя.

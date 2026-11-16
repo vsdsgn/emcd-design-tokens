@@ -1,4 +1,4 @@
-# Legend swatch — контракт (2026-11-15)
+# Legend swatch — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -70,7 +70,7 @@
 - Vue: `<DsLegendSwatch>`; Flutter: `DsLegendSwatch`.
 - Props: `marker`: dot | line; `series`: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -79,6 +79,3 @@
 
 ## 15. Migration
 - DS Web `legend marker` → Legend swatch: Marker Dot | Line, Series 1–8.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Палитра: `data/4` (Light amber/800, Dark amber/500) и `data/7` (Dark orange/400) сдвинуты 2026-11-15 — ждут Publish Foundations.

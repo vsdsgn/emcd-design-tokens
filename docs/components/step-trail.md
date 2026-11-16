@@ -1,4 +1,4 @@
-# Step trail — контракт (2026-11-15)
+# Step trail — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -70,7 +70,7 @@
 - Props: `border`: solid | dotted.
 - Состояния (Default, Current, Success) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -81,6 +81,5 @@
 - DS Web: Step Trail (Border type, State) → Step trail (Border Solid | Dotted, State Default | Current | Success).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 80 — числом (образец; в продукте — всё свободное место).
 - Solid · Default и Dotted · Current / Success по правилу не применяются, но есть в матрице — сузить или уточнить правило.
 - Default в Dark на L0 почти не видна (`border/default`) — на решение (токен).

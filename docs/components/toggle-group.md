@@ -1,4 +1,4 @@
-# Toggle group — контракт (2026-11-15)
+# Toggle group — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -92,7 +92,7 @@
 ## 12. Figma projection
 - Набор `Toggle group`, вариантов 4 из 4; оси: Direction, Size, State.
 - Борда: «Toggle group — борда · шаблон v3», разделов 11.
-- Описание: 1549 знаков, разделы: Status: Level: Toggle group: • Direction: • Disabled — • M: Когда использовать: Правила: Длинный текст: A11y: Show label = Off —
+- Описание: 1436 знаков, разделы: Status: Level: Toggle group: • Direction: • Disabled — • M: Когда использовать: Правила: Длинный текст: A11y: Show label = Off —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -101,7 +101,7 @@
 - Props: `direction`: vertical; `size`: m | s; `showLabel`: boolean = true; `showHelper`: boolean = true; `label`: string или слот; `helper`: string или слот.
 - Состояния (Default, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 436, helper 436).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -113,5 +113,3 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Ограничение Figma: при 200 % в узкой группе переключатель выходит за край (в коде подпись переносится) — макеты на ширине `size/field/max`.
-- Зазоры в описании (M 8 / 12, S 6 / 8, `space/6`) не совпадают с набором (корень `space/12` / `space/8`, `items` `space/16`) — свести.
-- Описание: Direction Horizontal («2–3 коротких варианта») при единственном значении Vertical — убрать.

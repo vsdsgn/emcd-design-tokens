@@ -1,4 +1,4 @@
-# Counter — контракт (2026-11-15)
+# Counter — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -73,7 +73,7 @@
 - Vue: `<DsCounter>`; Flutter: `DsCounter`.
 - Props: `size`: s | m; `tone`: neutral | accent | danger; `value`: string или слот.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 40` (записанное исключение) и `maxWidth 28 @value` числом; min-width — `size/counter-height/*`.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,4 +1,4 @@
-# Suggest — контракт (2026-11-15)
+# Suggest — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -104,7 +104,7 @@
 - Vue: `<DsSuggest>`; Flutter: `DsSuggest`.
 - Props: `layout`: card | strip; `tone`: neutral | accent | info | success | warning | danger; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `showDescription`: boolean = true; `leading`: boolean = true; `primaryAction`: boolean = true; `secondaryAction`: boolean = false; `close`: boolean = true.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — не перезапускался после правок 13.11 (ряд кнопок скрывается с Primary action) и 14.11 (Accent — Button Primary).
 - `variables-check.plugin.js` — ширина корня 480 (Card) / 960 (Strip) числом.
 - `audit-parity.plugin.js` — 0 (13.11, прогон по страницам компонентов).
@@ -119,4 +119,3 @@
 - Основная кнопка на тонированных подложках (Info, Success, Warning, Danger) — `action/accent/default` сливается с подложкой (стенд 13.11); правлен только Accent.
 - Leading — булево; по описанию слева может быть логотип или монета, а свойства слота / замены нет — решить.
 - Geometria: Accent и Info почти неразличимы (оба синие).
-- Ширина корня 480 / 960 — числом; Strip — по правилу «на всю ширину».

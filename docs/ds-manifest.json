@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15",
+ "generated": "2026-11-16",
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
@@ -283,7 +283,14 @@
      },
      "variants": 4,
      "full": 4,
-     "props": [],
+     "props": [
+      {
+       "name": "Show QR",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 4
+      }
+     ],
      "nested": {
       "Icon button": 8
      },
@@ -1656,7 +1663,7 @@
      "id": "664:73999",
      "type": "SET",
      "status": "beta",
-     "descLen": 1453,
+     "descLen": 1526,
      "descHeads": [
       "Status:",
       "Level:",
@@ -1665,6 +1672,7 @@
       "Level —",
       "Когда использовать:",
       "Правила:",
+      "Legacy:",
       "A11y:"
      ],
      "inBoard": false,
@@ -2155,7 +2163,7 @@
      "id": "97:921",
      "type": "SET",
      "status": "beta",
-     "descLen": 1689,
+     "descLen": 1681,
      "descHeads": [
       "Status:",
       "Level:",
@@ -2288,7 +2296,7 @@
       ],
       "point": [
        "f:data/1",
-       "s:surface/level-1",
+       "s:surface/current",
        "sw:border/width/focus"
       ],
       "Нет данных за период": [
@@ -2596,7 +2604,7 @@
      "id": "631:1256",
      "type": "SET",
      "status": "beta",
-     "descLen": 1334,
+     "descLen": 1360,
      "descHeads": [
       "Status:",
       "Level:",
@@ -5779,7 +5787,7 @@
      "id": "84:613",
      "type": "SET",
      "status": "beta",
-     "descLen": 1087,
+     "descLen": 1148,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6962,7 +6970,7 @@
      "id": "66:370",
      "type": "SET",
      "status": "beta",
-     "descLen": 1091,
+     "descLen": 1147,
      "descHeads": [
       "Status:",
       "Level:",
@@ -7143,6 +7151,7 @@
       "_List row": 6
      },
      "minmax": [
+      "minw=280 size/toast/min",
       "maxw=400 size/toast/max"
      ],
      "layers": {
@@ -7160,6 +7169,7 @@
       "(root)": [
        "f:accent/subtle",
        "maxw:size/toast/max",
+       "minw:size/toast/min",
        "r:radius/control"
       ],
       "_List row": [
@@ -7687,7 +7697,14 @@
      },
      "variants": 6,
      "full": 6,
-     "props": [],
+     "props": [
+      {
+       "name": "Show requirements",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 6
+      }
+     ],
      "nested": {
       "Input": 6,
       "(icons)": 24
@@ -8509,7 +8526,7 @@
      "id": "631:2295",
      "type": "SET",
      "status": "beta",
-     "descLen": 1286,
+     "descLen": 1312,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9110,7 +9127,7 @@
      "id": "51:1753",
      "type": "SET",
      "status": "beta",
-     "descLen": 1240,
+     "descLen": 1307,
      "descHeads": [
       "Status:",
       "Level:",
@@ -10013,11 +10030,11 @@
       ],
       "track": [
        "f:icon/primary",
+       "h:icon/size/control",
        "h:icon/size/lg",
-       "h:icon/size/md",
        "h:icon/size/sm",
+       "w:icon/size/control",
        "w:icon/size/lg",
-       "w:icon/size/md",
        "w:icon/size/sm"
       ],
       "arc": [
@@ -11774,7 +11791,7 @@
      "id": "62:67",
      "type": "SET",
      "status": "beta",
-     "descLen": 1110,
+     "descLen": 1171,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12432,7 +12449,7 @@
        "name": "Show title",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 10
+       "bound": 5
       },
       {
        "name": "Description",
@@ -12488,7 +12505,8 @@
       "media/status/danger": 1
      },
      "minmax": [
-      "minw=280 size/toast/min"
+      "minw=280 size/toast/min",
+      "maxw=400 size/toast/max"
      ],
      "layers": {
       "ring": 0,
@@ -12505,6 +12523,7 @@
      "tokens": {
       "(root)": [
        "gap:space/12",
+       "maxw:size/toast/max",
        "minw:size/toast/min",
        "p:space/12",
        "p:space/16",
@@ -12721,7 +12740,7 @@
      "id": "631:3104",
      "type": "SET",
      "status": "beta",
-     "descLen": 1549,
+     "descLen": 1436,
      "descHeads": [
       "Status:",
       "Level:",

@@ -1,4 +1,4 @@
-# Spinner — контракт (2026-11-15)
+# Spinner — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -52,7 +52,7 @@
 
 ## 10. Tokens
 - `корень`: высота `icon/size/control`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/lg`, `icon/size/sm`.
-- `track`: заливка / цвет `icon/primary`; высота `icon/size/lg`, `icon/size/md`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/md`, `icon/size/sm`.
+- `track`: заливка / цвет `icon/primary`; высота `icon/size/control`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/lg`, `icon/size/sm`.
 - `arc`: заливка / цвет `icon/primary`.
 - Значений без переменной: 3 (напр. `track:o=0.2`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
@@ -71,7 +71,7 @@
 - Vue: `<DsSpinner>`; Flutter: `DsSpinner`.
 - Props: `size`: s | m | l.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -82,5 +82,4 @@
 - Legacy `ic-loader` → Spinner (Size S | M | L).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Size=M: корень привязан к `icon/size/control`, дорожка — к `icon/size/md`; свести к одному токену.
 - Прозрачность дорожки 0.2 — числом.

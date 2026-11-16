@@ -1,4 +1,4 @@
-# List item — контракт (2026-11-15)
+# List item — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -87,7 +87,7 @@
 - Props: `size`: l | m; `content`: text-first | description-first | big-value | description-only.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 по набору после замены на месте 13.11; после снятия Style=Card (15.11) не перезапускался.
 - `variables-check.plugin.js` — ширина корня 375 числом.
 - `audit-parity.plugin.js` — 0 по набору после замены 13.11; после 15.11 не перезапускался.
@@ -103,4 +103,3 @@
 - Trailing: max-width или усечение многоточием — длинное значение выходит за отступ строки.
 - Big value: усечение многоточием вместо обрезки слоем (200 %).
 - Сверить: Description only — цвет `text/secondary` или `text/primary`; высота Description only L (стенд 76, `list-row.md` 68).
-- Ширина корня 375 — числом.

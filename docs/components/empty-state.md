@@ -1,4 +1,4 @@
-# Empty state — контракт (2026-11-15)
+# Empty state — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -14,7 +14,7 @@
 - Когда нет: ошибка загрузки — Alert / Banner с «Повторить»; загрузка — Skeleton.
 - Правило выбора варианта:
   - Size: L — страница / раздел целиком (иллюстрация, до двух кнопок: Primary M + Secondary M); M — внутри карточки / таблицы (иллюстрация 96, одна Secondary S); S — строка списка / поиска без иллюстрации (Link S «Сбросить фильтры»).
-  - Layout: Vertical — по умолчанию; Horizontal — только L и M (у S нет). Правило выбора в описании не задано (legacy position) — на решение.
+  - Layout: Vertical — по умолчанию; Horizontal — только L и M (у S нет) и только в широкой области (от 560: страница, таблица на всю ширину), где вертикальная заглушка оставляет пустые поля по бокам; в карточке, колонке и на Compact — Vertical (решение 2026-11-16).
   - Dashed background: On — пустая зона внутри страницы (пунктирная рамка); иначе Off.
   - Заголовок — что случилось; текст — что сделать, одно предложение.
   - Иллюстрация — только из Expressive в слот Illustration; кнопки — только в слот Actions.
@@ -102,7 +102,7 @@
 - Vue: `<DsEmptyState>`; Flutter: `DsEmptyState`.
 - Props: `size`: l | m | s; `layout`: horizontal | vertical; `title`: string или слот; `text`: string или слот; `showText`: boolean = true; `showIllustration`: boolean = true; `showActions`: boolean = true; `illustration`: string или слот; `actions`: string или слот; `dashedBackground`: boolean = false.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина корня числом (560 / 320 / 280 / 720 / 520).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -111,7 +111,3 @@
 
 ## 15. Migration
 - DS Web empty state (actions, picture slot, position, dashed background) → Empty state: Size L / M / S, Layout Vertical / Horizontal (legacy position), Dashed background, слоты Illustration и Actions.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Правило выбора Layout не задано.
-- Ширина корня — числом у всех вариантов.

@@ -1,4 +1,4 @@
-# Input amount — контракт (2026-11-15)
+# Input amount — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -115,7 +115,7 @@
 - Props: `label`: string или слот; `value`: string или слот; `description`: string или слот; `balance`: string или слот; `infoIcon`: boolean = true; `showBalance`: boolean = true; `message`: string или слот; `showCurrency`: boolean = true.
 - Состояния (Default, Focus, Error, Disabled, Hover, Skeleton, Filled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label text 180).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -126,6 +126,3 @@
 - DS Web widget `Input amount` (Info icon, Input message, State Default / Error / Focus, Filled) → Input amount: Info icon, Message, State Default | Focus | Error, Filled → State=Filled; Disabled, Hover и Skeleton — новые; кнопка Max → Button Type=Text Size=S; Show balance, Show currency — новые свойства; `Selector small` → Select compact.
 - MAJOR 2026-11-15: ось Filled удалена → State=Filled (было 11 вариантов, стало 7); на `_Field base` не пересажен — паттерн-исключение семьи полей (другая анатомия).
 - DS App `input amount` + `amount slider` → Input amount; слайдер суммы (DS Web `base slider`) не переносим: набора Slider в библиотеке нет.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 395 и `hit area · web` 395 × 126 / 160 — числом.

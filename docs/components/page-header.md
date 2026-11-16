@@ -1,4 +1,4 @@
-# Page header — контракт (2026-11-15)
+# Page header — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -104,7 +104,7 @@
 - Vue: `<DsPageHeader>`; Flutter: `DsPageHeader`.
 - Props: `size`: large | compact; `title`: string или слот; `subtitle`: string или слот; `showSubtitle`: boolean = true; `breadcrumbs`: boolean = false; `showActions`: boolean = true; `showTabs`: boolean = false; `actions`: string или слот; `tabs`: string или слот.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина корня числом (1120 / 375).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -116,4 +116,3 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Compact: Show actions = On по умолчанию (свойство общее для Size); на корневых экранах App действия чаще в Top bar — выключать в экземпляре.
-- Ширина корня — числом (1120 / 375).

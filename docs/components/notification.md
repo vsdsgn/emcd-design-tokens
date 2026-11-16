@@ -1,4 +1,4 @@
-# Notification — контракт (2026-11-15)
+# Notification — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -66,9 +66,9 @@
 - «Отметить все прочитанными» — кнопка в шапке центра уведомлений.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`; maxw `size/toast/max`; радиус `radius/control`.
+- `корень`: заливка / цвет `accent/subtle`; maxw `size/toast/max`; мин. ширина `size/toast/min`; радиус `radius/control`.
 - `_List row`: интервал `space/12`; отступы `control/padding-x/lg`, `space/12`.
-- Min / max корня: maxWidth 400 size/toast/max.
+- Min / max корня: minWidth 280 size/toast/min, maxWidth 400 size/toast/max.
 - Значений без переменной: 6 (напр. `(root):w=400`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -87,7 +87,7 @@
 - Props: `status`: unread | read.
 - Состояния (Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -100,5 +100,4 @@
 - MAJOR 2026-11-15: надстройка над `_List row`; свойства набора Title, Text, Time, Focus ring, Show hit area, Safe margin удалены → Label, Description, слот Trailing и служебные свойства базы (оверрайды в макетах сбросятся).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- min-width: в описании `size/toast/min`, в наборе привязан только max.
 - Иконка — содержимое слота Leading базы; правило выбора иконки по типу события — дописать.

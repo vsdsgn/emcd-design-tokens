@@ -1,4 +1,4 @@
-# Checkbox group — контракт (2026-11-15)
+# Checkbox group — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -93,7 +93,7 @@
 ## 12. Figma projection
 - Набор `Checkbox group`, вариантов 12 из 12; оси: Direction, Size, State.
 - Борда: «Checkbox group — борда · шаблон v3», разделов 11.
-- Описание: 1334 знаков, разделы: Status: Level: Checkbox group: • Direction: • Error — • M: Когда использовать: Правила: A11y: Show label = Off —
+- Описание: 1360 знаков, разделы: Status: Level: Checkbox group: • Direction: • Error — • M: Когда использовать: Правила: A11y: Show label = Off —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -102,7 +102,7 @@
 - Props: `direction`: vertical | horizontal; `size`: m | s; `showLabel`: boolean = true; `showHelper`: boolean = true; `label`: string или слот; `helper`: string или слот.
 - Состояния (Default, Error, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 436, helper 436).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -111,7 +111,3 @@
 
 ## 15. Migration
 - Legacy-группы нет (DS Web / App); варианты — Checkbox (DS Web `baseCheckbox with text`); подпись и ошибка группы — по образцу DS App `Radiogroup`.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Правило длинной подписи и подсказки: описание говорит «одной строкой под группой», набор переносит — записать правило.
-- Зазоры в описании (8 / 12 / 24 и 6 / 8 / 16, `space/6`) не совпадают с набором (`space/6` нет) — свести.

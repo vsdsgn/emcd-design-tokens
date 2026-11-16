@@ -1,4 +1,4 @@
-# Progress — контракт (2026-11-15)
+# Progress — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -86,7 +86,7 @@
 - Vue: `<DsProgress>`; Flutter: `DsProgress`.
 - Props: `size`: s | m; `tone`: accent | success | warning | danger; `label`: string или слот; `value`: string или слот; `showLabel`: boolean = true.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 200).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -97,6 +97,5 @@
 - DS App `Progress` → Progress (линейный); DS Web — нет. Tone, Size, Label, Value, Show label — по набору 2.0; высоту дорожки и подписи сверить с DS App.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 320 — числом.
 - Неопределённый режим есть в Motion описания, варианта нет — на решение.
 - Dark: `status/success/solid` на `control/track` читается хуже остальных тонов (S) — проверить контраст.

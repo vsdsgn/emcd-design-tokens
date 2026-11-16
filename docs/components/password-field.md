@@ -1,4 +1,4 @@
-# Password field — контракт (2026-11-15)
+# Password field — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -14,6 +14,8 @@
 - Правило выбора варианта:
   - State: Default — поле пустое, все требования с прочерком; Hover — указатель над полем; Focus — идёт ввод, выполненные требования отмечаются сразу; Filled — все требования выполнены; Error — пароль не прошёл проверку, показывается только после отправки или ухода из поля, не на каждый символ; Disabled — ввод недоступен.
   - Требования видны сразу, до ввода; «глаз» — всегда.
+  - Show requirements: On — создание и смена пароля; Off — вход (только поле и «Забыли пароль?») (свойство с 2026-11-16).
+  - «Глаз» — вложенный Icon button Ghost S в слоте Trailing; пароль показан — иконка `eye` меняется на `eye-off` в экземпляре (отдельного варианта нет).
   - Ширина — от `size/field/min` до `size/field/max`.
 - Не делаем: ошибка на каждый введённый символ; требования, которые появляются только после ошибки; запрет вставки и менеджеров паролей; выполнено / не выполнено только цветом.
 
@@ -42,6 +44,12 @@
 | State | Error · Default · Focus · Filled · Hover · Disabled | Default |
 
 Матрица полная: 6 вариантов.
+
+Свойства:
+
+| Свойство | Тип | По умолчанию | Привязано в вариантах |
+|---|---|---|---|
+| Show requirements | булево | вкл | 6 из 6 |
 
 - Свойств у набора нет: подпись, плейсхолдер и тексты требований меняются во вложенных слоях.
 
@@ -96,10 +104,10 @@
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsPasswordField>`; Flutter: `DsPasswordField`.
-- Props: нет.
+- Props: `showRequirements`: boolean = true.
 - Состояния (Error, Default, Focus, Filled, Hover, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -108,8 +116,3 @@
 
 ## 15. Migration
 - DS App `input / password` → Password field (State Default | Hover | Focus | Filled | Error | Disabled; прежние Empty / Typing / Valid → Default / Focus / Filled): база Input, «глаз» → Icon button Ghost S в слоте Trailing, список требований — под полем; DS Web — нет.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- «Глаз» — иконка, а не экземпляр Icon button Ghost (по описанию): нет состояний, кольца фокуса и зоны нажатия; варианта «пароль показан» нет.
-- Нет свойства, скрывающего требования (вход — без требований).
-- Ширина корня 320 — числом.

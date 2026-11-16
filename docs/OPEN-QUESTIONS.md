@@ -20,6 +20,17 @@
 6. **Promo card** — действие в S и M разного вида; крестика нет, хотя по правилу закрывается. (Один вид — Button Text; Show close — свойство.)
 7. ~~**Мелочи вида**~~ — **закрыто 15.11 (стенд Light / Dark):** исправлено — Input amount Error 1 px (как семья полей); Chart crosshair: обводка точки `surface/current`; Address Copied: статус на месте подписи, высота не меняется; Tooltip tour: описание до 3 строк. Оставлено (различимо, записано в контракты) — Select compact Disabled (гаснут текст, шеврон, монета), Accordion Skeleton одинаков при Open Off / On (грузится список), Avatar group 200 % (текст в кругах не масштабируется, как иконки), Scrollbar Dark L0 дорожка (носитель — ползунок), линия Chart crosshair в Dark, иконка Menu item при 200 % (иконки не растут).
 
+## На решение — остаток todo контрактов (16.11)
+
+Из 141 todo закрыто 63 (правило «размер образца», описания, привязки, свойства Show QR / Show requirements). Осталось 78: из них на решение Стефана —
+
+1. **Токены (публикует Стефан):** `size/*` для max-width подписи полей выбора (436), ширин Sidebar (240 / 72), max-height Menu (~8 пунктов) и Sheet (~90 %); нахлёст Avatar group / Coin stack (−4…−10); радиус `state layer` Tab bar item (12). Рекомендация: завести одной пачкой.
+2. **Видимость в Dark на L0:** Step symbol Bullet и Step trail Default на `border/default` почти не видны. Рекомендация: `border/strong`.
+3. **Варианты:** Circle timer Progress=0; Progress неопределённый; Step trail — убрать Solid·Default и Dotted·Current/Success или уточнить правило; Coin — Network у XS и выступ кольца; Code input — размер ячейки от Platform. Рекомендация: Progress=0 и неопределённый — добавить; Step trail — сузить матрицу; Coin XS — без сети; Code input — правило «M везде, L только Web 4 цифры» оставить текстом.
+4. **Тон и поверхности:** Toast Card Neutral = Info (одна иконка); Suggest — кнопка `action/accent` сливается с тонированной подложкой, Leading без слота, Geometria Accent ≈ Info; Chart metric — иконка не в тон значения; Card Level 0 — обводка на L0 ≈ 1.2:1; Tooltip / Toast — кнопочные токены на неинтерактивной поверхности (п. 10). Рекомендация: Toast Neutral — своя иконка; Suggest — кнопка Primary на тонах; Chart metric — иконка в тон значения.
+
+Остальное (≈ 45) — моя работа: перепрогон стендов (группы выбора, Transaction, Table cell, Step progress, Multiselect, ar у Legend item / Nav item), List item (Trailing и Big value — усечение), Date range panel, Accordion в узком контейнере, зона Floating button Extended, Breadcrumbs separator, Calendar Disabled-дни.
+
 ## Перепроверка 14.11 — решено 2026-11-15: «делай всё по своим рекомендациям»
 
 Нумерация ответа Стефану 14.11 (22 пункта): 1–15 = пункты ниже 1–15; 16 = п. 19 (Input amount); 17 = п. 20 (парковка Pagination, File upload, Snack, Side panel); 18 — строку Alert из `status.json` убрать; 19 — строку Table из `status.json` убрать; 20 — 🗄 Старые доски: живые компоненты в 🗄 Archive, страницу удалить; 21 — страницу генератора удалить после решений; 22 — 🗄 Alert удалить. Ход выполнения — HANDOFF «Выполнение решений 15.11».

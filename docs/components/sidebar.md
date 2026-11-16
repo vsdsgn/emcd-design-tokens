@@ -1,4 +1,4 @@
-# Sidebar — контракт (2026-11-15)
+# Sidebar — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -97,7 +97,7 @@
 ## 12. Figma projection
 - Набор `Sidebar`, вариантов 2 из 2; оси: Collapsed.
 - Борда: «Sidebar — борда · шаблон v3», разделов 11.
-- Описание: 1091 знаков, разделы: Status: Level: Сайдбар: Слоты: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
+- Описание: 1147 знаков, разделы: Status: Level: Сайдбар: Слоты: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -105,7 +105,7 @@
 - Vue: `<DsSidebar>`; Flutter: `DsSidebar`.
 - Props: `collapsed`: boolean; `header`: string или слот; `nav`: string или слот; `footer`: string или слот; `promo`: boolean = true.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина 240 / 72 и высота 800 корня — числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -116,7 +116,5 @@
 - DS Web `sidebar / default` → Sidebar (Collapsed Off | On, слоты Header / Nav / Footer); `Sidebar banner` → Promo card в Sidebar (свойство Promo).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Высота корня 800 — числом (в продукте — высота окна).
 - Ширины 240 / 72 — числом, ждут токена `size/*`.
 - Promo card: подпись действия — 1–2 слова; длинная подпись в узком сайдбаре (215) режется (стенд подменял все тексты).
-- Описание: промо указано в Footer, в сборке — под логотипом; свести.

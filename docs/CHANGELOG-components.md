@@ -2,6 +2,15 @@
 
 Формат: дата · что · где. Пишется после каждой группы правок.
 
+## 2026-11-16
+
+- **Address:** свойство Show QR (On — только адреса пополнения). **Password field:** свойство Show requirements (Off — вход). Минор: новые свойства, макеты не ломаются.
+- **Spinner M:** дорожка на `icon/size/control`, как корень. **Table row:** варианты разложены сеткой Density × Selected × State.
+- **Toast:** Informer — заголовок всегда виден (Show title только у Card); Card max-width `size/toast/max`. **Notification:** min-width `size/toast/min`.
+- **Chart plot:** точки Hover у Line / Area / составных — обводка `surface/current`.
+- **Описания:** Toggle / Checkbox / Radio group (зазоры по набору, перенос подсказки; у Toggle только Vertical), Table header cell (Label/LG), Chart plot (`data/*`), Card (Legacy), Sidebar (промо под Header), Legend item / Select / Table header cell — Focus ring у Skeleton и Disabled не включать.
+- **Правила:** Empty state — Horizontal только в широкой области от 560; Transaction Exchange — сумма без знака; «размер образца» (`docs/components.md`).
+
 ## 2026-11-15 (вечер: манифест и борды)
 
 - **Tooltip tour:** `description` — высота по содержимому (было FILL → обрезка по рамке), до 3 строк с многоточием; правило и раздел «Контент» контракта согласованы.

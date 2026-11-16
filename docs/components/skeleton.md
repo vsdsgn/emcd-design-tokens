@@ -1,4 +1,4 @@
-# Skeleton — контракт (2026-11-15)
+# Skeleton — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -68,7 +68,7 @@
 - Vue: `<DsSkeleton>`; Flutter: `DsSkeleton`.
 - Props: `shape`: text | title | circle | rect.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -78,6 +78,3 @@
 ## 15. Migration
 - Legacy в описании не указан: state skeleton у компонентов DS Web → Skeleton-состояние компонента, собранное из кирпичей (Shape).
 - MAJOR 2026-11-15: Shape Button / Input / Chip удалены → State=Skeleton у семьи полей, Chip, Badge; кнопке Skeleton не нужен.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Размеры фигур числом (200×12, 160×20, 40×40, 240×120).

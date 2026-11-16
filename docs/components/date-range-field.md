@@ -1,4 +1,4 @@
-# Date range field — контракт (2026-11-15)
+# Date range field — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -89,7 +89,7 @@
 - Props: нет.
 - Состояния (Default, Focus, Filled, Error, Disabled, Hover, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -101,4 +101,3 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Текст 200 %: подпись на рамке налезает на значение, высота поля не растёт — править в `_Field base` (подпись в Above или рост поля; вопрос 4 пилота).
-- Ширина корня 320 — числом.

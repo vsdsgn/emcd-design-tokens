@@ -1,4 +1,4 @@
-# Transaction — контракт (2026-11-15)
+# Transaction — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -13,7 +13,7 @@
 - Когда использовать: история операций в списке (кошелёк, главная, App).
 - Когда нет: таблица операций на Web — Table row (Amount в слоте Table cell); детали операции — Side panel или Sheet по нажатию на строку.
 - Правило выбора варианта:
-  - Type: Withdrawal — вывод (стрелка вверх); Deposit — пополнение (стрелка вниз); Reward — начисление за майнинг (молния); Exchange — обмен (две стрелки).
+  - Type: Withdrawal — вывод (стрелка вверх); Deposit — пополнение (стрелка вниз); Reward — начисление за майнинг (молния); Exchange — обмен (две стрелки); сумма Exchange — без знака: баланс не растёт и не убывает, меняется монета (правило 2026-11-16).
   - Status: Completed — «Выполнено» (точка success); Pending — «В обработке» (точка warning); Failed — «Отклонено» (точка danger). Статус — Status: точка и слово, не только цвет.
   - State: Default · Hover · Pressed — отклик нажатия; вся строка — одна цель.
   - Сумма — Amount в конце строки, со знаком: «−» у вывода, «+» у пополнения и начислений; у Failed — без знака. Exchange в макете — без знака (правило не названо, см. todo).
@@ -87,7 +87,7 @@
 - Props: `type`: withdrawal | deposit | reward | exchange; `status`: completed | pending | failed.
 - Состояния (Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -101,4 +101,3 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Стенд после пересадки на `_List row` (200 %, длинный текст, RTL) — перепрогнать.
-- Правило знака для Exchange в описании не названо (в макете — без знака) — дописать.

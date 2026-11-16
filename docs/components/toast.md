@@ -1,4 +1,4 @@
-# Toast — контракт (2026-11-15)
+# Toast — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -48,7 +48,7 @@
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
 | Title | текст | «Вывод создан» | 10 из 10 |
-| Show title | булево | вкл | 10 из 10 |
+| Show title | булево | вкл | 5 из 10 |
 | Description | текст | «Средства поступят в течение 30 минут. Статус — в истории выплат.» | 5 из 10 |
 | Actions | булево | выкл | 5 из 10 |
 | Close | булево | вкл | 10 из 10 |
@@ -79,7 +79,7 @@
 - Тон дублируется текстом и иконкой. Зоны нажатия и кольцо фокуса — у вложенных Button / Icon button.
 
 ## 10. Tokens
-- `корень`: интервал `space/12`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`.
+- `корень`: интервал `space/12`; maxw `size/toast/max`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`.
 - `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/inverse/default`, `status/danger/solid`, `status/info/solid`, `status/success/solid`, `status/warning/solid`, `surface/raised`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `content`: интервал `space/10`; отступы `space/2`.
 - `title`: заливка / цвет `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
@@ -90,7 +90,7 @@
 - `timer`: высота `icon/size/sm`; ширина `icon/size/sm`.
 - `row`: интервал `space/12`; отступы `space/12`, `space/16`.
 - Служебные слои (общие правила — `service-layers.md`): `safe area`: высота `os/safe-area/top`.
-- Min / max корня: minWidth 280 size/toast/min.
+- Min / max корня: minWidth 280 size/toast/min, maxWidth 400 size/toast/max.
 - Значений без переменной: 10 (напр. `(root):w=400`, `(root):w=375`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -108,7 +108,7 @@
 - Vue: `<DsToast>`; Flutter: `DsToast`.
 - Props: `layout`: card | informer; `tone`: info | success | warning | danger | neutral; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `actions`: boolean = false; `close`: boolean = true; `icon`: boolean = true; `showDescription`: boolean = true; `timer`: boolean = false; `safeArea`: boolean = true.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 после замены на месте 13.11 (OVERLAY и SERVICE 0); после правок 13.11 (ночь: крестик Informer Neutral `icon/inverse`, полоса Informer по высоте, ряд кнопок Card по центру) не перезапускался.
 - `variables-check.plugin.js` — ширина корня 400 / 375 числом.
 - `audit-parity.plugin.js` — 0 (13.11, прогон по страницам компонентов).
@@ -119,7 +119,5 @@
 - DS Web Toast (`base notification`) → Layout=Card; App `informer` → Layout=Informer. Snack вынесен в отдельный набор 2026-11-09 и запаркован.
 
 Осталось доделать (после пакета правок beta 2026-11-13):
-- Show title привязан ко всем 10 вариантам: у Informer Off даёт пустую полосу — снять привязку с Informer.
 - Card Neutral неотличим от Card Info (одна иконка `media/status/info`) — своя иконка или правило различия.
-- Ширина корня 400 / 375 — числом; Card привязать к `size/toast/max` (400).
 - Informer Neutral — кнопочный `action/inverse/default` на неинтерактивной поверхности (OPEN-QUESTIONS п. 10).

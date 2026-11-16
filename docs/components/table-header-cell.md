@@ -1,4 +1,4 @@
-# Table header cell — контракт (2026-11-15)
+# Table header cell — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -90,7 +90,7 @@
 ## 12. Figma projection
 - Набор `Table header cell`, вариантов 20 из 24; оси: Align, Sort, State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 12.
-- Описание: 1110 знаков, разделы: Status: Level: Правила: Длинный текст: A11y: Часть Table. Поиск: Legacy: Когда использовать: Матрица:
+- Описание: 1171 знаков, разделы: Status: Level: Правила: Длинный текст: A11y: Часть Table. Поиск: Legacy: Когда использовать: Матрица:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -99,7 +99,7 @@
 - Props: `align`: start | end; `sort`: none | ascending | descending; `label`: string или слот; `showFilter`: boolean = false; `showInfo`: boolean = false.
 - Состояния (Skeleton, Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -108,8 +108,3 @@
 
 ## 15. Migration
 - DS Web `.table` / column title → Table header cell (Align, Sort, State; Show filter, Show info).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 160 и `hit area · web` 160 × 44 — числом.
-- Описание: «Label/SM» против `type/label/lg/*` у `label` — свести.
-- Focus ring включается у Skeleton (скелетон не фокусируется).

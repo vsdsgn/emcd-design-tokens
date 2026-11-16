@@ -1,4 +1,4 @@
-# Code cell — контракт (2026-11-15)
+# Code cell — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -91,7 +91,7 @@
 - Props: `size`: l | m; `digit`: string или слот.
 - Состояния (Empty, Focus, Filled, Error, Success, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -100,6 +100,3 @@
 
 ## 15. Migration
 - DS Web: ячейка кода 69 × 70 из «Подтверждение операции» → Code cell Size=L (64 × 68); 6 цифр и Compact → Size=M (48 × 56); состояния → State Empty | Focus | Filled | Error | Success | Disabled.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 64 / 48 и `hit area · web` 64 × 68 / 48 × 56 — числом.

@@ -1,4 +1,4 @@
-# Chart plot — контракт (2026-11-15)
+# Chart plot — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -85,7 +85,7 @@
 - `segment 4`: заливка / цвет `data/4`; радиус `radius/2xs`.
 - `Chart tooltip`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; интервал `space/6`; maxw `size/tooltip/max`; мин. ширина `size/chart-tooltip/min`; отступы `space/10`, `space/sm`; радиус `radius/sm`; обводка `border/default`; толщина обводки `border/width/default`.
 - `halo`: заливка / цвет `data/1`.
-- `point`: заливка / цвет `data/1`; обводка `surface/level-1`; толщина обводки `border/width/focus`.
+- `point`: заливка / цвет `data/1`; обводка `surface/current`; толщина обводки `border/width/focus`.
 - `Нет данных за период`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - Значений без переменной: 80 (напр. `(root):w=473`, `(root):h=140`, `area:o=0.45`, `bar:o=0.35`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
@@ -96,7 +96,7 @@
 ## 12. Figma projection
 - Набор `Chart plot`, вариантов 23 из 35; оси: Type, State.
 - Борда: «Chart plot — борда · шаблон v3», разделов 12.
-- Описание: 1689 знаков, разделы: Status: Level: Область графика (в коде — Type — State: Legacy: Когда использовать: Правила: A11y: Матрица:
+- Описание: 1681 знаков, разделы: Status: Level: Область графика (в коде — Type — State: Legacy: Когда использовать: Правила: A11y: Матрица:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -105,7 +105,7 @@
 - Props: `type`: bars | line | area | line-bars | multi-line | dual-area | stacked-bars.
 - Состояния (Default, Hover, Skeleton, Empty, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — размер корня 473 × 140 и прозрачности `area` 0.45 / `bar` 0.35 / `halo` 0.24 — числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -114,7 +114,3 @@
 
 ## 15. Migration
 - DS Web .graphics (state loading / default / hover / disabled / empty) и .charts (widget Graph, «Песочница графиков») → Chart plot (Type × State; loading → Skeleton).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Описание: «Loading» → `Skeleton` (имя значения оси); проверить порядок вариантов (Skeleton перед Empty).
-- Размер корня 473 × 140 и прозрачности — числом.

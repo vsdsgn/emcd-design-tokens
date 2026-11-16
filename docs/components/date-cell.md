@@ -1,4 +1,4 @@
-# Date cell — контракт (2026-11-15)
+# Date cell — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -89,7 +89,7 @@
 - Props: `day`: string или слот.
 - Состояния (Default, Hover, Today, Selected, Range start, Range middle, Range end, Outside, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -98,6 +98,3 @@
 
 ## 15. Migration
 - DS Web `PeriodGridItem` (DataPicker / PeriodGrid) → Date cell; DS App — нет. Ось State (10 значений) и свойство Day — по набору 2.0; размер ячейки сверить с `PeriodGrid`.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- `hit area · web` 40 × 40 — числом.

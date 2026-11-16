@@ -1,4 +1,4 @@
-# Card — контракт (2026-11-15)
+# Card — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -66,7 +66,7 @@
 ## 12. Figma projection
 - Набор `Card`, вариантов 72 из 72; оси: Level, Radius, Padding, Border.
 - Борда: «Card — борда · шаблон v3», разделов 11.
-- Описание: 1453 знаков, разделы: Status: Level: Card — Атом-шаблон: Level — Когда использовать: Правила: A11y:
+- Описание: 1526 знаков, разделы: Status: Level: Card — Атом-шаблон: Level — Когда использовать: Правила: Legacy: A11y:
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -74,7 +74,7 @@
 - Vue: `<DsCard>`; Flutter: `DsCard`.
 - Props: `level`: 1 | 2 | 3 | 0; `radius`: container | surface | inner; `padding`: s | m | l; `border`: boolean.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -87,5 +87,3 @@
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Level 0 — только на L0 (на L1+ — Level 1–3); правило решения 2026-11-15.
 - Обводка `border/subtle` у Level 0 на L0 едва видна (Light ≈ 1.2:1) — на решение.
-- Описание: добавить строку Legacy.
-- Ширина корня 320 числом — шаблон, в макете Fill.

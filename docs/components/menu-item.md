@@ -1,4 +1,4 @@
-# Menu item — контракт (2026-11-15)
+# Menu item — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -85,7 +85,7 @@
 - Props: `size`: m | l; `tone`: default | danger.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -94,6 +94,3 @@
 
 ## 15. Migration
 - DS Web Dropdown item (44, отступы 10 / 12, слот слева, подпись 16 + описание 12, слот справа) → Size=M, слоты Leading / Trailing, Description; новое в 2.0: Size=L 56, Tone=Danger, состояния слоем `state/layer`, Show selection, Selected, Focus ring, зоны.
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 290 — числом (пункт не растягивается по панели меню).

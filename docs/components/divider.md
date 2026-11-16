@@ -1,4 +1,4 @@
-# Divider — контракт (2026-11-15)
+# Divider — контракт (2026-11-16)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -81,7 +81,7 @@
 - Vue: `<DsDivider>`; Flutter: `DsDivider`.
 - Props: `orientation`: horizontal | vertical; `label`: boolean; `style`: solid | dotted; `labelText`: string или слот.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
@@ -91,6 +91,3 @@
 ## 15. Migration
 - DS App `divider text --1.0` → Orientation=Horizontal, Label=On + Label text.
 - DS Web: разделители внутри компонентов → Divider (Orientation Horizontal | Vertical, Label=Off).
-
-Осталось доделать (после пакета правок beta 2026-11-13):
-- Ширина корня 320, толщина 1 и высота 40 — числом.

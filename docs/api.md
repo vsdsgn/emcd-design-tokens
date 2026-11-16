@@ -1,4 +1,4 @@
-# Ожидаемый API компонентов — beta (2026-11-15)
+# Ожидаемый API компонентов — beta (2026-11-16)
 
 Собрано `scripts/agent-docs.mjs` из `docs/ds-manifest.json` — править не здесь, а в Figma (потом манифест) или в `scripts/contract-data.mjs`.
 Это **ожидаемый** API по правилам имён `scripts/parity.mjs`: кода (DSP, Vue `ui-emcd-web`, Flutter) в доступе нет (`docs/dsp-check-2026-11-12.md`). Когда появится манифест кода — `npm run parity` сверит.
@@ -32,6 +32,7 @@
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `format` | short \| full | по правилу контракта | ось Format |
+| `showQR` | boolean | true | свойство Show QR |
 
 Состояния в Figma: Default · Copied — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 
@@ -771,7 +772,9 @@ Props нет.
 
 Поле пароля с кнопкой показа символов («глаз») и списком требований, которые отмечаются по мере ввода.
 
-Props нет.
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `showRequirements` | boolean | true | свойство Show requirements |
 
 Состояния в Figma: Error · Default · Focus · Filled · Hover · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
 

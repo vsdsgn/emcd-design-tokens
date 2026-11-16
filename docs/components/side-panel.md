@@ -1,4 +1,4 @@
-# Side panel — контракт · draft (2026-11-15)
+# Side panel — контракт · draft (2026-11-16)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -81,7 +81,7 @@
 - Vue: `<DsSidePanel>`; Flutter: `DsSidePanel`.
 - Props: `size`: m | l; `title`: string или слот; `showClose`: boolean = true; `showFooter`: boolean = true; `headerActions`: string или слот; `body`: string или слот; `footer`: string или слот; `showHeaderActions`: boolean = false.
 
-## 14. Acceptance (2026-11-15)
+## 14. Acceptance (2026-11-16)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечаний по манифесту нет.
 
