@@ -69,6 +69,9 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 - Info = бренд («ок» 16.11): в Foundations `status/info/*`, `text/info`, `icon/info` → алиасы accent (**ждёт Publish Стефана**; в репо `export-2.json` уже так). Suggest и Badge — тон Info удалён (MAJOR, 16 экземпляров → Accent).
 - Манифест D13 / D14, 11 борд пересобраны; todo 43 → 34; проверки чистые.
 
+- **Код и Claude DS (16.11):** `packages/react` (React 18, без JSX) и `packages/vue` (Vue 3 SFC) — пилот 10 наборов (Button, Icon button, Badge, Chip, Checkbox, Radio + group, Toggle, Input, Textarea, Modal); общий CSS `packages/styles/components.css`; `npm run code`. Проверено: SSR React и Vue + Chromium Light / Dark, клики, indeterminate, счётчик, Esc. **Claude DS синхронизирован 2026-11-16 (v65, 65bc243):** `components/bundle.js` (window.EMCD), `index.d.ts`, libraries react / react-dom 18, Info = бренд, Badge без Info, строка «Код» в README компонентов.
+- Todo 43 → 9: «числом» — в реестр исключений, решения — в правила. Остались: Pagination ×3 (beta в Figma, кандидат в парковку — решение Стефана; в HANDOFF ниже ошибочно «draft»), Pagination item «…», Sheet край (парковка), Date range panel Presets, Date range field 200 %, сверки List item и Tab bar.
+
 ## Выполнение решений 15.11 (Стефан: «делай всё по своим рекомендациям»)
 
 Номера — из ответа 14.11 (см. `OPEN-QUESTIONS.md` «Перепроверка 14.11»). Отмечать по ходу.
