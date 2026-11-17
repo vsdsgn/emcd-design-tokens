@@ -17,7 +17,7 @@
   - Size: S 16 — в табах M и на иконках; M 20 — в табах L и пунктах меню.
 
 ## 3. Anatomy
-- Корень: капсула (`radius/full`), min-width = высота; заливка: Neutral — `status/neutral/subtle`, Accent — `control/checked`, Danger — `status/danger/solid`.
+- Корень: квадрат со скруглением `radius/sm` (17.11; было капсула `radius/full`), min-width = высота; заливка: Neutral — `status/neutral/subtle`, Accent — `control/checked`, Danger — `status/danger/solid`.
 - `value` — число: Neutral — `text/primary`, Accent и Danger — `text/on-accent`.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 

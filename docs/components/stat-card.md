@@ -23,7 +23,7 @@
 - Не делаем: несколько чисел в одной карточке; анимация счётчика; больше одной карточки с Ambient light на экран.
 
 ## 3. Anatomy
-- Корень: `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` (`border/width/default`), `radius/container`, отступ `card/padding`, зазор `space/8`, min-width `size/card/min`.
+- Корень: Tone=Neutral — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` (`border/width/default`); Danger / Warning / Success — `status/*/subtle` без обводки, значение `text/*`; `radius/container`, отступ `card/padding`, зазор `space/8`, min-width `size/card/min`.
 - `label row` (зазор `space/4`): `label` (`type/body/sm`, `text/secondary`) + иконка Info.
 - `value row` (зазор `space/6`): `value` (`type/heading/xl`, `font-weight/bold`, `font/family/display`, `text/primary`; по содержимому, max-width 180) + `unit` (`type/body/md`, `text/secondary`; max-width 64) — единица сразу за числом.
 - `delta row` (зазор `space/6`, max-width 248): Badge S + `delta caption` (`type/body/sm`, `text/tertiary`; max-width 160).

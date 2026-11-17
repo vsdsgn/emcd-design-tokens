@@ -13,7 +13,7 @@
 - Когда нет: режим или период из 2–4 — Segmented; разделы — Tabs; неинтерактивная метка — Badge.
 - Правило выбора варианта:
   - Size: S 32 — фильтры над таблицами и списками; M 40 — выбор варианта в форме или виджете.
-  - Selected=On — инверсия (`action/inverse`).
+  - Selected=On — нейтральная плашка `control/segment`, текст `text/primary` (17.11; было инверсное `action/inverse`).
   - Meta — вторичное значение («8 %»); Remove — только у выбранных фильтров в строке активных фильтров; иконка или монета — слева, одна.
   - Фильтр списка по статусу («Онлайн 128 · Офлайн 4») — ряд Chip S с Meta-счётчиком над списком; не Tabs (решение 2026-11-16, `docs/patterns.md`).
   - Selected (17.11, по продукту App «Воркеры»): плашка `control/segment` + `text/primary`, как выбранный сегмент; инверсную белую не используем.
@@ -22,12 +22,12 @@
 ## 3. Anatomy
 - Корень: подложка + обводка `control/border/default` (Disabled — `control/border/disabled`), радиус `radius/control*`; Skeleton — плашка `skeleton/base`.
 - `icon` · `label` · `meta` · `trailing icon` / `remove`.
-- Служебные: `state layer` (на выбранном — `state/layer-inverse`), `focus ring`, зоны, `safe area · outer`.
+- Служебные: `state layer` (на выбранном — тоже `state/layer`), `focus ring`, зоны, `safe area · outer`.
 - Вложено: иконки ×60.
 - Служебные слои (вариантов из 20): кольцо фокуса 20 · зона Web 20 · зона касания 20 · безопасное поле 20.
 
 ## 4. States
-- Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`; на выбранном — `state/layer-inverse`; Skeleton — загрузка.
+- Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`; Skeleton — загрузка.
 - Default, Hover, Pressed, Disabled, Skeleton × Selected Off | On.
 - Disabled — обводка `control/border/disabled`, подпись и meta `text/disabled`; Skeleton — плашка `skeleton/base` вместо содержимого.
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`).
