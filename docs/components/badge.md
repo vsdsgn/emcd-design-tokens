@@ -15,6 +15,7 @@
   - Tone: Success — работает / выплачено; Warning — требует внимания; Danger — ошибка / неактивен; Accent — промо / новое, информационная метка (Info = цвет бренда, тона Info нет — 2026-11-16); Neutral — свойство без оценки.
   - Style: Subtle — по умолчанию (таблицы, списки); Solid — одна главная метка на карточке или экране.
   - Size: S 20 — таблицы и плотные списки; M 24 — карточки и шапки; L 32 — крупные заголовки, промо. Рядом с Button S — Badge L.
+  - Subtle · Neutral (17.11, по продукту и макету сайдбара): обводка `border/subtle`, текст `text/secondary`.
 - Не делаем: больше двух бейджей подряд; декоративная иконка; цвет как единственный носитель смысла.
 
 ## 3. Anatomy
@@ -65,8 +66,8 @@
 - Фокуса нет: бейдж не в порядке Tab.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/neutral/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; maxw `size/badge/max`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/8`; радиус `radius/control-sm`, `radius/sm`.
-- `label`: заливка / цвет `accent/on-subtle`, `status/danger/on-subtle`, `status/success/on-subtle`, `status/warning/on-subtle`, `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`, `type/label/sm`.
+- `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/neutral/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; maxw `size/badge/max`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/8`; радиус `radius/control-sm`, `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `label`: заливка / цвет `accent/on-subtle`, `status/danger/on-subtle`, `status/success/on-subtle`, `status/warning/on-subtle`, `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`, `type/label/sm`.
 - Min / max корня: maxWidth 160 size/badge/max.
 
 ## 11. Platforms

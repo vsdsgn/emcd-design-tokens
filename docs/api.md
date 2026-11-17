@@ -128,7 +128,7 @@
 |---|---|---|---|
 | `type` | primary \| inverted \| tertiary \| tertiary-outline \| text \| secondary | по правилу контракта | ось Type |
 | `tone` | default \| danger | по правилу контракта | ось Tone |
-| `size` | s \| m \| l \| xl | по правилу контракта | ось Size |
+| `size` | s \| m \| l \| xl \| xs | по правилу контракта | ось Size |
 | `label` | string | — | свойство Label |
 | `iconLeft` | boolean | false | свойство Icon left |
 | `iconRight` | boolean | false | свойство Icon right |
@@ -482,7 +482,7 @@ Props нет.
 |---|---|---|---|
 | `type` | primary \| secondary \| tertiary \| tertiary-outline \| ghost \| text \| inverted | по правилу контракта | ось Type |
 | `tone` | default \| danger | по правилу контракта | ось Tone |
-| `size` | s \| m \| l \| xl | по правилу контракта | ось Size |
+| `size` | s \| m \| l \| xl \| xs | по правилу контракта | ось Size |
 | `loading` | false \| true | по правилу контракта | ось Loading |
 | `label` | string | — | свойство Label |
 

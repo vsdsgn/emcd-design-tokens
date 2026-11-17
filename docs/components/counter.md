@@ -55,8 +55,8 @@
 - Число входит в доступное имя родителя («Воркеры, 3 неактивных»); сам счётчик — `aria-hidden`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `control/checked`, `status/danger/solid`, `status/neutral/subtle`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/sm`.
-- `value`: заливка / цвет `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
+- `корень`: заливка / цвет `control/checked`, `status/danger/solid`, `status/neutral/subtle`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `value`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - Min / max корня: minWidth 16 size/counter-height/sm, maxWidth 40 size/counter/max, minHeight 16 size/counter-height/sm, minWidth 20 size/counter-height/md, minHeight 20 size/counter-height/md.
 
 ## 11. Platforms

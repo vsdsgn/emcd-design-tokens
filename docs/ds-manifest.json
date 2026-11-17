@@ -14,7 +14,7 @@
    "service": 4,
    "template": 1
   },
-  "variants": 1614,
+  "variants": 1718,
   "incompleteMatrix": 17,
   "propsNotBoundEverywhere": 16,
   "rawMinMax": 0,
@@ -933,7 +933,9 @@
        "p:control/padding-x/sm",
        "p:space/8",
        "r:radius/control-sm",
-       "r:radius/sm"
+       "r:radius/sm",
+       "s:border/subtle",
+       "sw:border/width/default"
       ],
       "label": [
        "f:accent/on-subtle",
@@ -944,6 +946,7 @@
        "f:text/on-accent",
        "f:text/on-warning",
        "f:text/primary",
+       "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
        "fontSize:type/label/sm/size",
@@ -1247,7 +1250,8 @@
        "S",
        "M",
        "L",
-       "XL"
+       "XL",
+       "XS"
       ],
       "State": [
        "Default",
@@ -1256,79 +1260,79 @@
        "Disabled"
       ]
      },
-     "variants": 176,
-     "full": 192,
+     "variants": 220,
+     "full": 240,
      "props": [
       {
        "name": "Label",
        "type": "TEXT",
        "def": "Button",
-       "bound": 176
+       "bound": 220
       },
       {
        "name": "Icon left",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 176
+       "bound": 220
       },
       {
        "name": "Icon right",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 176
+       "bound": 220
       },
       {
        "name": "Icon left · swap",
        "type": "INSTANCE_SWAP",
        "def": "icon/plus",
-       "bound": 176
+       "bound": 220
       },
       {
        "name": "Icon right · swap",
        "type": "INSTANCE_SWAP",
        "def": "icon/arrow-right",
-       "bound": 176
+       "bound": 220
       },
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 176
+       "bound": 220
       },
       {
        "name": "Loading",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 176
+       "bound": 220
       },
       {
        "name": "Show hit area",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 176
+       "bound": 220
       },
       {
        "name": "Safe margin",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 176
+       "bound": 220
       }
      ],
      "nested": {
-      "Spinner": 176,
-      "(icons)": 352
+      "Spinner": 220,
+      "(icons)": 440
      },
      "minmax": [
       "minw=64 size/button/min"
      ],
      "layers": {
-      "ring": 176,
-      "hitWeb": 176,
-      "hitApp": 176,
-      "hit": 176,
-      "safe": 176
+      "ring": 220,
+      "hitWeb": 220,
+      "hitApp": 220,
+      "hit": 220,
+      "safe": 220
      },
-     "rawCount": 352,
+     "rawCount": 440,
      "raw": [
       "hit area · web:w=69",
       "hit area · web:h=40",
@@ -1339,7 +1343,9 @@
       "hit area · web:w=91",
       "hit area · web:h=56",
       "hit area · web:w=64",
-      "hit area · web:h=24"
+      "hit area · web:h=24",
+      "hit area · web:w=54",
+      "hit area · web:w=46"
      ],
      "tokens": {
       "(root)": [
@@ -1356,9 +1362,11 @@
        "h:control/height/md",
        "h:control/height/sm",
        "h:control/height/xl",
+       "h:control/height/xs",
        "minw:size/button/min",
        "p:space/12",
        "p:space/16",
+       "p:space/4",
        "p:space/6",
        "p:space/8",
        "r:radius/control",
@@ -1410,9 +1418,11 @@
        "fontFamily:font/family/text",
        "fontSize:type/label/lg/size",
        "fontSize:type/label/md/size",
+       "fontSize:type/label/sm/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/lg/line-height",
-       "lineHeight:type/label/md/line-height"
+       "lineHeight:type/label/md/line-height",
+       "lineHeight:type/label/sm/line-height"
       ],
       "pad R": [
        "w:space/2"
@@ -3686,11 +3696,13 @@
        "minw:size/counter-height/sm",
        "p:space/4",
        "p:space/6",
-       "r:radius/sm"
+       "r:radius/sm",
+       "s:border/subtle",
+       "sw:border/width/default"
       ],
       "value": [
        "f:text/on-accent",
-       "f:text/primary",
+       "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/label/sm/size",
        "fontWeight:font-weight/medium",
@@ -5104,7 +5116,8 @@
        "S",
        "M",
        "L",
-       "XL"
+       "XL",
+       "XS"
       ],
       "Loading": [
        "False",
@@ -5117,54 +5130,54 @@
        "Disabled"
       ]
      },
-     "variants": 240,
-     "full": 448,
+     "variants": 300,
+     "full": 560,
      "props": [
       {
        "name": "Label",
        "type": "TEXT",
        "def": "Скопировать",
-       "bound": 48
+       "bound": 60
       },
       {
        "name": "Icon",
        "type": "INSTANCE_SWAP",
        "def": "icon/plus",
-       "bound": 240
+       "bound": 300
       },
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 240
+       "bound": 300
       },
       {
        "name": "Show hit area",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 240
+       "bound": 300
       },
       {
        "name": "Safe margin",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 240
+       "bound": 300
       }
      ],
      "nested": {
-      "Spinner": 240,
-      "(icons)": 240,
-      "_Tooltip arrow": 48
+      "Spinner": 300,
+      "(icons)": 300,
+      "_Tooltip arrow": 60
      },
      "minmax": [],
      "layers": {
-      "ring": 240,
-      "hitWeb": 240,
-      "hitApp": 240,
-      "hit": 240,
-      "safe": 240
+      "ring": 300,
+      "hitWeb": 300,
+      "hitApp": 300,
+      "hit": 300,
+      "safe": 300
      },
-     "rawCount": 480,
+     "rawCount": 600,
      "raw": [
       "hit area · web:w=40",
       "hit area · web:h=40",
@@ -5173,7 +5186,9 @@
       "hit area · web:w=48",
       "hit area · web:h=48",
       "hit area · web:w=56",
-      "hit area · web:h=56"
+      "hit area · web:h=56",
+      "hit area · web:w=24",
+      "hit area · web:h=24"
      ],
      "tokens": {
       "(root)": [
@@ -5190,6 +5205,7 @@
        "h:control/height/md",
        "h:control/height/sm",
        "h:control/height/xl",
+       "h:control/height/xs",
        "r:radius/container",
        "r:radius/control",
        "r:radius/control-sm",
@@ -5199,7 +5215,8 @@
        "w:control/height/lg",
        "w:control/height/md",
        "w:control/height/sm",
-       "w:control/height/xl"
+       "w:control/height/xl",
+       "w:control/height/xs"
       ],
       "state layer": [
        "f:state/layer",
@@ -6920,9 +6937,9 @@
       "label": [
        "f:text/primary",
        "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
+       "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height"
+       "lineHeight:type/label/md/line-height"
       ],
       "badge": [
        "f:status/neutral/subtle",
@@ -6930,7 +6947,9 @@
        "h:size/badge-height/sm",
        "maxw:size/badge/max",
        "p:space/8",
-       "r:radius/sm"
+       "r:radius/sm",
+       "s:border/subtle",
+       "sw:border/width/default"
       ],
       "counter": [
        "f:status/danger/solid",
@@ -7099,10 +7118,11 @@
        "lineHeight:type/heading/lg/line-height"
       ],
       "Nav": [
-       "gap:space/4"
+       "gap:space/2"
       ],
       "Nav item": [
        "f:action/secondary/default",
+       "gap:space/12",
        "gap:space/8",
        "h:size/row/compact",
        "p:space/6",
@@ -7120,7 +7140,7 @@
        "f:surface/next",
        "gap:space/8",
        "p:space/16",
-       "r:radius/surface",
+       "r:radius/container",
        "s:border/subtle",
        "sw:border/width/default"
       ],

@@ -19,6 +19,7 @@
   - 5–8 пунктов верхнего уровня.
   - Badge (16.11): метка справа от подписи — акция, условие, «Новое» («0% Комиссия», «14% APY»); Badge S, тон и текст — у вложенного экземпляра; только Collapsed=Off. Число — Counter, не Badge; Badge и Counter вместе не включаем.
   - Зазор иконка → подпись `space/12` (17.11, по продукту Web App: подпись с x 66).
+  - Подпись `type/label/md` (14) — 17.11, по макету сайдбара (файл «Base / Sidebar, tabbar»); шаг пунктов 38 (36 + `space/2`).
 - Не делаем: пункт без иконки; два выбранных пункта; Counter как счётчик количества; развёрнутые и свёрнутые пункты в одном сайдбаре.
 
 ## 3. Anatomy
@@ -81,8 +82,8 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `action/secondary/default`; интервал `space/12`, `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
-- `label`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
-- `badge`: заливка / цвет `status/neutral/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/sm`.
+- `label`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `badge`: заливка / цвет `status/neutral/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `counter`: заливка / цвет `status/danger/solid`; maxw `size/counter/max`; minh `size/counter-height/sm`; мин. ширина `size/counter-height/sm`; отступы `space/2xs`; радиус `radius/sm`.
 - `indicator`: заливка / цвет `border/accent`; высота `icon/size/md`; радиус `radius/full`; ширина `size/tab-indicator/sm`.
 - `accent glow`: эффект `light/accent/blur`; заливка / цвет `light/accent/color`; видимость `decor/light`.

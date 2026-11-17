@@ -18,6 +18,7 @@
   - Promo: On — промо-карточка (Promo card) в развёрнутом сайдбаре; при Collapsed=On промо нет.
   - Header — логотип продукта / бренда (WL подставляет свой), опционально виджет баланса; Footer — настройки, профиль / аккаунт.
   - Порядок (16.11, по продукту Web App): Header → Nav → Promo card → Footer; промо стоит над профилем, Nav занимает оставшуюся высоту.
+  - Зазор пунктов Nav — `space/2` (17.11, по макету сайдбара).
 - Не делаем: сайдбар на Compact; развёрнутые и свёрнутые пункты в одном сайдбаре; два выбранных пункта; сайдбар на подложке L1–L3 (он сам — L1 на `bg/base`).
 
 ## 3. Anatomy
@@ -84,11 +85,11 @@
 - `корень`: эффект `material/regular/blur`; заливка / цвет `material/regular/fill`; интервал `space/8`; отступы `space/12`; радиус `radius/container`; обводка `edge/hairline`; ширина `size/sidebar/collapsed`, `size/sidebar/expanded`.
 - `Header`: отступы `space/12`.
 - `logo (placeholder)`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
-- `Nav`: интервал `space/4`.
-- `Nav item`: заливка / цвет `action/secondary/default`; интервал `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
+- `Nav`: интервал `space/2`.
+- `Nav item`: заливка / цвет `action/secondary/default`; интервал `space/12`, `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
 - `divider`: отступы `space/6`, `space/8`.
 - `Rectangle`: заливка / цвет `border/subtle`.
-- `promo`: заливка / цвет `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `promo`: заливка / цвет `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `Footer`: интервал `space/4`.
 - Значений без переменной: 2 (напр. `(root):h=800`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
