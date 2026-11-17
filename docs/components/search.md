@@ -53,7 +53,7 @@
 ## 10. Tokens
 - `корень`: заливка / цвет `surface/level-2`; интервал `space/8`; высота `control/height/md`, `control/height/sm`; отступы `space/12`, `space/4`; радиус `radius/control`; обводка `border/focus`, `border/subtle`; толщина обводки `border/width/default`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
-- `text`: заливка / цвет `text/disabled`, `text/primary`, `text/tertiary`; типографика `font/family/text`, `type/body/md`, `type/body/sm`.
+- `text`: заливка / цвет `text/disabled`, `text/primary`, `text/tertiary`; типографика `font-weight/medium`, `font/family/text`, `type/body/md`, `type/body/sm`.
 - `clear`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - Значений без переменной: 10 (напр. `(root):w=320`).
 

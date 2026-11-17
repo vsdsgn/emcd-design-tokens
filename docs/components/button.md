@@ -17,6 +17,7 @@
   - Size: S 32 — таблицы, тулбары, фильтры; M 40 — по умолчанию в Web; L 48 — по умолчанию в App и мобильном вебе; XL 56 — главный CTA внизу на мобильном, онбординг, промо.
   - Кнопки в группе — одного размера; рядом с полем — размер поля (Input M ↔ Button M). Primary — на L0–L2.
   - Форма (17.11, по продукту): квадрат `radius/sm`, не круг.
+  - Type=Text — без внутренних отступов (17.11): текст стоит по краю, как ссылка в продукте («Подробнее», «Создать группу»); зона нажатия — служебный слой.
 - Не делаем: две Primary рядом; Tone=Danger для обычных действий; иконку без подписи; подпись в две строки.
 
 ## 3. Anatomy
@@ -79,7 +80,7 @@
 - Контраст: белый текст на заливке ≥ 4.5:1; цветной текст (Text, Secondary) ≥ 4.5:1 на L0; Primary на L3 в тёмной теме < 3:1 — не ставить.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/accent/default`, `action/danger-subtle/default`, `action/danger/default`, `action/disabled`, `action/inverse/default`, `action/primary/default`, `action/secondary/default`, `action/tertiary/default`; интервал `space/2`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`; мин. ширина `size/button/min`; отступы `space/12`, `space/16`, `space/4`, `space/6`, `space/8`; радиус `radius/control`, `radius/control-sm`, `radius/xs`; обводка `control/border/default`, `control/border/error`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `action/accent/default`, `action/danger-subtle/default`, `action/danger/default`, `action/disabled`, `action/inverse/default`, `action/primary/default`, `action/secondary/default`, `action/tertiary/default`; интервал `space/2`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`; мин. ширина `size/button/min`; отступы `space/12`, `space/16`, `space/6`, `space/8`; радиус `radius/control`, `radius/control-sm`, `radius/xs`; обводка `control/border/default`, `control/border/error`; толщина обводки `border/width/default`.
 - `spinner`: высота `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`.
 - `icon left`: высота `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`.
 - `pad L`: ширина `space/2`.

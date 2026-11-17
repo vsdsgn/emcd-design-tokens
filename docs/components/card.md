@@ -17,6 +17,7 @@
   - Radius: Surface — крупные блоки страницы; Container — карточки в сетке; Inner — вложенные плашки. Числа 24 / 16 / 8 — для EMCD, у брендов свои (`radius/*`).
   - Padding: S 12 · M 16 · L 24 — один на группу карточек.
   - Border: On — где подложка сливается с фоном: L0 в светлой теме, соседние уровни, Level 0, Dark; Off — в остальных случаях.
+  - Padding=L (17.11, по продукту Web App): по бокам `space/32`, сверху и снизу `space/24`.
 - Не делаем: тень; Level ради украшения, а не по вложенности; разные Padding в одной группе карточек; Level 0 на L0 без обводки.
 
 ## 3. Anatomy
@@ -62,7 +63,7 @@
 - Кликабельная карточка — одна ссылка или кнопка на всю площадь, вложенные действия — отдельные цели.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-0`, `surface/level-1`, `surface/level-2`, `surface/level-3`; отступы `space/12`, `space/16`, `space/24`; радиус `radius/container`, `radius/inner`, `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `surface/level-0`, `surface/level-1`, `surface/level-2`, `surface/level-3`; отступы `space/12`, `space/16`, `space/24`, `space/32`; радиус `radius/container`, `radius/inner`, `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - Значений без переменной: 72 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms

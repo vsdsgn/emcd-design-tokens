@@ -1339,8 +1339,7 @@
       "hit area · web:w=91",
       "hit area · web:h=56",
       "hit area · web:w=64",
-      "hit area · web:h=24",
-      "hit area · web:w=67"
+      "hit area · web:h=24"
      ],
      "tokens": {
       "(root)": [
@@ -1360,7 +1359,6 @@
        "minw:size/button/min",
        "p:space/12",
        "p:space/16",
-       "p:space/4",
        "p:space/6",
        "p:space/8",
        "r:radius/control",
@@ -1729,6 +1727,7 @@
        "p:space/12",
        "p:space/16",
        "p:space/24",
+       "p:space/32",
        "r:radius/container",
        "r:radius/inner",
        "r:radius/surface",
@@ -5899,9 +5898,8 @@
      },
      "rawCount": 8,
      "raw": [
-      "hit area · web:w=68",
+      "hit area · web:w=77",
       "hit area · web:h=24",
-      "hit area · web:w=69",
       "hit area · web:w=64"
      ],
      "tokens": {
@@ -5917,19 +5915,15 @@
        "f:text/primary",
        "f:text/secondary",
        "fontFamily:font/family/text",
-       "fontSize:type/body/sm/size",
-       "fontSize:type/label/sm/size",
+       "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
-       "fontWeight:font-weight/regular",
-       "lineHeight:type/body/sm/line-height",
-       "lineHeight:type/label/sm/line-height"
+       "lineHeight:type/label/md/line-height"
       ],
       "value": [
        "f:text/primary",
-       "fontFamily:font/family/mono",
-       "fontSize:type/body/sm/size",
-       "fontWeight:font-weight/regular",
-       "lineHeight:type/body/sm/line-height"
+       "fontSize:type/label/md/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/md/line-height"
       ],
       "focus ring": [
        "r:radius/2xs",
@@ -6916,6 +6910,7 @@
      "tokens": {
       "(root)": [
        "f:action/secondary/default",
+       "gap:space/12",
        "gap:space/8",
        "h:size/row/compact",
        "p:space/6",
@@ -6943,7 +6938,7 @@
        "minh:size/counter-height/sm",
        "minw:size/counter-height/sm",
        "p:space/2xs",
-       "r:radius/full"
+       "r:radius/sm"
       ],
       "focus ring": [
        "r:radius/focus-ring",
@@ -8898,6 +8893,7 @@
        "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
+       "fontWeight:font-weight/medium",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height"
       ],
@@ -10445,22 +10441,6 @@
    "pageMark": "🟡",
    "boards": [
     {
-     "name": "Status — борда · шаблон v3",
-     "id": "2189:250",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL"
-     ]
-    },
-    {
      "name": "Dot — борда · шаблон v3",
      "id": "2164:802",
      "v3": true,
@@ -10471,6 +10451,24 @@
       "04 · Состояния",
       "06 · На поверхностях",
       "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    },
+    {
+     "name": "Status — борда · шаблон v3",
+     "id": "2189:250",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
@@ -10550,9 +10548,7 @@
        "gap:space/8"
       ],
       "dot": [
-       "h:size/dot/md",
        "h:size/dot/sm",
-       "w:size/dot/md",
        "w:size/dot/sm"
       ],
       "label": [
@@ -10560,7 +10556,7 @@
        "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
-       "fontWeight:font-weight/regular",
+       "fontWeight:font-weight/medium",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height"
       ]
@@ -11795,9 +11791,9 @@
        "f:text/accent",
        "f:text/secondary",
        "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
+       "fontSize:type/overline/size",
        "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
+       "lineHeight:type/overline/line-height"
       ],
       "badge dot": [
        "f:status/danger/solid"
@@ -12219,7 +12215,7 @@
      },
      "rawCount": 24,
      "raw": [
-      "hit area · web:w=856",
+      "hit area · web:w=840",
       "hit area · web:h=48",
       "hit area · web:h=64"
      ],
@@ -12228,7 +12224,6 @@
        "f:accent/subtle",
        "h:size/row/lg",
        "h:size/table/row-sm",
-       "p:space/8",
        "s:border/subtle"
       ],
       "cell · Дата": [
@@ -13419,7 +13414,7 @@
      "id": "172:832",
      "type": "SET",
      "status": "beta",
-     "descLen": 991,
+     "descLen": 1124,
      "descHeads": [
       "Status:",
       "Level:",

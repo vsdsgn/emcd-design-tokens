@@ -58,15 +58,15 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/6`, `space/8`.
-- `dot`: высота `size/dot/md`, `size/dot/sm`; ширина `size/dot/md`, `size/dot/sm`.
-- `label`: заливка / цвет `text/primary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`, `type/body/sm`.
+- `dot`: высота `size/dot/sm`; ширина `size/dot/sm`.
+- `label`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/body/md`, `type/body/sm`.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
 - Набор `Status`, вариантов 10 из 10; оси: Size, Tone.
-- Борда: «Status — борда · шаблон v3», разделов 9.
+- Борда: «Dot — борда · шаблон v3», разделов 12.
 - Описание: 818 знаков, разделы: Status: Level: Статус: Когда использовать: Правила тона: S — A11y: Поиск: Legacy:
 
 ## 13. Code projection

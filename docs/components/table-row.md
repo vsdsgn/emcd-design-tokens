@@ -19,6 +19,7 @@
   - Колонки: одна колонка — одно выравнивание и один тип содержимого; текст и даты — у начала, числа и суммы — у конца; действия (Icon button Tertiary S, «⋯» → Menu) — последней колонкой.
   - Ячейки — только экземпляры Table cell; содержимое — в слоте Content (текст или атом DS, правила — `table-cell.md`); ширины колонок задаются в макете.
   - Действия строки — Icon button Tertiary S в последней колонке (16.11, по продукту: кнопки на подложке; было Ghost).
+  - Без собственных боковых отступов (17.11): колонки начинаются от края таблицы, отступ — только у Table cell.
 - Не делаем: две плотности в одной таблице; Hover у строки, которая ничего не открывает; произвольная вёрстка вместо Table cell и атома DS в слоте; действия не в последней колонке.
 
 ## 3. Anatomy
@@ -79,7 +80,7 @@
 - Зона нажатия — вся строка: 48 / 64 (слои `hit area · web` / `hit area · app`, проверка — Show hit area); безопасное поле — `control/safe-margin`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`; высота `size/row/lg`, `size/table/row-sm`; отступы `space/8`; обводка `border/subtle`.
+- `корень`: заливка / цвет `accent/subtle`; высота `size/row/lg`, `size/table/row-sm`; обводка `border/subtle`.
 - `cell · Дата`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
 - `cell · Монета`: интервал `space/sm`, `space/xs`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
 - `cell · Сумма`: интервал `space/2xs`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
@@ -87,7 +88,7 @@
 - `cell · Статус`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
 - `cell · ⋯`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/xs`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`.
-- Значений без переменной: 24 (напр. `hit area · web:w=856`, `hit area · web:h=48`, `hit area · web:h=64`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 24 (напр. `hit area · web:w=840`, `hit area · web:h=48`, `hit area · web:h=64`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Только Web: строка данных в Table; на Compact — List item.

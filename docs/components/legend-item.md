@@ -17,6 +17,7 @@
   - Вложенный Legend swatch: Marker Dot — столбцы и области, Line — линии; Series 1–8 = `data/1`…`data/8`, порядок как на графике.
   - Show value — текущее значение серии рядом с подписью; по умолчанию выключено.
   - Легенда — над графиком слева, зазор между элементами 16, перенос на новую строку разрешён.
+  - Подпись `type/label/md` (14) Medium — 17.11, по продукту (легенда графика дашборда).
 - Не делаем: элемент без подписи; порядок серий не как на графике; Focus ring у Skeleton.
 
 ## 3. Anatomy
@@ -82,12 +83,12 @@
 ## 10. Tokens
 - `корень`: интервал `space/6`; maxw `size/legend-item/max`.
 - `swatch`: высота `size/legend-swatch`; ширина `size/legend-swatch`.
-- `label`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/sm`, `type/label/sm`.
-- `value`: заливка / цвет `text/primary`; типографика `font-weight/regular`, `font/family/mono`, `type/body/sm`.
+- `label`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `value`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `type/label/md`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/2xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
 - Min / max корня: maxWidth 160 size/legend-item/max.
-- Значений без переменной: 8 (напр. `hit area · web:w=68`, `hit area · web:h=24`, `hit area · web:w=69`, `hit area · web:w=64`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 8 (напр. `hit area · web:w=77`, `hit area · web:h=24`, `hit area · web:w=64`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
