@@ -10,7 +10,7 @@
 - Когда нет: несколько строк — Textarea; выбор из списка — Select; сумма с валютой — Input amount; пароль — Password field.
 
 ## 3–6. Anatomy, States, Properties, Content
-- Надстройка над `_Field base` с Lines=Single. Оси: Size (M, L, XL) × Label position (On border, Above) × State (9) = 54, матрица полная.
+- Надстройка над `_Field base` с Lines=Single. Оси: Size (M, L; XL снят 2026-11-17) × Label position (On border, Above) × State (9) = 36, матрица полная.
 - Свойства (Label, Value, Helper, Counter, слоты, Focus ring, Show hit area, Safe margin) — у вложенного слоя `Field`.
 - Оси Size, Label position, State менять на корне Input, не на слое `Field` (аудит: BASE).
 - Значение — одна строка, обрезка «…».

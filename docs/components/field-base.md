@@ -31,7 +31,7 @@
 ## 5. Properties
 | Свойство | Тип | Значения / по умолчанию |
 |---|---|---|
-| Size | variant | M · L · XL (40 / 48 / 56, `control/height/*`) |
+| Size | variant | M · L (40 / 48, `control/height/*`; XL снят 2026-11-17) |
 | Label position | variant | On border · Above |
 | Lines | variant | Single · Multi |
 | State | variant | 9 состояний, см. раздел 4 |
@@ -66,12 +66,12 @@
 - RTL: слоты и выравнивание зеркалятся в коде (logical properties); в Figma не рисуется.
 
 ## 9. Accessibility
-- Кольцо фокуса: рамка +2 px, OUTSIDE, `border/width/focus-ring`, `radius/focus-ring-sm` (M) / `radius/focus-ring` (L, XL), цвет `border/focus-ring`.
+- Кольцо фокуса: рамка +2 px, OUTSIDE, `border/width/focus-ring`, `radius/focus-ring-sm` (M) / `radius/focus-ring` (L), цвет `border/focus-ring`.
 - Hit area: `hit area · web` (`touch/is-fine`), `hit area · app` (`touch/is-coarse`). Safe margin — `control/safe-margin`.
 - Контраст — `docs/a11y-contrast-standard.md`; плейсхолдер и Disabled — уровень Lc 30.
 
 ## 10. Tokens
-- Рамка: фон `control/surface/default | disabled`, `skeleton/base`; обводка `control/border/default | focus | error | disabled`, `border/subtle`; толщина `border/width/default`; радиус `radius/control-sm` (M), `radius/control` (L, XL).
+- Рамка: фон `control/surface/default | disabled`, `skeleton/base`; обводка `control/border/default | focus | error | disabled`, `border/subtle`; толщина `border/width/default`; радиус `radius/control-sm` (M), `radius/control` (L).
 - Высота `control/height/md | lg | xl`; отступы `control/padding-x/md | lg`, `space/10 | 12 | 16`; зазор `space/12`.
 - Текст: значение `text/tertiary` (плейсхолдер) → `text/primary`; подпись `text/secondary`; helper и counter `text/tertiary`; ошибка `text/danger`; Disabled `text/disabled`. Стили Label/MD, Label/LG, Label/SM.
 - Каретка `border/focus`. Иконки `icon/size/md`, спиннер `icon/size/sm`.

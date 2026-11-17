@@ -29,7 +29,7 @@
 - `header` (зазор `space/8`): `title` — Header=Title `font/family/display`, `type/display/md`, bold, `text/primary`; Header=Coin — монета 32 + `title group` (зазор `space/12`) с `type/heading/lg` и `header description` (`type/body/md`, `text/secondary`); `close` — Icon button `control/height/md`.
 - `divider` — рамка с линией `border/subtle` и отступом снизу `space/16` (Divider, 2026-11-15).
 - Слот Body (зазор `space/12`): образец — `type/body/lg`, `text/secondary`.
-- Слот Footer slot (зазор `space/8` / `space/16`): Button XL (`control/height/xl` 56) на всю ширину; подпись под кнопками — текстом в слоте.
+- Слот Footer slot (зазор `space/8` / `space/16`): Button L (`control/height/lg` 48) на всю ширину (до 2026-11-17 — XL 56); подпись под кнопками — текстом в слоте.
 - Вложено: `_Overlay surface` ×12, `Icon button` ×12, `Button` ×15, `smbl-bitcoin-btc` ×4.
 - Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -37,7 +37,7 @@
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; интерактивны вложенные Button и Icon button.
 - Оси State нет: Hover / Pressed / Focus / Disabled — у вложенных Button и Icon button.
 - Header=Title — крупный заголовок; Coin — монета, заголовок `type/heading/lg` и описание; Empty — только крестик справа.
-- Footer=Single / Stacked / Horizontal — 1–2 кнопки XL; None — без Footer slot.
+- Footer=Single / Stacked / Horizontal — 1–2 кнопки L; None — без Footer slot.
 
 ## 5. Properties
 Оси (варианты):
@@ -67,7 +67,7 @@
 - Заголовок переносится на несколько строк, правила числа строк нет; длинное слово (de) рвётся посреди.
 - RTL: порядок слотов зеркалится (leading ↔ trailing), смысловые стрелки и шевроны отражаются, цифры и латиница — нет. На стенде направление не переключается: ar проверен только на обрезку.
 - Языки без обрезки по высоте на стенде: de, ar, hi, th, ja, kk. Ширина 560 больше текстовой ячейки 360 — крестик и конец строки при длинном тексте не проверены; Header=Coin с длинным заголовком не проверен.
-- Текст 200 %: заголовок, описание и Body растут без обрезки; кнопки XL 56 вмещают подпись.
+- Текст 200 %: заголовок, описание и Body растут без обрезки; кнопки L 48 вмещают подпись.
 
 ## 7. Events
 - `click` по главной кнопке — действие; по отмене / крестику — закрыть без действия.
@@ -95,7 +95,7 @@
 - `Body`: интервал `space/12`; отступы `space/32`, `space/8`.
 - `Контент модалки — в слот Body: текст, поля, список.`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/lg`.
 - `Footer slot`: интервал `space/16`, `space/8`; отступы `space/24`, `space/32`.
-- `Button`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/2`; высота `control/height/xl`; мин. ширина `size/button/min`; отступы `space/16`; радиус `radius/container`.
+- `Button`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/2`; высота `control/height/lg`; мин. ширина `size/button/min`; отступы `space/12`; радиус `radius/control`.
 - `title group`: интервал `space/12`.
 - `header description`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 

@@ -12,12 +12,12 @@
 - Когда использовать: 2–7 разделов одного уровня, контент меняется под табами.
 - Когда нет: выбор значения или режима в форме — Segmented; фильтр списка — Chip; переход на другой экран — навигация.
 - Правило выбора варианта:
-  - Size: S 32 — мини-табы внутри виджета или карточки; M 48 — App и мобильный веб; L 56 — Web, разделы внутри страницы; XL 64 (текст 20, `type/heading/md`, Medium — 16.11 по продукту Web App; было `type/heading/lg` Bold, на десктопе 24) — табы-заголовок страницы. В одном баре один размер.
+  - Size: S 32 — мини-табы внутри виджета или карточки; M 48 — App и мобильный веб; L 56 — Web, разделы внутри страницы; Page 64 (до 2026-11-17 — XL; текст 20, `type/heading/md`, Medium — 16.11 по продукту Web App) — табы-заголовок страницы, не размер контрола. В одном баре один размер.
   - Counter — `Counter` Neutral; Accent / Danger — только если требует действия.
   - Icon — редко, только если у всех табов.
 
 ## 3. Anatomy
-- Корень: `icon` · `label` · `Counter`; `indicator` — подчёркивание выбранного (3 px у L / XL, 2 px у S / M).
+- Корень: `icon` · `label` · `Counter`; `indicator` — подчёркивание выбранного (3 px у L / Page, 2 px у S / M).
 - Служебные: `state layer`, `focus ring`, зоны, `safe area · outer`.
 - Вложено: иконки ×36, `Counter` ×36.
 - Служебные слои (вариантов из 36): кольцо фокуса 36 · зона Web 36 · зона касания 36 · безопасное поле 36.
@@ -33,7 +33,7 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | M · L · XL · S | M |
+| Size | M · L · Page · S | M |
 | Selected | Off · On | Off |
 | State | Default · Hover · Pressed · Disabled · Skeleton | Default |
 
@@ -72,7 +72,7 @@
 - `корень`: интервал `space/6`, `space/8`; высота `control/height/2xl`, `control/height/lg`, `control/height/sm`, `control/height/xl`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/md`, `type/label/lg`, `type/label/md`, `type/label/sm`.
-- `counter`: заливка / цвет `status/neutral/subtle`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/2xs`, `space/6`; радиус `radius/full`.
+- `counter`: заливка / цвет `status/neutral/subtle`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/2xs`, `space/6`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `indicator`: заливка / цвет `border/accent`, `border/default`, `border/strong`, `control/border/disabled`; высота `size/tab-indicator/lg`, `size/tab-indicator/sm`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`, `radius/control-xs`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-inner`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
@@ -92,7 +92,7 @@
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsTab>`; Flutter: `DsTab`.
-- Props: `size`: m | l | xl | s; `selected`: boolean; `label`: string или слот; `counter`: boolean = false; `icon`: boolean = false.
+- Props: `size`: m | l | page | s; `selected`: boolean; `label`: string или слот; `counter`: boolean = false; `icon`: boolean = false.
 - Состояния (Default, Hover, Pressed, Disabled, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-17)
@@ -104,4 +104,4 @@
 
 ## 15. Migration
 - DS Web `base tab item`, `tab item`: size desktop | mobile → Size L | M (60 → 56, 44 → 48); selected → Selected; state skeleton | default | hover | pressed | disabled → State; focus → Focus ring; counter badge → Counter.
-- `widget Navigation header / .tab` → Size XL / M; `.tabs` в bar widget (30) → Size S (32).
+- `widget Navigation header / .tab` → Size Page / M; `.tabs` в bar widget (30) → Size S (32).

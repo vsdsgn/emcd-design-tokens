@@ -16,7 +16,7 @@
   - Collapsed: Off (240) — Large+ по умолчанию; On (72) — Medium или по кнопке «свернуть», подписи пунктов — в Tooltip.
   - Все Nav item в сайдбаре — в одном значении Collapsed с корнем; Selected — ровно один пункт.
   - Promo: On — промо-карточка (Promo card) в развёрнутом сайдбаре; при Collapsed=On промо нет.
-  - Header — логотип продукта / бренда (WL подставляет свой), опционально виджет баланса; Footer — настройки, профиль / аккаунт.
+  - Header — `brand` (логотип продукта / бренда, WL подставляет свой; справа язык — Button Secondary XS) и `cta` — Button Primary S на всю ширину («Подключить оборудование»); Footer — настройки и `account` (переключатель профиля). По актуальному сайдбару майнинга из DS Web (17.11); баланс и кнопки CHW — не наши.
   - Порядок (16.11, по продукту Web App): Header → Nav → Promo card → Footer; промо стоит над профилем, Nav занимает оставшуюся высоту.
   - Зазор пунктов Nav — `space/2` (17.11, по макету сайдбара).
 - Не делаем: сайдбар на Compact; развёрнутые и свёрнутые пункты в одном сайдбаре; два выбранных пункта; сайдбар на подложке L1–L3 (он сам — L1 на `bg/base`).
@@ -24,11 +24,11 @@
 ## 3. Anatomy
 - Корень — вертикальный стек, отступ `space/12`, зазор `space/8`, `radius/container`; ширина `size/sidebar/expanded` / `collapsed` (240 / 72), высота 800 — числом (образец).
 - Поверхность: Expressive — `material/regular/fill` + `material/regular/blur`, кромка `edge/hairline`; Base — непрозрачная поверхность без блюра.
-- Header (отступ `space/12`): `logo (placeholder)` — `font/family/display`, `type/heading/lg`, `font-weight/bold`, `text/primary`.
-- `promo` — Promo card: `surface/next`, `radius/surface`, отступ `space/16`, обводка `border/subtle` × `border/width/default`.
+- Header (вертикальный, зазор `space/12`, отступ снизу `space/12`): `brand` — ряд высотой 48 (`logo (placeholder)` — `font/family/display`, `type/heading/lg`, `font-weight/bold`, `text/primary`; `language` — Button Secondary XS), `cta` — Button Primary S.
+- `promo` — Promo card Size=S с картинкой (Show media = On): `surface/level-1`, `radius/container`, отступ `space/16`, обводка `border/subtle`.
 - Nav (зазор `space/4`): Nav item (`size/row/compact`, `radius/control`); `divider` — линия `border/subtle` между группами.
-- Footer (зазор `space/4`): Nav item настроек и профиля, прижаты к низу.
-- Вложено: `Nav item` ×16, `Promo card` ×1.
+- Footer (зазор `space/4`): Nav item настроек и `account` — ряд (заливка `surface/level-2`, `radius/control`, отступ и зазор `space/8`): Avatar M, имя (`type/label/md`, `text/primary`, усечение), ссылка «Профиль» (`type/label/sm`, `text/accent`), шеврон вниз; при Collapsed=On — только Avatar.
+- Вложено: `Button` ×2, `Nav item` ×14, `Promo card` ×1, `Avatar` ×2, иконки ×1.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -83,14 +83,22 @@
 
 ## 10. Tokens
 - `корень`: эффект `material/regular/blur`; заливка / цвет `material/regular/fill`; интервал `space/8`; отступы `space/12`; радиус `radius/container`; обводка `edge/hairline`; ширина `size/sidebar/collapsed`, `size/sidebar/expanded`.
-- `Header`: отступы `space/12`.
+- `Header`: интервал `space/12`; отступы `space/12`.
+- `brand`: отступы `space/12`, `space/4`.
 - `logo (placeholder)`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
+- `language`: заливка / цвет `action/accent/default`; интервал `space/2`; высота `control/height/xs`; отступы `space/4`; радиус `radius/control-sm`.
+- `cta`: заливка / цвет `action/primary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`.
 - `Nav`: интервал `space/2`.
 - `Nav item`: заливка / цвет `action/secondary/default`; интервал `space/12`, `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
 - `divider`: отступы `space/6`, `space/8`.
 - `Rectangle`: заливка / цвет `border/subtle`.
-- `promo`: заливка / цвет `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `promo`: заливка / цвет `surface/level-1`; интервал `space/8`; отступы `space/16`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `Footer`: интервал `space/4`.
+- `account`: заливка / цвет `surface/level-2`; интервал `space/8`; отступы `space/8`; радиус `radius/control`.
+- `avatar`: высота `size/media/lg`; ширина `size/media/lg`.
+- `name`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `link`: заливка / цвет `text/accent`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
+- `chevron`: высота `icon/size/md`; ширина `icon/size/md`.
 - Значений без переменной: 2 (напр. `(root):h=800`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms

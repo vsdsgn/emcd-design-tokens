@@ -12,14 +12,14 @@
 - Когда использовать: режим или фильтр-значение внутри карточки, виджета, формы.
 - Когда нет: разделы экрана — Tabs; больше 4 вариантов или длинные подписи — Select; множественный выбор — Chip.
 - Правило выбора варианта:
-  - Size = размер соседнего поля или кнопки: S 32 · M 40 · L 48 · XL 56.
+  - Size = размер соседнего поля или кнопки: S 32 · M 40 · L 48 (XL снят 2026-11-17: на Web — M, в App — L).
   - Items: 2, 3 или 4 — по числу значений; больше 4 — Select. При Items=4 — короткие подписи («24 ч», «7 д», «30 д», «Год»).
   - Сегменты равной ширины.
   - Тон выбранного — по правилам Segment: Neutral или Accent (тинт).
   - Только иконки — Show label = off у вложенных Segment, обязательно `aria-label`.
   - Ставится на L1 и L2: подложка полупрозрачная.
   - Период графика (24 ч · 7 д · 30 д) — Segmented S в шапке Chart card; не отдельные Button и не тулбар страницы (решение 2026-11-16).
-  - Ширина — Items × сегмент (S 64 · M 80 · L 96 · XL 104) + дорожка; сегменты равной ширины (16.11, по продукту Web App: «Список / Группы» XL — 220). Длинная подпись («Начисления») — растянуть экземпляр, сегменты делят ширину поровну; на всю ширину контейнера — Fill (мобильные формы).
+  - Ширина — Items × сегмент (S 64 · M 80 · L 96) + дорожка; сегменты равной ширины (16.11, по продукту Web App: «Список / Группы» в продукте 220, в DS — M). Длинная подпись («Начисления») — растянуть экземпляр, сегменты делят ширину поровну; на всю ширину контейнера — Fill (мобильные формы).
 - Не делаем: больше 4 сегментов; длинные подписи; сегменты разной ширины; навигация между разделами экрана.
 
 ## 3. Anatomy
@@ -27,8 +27,8 @@
 - `segment 1` … `segment 4` — экземпляры Segment; выбранный — на подложке `control/segment`; подпись — Fill, по центру, одна строка.
 - Подпись, иконка и Show label открыты у вложенных Segment; своих свойств у набора нет.
 - Служебные слои (кольцо фокуса, зоны, безопасное поле) — у Segment.
-- Вложено: `Segment` ×36.
-- Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Segment` ×27.
+- Служебные слои (вариантов из 9): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): наследует от Segment: Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`.
@@ -41,10 +41,10 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | S · M · L · XL | S |
+| Size | S · M · L | S |
 | Items | 2 · 3 · 4 | 2 |
 
-Матрица полная: 12 вариантов.
+Матрица полная: 9 вариантов.
 
 - Свойств у набора нет: подпись, иконка, Show label, Selected и Tone — у вложенных Segment.
 
@@ -70,18 +70,18 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `control/segment-track`; интервал `space/2`; отступы `space/4`; радиус `radius/control`, `radius/control-sm`.
-- `segment 1`: заливка / цвет `control/segment`; интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
-- `segment 2`: интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
-- `segment 3`: интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
-- `segment 4`: интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `control/padding-x/xl`, `space/12`; радиус `radius/sm`, `radius/xs`.
-- Значений без переменной: 12 (напр. `(root):w=138`, `(root):w=204`, `(root):w=170`, `(root):w=252`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- `segment 1`: заливка / цвет `control/segment`; интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
+- `segment 2`: интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
+- `segment 3`: интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
+- `segment 4`: интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
+- Значений без переменной: 9 (напр. `(root):w=138`, `(root):w=204`, `(root):w=170`, `(root):w=252`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Segmented`, вариантов 12 из 12; оси: Size, Items.
+- Набор `Segmented`, вариантов 9 из 9; оси: Size, Items.
 - Борда: «Segmented — борда · шаблон v3», разделов 11.
 - Описание: 1222 знаков, разделы: Status: Level: Segmented: Когда использовать: Правила: Длинный текст: Уровни: A11y: Поиск: Legacy:
 
@@ -89,7 +89,7 @@
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsSegmented>`; Flutter: `DsSegmented`.
-- Props: `size`: s | m | l | xl; `items`: 2 | 3 | 4.
+- Props: `size`: s | m | l; `items`: 2 | 3 | 4.
 
 ## 14. Acceptance (2026-11-17)
 - `audit.plugin.js` — 0 замечаний.

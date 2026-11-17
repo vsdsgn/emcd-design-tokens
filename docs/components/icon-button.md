@@ -14,15 +14,15 @@
 - Правило выбора варианта:
   - Type: Ghost — самый частый (без подложки, подложка появляется слоем состояния); Primary — главное действие иконкой («+»), одна на группу; Secondary — второе по важности; Tertiary / Tertiary outline — нейтральное с подложкой / обводкой (L2–L3 — outline); Text — иконка цвета бренда; Inverted — на тёмных и цветных подложках.
   - Tone=Danger — Primary, Secondary, Tertiary, Tertiary outline, Text; у Ghost и Inverted нет (отсюда 240 из 280).
-  - Size: квадрат S 32 · M 40 · L 48 · XL 56; иконка S 16 · M 20 (касание 24) · L / XL 24 (касание 28). Рядом с Button — того же размера.
+  - Size: квадрат XS 24 · S 32 · M 40 · L 48 (XL снят 2026-11-17); иконка XS / S 16 · M 20 (касание 24) · L 24 (касание 28). Рядом с Button — того же размера.
 - Не делаем: иконку без Label; две Primary рядом; Ghost на пёстрой подложке (там Inverted); размер иконки вне шкалы.
 
 ## 3. Anatomy
 - Квадрат: `icon` (замена экземпляра) или `Spinner` (Loading); цвет спиннера — по тону (дорожка и дуга; у Danger — `text/danger` / `icon/danger`), Disabled — дуга `icon/disabled`.
 - `tooltip` с `_Tooltip arrow` — в Hover, только Web: `surface/raised`, обводка `border/default`, текст `text/primary` (у Danger тоже).
 - Служебные: `state layer`, `focus ring`, зоны, `safe area · outer`.
-- Вложено: `Spinner` ×300, иконки ×300, `_Tooltip arrow` ×60.
-- Служебные слои (вариантов из 300): кольцо фокуса 300 · зона Web 300 · зона касания 300 · безопасное поле 300.
+- Вложено: `Spinner` ×240, иконки ×240, `_Tooltip arrow` ×48.
+- Служебные слои (вариантов из 240): кольцо фокуса 240 · зона Web 240 · зона касания 240 · безопасное поле 240.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer` × `state/hover` 6 % / `state/pressed` 10 %; Disabled — токены `*/disabled`; Pressed — масштаб 0.96; у Ghost и Text подложка — только слой состояния.
@@ -36,21 +36,21 @@
 |---|---|---|
 | Type | Primary · Secondary · Tertiary · Tertiary outline · Ghost · Text · Inverted | Ghost |
 | Tone | Default · Danger | Default |
-| Size | S · M · L · XL · XS | M |
+| Size | S · M · L · XS | M |
 | Loading | False · True | False |
 | State | Default · Hover · Pressed · Disabled | Default |
 
-Матрица: 300 из 560.
+Матрица: 240 из 448.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «Скопировать» | 60 из 300 |
-| Icon | замена экземпляра | `icon/plus` | 300 из 300 |
-| Focus ring | булево | выкл | 300 из 300 · служебное |
-| Show hit area | булево | выкл | 300 из 300 · служебное |
-| Safe margin | булево | выкл | 300 из 300 · служебное |
+| Label | текст | «Скопировать» | 48 из 240 |
+| Icon | замена экземпляра | `icon/plus` | 240 из 240 |
+| Focus ring | булево | выкл | 240 из 240 · служебное |
+| Show hit area | булево | выкл | 240 из 240 · служебное |
+| Safe margin | булево | выкл | 240 из 240 · служебное |
 
 ## 6. Content / slots
 - Label обязателен: действие, а не «Иконка» («Скопировать адрес», «Закрыть»). Показывается в тултипе (Web) и читается скринридером.
@@ -71,21 +71,21 @@
 - Тултип не заменяет имя: связан через `aria-describedby` только если текст отличается от Label.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/accent/default`, `action/danger-subtle/default`, `action/danger/default`, `action/disabled`, `action/inverse/default`, `action/primary/default`, `action/secondary/default`, `action/tertiary/default`; интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`, `control/height/xs`; радиус `radius/container`, `radius/control`, `radius/control-sm`; обводка `control/border/default`, `control/border/error`; толщина обводки `border/width/default`; ширина `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`, `control/height/xs`.
+- `корень`: заливка / цвет `action/accent/default`, `action/danger-subtle/default`, `action/danger/default`, `action/disabled`, `action/inverse/default`, `action/primary/default`, `action/secondary/default`, `action/tertiary/default`; интервал `space/6`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`; радиус `radius/container`, `radius/control`, `radius/control-sm`; обводка `control/border/default`, `control/border/error`; толщина обводки `border/width/default`; ширина `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xs`.
 - `spinner`: высота `icon/size/lg`, `icon/size/md`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/md`, `icon/size/sm`.
 - `icon`: высота `icon/size/lg`, `icon/size/md`, `icon/size/sm`; ширина `icon/size/lg`, `icon/size/md`, `icon/size/sm`.
 - `tooltip`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`; видимость `touch/is-fine`.
 - `Скопировать`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/container`, `radius/control`, `radius/control-sm` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid`; толщина обводки `border/width/default` · `hit area · app`: видимость `touch/is-coarse` · `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-lg`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `safe area · content`: заливка / цвет `status/success/solid` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
-- Значений без переменной: 600 (напр. `hit area · web:w=40`, `hit area · web:h=40`, `hit area · web:w=32`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 480 (напр. `hit area · web:w=40`, `hit area · web:h=40`, `hit area · web:w=32`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
-- Иконка крупнее на касании (режим Platform): M 20 → 24, L / XL 24 → 28.
+- Иконка крупнее на касании (режим Platform): M 20 → 24, L 24 → 28.
 
 ## 12. Figma projection
-- Набор `Icon button`, вариантов 300 из 560; оси: Type, Tone, Size, Loading, State.
+- Набор `Icon button`, вариантов 240 из 448; оси: Type, Tone, Size, Loading, State.
 - Борда: «Icon button — борда · шаблон v3», разделов 12.
 - Описание: 2646 знаков, разделы: Status: Level: Кнопка-иконка: Когда использовать: Матрица: • Ghost — • Primary — • Secondary — • Text — • Inverted — Квадрат: A11y:
 
@@ -93,7 +93,7 @@
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsIconButton>`; Flutter: `DsIconButton`.
-- Props: `type`: primary | secondary | tertiary | tertiary-outline | ghost | text | inverted; `tone`: default | danger; `size`: s | m | l | xl | xs; `loading`: boolean; `label`: string или слот.
+- Props: `type`: primary | secondary | tertiary | tertiary-outline | ghost | text | inverted; `tone`: default | danger; `size`: s | m | l | xs; `loading`: boolean; `label`: string или слот.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 - `label` → `aria-label` и текст тултипа; `icon` — слот.
 

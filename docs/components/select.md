@@ -12,7 +12,7 @@
 - Когда использовать: 5+ вариантов или длинные названия вариантов.
 - Когда нет: 2–4 варианта — Segmented / Radio; ввод с подсказками — Input + Menu (combobox); множественный выбор — Multiselect (позже).
 - Правило выбора варианта:
-  - Size: M | L | XL = размер соседних полей формы (тот же Size, что у Input рядом).
+  - Size: M | L = размер соседних полей формы (тот же Size, что у Input рядом); XL снят 2026-11-17.
   - State: Default — пусто, плейсхолдер «Выберите …»; Hover — наведение указателя; Open — список открыт; Filled — значение выбрано; Error — ошибка выбора; Disabled — выбор недоступен; Loading — варианты грузятся; Skeleton — форма грузится.
   - Лейбл всегда Above; плейсхолдер — «Выберите …» (что выбрать).
   - Ширина Menu = ширине поля; выбранный пункт в Menu — Selected (галочка).
@@ -23,8 +23,8 @@
 - Корень — экземпляр Input (вложен во все 24 варианта): лейбл, поле, helper / ошибка под полем; min-width корня и `field` — `size/field/min`; `field` — Fill по ширине корня (исправлено 2026-11-16: было 320 числом, в экземпляре не растягивалось — пилот «Вывод»).
 - Справа в поле — шеврон (иконка в слоте Trailing): `icon/chevron-down`, в Open — `icon/chevron-up`; в Loading перед шевроном — спиннер; слева — необязательный слот Leading (Show leading у вложенного Input).
 - Служебный слой `focus ring` (`border/focus-ring`, `border/width/focus-ring`, радиусы `radius/focus-ring-sm` / `radius/focus-ring-inner`) — свойство Focus ring.
-- Вложено: `Input` ×24.
-- Служебные слои (вариантов из 24): кольцо фокуса 24 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Input` ×16.
+- Служебные слои (вариантов из 16): кольцо фокуса 16 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Поле: Hover — обводка `control/border/hover` + слой `state/layer` × `state/hover`; Pressed нет; Focus — обводка `control/border/focus` + кольцо; Disabled — токены `*/disabled`; Skeleton — загрузка (всё из `_Field base` вложенного Input).
@@ -43,16 +43,16 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | M · L · XL | M |
+| Size | M · L | M |
 | State | Default · Hover · Open · Filled · Error · Disabled · Loading · Skeleton | Default |
 
-Матрица полная: 24 вариантов.
+Матрица полная: 16 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Focus ring | булево | выкл | 24 из 24 · служебное |
+| Focus ring | булево | выкл | 16 из 16 · служебное |
 
 - Своё свойство одно — Focus ring. Лейбл, helper, плейсхолдер, значение и Show leading меняются у вложенного Input.
 
@@ -87,7 +87,7 @@
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Select`, вариантов 24 из 24; оси: Size, State.
+- Набор `Select`, вариантов 16 из 16; оси: Size, State.
 - Борда: «Select — борда · шаблон v3», разделов 12.
 - Описание: 1307 знаков, разделы: Status: Level: Select: Когда использовать: Правила: Состояния: A11y: Поиск: Legacy: Слот слева:
 
@@ -95,7 +95,7 @@
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsSelect>`; Flutter: `DsSelect`.
-- Props: `size`: m | l | xl.
+- Props: `size`: m | l.
 - Состояния (Default, Hover, Open, Filled, Error, Disabled, Loading, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `loading`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-17)
@@ -106,7 +106,7 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; правки Open и Disabled стендом не перепроверены; RTL стенд не проверяет; код — HTML/CSS.
 
 ## 15. Migration
-- DS Web `Selector small`, `Dropdown` (Type=Net / Wallet / Coins …) → Select (Size M | L | XL, State); иконка сети / кошелька / монеты — слот Leading вложенного Input (Coin / Coin stack).
+- DS Web `Selector small`, `Dropdown` (Type=Net / Wallet / Coins …) → Select (Size M | L, State); иконка сети / кошелька / монеты — слот Leading вложенного Input (Coin / Coin stack).
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Борда: нет разделов 05, 07, 08.

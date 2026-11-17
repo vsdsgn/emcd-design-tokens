@@ -10,7 +10,7 @@
 - Когда нет: одна строка — Input.
 
 ## 3–6. Anatomy, States, Properties, Content
-- Надстройка над `_Field base` с Lines=Multi. Оси: Size (M, L, XL) × State (9) = 27.
+- Надстройка над `_Field base` с Lines=Multi. Оси: Size (M, L; XL снят 2026-11-17) × State (9) = 18.
 - Матрица: только Label position=Above — подпись в разрыве рамки у многострочного поля не используется.
 - Свойства — у вложенного слоя `Field`.
 - Высота от 96 (3 строки), растёт до 8 строк, дальше прокрутка. Counter — лимит символов.

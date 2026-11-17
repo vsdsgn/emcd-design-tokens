@@ -482,7 +482,7 @@ Props нет.
 |---|---|---|---|
 | `type` | primary \| secondary \| tertiary \| tertiary-outline \| ghost \| text \| inverted | по правилу контракта | ось Type |
 | `tone` | default \| danger | по правилу контракта | ось Tone |
-| `size` | s \| m \| l \| xl \| xs | по правилу контракта | ось Size |
+| `size` | s \| m \| l \| xs | по правилу контракта | ось Size |
 | `loading` | false \| true | по правилу контракта | ось Loading |
 | `label` | string | — | свойство Label |
 
@@ -496,7 +496,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | m \| l \| xl | по правилу контракта | ось Size |
+| `size` | m \| l | по правилу контракта | ось Size |
 | `labelPosition` | on-border \| above | по правилу контракта | ось Label position |
 | `label` | string | — | свойство Label (слой `Field`, база `_Field base`) |
 | `showLabel` | boolean | true | свойство Show label (слой `Field`, база `_Field base`) |
@@ -820,7 +820,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | s \| m | по правилу контракта | ось Size |
+| `size` | s \| m \| l | по правилу контракта | ось Size |
 | `tone` | neutral \| accent | по правилу контракта | ось Tone |
 | `title` | string | — | свойство Title |
 | `description` | string | — | свойство Description |
@@ -828,6 +828,7 @@ Props нет.
 | `showAction` | boolean | true | свойство Show action |
 | `showMedia` | boolean | false | свойство Show media |
 | `showClose` | boolean | true | свойство Show close |
+| `showBadge` | boolean | false | свойство Show badge |
 
 ## Radio
 
@@ -900,7 +901,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | s \| m \| l \| xl | по правилу контракта | ось Size |
+| `size` | s \| m \| l | по правилу контракта | ось Size |
 | `selected` | off \| on | по правилу контракта | ось Selected |
 | `tone` | neutral \| accent | по правилу контракта | ось Tone |
 | `label` | string | — | свойство Label |
@@ -919,7 +920,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | s \| m \| l \| xl | по правилу контракта | ось Size |
+| `size` | s \| m \| l | по правилу контракта | ось Size |
 | `items` | 2 \| 3 \| 4 | по правилу контракта | ось Items |
 
 ## Select
@@ -930,7 +931,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | m \| l \| xl | по правилу контракта | ось Size |
+| `size` | m \| l | по правилу контракта | ось Size |
 
 Состояния в Figma: Default · Hover · Open · Filled · Error · Disabled · Loading · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error`, `loading`, `skeleton` — boolean props.
 
@@ -1095,7 +1096,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | m \| l \| xl \| s | по правилу контракта | ось Size |
+| `size` | m \| l \| page \| s | по правилу контракта | ось Size |
 | `selected` | off \| on | по правилу контракта | ось Selected |
 | `label` | string | — | свойство Label |
 | `counter` | boolean | false | свойство Counter |
@@ -1182,7 +1183,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | m \| l \| xl \| s | по правилу контракта | ось Size |
+| `size` | m \| l \| page \| s | по правилу контракта | ось Size |
 | `tab3` | boolean | true | свойство Tab 3 |
 | `tab4` | boolean | true | свойство Tab 4 |
 | `tab5` | boolean | false | свойство Tab 5 |
@@ -1194,7 +1195,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | m \| l \| xl | по правилу контракта | ось Size |
+| `size` | m \| l | по правилу контракта | ось Size |
 | `labelPosition` | above | по правилу контракта | ось Label position |
 | `label` | string | — | свойство Label (слой `Field`, база `_Field base`) |
 | `showLabel` | boolean | true | свойство Show label (слой `Field`, база `_Field base`) |
