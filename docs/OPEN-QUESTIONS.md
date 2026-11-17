@@ -541,3 +541,11 @@
 - Недостающие компоненты: Datepicker/период, Multiselect + Search, адрес + копирование + QR, CoinStack, карточка транзакции (DS App «Txn»), экран статуса (DS App), пароль с требованиями, Payment Card (DS App), Notification (DS App), Filter bottom sheet, Button float, шапка и футер сайта, пагинация; не искали — загрузка файлов, хлебные крошки, textarea.
 - DS Site — не сканировали на декор.
 - Временный фрейм «_focus check (temp)» на 🧪 Playground в Components — удалить после просмотра.
+
+## XL на уровне системы (17.11, Стефан: «подумать, надо ли оно нам»)
+
+Аудит Size=XL в Base: Button 56 (вложен в Modal ×15), Icon button 56, Segment / Segmented 48 / 56, Tab / Tabs 64 (текст 20), Input / Select / Textarea (поле 56), Amount XL (герой-сумма), Coin XL 40.
+Рекомендация агента:
+- **Убрать XL** у Icon button, Segment / Segmented, Input / Select / Textarea (на Web огромно; на App хватает L 48).
+- **Оставить:** Button XL 56 — одна главная кнопка экрана App (норма iOS / Android); Modal на Web — перевести на L 48. Tab XL — не размер контрола, а «табы-заголовок страницы» (текст 20): переименовать в `Size=Page` или оставить XL с этим смыслом. Amount XL и Coin XL — размеры текста / медиа, не контролов.
+- Удаление вариантов — MAJOR: сначала поиск экземпляров XL в продуктовых файлах, замена на L, потом удаление. **Ждёт «ок» Стефана.**

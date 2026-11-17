@@ -97,6 +97,7 @@ export const DATA = [
       'Type=Text — без внутренних отступов (17.11): текст стоит по краю, как ссылка в продукте («Подробнее», «Создать группу»); зона нажатия — служебный слой.',
       'Size=XS 24 (17.11, по продукту: «RU», мелкие действия в шапке сайдбара и плотных панелях) — `control/height/xs`, подпись `type/label/sm`, без min-width; только Web с указателем. Иконки кнопки — цвета подписи во всех вариантах (17.11, исправлено).',
       'Neutral (17.11, по продукту): как Badge — обводка `border/subtle`, цифра `text/secondary`.',
+      'Type=Text, Tone=Default (17.11, Стефан: брендовый): подпись и иконка — `action/primary/default` (#8f42ff в обеих темах); Hover / Pressed — `text/accent-hover` / `-pressed`. Было `text/accent` (#b678fd в Dark — бледно).',
     ],
     never: 'две Primary рядом; Tone=Danger для обычных действий; иконку без подписи; подпись в две строки.',
     anatomy: ['Корень: подложка, радиус `radius/control` (12; 16.11 по продукту Web App, было `radius/container` 16), отступы, min-width 64.', '`icon left`, `label`, `icon right`; `Spinner` (Loading) — вместо содержимого, ширина не меняется; цвет спиннера — по тону кнопки (дорожка и дуга; у Danger — `text/danger` / `icon/danger`), Disabled — дуга `icon/disabled`.', 'Служебные: `state layer`, `focus ring`, зоны `hit area · web` / `· app`, `safe area · outer`.'],
