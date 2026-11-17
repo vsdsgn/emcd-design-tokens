@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16",
+ "generated": "2026-11-17",
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
@@ -14,9 +14,9 @@
    "service": 4,
    "template": 1
   },
-  "variants": 1599,
-  "incompleteMatrix": 16,
-  "propsNotBoundEverywhere": 15,
+  "variants": 1614,
+  "incompleteMatrix": 17,
+  "propsNotBoundEverywhere": 16,
   "rawMinMax": 0,
   "withRawValues": 66,
   "withFocusRing": 21,
@@ -397,7 +397,7 @@
      "id": "167:78",
      "type": "SET",
      "status": "beta",
-     "descLen": 1548,
+     "descLen": 1698,
      "descHeads": [
       "Status:",
       "Level:",
@@ -408,7 +408,8 @@
       "Fiat —",
       "A11y:",
       "Когда использовать:",
-      "Правила:"
+      "Правила:",
+      "Align (17."
      ],
      "inBoard": false,
      "axes": {
@@ -422,34 +423,38 @@
        "None",
        "Positive",
        "Negative"
+      ],
+      "Align": [
+       "Start",
+       "End"
       ]
      },
-     "variants": 12,
-     "full": 12,
+     "variants": 24,
+     "full": 24,
      "props": [
       {
        "name": "Value",
        "type": "TEXT",
        "def": "0,12345678",
-       "bound": 12
+       "bound": 24
       },
       {
        "name": "Ticker",
        "type": "TEXT",
        "def": "BTC",
-       "bound": 12
+       "bound": 24
       },
       {
        "name": "Fiat",
        "type": "TEXT",
        "def": "≈ 2 731,40 $",
-       "bound": 12
+       "bound": 24
       },
       {
        "name": "Show fiat",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 12
+       "bound": 24
       }
      ],
      "nested": {},
@@ -2748,7 +2753,7 @@
       "04 · Состояния",
       "05 · Зоны",
       "06 · На поверхностях",
-      "07 · Группы и раскладка",
+      "07 · Примеры в составе",
       "08 · Движение",
       "09 · Правила",
       "10 · Доступность",
@@ -2764,7 +2769,7 @@
      "id": "47:364",
      "type": "SET",
      "status": "beta",
-     "descLen": 1118,
+     "descLen": 1280,
      "descHeads": [
       "Status:",
       "Level:",
@@ -2773,7 +2778,8 @@
       "Правила:",
       "A11y:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Selected (17."
      ],
      "inBoard": false,
      "axes": {
@@ -2889,8 +2895,7 @@
      ],
      "tokens": {
       "(root)": [
-       "f:action/disabled",
-       "f:action/inverse/default",
+       "f:control/segment",
        "f:skeleton/base",
        "gap:space/6",
        "h:control/height/md",
@@ -2906,7 +2911,6 @@
       ],
       "label": [
        "f:text/disabled",
-       "f:text/inverse",
        "f:text/primary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
@@ -2915,7 +2919,6 @@
       ],
       "meta": [
        "f:text/disabled",
-       "f:text/inverse",
        "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
@@ -2943,7 +2946,6 @@
       ],
       "state layer": [
        "f:state/layer",
-       "f:state/layer-inverse",
        "o:state/hover",
        "o:state/pressed",
        "r:radius/control",
@@ -3622,7 +3624,7 @@
      "id": "43:16",
      "type": "SET",
      "status": "beta",
-     "descLen": 699,
+     "descLen": 772,
      "descHeads": [
       "Status:",
       "Level:",
@@ -3631,7 +3633,8 @@
       "Правила:",
       "A11y:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Форма (17."
      ],
      "inBoard": false,
      "axes": {
@@ -3684,7 +3687,7 @@
        "minw:size/counter-height/sm",
        "p:space/4",
        "p:space/6",
-       "r:radius/full"
+       "r:radius/sm"
       ],
       "value": [
        "f:text/on-accent",
@@ -4714,7 +4717,7 @@
      "id": "179:1295",
      "type": "SET",
      "status": "beta",
-     "descLen": 1192,
+     "descLen": 1289,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4725,7 +4728,8 @@
       "Тень:",
       "Правила:",
       "Матрица:",
-      "Legacy:"
+      "Legacy:",
+      "Свойства (17."
      ],
      "inBoard": false,
      "axes": {
@@ -4763,6 +4767,18 @@
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
+       "bound": 10
+      },
+      {
+       "name": "Label",
+       "type": "TEXT",
+       "def": "Добавить воркер",
+       "bound": 5
+      },
+      {
+       "name": "Icon",
+       "type": "INSTANCE_SWAP",
+       "def": "icon/plus",
        "bound": 10
       }
      ],
@@ -10244,7 +10260,7 @@
      "id": "60:57",
      "type": "SET",
      "status": "beta",
-     "descLen": 1356,
+     "descLen": 1583,
      "descHeads": [
       "Status:",
       "Level:",
@@ -10264,68 +10280,74 @@
       "State": [
        "Default",
        "Skeleton"
+      ],
+      "Tone": [
+       "Neutral",
+       "Danger",
+       "Warning",
+       "Success"
       ]
      },
-     "variants": 2,
-     "full": 2,
+     "variants": 5,
+     "full": 8,
      "props": [
       {
        "name": "Label",
        "type": "TEXT",
        "def": "Хешрейт · 24 ч",
-       "bound": 1
+       "bound": 4
       },
       {
        "name": "Value",
        "type": "TEXT",
        "def": "124.5",
-       "bound": 1
+       "bound": 4
       },
       {
        "name": "Unit",
        "type": "TEXT",
        "def": "TH/s",
-       "bound": 1
+       "bound": 4
       },
       {
        "name": "Info",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 1
+       "bound": 4
       },
       {
        "name": "Delta",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 1
+       "bound": 4
       },
       {
        "name": "Delta caption",
        "type": "TEXT",
        "def": "к вчера",
-       "bound": 1
+       "bound": 4
       },
       {
        "name": "Show footer",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 1
+       "bound": 4
       },
       {
        "name": "Footer",
        "type": "SLOT",
-       "bound": 1
+       "bound": 4
       },
       {
        "name": "Ambient light",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 2
+       "bound": 5
       }
      ],
      "nested": {
-      "(icons)": 1,
-      "Badge": 1,
+      "(icons)": 4,
+      "Badge": 4,
       "Skeleton": 3
      },
      "minmax": [
@@ -10338,12 +10360,15 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 2,
+     "rawCount": 5,
      "raw": [
       "(root):w=280"
      ],
      "tokens": {
       "(root)": [
+       "f:status/danger/subtle",
+       "f:status/success/subtle",
+       "f:status/warning/subtle",
        "f:surface/next",
        "gap:space/8",
        "minw:size/card/min",
@@ -10370,7 +10395,10 @@
        "gap:space/6"
       ],
       "value": [
+       "f:text/danger",
        "f:text/primary",
+       "f:text/success",
+       "f:text/warning",
        "fontFamily:font/family/display",
        "fontSize:type/heading/xl/size",
        "fontWeight:font-weight/bold",

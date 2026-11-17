@@ -1,4 +1,4 @@
-# Floating button — контракт (2026-11-16)
+# Floating button — контракт (2026-11-17)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -16,6 +16,7 @@
   - Одна на экран. Позиция: справа снизу (в RTL — слева), над Tab bar и безопасной зоной, отступ `space-md`.
   - Не перекрывает последний элемент списка: у контента отступ снизу.
   - Loading: True — действие выполняется (как у Icon button); только при State=Default (матрица 10 из 16).
+  - Label и Icon (17.11) — свойства: подпись Extended и иконка из Icons («Выгрузить», «Калькулятор»).
 - Не делаем: на Web; две плавающие кнопки на экране; Icon с неоднозначной иконкой; подпись длиннее 20 знаков.
 
 ## 3. Anatomy
@@ -53,6 +54,8 @@
 | Show hit area | булево | выкл | 10 из 10 · служебное |
 | Safe margin | булево | выкл | 10 из 10 · служебное |
 | Focus ring | булево | выкл | 10 из 10 · служебное |
+| Label | текст | «Добавить воркер» | 5 из 10 |
+| Icon | замена экземпляра | `icon/plus` | 10 из 10 |
 
 - Show hit area, Safe margin, Focus ring — служебные, по умолчанию Off.
 
@@ -93,16 +96,16 @@
 ## 12. Figma projection
 - Набор `Floating button`, вариантов 10 из 16; оси: Layout, Loading, State.
 - Борда: «Floating button — борда · шаблон v3», разделов 12.
-- Описание: 1192 знаков, разделы: Status: Level: Когда использовать: Icon — Позиция: A11y: Тень: Правила: Матрица: Legacy:
+- Описание: 1289 знаков, разделы: Status: Level: Когда использовать: Icon — Позиция: A11y: Тень: Правила: Матрица: Legacy: Свойства (17.
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsFloatingButton>`; Flutter: `DsFloatingButton`.
-- Props: `layout`: icon | extended; `loading`: boolean.
+- Props: `layout`: icon | extended; `loading`: boolean; `label`: string или слот.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-16)
+## 14. Acceptance (2026-11-17)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

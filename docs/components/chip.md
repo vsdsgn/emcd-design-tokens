@@ -1,4 +1,4 @@
-# Chip — контракт (2026-11-16)
+# Chip — контракт (2026-11-17)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -16,6 +16,7 @@
   - Selected=On — инверсия (`action/inverse`).
   - Meta — вторичное значение («8 %»); Remove — только у выбранных фильтров в строке активных фильтров; иконка или монета — слева, одна.
   - Фильтр списка по статусу («Онлайн 128 · Офлайн 4») — ряд Chip S с Meta-счётчиком над списком; не Tabs (решение 2026-11-16, `docs/patterns.md`).
+  - Selected (17.11, по продукту App «Воркеры»): плашка `control/segment` + `text/primary`, как выбранный сегмент; инверсную белую не используем.
 - Не делаем: вертикальная раскладка (убрана 2026-10-18); две иконки слева.
 
 ## 3. Anatomy
@@ -76,10 +77,10 @@
 - Remove — отдельная кнопка, `aria-label` «Убрать фильтр …»; Пробел / Enter — выбрать.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/disabled`, `action/inverse/default`, `skeleton/base`; интервал `space/6`; высота `control/height/md`, `control/height/sm`; maxw `size/chip/max`; отступы `control/padding-x/sm`, `space/12`; радиус `radius/control`, `radius/control-sm`; обводка `control/border/default`, `control/border/disabled`; толщина обводки `border/width/default`.
-- `label`: заливка / цвет `text/disabled`, `text/inverse`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- `meta`: заливка / цвет `text/disabled`, `text/inverse`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm`.
+- `корень`: заливка / цвет `control/segment`, `skeleton/base`; интервал `space/6`; высота `control/height/md`, `control/height/sm`; maxw `size/chip/max`; отступы `control/padding-x/sm`, `space/12`; радиус `radius/control`, `radius/control-sm`; обводка `control/border/default`, `control/border/disabled`; толщина обводки `border/width/default`.
+- `label`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `meta`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm`.
 - Min / max корня: maxWidth 240 size/chip/max.
 - Значений без переменной: 48 (напр. `hit area · web:w=84`, `hit area · web:h=32`, `hit area · web:w=82`, `hit area · web:w=88`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
@@ -90,7 +91,7 @@
 ## 12. Figma projection
 - Набор `Chip`, вариантов 20 из 20; оси: Size, Selected, State.
 - Борда: «Chip — борда · шаблон v3», разделов 12.
-- Описание: 1118 знаков, разделы: Status: Level: Чип: Когда использовать: Правила: A11y: Поиск: Legacy:
+- Описание: 1280 знаков, разделы: Status: Level: Чип: Когда использовать: Правила: A11y: Поиск: Legacy: Selected (17.
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -99,7 +100,7 @@
 - Props: `size`: s | m; `selected`: boolean; `label`: string или слот; `meta`: boolean = false; `metaText`: string или слот; `icon`: boolean = false; `remove`: boolean = false; `trailingIcon`: boolean = false.
 - Состояния (Default, Hover, Pressed, Disabled, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-16)
+## 14. Acceptance (2026-11-17)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 192 @label` числом (корень — `size/chip/max`).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

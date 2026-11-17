@@ -1,4 +1,4 @@
-# Stat card — контракт (2026-11-16)
+# Stat card — контракт (2026-11-17)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -19,6 +19,7 @@
   - Show footer: On — в слот Footer ставится спарклайн / мини-график или ссылка; по умолчанию Off.
   - Ambient light: On — только у одной герой-карточки на экран (Expressive); в Base пятно прозрачное.
   - В ряду карточки одной высоты.
+  - Tone (17.11): Neutral — по умолчанию; Danger / Warning / Success — плитки статусной сводки (Отключённые / Нестабильные / Активные): подложка `status/*/subtle`, значение `text/*`. Не для украшения.
 - Не делаем: несколько чисел в одной карточке; анимация счётчика; больше одной карточки с Ambient light на экран.
 
 ## 3. Anatomy
@@ -28,8 +29,8 @@
 - `delta row` (зазор `space/6`, max-width 248): Badge S + `delta caption` (`type/body/sm`, `text/tertiary`; max-width 160).
 - Слот `Footer`; `ambient light` — `light/ambient/color` + `light/ambient/blur`.
 - Skeleton — три вложенных Skeleton (`skeleton/base`, `radius/inner`) в строках высотой строки текста.
-- Вложено: иконки ×1, `Badge` ×1, `Skeleton` ×3.
-- Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: иконки ×4, `Badge` ×4, `Skeleton` ×3.
+- Служебные слои (вариантов из 5): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; Skeleton — загрузка.
@@ -42,22 +43,23 @@
 | Ось | Значения | По умолчанию |
 |---|---|---|
 | State | Default · Skeleton | Default |
+| Tone | Neutral · Danger · Warning · Success | — |
 
-Матрица полная: 2 вариантов.
+Матрица: 5 из 8.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «Хешрейт · 24 ч» | 1 из 2 |
-| Value | текст | «124.5» | 1 из 2 |
-| Unit | текст | «TH/s» | 1 из 2 |
-| Info | булево | вкл | 1 из 2 |
-| Delta | булево | вкл | 1 из 2 |
-| Delta caption | текст | «к вчера» | 1 из 2 |
-| Show footer | булево | выкл | 1 из 2 |
-| Footer | слот | — | 1 из 2 |
-| Ambient light | булево | выкл | 2 из 2 |
+| Label | текст | «Хешрейт · 24 ч» | 4 из 5 |
+| Value | текст | «124.5» | 4 из 5 |
+| Unit | текст | «TH/s» | 4 из 5 |
+| Info | булево | вкл | 4 из 5 |
+| Delta | булево | вкл | 4 из 5 |
+| Delta caption | текст | «к вчера» | 4 из 5 |
+| Show footer | булево | выкл | 4 из 5 |
+| Footer | слот | — | 4 из 5 |
+| Ambient light | булево | выкл | 5 из 5 |
 
 - Label, Value, Unit, Info, Delta, Delta caption, Show footer, Footer привязаны только к Default; Ambient light — к обоим вариантам.
 
@@ -79,36 +81,36 @@
 - Дельта читается словами: «рост на 2,4 % к вчера».
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/next`; интервал `space/8`; мин. ширина `size/card/min`; отступы `card/padding`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/next`; интервал `space/8`; мин. ширина `size/card/min`; отступы `card/padding`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `ambient light`: эффект `light/ambient/blur`; заливка / цвет `light/ambient/color`.
 - `label row`: интервал `space/4`.
 - `label`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `value row`: интервал `space/6`.
-- `value`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/xl`.
+- `value`: заливка / цвет `text/danger`, `text/primary`, `text/success`, `text/warning`; типографика `font-weight/bold`, `font/family/display`, `type/heading/xl`.
 - `unit`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - `delta row`: интервал `space/6`.
 - `Badge`: заливка / цвет `status/success/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/xs`; радиус `radius/sm`.
 - `delta caption`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `Skeleton`: заливка / цвет `skeleton/base`; радиус `radius/inner`.
 - Min / max корня: minWidth 280 size/card/min.
-- Значений без переменной: 2 (напр. `(root):w=280`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 5 (напр. `(root):w=280`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Stat card`, вариантов 2 из 2; оси: State.
+- Набор `Stat card`, вариантов 5 из 8; оси: State, Tone.
 - Борда: «Stat card — борда · шаблон v3», разделов 11.
-- Описание: 1356 знаков, разделы: Status: Level: Stat card: Правила: Длинный текст: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
+- Описание: 1583 знаков, разделы: Status: Level: Stat card: Правила: Длинный текст: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsStatCard>`; Flutter: `DsStatCard`.
-- Props: `label`: string или слот; `value`: string или слот; `unit`: string или слот; `info`: boolean = true; `delta`: boolean = true; `deltaCaption`: string или слот; `showFooter`: boolean = false; `footer`: string или слот; `ambientLight`: boolean = false.
+- Props: `tone`: neutral | danger | warning | success; `label`: string или слот; `value`: string или слот; `unit`: string или слот; `info`: boolean = true; `delta`: boolean = true; `deltaCaption`: string или слот; `showFooter`: boolean = false; `footer`: string или слот; `ambientLight`: boolean = false.
 - Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-16)
+## 14. Acceptance (2026-11-17)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 180, unit 64, delta caption 160) и maxWidth 248 у delta row.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

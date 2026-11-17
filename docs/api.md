@@ -1,4 +1,4 @@
-# Ожидаемый API компонентов — beta (2026-11-16)
+# Ожидаемый API компонентов — beta (2026-11-17)
 
 Собрано `scripts/agent-docs.mjs` из `docs/ds-manifest.json` — править не здесь, а в Figma (потом манифест) или в `scripts/contract-data.mjs`.
 Это **ожидаемый** API по правилам имён `scripts/parity.mjs`: кода (DSP, Vue `ui-emcd-web`, Flutter) в доступе нет (`docs/dsp-check-2026-11-12.md`). Когда появится манифест кода — `npm run parity` сверит.
@@ -46,6 +46,7 @@
 |---|---|---|---|
 | `size` | s \| m \| l \| xl | по правилу контракта | ось Size |
 | `sign` | none \| positive \| negative | по правилу контракта | ось Sign |
+| `align` | start \| end | по правилу контракта | ось Align |
 | `value` | string | — | свойство Value |
 | `ticker` | string | — | свойство Ticker |
 | `fiat` | string | — | свойство Fiat |
@@ -447,8 +448,11 @@ Props нет.
 |---|---|---|---|
 | `layout` | icon \| extended | по правилу контракта | ось Layout |
 | `loading` | false \| true | по правилу контракта | ось Loading |
+| `label` | string | — | свойство Label |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+
+Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
 
 ## Page header
 
@@ -989,6 +993,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
+| `tone` | neutral \| danger \| warning \| success | по правилу контракта | ось Tone |
 | `label` | string | — | свойство Label |
 | `value` | string | — | свойство Value |
 | `unit` | string | — | свойство Unit |

@@ -1,4 +1,4 @@
-# Button — контракт (2026-11-16)
+# Button — контракт (2026-11-17)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -16,6 +16,7 @@
   - Tone: Default — цвет типа; Danger — разрушающее действие, есть у всех типов, кроме Inverted (отсюда 176 из 192).
   - Size: S 32 — таблицы, тулбары, фильтры; M 40 — по умолчанию в Web; L 48 — по умолчанию в App и мобильном вебе; XL 56 — главный CTA внизу на мобильном, онбординг, промо.
   - Кнопки в группе — одного размера; рядом с полем — размер поля (Input M ↔ Button M). Primary — на L0–L2.
+  - Форма (17.11, по продукту): квадрат `radius/sm`, не круг.
 - Не делаем: две Primary рядом; Tone=Danger для обычных действий; иконку без подписи; подпись в две строки.
 
 ## 3. Anatomy
@@ -108,7 +109,7 @@
 - `iconLeft` / `iconRight` в коде — слоты, а не boolean + swap.
 - Tone=Danger есть у Primary, Secondary, Tertiary, Tertiary outline, Text; сочетание Inverted + Danger отсекать типами.
 
-## 14. Acceptance (2026-11-16)
+## 14. Acceptance (2026-11-17)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний (min-width — `size/button/min` во всех вариантах).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

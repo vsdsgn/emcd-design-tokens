@@ -1,4 +1,4 @@
-# Counter — контракт (2026-11-16)
+# Counter — контракт (2026-11-17)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -55,7 +55,7 @@
 - Число входит в доступное имя родителя («Воркеры, 3 неактивных»); сам счётчик — `aria-hidden`.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `control/checked`, `status/danger/solid`, `status/neutral/subtle`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/full`.
+- `корень`: заливка / цвет `control/checked`, `status/danger/solid`, `status/neutral/subtle`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/4`, `space/6`; радиус `radius/sm`.
 - `value`: заливка / цвет `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - Min / max корня: minWidth 16 size/counter-height/sm, maxWidth 40 size/counter/max, minHeight 16 size/counter-height/sm, minWidth 20 size/counter-height/md, minHeight 20 size/counter-height/md.
 
@@ -65,7 +65,7 @@
 ## 12. Figma projection
 - Набор `Counter`, вариантов 6 из 6; оси: Size, Tone.
 - Борда: «Counter — борда · шаблон v3», разделов 12.
-- Описание: 699 знаков, разделы: Status: Level: Счётчик: Когда использовать: Правила: A11y: Поиск: Legacy:
+- Описание: 772 знаков, разделы: Status: Level: Счётчик: Когда использовать: Правила: A11y: Поиск: Legacy: Форма (17.
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -73,7 +73,7 @@
 - Vue: `<DsCounter>`; Flutter: `DsCounter`.
 - Props: `size`: s | m; `tone`: neutral | accent | danger; `value`: string или слот.
 
-## 14. Acceptance (2026-11-16)
+## 14. Acceptance (2026-11-17)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 40` (записанное исключение) и `maxWidth 28 @value` числом; min-width — `size/counter-height/*`.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
