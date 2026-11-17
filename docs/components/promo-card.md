@@ -26,7 +26,7 @@
 ## 3. Anatomy
 - Корень (17.11, по баннерам Web App): заливка `surface/level-1`, обводка `border/width/default` — Neutral `border/subtle`, Accent — линейный градиент `border/accent` → `border/subtle`; радиус S `radius/container`, M / L `radius/surface`; обрезка по краю; отступы S `space/16`, M `space/24`, L `space/24` / `space/32`; мин. высота S 120 · M 178 · L 204.
 - `body` — ряд `column` + `close`; `column` — `text` и `action` (зазор S `space/8`, M `space/16`, L `space/24`); `text` фиксированной ширины (S 124 · M 230 · L 340) — место под картинку.
-- `text` — `title row` (`title` + `badge`, зазор `space/8`) и `description` (`text/secondary`), зазор S `space/4`, M / L `space/8`; S — `type/label/sm` (12); M / L — заголовок `type/heading/md` (20, Medium), описание `type/body/md` (14).
+- `text` — `title row` (`title` + `badge`, зазор `space/8`, перенос: длинный заголовок переносится в пределах ширины `text`, бейдж уходит на следующую строку) и `description` (`text/secondary`), зазор S `space/4`, M / L `space/8`; S — `type/label/sm` (12); M / L — заголовок `type/heading/md` (20, Medium), описание `type/body/md` (14).
 - `action` — вложенный Button S (`control/height/sm`).
 - `media` — абсолютный слой под содержимым: `glow` (эллипс: Accent — `action/primary/default`, Neutral — `surface/level-3`; размытие слоя 80 / 160) и `image` (плейсхолдер `surface/level-2`, в макете — заливка картинкой) — S 104 · M 172 · L 272.
 - Служебных слоёв нет.
@@ -87,7 +87,7 @@
 - `body`: интервал `space/8`.
 - `column`: интервал `space/16`, `space/24`, `space/8`.
 - `text`: интервал `space/4`, `space/8`.
-- `title row`: интервал `space/8`.
+- `title row`: gap2 `space/4`; интервал `space/8`.
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/heading/md`, `type/label/sm`.
 - `badge`: заливка / цвет `accent/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/sm`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/body/md`, `type/label/sm`.

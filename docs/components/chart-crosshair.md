@@ -17,7 +17,7 @@
 - Не делаем: перехват нажатий; цвет линии, отличный от `border/default`.
 
 ## 3. Anatomy
-- Line: `line` — вертикальная линия (`border/default`; в Dark на L0–L1 слабая, но различима — оставлено, стенд 15.11); `point` — точка серии (`data/1`, обводка `surface/current` (совпадает с подложкой на любом уровне, 15.11), `border/width/focus`); `halo` — ореол точки (`data/1`, прозрачность 0.24).
+- Line: `line` — вертикальная линия (`border/default`; в Dark на L0–L1 слабая, но различима — оставлено, стенд 15.11); `point` — точка серии (`border/accent` — серия 1 бренд, 17.11, обводка `surface/current` (совпадает с подложкой на любом уровне, 15.11), `border/width/focus`); `halo` — ореол точки (`border/accent`, прозрачность 0.24).
 - Bar: `band` — полоса на ширину столбца (`status/neutral/subtle`).
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -51,8 +51,8 @@
 
 ## 10. Tokens
 - `line`: заливка / цвет `border/default`.
-- `halo`: заливка / цвет `data/1`.
-- `point`: заливка / цвет `data/1`; обводка `surface/current`; толщина обводки `border/width/focus`.
+- `halo`: заливка / цвет `border/accent`.
+- `point`: заливка / цвет `border/accent`; обводка `surface/current`; толщина обводки `border/width/focus`.
 - `band`: заливка / цвет `status/neutral/subtle`.
 - Значений без переменной: 5 (напр. `(root):w=24`, `(root):h=200`, `halo:o=0.24`) — размеры слоёв зон и то, что перечислено в разделе 14.
 

@@ -23,7 +23,7 @@
 ## 3. Anatomy
 - Корень — горизонтальный ряд, зазор `space/16`, вертикальные отступы `space/8` / `space/12`; у Total — линия сверху `border/subtle` (`border/width/default`).
 - `key` — `text/secondary`, Body/MD Regular; у Total — Label/MD Medium.
-- `value` — Default: `text/primary`, `font/family/mono`; Muted: `text/secondary`; Total: Label/MD Medium, `font/family/mono` (как Default: числа в столбце выравниваются; 2026-11-16, пилот «Вывод»); max-width 200.
+- `value` — Default: `text/primary`, `font/family/text`; Muted: `text/secondary`; Total: Label/MD Medium, `font/family/text` (как Default: числа в столбце выравниваются; 2026-11-16, пилот «Вывод»); max-width 200.
 - `leader` (Leader=On) — точечная линия между `key` и `value`: обводка `border/strong`, пунктир; заполняет промежуток.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -68,7 +68,7 @@
 ## 10. Tokens
 - `корень`: интервал `space/16`; отступы `space/12`, `space/8`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `key`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/md`, `type/label/md`.
-- `value`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/mono`, `type/body/md`, `type/label/md`.
+- `value`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/md`, `type/label/md`.
 - `leader`: обводка `border/strong`.
 - Значений без переменной: 6 (напр. `(root):w=360`) — размеры слоёв зон и то, что перечислено в разделе 14.
 

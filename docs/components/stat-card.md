@@ -23,7 +23,7 @@
 - Не делаем: несколько чисел в одной карточке; анимация счётчика; больше одной карточки с Ambient light на экран.
 
 ## 3. Anatomy
-- Корень: Tone=Neutral — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` (`border/width/default`); Danger / Warning / Success — `status/*/subtle` без обводки, значение `text/*`; `radius/container`, отступ `card/padding`, зазор `space/8`, min-width `size/card/min`.
+- Корень: Tone=Neutral — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` (`border/width/default`); Danger / Warning / Success — `status/*/subtle` без обводки, значение `text/*`; `radius/container`, отступ `card/padding`, зазор `space/8` (min-width снят 17.11: плитки статусов дашборда 160 в колонке).
 - `label row` (зазор `space/4`): `label` (`type/body/sm`, `text/secondary`) + иконка Info.
 - `value row` (зазор `space/6`): `value` (`type/heading/xl`, `font-weight/bold`, `font/family/display`, `text/primary`; по содержимому, max-width 180) + `unit` (`type/body/md`, `text/secondary`; max-width 64) — единица сразу за числом.
 - `delta row` (зазор `space/6`, max-width 248): Badge S + `delta caption` (`type/body/sm`, `text/tertiary`; max-width 160).
@@ -81,7 +81,7 @@
 - Дельта читается словами: «рост на 2,4 % к вчера».
 
 ## 10. Tokens
-- `корень`: заливка / цвет `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/next`; интервал `space/8`; мин. ширина `size/card/min`; отступы `card/padding`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/next`; интервал `space/8`; отступы `card/padding`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `ambient light`: эффект `light/ambient/blur`; заливка / цвет `light/ambient/color`.
 - `label row`: интервал `space/4`.
 - `label`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
@@ -92,7 +92,6 @@
 - `Badge`: заливка / цвет `status/success/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/xs`; радиус `radius/sm`.
 - `delta caption`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `Skeleton`: заливка / цвет `skeleton/base`; радиус `radius/inner`.
-- Min / max корня: minWidth 280 size/card/min.
 - Значений без переменной: 5 (напр. `(root):w=280`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms

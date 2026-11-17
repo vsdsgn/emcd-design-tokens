@@ -313,7 +313,7 @@ export const DATA = [
       'Size=XS 24 (17.11) — свернуть сайдбар, действия в строке таблицы и плотных панелях; только Web с указателем, зона нажатия — служебный слой.',
     ],
     never: 'красный цвет для списаний; усечение или перенос суммы; дефис вместо минуса; тикер без неразрывного пробела.',
-    anatomy: ['Корень — вертикальный стек: строка `value` + `ticker`, под ней `fiat` (`text/secondary`).', 'S / M — `font/family/mono` (цифры одной ширины, колонки выравниваются); L / XL — `font/family/display`.'],
+    anatomy: ['Корень — вертикальный стек: строка `value` + `ticker`, под ней `fiat` (`text/secondary`).', 'S / M — `font/family/text` с табличными цифрами (17.11: моно — только в осях графиков; было `font/family/mono`); L — `type/heading/md` (20), Medium, `font/family/text`, тикер того же кегля (17.11, по продукту: суммы сводки дашборда); XL — `font/family/display`, Bold.'],
     group: NONE,
     states: ['Своих состояний нет. Загрузка — Skeleton на месте суммы у родителя; скрытый баланс — маска «•••» у родителя.'],
     defaults: { Size: 'S', Sign: 'None' },
@@ -710,7 +710,7 @@ export const DATA = [
     ],
     anatomy: [
       'Корень — вертикальный стек, зазор `space/8`.',
-      '`label row` (`space/8`): `label` (`text/primary`, `type/label/md`, `font-weight/medium`) слева, `value` (`text/secondary`, `font/family/mono`, `type/body/md`) справа.',
+      '`label row` (`space/8`): `label` (`text/primary`, `type/label/md`, `font-weight/medium`) слева, `value` (`text/secondary`, `font/family/text` (табличные цифры; моно снято 17.11), `type/body/md`) справа.',
       '`track` — дорожка `control/track`, высота `size/track/sm` (S) / `size/track/md` (M), `radius/chip`; `fill` — заполнение той же высоты: Accent — `control/checked`, остальные — `status/{success|warning|danger}/solid`.',
     ],
     group: NONE,
@@ -755,7 +755,7 @@ export const DATA = [
     anatomy: [
       'Корень, `track` и `fill` — `size/progress-circle/sm` / `md` / `lg` по Size.',
       '`track` — кольцо `control/track`; `fill` — дуга `control/checked`, угол меняется в Arc (Ellipse → Arc, End).',
-      '`value` — процент в центре (`text/primary`, `font/family/mono`; M — `type/body/sm`, L — `type/body/md`); у S нет.',
+      '`value` — процент в центре (`text/primary`, `font/family/text` (табличные цифры; моно снято 17.11); M — `type/body/sm`, L — `type/body/md`); у S нет.',
     ],
     group: NONE,
     states: ['Состояний нет. Доля — угол дуги `fill`.'],
@@ -1069,7 +1069,7 @@ export const DATA = [
     ],
     never: 'перехват нажатий; цвет линии, отличный от `border/default`.',
     anatomy: [
-      'Line: `line` — вертикальная линия (`border/default`; в Dark на L0–L1 слабая, но различима — оставлено, стенд 15.11); `point` — точка серии (`data/1`, обводка `surface/current` (совпадает с подложкой на любом уровне, 15.11), `border/width/focus`); `halo` — ореол точки (`data/1`, прозрачность 0.24).',
+      'Line: `line` — вертикальная линия (`border/default`; в Dark на L0–L1 слабая, но различима — оставлено, стенд 15.11); `point` — точка серии (`border/accent` — серия 1 бренд, 17.11, обводка `surface/current` (совпадает с подложкой на любом уровне, 15.11), `border/width/focus`); `halo` — ореол точки (`border/accent`, прозрачность 0.24).',
       'Bar: `band` — полоса на ширину столбца (`status/neutral/subtle`).',
     ],
     group: NONE,
@@ -1347,7 +1347,7 @@ export const DATA = [
     dont: 'серия только цветом, без подписи; статус — Status; метка — Badge.',
     rule: [
       'State: Default — серия в покое; Hover — наведение на серию; Skeleton — график грузится.', 'Selected=On — серия выбрана / закреплена; только State=Default (4 из 6).',
-      'Вложенный Legend swatch: Marker Dot — столбцы и области, Line — линии; Series 1–8 = `data/1`…`data/8`, порядок как на графике.',
+      'Вложенный Legend swatch: Marker Dot — столбцы и области, Line — линии; Series 1 — `border/accent` (основная серия — бренд, 17.11), 2–8 — `data/2`…`data/8`, порядок как на графике.',
       'Show value — текущее значение серии рядом с подписью; по умолчанию выключено.',
       'Легенда — над графиком слева, зазор между элементами 16, перенос на новую строку разрешён.',
       'Подпись `type/label/md` (14) Medium — 17.11, по продукту (легенда графика дашборда).',
@@ -1356,7 +1356,7 @@ export const DATA = [
     anatomy: [
       'Корень — горизонтальный ряд, зазор `space/6`, max-width `size/legend-item/max` (160): Legend swatch (`size/legend-swatch`, вложен, exposed) → `label` → `value`.',
       '`label` — Body/SM Regular, `text/secondary` (Default) / `text/primary` (Hover); Selected=On — Label/SM Medium, `text/primary`.',
-      '`value` — `font/family/mono`, Body/SM, `text/primary`.',
+      '`value` — `font/family/text`, Body/SM, `text/primary`.',
       '`skeleton` — полоса `skeleton/base`, `radius/chip`, высотой строки текста; корень той же высоты, что Default (16); маркера в Skeleton нет.',
       'Служебные: `focus ring` (`border/focus-ring`, `border/width/focus-ring`, `radius/2xs`), `hit area · web` / `hit area · app`, `safe area · outer`.',
     ],
@@ -1406,7 +1406,7 @@ export const DATA = [
     anatomy: [
       'Корень — горизонтальный ряд, зазор `space/16`, вертикальные отступы `space/8` / `space/12`; у Total — линия сверху `border/subtle` (`border/width/default`).',
       '`key` — `text/secondary`, Body/MD Regular; у Total — Label/MD Medium.',
-      '`value` — Default: `text/primary`, `font/family/mono`; Muted: `text/secondary`; Total: Label/MD Medium, `font/family/mono` (как Default: числа в столбце выравниваются; 2026-11-16, пилот «Вывод»); max-width 200.',
+      '`value` — Default: `text/primary`, `font/family/text`; Muted: `text/secondary`; Total: Label/MD Medium, `font/family/text` (как Default: числа в столбце выравниваются; 2026-11-16, пилот «Вывод»); max-width 200.',
       '`leader` (Leader=On) — точечная линия между `key` и `value`: обводка `border/strong`, пунктир; заполняет промежуток.',
     ],
     group: NONE,
@@ -1758,7 +1758,7 @@ export const DATA = [
     anatomy: [
       'Корень (17.11, по баннерам Web App): заливка `surface/level-1`, обводка `border/width/default` — Neutral `border/subtle`, Accent — линейный градиент `border/accent` → `border/subtle`; радиус S `radius/container`, M / L `radius/surface`; обрезка по краю; отступы S `space/16`, M `space/24`, L `space/24` / `space/32`; мин. высота S 120 · M 178 · L 204.',
       '`body` — ряд `column` + `close`; `column` — `text` и `action` (зазор S `space/8`, M `space/16`, L `space/24`); `text` фиксированной ширины (S 124 · M 230 · L 340) — место под картинку.',
-      '`text` — `title row` (`title` + `badge`, зазор `space/8`) и `description` (`text/secondary`), зазор S `space/4`, M / L `space/8`; S — `type/label/sm` (12); M / L — заголовок `type/heading/md` (20, Medium), описание `type/body/md` (14).',
+      '`text` — `title row` (`title` + `badge`, зазор `space/8`, перенос: длинный заголовок переносится в пределах ширины `text`, бейдж уходит на следующую строку) и `description` (`text/secondary`), зазор S `space/4`, M / L `space/8`; S — `type/label/sm` (12); M / L — заголовок `type/heading/md` (20, Medium), описание `type/body/md` (14).',
       '`action` — вложенный Button S (`control/height/sm`).',
       '`media` — абсолютный слой под содержимым: `glow` (эллипс: Accent — `action/primary/default`, Neutral — `surface/level-3`; размытие слоя 80 / 160) и `image` (плейсхолдер `surface/level-2`, в макете — заливка картинкой) — S 104 · M 172 · L 272.',
       'Служебных слоёв нет.',
@@ -1884,7 +1884,7 @@ export const DATA = [
     ],
     never: 'несколько чисел в одной карточке; анимация счётчика; больше одной карточки с Ambient light на экран.',
     anatomy: [
-      'Корень: Tone=Neutral — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` (`border/width/default`); Danger / Warning / Success — `status/*/subtle` без обводки, значение `text/*`; `radius/container`, отступ `card/padding`, зазор `space/8`, min-width `size/card/min`.',
+      'Корень: Tone=Neutral — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` (`border/width/default`); Danger / Warning / Success — `status/*/subtle` без обводки, значение `text/*`; `radius/container`, отступ `card/padding`, зазор `space/8` (min-width снят 17.11: плитки статусов дашборда 160 в колонке).',
       '`label row` (зазор `space/4`): `label` (`type/body/sm`, `text/secondary`) + иконка Info.',
       '`value row` (зазор `space/6`): `value` (`type/heading/xl`, `font-weight/bold`, `font/family/display`, `text/primary`; по содержимому, max-width 180) + `unit` (`type/body/md`, `text/secondary`; max-width 64) — единица сразу за числом.',
       '`delta row` (зазор `space/6`, max-width 248): Badge S + `delta caption` (`type/body/sm`, `text/tertiary`; max-width 160).',
@@ -2842,7 +2842,7 @@ export const DATA = [
     ],
     never: 'больше двух кнопок; автоскрытие по таймеру (это Toast).',
     anatomy: [
-      'Корень: подложка `surface/raised` (Neutral) / `accent/subtle` (Accent) / `status/*/subtle`, обводка `border/subtle` (`border/width/default`), `radius/surface`, отступы `space/16` / `space/12`, справа `space/48` под крестик, зазор `space/16`; ширина 480 (Card) / 960 (Strip) числом.',
+      'Корень: подложка `surface/raised` (Neutral) / `accent/subtle` (Accent) / `status/*/subtle`, обводка `border/subtle` (`border/width/default`), Card — `radius/surface`, Strip — `radius/inner` (17.11, по продукту: плашка, не капсула); отступы `space/16` / `space/12`, справа у Card `space/48` под крестик, у Strip `space/16`; у Strip заголовок `type/label/md` цвета тона (`status/*/on-subtle`, `accent/on-subtle`), центр по вертикали, зазор `space/16`; ширина 480 (Card) / 960 (Strip) числом.',
       'Иконка `icon/size/md` по тону (`icon/info`, `icon/check-circle`, `icon/alert-triangle`, `icon/alert-circle`) → `content` (`space/12`): `text` (`space/4`; `title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) и `actions` (`space/8`).',
       '`primary` — вложенная Button `control/height/sm` (Neutral — Secondary, `action/accent/default`; Accent и тона Success / Warning / Danger — Primary `action/primary/default`, 2026-11-16); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).',
       '`close` — Icon button `control/height/sm` в правом верхнем углу.',
@@ -3208,10 +3208,10 @@ export const DATA = [
     anatomy: [
       'Корень — зазор `space/4`; 473 × 140 числом.',
       '`grid` — `border/subtle` × `border/width/default`, пунктир.',
-      '`bar` — `data/1` (Line + Bars — `data/4`), `radius/2xs`; в Hover невыбранные столбцы с прозрачностью 0.35.',
-      '`line`, `line 1…4` — штрих `data/1…4` × `chart/stroke`; `area` — `data/1` / `data/4`, прозрачность 0.45; `segment 1…4` — `data/1…4`, `radius/2xs`.',
+      '`bar` — `border/accent` (Line + Bars — `data/4`), `radius/2xs`; в Hover невыбранные столбцы с прозрачностью 0.35.',
+      '`line` и `line 1` — штрих `border/accent` (серия 1 — бренд, 17.11), `line 2…4` — `data/2…4` × `chart/stroke`; `area` — `border/accent` / `data/4`, прозрачность 0.45; `segment 1…4` — `data/1…4`, `radius/2xs`.',
       'Skeleton — `skeleton/base`; Disabled — `action/disabled`; Empty — «Нет данных за период» (`type/body/md`, `text/tertiary`) на сетке.',
-      'Hover — Chart crosshair (точка `data/1`, кольцо `surface/current` × `border/width/focus`, ореол 0.24) + Chart tooltip.',
+      'Hover — Chart crosshair (точка `border/accent`, кольцо `surface/current` × `border/width/focus`, ореол 0.24) + Chart tooltip.',
     ],
     group: 'График: Hover — Chart crosshair + Chart tooltip; Skeleton — загрузка; Empty — нет данных; Disabled — `action/disabled`',
     states: [

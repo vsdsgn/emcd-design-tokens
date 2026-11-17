@@ -20,7 +20,7 @@
 - Не делаем: больше двух кнопок; автоскрытие по таймеру (это Toast).
 
 ## 3. Anatomy
-- Корень: подложка `surface/raised` (Neutral) / `accent/subtle` (Accent) / `status/*/subtle`, обводка `border/subtle` (`border/width/default`), `radius/surface`, отступы `space/16` / `space/12`, справа `space/48` под крестик, зазор `space/16`; ширина 480 (Card) / 960 (Strip) числом.
+- Корень: подложка `surface/raised` (Neutral) / `accent/subtle` (Accent) / `status/*/subtle`, обводка `border/subtle` (`border/width/default`), Card — `radius/surface`, Strip — `radius/inner` (17.11, по продукту: плашка, не капсула); отступы `space/16` / `space/12`, справа у Card `space/48` под крестик, у Strip `space/16`; у Strip заголовок `type/label/md` цвета тона (`status/*/on-subtle`, `accent/on-subtle`), центр по вертикали, зазор `space/16`; ширина 480 (Card) / 960 (Strip) числом.
 - Иконка `icon/size/md` по тону (`icon/info`, `icon/check-circle`, `icon/alert-triangle`, `icon/alert-circle`) → `content` (`space/12`): `text` (`space/4`; `title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) и `actions` (`space/8`).
 - `primary` — вложенная Button `control/height/sm` (Neutral — Secondary, `action/accent/default`; Accent и тона Success / Warning / Danger — Primary `action/primary/default`, 2026-11-16); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).
 - `close` — Icon button `control/height/sm` в правом верхнем углу.
@@ -76,11 +76,11 @@
 - Кнопки достижимы по Tab в порядке чтения. Кольцо фокуса и зоны нажатия — у вложенных Button и крестика.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/raised`; интервал `space/16`; отступы `space/12`, `space/16`, `space/48`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `accent/subtle`, `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/raised`; интервал `space/16`; отступы `space/12`, `space/16`, `space/48`; радиус `radius/inner`, `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `icon/info`: высота `icon/size/md`; ширина `icon/size/md`.
 - `content`: интервал `space/12`.
 - `text`: интервал `space/4`.
-- `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
+- `title`: заливка / цвет `accent/on-subtle`, `status/danger/on-subtle`, `status/success/on-subtle`, `status/warning/on-subtle`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `actions`: интервал `space/8`.
 - `primary`: заливка / цвет `action/accent/default`, `action/primary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`.

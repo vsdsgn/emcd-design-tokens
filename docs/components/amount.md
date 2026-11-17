@@ -23,7 +23,7 @@
 
 ## 3. Anatomy
 - Корень — вертикальный стек: строка `value` + `ticker`, под ней `fiat` (`text/secondary`).
-- S / M — `font/family/mono` (цифры одной ширины, колонки выравниваются); L / XL — `font/family/display`.
+- S / M — `font/family/text` с табличными цифрами (17.11: моно — только в осях графиков; было `font/family/mono`); L — `type/heading/md` (20), Medium, `font/family/text`, тикер того же кегля (17.11, по продукту: суммы сводки дашборда); XL — `font/family/display`, Bold.
 - Служебные слои (вариантов из 24): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -69,10 +69,10 @@
 ## 10. Tokens
 - `корень`: интервал `space/2`.
 - `row`: интервал `space/4`, `space/6`, `space/8`.
-- `value`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/regular`, `font/family/display`, `font/family/mono`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/xl`.
-- `ticker`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/lg`, `type/body/md`, `type/body/sm`.
+- `value`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/medium`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/md`.
+- `ticker`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/lg`, `type/body/md`, `type/body/sm`, `type/heading/md`.
 - `fiat`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`, `type/body/sm`.
-- `sign`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/regular`, `font/family/display`, `font/family/mono`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/xl`.
+- `sign`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/medium`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/md`.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.

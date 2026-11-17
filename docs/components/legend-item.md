@@ -14,7 +14,7 @@
 - Правило выбора варианта:
   - State: Default — серия в покое; Hover — наведение на серию; Skeleton — график грузится.
   - Selected=On — серия выбрана / закреплена; только State=Default (4 из 6).
-  - Вложенный Legend swatch: Marker Dot — столбцы и области, Line — линии; Series 1–8 = `data/1`…`data/8`, порядок как на графике.
+  - Вложенный Legend swatch: Marker Dot — столбцы и области, Line — линии; Series 1 — `border/accent` (основная серия — бренд, 17.11), 2–8 — `data/2`…`data/8`, порядок как на графике.
   - Show value — текущее значение серии рядом с подписью; по умолчанию выключено.
   - Легенда — над графиком слева, зазор между элементами 16, перенос на новую строку разрешён.
   - Подпись `type/label/md` (14) Medium — 17.11, по продукту (легенда графика дашборда).
@@ -23,7 +23,7 @@
 ## 3. Anatomy
 - Корень — горизонтальный ряд, зазор `space/6`, max-width `size/legend-item/max` (160): Legend swatch (`size/legend-swatch`, вложен, exposed) → `label` → `value`.
 - `label` — Body/SM Regular, `text/secondary` (Default) / `text/primary` (Hover); Selected=On — Label/SM Medium, `text/primary`.
-- `value` — `font/family/mono`, Body/SM, `text/primary`.
+- `value` — `font/family/text`, Body/SM, `text/primary`.
 - `skeleton` — полоса `skeleton/base`, `radius/chip`, высотой строки текста; корень той же высоты, что Default (16); маркера в Skeleton нет.
 - Служебные: `focus ring` (`border/focus-ring`, `border/width/focus-ring`, `radius/2xs`), `hit area · web` / `hit area · app`, `safe area · outer`.
 - Вложено: `Legend swatch` ×3.

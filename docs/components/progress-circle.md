@@ -22,7 +22,7 @@
 ## 3. Anatomy
 - Корень, `track` и `fill` — `size/progress-circle/sm` / `md` / `lg` по Size.
 - `track` — кольцо `control/track`; `fill` — дуга `control/checked`, угол меняется в Arc (Ellipse → Arc, End).
-- `value` — процент в центре (`text/primary`, `font/family/mono`; M — `type/body/sm`, L — `type/body/md`); у S нет.
+- `value` — процент в центре (`text/primary`, `font/family/text` (табличные цифры; моно снято 17.11); M — `type/body/sm`, L — `type/body/md`); у S нет.
 - Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -65,7 +65,7 @@
 - `корень`: высота `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; ширина `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
 - `track`: заливка / цвет `control/track`; высота `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; ширина `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
 - `fill`: заливка / цвет `control/checked`; высота `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; ширина `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
-- `value`: заливка / цвет `text/primary`; типографика `font-weight/regular`, `font/family/mono`, `type/body/md`, `type/body/sm`.
+- `value`: заливка / цвет `text/primary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`, `type/body/sm`.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.

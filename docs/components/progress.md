@@ -20,7 +20,7 @@
 
 ## 3. Anatomy
 - Корень — вертикальный стек, зазор `space/8`.
-- `label row` (`space/8`): `label` (`text/primary`, `type/label/md`, `font-weight/medium`) слева, `value` (`text/secondary`, `font/family/mono`, `type/body/md`) справа.
+- `label row` (`space/8`): `label` (`text/primary`, `type/label/md`, `font-weight/medium`) слева, `value` (`text/secondary`, `font/family/text` (табличные цифры; моно снято 17.11), `type/body/md`) справа.
 - `track` — дорожка `control/track`, высота `size/track/sm` (S) / `size/track/md` (M), `radius/chip`; `fill` — заполнение той же высоты: Accent — `control/checked`, остальные — `status/{success|warning|danger}/solid`.
 - Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -70,7 +70,7 @@
 - `корень`: интервал `space/8`.
 - `label row`: интервал `space/8`.
 - `label`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- `value`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/mono`, `type/body/md`.
+- `value`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - `track`: заливка / цвет `control/track`; высота `size/track/md`, `size/track/sm`; радиус `radius/chip`.
 - `fill`: заливка / цвет `control/checked`, `status/danger/solid`, `status/success/solid`, `status/warning/solid`; высота `size/track/md`, `size/track/sm`; радиус `radius/chip`.
 - Значений без переменной: 10 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.

@@ -481,17 +481,18 @@
        "f:text/primary",
        "f:text/success",
        "fontFamily:font/family/display",
-       "fontFamily:font/family/mono",
+       "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
        "fontSize:type/display/lg/size",
-       "fontSize:type/heading/xl/size",
+       "fontSize:type/heading/md/size",
        "fontWeight:font-weight/bold",
+       "fontWeight:font-weight/medium",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height",
        "lineHeight:type/display/lg/line-height",
-       "lineHeight:type/heading/xl/line-height"
+       "lineHeight:type/heading/md/line-height"
       ],
       "ticker": [
        "f:text/secondary",
@@ -499,10 +500,13 @@
        "fontSize:type/body/lg/size",
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
+       "fontSize:type/heading/md/size",
+       "fontWeight:font-weight/medium",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/lg/line-height",
        "lineHeight:type/body/md/line-height",
-       "lineHeight:type/body/sm/line-height"
+       "lineHeight:type/body/sm/line-height",
+       "lineHeight:type/heading/md/line-height"
       ],
       "fiat": [
        "f:text/secondary",
@@ -517,17 +521,18 @@
        "f:text/primary",
        "f:text/success",
        "fontFamily:font/family/display",
-       "fontFamily:font/family/mono",
+       "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
        "fontSize:type/display/lg/size",
-       "fontSize:type/heading/xl/size",
+       "fontSize:type/heading/md/size",
        "fontWeight:font-weight/bold",
+       "fontWeight:font-weight/medium",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height",
        "lineHeight:type/display/lg/line-height",
-       "lineHeight:type/heading/xl/line-height"
+       "lineHeight:type/heading/md/line-height"
       ]
      },
      "statusFirstLine": true
@@ -1993,10 +1998,10 @@
        "f:border/default"
       ],
       "halo": [
-       "f:data/1"
+       "f:border/accent"
       ],
       "point": [
-       "f:data/1",
+       "f:border/accent",
        "s:surface/current",
        "sw:border/width/focus"
       ],
@@ -2253,7 +2258,7 @@
       ],
       "bar": [
        "f:action/disabled",
-       "f:data/1",
+       "f:border/accent",
        "f:data/4",
        "f:skeleton/base",
        "r:radius/2xs"
@@ -2264,18 +2269,18 @@
       ],
       "line": [
        "s:action/disabled",
-       "s:data/1",
+       "s:border/accent",
        "s:skeleton/base",
        "sw:chart/stroke"
       ],
       "area": [
        "f:action/disabled",
-       "f:data/1",
+       "f:border/accent",
        "f:data/4",
        "f:skeleton/base"
       ],
       "line 1": [
-       "s:data/1",
+       "s:border/accent",
        "sw:chart/stroke"
       ],
       "line 2": [
@@ -2292,7 +2297,7 @@
        "sw:chart/stroke"
       ],
       "segment 1": [
-       "f:data/1",
+       "f:border/accent",
        "r:radius/2xs"
       ],
       "segment 2": [
@@ -2321,10 +2326,10 @@
        "sw:border/width/default"
       ],
       "halo": [
-       "f:data/1"
+       "f:border/accent"
       ],
       "point": [
-       "f:data/1",
+       "f:border/accent",
        "s:surface/current",
        "sw:border/width/focus"
       ],
@@ -5780,7 +5785,7 @@
       "value": [
        "f:text/primary",
        "f:text/secondary",
-       "fontFamily:font/family/mono",
+       "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
@@ -8011,7 +8016,7 @@
       ],
       "value": [
        "f:text/secondary",
-       "fontFamily:font/family/mono",
+       "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height"
@@ -8142,7 +8147,7 @@
       ],
       "value": [
        "f:text/primary",
-       "fontFamily:font/family/mono",
+       "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
        "fontWeight:font-weight/regular",
@@ -8316,6 +8321,7 @@
        "gap:space/8"
       ],
       "title row": [
+       "gap2:space/4",
        "gap:space/8"
       ],
       "title": [
@@ -10428,9 +10434,7 @@
       "Badge": 4,
       "Skeleton": 3
      },
-     "minmax": [
-      "minw=280 size/card/min"
-     ],
+     "minmax": [],
      "layers": {
       "ring": 0,
       "hitWeb": 0,
@@ -10449,7 +10453,6 @@
        "f:status/warning/subtle",
        "f:surface/next",
        "gap:space/8",
-       "minw:size/card/min",
        "p:card/padding",
        "r:radius/container",
        "s:border/subtle",
@@ -11352,6 +11355,7 @@
        "p:space/12",
        "p:space/16",
        "p:space/48",
+       "r:radius/inner",
        "r:radius/surface",
        "s:border/subtle",
        "sw:border/width/default"
@@ -11367,11 +11371,17 @@
        "gap:space/4"
       ],
       "title": [
+       "f:accent/on-subtle",
+       "f:status/danger/on-subtle",
+       "f:status/success/on-subtle",
+       "f:status/warning/on-subtle",
        "f:text/primary",
        "fontFamily:font/family/text",
        "fontSize:type/label/lg/size",
+       "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height"
+       "lineHeight:type/label/lg/line-height",
+       "lineHeight:type/label/md/line-height"
       ],
       "description": [
        "f:text/secondary",

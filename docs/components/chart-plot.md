@@ -22,10 +22,10 @@
 ## 3. Anatomy
 - Корень — зазор `space/4`; 473 × 140 числом.
 - `grid` — `border/subtle` × `border/width/default`, пунктир.
-- `bar` — `data/1` (Line + Bars — `data/4`), `radius/2xs`; в Hover невыбранные столбцы с прозрачностью 0.35.
-- `line`, `line 1…4` — штрих `data/1…4` × `chart/stroke`; `area` — `data/1` / `data/4`, прозрачность 0.45; `segment 1…4` — `data/1…4`, `radius/2xs`.
+- `bar` — `border/accent` (Line + Bars — `data/4`), `radius/2xs`; в Hover невыбранные столбцы с прозрачностью 0.35.
+- `line` и `line 1` — штрих `border/accent` (серия 1 — бренд, 17.11), `line 2…4` — `data/2…4` × `chart/stroke`; `area` — `border/accent` / `data/4`, прозрачность 0.45; `segment 1…4` — `data/1…4`, `radius/2xs`.
 - Skeleton — `skeleton/base`; Disabled — `action/disabled`; Empty — «Нет данных за период» (`type/body/md`, `text/tertiary`) на сетке.
-- Hover — Chart crosshair (точка `data/1`, кольцо `surface/current` × `border/width/focus`, ореол 0.24) + Chart tooltip.
+- Hover — Chart crosshair (точка `border/accent`, кольцо `surface/current` × `border/width/focus`, ореол 0.24) + Chart tooltip.
 - Вложено: `Chart crosshair` ×7, `Chart tooltip` ×7.
 - Служебные слои (вариантов из 23): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
@@ -71,21 +71,21 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/4`.
-- `bar`: заливка / цвет `action/disabled`, `data/1`, `data/4`, `skeleton/base`; радиус `radius/2xs`.
+- `bar`: заливка / цвет `action/disabled`, `border/accent`, `data/4`, `skeleton/base`; радиус `radius/2xs`.
 - `grid`: обводка `border/subtle`; толщина обводки `border/width/default`.
-- `line`: обводка `action/disabled`, `data/1`, `skeleton/base`; толщина обводки `chart/stroke`.
-- `area`: заливка / цвет `action/disabled`, `data/1`, `data/4`, `skeleton/base`.
-- `line 1`: обводка `data/1`; толщина обводки `chart/stroke`.
+- `line`: обводка `action/disabled`, `border/accent`, `skeleton/base`; толщина обводки `chart/stroke`.
+- `area`: заливка / цвет `action/disabled`, `border/accent`, `data/4`, `skeleton/base`.
+- `line 1`: обводка `border/accent`; толщина обводки `chart/stroke`.
 - `line 2`: обводка `data/2`, `data/4`; толщина обводки `chart/stroke`.
 - `line 3`: обводка `data/3`; толщина обводки `chart/stroke`.
 - `line 4`: обводка `data/4`; толщина обводки `chart/stroke`.
-- `segment 1`: заливка / цвет `data/1`; радиус `radius/2xs`.
+- `segment 1`: заливка / цвет `border/accent`; радиус `radius/2xs`.
 - `segment 2`: заливка / цвет `data/2`; радиус `radius/2xs`.
 - `segment 3`: заливка / цвет `data/3`; радиус `radius/2xs`.
 - `segment 4`: заливка / цвет `data/4`; радиус `radius/2xs`.
 - `Chart tooltip`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/raised`; интервал `space/6`; maxw `size/tooltip/max`; мин. ширина `size/chart-tooltip/min`; отступы `space/10`, `space/sm`; радиус `radius/sm`; обводка `border/default`; толщина обводки `border/width/default`.
-- `halo`: заливка / цвет `data/1`.
-- `point`: заливка / цвет `data/1`; обводка `surface/current`; толщина обводки `border/width/focus`.
+- `halo`: заливка / цвет `border/accent`.
+- `point`: заливка / цвет `border/accent`; обводка `surface/current`; толщина обводки `border/width/focus`.
 - `Нет данных за период`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - Значений без переменной: 80 (напр. `(root):w=473`, `(root):h=140`, `area:o=0.45`, `bar:o=0.35`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
