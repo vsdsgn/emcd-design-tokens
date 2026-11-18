@@ -13,6 +13,7 @@
 - Когда использовать: заголовок колонки в Table.
 - Когда нет: заголовок блока или карточки — текстовый стиль Heading; вне таблицы не используется.
 - Правило выбора варианта:
+  - Sortable (18.11, по продукту): у сортируемой колонки в Sort=None — иконка `icon/sort` (`text/tertiary`) перед подписью; Descending — `icon/sort-line-down`, Ascending — `icon/sort-line-up` (`text/primary`); Sortable = Off — колонка без сортировки, без иконки
   - Align: Start — текст, даты, статусы; End — числа и суммы (заголовок у конца строки, стрелка перед текстом). Start / End — логические стороны, в RTL зеркалятся.
   - Sort: None — колонка не отсортирована или не сортируется (`text/tertiary`); Ascending / Descending — активная сортировка (`text/primary` + стрелка).
   - Клик по сортируемому заголовку: None → Descending → Ascending.
@@ -26,7 +27,7 @@
 - Корень: высота `size/table/header`, отступы `space/12`, зазор `space/4`, min-width `size/table-cell/min`, ширина — по колонке.
 - `label` — Align=Start: по содержимому, стрелка сортировки сразу после подписи (16.11, по продукту); Align=End: Fill с выравниванием к концу; `type/label/md/*`, `font-weight/medium`; стрелка сортировки, иконки фильтра и info (Show filter / Show info).
 - Служебные: `state layer` (`state/layer` × `state/hover` / `state/pressed`), `focus ring` (внутри ячейки), зоны `hit area · web` / `· app`, `safe area · outer`; `skeleton` (`skeleton/base`, `radius/chip`).
-- Вложено: иконки ×48.
+- Вложено: иконки ×54.
 - Служебные слои (вариантов из 20): кольцо фокуса 20 · зона Web 20 · зона касания 20 · безопасное поле 20.
 
 ## 4. States
@@ -57,6 +58,7 @@
 | Safe margin | булево | выкл | 20 из 20 · служебное |
 | Show filter | булево | выкл | 18 из 20 |
 | Show info | булево | выкл | 18 из 20 |
+| Sortable | булево | вкл | 6 из 20 |
 
 - Label — текст заголовка (по умолчанию «Сумма»); Focus ring, Show hit area, Safe margin — служебные; Show filter, Show info — нет у Skeleton.
 
@@ -92,13 +94,13 @@
 ## 12. Figma projection
 - Набор `Table header cell`, вариантов 20 из 24; оси: Align, Sort, State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 12.
-- Описание: 1171 знаков, разделы: Status: Level: Правила: Длинный текст: A11y: Часть Table. Поиск: Legacy: Когда использовать: Матрица:
+- Описание: 1318 знаков, разделы: Status: Level: Правила: Длинный текст: A11y: Часть Table. Поиск: Legacy: Когда использовать: Матрица: Sortable (18.
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsTableHeaderCell>`; Flutter: `DsTableHeaderCell`.
-- Props: `align`: start | end; `sort`: none | ascending | descending; `label`: string или слот; `showFilter`: boolean = false; `showInfo`: boolean = false.
+- Props: `align`: start | end; `sort`: none | ascending | descending; `label`: string или слот; `showFilter`: boolean = false; `showInfo`: boolean = false; `sortable`: boolean = true.
 - Состояния (Skeleton, Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-18)

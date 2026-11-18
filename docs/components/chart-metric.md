@@ -12,6 +12,7 @@
 - Когда использовать: ключевое значение над графиком (текущий хешрейт, прибыль).
 - Когда нет: список показателей — Key-value row; карточка с динамикой — Stat card.
 - Правило выбора варианта:
+  - Подпись и единица — `text/tertiary` (18.11, Стефан: вторичное тише, как в продукте); значение — `text/primary`
   - Tone отражает смысл значения, а не оценку: Default — значение в норме; Danger — вне нормы, критично («Отключен»); Warning — вне нормы, требует внимания (реджекты выше нормы); Success — подтверждённо хорошее значение.
   - Icon: Off — по умолчанию; On — иконка слева от значения (Icon · swap — иконка из `icon/*`), цвет — как у значения по Tone (`text/primary`, `text/danger`, `text/warning`, `text/success`; 2026-11-16).
   - Value — число до 228 по ширине, длиннее — формат K / M / T; единицы отделяются тонким пробелом.
@@ -67,11 +68,11 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/4`; maxw `size/chart-metric/max`.
-- `label`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/body/sm`.
+- `label`: заливка / цвет `text/tertiary`; типографика `font-weight/medium`, `font/family/text`, `type/body/sm`.
 - `value row`: интервал `space/4`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `value`: заливка / цвет `text/danger`, `text/primary`, `text/success`, `text/warning`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
-- `unit`: заливка / цвет `text/secondary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
+- `unit`: заливка / цвет `text/tertiary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
 - Min / max корня: maxWidth 240 size/chart-metric/max.
 
 ## 11. Platforms
@@ -80,7 +81,7 @@
 ## 12. Figma projection
 - Набор `Chart metric`, вариантов 4 из 4; оси: Tone.
 - Борда: «Chart metric — борда · шаблон v3», разделов 11.
-- Описание: 1039 знаков, разделы: Status: Level: Показатель: Когда использовать: Правила: A11y:
+- Описание: 1114 знаков, разделы: Status: Level: Показатель: Когда использовать: Правила: A11y: Подпись и единица —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

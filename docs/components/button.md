@@ -12,6 +12,7 @@
 - Когда использовать: запуск действия: отправить, сохранить, отменить, удалить.
 - Когда нет: переход на другую страницу в тексте — ссылка; действие иконкой без подписи — Icon button; выбор варианта — Chip / Segmented.
 - Правило выбора варианта:
+  - Зазор иконка — подпись (18.11): `space/4` у S–XL (с полями подписи — 10, как в продукте); XS — `space/2`; поля M — `space/12`
   - Type: Primary — главное действие экрана или блока, одна на группу; Secondary — второе по важности (тонированная подложка), только на L0–L1; Tertiary — нейтральное (Отмена, Назад, Фильтры); Tertiary outline — нейтральное на L2–L3 или пёстрой подложке; Text — действие внутри строки, без подложки и отступов; Inverted — на тёмных, цветных и промо-подложках, на изображениях.
   - Tone: Default — цвет типа; Danger — разрушающее действие, есть у всех типов, кроме Inverted (отсюда 176 из 192).
   - Size: S 32 — таблицы, тулбары, фильтры; M 40 — по умолчанию в Web; L 48 — по умолчанию в App и мобильном вебе; XL 56 — только App: один главный CTA внизу экрана (решение 2026-11-17); на Web XL не используется, Modal — L 48.
@@ -83,16 +84,16 @@
 - Контраст: белый текст на заливке ≥ 4.5:1; цветной текст (Text, Secondary) ≥ 4.5:1 на L0; Primary на L3 в тёмной теме < 3:1 — не ставить.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/accent/default`, `action/danger-subtle/default`, `action/danger/default`, `action/disabled`, `action/inverse/default`, `action/primary/default`, `action/secondary/default`, `action/tertiary/default`; интервал `space/2`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`, `control/height/xs`; мин. ширина `size/button/min`; отступы `space/12`, `space/16`, `space/4`, `space/6`, `space/8`; радиус `radius/control`, `radius/control-sm`, `radius/xs`; обводка `control/border/default`, `control/border/error`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `action/accent/default`, `action/danger-subtle/default`, `action/danger/default`, `action/disabled`, `action/inverse/default`, `action/primary/default`, `action/secondary/default`, `action/tertiary/default`; интервал `space/2`, `space/4`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`, `control/height/xs`; мин. ширина `size/button/min`; отступы `space/12`, `space/16`, `space/4`, `space/6`; радиус `radius/control`, `radius/control-sm`, `radius/xs`; обводка `control/border/default`, `control/border/error`; толщина обводки `border/width/default`.
 - `spinner`: высота `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`.
 - `icon left`: высота `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`.
 - `pad L`: ширина `space/2`.
-- `label`: заливка / цвет `fixed/light`, `text/accent`, `text/danger`, `text/disabled`, `text/inverse`, `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`, `type/label/sm`.
+- `label`: заливка / цвет `action/primary/default`, `fixed/light`, `text/accent`, `text/accent-hover`, `text/accent-pressed`, `text/danger`, `text/disabled`, `text/inverse`, `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`, `type/label/sm`.
 - `pad R`: ширина `space/2`.
 - `icon right`: высота `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`.
 - Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid`; толщина обводки `border/width/default` · `hit area · app`: видимость `touch/is-coarse` · `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-lg`, `radius/focus-ring-sm`, `radius/focus-ring-xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `safe area · content`: заливка / цвет `status/success/solid` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
 - Min / max корня: minWidth 64 size/button/min.
-- Значений без переменной: 440 (напр. `hit area · web:w=69`, `hit area · web:h=40`, `hit area · web:w=65`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 440 (напр. `hit area · web:w=81`, `hit area · web:h=40`, `hit area · web:w=69`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -102,7 +103,7 @@
 ## 12. Figma projection
 - Набор `Button`, вариантов 220 из 240; оси: Type, Tone, Size, State.
 - Борда: «Button — борда · шаблон v3», разделов 12.
-- Описание: 4402 знаков, разделы: Status: Level: Кнопка действия. Когда использовать: Матрица: • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted — • Default —
+- Описание: 4502 знаков, разделы: Status: Level: Кнопка действия. Когда использовать: Матрица: • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted — • Default —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

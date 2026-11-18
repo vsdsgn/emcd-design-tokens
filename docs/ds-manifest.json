@@ -16,7 +16,7 @@
   },
   "variants": 1615,
   "incompleteMatrix": 17,
-  "propsNotBoundEverywhere": 16,
+  "propsNotBoundEverywhere": 18,
   "rawMinMax": 1,
   "withRawValues": 66,
   "withFocusRing": 21,
@@ -1220,7 +1220,7 @@
      "id": "218:16966",
      "type": "SET",
      "status": "beta",
-     "descLen": 4402,
+     "descLen": 4502,
      "descHeads": [
       "Status:",
       "Level:",
@@ -1337,13 +1337,13 @@
      },
      "rawCount": 440,
      "raw": [
-      "hit area · web:w=69",
+      "hit area · web:w=81",
       "hit area · web:h=40",
-      "hit area · web:w=65",
+      "hit area · web:w=69",
       "hit area · web:h=32",
-      "hit area · web:w=83",
+      "hit area · web:w=87",
       "hit area · web:h=48",
-      "hit area · web:w=91",
+      "hit area · web:w=95",
       "hit area · web:h=56",
       "hit area · web:w=64",
       "hit area · web:h=24",
@@ -1361,6 +1361,7 @@
        "f:action/secondary/default",
        "f:action/tertiary/default",
        "gap:space/2",
+       "gap:space/4",
        "h:control/height/lg",
        "h:control/height/md",
        "h:control/height/sm",
@@ -1371,7 +1372,6 @@
        "p:space/16",
        "p:space/4",
        "p:space/6",
-       "p:space/8",
        "r:radius/control",
        "r:radius/control-sm",
        "r:radius/xs",
@@ -1411,8 +1411,11 @@
        "w:space/2"
       ],
       "label": [
+       "f:action/primary/default",
        "f:fixed/light",
        "f:text/accent",
+       "f:text/accent-hover",
+       "f:text/accent-pressed",
        "f:text/danger",
        "f:text/disabled",
        "f:text/inverse",
@@ -2046,14 +2049,15 @@
      "id": "101:1011",
      "type": "SET",
      "status": "beta",
-     "descLen": 1039,
+     "descLen": 1114,
      "descHeads": [
       "Status:",
       "Level:",
       "Показатель:",
       "Когда использовать:",
       "Правила:",
-      "A11y:"
+      "A11y:",
+      "Подпись и единица —"
      ],
      "inBoard": false,
      "axes": {
@@ -2125,7 +2129,7 @@
        "maxw:size/chart-metric/max"
       ],
       "label": [
-       "f:text/secondary",
+       "f:text/tertiary",
        "fontFamily:font/family/text",
        "fontSize:type/body/sm/size",
        "fontWeight:font-weight/medium",
@@ -2149,7 +2153,7 @@
        "lineHeight:type/heading/lg/line-height"
       ],
       "unit": [
-       "f:text/secondary",
+       "f:text/tertiary",
        "fontFamily:font/family/display",
        "fontSize:type/heading/lg/size",
        "fontWeight:font-weight/bold",
@@ -2781,7 +2785,7 @@
      "id": "47:364",
      "type": "SET",
      "status": "beta",
-     "descLen": 1222,
+     "descLen": 1323,
      "descHeads": [
       "Status:",
       "Level:",
@@ -2791,7 +2795,8 @@
       "A11y:",
       "Поиск:",
       "Legacy:",
-      "Selected (18."
+      "Selected (18.",
+      "Status dot (18."
      ],
      "inBoard": false,
      "axes": {
@@ -2879,10 +2884,17 @@
        "type": "INSTANCE_SWAP",
        "def": "icon/plus",
        "bound": 20
+      },
+      {
+       "name": "Status dot",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 16
       }
      ],
      "nested": {
-      "(icons)": 60
+      "(icons)": 60,
+      "_Dot": 16
      },
      "minmax": [
       "maxw=240 size/chip/max"
@@ -2921,6 +2933,10 @@
        "s:control/border/default",
        "s:control/border/disabled",
        "sw:border/width/default"
+      ],
+      "status dot": [
+       "h:size/dot/sm",
+       "w:size/dot/sm"
       ],
       "label": [
        "f:text/disabled",
@@ -6829,7 +6845,7 @@
      "id": "65:82",
      "type": "SET",
      "status": "beta",
-     "descLen": 1411,
+     "descLen": 1484,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6840,7 +6856,8 @@
       "Поиск:",
       "Legacy:",
       "Expressive (привязано):",
-      "Badge (16."
+      "Badge (16.",
+      "Подпись 16 (Label/LG, 18."
      ],
      "inBoard": false,
      "axes": {
@@ -6937,9 +6954,9 @@
       "label": [
        "f:text/primary",
        "fontFamily:font/family/text",
-       "fontSize:type/label/md/size",
+       "fontSize:type/label/lg/size",
        "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height"
+       "lineHeight:type/label/lg/line-height"
       ],
       "badge": [
        "f:status/neutral/subtle",
@@ -10345,7 +10362,7 @@
      "id": "60:57",
      "type": "SET",
      "status": "beta",
-     "descLen": 1583,
+     "descLen": 1734,
      "descHeads": [
       "Status:",
       "Level:",
@@ -10428,11 +10445,18 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 5
+      },
+      {
+       "name": "Link",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 4
       }
      ],
      "nested": {
       "(icons)": 4,
       "Badge": 4,
+      "Icon button": 4,
       "Skeleton": 3
      },
      "minmax": [],
@@ -10510,6 +10534,14 @@
        "fontSize:type/body/sm/size",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/sm/line-height"
+      ],
+      "link": [
+       "f:action/danger-subtle/default",
+       "f:action/secondary/default",
+       "gap:space/6",
+       "h:control/height/xs",
+       "r:radius/control-sm",
+       "w:control/height/xs"
       ],
       "Skeleton": [
        "f:skeleton/base",
@@ -11469,7 +11501,7 @@
      "id": "45:155",
      "type": "SET",
      "status": "beta",
-     "descLen": 1278,
+     "descLen": 1402,
      "descHeads": [
       "Status:",
       "Level:",
@@ -11480,7 +11512,8 @@
       "Overflow:",
       "A11y:",
       "Поиск:",
-      "Legacy:"
+      "Legacy:",
+      "Status dot (18."
      ],
      "inBoard": false,
      "axes": {
@@ -11546,10 +11579,17 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 36
+      },
+      {
+       "name": "Status dot",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 32
       }
      ],
      "nested": {
       "(icons)": 36,
+      "_Dot": 32,
       "Counter": 36
      },
      "minmax": [],
@@ -11592,6 +11632,10 @@
       "icon": [
        "h:icon/size/md",
        "w:icon/size/md"
+      ],
+      "status dot": [
+       "h:size/dot/sm",
+       "w:size/dot/sm"
       ],
       "label": [
        "f:text/disabled",
@@ -12071,7 +12115,7 @@
      "id": "62:67",
      "type": "SET",
      "status": "beta",
-     "descLen": 1171,
+     "descLen": 1318,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12082,7 +12126,8 @@
       "Поиск:",
       "Legacy:",
       "Когда использовать:",
-      "Матрица:"
+      "Матрица:",
+      "Sortable (18."
      ],
      "inBoard": false,
      "axes": {
@@ -12140,10 +12185,16 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 18
+      },
+      {
+       "name": "Sortable",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 6
       }
      ],
      "nested": {
-      "(icons)": 48
+      "(icons)": 54
      },
      "minmax": [
       "minw=80 size/table-cell/min"

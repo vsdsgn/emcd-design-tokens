@@ -15,11 +15,12 @@
   - Size: S 32 — мини-табы внутри виджета или карточки; M 48 — App и мобильный веб; L 56 — Web, разделы внутри страницы; Page 64 (до 2026-11-17 — XL; текст 20, `type/heading/md`, Medium — 16.11 по продукту Web App) — табы-заголовок страницы, не размер контрола. В одном баре один размер.
   - Counter — `Counter` Neutral; Accent / Danger — только если требует действия.
   - Icon — редко, только если у всех табов.
+  - Status dot (18.11): точка статуса `_Dot` S перед подписью — табы-фильтры по статусу («Активные» Success, «Нестабильные» Warning, «Отключённые» Danger); тон — у открытого экземпляра `status dot`
 
 ## 3. Anatomy
 - Корень: `icon` · `label` · `Counter`; `indicator` — подчёркивание выбранного (3 px у L / Page, 2 px у S / M).
 - Служебные: `state layer`, `focus ring`, зоны, `safe area · outer`.
-- Вложено: иконки ×36, `Counter` ×36.
+- Вложено: иконки ×36, `_Dot` ×32, `Counter` ×36.
 - Служебные слои (вариантов из 36): кольцо фокуса 36 · зона Web 36 · зона касания 36 · безопасное поле 36.
 
 ## 4. States
@@ -50,6 +51,7 @@
 | Focus ring | булево | выкл | 36 из 36 · служебное |
 | Show hit area | булево | выкл | 36 из 36 · служебное |
 | Safe margin | булево | выкл | 36 из 36 · служебное |
+| Status dot | булево | выкл | 32 из 36 |
 
 ## 6. Content / slots
 - Длинный текст: одна строка, усечение многоточием по max-width 240 (подпись); полный текст — в `title` / тултипе.
@@ -71,6 +73,7 @@
 ## 10. Tokens
 - `корень`: интервал `space/6`, `space/8`; высота `control/height/2xl`, `control/height/lg`, `control/height/sm`, `control/height/xl`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
+- `status dot`: высота `size/dot/sm`; ширина `size/dot/sm`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/md`, `type/label/lg`, `type/label/md`, `type/label/sm`.
 - `counter`: заливка / цвет `status/neutral/subtle`; maxw `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `space/2xs`, `space/6`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `indicator`: заливка / цвет `border/accent`, `border/default`, `border/strong`, `control/border/disabled`; высота `size/tab-indicator/lg`, `size/tab-indicator/sm`.
@@ -86,13 +89,13 @@
 ## 12. Figma projection
 - Набор `Tab`, вариантов 36 из 40; оси: Size, Selected, State.
 - Борда: «Tab — борда · шаблон v3», разделов 12.
-- Описание: 1278 знаков, разделы: Status: Level: Таб: Когда использовать: Правила: Матрица: Overflow: A11y: Поиск: Legacy:
+- Описание: 1402 знаков, разделы: Status: Level: Таб: Когда использовать: Правила: Матрица: Overflow: A11y: Поиск: Legacy: Status dot (18.
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsTab>`; Flutter: `DsTab`.
-- Props: `size`: m | l | page | s; `selected`: boolean; `label`: string или слот; `counter`: boolean = false; `icon`: boolean = false.
+- Props: `size`: m | l | page | s; `selected`: boolean; `label`: string или слот; `counter`: boolean = false; `icon`: boolean = false; `statusDot`: boolean = false.
 - Состояния (Default, Hover, Pressed, Disabled, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-18)

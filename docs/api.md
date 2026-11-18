@@ -277,6 +277,7 @@
 | `icon` | boolean | false | свойство Icon |
 | `remove` | boolean | false | свойство Remove |
 | `trailingIcon` | boolean | false | свойство Trailing icon |
+| `statusDot` | boolean | false | свойство Status dot |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
 
@@ -1004,6 +1005,7 @@ Props нет.
 | `showFooter` | boolean | false | свойство Show footer |
 | `footer` | slot | — | свойство Footer |
 | `ambientLight` | boolean | false | свойство Ambient light |
+| `link` | boolean | false | свойство Link |
 
 Состояния в Figma: Default · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 
@@ -1101,6 +1103,7 @@ Props нет.
 | `label` | string | — | свойство Label |
 | `counter` | boolean | false | свойство Counter |
 | `icon` | boolean | false | свойство Icon |
+| `statusDot` | boolean | false | свойство Status dot |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
 
@@ -1159,6 +1162,7 @@ Props нет.
 | `label` | string | — | свойство Label |
 | `showFilter` | boolean | false | свойство Show filter |
 | `showInfo` | boolean | false | свойство Show info |
+| `sortable` | boolean | true | свойство Sortable |
 
 Состояния в Figma: Skeleton · Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 

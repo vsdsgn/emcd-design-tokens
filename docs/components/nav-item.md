@@ -12,6 +12,7 @@
 - Когда использовать: пункт основной навигации в сайдбаре (Web, Large+).
 - Когда нет: переключение внутри страницы — Tabs; в App и на Compact — Tab bar item.
 - Правило выбора варианта:
+  - Подпись — `type/label/lg` (16, 18.11, по продукту: иконка не крупнее подписи); иконка 20
   - Collapsed: Off — развёрнутый сайдбар (иконка + подпись); On — свёрнутый (только иконка, подпись — в Tooltip справа). Все пункты сайдбара — в одном значении.
   - Selected=On — текущий раздел, ровно один на сайдбар; у выбранного есть Hover / Pressed.
   - Icon · swap — обязательна, одна стилистика (Icons). Label — одно-два слова.
@@ -82,7 +83,7 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `action/secondary/default`; интервал `space/12`, `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
-- `label`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `label`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `badge`: заливка / цвет `status/neutral/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `counter`: заливка / цвет `status/danger/solid`; maxw `size/counter/max`; minh `size/counter-height/sm`; мин. ширина `size/counter-height/sm`; отступы `space/2xs`; радиус `radius/sm`.
 - `indicator`: заливка / цвет `border/accent`; высота `icon/size/md`; радиус `radius/full`; ширина `size/tab-indicator/sm`.
@@ -97,7 +98,7 @@
 ## 12. Figma projection
 - Набор `Nav item`, вариантов 12 из 12; оси: Collapsed, Selected, State.
 - Борда: «Nav item — борда · шаблон v3», разделов 12.
-- Описание: 1411 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано): Badge (16.
+- Описание: 1484 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано): Badge (16. Подпись 16 (Label/LG, 18.
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.

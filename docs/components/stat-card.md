@@ -12,6 +12,7 @@
 - Когда использовать: одно ключевое число с подписью и динамикой (хешрейт, доход).
 - Когда нет: несколько чисел для сравнения — Table / List.
 - Правило выбора варианта:
+  - Link (18.11): Icon button XS со стрелкой в правом нижнем углу — плитка ведёт в список (статусы воркеров); Danger — Secondary Danger, остальные — Tertiary
   - State: Default — данные есть; Skeleton — данные грузятся дольше 1 с.
   - Label — что и за какой период; Value — крупное число (Heading/XL); Unit — отдельным текстом рядом с числом.
   - Delta: On — есть сравнение с прошлым периодом: Badge S (Success — рост, Danger — падение, Neutral — без изменений) + Delta caption («к вчера»); Off — сравнения нет.
@@ -29,7 +30,7 @@
 - `delta row` (зазор `space/6`, max-width 248): Badge S + `delta caption` (`type/body/sm`, `text/tertiary`; max-width 160).
 - Слот `Footer`; `ambient light` — `light/ambient/color` + `light/ambient/blur`.
 - Skeleton — три вложенных Skeleton (`skeleton/base`, `radius/inner`) в строках высотой строки текста.
-- Вложено: иконки ×4, `Badge` ×4, `Skeleton` ×3.
+- Вложено: иконки ×4, `Badge` ×4, `Icon button` ×4, `Skeleton` ×3.
 - Служебные слои (вариантов из 5): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -60,6 +61,7 @@
 | Show footer | булево | выкл | 4 из 5 |
 | Footer | слот | — | 4 из 5 |
 | Ambient light | булево | выкл | 5 из 5 |
+| Link | булево | выкл | 4 из 5 |
 
 - Label, Value, Unit, Info, Delta, Delta caption, Show footer, Footer привязаны только к Default; Ambient light — к обоим вариантам.
 
@@ -91,6 +93,7 @@
 - `delta row`: интервал `space/6`.
 - `Badge`: заливка / цвет `status/success/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/xs`; радиус `radius/sm`.
 - `delta caption`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
+- `link`: заливка / цвет `action/danger-subtle/default`, `action/secondary/default`; интервал `space/6`; высота `control/height/xs`; радиус `radius/control-sm`; ширина `control/height/xs`.
 - `Skeleton`: заливка / цвет `skeleton/base`; радиус `radius/inner`.
 - Значений без переменной: 5 (напр. `(root):w=280`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
@@ -100,13 +103,13 @@
 ## 12. Figma projection
 - Набор `Stat card`, вариантов 5 из 8; оси: State, Tone.
 - Борда: «Stat card — борда · шаблон v3», разделов 11.
-- Описание: 1583 знаков, разделы: Status: Level: Stat card: Правила: Длинный текст: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
+- Описание: 1734 знаков, разделы: Status: Level: Stat card: Правила: Длинный текст: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsStatCard>`; Flutter: `DsStatCard`.
-- Props: `tone`: neutral | danger | warning | success; `label`: string или слот; `value`: string или слот; `unit`: string или слот; `info`: boolean = true; `delta`: boolean = true; `deltaCaption`: string или слот; `showFooter`: boolean = false; `footer`: string или слот; `ambientLight`: boolean = false.
+- Props: `tone`: neutral | danger | warning | success; `label`: string или слот; `value`: string или слот; `unit`: string или слот; `info`: boolean = true; `delta`: boolean = true; `deltaCaption`: string или слот; `showFooter`: boolean = false; `footer`: string или слот; `ambientLight`: boolean = false; `link`: boolean = false.
 - Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-18)
