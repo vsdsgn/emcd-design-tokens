@@ -1,4 +1,4 @@
-# Table cell — контракт (2026-11-17)
+# Table cell — контракт (2026-11-18)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -90,7 +90,7 @@
 - Props: `align`: start | end; `content`: string или слот.
 - Состояния (Default, Skeleton, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-17)
+## 14. Acceptance (2026-11-18)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13, до слияния в одну ячейку).

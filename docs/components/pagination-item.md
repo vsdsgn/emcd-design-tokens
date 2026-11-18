@@ -1,4 +1,4 @@
-# Pagination item — контракт (2026-11-17)
+# Pagination item — контракт (2026-11-18)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -88,7 +88,7 @@
 - Props: `size`: s | m; `selected`: boolean; `page`: string или слот.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-17)
+## 14. Acceptance (2026-11-18)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

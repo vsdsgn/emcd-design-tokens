@@ -1,4 +1,4 @@
-# Chart metric — контракт (2026-11-17)
+# Chart metric — контракт (2026-11-18)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -88,7 +88,7 @@
 - Vue: `<DsChartMetric>`; Flutter: `DsChartMetric`.
 - Props: `tone`: default | danger | warning | success; `label`: string или слот; `value`: string или слот; `icon`: boolean = false; `unit`: string или слот; `showUnit`: boolean = true.
 
-## 14. Acceptance (2026-11-17)
+## 14. Acceptance (2026-11-18)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 228, value 228).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

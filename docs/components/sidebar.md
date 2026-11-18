@@ -1,4 +1,4 @@
-# Sidebar — контракт (2026-11-17)
+# Sidebar — контракт (2026-11-18)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -116,7 +116,7 @@
 - Vue: `<DsSidebar>`; Flutter: `DsSidebar`.
 - Props: `collapsed`: boolean; `header`: string или слот; `nav`: string или слот; `footer`: string или слот; `promo`: boolean = true.
 
-## 14. Acceptance (2026-11-17)
+## 14. Acceptance (2026-11-18)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — высота 800 корня — числом (образец).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

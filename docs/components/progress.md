@@ -1,4 +1,4 @@
-# Progress — контракт (2026-11-17)
+# Progress — контракт (2026-11-18)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -89,7 +89,7 @@
 - Vue: `<DsProgress>`; Flutter: `DsProgress`.
 - Props: `size`: s | m; `tone`: accent | success | warning | danger; `mode`: determinate | indeterminate; `label`: string или слот; `value`: string или слот; `showLabel`: boolean = true.
 
-## 14. Acceptance (2026-11-17)
+## 14. Acceptance (2026-11-18)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 200).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

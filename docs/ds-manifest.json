@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17",
+ "generated": "2026-11-18",
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
@@ -397,7 +397,7 @@
      "id": "167:78",
      "type": "SET",
      "status": "beta",
-     "descLen": 1698,
+     "descLen": 1781,
      "descHeads": [
       "Status:",
       "Level:",
@@ -485,14 +485,13 @@
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
        "fontSize:type/display/lg/size",
-       "fontSize:type/heading/md/size",
+       "fontSize:type/heading/xl/size",
        "fontWeight:font-weight/bold",
-       "fontWeight:font-weight/medium",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height",
        "lineHeight:type/display/lg/line-height",
-       "lineHeight:type/heading/md/line-height"
+       "lineHeight:type/heading/xl/line-height"
       ],
       "ticker": [
        "f:text/secondary",
@@ -500,13 +499,13 @@
        "fontSize:type/body/lg/size",
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
-       "fontSize:type/heading/md/size",
+       "fontSize:type/heading/xl/size",
        "fontWeight:font-weight/medium",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/lg/line-height",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height",
-       "lineHeight:type/heading/md/line-height"
+       "lineHeight:type/heading/xl/line-height"
       ],
       "fiat": [
        "f:text/secondary",
@@ -525,14 +524,13 @@
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
        "fontSize:type/display/lg/size",
-       "fontSize:type/heading/md/size",
+       "fontSize:type/heading/xl/size",
        "fontWeight:font-weight/bold",
-       "fontWeight:font-weight/medium",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height",
        "lineHeight:type/display/lg/line-height",
-       "lineHeight:type/heading/md/line-height"
+       "lineHeight:type/heading/xl/line-height"
       ]
      },
      "statusFirstLine": true
@@ -2783,7 +2781,7 @@
      "id": "47:364",
      "type": "SET",
      "status": "beta",
-     "descLen": 1280,
+     "descLen": 1222,
      "descHeads": [
       "Status:",
       "Level:",
@@ -2793,7 +2791,7 @@
       "A11y:",
       "Поиск:",
       "Legacy:",
-      "Selected (17."
+      "Selected (18."
      ],
      "inBoard": false,
      "axes": {
@@ -2909,6 +2907,7 @@
      ],
      "tokens": {
       "(root)": [
+       "f:action/inverse/default",
        "f:control/segment",
        "f:skeleton/base",
        "gap:space/6",
@@ -2925,6 +2924,7 @@
       ],
       "label": [
        "f:text/disabled",
+       "f:text/inverse",
        "f:text/primary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
@@ -2934,6 +2934,7 @@
       "meta": [
        "f:text/disabled",
        "f:text/secondary",
+       "f:text/tertiary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",

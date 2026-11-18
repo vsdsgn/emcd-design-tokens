@@ -1,4 +1,4 @@
-# Amount — контракт (2026-11-17)
+# Amount — контракт (2026-11-18)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -23,7 +23,7 @@
 
 ## 3. Anatomy
 - Корень — вертикальный стек: строка `value` + `ticker`, под ней `fiat` (`text/secondary`).
-- S / M — `font/family/text` с табличными цифрами (17.11: моно — только в осях графиков; было `font/family/mono`); L — `type/heading/md` (20), Medium, `font/family/text`, тикер того же кегля (17.11, по продукту: суммы сводки дашборда); XL — `font/family/display`, Bold.
+- S / M — `font/family/text` с табличными цифрами (17.11: моно — только в осях графиков; было `font/family/mono`); L — `type/heading/xl` (24), Bold, `font/family/text`, тикер того же кегля Medium (18.11: итоги «Всего начислено», «Сумма всех выплат», сводка дашборда; 17.11 было 20 Medium); XL — `font/family/display`, Bold.
 - Служебные слои (вариантов из 24): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -69,10 +69,10 @@
 ## 10. Tokens
 - `корень`: интервал `space/2`.
 - `row`: интервал `space/4`, `space/6`, `space/8`.
-- `value`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/medium`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/md`.
-- `ticker`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/lg`, `type/body/md`, `type/body/sm`, `type/heading/md`.
+- `value`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/xl`.
+- `ticker`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/lg`, `type/body/md`, `type/body/sm`, `type/heading/xl`.
 - `fiat`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`, `type/body/sm`.
-- `sign`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/medium`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/md`.
+- `sign`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/xl`.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -80,7 +80,7 @@
 ## 12. Figma projection
 - Набор `Amount`, вариантов 24 из 24; оси: Size, Sign, Align.
 - Борда: «Amount — борда · шаблон v3», разделов 12.
-- Описание: 1698 знаков, разделы: Status: Level: Форматирование — Точность: Знак: Цифры табличные: Fiat — A11y: Когда использовать: Правила: Align (17.
+- Описание: 1781 знаков, разделы: Status: Level: Форматирование — Точность: Знак: Цифры табличные: Fiat — A11y: Когда использовать: Правила: Align (17.
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
@@ -88,7 +88,7 @@
 - Vue: `<DsAmount>`; Flutter: `DsAmount`.
 - Props: `size`: s | m | l | xl; `sign`: none | positive | negative; `align`: start | end; `value`: string или слот; `ticker`: string или слот; `fiat`: string или слот; `showFiat`: boolean = true.
 
-## 14. Acceptance (2026-11-17)
+## 14. Acceptance (2026-11-18)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,4 +1,4 @@
-# Menu — контракт (2026-11-17)
+# Menu — контракт (2026-11-18)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -100,7 +100,7 @@
 - Vue: `<DsMenu>`; Flutter: `DsMenu`.
 - Props: `size`: m | l; `items`: string или слот; `search`: boolean = false.
 
-## 14. Acceptance (2026-11-17)
+## 14. Acceptance (2026-11-18)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина корня 300 — числом (min / max — токены).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
