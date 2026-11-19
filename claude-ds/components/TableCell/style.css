@@ -1,5 +1,5 @@
 /* Table cell — 🟡 beta (Figma «🟡 Table cell»: Align × State; слот Content). td: поля space/12, зазор space/8, min-width size/table-cell/min 80; высота — по строке (Table row 48 / 64).
-   Content по умолчанию — две строки: primary label-lg Medium text-primary + secondary text-secondary того же кегля; одна строка, многоточие. Иначе — атом DS (Coin, Amount, Status, Icon button…).
+   Content по умолчанию — две строки: primary label-md (14, 19.11 — как Amount M) Medium text-primary + secondary text-secondary того же кегля; одна строка, многоточие. Иначе — атом DS (Coin, Amount, Status, Icon button…).
    Skeleton — одна полоса со стороны Align; Disabled — текст text-disabled. */
 .emcd-td { box-sizing: border-box; min-width: var(--size-table-cell-min, 80px); max-width: 0; padding: 0 var(--space-12, 12px); vertical-align: middle; text-align: start; color: var(--text-primary); }
 .emcd-td--end { text-align: end; }
@@ -8,7 +8,7 @@
 .emcd-td--end .emcd-td__content { align-items: flex-end; }
 .emcd-td__content > :only-child:not(.emcd-td__primary) { max-width: 100%; }
 .emcd-td__primary, .emcd-td__secondary { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  font: 500 var(--type-label-lg-size, 16px)/var(--type-label-lg-line-height, 20px) var(--font-sans); font-variant-numeric: tabular-nums; }
+  font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); font-variant-numeric: tabular-nums; }
 .emcd-td__secondary { color: var(--text-secondary); }
 .emcd-td--disabled :is(.emcd-td__primary, .emcd-td__secondary), .emcd-td--disabled { color: var(--text-disabled); }
 .emcd-td__bone { display: inline-block; width: 72%; max-width: 160px; height: 12px; border-radius: var(--radius-chip, 999px); background: var(--skeleton-base); }

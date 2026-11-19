@@ -20,11 +20,12 @@
   - Действия строки (Icon button, «⋯» → Menu) — только последней колонкой, Align=End.
   - State: Default — данные есть; Skeleton — данные строки загружаются (одна полоса); Disabled — строка недоступна (атомы в слоте — тоже Disabled).
   - Высота — по строке (Table row): 48 или 64; ширина — по колонке.
+  - Текст в строках — `type/label/md` (14, 19.11, по экрану Figma «История» Web; было `type/label/lg` 16): кегль как у Amount M и подписи Table header cell.
 - Не делаем: перенос текста на несколько строк; разное выравнивание или разные типы содержимого в одной колонке; действия не в последней колонке; произвольная вёрстка в слоте вместо атома DS.
 
 ## 3. Anatomy
 - Корень — высота `size/row/lg` (64, с 16.11; было `size/table/row-lg` 80), отступы `space/12`, зазор `space/8`, min-width `size/table-cell/min` (80).
-- Слот `Content`: по умолчанию `primary` — `text/primary`, `type/label/lg`, `font-weight/medium`; `secondary` — `text/secondary`, тот же кегль; обе строки — Fill, одна строка.
+- Слот `Content`: по умолчанию `primary` — `text/primary`, `type/label/md` (14, 19.11; было `type/label/lg`), `font-weight/medium`; `secondary` — `text/secondary`, тот же кегль; обе строки — Fill, одна строка.
 - `skeleton` — полоса `skeleton/base`, `radius/chip` (State=Skeleton).
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 

@@ -10,13 +10,13 @@
 
 ## Демо K4 (19.11) — расхождения код ↔ экраны Figma (`demo/mining/README.md`)
 - **Action bar, низ:** замер экранов — высота 80 = 16 + Button 40 + **24**; в коде `max(space/24, 16 + safe area)`. В задаче было `space/32` — сверить с набором в Figma (в токенах набора есть `space/32`).
-- **Sidebar, язык:** на экранах Button Tertiary XS (серая), в контракте было Secondary — код и контракт переведены на Tertiary; описание набора в Figma поправить при Publish.
-- **Nav item, иконка:** на экранах 24 (подпись с x 66), правило «иконка 20» в контракте — заменено на 24; сверить с набором (Anatomy и так говорит 24).
-- **Promo card S:** на экране сайдбара заголовок в 3 строки, контракт — до 2. (Рекомендация: S — до 3 строк.)
-- **Table cell:** текст в слоте на экране «История» 14, контракт — `label/lg` 16. (Рекомендация: строки таблицы Web — `label/md` 14, как Amount M.)
-- **Иконки сортировки:** None на экране — «⇅», в `icons/svg` такого глифа нет; `sort-line-down.svg` без стрелки (дублированный путь) — переэкспорт из Icons.
+- ✅ **Sidebar, язык** — решено 19.11: Button Tertiary XS в контракте, React, Vue и README (проверено); описание набора в Figma — при Publish.
+- ✅ **Nav item, иконка 24** — решено 19.11: правило, Anatomy (`icon/size/lg`, зазор `space/12`), README и CSS — 24; устаревшая строка «подпись label/md 14 (17.11)» из правил убрана.
+- ✅ **Promo card S: заголовок до 3 строк** — решено 19.11 (как промо сайдбара в продукте): контракт (правило + длинный текст), CSS (`-webkit-line-clamp: 3` у S), README; M / L — до 2.
+- ✅ **Table cell: текст строк `label/md` 14** — решено 19.11 (как Amount M): контракт Table cell (правило, Anatomy) и Table row, CSS `emcd-td__primary/secondary`, README.
+- ✅ **Иконки сортировки** — решено 19.11: все 115 ui-иконок переэкспортированы из Icons через MCP (`scripts/icons-normalize.mjs`); `sort` — «⇅», `sort-line-down` со стрелкой; удалены Deprecated social / store, добавлены home, alert-circle, alert-triangle, check-circle.
 - **List item плотный:** строки монет в сводке «История» Web — 48 без полей; у List item нет такого варианта (M 60 с полями 16).
-- **Select:** добавлен `labelPosition` (above по умолчанию · on-border для панелей фильтров, п. 12 раздела 0) — в контракт Select добавить свойство.
+- ✅ **Select `labelPosition`** — решено 19.11: правило «Лейбл» и строки «Код» в контракте (above по умолчанию · on-border — панели фильтров и калькуляторы), README; свойство в наборе Figma — при Publish (todo контракта).
 
 ## Решено 15.11 (вечер)
 - Chart plot: Skeleton и Disabled визуально не разводим; токены уже раздельные (`skeleton/base`, `action/disabled`), в Light значения совпадают — так и оставляем.

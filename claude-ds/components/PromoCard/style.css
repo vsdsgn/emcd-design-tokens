@@ -23,6 +23,8 @@
 .emcd-promo__title-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4, 4px) var(--space-8, 8px); min-width: 0; }
 .emcd-promo__title { margin: 0; min-width: 0; font: 500 var(--tfs)/var(--tlh) var(--tff); color: var(--text-primary); overflow-wrap: anywhere;
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+/* S (сайдбар) — заголовок до 3 строк, как промо сайдбара в продукте (19.11) */
+.emcd-promo:not(.emcd-promo--m, .emcd-promo--l) .emcd-promo__title { -webkit-line-clamp: 3; }
 .emcd-promo__desc { margin: 0; font: 500 var(--dfs)/var(--dlh) var(--font-sans); color: var(--text-secondary);
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
 .emcd-promo--m .emcd-promo__desc, .emcd-promo--l .emcd-promo__desc { font-weight: 400; }

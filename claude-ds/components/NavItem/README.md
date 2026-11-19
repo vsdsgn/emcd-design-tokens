@@ -1,6 +1,6 @@
 # Nav item
 
-Пункт основной навигации в сайдбаре Web: иконка 20 + подпись 16 (label-lg Medium); в свёрнутом сайдбаре — только иконка.
+Пункт основной навигации в сайдбаре Web: иконка 24 (19.11) + подпись 16 (label-lg Medium); в свёрнутом сайдбаре — только иконка.
 
 **Оси (как в Figma «🟡 Nav item»):** Collapsed × Selected × State (Default · Hover · Pressed); Counter, Badge. Высота 36 (`size/row/compact`), поля 6, зазор иконка → подпись 12; Default — иконка `icon-tertiary`, подпись `text-primary`; Selected — плашка `action/secondary/default` + полоса `border/accent` 2 × 20 слева.
 

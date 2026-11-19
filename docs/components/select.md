@@ -14,7 +14,7 @@
 - Правило выбора варианта:
   - Size: M | L = размер соседних полей формы (тот же Size, что у Input рядом); XL снят 2026-11-17.
   - State: Default — пусто, плейсхолдер «Выберите …»; Hover — наведение указателя; Open — список открыт; Filled — значение выбрано; Error — ошибка выбора; Disabled — выбор недоступен; Loading — варианты грузятся; Skeleton — форма грузится.
-  - Лейбл всегда Above; плейсхолдер — «Выберите …» (что выбрать).
+  - Лейбл: Above — по умолчанию (формы); On border — в разрыве рамки, только в панелях фильтров и калькуляторах (patterns.md 0, п. 12; экраны «История» 19.11) — как Label position у Input. В одной панели одно положение. Плейсхолдер — «Выберите …» (что выбрать).
   - Ширина Menu = ширине поля; выбранный пункт в Menu — Selected (галочка).
   - Монета / сеть / иконка выбранного значения — в слот Leading поля: Show leading у вложенного Input, иконка — Coin или Coin stack.
 - Не делаем: Select для 2–4 вариантов; ввод текста в поле Select; множественный выбор в Select; Menu уже или шире поля; лейбл сбоку или внутри поля.
@@ -97,6 +97,8 @@
 - Vue: `<DsSelect>`; Flutter: `DsSelect`.
 - Props: `size`: m | l.
 - Состояния (Default, Hover, Open, Filled, Error, Disabled, Loading, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `loading`, `skeleton` — props.
+- React `Select` / Vue `DsSelect`: `labelPosition: 'above' | 'on-border'` (19.11), по умолчанию `above` — формы; `on-border` — панели фильтров и калькуляторы (История Web, «Монета» на мобильном). Класс поля `emcd-field--on-border`, как у Input / Date range field.
+- Остальные props: `size` (`m` | `l`), `label`, `hint`, `error`, `state`, `placeholder`, `options`, `value` / `defaultValue` / `onChange`, `open` / `defaultOpen` / `onOpenChange`, `leading`, `menuSize`.
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.
@@ -110,3 +112,4 @@
 
 Осталось доделать (после пакета правок beta 2026-11-13):
 - Борда: нет разделов 05, 07, 08.
+- Свойство Label position у набора Select в Figma (сейчас только Above) — при Publish, по образцу Input.
