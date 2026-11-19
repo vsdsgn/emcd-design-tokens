@@ -29,6 +29,7 @@
 
 - Card — Ambient light; Amount — ось Tone; новый Section header (draft).
 - Top bar — Platform=App (аккаунт, монета, «+»).
+- Select — шеврон справа вернулся (терялся после перехода на _Field base), без «USDT» и подсказки по умолчанию.
 
 ## Журнал
 - 19.11 — демо: +5 экранов (всего 15) — Выплаты Web и мобильный (3.6a: направление, «В Explorer» Button Text S / XS + `arrow-new-tab`, у Coinhold ссылки нет), Watcher-link мобильный (3.9a Compact: Suggest Accent, Page header Compact + Icon button Secondary «Фильтр», Card M столбиком, Floating button Extended L «Создать Watcher link» по центру снизу), Настройки → Уведомления мобильный (Segmented на всю ширину, Card L: Section header M, Select аккаунта с подсказкой, List item M с шевроном) и Настройки → Вывод мобильный (Select монеты с Coin, Card L «Куда выводить средства?»: Toggle × 2 с описанием, Select, Input Read-only, Checkbox с описанием, Divider, Promo card M Accent). Сравнения с экранами DS 2.0 (`reference/`). Компонент: Checkbox / Toggle в узкой колонке — строка не шире контейнера, подпись переносится (было: Checkbox 181 в колонке 96, слово Toggle вылезало). Проверки зелёные, консоль чистая.
