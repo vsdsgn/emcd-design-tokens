@@ -1,4 +1,4 @@
-# Legend swatch — контракт (2026-11-18)
+# Legend swatch — контракт (2026-11-19)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -70,7 +70,7 @@
 - Vue: `<DsLegendSwatch>`; Flutter: `DsLegendSwatch`.
 - Props: `marker`: dot | line; `series`: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8.
 
-## 14. Acceptance (2026-11-18)
+## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

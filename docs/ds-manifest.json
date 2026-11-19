@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18",
+ "generated": "2026-11-19",
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
@@ -14,7 +14,7 @@
    "service": 4,
    "template": 1
   },
-  "variants": 1615,
+  "variants": 1620,
   "incompleteMatrix": 17,
   "propsNotBoundEverywhere": 18,
   "rawMinMax": 1,
@@ -2949,8 +2949,8 @@
       ],
       "meta": [
        "f:text/disabled",
+       "f:text/inverse",
        "f:text/secondary",
-       "f:text/tertiary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
@@ -6958,7 +6958,7 @@
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/lg/line-height"
       ],
-      "badge": [
+      "Badge": [
        "f:status/neutral/subtle",
        "gap:space/4",
        "h:size/badge-height/sm",
@@ -10388,76 +10388,80 @@
        "Danger",
        "Warning",
        "Success"
+      ],
+      "Align": [
+       "Start",
+       "Center"
       ]
      },
-     "variants": 5,
-     "full": 8,
+     "variants": 10,
+     "full": 16,
      "props": [
       {
        "name": "Label",
        "type": "TEXT",
        "def": "Хешрейт · 24 ч",
-       "bound": 4
+       "bound": 8
       },
       {
        "name": "Value",
        "type": "TEXT",
        "def": "124.5",
-       "bound": 4
+       "bound": 8
       },
       {
        "name": "Unit",
        "type": "TEXT",
        "def": "TH/s",
-       "bound": 4
+       "bound": 8
       },
       {
        "name": "Info",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 4
+       "bound": 8
       },
       {
        "name": "Delta",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 4
+       "bound": 8
       },
       {
        "name": "Delta caption",
        "type": "TEXT",
        "def": "к вчера",
-       "bound": 4
+       "bound": 8
       },
       {
        "name": "Show footer",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 4
+       "bound": 8
       },
       {
        "name": "Footer",
        "type": "SLOT",
-       "bound": 4
+       "bound": 8
       },
       {
        "name": "Ambient light",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 5
+       "bound": 10
       },
       {
        "name": "Link",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 4
+       "bound": 8
       }
      ],
      "nested": {
-      "(icons)": 4,
-      "Badge": 4,
-      "Icon button": 4,
-      "Skeleton": 3
+      "(icons)": 8,
+      "Badge": 8,
+      "Icon button": 8,
+      "Skeleton": 6
      },
      "minmax": [],
      "layers": {
@@ -10467,7 +10471,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 5,
+     "rawCount": 10,
      "raw": [
       "(root):w=280"
      ],

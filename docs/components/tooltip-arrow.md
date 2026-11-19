@@ -1,4 +1,4 @@
-# _Tooltip arrow — контракт (2026-11-18)
+# _Tooltip arrow — контракт (2026-11-19)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -69,7 +69,7 @@
 - Служебный набор: в публичный API библиотеки не выходит — внутренняя часть родителя.
 - Props: `tone`: neutral | accent.
 
-## 14. Acceptance (2026-11-18)
+## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — отдельно не прогонялся — в составе Tooltip (прогон после замены на месте 13.11).
 - `variables-check.plugin.js` — корень 26 × 9 числом (4 значения без переменной).
 - `audit-parity.plugin.js` — отдельно не прогонялся — в составе Tooltip.

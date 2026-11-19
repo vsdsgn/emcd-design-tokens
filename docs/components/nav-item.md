@@ -1,4 +1,4 @@
-# Nav item — контракт (2026-11-18)
+# Nav item — контракт (2026-11-19)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -84,7 +84,7 @@
 ## 10. Tokens
 - `корень`: заливка / цвет `action/secondary/default`; интервал `space/12`, `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
 - `label`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
-- `badge`: заливка / цвет `status/neutral/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `Badge`: заливка / цвет `status/neutral/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `counter`: заливка / цвет `status/danger/solid`; maxw `size/counter/max`; minh `size/counter-height/sm`; мин. ширина `size/counter-height/sm`; отступы `space/2xs`; радиус `radius/sm`.
 - `indicator`: заливка / цвет `border/accent`; высота `icon/size/md`; радиус `radius/full`; ширина `size/tab-indicator/sm`.
 - `accent glow`: эффект `light/accent/blur`; заливка / цвет `light/accent/color`; видимость `decor/light`.
@@ -107,7 +107,7 @@
 - Props: `collapsed`: boolean; `selected`: boolean; `label`: string или слот; `counter`: boolean = false; `badge`: boolean = false.
 - Состояния (Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-18)
+## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

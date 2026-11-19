@@ -1,4 +1,4 @@
-# Ожидаемый API компонентов — beta (2026-11-18)
+# Ожидаемый API компонентов — beta (2026-11-19)
 
 Собрано `scripts/agent-docs.mjs` из `docs/ds-manifest.json` — править не здесь, а в Figma (потом манифест) или в `scripts/contract-data.mjs`.
 Это **ожидаемый** API по правилам имён `scripts/parity.mjs`: кода (DSP, Vue `ui-emcd-web`, Flutter) в доступе нет (`docs/dsp-check-2026-11-12.md`). Когда появится манифест кода — `npm run parity` сверит.
@@ -996,6 +996,7 @@ Props нет.
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `tone` | neutral \| danger \| warning \| success | по правилу контракта | ось Tone |
+| `align` | start \| center | по правилу контракта | ось Align |
 | `label` | string | — | свойство Label |
 | `value` | string | — | свойство Value |
 | `unit` | string | — | свойство Unit |

@@ -1,4 +1,4 @@
-# Amount — контракт (2026-11-18)
+# Amount — контракт (2026-11-19)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -12,7 +12,7 @@
 - Когда использовать: баланс, сумма операции, доход, цена — в карточках, строках списков и таблиц, шапках экранов.
 - Когда нет: поле ввода суммы — Input amount; изменение в процентах — Badge или Chart metric; число без валюты — обычный текст.
 - Правило выбора варианта:
-  - Size: S — строки таблиц и списков; M — карточки; L — заголовок блока; XL — главный баланс экрана (один на экран).
+  - Size: S — строки списков и таблиц на Compact (12); M — карточки и таблицы Web (14, как значения соседних ячеек — 19.11); L — заголовок блока; XL — главный баланс экрана (один на экран).
   - Sign: None — остаток и цена; Positive — поступление (`text/success`, знак «+»); Negative — списание (`text/primary`, знак «−» U+2212).
   - Show fiat — эквивалент второй строкой; выключается в плотных таблицах, где фиат — отдельная колонка.
   - Align (17.11): Start — по умолчанию; End — сумма у конца строки (List item, Key-value row, ячейка таблицы Align=End).
@@ -88,7 +88,7 @@
 - Vue: `<DsAmount>`; Flutter: `DsAmount`.
 - Props: `size`: s | m | l | xl; `sign`: none | positive | negative; `align`: start | end; `value`: string или слот; `ticker`: string или слот; `fiat`: string или слот; `showFiat`: boolean = true.
 
-## 14. Acceptance (2026-11-18)
+## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

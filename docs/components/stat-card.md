@@ -1,4 +1,4 @@
-# Stat card — контракт (2026-11-18)
+# Stat card — контракт (2026-11-19)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -12,6 +12,7 @@
 - Когда использовать: одно ключевое число с подписью и динамикой (хешрейт, доход).
 - Когда нет: несколько чисел для сравнения — Table / List.
 - Правило выбора варианта:
+  - Align (19.11): Start — по умолчанию (дашборд-сводки, ряд метрик); Center — плитки-счётчики статусов воркеров (Web и мобильный дашборд, как в продукте): подпись, число и дельта по центру
   - Link (18.11): Icon button XS со стрелкой в правом нижнем углу — плитка ведёт в список (статусы воркеров); Danger — Secondary Danger, остальные — Tertiary
   - State: Default — данные есть; Skeleton — данные грузятся дольше 1 с.
   - Label — что и за какой период; Value — крупное число (Heading/XL); Unit — отдельным текстом рядом с числом.
@@ -30,8 +31,8 @@
 - `delta row` (зазор `space/6`, max-width 248): Badge S + `delta caption` (`type/body/sm`, `text/tertiary`; max-width 160).
 - Слот `Footer`; `ambient light` — `light/ambient/color` + `light/ambient/blur`.
 - Skeleton — три вложенных Skeleton (`skeleton/base`, `radius/inner`) в строках высотой строки текста.
-- Вложено: иконки ×4, `Badge` ×4, `Icon button` ×4, `Skeleton` ×3.
-- Служебные слои (вариантов из 5): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: иконки ×8, `Badge` ×8, `Icon button` ×8, `Skeleton` ×6.
+- Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; Skeleton — загрузка.
@@ -45,23 +46,24 @@
 |---|---|---|
 | State | Default · Skeleton | Default |
 | Tone | Neutral · Danger · Warning · Success | — |
+| Align | Start · Center | — |
 
-Матрица: 5 из 8.
+Матрица: 10 из 16.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «Хешрейт · 24 ч» | 4 из 5 |
-| Value | текст | «124.5» | 4 из 5 |
-| Unit | текст | «TH/s» | 4 из 5 |
-| Info | булево | вкл | 4 из 5 |
-| Delta | булево | вкл | 4 из 5 |
-| Delta caption | текст | «к вчера» | 4 из 5 |
-| Show footer | булево | выкл | 4 из 5 |
-| Footer | слот | — | 4 из 5 |
-| Ambient light | булево | выкл | 5 из 5 |
-| Link | булево | выкл | 4 из 5 |
+| Label | текст | «Хешрейт · 24 ч» | 8 из 10 |
+| Value | текст | «124.5» | 8 из 10 |
+| Unit | текст | «TH/s» | 8 из 10 |
+| Info | булево | вкл | 8 из 10 |
+| Delta | булево | вкл | 8 из 10 |
+| Delta caption | текст | «к вчера» | 8 из 10 |
+| Show footer | булево | выкл | 8 из 10 |
+| Footer | слот | — | 8 из 10 |
+| Ambient light | булево | выкл | 10 из 10 |
+| Link | булево | выкл | 8 из 10 |
 
 - Label, Value, Unit, Info, Delta, Delta caption, Show footer, Footer привязаны только к Default; Ambient light — к обоим вариантам.
 
@@ -95,13 +97,13 @@
 - `delta caption`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
 - `link`: заливка / цвет `action/danger-subtle/default`, `action/secondary/default`; интервал `space/6`; высота `control/height/xs`; радиус `radius/control-sm`; ширина `control/height/xs`.
 - `Skeleton`: заливка / цвет `skeleton/base`; радиус `radius/inner`.
-- Значений без переменной: 5 (напр. `(root):w=280`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 10 (напр. `(root):w=280`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Stat card`, вариантов 5 из 8; оси: State, Tone.
+- Набор `Stat card`, вариантов 10 из 16; оси: State, Tone, Align.
 - Борда: «Stat card — борда · шаблон v3», разделов 11.
 - Описание: 1734 знаков, разделы: Status: Level: Stat card: Правила: Длинный текст: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
 
@@ -109,10 +111,10 @@
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsStatCard>`; Flutter: `DsStatCard`.
-- Props: `tone`: neutral | danger | warning | success; `label`: string или слот; `value`: string или слот; `unit`: string или слот; `info`: boolean = true; `delta`: boolean = true; `deltaCaption`: string или слот; `showFooter`: boolean = false; `footer`: string или слот; `ambientLight`: boolean = false; `link`: boolean = false.
+- Props: `tone`: neutral | danger | warning | success; `align`: start | center; `label`: string или слот; `value`: string или слот; `unit`: string или слот; `info`: boolean = true; `delta`: boolean = true; `deltaCaption`: string или слот; `showFooter`: boolean = false; `footer`: string или слот; `ambientLight`: boolean = false; `link`: boolean = false.
 - Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-18)
+## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 180, unit 64, delta caption 160) и maxWidth 248 у delta row.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

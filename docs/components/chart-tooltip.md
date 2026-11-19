@@ -1,4 +1,4 @@
-# Chart tooltip — контракт (2026-11-18)
+# Chart tooltip — контракт (2026-11-19)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -90,7 +90,7 @@
 - Vue: `<DsChartTooltip>`; Flutter: `DsChartTooltip`.
 - Props: `rows`: 1 | 2 | 3 | 4; `showDate`: boolean = true.
 
-## 14. Acceptance (2026-11-18)
+## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

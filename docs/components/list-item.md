@@ -1,4 +1,4 @@
-# List item — контракт (2026-11-18)
+# List item — контракт (2026-11-19)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -13,6 +13,7 @@
 - Когда использовать: строки списков на Compact, перечни монет, воркеров, операций.
 - Когда нет: сравнение по многим колонкам на Web — Table; пункт меню — Menu item; множественный выбор — Multiselect option; операция в истории — Transaction; уведомление — Notification.
 - Правило выбора варианта:
+  - Show description (19.11): во всех Content, кроме Description only, описание показывается свойством Show description базы (в List item по умолчанию On); Off — строка из одного названия (факты монеты: «Дневной доход» → значение справа).
   - Size: L — Web (текст 16 / 14); M — Compact (14 / 12). В одном списке — один Size.
   - Content: Text first — название, под ним описание; Description first — описание над названием; Big value — описание над крупным значением с единицей (Subvalue); Description only — одна строка.
   - State: Hover / Pressed — только если строка открывает детали; Disabled — строка недоступна.
@@ -87,7 +88,7 @@
 - Props: `size`: l | m; `content`: text-first | description-first | big-value | description-only.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-18)
+## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 по набору после замены на месте 13.11; после снятия Style=Card (15.11) не перезапускался.
 - `variables-check.plugin.js` — ширина корня 375 числом.
 - `audit-parity.plugin.js` — 0 по набору после замены 13.11; после 15.11 не перезапускался.
