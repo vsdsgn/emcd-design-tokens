@@ -495,6 +495,8 @@ Props нет.
 
 уровень не указан · beta · Vue `<DsInput>` · Flutter `DsInput` · контракт `docs/components/input.md`
 
+Текстовое поле в одну строку: подпись, рамка со слотами Leading / Inline / Trailing, подсказка и счётчик под полем. Надстройка над `_Field base` (Lines=Single).
+
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | m \| l | по правилу контракта | ось Size |
@@ -1198,6 +1200,8 @@ Props нет.
 ## Textarea
 
 уровень не указан · beta · Vue `<DsTextarea>` · Flutter `DsTextarea` · контракт `docs/components/textarea.md`
+
+Многострочное поле: комментарий, описание, обращение в поддержку. Надстройка над `_Field base` (Lines=Multi).
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|

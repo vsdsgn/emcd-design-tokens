@@ -1,6 +1,6 @@
 // Агентный слой: файлы, по которым ИИ-агент (Claude Code, Cursor, Claude Design) собирает экраны из DS 2.0 без чтения всего репо.
 // Вход: docs/ds-manifest.json (наборы, оси, свойства, статусы) + scripts/contract-data.mjs (что это / когда / когда нет)
-//       + раздел «2. Intent» рукописных контрактов (Input, Textarea).
+//       + раздел «2. Intent» рукописных контрактов (базы; Input и Textarea с 19.11 — в contract-data).
 // Выход: llms.txt (карта репо), design.md (принципы, роли цвета, модель состояний, выбор компонента), docs/api.md (ожидаемый API beta-наборов).
 // Запуск: node scripts/agent-docs.mjs [--check]   (--check: ничего не пишет, код 1, если файлы на диске отличаются — для CI)
 // Имена props — по тем же правилам, что scripts/parity.mjs: ось → camelCase, State — не prop, служебные и INSTANCE_SWAP не входят.

@@ -2,7 +2,7 @@
 // назначение, правила, анатомия, поведение, a11y, результаты проверок, миграция). Выход: docs/components/<name>.md.
 // Запуск: node scripts/contract-build.mjs [--date=ГГГГ-ММ-ДД] [--check]
 //   Разделы 1, 4 (оси состояний), 5, 10, 12, 13 собираются из манифеста — поэтому контракт не расходится с Figma.
-//   Пишет наборы, перечисленные в contract-data.mjs; рукописные контракты (field-base, input, …) не трогает.
+//   Пишет наборы, перечисленные в contract-data.mjs; рукописные контракты (field-base, selection-control, list-row, …) не трогает; Input и Textarea — в contract-data с 19.11.
 //   Draft: атомы и молекулы не в beta без записи в contract-data — контракт-заготовка из манифеста, выжимки описаний
 //   Figma (scripts/contract-draft-data.txt) и замечаний scripts/draft-findings.mjs. Наборы в Figma не меняет.
 //   --check: ничего не пишет, код 1, если файл на диске отличается от сборки (для CI).

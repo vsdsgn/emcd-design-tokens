@@ -104,7 +104,7 @@
 
 ## 12. Figma projection
 - Набор `Stat card`, вариантов 10 из 16; оси: State, Tone, Align.
-- Борда: «Stat card — борда · шаблон v3», разделов 11.
+- Борда: «Stat card — борда · шаблон v3», разделов 12.
 - Описание: 1734 знаков, разделы: Status: Level: Stat card: Правила: Длинный текст: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
 
 ## 13. Code projection
