@@ -60,7 +60,7 @@
 
 ## 12. Figma projection
 - Набор `Page indicator`, вариантов 14 из 20; оси: Count, Selected.
-- Борда: «Page indicator — борда · шаблон v3», разделов 11.
+- Борда: «Page indicator — борда · шаблон v3», разделов 12.
 - Описание: 697 знаков, разделы: Status: Level: Когда использовать: Активная — A11y: Правила: Матрица:
 
 ## 13. Code projection
