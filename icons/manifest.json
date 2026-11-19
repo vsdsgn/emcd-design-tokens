@@ -1,6 +1,6 @@
 {
   "source": "figma:icons",
-  "count": 118,
+  "count": 119,
   "icons": [
     {
       "name": "add-phone-number",
@@ -101,6 +101,11 @@
       "name": "card",
       "figma": "icon/card",
       "description": "Карта.\nПоиск: карта, банковская карта, оплата, card, bank card, payment, сфкв\nLegacy: ic-card.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+    },
+    {
+      "name": "chart-bar",
+      "figma": "icon/chart-bar",
+      "description": "Столбчатый график: действие «График» в строке таблицы.\nПоиск: график, столбцы, chart, bar.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
     },
     {
       "name": "chat",
