@@ -25,6 +25,7 @@
 - Floating button — оси Size (L | M) и Type (Primary | Secondary) для Extended.
 - Transaction — у Completed статус скрыт, показан фиат.
 - Tab bar item — Type=Action (центральная «E» App).
+- Amount, Chart metric, Key-value row — State=Skeleton (та же высота); Chart plot — Skeleton у Line + Bars.
 
 ## Журнал
 - 19.11 — код, пачка 5 (правки App 19.11 из очереди Publish): Floating button (`layout`, `size` l / m, `type` primary / secondary только у Extended), Tab bar + Tab bar item (`type: 'action'` — центральная «E»), Transaction Completed без Status (сумма + фиат), Action bar `badge` / `badgeText`, List item `inset`; контракт Chart tooltip — `rows` массивом. React, Vue, CSS, d.ts, Claude DS (README / preview), status.json (+TabBar, TabBarItem), SSR (65 компонентов). Демо: бейдж «A» над «Выгрузить» (мобильная История), строки монет «Истории» Web — `inset={false}` (48); две строки README демо закрыты. Проверки зелёные.
