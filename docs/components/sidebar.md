@@ -86,8 +86,8 @@
 - `Header`: интервал `space/12`; отступы `space/12`.
 - `brand`: отступы `space/12`, `space/4`.
 - `logo (placeholder)`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
-- `language`: заливка / цвет `action/accent/default`; интервал `space/2`; высота `control/height/xs`; отступы `space/4`; радиус `radius/control-sm`.
-- `cta`: заливка / цвет `action/primary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`.
+- `language`: заливка / цвет `action/secondary/default`; интервал `space/2`; высота `control/height/xs`; отступы `space/4`; радиус `radius/control-sm`.
+- `cta`: заливка / цвет `action/primary/default`; интервал `space/4`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`.
 - `Nav`: интервал `space/2`.
 - `Nav item`: заливка / цвет `action/secondary/default`; интервал `space/12`, `space/8`; высота `size/row/compact`; отступы `space/6`; радиус `radius/control`; ширина `size/row/compact`.
 - `divider`: отступы `space/6`, `space/8`.
@@ -108,7 +108,7 @@
 ## 12. Figma projection
 - Набор `Sidebar`, вариантов 2 из 2; оси: Collapsed.
 - Борда: «Sidebar — борда · шаблон v3», разделов 11.
-- Описание: 1147 знаков, разделы: Status: Level: Сайдбар: Слоты: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
+- Описание: 1365 знаков, разделы: Status: Level: Сайдбар: Слоты: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано): Шапка и низ (17.
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Sidebar`), Vue `packages/vue/src/DsSidebar.vue`, CSS `claude-ds/components/Sidebar/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.

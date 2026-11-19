@@ -44,10 +44,10 @@
 - порядок фокуса после контента; бейдж автодействия озвучивается
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-0`; интервал `space/8`; отступы `space/16`, `space/32`.
+- `корень`: заливка / цвет `surface/level-0`; интервал `space/8`; отступы `space/16`, `space/24`.
 - `action 1`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/4`; высота `control/height/md`; мин. ширина `size/button/min`; отступы `space/12`; радиус `radius/control`.
 - `action 2`: заливка / цвет `action/secondary/default`; интервал `space/4`; высота `control/height/md`; мин. ширина `size/button/min`; отступы `space/12`; радиус `radius/control`.
-- Значений без переменной: 4 (напр. `(root):w=375`, `(root):h=80`).
+- Значений без переменной: 2 (напр. `(root):w=375`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.

@@ -23,7 +23,7 @@ export const LIST = [
   'wallet', 'card', 'mining-coin', 'exchange', 'coinhold-coins', 'percentage', 'suitcase', 'lock', 'web', 'gift', 'rocket',
 ];
 // Монеты: тикер → файл icons/symbols/coin
-const COIN_FILES = { btc: 'bitcoin-btc', kas: 'kaspa-kas', ltc: 'litecoin-ltc', doge: 'dogecoin-doge' };
+const COIN_FILES = { btc: 'bitcoin-btc', kas: 'kaspa-kas', ltc: 'litecoin-ltc', doge: 'dogecoin-doge', eth: 'ethereum-eth', usdt: 'tether-usdt' };
 
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 function parse(svg, where) {

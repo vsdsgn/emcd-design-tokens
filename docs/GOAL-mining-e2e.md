@@ -10,9 +10,9 @@
 |---|---|---|---|
 | K1 | Экраны в Figma — только DS: каждый узел — экземпляр библиотеки, его потомок, раскладочный фрейм без заливки и обводки или разрешённый контент (картинка промо, логотип, данные графика) | скрипт-аудит кадров → 0 нарушений | [x] 19.11 |
 | K2 | Покрытие: у каждого набора с экранов — статус beta+ (конструкции — draft допустим), контракт, борда, **код React и Vue** | инвентарь с экранов × `packages/*` → 100 % | [x] 19.11 (код 57 компонентов; борды 5 draft — 2560868) |
-| K3 | Код = текущий контракт (правки 17–19.11: XL снят, Chip Selected белый + Status dot + meta `text/inverse-secondary`, Stat card Align / Link, Amount L 24 Bold, Button зазор, Tab Status dot, Table header Sortable, Nav item 16, Promo card Align, `text/secondary` 56 % и т. д.) | сверка props с `docs/api.md`, SSR-тесты | [ ] |
-| K4 | Демо `demo/mining/` — 6 экранов из кода (React), Dark; скриншоты Playwright рядом с Figma | расхождения записаны и исправлены | [~] 19.11: демо собрано, 2 раунда правок; остаток — `demo/mining/README.md` (часть ждёт Publish) |
-| K5 | Проверки зелёные: `contracts --check`, `parity`, `code --check`, `agent-docs --check`, `exceptions`, SSR React и Vue | вывод команд | [ ] |
+| K3 | Код = текущий контракт (правки 17–19.11: XL снят, Chip Selected белый + Status dot + meta `text/inverse-secondary`, Stat card Align / Link, Amount L 24 Bold, Button зазор, Tab Status dot, Table header Sortable, Nav item 16, Promo card Align, `text/secondary` 56 % и т. д.) | сверка props с `docs/api.md`, SSR-тесты | [x] 19.11 |
+| K4 | Демо `demo/mining/` — 6 экранов из кода (React), Dark; скриншоты Playwright рядом с Figma | расхождения записаны и исправлены | [x] 19.11 (остаток — `demo/mining/README.md`: hover графика, плотный List item, бейдж автовыгрузки; Amount L / «Мониторинг» на экранах — после Publish) |
+| K5 | Проверки зелёные: `contracts --check`, `parity`, `code --check`, `agent-docs --check`, `exceptions`, SSR React и Vue | вывод команд | [x] 19.11 |
 | K6 | Один Publish Components в конце, экраны обновлены, HANDOFF и патчноут для разработки | — | [ ] |
 
 ## Очередь на Publish Components (правки после последнего Publish)
@@ -23,6 +23,7 @@
 - Sidebar — язык Button Tertiary XS (как на экранах).
 
 ## Журнал
+- 19.11 — иконки переэкспортированы из Figma (115, хеши сверены), символы ETH / USDT; контракты Promo S (3 строки), Table cell 14, Select labelPosition, Nav item 24; манифест D37 (Action bar, Sidebar). Все проверки зелёные, демо пересобрано. K3–K5 выполнены. Дальше — K6: один Publish.
 - 19.11 — цель поставлена. K1 выполнен (шапка Web — Divider вместо обводки, BTC — символ DS). Код, пачка A (c3f2f7c): стенд `npm run test:code` (SSR React / Vue, классы ↔ CSS), 29 наборов приведены к контрактам 17–19.11. Контракты: раздел «Код» показывает код в репо.
 - 19.11 — код, пачка 3: все наборы экранов майнинга в React и Vue (+24, всего 57), конструкции draft; Button — поля по замеру Figma. K2 по коду закрыт; остаётся демо `demo/mining/` (K4).
 - 19.11 — K3: Amount L → `heading/lg`, Chart card — легенда над графиком (Bottom — итог), Action bar — поле снизу. K4: `demo/mining/` — 6 экранов только из `window.EMCD` (React 18 UMD локально), `npm run demo:mining` → скриншоты Playwright и сравнения «макет | код | разница». Два раунда правок по сравнению: в компонентах — Nav item иконка 24, Sidebar (язык Tertiary, поля шапки), Stat card шеврон, Amount M фиат 14, Select `labelPosition`, Chip M периода на Web справа, Table на Compact (поля 6, шапка 12), Action bar снизу 24. Осталось (README демо): Amount L и Promo Center на экранах ждут Publish; вопросы — Promo S 3 строки, Table cell 14, иконки сортировки, плотный List item, hover графика.

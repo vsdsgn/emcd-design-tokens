@@ -288,17 +288,16 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 4,
+     "rawCount": 2,
      "raw": [
-      "(root):w=375",
-      "(root):h=80"
+      "(root):w=375"
      ],
      "tokens": {
       "(root)": [
        "f:surface/level-0",
        "gap:space/8",
        "p:space/16",
-       "p:space/32"
+       "p:space/24"
       ],
       "action 1": [
        "f:action/primary/default",
@@ -7150,7 +7149,7 @@
      "id": "66:370",
      "type": "SET",
      "status": "beta",
-     "descLen": 1147,
+     "descLen": 1365,
      "descHeads": [
       "Status:",
       "Level:",
@@ -7162,7 +7161,8 @@
       "Expressive:",
       "Поиск:",
       "Legacy:",
-      "Expressive (привязано):"
+      "Expressive (привязано):",
+      "Шапка и низ (17."
      ],
      "inBoard": false,
      "axes": {
@@ -7242,7 +7242,7 @@
        "lineHeight:type/heading/lg/line-height"
       ],
       "language": [
-       "f:action/accent/default",
+       "f:action/secondary/default",
        "gap:space/2",
        "h:control/height/xs",
        "p:space/4",
@@ -7250,7 +7250,7 @@
       ],
       "cta": [
        "f:action/primary/default",
-       "gap:space/2",
+       "gap:space/4",
        "h:control/height/sm",
        "minw:size/button/min",
        "p:space/6",
