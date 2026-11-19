@@ -79,7 +79,7 @@
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 40` (записанное исключение) и `maxWidth 28 @value` числом; min-width — `size/counter-height/*`.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
-- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props с кодом продукта — по манифесту кода, когда он будет; код в репо проверяет `npm run test:code`.
 - Не проверено: стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката).
 
 ## 15. Migration

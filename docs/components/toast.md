@@ -112,7 +112,7 @@
 - `audit.plugin.js` — 0 после замены на месте 13.11 (OVERLAY и SERVICE 0); после правок 13.11 (ночь: крестик Informer Neutral `icon/inverse`, полоса Informer по высоте, ряд кнопок Card по центру) не перезапускался.
 - `variables-check.plugin.js` — ширина корня 400 / 375 числом.
 - `audit-parity.plugin.js` — 0 (13.11, прогон по страницам компонентов).
-- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props с кодом продукта — по манифесту кода, когда он будет; код в репо проверяет `npm run test:code`.
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; перепроверка Dark 15.11 пройдена (после принятия в Components `surface/raised` Dark → `neutral/700`): различим на L0–L2; на L3 приподнятая поверхность равна L3 и держится обводкой / тенью — правило, не дефект (Card; Informer — заливка `status/*/solid`); RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration

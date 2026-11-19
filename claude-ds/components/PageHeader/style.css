@@ -1,7 +1,7 @@
 /* Page header — 🟡 beta (Figma «Page header»: Size Large · Compact). Шапка страницы: Breadcrumbs (только вложенные страницы Web), title row — текст (Title h1 + Subtitle) и слот Actions, слот Tabs последним.
-   Large — Web: Heading/XL, зазоры 16, действия справа (до двух: Secondary M + Primary M), табы через 24. Compact — под Top bar на корневых экранах App / мобильного веба:
-   Heading/LG, поля 4 / control/padding-x/lg / 8, зазоры 12, действия рядом под заголовком с переносом, табы через 16. Текст — не уже size/page-header/text-min. */
-.emcd-page-header { --_gap: var(--space-16, 16px); --_tabs-gap: var(--space-24, 24px);
+   Large — Web: Heading/XL, зазоры 16, действия справа (до двух: Secondary M + Primary M), табы через 16 (по Figma 19.11: один зазор корня). Compact — под Top bar на корневых экранах App / мобильного веба:
+   Heading/LG, поля 4 / control/padding-x/lg / 0, зазоры 12 (и до табов), действия под заголовком с переносом. Текст — не уже size/page-header/text-min. */
+.emcd-page-header { --_gap: var(--space-16, 16px); --_tabs-gap: var(--space-16, 16px);
   display: flex; flex-direction: column; gap: var(--_gap); min-width: 0; padding: var(--space-8, 8px) 0 0; }
 .emcd-page-header__breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8, 8px); min-width: 0; }
 .emcd-page-header__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--_gap); min-width: 0; } /* узко (текст уже text-min) — действия переносятся под текст */
@@ -10,7 +10,7 @@
 .emcd-page-header__subtitle { margin: 0; font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); color: var(--text-secondary); }
 .emcd-page-header__actions { display: flex; flex: none; align-items: center; gap: var(--space-8, 8px); }
 .emcd-page-header__tabs { min-width: 0; margin-top: calc(var(--_tabs-gap) - var(--_gap)); }
-.emcd-page-header--compact { --_gap: var(--space-12, 12px); --_tabs-gap: var(--space-16, 16px); padding: var(--space-4, 4px) var(--control-padding-x-lg, 16px) var(--space-8, 8px); }
+.emcd-page-header--compact { --_gap: var(--space-12, 12px); --_tabs-gap: var(--space-12, 12px); padding: var(--space-4, 4px) var(--control-padding-x-lg, 16px) 0; }
 .emcd-page-header--compact .emcd-page-header__row { flex-direction: column; align-items: stretch; }
 .emcd-page-header--compact .emcd-page-header__text { min-width: 0; }
 .emcd-page-header--compact .emcd-page-header__title { font-size: var(--type-heading-lg-size, 24px); line-height: var(--type-heading-lg-line-height, 32px); }

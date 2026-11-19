@@ -106,7 +106,7 @@
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина корня числом (560 / 320 / 280 / 720 / 520).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
-- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props с кодом продукта — по манифесту кода, когда он будет; код в репо проверяет `npm run test:code`.
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; L шире ячеек стенда — текст и языки проверены по видимой части; RTL на стенде не зеркалится; кода нет — parity props пропущена.
 
 ## 15. Migration

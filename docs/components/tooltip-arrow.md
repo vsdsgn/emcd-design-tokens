@@ -73,7 +73,7 @@
 - `audit.plugin.js` — отдельно не прогонялся — в составе Tooltip (прогон после замены на месте 13.11).
 - `variables-check.plugin.js` — корень 26 × 9 числом (4 значения без переменной).
 - `audit-parity.plugin.js` — отдельно не прогонялся — в составе Tooltip.
-- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props с кодом продукта — по манифесту кода, когда он будет; код в репо проверяет `npm run test:code`.
 - Не проверено: отдельный стенд не снимался — проверен в составе Tooltip на стенде 2026-11-13; кода нет — parity props пропущена.
 
 ## 15. Migration

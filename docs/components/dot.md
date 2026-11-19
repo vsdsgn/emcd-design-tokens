@@ -71,7 +71,7 @@
 - `audit.plugin.js` — 0 замечаний (вместе со Status).
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13, вместе со Status).
-- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
+- `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props с кодом продукта — по манифесту кода, когда он будет; код в репо проверяет `npm run test:code`.
 - Не проверено: отдельный стенд не снимался — проверен в составе Status; кода нет — parity props пропущена.
 
 ## 15. Migration

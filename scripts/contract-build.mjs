@@ -141,7 +141,7 @@ function build(d) {
   L.push(`- \`audit.plugin.js\` — ${d.accept.audit}.`);
   L.push(`- \`variables-check.plugin.js\` — ${d.accept.vc}.`);
   L.push(`- \`audit-parity.plugin.js\` — ${d.accept.ap}.`);
-  L.push(`- \`npm run parity\` — токены набора есть в репо или ждут Publish (\`docs/parity-baseline.json\`); сверка props пропущена: кода нет.`);
+  L.push(`- \`npm run parity\` — токены набора есть в репо или ждут Publish (\`docs/parity-baseline.json\`); сверка props с кодом продукта — по манифесту кода, когда он будет; код в репо проверяет \`npm run test:code\`.`);
   L.push(`- Не проверено: ${d.accept.not || 'стенд Light / Dark × бренды × платформы × L0–L3, длинный текст, 6 языков, текст 200 % — снимаются при замене набора (фаза C, после точки отката)'}.`);
   L.push('', '## 15. Migration', list(d.migration));
   if (d.todo && d.todo.length) L.push('', 'Осталось доделать (после пакета правок beta 2026-11-13):', list(d.todo));
