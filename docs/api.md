@@ -449,6 +449,8 @@ Props нет.
 |---|---|---|---|
 | `layout` | icon \| extended | по правилу контракта | ось Layout |
 | `loading` | false \| true | по правилу контракта | ось Loading |
+| `size` | l \| m | по правилу контракта | ось Size |
+| `type` | primary \| secondary | по правилу контракта | ось Type |
 | `label` | string | — | свойство Label |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
@@ -1133,6 +1135,7 @@ Props нет.
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `selected` | off \| on | по правилу контракта | ось Selected |
+| `type` | item \| action | по правилу контракта | ось Type |
 | `label` | string | — | свойство Label |
 | `badgeDot` | boolean | false | свойство Badge dot |
 

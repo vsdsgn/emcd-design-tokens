@@ -9,6 +9,8 @@
 .emcd-list-item--m.emcd-list-item--big-value { --mh: 68px; }
 .emcd-list-item--description-only { --mh: 68px; }
 .emcd-list-item--m.emcd-list-item--description-only { --mh: 60px; }
+/* Inset=false (19.11) — список внутри Card: без боковых полей и мин. высоты, высота по содержимому (M в одну строку — 48); край текста = край заголовка карточки */
+.emcd-list-item--flush { --px: 0px; --mh: 0px; }
 .emcd-list-item__leading, .emcd-list-item__trailing { position: relative; flex: none; display: inline-flex; align-items: center; gap: var(--space-8, 8px); color: var(--icon-primary); }
 .emcd-list-item__leading svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
 .emcd-list-item__trailing { margin-left: auto; color: var(--text-secondary); text-align: end; flex-direction: column; align-items: flex-end; gap: var(--space-4, 4px); }

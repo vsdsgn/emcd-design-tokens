@@ -160,7 +160,7 @@
       { key: 'hash', label: 'Ср. хешрейт', render: function (r) { return text('demo-two__p', r.hash); } },
       { key: 'more', label: '', align: 'end', width: 56, render: function () { return h(E.IconButton, { type: 'tertiary', size: 'xs', label: 'Подробнее', icon: h(E.Icon, { name: 'chevron-down' }) }); } }];
     var coinRow = function (coin, val, fiat) {
-      return h(E.ListItem, { size: 'm', showDescription: false, leading: h(E.Coin, { coin: coin, size: 'm' }), label: val, trailing: text('demo-muted', fiat) });
+      return h(E.ListItem, { size: 'm', inset: false, showDescription: false, leading: h(E.Coin, { coin: coin, size: 'm' }), label: val, trailing: text('demo-muted', fiat) });
     };
     return h(WebShell, { tab: 'История' },
       div('demo-menu demo-menu--split', coinSelect(['ltc', 'eth', 'x'], 'Litecoin + 6', '6'),
@@ -176,9 +176,9 @@
             h(E.Suggest, { layout: 'strip', tone: 'warning', title: 'Начисления ежедневно с 15:00 до 16:00', primaryAction: false, close: false }),
             div('demo-total', h(E.Amount, { size: 'l', value: '$12 457.89' }), text('demo-caption demo-caption--md', 'Всего начислено')),
             h(E.Divider, null),
-            div('demo-group', text('demo-caption demo-caption--md', 'PPS+'), coinRow('ltc', '8.9012 LTC', '≈ $78.90')),
+            div('demo-group', text('demo-caption demo-caption--md', 'PPS+'), div('emcd-list', coinRow('ltc', '8.9012 LTC', '≈ $78.90'))),
             div('demo-group', text('demo-caption demo-caption--md', 'PPLNS'),
-              coinRow('doge', '9.0123 DOGE', '≈ $34.56'), coinRow('bel', '123.4567 BEL', '≈ $90.12'), coinRow('lky', '67.8901 LKY', '≈ $89.01'), coinRow('pep', '789.0123 PEP', '≈ $45.67'))),
+              div('emcd-list', coinRow('doge', '9.0123 DOGE', '≈ $34.56'), coinRow('bel', '123.4567 BEL', '≈ $90.12'), coinRow('lky', '67.8901 LKY', '≈ $89.01'), coinRow('pep', '789.0123 PEP', '≈ $45.67')))),
           h(E.Card, { padding: 'm', className: 'demo-history__table' },
             h(E.Table, { label: 'Начисления', density: 'regular', columns: cols, rows: HISTORY })))));
   }
@@ -242,7 +242,7 @@
       return h(E.ListItem, { key: d, size: 'm', divider: true, label: 'PPLNS начисление', description: d + ' дек 2025, 11:38',
         trailing: h(E.Amount, { size: 'm', align: 'end', value: '0.00004480', ticker: 'ETC', fiat: '≈ $62.89' }) });
     });
-    return h(MwShell, { tab: 'История', bar: h(E.ActionBar, { actions: [{ label: 'Фильтры', iconLeft: 'tuning' }, { label: 'Выгрузить', iconLeft: 'file-excel' }] }) },
+    return h(MwShell, { tab: 'История', bar: h(E.ActionBar, { badge: true, actions: [{ label: 'Фильтры', iconLeft: 'tuning' }, { label: 'Выгрузить', iconLeft: 'file-excel' }] }) },
       h(E.Segmented, { size: 'm', block: true, label: 'Вид истории', items: [{ value: 'acc', label: 'Начисления' }, { value: 'pay', label: 'Выплаты' }] }),
       h(E.Card, { padding: 'm', border: false, className: 'demo-mw-total' },
         coinSelect(['ltc', 'eth', 'x'], 'Litecoin + 6', '6', 'l'),

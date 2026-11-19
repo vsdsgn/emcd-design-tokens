@@ -10,6 +10,7 @@ const props = defineProps({
   value: [String, Number],                            // big-value: крупное значение
   subvalue: String,                                   // big-value: единица
   divider: Boolean,
+  inset: { type: Boolean, default: true },          // false — без боковых полей: список внутри Card (19.11)
   disabled: Boolean,
   href: String,
   interactive: Boolean,
@@ -20,7 +21,7 @@ const tag = computed(() => (props.href ? 'a' : props.interactive ? 'button' : 'd
 <template>
   <component :is="tag" :href="disabled ? undefined : href" :type="tag === 'button' ? 'button' : undefined" :disabled="tag === 'button' ? disabled : undefined"
     :aria-disabled="tag !== 'button' && disabled ? true : undefined"
-    :class="['emcd-list-item', size === 'm' && 'emcd-list-item--m', content !== 'text-first' && `emcd-list-item--${content}`, (href || interactive) && 'emcd-list-item--interactive', divider && 'emcd-list-item--divider', disabled && 'emcd-list-item--disabled']"
+    :class="['emcd-list-item', size === 'm' && 'emcd-list-item--m', content !== 'text-first' && `emcd-list-item--${content}`, (href || interactive) && 'emcd-list-item--interactive', divider && 'emcd-list-item--divider', !inset && 'emcd-list-item--flush', disabled && 'emcd-list-item--disabled']"
     @click="!disabled && $emit('click', $event)">
     <span v-if="$slots.leading" class="emcd-list-item__leading"><slot name="leading" /></span>
     <span class="emcd-list-item__content">

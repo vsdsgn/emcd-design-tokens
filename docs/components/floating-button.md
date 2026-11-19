@@ -102,11 +102,13 @@
 - Описание: 1672 знаков, разделы: Status: Level: Когда использовать: Icon — Позиция: A11y: Тень: Правила: Матрица: Legacy: Свойства (17. Size (19.
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`FloatingButton`), Vue `packages/vue/src/DsFloatingButton.vue`, CSS `claude-ds/components/FloatingButton/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsFloatingButton>`; Flutter: `DsFloatingButton`.
 - Props: `layout`: icon | extended; `loading`: boolean; `size`: l | m; `type`: primary | secondary; `label`: string или слот.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
+- `layout`: icon | extended; `size` (l | m) и `type` (primary | secondary) действуют только при `layout="extended"` — Icon всегда L 56 Primary.
+- `label` обязателен: подпись Extended или `aria-label` Icon; `icon` — имя иконки DS (по умолчанию `plus`) или узел; позиция справа снизу — у продукта.
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.

@@ -1,4 +1,4 @@
-<!-- Transaction — строка операции; нажимается вся строка (событие click → детали). Знак суммы — по type и status. Контракт: docs/components/transaction.md -->
+<!-- Transaction — строка операции; нажимается вся строка (событие click → детали). Знак суммы — по type и status. Completed (19.11) — без Status: сумма + фиат «≈ $…» (fiat); Status — только у pending / failed. Контракт: docs/components/transaction.md -->
 <script setup>
 import { computed } from 'vue';
 import DsListItem from './DsListItem.vue';
@@ -11,6 +11,7 @@ const props = defineProps({
   description: String,                           // дата
   value: [String, Number],
   ticker: String,
+  fiat: String,                                  // «≈ $12.40» — только у completed
   statusLabel: String,
   href: String,
 });
@@ -28,8 +29,11 @@ const sign = computed(() => (props.status === 'failed' || props.type === 'exchan
   <DsListItem size="m" :label="label ?? t[0]" :description="description" :href="href" :interactive="!href" :class="['emcd-tx', `emcd-tx--${type}`, `emcd-tx--${status}`]" @click="$emit('click', $event)">
     <template #leading><span class="emcd-tx__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path :d="t[1]"/></svg></span></template>
     <template #trailing>
-      <DsAmount size="s" :sign="sign" :value="value" :ticker="ticker" :show-fiat="false" align="end" />
-      <DsStatus size="s" :tone="st[0]" :label="statusLabel ?? st[1]" />
+      <DsAmount v-if="status === 'completed'" size="s" :sign="sign" :value="value" :ticker="ticker" :fiat="fiat" :show-fiat="fiat != null" align="end" />
+      <template v-else>
+        <DsAmount size="s" :sign="sign" :value="value" :ticker="ticker" :show-fiat="false" align="end" />
+        <DsStatus size="s" :tone="st[0]" :label="statusLabel ?? st[1]" />
+      </template>
     </template>
   </DsListItem>
 </template>

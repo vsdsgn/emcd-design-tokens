@@ -1,0 +1,29 @@
+/* Tab bar item — 🟡 beta (Figma «🟡 Tab bar item»: Type × Selected × State). Пункт нижней навигации Compact (App и мобильный веб — одна схема).
+   Item: 72 × 56, иконка 24 + подпись type-overline Medium (зазор space-2); Selected — icon-accent + text-accent, иначе text-secondary; Badge dot — status-danger-solid, без числа.
+   Action (19.11): центральная мультикнопка App — плашка 56 × 40 action-secondary-default, обводка 1 border-accent, radius-control, иконка / логотип без подписи; без Selected.
+   Pressed — слой state-layer 10 %; Hover нет (касание). Disabled не используется (недоступный раздел скрывается). */
+.emcd-tab-bar-item { position: relative; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2, 2px); box-sizing: border-box;
+  width: var(--size-tab-bar-item-width, 72px); min-width: 0; height: var(--control-height-xl, 56px); padding: 0; margin: 0; border: 0; border-radius: var(--radius-control, 12px);
+  background: none; color: var(--text-secondary); text-decoration: none; font: inherit; cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+.emcd-tab-bar-item::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-tab-bar-item:active::before { opacity: var(--state-pressed, .10); }
+.emcd-tab-bar-item:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); border-radius: var(--radius-2xs, 4px); }
+.emcd-tab-bar-item__icon { position: relative; display: inline-flex; color: inherit; }
+.emcd-tab-bar-item__icon svg { width: var(--icon-size-lg, 24px); height: var(--icon-size-lg, 24px); }
+.emcd-tab-bar-item__label { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font: 500 var(--type-overline-size, 10px)/var(--type-overline-line-height, 12px) var(--font-sans); }
+.emcd-tab-bar-item__dot { position: absolute; top: 0; inset-inline-end: -2px; width: 8px; height: 8px; border-radius: 50%; background: var(--status-danger-solid);
+  box-shadow: 0 0 0 2px var(--surface-current, var(--surface-level-0)); }
+.emcd-tab-bar-item--selected { color: var(--text-accent); }
+.emcd-tab-bar-item--selected .emcd-tab-bar-item__icon { color: var(--icon-accent); }
+/* Type=Action: плашка 56 × 40 по центру пункта */
+.emcd-tab-bar-item--action::before { display: none; }
+.emcd-tab-bar-item__plate { position: relative; display: grid; place-items: center; box-sizing: border-box; width: var(--control-height-xl, 56px); height: var(--control-height-md, 40px);
+  border-radius: var(--radius-control, 12px); background: var(--action-secondary-default); color: var(--icon-primary);
+  box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-accent); overflow: hidden; }
+.emcd-tab-bar-item__plate::before { content: ""; position: absolute; inset: 0; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-tab-bar-item--action:active .emcd-tab-bar-item__plate::before { opacity: var(--state-pressed, .10); }
+.emcd-tab-bar-item__plate svg { position: relative; width: var(--icon-size-lg, 24px); height: var(--icon-size-lg, 24px); }
+@media (prefers-reduced-motion: reduce) { .emcd-tab-bar-item::before, .emcd-tab-bar-item__plate::before { transition: none; } }

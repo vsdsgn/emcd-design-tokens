@@ -81,10 +81,12 @@
 - Описание: 1015 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`TabBar`), Vue `packages/vue/src/DsTabBar.vue`, CSS `claude-ds/components/TabBar/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTabBar>`; Flutter: `DsTabBar`.
 - Props: `safeArea`: boolean = true; `items`: string или слот.
+- `items`: массив Tab bar item (3–5, лишние отсекаются) + `value` / `defaultValue` / `onChange` (Vue `v-model`); пункт `type: 'action'` не выбирается — `onAction` (Vue событие `action`).
+- Safe area — нижнее поле `max(os/safe-area/bottom, env(safe-area-inset-bottom))`; `label` — `aria-label` nav (по умолчанию «Основная навигация»).
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.

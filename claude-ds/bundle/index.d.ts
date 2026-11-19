@@ -425,6 +425,8 @@ export interface ListItemProps {
   /** Сумма (Amount), Badge, шеврон, Toggle — справа. */
   trailing?: ReactNode;
   divider?: boolean;
+  /** false (19.11) — без боковых полей и мин. высоты: список внутри Card (край текста = край заголовка карточки; M в одну строку — 48). Отдельный список на экране — true. По умолчанию true. */
+  inset?: boolean;
   disabled?: boolean;
   /** Строка открывает детали (Hover / Pressed). */
   href?: string;
@@ -435,7 +437,7 @@ export interface ListItemProps {
 export interface TransactionProps {
   /** withdrawal — вывод; deposit — пополнение; reward — начисление за майнинг; exchange — обмен (без знака). */
   type?: 'withdrawal' | 'deposit' | 'reward' | 'exchange';
-  /** completed «Выполнено»; pending «В обработке»; failed «Отклонено» (без знака). */
+  /** completed — без Status (19.11): справа сумма и фиат; pending «В обработке», failed «Отклонено» (без знака) — с Status. */
   status?: 'completed' | 'pending' | 'failed';
   /** Действие + монета: «Вывод BTC», «Обмен BTC → USDT». */
   label?: ReactNode;
@@ -444,6 +446,9 @@ export interface TransactionProps {
   /** Сумма без знака — знак по type и status. */
   value?: ReactNode;
   ticker?: ReactNode;
+  /** Фиат «≈ $12.40» под суммой — только у completed. */
+  fiat?: ReactNode;
+  /** Своё слово статуса (pending, failed). */
   statusLabel?: ReactNode;
   href?: string;
   /** Открыть детали (Side panel / Sheet). */
@@ -1027,6 +1032,59 @@ export interface PromoCarouselProps {
 export interface ActionBarProps {
   /** 1 — Primary; 2 — Tertiary поровну. */
   actions?: (Omit<ButtonProps, 'iconLeft'> & { iconLeft?: IconSlot })[];
+  /** Бейдж автодействия (Badge S Neutral Subtle) над последней кнопкой, справа сверху (19.11; только с actions). По умолчанию false. */
+  badge?: boolean;
+  /** Текст бейджа. По умолчанию «A». */
+  badgeText?: string;
+  children?: ReactNode;
+  className?: string;
+}
+
+// ───────────── Пачка 5 (19.11) — App ─────────────
+export interface FloatingButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+  /** icon — круг 56 (только Primary L), однозначная иконка; extended — иконка + подпись до 20 знаков, при прокрутке вниз продукт сворачивает в icon. */
+  layout?: 'icon' | 'extended';
+  /** Только extended: l 56 — главное действие экрана-списка (поля 20, зазор 8); m 40 — вспомогательное поверх списка или дашборда (поля 16, зазор 6). */
+  size?: 'l' | 'm';
+  /** Только extended: primary — главное; secondary — нейтральное («Выгрузить»): action-secondary-default, подпись text-primary, иконка icon-primary. */
+  type?: 'primary' | 'secondary';
+  /** Подпись extended; у icon — доступное имя (aria-label). Обязательна. */
+  label: string;
+  /** Имя иконки DS или узел. По умолчанию plus. */
+  icon?: IconSlot;
+  /** Spinner L вместо иконки, нажатие блокируется. */
+  loading?: boolean;
+  htmlType?: 'button' | 'submit' | 'reset';
+}
+export interface TabBarItemProps {
+  /** item — раздел (иконка 24 + подпись); action — центральная мультикнопка App («E» → шит быстрых действий): плашка 56 × 40, только иконка, без selected; одна на Tab bar, по центру. */
+  type?: 'item' | 'action';
+  /** Текущий раздел: aria-current="page", icon-accent + text-accent. Ровно один в Tab bar. */
+  selected?: boolean;
+  /** Подпись — одно слово; у action — доступное имя (обязательно). */
+  label: string;
+  /** Имя иконки DS или узел (логотип у action). По умолчанию dots-grid. */
+  icon?: IconSlot;
+  /** Точка без числа: в разделе есть то, что требует действия. */
+  badgeDot?: boolean;
+  /** Добавка к доступному имени при badgeDot. По умолчанию «есть уведомления». */
+  badgeLabel?: string;
+  href?: string;
+  onClick?: (event: unknown) => void;
+  className?: string;
+}
+export interface TabBarProps {
+  /** 3–5 пунктов, порядок как в Sidebar; action — одна, по центру. value — ключ раздела (по умолчанию label). */
+  items?: (TabBarItemProps & { value?: string | number })[];
+  value?: string | number;
+  defaultValue?: string | number;
+  onChange?: (value: string | number) => void;
+  /** Нажатие на пункт type="action". */
+  onAction?: (item: TabBarItemProps) => void;
+  /** Нижнее поле safe area (os-safe-area-bottom / env(safe-area-inset-bottom)). Off — только если safe area отдал родитель. По умолчанию true. */
+  safeArea?: boolean;
+  /** aria-label nav. По умолчанию «Основная навигация». */
+  label?: string;
   children?: ReactNode;
   className?: string;
 }
@@ -1060,3 +1118,6 @@ export declare function TopBar(props: TopBarProps): JSX.Element;
 export declare function StatusSummary(props: StatusSummaryProps): JSX.Element;
 export declare function PromoCarousel(props: PromoCarouselProps): JSX.Element;
 export declare function ActionBar(props: ActionBarProps): JSX.Element;
+export declare function FloatingButton(props: FloatingButtonProps): JSX.Element;
+export declare function TabBarItem(props: TabBarItemProps): JSX.Element;
+export declare function TabBar(props: TabBarProps): JSX.Element;

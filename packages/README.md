@@ -10,6 +10,7 @@
 Пачка 2: Tabs (+ Tab), Segmented (+ Segment), Card, Stat card, Amount, Toast, Tooltip, Suggest, Status, Counter, Avatar, Divider, Spinner, Progress, List item, Transaction, Select, Menu (+ Menu item), Password field.
 Пачка 3 (экраны майнинга): Icon, Coin, Coin stack, Nav item, Key-value row, Search, Select compact, Date range field, Page indicator, Legend swatch, Legend item, Chart metric, Table header cell, Table cell, Table row, Table (паттерн), Promo card, Sidebar, Chart plot, Chart card; конструкции (draft) — Top bar, Status summary, Promo carousel, Action bar.
 Пачка 4 (19.11): Chart crosshair, Chart tooltip (hover Chart plot), Date cell, Calendar, Date range panel (встроенная панель Date range field).
+Пачка 5 (19.11, App): Floating button, Tab bar item, Tab bar.
 Иконки и монеты для кода — реестр `scripts/icons-code.mjs` (из `icons/svg` и `icons/symbols/coin`): блок `// @icons:begin` в `react/src/index.js` и `vue/src/icons.js`; `npm run code` запускает его перед `code-build`.
 Контролы неуправляемые по умолчанию (без `value` / `v-model` — своё состояние; прототип кликается), с `value` + `onChange` — управляемые. Props — по контрактам `docs/components/*.md`. Тема, бренд и платформа — атрибуты `data-theme`, `data-brand`, `data-platform` на `<html>` (`build/css`).
 
@@ -58,5 +59,11 @@ Vue: `import { DsButton } from '…/packages/vue/src'` → `<DsButton type="prim
 | Calendar · Date cell | Mode single · range (начало → конец, обратный порядок меняется местами), сегодня — обводка, недоступные — `min` / `max` / `isDateDisabled`, неделя по локали (ru — Пн); клавиатура: стрелки, PageUp / PageDown (+ Shift — год), Home / End, Enter / Space, Esc; RTL — сетка и стрелки зеркалятся. Даты — ISO «ГГГГ-ММ-ДД» |
 | Date range panel · Date range field | панель: пресеты (listbox) + Calendar Range + «Сбросить» / «Применить» (`presets=false` — мобильный, применение по второй дате); поле: `panel` — встроенный поповер, `value` / `onChange` (ISO), Esc и «Применить» возвращают фокус на поле; `onOpen` — по-прежнему для панели продукта |
 | Table · Action bar | Compact: поля ячеек 6, шапка 12; Action bar снизу 24 или 16 + safe area |
+| Floating button (новый) | `layout` icon (круг 56, только Primary L) · extended; `size` l 56 (поля 20, зазор 8, label-md) · m 40 (поля 16, зазор 6) и `type` primary · secondary (`action-secondary-default`, `text-primary`, `icon-primary`) — только у extended; `loading` — Spinner L |
+| Tab bar · Tab bar item (новые) | 3–5 пунктов, иконка 24 + подпись overline 10 Medium; Selected — `icon-accent` + `text-accent` (по контракту), `aria-current`; Badge dot без числа (в доступном имени); `type: 'action'` — плашка 56 × 40 `action-secondary-default`, обводка `border-accent`, без подписи (`label` → `aria-label`), не выбирается (`onAction`); Safe area; стекло `material-thin`, reduced transparency — `surface-raised` |
+| Transaction | Completed — без Status: сумма + фиат `fiat` «≈ $…»; Status — только у pending / failed |
+| Action bar | `badge` + `badgeText` («A»): Badge S Neutral Subtle над последней кнопкой (top −высота / 2, конец −4); колонки — сеткой поровну |
+| List item | `inset` (по умолчанию true): `false` — без боковых полей и мин. высоты (список внутри Card, M в одну строку — 48) |
+| Chart tooltip | контракт «Код»: `rows` — массив (длина 1–4 ↔ ось Rows Figma) |
 
 Пакеты пока не публикуются в npm: разработка забирает исходники; DSP / ui-emcd-web сверяет с ними свои компоненты.

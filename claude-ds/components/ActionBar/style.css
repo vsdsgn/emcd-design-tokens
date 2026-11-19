@@ -1,5 +1,10 @@
-/* Action bar — 🟠 draft (Figma «🟠 Action bar»: Actions 1 · 2). Нижняя панель действий Compact: 1–2 Button M поровну (зазор space/8), подложка surface/level-0, прилипает к низу;
+/* Action bar — 🟠 draft (Figma «🟠 Action bar»: Actions 1 · 2; Badge — 19.11). Нижняя панель действий Compact: 1–2 Button M поровну (зазор space/8), подложка surface/level-0, прилипает к низу;
    поля space/16 сверху и по бокам; снизу space/24 (замер экранов Figma 19.11: высота 80 = 16 + 40 + 24) или space/16 + safe area — что больше. Одно действие — Primary; два — Tertiary (action/secondary/default). */
-.emcd-action-bar { position: sticky; bottom: 0; z-index: 10; display: flex; gap: var(--space-8, 8px); box-sizing: border-box; width: 100%;
+.emcd-action-bar { position: sticky; bottom: 0; z-index: 10; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: var(--space-8, 8px); box-sizing: border-box; width: 100%;
   padding: var(--space-16, 16px) var(--space-16, 16px) max(var(--space-24, 24px), calc(var(--space-16, 16px) + env(safe-area-inset-bottom, 0px))); background: var(--surface-level-0); }
-.emcd-action-bar > .emcd-btn { flex: 1 1 0; min-width: 0; max-width: none; }
+/* Колонки поровну — сеткой (при flex-basis 0 кнопка с полями шире обёртки с бейджем) */
+.emcd-action-bar > .emcd-btn, .emcd-action-bar__slot { min-width: 0; max-width: none; }
+/* Badge (19.11) — бейдж автодействия (Badge S Neutral Subtle, «A») над последней кнопкой: справа сверху, top −высота / 2, конец −4 */
+.emcd-action-bar__slot { position: relative; display: flex; }
+.emcd-action-bar__slot > .emcd-btn { flex: 1 1 auto; min-width: 0; max-width: none; }
+.emcd-action-bar__badge { position: absolute; z-index: 2; top: calc(var(--size-badge-height-sm, 20px) / -2); inset-inline-end: -4px; pointer-events: none; }

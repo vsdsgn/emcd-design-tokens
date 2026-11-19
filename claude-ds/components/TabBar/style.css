@@ -1,0 +1,10 @@
+/* Tab bar — 🟡 beta (Figma «🟡 Tab bar»: Safe area, слот Items). Нижняя навигация Compact: 3–5 Tab bar item, ровно один Selected; Action — одна, по центру.
+   Ширина экрана, линия сверху edge-hairline; поверхность material-thin (Expressive — стекло, Base — непрозрачная); поля пунктов space-8.
+   Safe area (по умолчанию вкл.) — нижнее поле os-safe-area-bottom (в вебе — env(safe-area-inset-bottom)). Закреплён у низа, контент скроллится под ним; Toast — над таббаром. */
+.emcd-tab-bar { position: sticky; bottom: 0; z-index: 10; box-sizing: border-box; width: 100%;
+  padding-bottom: max(var(--os-safe-area-bottom, 0px), env(safe-area-inset-bottom, 0px));
+  background: var(--material-thin-fill, var(--surface-default)); -webkit-backdrop-filter: blur(var(--material-thin-blur, 0px)); backdrop-filter: blur(var(--material-thin-blur, 0px));
+  box-shadow: inset 0 var(--border-width-default, 1px) 0 var(--edge-hairline, var(--border-subtle)); }
+.emcd-tab-bar--no-safe-area { padding-bottom: 0; }
+.emcd-tab-bar__items { display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-8, 8px); }
+@media (prefers-reduced-transparency: reduce) { .emcd-tab-bar { background: var(--surface-raised); -webkit-backdrop-filter: none; backdrop-filter: none; } }

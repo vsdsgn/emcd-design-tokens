@@ -88,6 +88,7 @@
 - Vue: `<DsListItem>`; Flutter: `DsListItem`.
 - Props: `size`: l | m; `content`: text-first | description-first | big-value | description-only.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
+- `inset` (boolean = true; в Figma — поля `_List row`): `false` — без боковых полей и мин. высоты, список внутри Card (19.11).
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 по набору после замены на месте 13.11; после снятия Style=Card (15.11) не перезапускался.

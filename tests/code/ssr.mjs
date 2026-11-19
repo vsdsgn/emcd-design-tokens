@@ -124,8 +124,10 @@ const RC = {
     ...['text-first', 'description-first', 'big-value', 'description-only'].flatMap((content) => ['l', 'm'].map((size) => ({ content, size, label: 'BTC', description: 'Bitcoin', value: '0.5', subvalue: 'BTC' }))),
     { label: 'Дневной доход', description: 'скрыто', showDescription: false, trailing: h(R.Amount, { value: 1, ticker: 'BTC', align: 'end' }) },
     { leading: ico(), href: '#', divider: true, label: 'x' }, { onClick: () => {}, disabled: true, label: 'x' },
+    { size: 'm', inset: false, showDescription: false, divider: true, leading: h(R.Coin, { coin: 'ltc', size: 'm' }), label: '8.9012 LTC', trailing: '≈ $78.90' },
   ],
-  Transaction: ['withdrawal', 'deposit', 'reward', 'exchange'].flatMap((type) => ['completed', 'pending', 'failed'].map((status) => ({ type, status, description: '19.11', value: '0.1', ticker: 'BTC' }))),
+  Transaction: ['withdrawal', 'deposit', 'reward', 'exchange'].flatMap((type) => ['completed', 'pending', 'failed'].map((status) => ({ type, status, description: '19.11', value: '0.1', ticker: 'BTC', fiat: '≈ $9 512.40' })))
+    .concat([{ status: 'completed', value: '0.1', ticker: 'BTC' }, { status: 'pending', statusLabel: 'Ждёт подтверждения', value: '0.1', ticker: 'BTC' }]),
   MenuItem: [{ label: 'Копировать' }, { size: 'l', leading: ico(), trailing: 'x', description: 'Описание', label: 'BTC' }, { tone: 'danger', label: 'Удалить' }, { showSelection: true, defaultSelected: true, label: 'x' }, { selected: true, label: 'x' }, { disabled: true, label: 'x' }],
   Menu: [{ items: [{ group: 'Группа' }, { label: 'A' }, { divider: true }, { label: 'B', tone: 'danger' }] }, { search: true, size: 'l', role: 'listbox', items: [{ label: 'A' }] }],
   Select: [
@@ -210,7 +212,18 @@ const RC = {
   StatusSummary: [{ offline: 9, unstable: 1, active: 40 }, { layout: 'row', offline: 9, unstable: 1, active: 40, onAllLink: () => {}, onItem: () => {} }, { layout: 'row', showAllLink: false, items: [{ tone: 'success', label: 'Все', value: 50 }] }],
   PromoCarousel: [{ slides: [h(R.PromoCard, { size: 'm', title: 'Забусти свой майнинг', showMedia: true }), h(R.PromoCard, { size: 'm', title: 'Каталог' }), h(R.PromoCard, { size: 'm', title: 'Рефералы' })] },
     { children: [h('div', { key: 1 }, 'a'), h('div', { key: 2 }, 'b')], index: 1, onIndexChange: () => {} }, { slides: [h('div', null, 'один')] }],
-  ActionBar: [{ actions: [{ label: 'Подключить', iconLeft: 'plus' }] }, { actions: [{ label: 'Подключить', iconLeft: 'plus' }, { label: 'Создать группу' }] }, { children: h(R.Button, { label: 'x' }) }],
+  ActionBar: [{ actions: [{ label: 'Подключить', iconLeft: 'plus' }] }, { actions: [{ label: 'Подключить', iconLeft: 'plus' }, { label: 'Создать группу' }] }, { children: h(R.Button, { label: 'x' }) },
+    { badge: true, actions: [{ label: 'Фильтры', iconLeft: 'tuning' }, { label: 'Выгрузить', iconLeft: 'file-excel' }] }, { badge: true, badgeText: 'Авто', actions: [{ label: 'Выгрузить' }] }],
+  // Пачка 5 (19.11) — App
+  FloatingButton: [{ label: 'Добавить воркер' }, { layout: 'icon', size: 'm', type: 'secondary', label: 'Добавить' },
+    ...['l', 'm'].flatMap((size) => ['primary', 'secondary'].map((type) => ({ layout: 'extended', size, type, label: 'Выгрузить', icon: 'file-excel' }))),
+    { layout: 'extended', loading: true, label: 'Добавить воркер' }, { loading: true, label: 'x' }, { disabled: true, layout: 'extended', label: 'x', icon: ico() }],
+  TabBarItem: [{ label: 'Дашборд' }, { selected: true, label: 'Майнинг', icon: 'mining-coin' }, { badgeDot: true, label: 'Кошелёк' }, { selected: true, badgeDot: true, badgeLabel: 'новое', label: 'x', href: '#' },
+    { type: 'action', label: 'Быстрые действия', icon: h('span', null, 'E') }, { type: 'action', selected: true, label: 'x' }],
+  TabBar: [{ items: [{ label: 'Дашборд' }, { label: 'Майнинг', icon: 'mining-coin' }, { type: 'action', label: 'Быстрые действия', icon: h('span', null, 'E') }, { label: 'Кошелёк', badgeDot: true }, { label: 'Профиль', icon: 'user' }] },
+    { items: [{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }, { value: 'c', label: 'C' }], value: 'b', onChange: () => {}, onAction: () => {}, safeArea: false },
+    { defaultValue: 'B', items: [{ label: 'A' }, { label: 'B' }, { label: 'C' }, { label: 'D' }, { label: 'E' }, { label: 'F' }] },
+    { children: [h(R.TabBarItem, { key: 1, label: 'A', selected: true }), h(R.TabBarItem, { key: 2, label: 'B' })] }],
 };
 
 // Обёртки для элементов, которые по правилам HTML живут только внутри таблицы (иначе React предупреждает о вложенности)
@@ -295,8 +308,9 @@ const VC = {
   DsSegment: [[{ label: 'Список' }], [{ selected: true, tone: 'accent', label: 'x' }], [{ showLabel: false, label: 'x' }, { icon: vico }]],
   DsSegmented: ['s', 'm', 'l'].map((size) => [{ size, label: 'Вид', items: [{ label: 'Список' }, { label: 'Группы' }] }]).concat([[{ block: true, tone: 'accent', items: [{ label: '1' }, { label: '2' }] }]]),
   DsListItem: ['text-first', 'description-first', 'big-value', 'description-only'].map((content) => [{ content, label: 'BTC', description: 'Bitcoin', value: '0.5', subvalue: 'BTC' }])
-    .concat([[{ size: 'm', label: 'Дневной доход', description: 'скрыто', showDescription: false }, { trailing: () => 'x' }], [{ href: '#', divider: true, label: 'x' }, { leading: vico }], [{ interactive: true, disabled: true, label: 'x' }]]),
-  DsTransaction: ['withdrawal', 'deposit', 'reward', 'exchange'].map((type, i) => [{ type, status: ['completed', 'pending', 'failed', 'completed'][i], value: '0.1', ticker: 'BTC', description: '19.11' }]),
+    .concat([[{ size: 'm', label: 'Дневной доход', description: 'скрыто', showDescription: false }, { trailing: () => 'x' }], [{ size: 'm', inset: false, divider: true, label: '8.9012 LTC', showDescription: false }, { trailing: () => '≈ $78.90' }], [{ href: '#', divider: true, label: 'x' }, { leading: vico }], [{ interactive: true, disabled: true, label: 'x' }]]),
+  DsTransaction: ['withdrawal', 'deposit', 'reward', 'exchange'].map((type, i) => [{ type, status: ['completed', 'pending', 'failed', 'completed'][i], value: '0.1', ticker: 'BTC', fiat: '≈ $9 512.40', description: '19.11' }])
+    .concat([[{ status: 'completed', value: '0.1', ticker: 'BTC' }]]),
   DsMenuItem: [[{ label: 'Копировать' }], [{ size: 'l', tone: 'danger', label: 'x', description: 'y' }, { leading: vico, trailing: () => 'x' }], [{ showSelection: true, selected: true, label: 'x' }], [{ disabled: true, label: 'x' }]],
   DsMenu: [[{ items: [{ group: 'Группа' }, { label: 'A' }, { divider: true }, { label: 'B', tone: 'danger' }] }], [{ search: true, size: 'l', role: 'listbox', items: [{ label: 'A' }] }]],
   DsSelect: [[{ label: 'Монета', options: [{ value: 'btc', label: 'BTC' }] }], [{ label: 'Сеть', labelPosition: 'on-border', options: [{ value: 'btc', label: 'BTC' }] }], [{ size: 'l', modelValue: 'btc', open: true, options: [{ value: 'btc', label: 'BTC' }, { value: 'x', label: 'X', disabled: true }] }],
@@ -352,7 +366,16 @@ const VC = {
   DsTopBar: [[{ account: 'Alexandrewang', balance: '$123 456', cents: '.78' }], [{ showBalance: false, account: 'x' }, { logo: () => 'E' }]],
   DsStatusSummary: [[{ offline: 9, unstable: 1, active: 40 }], [{ layout: 'row', offline: 9, unstable: 1, active: 40 }], [{ layout: 'row', showAllLink: false, items: [{ tone: 'success', label: 'Все', value: 50 }] }]],
   DsPromoCarousel: [[{}, { default: () => [vh('div', null, 'a'), vh('div', null, 'b'), vh('div', null, 'c')] }], [{ index: 1, label: 'Анонсы' }, { default: () => [vh('div', null, 'a'), vh('div', null, 'b')] }], [{}, { default: () => vh('div', null, 'один') }]],
-  DsActionBar: [[{ actions: [{ label: 'Подключить' }] }], [{ actions: [{ label: 'Подключить' }, { label: 'Создать группу' }] }], [{}, { default: () => 'кнопки' }]],
+  DsActionBar: [[{ actions: [{ label: 'Подключить' }] }], [{ actions: [{ label: 'Подключить' }, { label: 'Создать группу' }] }], [{}, { default: () => 'кнопки' }],
+    [{ badge: true, actions: [{ label: 'Фильтры' }, { label: 'Выгрузить' }] }], [{ badge: true, badgeText: 'Авто', actions: [{ label: 'Выгрузить' }] }]],
+  // Пачка 5 (19.11) — App
+  DsFloatingButton: [[{ label: 'Добавить воркер' }], [{ size: 'm', type: 'secondary', label: 'Добавить' }],
+    ...['l', 'm'].flatMap((size) => ['primary', 'secondary'].map((type) => [{ layout: 'extended', size, type, label: 'Выгрузить', icon: 'file-excel' }])),
+    [{ layout: 'extended', loading: true, label: 'x' }], [{ disabled: true, layout: 'extended', label: 'x' }, { icon: vico }]],
+  DsTabBarItem: [[{ label: 'Дашборд' }], [{ selected: true, label: 'Майнинг', icon: 'mining-coin' }], [{ badgeDot: true, label: 'Кошелёк', href: '#' }],
+    [{ type: 'action', label: 'Быстрые действия' }, { icon: () => vh('span', null, 'E') }], [{ type: 'action', selected: true, label: 'x' }]],
+  DsTabBar: [[{ items: [{ label: 'Дашборд' }, { label: 'Майнинг', icon: 'mining-coin' }, { type: 'action', label: 'Быстрые действия' }, { label: 'Кошелёк', badgeDot: true }, { label: 'Профиль', icon: 'user' }] }],
+    [{ modelValue: 'b', safeArea: false, items: [{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }, { value: 'c', label: 'C' }] }], [{}, { default: () => 'пункты' }]],
 };
 
 const VWRAP = {

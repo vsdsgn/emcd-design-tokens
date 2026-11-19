@@ -56,6 +56,8 @@
     "StatusSummary": "draft",
     "Suggest": "beta",
     "Tab": "beta",
+    "TabBar": "beta",
+    "TabBarItem": "beta",
     "TableCell": "beta",
     "TableHeaderCell": "beta",
     "TableRow": "beta",

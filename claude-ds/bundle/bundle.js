@@ -1,9 +1,9 @@
-/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Progress"},{"name":"Amount"},{"name":"Card"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"}]} */
+/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Progress"},{"name":"Amount"},{"name":"Card"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
 /* EMCD DS 2.0 — компоненты React 18. Генерируется scripts/code-build.mjs из packages/react/src/index.js — не править руками. */
 (function () {
 'use strict';
 var React = window.React;
-// EMCD DS 2.0 — компоненты React 18 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19 наборов; пачка 3 — наборы экранов майнинга и конструкции; пачка 4 — hover графика и выбор периода).
+// EMCD DS 2.0 — компоненты React 18 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19 наборов; пачка 3 — наборы экранов майнинга и конструкции; пачка 4 — hover графика и выбор периода; пачка 5 — App: Floating button, Tab bar).
 // Разметка и классы — те же, что в claude-ds/components/*/style.css (общий CSS для React, Vue и HTML).
 // Без JSX и сборщика: React.createElement. Props — по контрактам docs/components/*.md («Props:»).
 // Источник для Claude DS (bundle.js → window.EMCD) и для пакета @emcd/react.
@@ -400,7 +400,8 @@ function Segmented({ size = 's', items, value, defaultValue, onChange, tone = 'n
 }
 
 /** List item — строка списка. content: text-first | description-first | big-value | description-only; showDescription=false — без описания. href / onClick — строка открывает детали (Hover / Pressed). */
-function ListItem({ size = 'l', content = 'text-first', label, description, showDescription = true, value, subvalue, leading, trailing, divider = false, disabled = false, href, onClick, as, className, children, ...rest }) {
+/** List item — строка списка. inset=false (19.11) — без боковых полей и мин. высоты: список внутри Card (край текста = край заголовка карточки; M в одну строку — 48). */
+function ListItem({ size = 'l', content = 'text-first', label, description, showDescription = true, value, subvalue, leading, trailing, divider = false, inset = true, disabled = false, href, onClick, as, className, children, ...rest }) {
   const interactive = !!(href || onClick);
   const tag = as ?? (href ? 'a' : onClick ? 'button' : 'div');
   const L = label != null && h('span', { key: 'l', className: 'emcd-list-item__label' }, label);
@@ -411,7 +412,7 @@ function ListItem({ size = 'l', content = 'text-first', label, description, show
       : content === 'description-only' ? [h('span', { key: 'l', className: 'emcd-list-item__label' }, label ?? description)] : [L, D];
   return h(tag, { href: disabled ? undefined : href, onClick: disabled ? undefined : onClick, type: tag === 'button' ? 'button' : undefined, disabled: tag === 'button' ? disabled : undefined,
     'aria-disabled': tag !== 'button' && disabled ? true : undefined,
-    className: cx('emcd-list-item', size === 'm' && 'emcd-list-item--m', content !== 'text-first' && 'emcd-list-item--' + content, interactive && 'emcd-list-item--interactive', divider && 'emcd-list-item--divider', disabled && 'emcd-list-item--disabled', className), ...rest },
+    className: cx('emcd-list-item', size === 'm' && 'emcd-list-item--m', content !== 'text-first' && 'emcd-list-item--' + content, interactive && 'emcd-list-item--interactive', divider && 'emcd-list-item--divider', !inset && 'emcd-list-item--flush', disabled && 'emcd-list-item--disabled', className), ...rest },
   leading != null && h('span', { className: 'emcd-list-item__leading' }, leading),
   h('span', { className: 'emcd-list-item__content' }, ...body, children),
   trailing != null && h('span', { className: 'emcd-list-item__trailing' }, trailing));
@@ -419,7 +420,8 @@ function ListItem({ size = 'l', content = 'text-first', label, description, show
 
 const TX_TYPE = { withdrawal: [I.arrowUp, 'Вывод'], deposit: [I.arrowDown, 'Пополнение'], reward: [I.lightning, 'Начисление'], exchange: [I.exchange, 'Обмен'] };
 const TX_STATUS = { completed: ['success', 'Выполнено'], pending: ['warning', 'В обработке'], failed: ['danger', 'Отклонено'] };
-/** Transaction — строка операции; нажимается вся строка (детали). Знак суммы — по Type и Status: «−» вывод, «+» пополнение и начисление; обмен и Failed — без знака. */
+/** Transaction — строка операции; нажимается вся строка (детали). Знак суммы — по Type и Status: «−» вывод, «+» пополнение и начисление; обмен и Failed — без знака.
+ *  Completed (19.11) — статус не показываем: справа сумма и фиат «≈ $…» (fiat); Status — только у незавершённых (pending, failed). */
 function Transaction({ type = 'withdrawal', status = 'completed', label, description, value, ticker, fiat, statusLabel, href, onClick, className, ...rest }) {
   const [icon, word] = TX_TYPE[type] || TX_TYPE.withdrawal;
   const [tone, stWord] = TX_STATUS[status] || TX_STATUS.completed;
@@ -427,7 +429,8 @@ function Transaction({ type = 'withdrawal', status = 'completed', label, descrip
   return h(ListItem, { size: 'm', label: label ?? word, description, href, onClick: onClick ?? (href ? undefined : () => {}),
     className: cx('emcd-tx', 'emcd-tx--' + type, 'emcd-tx--' + status, className),
     leading: h('span', { className: 'emcd-tx__icon' }, icon()),
-    trailing: [h(Amount, { key: 'a', size: 's', sign, value, ticker, fiat, showFiat: false, align: 'end' }), h(Status, { key: 's', size: 's', tone, label: statusLabel ?? stWord })], ...rest });
+    trailing: status === 'completed' ? h(Amount, { size: 's', sign, value, ticker, fiat, showFiat: fiat != null, align: 'end' })
+      : [h(Amount, { key: 'a', size: 's', sign, value, ticker, showFiat: false, align: 'end' }), h(Status, { key: 's', size: 's', tone, label: statusLabel ?? stWord })], ...rest });
 }
 
 const MenuCtx = React.createContext({ size: 'm', role: 'menu' });
@@ -1318,9 +1321,63 @@ function PromoCarousel({ slides, children, label = 'Промо', index, defaultI
 
 /** Action bar (draft) — нижняя панель действий Compact: 1–2 Button M поровну, подложка surface-level-0, прилипает к низу (над safe area).
  *  actions — [{ label, type, iconLeft, onClick }]: одно — Primary, два — Tertiary (переопределяется type); или свои Button в children. На экранах с Tab bar и на Web не используем. */
-function ActionBar({ actions, children, className, ...rest }) {
-  const btns = actions ? actions.slice(0, 2).map((a, i) => h(Button, { key: i, size: 'm', type: actions.length === 1 ? 'primary' : 'tertiary', ...a, iconLeft: icon(a.iconLeft) })) : children;
+function ActionBar({ actions, badge = false, badgeText = 'A', children, className, ...rest }) {
+  const list = actions ? actions.slice(0, 2) : null;
+  // badge (19.11) — бейдж автодействия (Badge S Neutral Subtle, «A») над последней кнопкой, справа сверху: top −высота / 2, конец −4
+  const btns = list ? list.map((a, i) => {
+    const b = h(Button, { key: i, size: 'm', type: list.length === 1 ? 'primary' : 'tertiary', ...a, iconLeft: icon(a.iconLeft) });
+    return badge && i === list.length - 1
+      ? h('span', { key: i, className: 'emcd-action-bar__slot' }, b, h(Badge, { size: 's', tone: 'neutral', label: badgeText, className: 'emcd-action-bar__badge' }))
+      : b;
+  }) : children;
   return h('div', { className: cx('emcd-action-bar', className), ...rest }, btns);
 }
-window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Progress, Amount, Card, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar };
+
+// ───────────── Пачка 5 (19.11): App — Floating button, Tab bar ─────────────
+/** Floating button — плавающая кнопка главного действия Compact (одна на экран; справа снизу над Tab bar — позиционирует продукт).
+ *  layout: icon — круг 56, только Primary, label → aria-label; extended — иконка + подпись. size (только extended): l 56 (поля 20, зазор 8) · m 40 (поля 16, зазор 6).
+ *  type (только extended): primary — главное; secondary — нейтральное («Выгрузить»: action-secondary-default, text-primary, icon-primary). loading — Spinner L, нажатие блокируется. */
+const FloatingButton = React.forwardRef(function FloatingButton({ layout = 'icon', size = 'l', type = 'primary', label, icon: ic = 'plus', loading = false, disabled, htmlType = 'button', onClick, className, ...rest }, ref) {
+  const ext = layout === 'extended';
+  const m = ext && size === 'm';
+  const sec = ext && type === 'secondary';
+  return h('button', { ref, type: htmlType, disabled, 'aria-busy': loading || undefined, 'aria-label': ext ? undefined : label,
+    className: cx('emcd-fab', ext && 'emcd-fab--extended', m && 'emcd-fab--m', sec && 'emcd-fab--secondary', loading && 'emcd-fab--loading', className),
+    onClick: loading ? undefined : onClick, ...rest },
+  loading ? h(Spinner, { size: 'l', label: typeof label === 'string' ? label : 'Загрузка', className: 'emcd-fab__icon' }) : h('span', { className: 'emcd-fab__icon', 'aria-hidden': true }, icon(ic)),
+  ext && h('span', { className: 'emcd-fab__label' }, label));
+});
+
+/** Tab bar item — пункт нижней навигации Compact. type: item — раздел (иконка 24 + подпись); action — центральная мультикнопка App («E» → шит быстрых действий):
+ *  плашка 56 × 40 action-secondary-default, обводка border-accent, только иконка / логотип, без подписи и без selected — label обязателен (aria-label).
+ *  selected — текущий раздел (aria-current="page", icon-accent + text-accent). badgeDot — в разделе есть то, что требует действия (без числа; badgeLabel — в доступное имя). */
+function TabBarItem({ type = 'item', selected = false, label, icon: ic = 'dots-grid', badgeDot = false, badgeLabel = 'есть уведомления', href, onClick, className, ...rest }) {
+  const action = type === 'action';
+  const tag = href ? 'a' : 'button';
+  return h(tag, { href, type: tag === 'button' ? 'button' : undefined, onClick,
+    'aria-current': !action && selected ? 'page' : undefined, 'aria-label': action ? label : undefined,
+    className: cx('emcd-tab-bar-item', action && 'emcd-tab-bar-item--action', !action && selected && 'emcd-tab-bar-item--selected', className), ...rest },
+  action ? h('span', { className: 'emcd-tab-bar-item__plate', 'aria-hidden': true }, icon(ic))
+    : [h('span', { key: 'i', className: 'emcd-tab-bar-item__icon', 'aria-hidden': true }, icon(ic), badgeDot && h('span', { className: 'emcd-tab-bar-item__dot' })),
+      h('span', { key: 'l', className: 'emcd-tab-bar-item__label' }, label),
+      badgeDot && h('span', { key: 'b', className: 'emcd-sr' }, ', ' + badgeLabel)]);
+}
+
+/** Tab bar — нижняя навигация Compact: 3–5 Tab bar item (порядок как в Sidebar), ровно один selected; Action — одна, по центру (items[].type = 'action').
+ *  items: [{ value, label, icon, badgeDot, href, type }]; value / defaultValue / onChange(value) — выбранный раздел (Action не выбирается: onAction(item)).
+ *  safeArea (по умолчанию вкл.) — нижнее поле os-safe-area-bottom / env(safe-area-inset-bottom). nav aria-label «Основная навигация». */
+function TabBar({ items, value, defaultValue, onChange, onAction, safeArea = true, label = 'Основная навигация', children, className, ...rest }) {
+  const first = items && items.find((it) => it.type !== 'action');
+  const [own, setOwn] = React.useState(defaultValue ?? (first ? first.value ?? first.label : undefined));
+  const cur = value !== undefined ? value : own;
+  const body = items ? items.slice(0, 5).map((it, i) => {
+    const { value: _v, ...p } = it;
+    const v = it.value ?? it.label;
+    if (it.type === 'action') return h(TabBarItem, { key: i, ...p, onClick: (e) => { if (it.onClick) it.onClick(e); if (onAction) onAction(it); } });
+    return h(TabBarItem, { key: i, ...p, selected: v === cur, onClick: (e) => { if (value === undefined) setOwn(v); if (onChange) onChange(v); if (it.onClick) it.onClick(e); } });
+  }) : children;
+  return h('nav', { 'aria-label': label, className: cx('emcd-tab-bar', !safeArea && 'emcd-tab-bar--no-safe-area', className), ...rest },
+    h('div', { className: 'emcd-tab-bar__items' }, body));
+}
+window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Progress, Amount, Card, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
 })();

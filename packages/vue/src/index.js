@@ -1,4 +1,4 @@
-// EMCD DS 2.0 — компоненты Vue 3 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19; пачка 3 — наборы экранов майнинга и конструкции; пачка 4 — hover графика и выбор периода). Стили — packages/styles/components.css (классы emcd-*), токены — build/css.
+// EMCD DS 2.0 — компоненты Vue 3 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19; пачка 3 — наборы экранов майнинга и конструкции; пачка 4 — hover графика и выбор периода; пачка 5 — App: Floating button, Tab bar). Стили — packages/styles/components.css (классы emcd-*), токены — build/css.
 export { default as DsButton } from './DsButton.vue';
 export { default as DsIconButton } from './DsIconButton.vue';
 export { default as DsBadge } from './DsBadge.vue';
@@ -64,3 +64,6 @@ export { default as DsStatusSummary } from './DsStatusSummary.vue';
 export { default as DsPromoCarousel } from './DsPromoCarousel.vue';
 export { default as DsActionBar } from './DsActionBar.vue';
 export { ICONS, COINS } from './icons.js';
+export { default as DsFloatingButton } from './DsFloatingButton.vue';
+export { default as DsTabBarItem } from './DsTabBarItem.vue';
+export { default as DsTabBar } from './DsTabBar.vue';

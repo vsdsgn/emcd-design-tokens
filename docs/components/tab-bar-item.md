@@ -86,11 +86,12 @@
 - Описание: 1119 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Хаптик: Поиск: Legacy: Disabled не используется: Type (19.
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`TabBarItem`), Vue `packages/vue/src/DsTabBarItem.vue`, CSS `claude-ds/components/TabBarItem/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTabBarItem>`; Flutter: `DsTabBarItem`.
 - Props: `selected`: boolean; `type`: item | action; `label`: string или слот; `badgeDot`: boolean = false.
 - Состояния (Default, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
+- `type="action"` — плашка без подписи: `label` уходит в `aria-label` (обязателен), `selected` игнорируется; `badgeDot` добавляет к доступному имени `badgeLabel` («есть уведомления»).
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — `raw radius 12 @state layer` — радиус слоя состояния числом.

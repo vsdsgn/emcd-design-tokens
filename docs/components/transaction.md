@@ -88,6 +88,7 @@
 - Vue: `<DsTransaction>`; Flutter: `DsTransaction`.
 - Props: `type`: withdrawal | deposit | reward | exchange; `status`: completed | pending | failed.
 - Состояния (Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
+- `fiat` — фиат «≈ $…» под суммой, только у `status="completed"` (Status не рендерится, 19.11); у pending / failed — Amount без фиата + Status (`statusLabel` — своё слово).
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.

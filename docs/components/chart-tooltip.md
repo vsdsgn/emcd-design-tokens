@@ -89,6 +89,7 @@
 
 - Vue: `<DsChartTooltip>`; Flutter: `DsChartTooltip`.
 - Props: `rows`: 1 | 2 | 3 | 4; `showDate`: boolean = true.
+- `rows` в коде — массив строк `{ label, value, marker?, series?, tone? }` (длина 1–4 ↔ ось Figma Rows; больше четырёх — 4 строки и «+N» через `moreLabel`); `showDate` + `date` / `time`.
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.

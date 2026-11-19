@@ -278,6 +278,7 @@ export const DATA = [
   },
   {
     name: 'Tab bar item',
+    code: ['`type="action"` — плашка без подписи: `label` уходит в `aria-label` (обязателен), `selected` игнорируется; `badgeDot` добавляет к доступному имени `badgeLabel` («есть уведомления»).'],
     identity: ['Страница «Tab bar» (уровень организма); сам пункт — атом, вне Tab bar не используется.'],
     platformsList: 'iOS, Android, Mobile web',
     what: 'Пункт нижней навигации: иконка 24 + подпись. App и мобильный веб — одна схема.',
@@ -1022,6 +1023,7 @@ export const DATA = [
   },
   {
     name: 'Chart tooltip',
+    code: ['`rows` в коде — массив строк `{ label, value, marker?, series?, tone? }` (длина 1–4 ↔ ось Figma Rows; больше четырёх — 4 строки и «+N» через `moreLabel`); `showDate` + `date` / `time`.'],
     what: 'Тултип точки графика: дата и время, под ними строки «маркер серии — название — значение».',
     use: 'значения серий в выбранной точке графика.',
     dont: 'пояснение элемента интерфейса — Tooltip.',
@@ -1192,6 +1194,7 @@ export const DATA = [
   },
   {
     name: 'Floating button',
+    code: ['`layout`: icon | extended; `size` (l | m) и `type` (primary | secondary) действуют только при `layout="extended"` — Icon всегда L 56 Primary.', '`label` обязателен: подпись Extended или `aria-label` Icon; `icon` — имя иконки DS (по умолчанию `plus`) или узел; позиция справа снизу — у продукта.'],
     what: 'Плавающая кнопка главного действия экрана на Compact (App, мобильный веб): «Добавить воркер», «Пополнить».',
     use: 'одно частое действие на экране-списке.',
     dont: 'на Web — Button в шапке страницы; больше одного действия; форма — кнопка внизу формы.',
@@ -2791,6 +2794,7 @@ export const DATA = [
   },
   {
     name: 'Transaction',
+    code: ['`fiat` — фиат «≈ $…» под суммой, только у `status="completed"` (Status не рендерится, 19.11); у pending / failed — Amount без фиата + Status (`statusLabel` — своё слово).'],
     identity: ['Страница «Transaction», уровень — молекула. С 2026-11-15 — надстройка над `_List row` (Type=List, Size=M), как Menu item: в каждом варианте раскрытый экземпляр базы (слой `_List row`), свойства набора удалены. В слотах — иконка типа, Amount и Status.'],
     what: 'Строка операции в истории: вывод, пополнение, начисление, обмен. Нажимается целиком — открывает детали.',
     use: 'история операций в списке (кошелёк, главная, App).',
@@ -3061,6 +3065,7 @@ export const DATA = [
   },
   {
     name: 'List item',
+    code: ['`inset` (boolean = true; в Figma — поля `_List row`): `false` — без боковых полей и мин. высоты, список внутри Card (19.11).'],
     identity: ['Надстройка над `_List row` (замена на месте 13.11): в каждом варианте раскрытый экземпляр базы (слой `_List row`, Type=List); оси Size, Content, State — на корне, свойства — на базе. Оси Style нет с 2026-11-15: карточный список — List item внутри Card.'],
     what: 'Строка списка данных: монета, кошелёк, воркер, транзакция, настройка. Слот Leading слева, тексты по Content, слот Trailing справа.',
     use: 'строки списков на Compact, перечни монет, воркеров, операций.',
@@ -3708,6 +3713,7 @@ export const DATA = [
   },
 {
     name: 'Tab bar',
+    code: ['`items`: массив Tab bar item (3–5, лишние отсекаются) + `value` / `defaultValue` / `onChange` (Vue `v-model`); пункт `type: \'action\'` не выбирается — `onAction` (Vue событие `action`).', 'Safe area — нижнее поле `max(os/safe-area/bottom, env(safe-area-inset-bottom))`; `label` — `aria-label` nav (по умолчанию «Основная навигация»).'],
     identity: ['Страница «Tab bar», организм (один вариант, без осей). В слоте Items — 4–5 Tab bar item; служебный слой `safe area` с `home indicator`.'],
     platformsList: 'iOS, Android, Mobile web',
     what: 'Нижняя навигация на Compact: 4–5 основных разделов. App (iOS / Android) и мобильный веб — одна схема.',
