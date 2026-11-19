@@ -575,13 +575,13 @@
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
        "fontSize:type/display/lg/size",
-       "fontSize:type/heading/xl/size",
+       "fontSize:type/heading/lg/size",
        "fontWeight:font-weight/bold",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height",
        "lineHeight:type/display/lg/line-height",
-       "lineHeight:type/heading/xl/line-height"
+       "lineHeight:type/heading/lg/line-height"
       ],
       "ticker": [
        "f:text/secondary",
@@ -589,13 +589,13 @@
        "fontSize:type/body/lg/size",
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
-       "fontSize:type/heading/xl/size",
+       "fontSize:type/heading/lg/size",
        "fontWeight:font-weight/medium",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/lg/line-height",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height",
-       "lineHeight:type/heading/xl/line-height"
+       "lineHeight:type/heading/lg/line-height"
       ],
       "fiat": [
        "f:text/secondary",
@@ -614,13 +614,13 @@
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
        "fontSize:type/display/lg/size",
-       "fontSize:type/heading/xl/size",
+       "fontSize:type/heading/lg/size",
        "fontWeight:font-weight/bold",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height",
        "lineHeight:type/display/lg/line-height",
-       "lineHeight:type/heading/xl/line-height"
+       "lineHeight:type/heading/lg/line-height"
       ]
      },
      "statusFirstLine": true

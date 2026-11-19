@@ -310,7 +310,7 @@ export const DATA = [
       'Align (17.11): Start — по умолчанию; End — сумма у конца строки (List item, Key-value row, ячейка таблицы Align=End).',
     ],
     never: 'красный цвет для списаний; усечение или перенос суммы; дефис вместо минуса; тикер без неразрывного пробела.',
-    anatomy: ['Корень — вертикальный стек: строка `value` + `ticker`, под ней `fiat` (`text/secondary`).', 'S / M — `font/family/text` с табличными цифрами (17.11: моно — только в осях графиков; было `font/family/mono`); L — `type/heading/xl` (24), Bold, `font/family/text`, тикер того же кегля Medium (18.11: итоги «Всего начислено», «Сумма всех выплат», сводка дашборда; 17.11 было 20 Medium); XL — `font/family/display`, Bold.'],
+    anatomy: ['Корень — вертикальный стек: строка `value` + `ticker`, под ней `fiat` (`text/secondary`).', 'S / M — `font/family/text` с табличными цифрами (17.11: моно — только в осях графиков; было `font/family/mono`); L — `type/heading/lg` (Web 24, Compact 20; 19.11: было `type/heading/xl` — на Web давал 32, в продукте сводка 24), Bold, `font/family/text`, тикер того же кегля Medium (18.11: итоги «Всего начислено», «Сумма всех выплат», сводка дашборда; 17.11 было 20 Medium); XL — `font/family/display`, Bold.'],
     group: NONE,
     states: ['Своих состояний нет. Загрузка — Skeleton на месте суммы у родителя; скрытый баланс — маска «•••» у родителя.'],
     defaults: { Size: 'S', Sign: 'None' },

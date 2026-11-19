@@ -17,7 +17,7 @@
 
 **Изменения вида:**
 - Chip Selected — инверсная белая плашка (`action/inverse/default`), подпись `text/inverse`, счётчик `text/inverse-secondary`.
-- Amount L — `type/heading/xl` 24 Bold, тикер Medium; Amount S — строки Compact (12), M — таблицы Web и карточки (14).
+- Amount L — `type/heading/lg` Bold (Web 24, Compact 20), тикер Medium; Amount S — строки Compact (12), M — таблицы Web и карточки (14).
 - Nav item — подпись `type/label/lg` 16 (бейдж остался 12); Button — зазор иконка → подпись 10, поля M 12; Chart metric — подпись и единица `text/tertiary`.
 - Counter Neutral и Badge Subtle Neutral — квадрат / обводка `border/subtle`, текст `text/secondary`.
 - Графики: серия 1 — `border/accent`, маркер легенды в цвет серии; единицы в легенде, на осях — только значения.
