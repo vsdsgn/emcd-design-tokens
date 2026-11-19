@@ -79,7 +79,7 @@
 
 ## 12. Figma projection
 - Набор `Transaction`, вариантов 36 из 36; оси: Type, Status, State.
-- Борда: «Transaction — борда · шаблон v3», разделов 11.
+- Борда: «Transaction — борда · шаблон v3», разделов 12.
 - Описание: 1244 знаков, разделы: Status: Level: Когда нет: State: A11y: Когда использовать: Правила:
 
 ## 13. Code projection
