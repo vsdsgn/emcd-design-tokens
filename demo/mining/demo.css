@@ -111,11 +111,10 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 .demo-income__expense { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: baseline; }
 .demo-income__kv { margin: 0; }
 .demo-income__cta { width: 100%; max-width: none; } /* главный CTA карточки — на всю ширину */
-/* мобильный: одна колонка; хешрейт и комиссия — в ряд, энергия и цена — на всю ширину */
+/* мобильный: одна колонка; поля по одному в строке */
 .demo-calc__form--mw { gap: var(--space-16); }
 .demo-calc__fields--mw { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-24) var(--space-8); }
-.demo-calc__fields--mw .demo-calc-field { min-width: 0; } /* Input min-width 160 не помещает два поля в ряд на 375 (311 / 2) — вопрос в README демо */
-.demo-calc__fields--mw .demo-calc-field--power, .demo-calc__fields--mw .demo-calc-field--price { grid-column: 1 / -1; }
+.demo-calc__fields--mw { grid-template-columns: 1fr; } /* Compact: поля по одному в строке (19.11; два в ряд — после тестов) */
 .demo-coinhold--mw .demo-forecasts { grid-template-columns: 1fr; }
 .demo-coinhold--mw .demo-coinhold__btn { align-self: center; }
 .demo-income--mw .demo-income__coins { grid-template-columns: 1fr; }

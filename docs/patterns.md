@@ -300,7 +300,7 @@ Compact (App, 375, Viewport=Compact) — «Воркеры · Compact (App) · Da
 ### 3.10a Калькулятор доходности (19.11, по Web App «Калькулятор» REVIEW)
 
 - **Web:** Page header Large «Калькулятор доходности»; две колонки — слева Card L (Input M On border × 4 с единицей в Trailing, период — ряд Chip M равной ширины, вложенная Card Level 2 «Переводить на Coinhold»: Toggle, доля — Chip M × 4, прогноз — Progress S × 2 + Amount S с фиатом, кнопка Secondary M по центру), справа 400 — Card L «Ожидаемый доход»: Select compact монеты, итог Amount XL, монеты 2 колонки (Coin + Amount S с фиатом и схемой выплат), расходы `text/danger`, Key-value row «Время выплат», Button Primary L; под ней Suggest Strip «VIP-условия».
-- **Compact:** одна колонка, Card Padding M; поля: хешрейт и комиссия в ряд, энергия и цена — на всю ширину; период — ряд Chip с прокруткой; монеты — по одной в строке, Amount M; «Начать майнить» — Action bar Actions=1.
+- **Compact:** одна колонка, Card Padding M; поля — по одному в строке на всю ширину (19.11, Стефан: два поля в ряд на мобильном — только после тестов; `size/field/min` не меняем); период — ряд Chip с прокруткой; монеты — по одной в строке, Amount M; «Начать майнить» — Action bar Actions=1.
 - **Решено 19.11:** заголовки секций — `Section header` (M — «Переводить на Coinhold», S — «Сколько переводить?», «Прогноз доходности»); итог дохода — Amount XL Tone=Success; карточка Coinhold — Card Level 2 с Ambient light (подсветка видна в Expressive).
 - Экраны: «Калькулятор Web · DS 2.0», «Калькулятор mobile · DS 2.0» (Web App — Migration test).
 
