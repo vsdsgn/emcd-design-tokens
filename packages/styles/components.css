@@ -10,10 +10,11 @@
 
 /* Button — 🟡 beta (Figma «🟡 Button»: Type × Tone × Size × State; Loading — свойство).
    Size: XS 24 (только Web с указателем) · S 32 · M 40 · L 48 · XL 56 (только App: один главный CTA внизу экрана; на Web не используется).
-   Зазор иконка — подпись 10 (space/4 + поле подписи space/2 + space/4), у XS — 6 (space/2 ×3). Иконки — цвета подписи (currentColor).
+   Замер Figma 19.11: XS h24 поле 4 зазор 2 подпись 12 · S h32 поле 6 зазор 4 · M h40 поле 12 зазор 4 · L h48 поле 12 зазор 4 подпись 16 · XL h56 поле 16 зазор 4;
+   min-width 64, кроме XS. Иконки — цвета подписи (currentColor).
    Токены DS 2.0 с запасными значениями: до экспорта Foundations в репо часть имён ещё старые. */
 .emcd-btn { --h: var(--control-height-md, 40px); --px: var(--space-12, 12px); --r: var(--radius-control); --fs: 14px; --lh: 20px;
-  --bg: transparent; --fg: var(--text-primary); --gap: calc(2 * var(--space-4, 4px) + var(--space-2, 2px));
+  --bg: transparent; --fg: var(--text-primary); --gap: var(--space-4, 4px);
   --layer: var(--state-layer, var(--text-primary)); --layer-hover: 0.06; --layer-pressed: 0.10;
   position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--gap); vertical-align: middle; box-sizing: border-box; min-width: var(--size-button-min, 64px);
   height: var(--h); padding: 0 var(--px); border: 0; border-radius: var(--r); margin: 0;
@@ -34,10 +35,10 @@
 /* Зона нажатия = max(размер, touch-min) */
 .emcd-btn::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
   width: max(100%, var(--touch-min, 24px)); height: max(100%, var(--touch-min, 24px)); }
-.emcd-btn--xs { --h: var(--control-height-xs, 24px); --px: var(--space-6, 6px); --r: var(--radius-control-sm); --fs: var(--type-label-sm-size, 12px); --lh: var(--type-label-sm-line-height, 16px);
-  --gap: calc(3 * var(--space-2, 2px)); min-width: 0; }
-.emcd-btn--s { --h: var(--control-height-sm, 32px); --px: 8px; --r: var(--radius-control-sm); }
-.emcd-btn--l { --h: var(--control-height-lg, 48px); --px: var(--space-16, 16px); --fs: 16px; --lh: 24px; }
+.emcd-btn--xs { --h: var(--control-height-xs, 24px); --px: var(--space-4, 4px); --r: var(--radius-control-sm); --fs: var(--type-label-sm-size, 12px); --lh: var(--type-label-sm-line-height, 16px);
+  --gap: var(--space-2, 2px); min-width: 0; }
+.emcd-btn--s { --h: var(--control-height-sm, 32px); --px: var(--space-6, 6px); --r: var(--radius-control-sm); }
+.emcd-btn--l { --h: var(--control-height-lg, 48px); --px: var(--space-12, 12px); --fs: 16px; --lh: 24px; }
 .emcd-btn--xl { --h: var(--control-height-xl, 56px); --px: var(--space-16, 16px); --fs: 16px; --lh: 24px; }
 .emcd-btn--l svg, .emcd-btn--xl svg { width: 24px; height: 24px; }
 .emcd-btn--s svg, .emcd-btn--xs svg { width: 16px; height: 16px; }

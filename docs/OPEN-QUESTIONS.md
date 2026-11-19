@@ -6,6 +6,7 @@
 - **Key-value row:** свойство Key в коде — `label` (`key` зарезервирован в React и Vue).
 - **Icon и Table** — в коде есть, наборов в Figma нет (Icon — библиотека Icons; Table — паттерн 3.5): в Claude DS идут как draft без статуса в `status.json`.
 - **Монеты в коде** — только Symbols из репо (KAS, BTC, LTC, DOGE); ETH, USDT и прочие — круг с буквой до экспорта Symbols.
+- **Button XS–XL:** поля и зазор иконка — подпись по замеру Figma 19.11 (XS 4 / 2, S 6 / 4, M 12 / 4, L 12 / 4, XL 16 / 4) — без отдельных полей подписи; правило контракта «с полями подписи — 10» сверить с Figma.
 
 ## Решено 15.11 (вечер)
 - Chart plot: Skeleton и Disabled визуально не разводим; токены уже раздельные (`skeleton/base`, `action/disabled`), в Light значения совпадают — так и оставляем.

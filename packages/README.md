@@ -34,7 +34,7 @@ Vue: `import { DsButton } from '…/packages/vue/src'` → `<DsButton type="prim
 
 | Набор | Что изменилось |
 |---|---|
-| Button | `size`: + `xs` 24 (только Web, без min-width); `xl` — только App (главный CTA внизу экрана); зазор иконка — подпись 10 (XS — 6); поля M 12, L / XL 16; min-width 64; иконки цвета подписи; Text — без отступов, `action-primary-default` |
+| Button | `size`: + `xs` 24 (только Web, без min-width); `xl` — только App (главный CTA внизу экрана); поля и зазор иконка — подпись по замеру Figma 19.11: XS 4 / 2, S 6 / 4, M 12 / 4, L 12 / 4, XL 16 / 4; min-width 64; иконки цвета подписи; Text — без отступов, `action-primary-default` |
 | Icon button | `size`: `xs` · `s` · `m` · `l` (XL снят) |
 | Badge | Subtle · Neutral — `status-neutral-subtle` + обводка `border-subtle`, текст `text-secondary` |
 | Counter | квадрат `radius-sm`; Neutral — обводка `border-subtle`, цифра `text-secondary` |

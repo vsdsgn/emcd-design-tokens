@@ -13,7 +13,7 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
    *  l 48 — App и мобильный веб по умолчанию, футер Modal; xl 56 — только App: один главный CTA внизу экрана (на Web не используется). */
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   label?: ReactNode;
-  /** Иконка слева — цвета подписи (currentColor); зазор до подписи 10 (XS — 6). */
+  /** Иконка слева — цвета подписи (currentColor); зазор до подписи 4 (XS — 2). */
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
   /** Спиннер вместо иконки, aria-busy. */
