@@ -13,6 +13,9 @@
 - **Amount без знака, но с тоном** (итог «≈ $352 665.84» зелёный в продукте) — сейчас Sign=Positive добавляет «+». Рекомендация: ось `Tone` Default | Success | Danger отдельно от `Sign`.
 - **Card Tone=Accent** (карточка Coinhold с градиентной обводкой и подсветкой) — сейчас Card Level 2 без акцента. Рекомендация: Tone Neutral | Accent у Card, как у Promo card.
 
+## _Selection control — перенос подписи (19.11, найдено на «Настройки · Вывод»)
+- Подпись и описание Toggle / Checkbox / Radio — Auto width с max 436: в колонке уже 436 (мобильная карточка 311) контрол уезжает за край. На экране чинится оверрайдом (слой `text` и тексты — Fill + Auto height). В наборе так сделать нельзя, пока корень Hug (Fill внутри Hug не работает). Варианты: (а) правило «в узкой колонке — Fill и перенос» + в коде `flex-wrap` / `min-width: 0` (сейчас так); (б) корень `_Selection control` — Fixed 343 по умолчанию, Fill в макетах. Рекомендация — (а), уже в patterns 3.9a и описании Toggle.
+
 ## Демо K4 (19.11) — расхождения код ↔ экраны Figma (`demo/mining/README.md`)
 - **Action bar, низ:** замер экранов — высота 80 = 16 + Button 40 + **24**; в коде `max(space/24, 16 + safe area)`. В задаче было `space/32` — сверить с набором в Figma (в токенах набора есть `space/32`).
 - ✅ **Sidebar, язык** — решено 19.11: Button Tertiary XS в контракте, React, Vue и README (проверено); описание набора в Figma — при Publish.
