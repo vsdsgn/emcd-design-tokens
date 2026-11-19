@@ -1,0 +1,18 @@
+/* Chart crosshair — 🟡 beta (Figma «🟡 Chart crosshair»: Target Line · Bar). Перекрестие выбранной точки графика; ставит Chart plot (абсолютно в области графика, left — X точки).
+   Line: вертикальная линия border/default (border-width/default) + точка серии (цвет серии: 1 — border/accent, 2–8 — data/N; обводка surface/current border-width/focus; ореол того же цвета 0.24).
+   Bar: полоса status/neutral/subtle на ширину столбца (под столбцами). Нажатия не перехватывает; без анимации движения. */
+.emcd-chart-crosshair { position: absolute; top: 0; bottom: 0; width: 0; pointer-events: none; }
+.emcd-chart-crosshair__line { position: absolute; top: 0; bottom: 0; left: 0; width: var(--border-width-default, 1px); transform: translateX(-50%); background: var(--border-default); }
+.emcd-chart-crosshair--bar { transform: translateX(-50%); }
+.emcd-chart-crosshair__band { position: absolute; inset: 0; border-radius: var(--radius-2xs, 2px); background: var(--status-neutral-subtle); }
+.emcd-chart-crosshair__point { --c: var(--border-accent); position: absolute; left: 0; box-sizing: border-box; width: 10px; height: 10px; border-radius: var(--radius-full, 999px);
+  background: var(--c); box-shadow: 0 0 0 var(--border-width-focus, 2px) var(--surface-current, var(--surface-raised)); transform: translate(-50%, -50%); }
+.emcd-chart-crosshair__point::before { content: ""; position: absolute; left: 50%; top: 50%; width: 24px; height: 24px; border-radius: inherit; background: var(--c); opacity: 0.24; transform: translate(-50%, -50%); }
+.emcd-chart-crosshair__point--s1 { --c: var(--border-accent); }
+.emcd-chart-crosshair__point--s2 { --c: var(--data-2); }
+.emcd-chart-crosshair__point--s3 { --c: var(--data-3); }
+.emcd-chart-crosshair__point--s4 { --c: var(--data-4); }
+.emcd-chart-crosshair__point--s5 { --c: var(--data-5); }
+.emcd-chart-crosshair__point--s6 { --c: var(--data-6); }
+.emcd-chart-crosshair__point--s7 { --c: var(--data-7); }
+.emcd-chart-crosshair__point--s8 { --c: var(--data-8); }

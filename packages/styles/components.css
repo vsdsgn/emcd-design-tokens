@@ -980,6 +980,62 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-date-range .emcd-input__trailing { color: var(--icon-secondary); }
 .emcd-date-range .emcd-field--disabled .emcd-input { cursor: not-allowed; }
 .emcd-date-range .emcd-field--disabled .emcd-input__trailing { color: var(--icon-disabled); }
+/* Встроенная панель (panel): поповер с Date range panel под полем, у начала поля; у правого края экрана — по концу (--end); открыто (--open) — иконка календаря icon/primary. */
+.emcd-date-range { position: relative; }
+.emcd-date-range__popover { position: absolute; z-index: var(--z-popover, 30); top: calc(100% + var(--space-8, 8px)); inset-inline-start: 0; }
+.emcd-date-range__popover--end { inset-inline-start: auto; inset-inline-end: 0; }
+.emcd-date-range--open .emcd-input__trailing { color: var(--icon-primary); }
+
+/* Calendar — 🟡 beta (Figma «🟡 Calendar»: Mode Single · Range) + Date cell — 🟡 beta (State × 10). Карточка surface/raised, radius/container, поле space/16, зазор space/12,
+   тень Elevation/2 (shadow/ambient + shadow/key); --plain — без подложки (внутри Date range panel — одна поверхность). Шапка: Icon button S «‹ ›» + «Месяц ГГГГ» (display, heading-md Bold);
+   дни недели body-sm text-secondary; сетка 6 × 7 Date cell (control/height/md), зазор space/2. RTL: сетка справа налево (direction), стрелки листания отражены. */
+.emcd-calendar { box-sizing: border-box; display: inline-flex; flex-direction: column; gap: var(--space-12, 12px); padding: var(--space-16, 16px); border-radius: var(--radius-container);
+  background: var(--surface-raised); box-shadow: 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient); color: var(--text-primary); }
+.emcd-calendar--plain { padding: 0; border-radius: 0; background: none; box-shadow: none; }
+.emcd-calendar__head { display: flex; align-items: center; gap: var(--space-6, 6px); min-height: var(--control-height-sm, 32px); }
+.emcd-calendar__month { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; color: var(--text-primary);
+  font: 700 var(--type-heading-md-size, 18px)/var(--type-heading-md-line-height, 24px) var(--font-display); }
+[dir="rtl"] .emcd-calendar__nav svg { transform: scaleX(-1); }
+.emcd-calendar__grid { display: flex; flex-direction: column; gap: var(--space-2, 2px); outline: none; }
+.emcd-calendar__row { display: grid; grid-template-columns: repeat(7, var(--control-height-md, 40px)); gap: var(--space-2, 2px); }
+.emcd-calendar__weekdays { align-items: center; min-height: 20px; }
+.emcd-calendar__weekday { text-align: center; color: var(--text-secondary); font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); }
+.emcd-calendar__cell { display: flex; }
+
+/* Date cell: Default — число text-primary; Hover / Pressed — слой state/layer 6 / 10 %; Today — обводка border/accent, text/accent; Selected, Range start / end — action/primary/default,
+   text/on-accent (углы со стороны диапазона прямые, логические — зеркалятся в RTL); Range middle — accent/subtle без скругления; Outside — text/tertiary; Disabled — text/disabled, зачёркнуто. */
+.emcd-date-cell { --fg: var(--text-primary); position: relative; box-sizing: border-box; display: inline-grid; place-items: center; width: var(--control-height-md, 40px); height: var(--control-height-md, 40px);
+  margin: 0; padding: 0; border: 0; border-radius: var(--radius-control-sm, 8px); background: none; color: var(--fg); cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent;
+  font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); font-variant-numeric: tabular-nums; }
+.emcd-date-cell::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+@media (hover: hover) { .emcd-date-cell:hover::before { opacity: var(--state-hover, .06); } }
+.emcd-date-cell:active::before { opacity: var(--state-pressed, .10); }
+.emcd-date-cell:focus-visible { z-index: 1; outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-date-cell--today { --fg: var(--text-accent); box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-accent); font-weight: 500; }
+.emcd-date-cell--selected, .emcd-date-cell--range-start, .emcd-date-cell--range-end { --fg: var(--text-on-accent); background: var(--action-primary-default); font-weight: 500; }
+.emcd-date-cell--range-start { border-start-end-radius: 0; border-end-end-radius: 0; }
+.emcd-date-cell--range-end { border-start-start-radius: 0; border-end-start-radius: 0; }
+.emcd-date-cell--range-middle { border-radius: 0; background: var(--accent-subtle); }
+.emcd-date-cell--outside { --fg: var(--text-tertiary); }
+.emcd-date-cell--disabled { --fg: var(--text-disabled); text-decoration: line-through; cursor: not-allowed; }
+.emcd-date-cell--disabled::before { display: none; }
+@media (prefers-reduced-motion: reduce) { .emcd-date-cell::before { transition: none; } }
+
+/* Date range panel — 🟡 beta (Figma «🟡 Date range panel»: Presets On · Off, Show reset). Поверхность material/thick (fill + blur), обводка border/subtle, radius/control, поле space/12,
+   зазор space/16, тени shadow/ambient + shadow/key. Слева — пресеты (Menu item, listbox), справа — колонка space/12: Calendar Mode=Range без своей подложки + футер (зазор space/8, по концу):
+   «Сбросить» (Button Text S, до 140) и «Применить» (Button Primary S, всегда у конца). Presets Off (--compact) — без пресетов, мобильный в Sheet. RTL — flex: пресеты справа, кнопки меняются местами. */
+.emcd-date-panel { box-sizing: border-box; display: flex; align-items: flex-start; gap: var(--space-16, 16px); width: max-content; padding: var(--space-12, 12px); border-radius: var(--radius-control);
+  background: var(--material-thick-fill, var(--surface-raised)); backdrop-filter: blur(var(--material-thick-blur, 0px)); color: var(--text-primary);
+  box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle), 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient); }
+.emcd-date-panel__presets { flex: none; display: flex; flex-direction: column; gap: 2px; width: var(--size-menu-min, 160px); border-radius: var(--radius-sm, 8px); outline: none; }
+.emcd-date-panel__presets:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-date-panel__presets .emcd-menu-item__label { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.emcd-date-panel__column { display: flex; flex-direction: column; gap: var(--space-12, 12px); min-width: 0; }
+.emcd-date-panel__footer { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-8, 8px); }
+.emcd-date-panel__reset { max-width: 140px; }
+.emcd-date-panel__reset > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-date-panel--compact { flex-direction: column; align-items: stretch; }
 
 /* Chart metric — 🟡 beta (Figma «🟡 Chart metric»: Tone; Label, Value, Icon, Unit, Show unit). Показатель над графиком: подпись body-sm text-tertiary (до 228, многоточие) →
    зазор space/4 → значение font/display, heading-lg Bold (цвет по Tone) + единица того же кегля text-tertiary; иконка 20 слева от значения цвета значения. max-width size/chart-metric/max. */
@@ -1141,10 +1197,50 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-sidebar__account-chevron { color: var(--icon-secondary); }
 @media (prefers-reduced-motion: reduce) { .emcd-sidebar__account::before { transition: none; } }
 
+/* Chart crosshair — 🟡 beta (Figma «🟡 Chart crosshair»: Target Line · Bar). Перекрестие выбранной точки графика; ставит Chart plot (абсолютно в области графика, left — X точки).
+   Line: вертикальная линия border/default (border-width/default) + точка серии (цвет серии: 1 — border/accent, 2–8 — data/N; обводка surface/current border-width/focus; ореол того же цвета 0.24).
+   Bar: полоса status/neutral/subtle на ширину столбца (под столбцами). Нажатия не перехватывает; без анимации движения. */
+.emcd-chart-crosshair { position: absolute; top: 0; bottom: 0; width: 0; pointer-events: none; }
+.emcd-chart-crosshair__line { position: absolute; top: 0; bottom: 0; left: 0; width: var(--border-width-default, 1px); transform: translateX(-50%); background: var(--border-default); }
+.emcd-chart-crosshair--bar { transform: translateX(-50%); }
+.emcd-chart-crosshair__band { position: absolute; inset: 0; border-radius: var(--radius-2xs, 2px); background: var(--status-neutral-subtle); }
+.emcd-chart-crosshair__point { --c: var(--border-accent); position: absolute; left: 0; box-sizing: border-box; width: 10px; height: 10px; border-radius: var(--radius-full, 999px);
+  background: var(--c); box-shadow: 0 0 0 var(--border-width-focus, 2px) var(--surface-current, var(--surface-raised)); transform: translate(-50%, -50%); }
+.emcd-chart-crosshair__point::before { content: ""; position: absolute; left: 50%; top: 50%; width: 24px; height: 24px; border-radius: inherit; background: var(--c); opacity: 0.24; transform: translate(-50%, -50%); }
+.emcd-chart-crosshair__point--s1 { --c: var(--border-accent); }
+.emcd-chart-crosshair__point--s2 { --c: var(--data-2); }
+.emcd-chart-crosshair__point--s3 { --c: var(--data-3); }
+.emcd-chart-crosshair__point--s4 { --c: var(--data-4); }
+.emcd-chart-crosshair__point--s5 { --c: var(--data-5); }
+.emcd-chart-crosshair__point--s6 { --c: var(--data-6); }
+.emcd-chart-crosshair__point--s7 { --c: var(--data-7); }
+.emcd-chart-crosshair__point--s8 { --c: var(--data-8); }
+
+/* Chart tooltip — 🟡 beta (Figma «🟡 Chart tooltip»: Rows 1–4 · Show date). Карточка surface/raised, обводка border/default, radius/sm, тени shadow/ambient + shadow/key,
+   поля space/10 / space/12, зазор space/6; ширина 168 (size/chart-tooltip/min) … 320 (size/tooltip/max). Шапка: дата и время body-sm text-tertiary;
+   строки: Legend swatch + серия (label-sm Medium, text-secondary) — значение (label-sm Medium, text-primary, по концу). Шрифт — текста: моно только у подписей осей (17.11). */
+.emcd-chart-tooltip { box-sizing: border-box; display: flex; flex-direction: column; gap: var(--space-6, 6px); width: max-content;
+  min-width: var(--size-chart-tooltip-min, 168px); max-width: var(--size-tooltip-max, 320px); padding: var(--space-10, 10px) var(--space-12, 12px);
+  border-radius: var(--radius-sm, 8px); background: var(--surface-raised); color: var(--text-primary);
+  box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-default), 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient);
+  font: 500 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-sans); font-variant-numeric: tabular-nums; pointer-events: none; }
+.emcd-chart-tooltip__header, .emcd-chart-tooltip__row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-16, 16px); min-width: 0; }
+.emcd-chart-tooltip__date, .emcd-chart-tooltip__time { color: var(--text-tertiary); font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); white-space: nowrap; }
+.emcd-chart-tooltip__date { min-width: 0; max-width: 200px; overflow: hidden; text-overflow: ellipsis; }
+.emcd-chart-tooltip__time { flex: none; }
+.emcd-chart-tooltip__label { display: inline-flex; align-items: center; gap: var(--space-8, 8px); min-width: 0; }
+.emcd-chart-tooltip__label > .emcd-legend-swatch { flex: none; }
+.emcd-chart-tooltip__series { min-width: 0; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary); }
+.emcd-chart-tooltip__value { flex: none; color: var(--text-primary); white-space: nowrap; text-align: end; }
+.emcd-chart-tooltip__value--danger { color: var(--text-danger); }
+.emcd-chart-tooltip__value--warning { color: var(--text-warning); }
+.emcd-chart-tooltip__more { color: var(--text-tertiary); }
+
 /* Chart plot — 🟡 beta (Figma «🟡 Chart plot»: Type × State). Область графика: SVG-серии + сетка пунктиром border/subtle; подписи осей — font/family/mono, label-sm, text-tertiary (только здесь моно).
    Серия 1 — border/accent (бренд), 2–8 — data/2…8 (вторая ось Line + Bars / Dual area — data/4); линии chart/stroke, серии 5–8 пунктиром; область — заливка 0.45.
+   Hover (--interactive): Chart crosshair + Chart tooltip в области графика; фокус с клавиатуры — кольцо border/focus-ring; касание — горизонтальный скраб (touch-action: pan-y).
    Skeleton — skeleton/base («пила» у столбцов, силуэт у линий); Empty — сетка и «Нет данных за период» (body-md, text-tertiary); Disabled — серии action/disabled. */
-.emcd-chart-plot { --emcd-chart-h: 200px; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: var(--emcd-chart-h) auto; column-gap: var(--space-8, 8px); row-gap: var(--space-4, 4px);
+.emcd-chart-plot { --emcd-chart-h: 200px; position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: var(--emcd-chart-h) auto; column-gap: var(--space-8, 8px); row-gap: var(--space-4, 4px);
   min-width: 0; color: var(--text-tertiary); font: 400 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-mono); font-variant-numeric: tabular-nums; }
 .emcd-chart-plot--dual { grid-template-columns: auto minmax(0, 1fr) auto; }
 .emcd-chart-plot__axis { position: relative; min-width: 16px; max-width: var(--size-chart-axis-label-max, 48px); }
@@ -1154,7 +1250,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 /* ширина колонки оси — по самой длинной подписи: невидимый дубль задаёт ширину */
 .emcd-chart-plot__axis::before { content: "00.0"; visibility: hidden; }
 .emcd-chart-plot__area-box { position: relative; min-width: 0; }
-.emcd-chart-plot__svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.emcd-chart-plot__svg { position: relative; display: block; width: 100%; height: 100%; overflow: visible; }
 .emcd-chart-plot__grid { stroke: var(--border-subtle); stroke-width: var(--border-width-default, 1px); stroke-dasharray: 2 4; vector-effect: non-scaling-stroke; }
 .emcd-chart-plot__series { --c: var(--border-accent); }
 .emcd-chart-plot__series--1 { --c: var(--border-accent); }
@@ -1182,6 +1278,11 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 @keyframes emcd-chart-pulse { 50% { opacity: 0.55; } }
 .emcd-chart-plot--empty .emcd-chart-plot__x-row { visibility: hidden; }
 @media (prefers-reduced-motion: reduce) { .emcd-chart-plot--skeleton .emcd-chart-plot__svg { animation: none; } }
+.emcd-chart-plot--interactive { outline: none; }
+.emcd-chart-plot--interactive:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 4px; border-radius: var(--radius-xs, 4px); }
+.emcd-chart-plot--interactive .emcd-chart-plot__area-box { touch-action: pan-y; }
+.emcd-chart-plot__tooltip { position: absolute; top: 0; left: 0; z-index: 2; visibility: hidden; }
+.emcd-chart-plot__live { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 /* Chart card — 🟡 beta (Figma «🟡 Chart card»: Show bottom; слоты Top, Content, Bottom). Подложка surface/next (на уровень выше), обводка border/subtle, radius/container, поля space/28, зазор space/16;
    min-width size/card/min 280. Top — Chart metric × 1–3 (зазор 32) и период — ряд Chip S справа (Compact — Chip M на всю ширину равными долями),

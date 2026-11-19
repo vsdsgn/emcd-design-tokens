@@ -7,3 +7,8 @@
 .emcd-date-range .emcd-input__trailing { color: var(--icon-secondary); }
 .emcd-date-range .emcd-field--disabled .emcd-input { cursor: not-allowed; }
 .emcd-date-range .emcd-field--disabled .emcd-input__trailing { color: var(--icon-disabled); }
+/* Встроенная панель (panel): поповер с Date range panel под полем, у начала поля; у правого края экрана — по концу (--end); открыто (--open) — иконка календаря icon/primary. */
+.emcd-date-range { position: relative; }
+.emcd-date-range__popover { position: absolute; z-index: var(--z-popover, 30); top: calc(100% + var(--space-8, 8px)); inset-inline-start: 0; }
+.emcd-date-range__popover--end { inset-inline-start: auto; inset-inline-end: 0; }
+.emcd-date-range--open .emcd-input__trailing { color: var(--icon-primary); }

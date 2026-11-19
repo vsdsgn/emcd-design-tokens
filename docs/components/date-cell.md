@@ -83,7 +83,7 @@
 - Описание: 859 знаков, разделы: Status: Level: Ячейка дня в Calendar. Когда использовать: Правила: A11y:
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`DateCell`), Vue `packages/vue/src/DsDateCell.vue`, CSS `claude-ds/components/DateCell/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsDateCell>`; Flutter: `DsDateCell`.
 - Props: `day`: string или слот.

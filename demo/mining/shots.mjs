@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Демо K4: скриншоты 6 экранов майнинга (Playwright Chromium) и сравнение с макетами Figma.
-//   npm run demo:mining  →  demo/mining/out/<screen>.png + out/compare-<screen>.png (макет | код | разница)
+//   npm run demo:mining  →  demo/mining/out/<screen>.png + out/compare-<screen>.png (макет | код | разница) + out/web-dashboard-hover.png (hover графика)
 // Репо раздаётся статически (свой http-сервер), браузер не скачивается — берётся установленный Playwright.
 import http from 'node:http';
 import fs from 'node:fs';
@@ -42,6 +42,22 @@ try {
     await page.evaluate(() => document.fonts.ready);
     const shot = path.join(OUT, `${name}.png`);
     await page.screenshot({ path: shot, fullPage: !!full });
+    // Hover графика (Chart crosshair + Chart tooltip): указатель на ~60 % ширины области → out/web-dashboard-hover.png (без сравнения — в макетах hover нет)
+    if (name === 'web-dashboard') {
+      const b = await page.locator('.emcd-chart-plot__area-box').first().boundingBox();
+      await page.mouse.move(b.x + b.width * 0.6, b.y + b.height * 0.5);
+      await page.waitForSelector('.emcd-chart-plot__tooltip[style*="visible"]');
+      await page.screenshot({ path: path.join(OUT, `${name}-hover.png`) });
+      await page.mouse.move(0, 0);
+      await page.waitForSelector('.emcd-chart-plot__tooltip', { state: 'detached' });
+    }
+    // Период в «Истории»: клик по полю открывает Date range panel, Esc закрывает (без скриншота)
+    if (name === 'web-history') {
+      await page.click('.demo-filters__period input');
+      await page.waitForSelector('.emcd-date-panel');
+      await page.keyboard.press('Escape');
+      await page.waitForSelector('.emcd-date-panel', { state: 'detached' });
+    }
     // Сравнение: макет | код | разница (mix-blend-mode: difference) — в той же странице, без зависимостей
     const ref = fs.readFileSync(path.join(ROOT, `demo/mining/reference/${name}.png`)).toString('base64');
     const cur = fs.readFileSync(shot).toString('base64');

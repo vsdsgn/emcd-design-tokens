@@ -1,4 +1,4 @@
-// EMCD DS 2.0 — компоненты Vue 3 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19; пачка 3 — наборы экранов майнинга и конструкции). Стили — packages/styles/components.css (классы emcd-*), токены — build/css.
+// EMCD DS 2.0 — компоненты Vue 3 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19; пачка 3 — наборы экранов майнинга и конструкции; пачка 4 — hover графика и выбор периода). Стили — packages/styles/components.css (классы emcd-*), токены — build/css.
 export { default as DsButton } from './DsButton.vue';
 export { default as DsIconButton } from './DsIconButton.vue';
 export { default as DsBadge } from './DsBadge.vue';
@@ -42,6 +42,9 @@ export { default as DsKeyValueRow } from './DsKeyValueRow.vue';
 export { default as DsSearch } from './DsSearch.vue';
 export { default as DsSelectCompact } from './DsSelectCompact.vue';
 export { default as DsDateRangeField } from './DsDateRangeField.vue';
+export { default as DsDateCell } from './DsDateCell.vue';
+export { default as DsCalendar } from './DsCalendar.vue';
+export { default as DsDateRangePanel } from './DsDateRangePanel.vue';
 export { default as DsPageIndicator } from './DsPageIndicator.vue';
 export { default as DsLegendSwatch } from './DsLegendSwatch.vue';
 export { default as DsLegendItem } from './DsLegendItem.vue';
@@ -52,6 +55,8 @@ export { default as DsTableRow } from './DsTableRow.vue';
 export { default as DsTable } from './DsTable.vue';
 export { default as DsPromoCard } from './DsPromoCard.vue';
 export { default as DsSidebar } from './DsSidebar.vue';
+export { default as DsChartCrosshair } from './DsChartCrosshair.vue';
+export { default as DsChartTooltip } from './DsChartTooltip.vue';
 export { default as DsChartPlot } from './DsChartPlot.vue';
 export { default as DsChartCard } from './DsChartCard.vue';
 export { default as DsTopBar } from './DsTopBar.vue';

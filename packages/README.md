@@ -9,6 +9,7 @@
 Пилот: Button, Icon button, Badge, Chip, Checkbox, Radio (+ Radio group), Toggle, Input, Textarea, Modal.
 Пачка 2: Tabs (+ Tab), Segmented (+ Segment), Card, Stat card, Amount, Toast, Tooltip, Suggest, Status, Counter, Avatar, Divider, Spinner, Progress, List item, Transaction, Select, Menu (+ Menu item), Password field.
 Пачка 3 (экраны майнинга): Icon, Coin, Coin stack, Nav item, Key-value row, Search, Select compact, Date range field, Page indicator, Legend swatch, Legend item, Chart metric, Table header cell, Table cell, Table row, Table (паттерн), Promo card, Sidebar, Chart plot, Chart card; конструкции (draft) — Top bar, Status summary, Promo carousel, Action bar.
+Пачка 4 (19.11): Chart crosshair, Chart tooltip (hover Chart plot), Date cell, Calendar, Date range panel (встроенная панель Date range field).
 Иконки и монеты для кода — реестр `scripts/icons-code.mjs` (из `icons/svg` и `icons/symbols/coin`): блок `// @icons:begin` в `react/src/index.js` и `vue/src/icons.js`; `npm run code` запускает его перед `code-build`.
 Контролы неуправляемые по умолчанию (без `value` / `v-model` — своё состояние; прототип кликается), с `value` + `onChange` — управляемые. Props — по контрактам `docs/components/*.md`. Тема, бренд и платформа — атрибуты `data-theme`, `data-brand`, `data-platform` на `<html>` (`build/css`).
 
@@ -52,7 +53,10 @@ Vue: `import { DsButton } from '…/packages/vue/src'` → `<DsButton type="prim
 | Modal | кнопки футера — Button L (было XL) |
 | Select | `labelPosition`: `above` (по умолчанию) · `on-border` — панели фильтров (демо K4, 19.11) |
 | Sidebar · Nav item | язык — Button Tertiary XS; шапка: brand с y 16, до первого пункта 24; иконка пункта 24 (по экранам Figma, демо K4) |
-| Chart card | легенда над графиком (конец Top), Bottom — итог; Chip M периода на всю ширину только на Compact |
+| Chart card | легенда над графиком (конец Top), Bottom — итог; Chip M периода на всю ширину только на Compact; hover — у Chart plot, карточка не обрезает тултип |
+| Chart plot · Chart crosshair · Chart tooltip | `interactive` (по умолчанию вкл.): указатель / касание → ближайшая точка, перекрестие (линии — точки серий, столбцы — полоса) + тултип (`dates` / `times`, `series[].unit` / `format`); тултип справа, у края — слева или прижат к границе; фокус, ← / →, Home / End, Enter — закрепить, Esc — скрыть; `aria-live` озвучивает точку; `index` / `onIndexChange` (Vue `v-model:index`). Тултип — шрифт текста, моно только у осей |
+| Calendar · Date cell | Mode single · range (начало → конец, обратный порядок меняется местами), сегодня — обводка, недоступные — `min` / `max` / `isDateDisabled`, неделя по локали (ru — Пн); клавиатура: стрелки, PageUp / PageDown (+ Shift — год), Home / End, Enter / Space, Esc; RTL — сетка и стрелки зеркалятся. Даты — ISO «ГГГГ-ММ-ДД» |
+| Date range panel · Date range field | панель: пресеты (listbox) + Calendar Range + «Сбросить» / «Применить» (`presets=false` — мобильный, применение по второй дате); поле: `panel` — встроенный поповер, `value` / `onChange` (ISO), Esc и «Применить» возвращают фокус на поле; `onOpen` — по-прежнему для панели продукта |
 | Table · Action bar | Compact: поля ячеек 6, шапка 12; Action bar снизу 24 или 16 + safe area |
 
 Пакеты пока не публикуются в npm: разработка забирает исходники; DSP / ui-emcd-web сверяет с ними свои компоненты.

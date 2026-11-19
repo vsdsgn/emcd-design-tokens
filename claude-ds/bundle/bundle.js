@@ -1,9 +1,9 @@
-/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Progress"},{"name":"Amount"},{"name":"Card"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"}]} */
+/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Progress"},{"name":"Amount"},{"name":"Card"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"}]} */
 /* EMCD DS 2.0 — компоненты React 18. Генерируется scripts/code-build.mjs из packages/react/src/index.js — не править руками. */
 (function () {
 'use strict';
 var React = window.React;
-// EMCD DS 2.0 — компоненты React 18 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19 наборов; пачка 3 — наборы экранов майнинга и конструкции).
+// EMCD DS 2.0 — компоненты React 18 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19 наборов; пачка 3 — наборы экранов майнинга и конструкции; пачка 4 — hover графика и выбор периода).
 // Разметка и классы — те же, что в claude-ds/components/*/style.css (общий CSS для React, Vue и HTML).
 // Без JSX и сборщика: React.createElement. Props — по контрактам docs/components/*.md («Props:»).
 // Источник для Claude DS (bundle.js → window.EMCD) и для пакета @emcd/react.
@@ -731,15 +731,204 @@ function SelectCompact({ text, label = 'Значение', options, value, defau
         'data-active': i === active ? '' : undefined, onMouseDown: (e) => e.preventDefault(), onMouseEnter: () => setActive(i), onClick: () => choose(o) }))));
 }
 
-/** Date range field — поле периода на базе Input M (подпись на рамке): «ДД.ММ.ГГ → ДД.ММ.ГГ» + иконка календаря. from / to — даты в формате локали.
- *  Панель (Calendar Mode=Range + пресеты) — у продукта: onOpen(event) по нажатию, Enter, Space или ↓. state: default | error | disabled | skeleton; hint — ограничение периода до выбора, error — после. */
-function DateRangeField({ label = 'Период', from, to, placeholder = 'ДД.ММ.ГГ → ДД.ММ.ГГ', hint, error, state = 'default', labelPosition = 'on-border', onOpen, className, ...rest }) {
-  const val = from || to ? `${from || '…'} → ${to || '…'}` : '';
+// ───────── Даты (Calendar, Date range panel, Date range field): строки ISO «ГГГГ-ММ-ДД», арифметика в UTC — без часовых поясов; на входе — ISO или Date
+const pad2 = (v) => String(v).padStart(2, '0');
+const toISO = (d) => (d == null || d === '' ? null : typeof d === 'string' ? d.slice(0, 10) : `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`);
+const isoUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+const fromUTC = (t) => { const d = new Date(t); return `${d.getUTCFullYear()}-${pad2(d.getUTCMonth() + 1)}-${pad2(d.getUTCDate())}`; };
+const addDays = (s, n) => fromUTC(isoUTC(s) + n * 864e5);
+const addMonths = (s, n) => {
+  const [y, m, d] = s.split('-').map(Number); const t = new Date(Date.UTC(y, m - 1 + n, 1));
+  const last = new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth() + 1, 0)).getUTCDate();
+  return fromUTC(Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), Math.min(d, last)));
+};
+const monthStart = (s) => s.slice(0, 8) + '01';
+const weekday = (s) => new Date(isoUTC(s)).getUTCDay(); // 0 — воскресенье
+const fmtDay = (s, locale, opt) => new Intl.DateTimeFormat(locale, { timeZone: 'UTC', ...opt }).format(new Date(isoUTC(s)));
+const capital = (t) => t.charAt(0).toUpperCase() + t.slice(1);
+// Первый день недели по локали (CLDR, Intl.Locale weekInfo): ru — понедельник; нет данных — понедельник, кроме en-US / he / ja / pt-BR
+function weekStartOf(locale) {
+  try { const l = new Intl.Locale(locale); const w = (typeof l.getWeekInfo === 'function' && l.getWeekInfo()) || l.weekInfo; if (w && w.firstDay) return w.firstDay % 7; } catch (e) { /* старый движок */ }
+  return /^(en-US|he|ja|pt-BR)/.test(locale) ? 0 : 1;
+}
+const fullDate = (s, locale) => fmtDay(s, locale, { day: 'numeric', month: 'long', year: 'numeric' }).replace(/\s*г\.$/, '');
+const shortDate = (s, locale) => fmtDay(s, locale, { day: '2-digit', month: '2-digit', year: '2-digit' });
+const normRange = (r) => (r ? { from: toISO(r.from), to: toISO(r.to) } : { from: null, to: null });
+
+/** Date cell — ячейка дня в Calendar (вне Calendar не используется): число и одно смысловое состояние.
+ *  state: default | today (обводка `border/accent`) | selected | range-start | range-middle | range-end | outside (соседний месяц); disabled — недоступен (зачёркнут, не нажимается).
+ *  Hover / Pressed / Focus — из платформы. label — полная дата для озвучки («14 октября 2026»). */
+const DateCell = React.forwardRef(function DateCell({ day, children, state = 'default', disabled = false, label, onClick, className, ...rest }, ref) {
+  return h('button', { ref, type: 'button', className: cx('emcd-date-cell', state !== 'default' && 'emcd-date-cell--' + state, disabled && 'emcd-date-cell--disabled', className),
+    'aria-label': label, 'aria-disabled': disabled || undefined, 'aria-current': state === 'today' ? 'date' : undefined,
+    onClick: disabled ? undefined : onClick, ...rest }, day ?? children);
+});
+
+/** Calendar — выбор даты (mode single) или периода (mode range): шапка «Месяц ГГГГ» + стрелки, дни недели по локали (ru — с понедельника), сетка 6 × 7 из Date cell.
+ *  value: single — ISO «ГГГГ-ММ-ДД» (или Date); range — { from, to }. Без value — неуправляемый (defaultValue). onChange(value) — выбрана дата или обе даты периода
+ *  (Range: первый выбор — начало, второй — конец; раньше начала — меняются местами). month / defaultMonth / onMonthChange — показанный месяц (ISO).
+ *  today — «сегодня» (обводка, aria-current=date); min / max / isDateDisabled(iso) — недоступные даты. Клавиатура (role=grid): стрелки — дни, PageUp / PageDown — месяцы
+ *  (+ Shift — годы), Home / End — неделя, Enter / Space — выбрать, Esc — onEscape. RTL: сетка справа налево, стрелки листания отражены. plain — без своей подложки (внутри панели). */
+function Calendar({ mode = 'single', value, defaultValue, onChange, month, defaultMonth, onMonthChange, today, min, max, isDateDisabled, locale = 'ru', weekStart,
+  prevLabel = 'Предыдущий месяц', nextLabel = 'Следующий месяц', selectedLabel = 'выбрано', onEscape, plain = false, label, className, ...rest }) {
+  const range = mode === 'range';
+  const [raw, setVal] = useControllable(value, defaultValue ?? (range ? { from: null, to: null } : null), onChange);
+  const val = range ? normRange(raw) : toISO(raw);
+  const t = toISO(today ?? new Date());
+  const lo = toISO(min); const hi = toISO(max);
+  const off = (d) => (lo && d < lo) || (hi && d > hi) || (isDateDisabled ? !!isDateDisabled(d) : false);
+  const [view, setView] = useControllable(month == null ? undefined : monthStart(toISO(month)), monthStart((range ? val.to || val.from : val) || t), onMonthChange);
+  const [anchor, setAnchor] = React.useState(null); // Range: выбрано начало, ждём конец
+  const [hover, setHover] = React.useState(null);
+  const [focus, setFocus] = React.useState(null);
+  const grid = React.useRef(null); const moveFocus = React.useRef(false);
+  const ws = weekStart ?? weekStartOf(locale);
+  const first = monthStart(view);
+  const start = addDays(first, -((weekday(first) - ws + 7) % 7));
+  const days = Array.from({ length: 42 }, (_, i) => addDays(start, i));
+  const inView = (d) => d && d.slice(0, 7) === first.slice(0, 7);
+  // диапазон для показа: черновик (начало + наведение) или выбранный
+  let a = range ? (anchor || val.from) : null; let b = range ? (anchor ? (hover && hover !== anchor ? hover : null) : val.to) : null;
+  if (a && b && b < a) [a, b] = [b, a];
+  const stateOf = (d) => {
+    if (range) {
+      if (a && d === a) return b && b !== a ? 'range-start' : 'selected';
+      if (b && d === b) return 'range-end';
+      if (a && b && d > a && d < b) return 'range-middle';
+    } else if (d === val) return 'selected';
+    if (!inView(d)) return 'outside';
+    return d === t ? 'today' : 'default';
+  };
+  const tab = [focus, range ? anchor || val.from : val, t].find(inView) || first;
+  const go = (m) => setView(monthStart(m));
+  const select = (d) => {
+    if (off(d)) return;
+    setFocus(d); if (!inView(d)) go(d);
+    if (!range) { setVal(d); return; }
+    if (!anchor) { setAnchor(d); return; }
+    const [from, to] = d < anchor ? [d, anchor] : [anchor, d];
+    setAnchor(null); setHover(null); setVal({ from, to });
+  };
+  const onKeyDown = (e) => {
+    if (e.key === 'Escape') { if (onEscape) onEscape(e); return; }
+    const rtl = getComputedStyle(e.currentTarget).direction === 'rtl';
+    const f = tab; const dow = (weekday(f) - ws + 7) % 7;
+    const next = { ArrowLeft: addDays(f, rtl ? 1 : -1), ArrowRight: addDays(f, rtl ? -1 : 1), ArrowUp: addDays(f, -7), ArrowDown: addDays(f, 7),
+      PageUp: addMonths(f, e.shiftKey ? -12 : -1), PageDown: addMonths(f, e.shiftKey ? 12 : 1), Home: addDays(f, -dow), End: addDays(f, 6 - dow) }[e.key];
+    if (!next) return;
+    e.preventDefault(); moveFocus.current = true; setFocus(next); if (!inView(next)) go(next);
+    if (anchor) setHover(next);
+  };
+  React.useEffect(() => {
+    if (!moveFocus.current || !grid.current) return;
+    moveFocus.current = false; const el = grid.current.querySelector(`[data-date="${tab}"]`); if (el) el.focus();
+  });
+  const names = Array.from({ length: 7 }, (_, i) => capital(fmtDay(addDays('2024-01-07', (ws + i) % 7), locale, { weekday: 'short' })));
+  const title = `${capital(fmtDay(first, locale, { month: 'long' }))} ${first.slice(0, 4)}`;
+  return h('div', { className: cx('emcd-calendar', plain && 'emcd-calendar--plain', className), ...rest },
+    h('div', { className: 'emcd-calendar__head' },
+      h(IconButton, { size: 's', type: 'tertiary', label: prevLabel, className: 'emcd-calendar__nav', icon: h(Icon, { name: 'chevron-left' }), onClick: () => go(addMonths(first, -1)) }),
+      h('span', { className: 'emcd-calendar__month', 'aria-live': 'polite' }, title),
+      h(IconButton, { size: 's', type: 'tertiary', label: nextLabel, className: 'emcd-calendar__nav', icon: h(Icon, { name: 'chevron-right' }), onClick: () => go(addMonths(first, 1)) })),
+    h('div', { ref: grid, role: 'grid', 'aria-label': label ?? title, 'aria-multiselectable': range || undefined, className: 'emcd-calendar__grid', onKeyDown, onMouseLeave: () => setHover(null) },
+      h('div', { role: 'row', className: 'emcd-calendar__row emcd-calendar__weekdays' }, names.map((nm, i) => h('span', { key: i, role: 'columnheader', className: 'emcd-calendar__weekday' }, nm))),
+      Array.from({ length: 6 }, (_, w) => h('div', { key: w, role: 'row', className: 'emcd-calendar__row' }, days.slice(w * 7, w * 7 + 7).map((d) => {
+        const st = stateOf(d); const sel = st === 'selected' || st === 'range-start' || st === 'range-end';
+        return h('div', { key: d, role: 'gridcell', 'aria-selected': sel || undefined, className: 'emcd-calendar__cell' },
+          h(DateCell, { day: Number(d.slice(8)), state: st, disabled: off(d), 'data-date': d, tabIndex: d === tab ? 0 : -1,
+            label: fullDate(d, locale) + (sel ? `, ${selectedLabel}` : ''), 'aria-current': d === t ? 'date' : undefined,
+            onClick: () => select(d), onMouseEnter: anchor ? () => setHover(d) : undefined, onFocus: () => { if (d !== focus) setFocus(d); } }));
+      })))));
+}
+
+const DATE_PRESETS = [{ value: 'today', label: 'Сегодня', days: 1 }, { value: '7d', label: '7 дней', days: 7 }, { value: '30d', label: '30 дней', days: 30 },
+  { value: 'quarter', label: 'Квартал', months: 3 }, { value: 'year', label: 'Год', months: 12 }, { value: 'custom', label: 'Свой период' }];
+// Пресет → диапазон до «сегодня» включительно: days — N дней, months — N месяцев; range(today) — свой расчёт; «Свой период» — ручной выбор (null)
+const presetRange = (p, t) => (p.range ? normRange(p.range(t)) : p.days ? { from: addDays(t, 1 - p.days), to: t } : p.months ? { from: addDays(addMonths(t, -p.months), 1), to: t } : null);
+
+/** Date range panel — панель выбора периода: слева пресеты (Menu item, выбранный с галочкой; presets=false — без них, мобильный в Sheet), справа Calendar Mode=Range, внизу «Сбросить» и «Применить».
+ *  value / defaultValue / onChange({ from, to }) — период в календаре (черновик); preset / defaultPreset / onPresetChange — выбранный пресет; presetItems — [{ value, label, days | months | range(today) }].
+ *  onApply({ from, to }) — «Применить» (Web — только по кнопке; applyOnSelect — сразу по второй дате, по умолчанию при presets=false); onReset — «Сбросить» (showReset); onClose — Esc.
+ *  role=dialog «Период»; пресеты — listbox (↑ / ↓); календарь — grid. today / min / max / isDateDisabled / locale — как у Calendar. RTL: пресеты справа, кнопки меняются местами. */
+function DateRangePanel({ presets = true, presetItems = DATE_PRESETS, preset, defaultPreset, onPresetChange, value, defaultValue, onChange, onApply, onReset, onClose, showReset = true,
+  applyOnSelect, resetLabel = 'Сбросить', applyLabel = 'Применить', label = 'Период', presetsLabel = 'Быстрый выбор', today, min, max, isDateDisabled, locale = 'ru', weekStart, className, ...rest }) {
+  const id = useId();
+  const t = toISO(today ?? new Date());
+  const [raw, setRange] = useControllable(value, defaultValue ?? { from: null, to: null }, onChange);
+  const r = normRange(raw);
+  const match = (x) => { const p = presetItems.find((q) => { const pr = presetRange(q, t); return pr && x.from && pr.from === x.from && pr.to === x.to; }); return p ? p.value : x.from ? 'custom' : undefined; };
+  const [pre, setPre] = useControllable(preset, defaultPreset ?? match(r), onPresetChange);
+  const [view, setView] = React.useState(() => monthStart(r.to || r.from || t));
+  const instant = applyOnSelect ?? !presets;
+  const choose = (p) => { setPre(p.value); const pr = presetRange(p, t); if (pr) { setRange(pr); setView(monthStart(pr.to)); } };
+  const listKeys = (e) => {
+    const d = e.key === 'ArrowDown' ? 1 : e.key === 'ArrowUp' ? -1 : 0;
+    if (!d) return;
+    e.preventDefault(); const i = presetItems.findIndex((p) => p.value === pre);
+    choose(presetItems[i < 0 ? (d > 0 ? 0 : presetItems.length - 1) : (i + d + presetItems.length) % presetItems.length]);
+  };
+  const done = !!(r.from && r.to);
+  return h('div', { role: 'dialog', 'aria-label': label, className: cx('emcd-date-panel', !presets && 'emcd-date-panel--compact', className),
+    onKeyDown: (e) => { if (e.key === 'Escape' && onClose) { e.stopPropagation(); onClose(e); } }, ...rest },
+  presets && h(MenuCtx.Provider, { value: { size: 'm', role: 'listbox' } },
+    h('div', { role: 'listbox', 'aria-label': presetsLabel, tabIndex: 0, className: 'emcd-date-panel__presets', 'aria-activedescendant': pre != null ? `${id}-p-${pre}` : undefined, onKeyDown: listKeys },
+      presetItems.map((p) => h(MenuItem, { key: p.value, id: `${id}-p-${p.value}`, label: p.label, selected: p.value === pre, onClick: () => choose(p) })))),
+  h('div', { className: 'emcd-date-panel__column' },
+    h(Calendar, { mode: 'range', plain: true, value: r, onChange: (x) => { setRange(x); setPre(match(x)); if (instant && onApply) onApply(x); }, month: view, onMonthChange: setView,
+      today: t, min, max, isDateDisabled, locale, weekStart }),
+    h('div', { className: 'emcd-date-panel__footer' },
+      showReset && h(Button, { type: 'text', size: 's', label: resetLabel, className: 'emcd-date-panel__reset', disabled: !r.from && !r.to,
+        onClick: () => { setRange({ from: null, to: null }); setPre(undefined); if (onReset) onReset(); } }),
+      h(Button, { type: 'primary', size: 's', label: applyLabel, disabled: !done, onClick: () => { if (onApply) onApply(r); } }))));
+}
+
+/** Date range field — поле периода на базе Input M (подпись на рамке): «ДД.ММ.ГГ → ДД.ММ.ГГ» + иконка календаря. state: default | error | disabled | skeleton; hint — ограничение периода до выбора, error — после.
+ *  Две схемы: панель продукта — onOpen(event) по нажатию, Enter, Space или ↓ (from / to — готовые строки дат); встроенная — panel (true или props Date range panel):
+ *  поповер с Date range panel, value / defaultValue / onChange({ from, to } ISO) — применённый период, open / defaultOpen / onOpenChange; формат дат — formatDate(iso) или локаль (дд.мм.гг).
+ *  Esc и «Применить» закрывают панель и возвращают фокус на поле; клик вне — закрывает без применения. Не помещается в экран — поповер выравнивается по концу поля. */
+function DateRangeField({ label = 'Период', from, to, placeholder = 'ДД.ММ.ГГ → ДД.ММ.ГГ', hint, error, state = 'default', labelPosition = 'on-border', onOpen,
+  panel = false, value, defaultValue, onChange, open, defaultOpen = false, onOpenChange, formatDate, locale = 'ru', className, ...rest }) {
+  const id = useId();
+  const builtIn = !!panel;
+  const [raw, setRange] = useControllable(value, defaultValue ?? { from: null, to: null }, onChange);
+  const r = normRange(raw);
+  const [isOpen, setOpen] = useControllable(open, defaultOpen, onOpenChange);
+  const fmt = (s) => (s ? (formatDate ? formatDate(s) : shortDate(s, locale)) : null);
+  const f = from ?? (builtIn ? fmt(r.from) : null); const tt = to ?? (builtIn ? fmt(r.to) : null);
+  const val = f || tt ? `${f || '…'} → ${tt || '…'}` : '';
   const off = state === 'disabled' || state === 'skeleton';
-  return h('div', { role: 'group', 'aria-label': typeof label === 'string' ? label : undefined, className: cx('emcd-date-range', className) },
-    h(Input, { label, labelPosition, state, hint, error, value: val, placeholder, readOnly: true, 'aria-haspopup': 'dialog',
-      onClick: off ? undefined : onOpen, onKeyDown: (e) => { if (!off && onOpen && ['Enter', ' ', 'ArrowDown'].includes(e.key)) { e.preventDefault(); onOpen(e); } },
-      trailing: h(Icon, { name: 'calendar' }), ...rest }));
+  const root = React.useRef(null); const input = React.useRef(null); const pop = React.useRef(null);
+  const shown = builtIn && isOpen && !off;
+  const close = (refocus = true) => { setOpen(false); if (refocus && input.current) input.current.focus(); };
+  const trigger = (e) => { if (off) return; if (onOpen) onOpen(e); if (builtIn) setOpen(!isOpen); };
+  React.useEffect(() => {
+    if (!shown) return undefined;
+    const out = (e) => { if (root.current && !root.current.contains(e.target)) close(false); };
+    document.addEventListener('mousedown', out);
+    return () => document.removeEventListener('mousedown', out);
+  });
+  // открыли — фокус в панель (пресеты или день); выходит за край экрана — по концу поля (в RTL — тоже)
+  useIsoLayoutEffect(() => {
+    const p = pop.current; if (!shown || !p) return;
+    p.classList.remove('emcd-date-range__popover--end');
+    const pr = p.getBoundingClientRect(); if (pr.right > document.documentElement.clientWidth - 8 || pr.left < 8) p.classList.add('emcd-date-range__popover--end');
+    const el = p.querySelector('[role="listbox"], [role="grid"] [tabindex="0"]'); if (el) el.focus();
+  }, [shown]);
+  const panelProps = panel === true ? {} : panel || {};
+  return h('div', { ref: root, role: 'group', 'aria-label': typeof label === 'string' ? label : undefined, className: cx('emcd-date-range', shown && 'emcd-date-range--open', className) },
+    h(Input, { ref: input, label, labelPosition, state, hint, error, value: val, placeholder, readOnly: true, 'aria-haspopup': 'dialog',
+      'aria-expanded': builtIn ? shown : undefined, 'aria-controls': shown ? id : undefined,
+      onClick: off ? undefined : trigger,
+      onKeyDown: (e) => {
+        if (off) return;
+        if (e.key === 'Escape' && shown) { e.preventDefault(); close(); return; }
+        if ((onOpen || builtIn) && ['Enter', ' ', 'ArrowDown'].includes(e.key)) { e.preventDefault(); trigger(e); }
+      },
+      trailing: h(Icon, { name: 'calendar' }), ...rest }),
+    shown && h('div', { ref: pop, className: 'emcd-date-range__popover' },
+      h(DateRangePanel, { id, locale, ...panelProps, defaultValue: r,
+        onApply: (x) => { setRange(x); close(); if (panelProps.onApply) panelProps.onApply(x); },
+        onClose: (e) => { close(); if (panelProps.onClose) panelProps.onClose(e); } })));
 }
 
 /** Page indicator — точки карусели (2–5), текущая вытянутая. selected — номер с 1. onSelect(n) — точки кликабельны (есть свайп или стрелки), иначе декоративны. Озвучивается «Слайд 3 из 5». */
@@ -899,12 +1088,57 @@ function chartScale(max, ticks = 4, fixed) {
   const digits = step >= 1 ? 0 : (String(+step.toFixed(6)).split('.')[1] || '').length;
   return { max: step * ticks, ticks: Array.from({ length: ticks + 1 }, (_, i) => +(i * step).toFixed(6)), digits };
 }
+/** Chart crosshair — перекрестие выбранной точки графика: target line — вертикальная линия `border/default` + точки серий (`point` цвета серии, обводка `surface/current`, ореол 0.24);
+ *  bar — полоса на ширину столбца (`status/neutral/subtle`). x — положение по X в % ширины области; points: [{ y (%), series (цвет 1–8) }]; band — ширина полосы, %.
+ *  Неинтерактивен: положение и видимость выставляет Chart plot (наведение, касание, стрелки). Без анимации движения. */
+function ChartCrosshair({ target = 'line', x = 50, points = [], band = 4, className, style, ...rest }) {
+  const bar = target === 'bar';
+  return h('div', { className: cx('emcd-chart-crosshair', bar && 'emcd-chart-crosshair--bar', className), 'aria-hidden': true,
+    style: { left: x + '%', ...(bar ? { width: band + '%' } : null), ...style }, ...rest },
+  bar ? h('span', { className: 'emcd-chart-crosshair__band' }) : h('span', { className: 'emcd-chart-crosshair__line' }),
+  !bar && points.map((p, i) => h('span', { key: i, className: cx('emcd-chart-crosshair__point', 'emcd-chart-crosshair__point--s' + seriesN(p.series)), style: { top: p.y + '%' } })));
+}
+
+/** Chart tooltip — значения серий в выбранной точке: шапка (date — слева, time — справа; showDate=false — без шапки) и строки «маркер — серия — значение».
+ *  rows: [{ label, value, series, marker, tone }] — 1–4 (Figma Rows = длина); больше четырёх — первые 4 и «+N» (moreLabel). tone: danger | warning — значение вне нормы.
+ *  Шрифт — текста (моно только у подписей осей, 17.11). role=status + aria-live=polite; live=false — без них (озвучивает Chart plot). Показ и положение — у графика. */
+const ChartTooltip = React.forwardRef(function ChartTooltip({ rows = [], date, time, showDate = true, moreLabel, live = true, className, ...rest }, ref) {
+  const list = rows.slice(0, 4);
+  const more = rows.length - list.length;
+  return h('div', { ref, role: live ? 'status' : undefined, 'aria-live': live ? 'polite' : undefined, className: cx('emcd-chart-tooltip', className), ...rest },
+    showDate && (date != null || time != null) && h('div', { className: 'emcd-chart-tooltip__header' },
+      h('span', { className: 'emcd-chart-tooltip__date' }, date), time != null && h('span', { className: 'emcd-chart-tooltip__time' }, time)),
+    list.map((r, i) => h('div', { key: i, className: 'emcd-chart-tooltip__row' },
+      h('span', { className: 'emcd-chart-tooltip__label' }, h(LegendSwatch, { marker: r.marker, series: r.series ?? i + 1 }), h('span', { className: 'emcd-chart-tooltip__series' }, r.label)),
+      h('span', { className: cx('emcd-chart-tooltip__value', r.tone && r.tone !== 'default' && 'emcd-chart-tooltip__value--' + r.tone) }, r.value))),
+    more > 0 && h('div', { className: 'emcd-chart-tooltip__more' }, moreLabel ?? `+${more}`));
+});
+
+// Layout-эффект в браузере, обычный — при SSR (без предупреждения React)
+const useIsoLayoutEffect = typeof document !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+// Тултип у выбранной точки: справа от перекрестия, не помещается — слева, иначе прижат к краю области; если накрывает точку — в другую половину по высоте
+function placeTooltip(box, tip, xPct, yPct) {
+  if (!box || !tip) return;
+  const bw = box.clientWidth; const bh = box.clientHeight; const tw = tip.offsetWidth; const th = tip.offsetHeight; const gap = 12;
+  const px = (xPct / 100) * bw;
+  let left = px + gap;
+  if (left + tw > bw) left = px - gap - tw >= 0 ? px - gap - tw : Math.max(0, Math.min(bw - tw, px - tw / 2));
+  const covers = left < px + gap && left + tw > px - gap;
+  const top = covers && yPct != null && yPct < 50 ? Math.max(0, bh - th) : 0;
+  tip.style.left = left + 'px'; tip.style.top = top + 'px'; tip.style.visibility = 'visible';
+}
+
 const CHART_KIND = { bars: ['bar'], line: ['line'], area: ['area'], 'line-bars': ['line', 'bar'], 'multi-line': ['line'], 'dual-area': ['area', 'area'], 'stacked-bars': ['stack'] };
+const chartValue = (s, i, v, valueFormat) => (v == null || v === '' ? '—' : s.format ? s.format(v) : valueFormat ? valueFormat(v, i) : `${v}${s.unit ? ' ' + s.unit : ''}`);
 /** Chart plot — область графика (SVG): серии, сетка пунктиром, подписи осей (моно, text-tertiary). type: bars | line | area | line-bars | multi-line | dual-area | stacked-bars.
- *  series: [{ name, data: number[] }] — серия 1 — `border/accent` (бренд), остальные — `data/2…8` (вторая ось Line + Bars и Dual area — `data/4`); line-bars и dual-area: серия 2 — по правой оси.
+ *  series: [{ name, data: number[], unit, format, marker }] — серия 1 — `border/accent` (бренд), остальные — `data/2…8` (вторая ось Line + Bars и Dual area — `data/4`); line-bars и dual-area: серия 2 — по правой оси.
  *  labels — подписи X по точкам (показывается не больше xTicks, по умолчанию 6); yLeft / yRight — { ticks: [...] } вместо автошкалы; format(v, axis) — подпись деления.
- *  state: default | skeleton | empty | disabled (emptyText — «Нет данных за период»); label — aria-label «что и за какой период». Hover (Chart crosshair + Chart tooltip) — пока не в коде. */
-function ChartPlot({ type = 'bars', series = [], labels = [], xTicks = 6, yLeft, yRight, format, height = 200, state = 'default', emptyText = 'Нет данных за период', label, className, style, ...rest }) {
+ *  state: default | skeleton | empty | disabled (emptyText — «Нет данных за период»); label — aria-label «что и за какой период».
+ *  Hover (interactive, по умолчанию вкл.): указатель / касание → ближайшая точка: Chart crosshair (линии — точки серий, столбцы — полоса) + Chart tooltip (dates / times — шапка, иначе labels;
+ *  значение — series.format(v) | valueFormat(v, i) | «v unit»). Клавиатура: график в фокусе, ← / → — по точкам, Home / End — края, Enter — закрепить, Esc — скрыть; aria-live озвучивает точку.
+ *  index / defaultIndex / onIndexChange(k | null) — выбранная точка (управляемо). Тултип: справа от перекрестия, у края — слева или прижат к границе. */
+function ChartPlot({ type = 'bars', series = [], labels = [], xTicks = 6, yLeft, yRight, format, height = 200, state = 'default', emptyText = 'Нет данных за период', label,
+  interactive = true, index, defaultIndex = null, onIndexChange, dates, times, valueFormat, className, style, ...rest }) {
   const W = 1000; const H = Number(height) || 200;
   const kinds = CHART_KIND[type] || CHART_KIND.bars;
   const n = Math.max(1, ...series.map((s) => (s.data || []).length), labels.length);
@@ -923,6 +1157,7 @@ function ChartPlot({ type = 'bars', series = [], labels = [], xTicks = 6, yLeft,
   const x = (k) => (k + 0.5) * slot;
   const skeleton = state === 'skeleton';
   const empty = state === 'empty' || (!skeleton && !series.some((s) => (s.data || []).length));
+  const live = interactive && !skeleton && !empty && state !== 'disabled';
   const bars = series.map((s, i) => [s, i]).filter(([, i]) => kindOf(i) === 'bar');
   const marks = [];
   if (skeleton) {
@@ -953,19 +1188,67 @@ function ChartPlot({ type = 'bars', series = [], labels = [], xTicks = 6, yLeft,
   const xl = filled.filter((_, j) => j % step === 0).map((k) => h('span', { key: k, className: 'emcd-chart-plot__x', style: { left: ((k + 0.5) / n) * 100 + '%' } }, labels[k]));
   const axis = (sc, side) => h('div', { className: 'emcd-chart-plot__axis emcd-chart-plot__axis--' + side, 'aria-hidden': true },
     !skeleton && !empty && sc.ticks.map((t) => h('span', { key: t, className: 'emcd-chart-plot__tick', style: { top: (1 - t / sc.max) * 100 + '%' } }, fmt(t, side, sc))));
-  return h('div', { role: 'img', 'aria-label': label, 'aria-busy': skeleton || undefined, style: { '--emcd-chart-h': H + 'px', ...style },
-    className: cx('emcd-chart-plot', R && 'emcd-chart-plot--dual', skeleton && 'emcd-chart-plot--skeleton', empty && 'emcd-chart-plot--empty', state === 'disabled' && 'emcd-chart-plot--disabled', className), ...rest },
+
+  // ── Hover: выбранная точка k (Chart crosshair + Chart tooltip)
+  const [cur, setCur] = useControllable(index, defaultIndex, onIndexChange);
+  const [pinned, setPinned] = React.useState(false);
+  const [say, setSay] = React.useState('');
+  const root = React.useRef(null); const box = React.useRef(null); const tip = React.useRef(null);
+  const k = live && cur != null && cur >= 0 && cur < n ? Math.floor(cur) : null;
+  const bandKind = kinds[0] === 'bar' || kinds[0] === 'stack';
+  const xPct = k == null ? 0 : ((k + 0.5) / n) * 100;
+  const points = k == null || bandKind ? [] : series.map((s, i) => [s, i]).filter(([, i]) => kindOf(i) === 'line' || kindOf(i) === 'area')
+    .map(([s, i]) => ({ v: (s.data || [])[k], i })).filter((p) => p.v != null && Number.isFinite(Number(p.v)))
+    .map((p) => ({ series: colorOf(p.i), y: (y(p.v, axisOf(p.i) === 'right' ? R : L) / H) * 100 }));
+  const rows = k == null ? [] : series.map((s, i) => ({ label: s.name ?? `Серия ${i + 1}`, value: chartValue(s, i, (s.data || [])[k], valueFormat), series: colorOf(i), marker: s.marker }));
+  const date = k == null ? null : (dates ? dates[k] : labels[k]);
+  const time = k == null || !times ? undefined : times[k];
+  const summary = (j) => [dates ? dates[j] : labels[j], times && times[j], ...series.map((s, i) => `${s.name ?? `Серия ${i + 1}`} ${chartValue(s, i, (s.data || [])[j], valueFormat)}`)].filter((t) => t != null && t !== '').join(', ');
+  const pick = (e) => { const r = box.current && box.current.getBoundingClientRect(); return r && r.width ? Math.min(n - 1, Math.max(0, Math.floor(((e.clientX - r.left) / r.width) * n))) : null; };
+  const show = (j, speak) => { if (j !== cur) setCur(j); if (speak) setSay(j == null ? '' : summary(j)); };
+  useIsoLayoutEffect(() => { if (k != null) placeTooltip(box.current, tip.current, xPct, points.length ? Math.min(...points.map((p) => p.y)) : null); });
+  // касание: перекрестие остаётся до тапа вне графика; закреплённое (Enter) — до клика вне
+  React.useEffect(() => {
+    if (k == null) return undefined;
+    const out = (e) => { if (root.current && !root.current.contains(e.target)) { setPinned(false); show(null); } };
+    document.addEventListener('pointerdown', out);
+    return () => document.removeEventListener('pointerdown', out);
+  });
+  const onKeyDown = (e) => {
+    if (!live) return;
+    if (e.key === 'Escape') { if (k != null) { e.preventDefault(); e.stopPropagation(); setPinned(false); show(null, true); } return; }
+    if (e.key === 'Enter') { if (k != null) { e.preventDefault(); setPinned(!pinned); } return; }
+    const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+    const j = e.key === 'Home' ? 0 : e.key === 'End' ? n - 1 : d ? (k == null ? (d > 0 ? 0 : n - 1) : Math.min(n - 1, Math.max(0, k + d))) : null;
+    if (j == null) return;
+    e.preventDefault(); show(j, true);
+  };
+  const hover = live ? {
+    onPointerMove: (e) => { if (!pinned) { const j = pick(e); if (j != null) show(j); } },
+    onPointerDown: (e) => { const j = pick(e); if (j != null) { setPinned(false); show(j, e.pointerType !== 'mouse'); } },
+    onPointerLeave: (e) => { if (!pinned && e.pointerType === 'mouse') show(null); },
+  } : null;
+  const crosshair = k != null && h(ChartCrosshair, { key: 'ch', target: bandKind ? 'bar' : 'line', x: xPct, points, band: (bandKind ? 70 : 0) / n });
+
+  return h('div', { ref: root, role: live ? 'group' : 'img', 'aria-roledescription': live ? 'график' : undefined, 'aria-label': label, 'aria-busy': skeleton || undefined,
+    tabIndex: live ? 0 : undefined, onKeyDown: live ? onKeyDown : undefined, onBlur: live ? (e) => { if (!pinned && !(root.current && root.current.contains(e.relatedTarget))) show(null); } : undefined,
+    style: { '--emcd-chart-h': H + 'px', ...style },
+    className: cx('emcd-chart-plot', R && 'emcd-chart-plot--dual', live && 'emcd-chart-plot--interactive', skeleton && 'emcd-chart-plot--skeleton', empty && 'emcd-chart-plot--empty', state === 'disabled' && 'emcd-chart-plot--disabled', className), ...rest },
   axis(L, 'left'),
-  h('div', { className: 'emcd-chart-plot__area-box' },
+  h('div', { ref: box, className: 'emcd-chart-plot__area-box', ...hover },
+    bandKind && crosshair,
     h('svg', { className: 'emcd-chart-plot__svg', viewBox: `0 0 ${W} ${H}`, preserveAspectRatio: 'none', 'aria-hidden': true, focusable: 'false' },
       !(skeleton && kinds[0] !== 'bar' && kinds[0] !== 'stack') && L.ticks.map((t) => h('line', { key: 'g' + t, className: 'emcd-chart-plot__grid', x1: 0, x2: W, y1: y(t, L), y2: y(t, L) })),
       marks),
+    !bandKind && crosshair,
+    k != null && h(ChartTooltip, { ref: tip, live: false, 'aria-hidden': true, className: 'emcd-chart-plot__tooltip', rows, date, time }),
     empty && h('span', { className: 'emcd-chart-plot__empty' }, emptyText)),
   R ? axis(R, 'right') : null,
-  h('div', { className: 'emcd-chart-plot__x-row', 'aria-hidden': true }, !skeleton && !empty && xl));
+  h('div', { className: 'emcd-chart-plot__x-row', 'aria-hidden': true }, !skeleton && !empty && xl),
+  live && h('span', { className: 'emcd-chart-plot__live', role: 'status', 'aria-live': 'polite' }, say));
 }
 
-/** Chart card — виджет графика: Top (Chart metric × 1–3 + период — ряд Chip, выбранный белый; в конце Top — легенда над графиком), Content (Chart plot — children), Bottom — итог за период (sum).
+/** Chart card — виджет графика: Top (Chart metric × 1–3 + период — ряд Chip, выбранный белый; в конце Top — легенда над графиком), Content (Chart plot — children; hover — у Chart plot, карточка его не обрезает), Bottom — итог за период (sum).
  *  metrics: [{ label, value, unit, icon, tone }]; periods: [{ value, label }] — период (без period — неуправляемый, onPeriodChange(value)); periodSize: s (Web) | m (Compact).
  *  legend: [{ label, series, marker, value, showValue }] — над графиком (19.11, по продукту); showBottom=false — без итога. top / bottom — свои узлы вместо собранных. label — имя группы. */
 function ChartCard({ label, metrics = [], periods, period, defaultPeriod, onPeriodChange, periodSize = 's', periodLabel = 'Период', legend = [], sum, showBottom = true, top, bottom, children, content, className, ...rest }) {
@@ -1039,5 +1322,5 @@ function ActionBar({ actions, children, className, ...rest }) {
   const btns = actions ? actions.slice(0, 2).map((a, i) => h(Button, { key: i, size: 'm', type: actions.length === 1 ? 'primary' : 'tertiary', ...a, iconLeft: icon(a.iconLeft) })) : children;
   return h('div', { className: cx('emcd-action-bar', className), ...rest }, btns);
 }
-window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Progress, Amount, Card, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar };
+window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Progress, Amount, Card, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar };
 })();

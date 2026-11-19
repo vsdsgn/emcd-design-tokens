@@ -1,4 +1,4 @@
-// Геометрия Chart plot для DsChartPlot — та же, что в packages/react/src/index.js (ChartPlot): шкала «круглых» делений, столбцы, линии, области, подписи осей.
+// Геометрия Chart plot для DsChartPlot — та же, что в packages/react/src/index.js (ChartPlot): шкала «круглых» делений, столбцы, линии, области, подписи осей, hover (перекрестие + тултип).
 export function chartScale(max, ticks = 4, fixed) {
   if (fixed && fixed.length) { const m = Math.max(...fixed); return { max: m || 1, ticks: fixed, digits: Math.max(0, ...fixed.map((t) => (String(t).split('.')[1] || '').length)) }; }
   const raw = (Number(max) > 0 ? Number(max) : 1) / ticks; // нет данных — шкала 0…1
@@ -8,8 +8,8 @@ export function chartScale(max, ticks = 4, fixed) {
   return { max: step * ticks, ticks: Array.from({ length: ticks + 1 }, (_, i) => +(i * step).toFixed(6)), digits };
 }
 const KIND = { bars: ['bar'], line: ['line'], area: ['area'], 'line-bars': ['line', 'bar'], 'multi-line': ['line'], 'dual-area': ['area', 'area'], 'stacked-bars': ['stack'] };
-// → { W, H, L, R, grid: [y], marks: [{ tag, key, cls, attrs }], xl: [{ key, left, text }], left: [{ t, top, text }], right: [...], skeleton, empty }
-export function chartModel({ type = 'bars', series = [], labels = [], xTicks = 6, yLeft, yRight, format, height = 200, state = 'default' }) {
+// → { W, H, n, L, R, grid: [y], marks: [{ tag, key, cls, attrs }], xl: [{ key, left, text }], left: [{ t, top, text }], right: [...], skeleton, empty, hoverAt(k) }
+export function chartModel({ type = 'bars', series = [], labels = [], xTicks = 6, yLeft, yRight, format, height = 200, state = 'default', dates, times, valueFormat }) {
   const W = 1000; const H = Number(height) || 200;
   const kinds = KIND[type] || KIND.bars;
   const n = Math.max(1, ...series.map((s) => (s.data || []).length), labels.length);
@@ -56,5 +56,32 @@ export function chartModel({ type = 'bars', series = [], labels = [], xTicks = 6
   const xl = filled.filter((_, j) => j % step === 0).map((k) => ({ key: k, left: ((k + 0.5) / n) * 100 + '%', text: labels[k] }));
   const ticks = (sc, side) => (skeleton || empty ? [] : sc.ticks.map((t) => ({ t, top: (1 - t / sc.max) * 100 + '%', text: fmt(t, side, sc) })));
   const grid = skeleton && !barKind ? [] : L.ticks.map((t) => y(t, L));
-  return { W, H, L, R, grid, marks, xl: skeleton || empty ? [] : xl, left: ticks(L, 'left'), right: R ? ticks(R, 'right') : [], skeleton, empty };
+  // Hover: точка k → Chart crosshair (линии — точки серий, столбцы — полоса) + строки Chart tooltip + текст для aria-live
+  const band = kinds[0] === 'bar' || kinds[0] === 'stack';
+  const name = (s, i) => s.name ?? `Серия ${i + 1}`;
+  const value = (s, i, v) => (v == null || v === '' ? '—' : s.format ? s.format(v) : valueFormat ? valueFormat(v, i) : `${v}${s.unit ? ' ' + s.unit : ''}`);
+  const hoverAt = (k) => {
+    const x = ((k + 0.5) / n) * 100;
+    const points = band ? [] : series.map((s, i) => [s, i]).filter(([, i]) => kindOf(i) === 'line' || kindOf(i) === 'area')
+      .map(([s, i]) => ({ v: (s.data || [])[k], i })).filter((p) => p.v != null && Number.isFinite(Number(p.v)))
+      .map((p) => ({ series: colorOf(p.i), y: (y(p.v, axisOf(p.i) === 'right' ? R : L) / H) * 100 }));
+    const rows = series.map((s, i) => ({ label: name(s, i), value: value(s, i, (s.data || [])[k]), series: colorOf(i), marker: s.marker }));
+    const date = dates ? dates[k] : labels[k];
+    const time = times ? times[k] : undefined;
+    const summary = [date, time, ...rows.map((r) => `${r.label} ${r.value}`)].filter((t) => t != null && t !== '').join(', ');
+    return { x, target: band ? 'bar' : 'line', band: (band ? 70 : 0) / n, points, rows, date, time, summary };
+  };
+  return { W, H, n, L, R, grid, marks, xl: skeleton || empty ? [] : xl, left: ticks(L, 'left'), right: R ? ticks(R, 'right') : [], skeleton, empty, hoverAt };
+}
+
+// Тултип у выбранной точки: справа от перекрестия, не помещается — слева, иначе прижат к краю области; если накрывает точку — в другую половину по высоте
+export function placeTooltip(box, tip, xPct, yPct) {
+  if (!box || !tip) return;
+  const bw = box.clientWidth; const bh = box.clientHeight; const tw = tip.offsetWidth; const th = tip.offsetHeight; const gap = 12;
+  const px = (xPct / 100) * bw;
+  let left = px + gap;
+  if (left + tw > bw) left = px - gap - tw >= 0 ? px - gap - tw : Math.max(0, Math.min(bw - tw, px - tw / 2));
+  const covers = left < px + gap && left + tw > px - gap;
+  const top = covers && yPct != null && yPct < 50 ? Math.max(0, bh - th) : 0;
+  tip.style.left = left + 'px'; tip.style.top = top + 'px'; tip.style.visibility = 'visible';
 }

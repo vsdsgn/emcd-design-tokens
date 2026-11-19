@@ -1,7 +1,8 @@
 /* Chart plot — 🟡 beta (Figma «🟡 Chart plot»: Type × State). Область графика: SVG-серии + сетка пунктиром border/subtle; подписи осей — font/family/mono, label-sm, text-tertiary (только здесь моно).
    Серия 1 — border/accent (бренд), 2–8 — data/2…8 (вторая ось Line + Bars / Dual area — data/4); линии chart/stroke, серии 5–8 пунктиром; область — заливка 0.45.
+   Hover (--interactive): Chart crosshair + Chart tooltip в области графика; фокус с клавиатуры — кольцо border/focus-ring; касание — горизонтальный скраб (touch-action: pan-y).
    Skeleton — skeleton/base («пила» у столбцов, силуэт у линий); Empty — сетка и «Нет данных за период» (body-md, text-tertiary); Disabled — серии action/disabled. */
-.emcd-chart-plot { --emcd-chart-h: 200px; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: var(--emcd-chart-h) auto; column-gap: var(--space-8, 8px); row-gap: var(--space-4, 4px);
+.emcd-chart-plot { --emcd-chart-h: 200px; position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: var(--emcd-chart-h) auto; column-gap: var(--space-8, 8px); row-gap: var(--space-4, 4px);
   min-width: 0; color: var(--text-tertiary); font: 400 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-mono); font-variant-numeric: tabular-nums; }
 .emcd-chart-plot--dual { grid-template-columns: auto minmax(0, 1fr) auto; }
 .emcd-chart-plot__axis { position: relative; min-width: 16px; max-width: var(--size-chart-axis-label-max, 48px); }
@@ -11,7 +12,7 @@
 /* ширина колонки оси — по самой длинной подписи: невидимый дубль задаёт ширину */
 .emcd-chart-plot__axis::before { content: "00.0"; visibility: hidden; }
 .emcd-chart-plot__area-box { position: relative; min-width: 0; }
-.emcd-chart-plot__svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.emcd-chart-plot__svg { position: relative; display: block; width: 100%; height: 100%; overflow: visible; }
 .emcd-chart-plot__grid { stroke: var(--border-subtle); stroke-width: var(--border-width-default, 1px); stroke-dasharray: 2 4; vector-effect: non-scaling-stroke; }
 .emcd-chart-plot__series { --c: var(--border-accent); }
 .emcd-chart-plot__series--1 { --c: var(--border-accent); }
@@ -39,3 +40,8 @@
 @keyframes emcd-chart-pulse { 50% { opacity: 0.55; } }
 .emcd-chart-plot--empty .emcd-chart-plot__x-row { visibility: hidden; }
 @media (prefers-reduced-motion: reduce) { .emcd-chart-plot--skeleton .emcd-chart-plot__svg { animation: none; } }
+.emcd-chart-plot--interactive { outline: none; }
+.emcd-chart-plot--interactive:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 4px; border-radius: var(--radius-xs, 4px); }
+.emcd-chart-plot--interactive .emcd-chart-plot__area-box { touch-action: pan-y; }
+.emcd-chart-plot__tooltip { position: absolute; top: 0; left: 0; z-index: 2; visibility: hidden; }
+.emcd-chart-plot__live { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

@@ -654,9 +654,12 @@ export interface SelectCompactProps {
   menuSize?: 'm' | 'l';
   className?: string;
 }
+/** Дата — ISO «ГГГГ-ММ-ДД» (или Date); период — { from, to }. */
+export type DateValue = string | Date;
+export interface DateRange { from: DateValue | null; to: DateValue | null }
 export interface DateRangeFieldProps {
   label?: ReactNode;
-  /** Даты в формате локали («01.11.26»); между ними — направленная стрелка. */
+  /** Готовые строки дат в формате локали («01.11.26»); между ними — направленная стрелка. Со встроенной панелью — из value. */
   from?: string;
   to?: string;
   placeholder?: string;
@@ -665,8 +668,97 @@ export interface DateRangeFieldProps {
   error?: ReactNode;
   state?: 'default' | 'error' | 'disabled' | 'skeleton';
   labelPosition?: 'on-border' | 'above';
-  /** Открыть панель (Calendar Range + пресеты — у продукта): нажатие, Enter, Space, ↓. */
+  /** Панель продукта: нажатие, Enter, Space, ↓. Вызывается и со встроенной панелью. */
   onOpen?: (event: unknown) => void;
+  /** Встроенный поповер с Date range panel (true или её props). Без него — только onOpen. */
+  panel?: boolean | DateRangePanelProps;
+  /** Применённый период (ISO); без value — неуправляемый (defaultValue). onChange — по «Применить». */
+  value?: DateRange;
+  defaultValue?: DateRange;
+  onChange?: (range: { from: string; to: string }) => void;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  /** Формат даты в поле; по умолчанию — локаль, дд.мм.гг. */
+  formatDate?: (iso: string) => string;
+  locale?: string;
+  className?: string;
+}
+export type DateCellState = 'default' | 'today' | 'selected' | 'range-start' | 'range-middle' | 'range-end' | 'outside';
+export interface DateCellProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+  /** Число дня 1–31 (не переводится, не зеркалится). */
+  day?: ReactNode;
+  /** Одно смысловое состояние на день; Hover / Pressed / Focus — из платформы. */
+  state?: DateCellState;
+  /** Недоступен: зачёркнут, без click (aria-disabled, фокус остаётся для клавиатуры). */
+  disabled?: boolean;
+  /** Полная дата для озвучки («14 октября 2026»). */
+  label?: string;
+}
+export interface CalendarProps {
+  /** single — одна дата; range — период (первый выбор — начало, второй — конец). */
+  mode?: 'single' | 'range';
+  /** single — ISO-дата; range — { from, to }. Без value — неуправляемый. */
+  value?: DateValue | DateRange | null;
+  defaultValue?: DateValue | DateRange | null;
+  /** Выбрана дата (single) или обе даты периода (range). */
+  onChange?: (value: any) => void;
+  /** Показанный месяц (любая дата месяца). */
+  month?: DateValue;
+  defaultMonth?: DateValue;
+  onMonthChange?: (month: string) => void;
+  /** «Сегодня» — обводкой (по умолчанию — текущая дата). */
+  today?: DateValue;
+  min?: DateValue;
+  max?: DateValue;
+  /** Недоступные даты (будущие для истории) — Date cell Disabled. */
+  isDateDisabled?: (iso: string) => boolean;
+  /** Локаль: месяц, дни недели, озвучка; неделя — по CLDR (ru — с понедельника). */
+  locale?: string;
+  /** 0 — воскресенье … 6; по умолчанию — по локали. */
+  weekStart?: number;
+  prevLabel?: string;
+  nextLabel?: string;
+  selectedLabel?: string;
+  /** Esc в сетке — закрыть контейнер (Dropdown panel, Sheet). */
+  onEscape?: (event: unknown) => void;
+  /** Без своей подложки, тени и полей — внутри Date range panel. */
+  plain?: boolean;
+  label?: string;
+  className?: string;
+}
+export interface DatePreset { value: string; label: ReactNode; days?: number; months?: number; range?: (today: string) => DateRange }
+export interface DateRangePanelProps {
+  /** true — пресеты слева (Web); false — без них (мобильный, в Sheet). */
+  presets?: boolean;
+  /** По умолчанию: Сегодня · 7 дней · 30 дней · Квартал · Год · Свой период. */
+  presetItems?: DatePreset[];
+  preset?: string;
+  defaultPreset?: string;
+  onPresetChange?: (value: string | undefined) => void;
+  /** Период в календаре (черновик до «Применить»). */
+  value?: DateRange;
+  defaultValue?: DateRange;
+  onChange?: (range: { from: string; to: string }) => void;
+  /** «Применить»; Web — только по кнопке, applyOnSelect — сразу по второй дате (по умолчанию при presets=false). */
+  onApply?: (range: { from: string; to: string }) => void;
+  applyOnSelect?: boolean;
+  onReset?: () => void;
+  /** Esc — закрыть без применения. */
+  onClose?: (event: unknown) => void;
+  showReset?: boolean;
+  resetLabel?: string;
+  applyLabel?: string;
+  /** aria-label диалога. */
+  label?: string;
+  presetsLabel?: string;
+  today?: DateValue;
+  min?: DateValue;
+  max?: DateValue;
+  isDateDisabled?: (iso: string) => boolean;
+  locale?: string;
+  weekStart?: number;
+  id?: string;
   className?: string;
 }
 export interface PageIndicatorProps {
@@ -807,7 +899,41 @@ export interface SidebarProps {
   label?: string;
   className?: string;
 }
-export interface ChartSeries { name?: string; data: number[] }
+export interface ChartSeries {
+  name?: string;
+  data: number[];
+  /** Единица в тултипе («TH/s»); format — своё значение. */
+  unit?: string;
+  format?: (value: number) => string;
+  /** Маркер в тултипе — как в легенде. */
+  marker?: 'dot' | 'line';
+}
+export interface ChartCrosshairProps {
+  /** line — линии и области (линия + точки серий); bar — столбцы (полоса). */
+  target?: 'line' | 'bar';
+  /** Положение по X, % ширины области графика. */
+  x?: number;
+  /** Точки серий: y — % высоты сверху, series — цвет 1–8. */
+  points?: { y: number; series?: number }[];
+  /** Ширина полосы (bar), %. */
+  band?: number;
+  className?: string;
+  style?: Record<string, unknown>;
+}
+export interface ChartTooltipRow { label: ReactNode; value: ReactNode; series?: number; marker?: 'dot' | 'line'; tone?: 'default' | 'danger' | 'warning' }
+export interface ChartTooltipProps {
+  /** 1–4 строки (Figma Rows); больше — первые 4 и «+N». */
+  rows?: ChartTooltipRow[];
+  date?: ReactNode;
+  time?: ReactNode;
+  /** Шапка с датой и временем. */
+  showDate?: boolean;
+  moreLabel?: ReactNode;
+  /** role=status + aria-live=polite; false — когда озвучивает график. */
+  live?: boolean;
+  className?: string;
+  style?: Record<string, unknown>;
+}
 export interface ChartPlotProps {
   /** line-bars — хешрейт + реджекты на второй оси; dual-area — две величины; stacked-bars — доли по статусам. */
   type?: 'bars' | 'line' | 'area' | 'line-bars' | 'multi-line' | 'dual-area' | 'stacked-bars';
@@ -822,8 +948,19 @@ export interface ChartPlotProps {
   height?: number;
   state?: 'default' | 'skeleton' | 'empty' | 'disabled';
   emptyText?: string;
-  /** Что показывает и за какой период (role=img). */
+  /** Что показывает и за какой период (role=img; интерактивный — role=group «график»). */
   label?: string;
+  /** Hover: Chart crosshair + Chart tooltip по указателю, касанию и стрелкам (← / →, Home / End, Enter — закрепить, Esc — скрыть); aria-live озвучивает точку. */
+  interactive?: boolean;
+  /** Выбранная точка (null — нет); без index — неуправляемый. */
+  index?: number | null;
+  defaultIndex?: number | null;
+  onIndexChange?: (index: number | null) => void;
+  /** Шапка тултипа: дата и время по точкам; по умолчанию дата — labels. */
+  dates?: string[];
+  times?: string[];
+  /** Значение в тултипе, если у серии нет format. */
+  valueFormat?: (value: number, seriesIndex: number) => string;
   className?: string;
 }
 export interface ChartCardProps {
@@ -902,6 +1039,9 @@ export declare function KeyValueRow(props: KeyValueRowProps): JSX.Element;
 export declare function Search(props: SearchProps): JSX.Element;
 export declare function SelectCompact(props: SelectCompactProps): JSX.Element;
 export declare function DateRangeField(props: DateRangeFieldProps): JSX.Element;
+export declare function DateCell(props: DateCellProps): JSX.Element;
+export declare function Calendar(props: CalendarProps): JSX.Element;
+export declare function DateRangePanel(props: DateRangePanelProps): JSX.Element;
 export declare function PageIndicator(props: PageIndicatorProps): JSX.Element;
 export declare function LegendSwatch(props: LegendSwatchProps): JSX.Element;
 export declare function LegendItem(props: LegendItemProps): JSX.Element;
@@ -912,6 +1052,8 @@ export declare function TableRow(props: TableRowProps): JSX.Element;
 export declare function Table<R = any>(props: TableProps<R>): JSX.Element;
 export declare function PromoCard(props: PromoCardProps): JSX.Element | null;
 export declare function Sidebar(props: SidebarProps): JSX.Element;
+export declare function ChartCrosshair(props: ChartCrosshairProps): JSX.Element;
+export declare function ChartTooltip(props: ChartTooltipProps): JSX.Element;
 export declare function ChartPlot(props: ChartPlotProps): JSX.Element;
 export declare function ChartCard(props: ChartCardProps): JSX.Element;
 export declare function TopBar(props: TopBarProps): JSX.Element;

@@ -15,6 +15,9 @@
   // Реджекты — столбец примерно на каждую вторую точку: высокие ~0.45, средние ~0.25, низкие ~0.1 (как на макете, ось 0–2.0)
   var REJ = HASH.map(function (_, i) { if (i % 2) return 0; var k = (i / 2) % 3; return k === 0 ? 0.22 + ((i * 7) % 4) / 40 : k === 1 ? 0.45 + ((i * 3) % 3) / 40 : 0.08 + ((i * 5) % 3) / 40; });
   var HOURS = HASH.map(function (_, i) { var m = Math.round(i * 24 * 60 / HASH.length); var hh = Math.floor(m / 60); return (hh < 10 ? '0' : '') + hh + ':00'; });
+  // Hover графика: шапка тултипа — дата и время точки
+  var TIMES = HASH.map(function (_, i) { var m = Math.round(i * 24 * 60 / HASH.length); var hh = Math.floor(m / 60); var mm = m % 60; return (hh < 10 ? '0' : '') + hh + ':' + (mm < 10 ? '0' : '') + mm; });
+  var DATES = HASH.map(function () { return '20.09.2025'; });
   var PERIODS = [{ value: '1d', label: '1 день' }, { value: '7d', label: '7 дней' }, { value: '30d', label: '30 дней' }];
   var METRICS = [
     { label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true },
@@ -79,7 +82,8 @@
     return h(E.ChartCard, {
       label: 'Хешрейт', className: compact ? 'demo-chart demo-chart--mw' : 'demo-chart',
       metrics: METRICS, periods: PERIODS, periodSize: 'm', legend: LEGEND, showBottom: false },
-    h(E.ChartPlot, { type: 'line-bars', series: [{ name: 'Хешрейт', data: HASH }, { name: 'Реджекты', data: REJ }], labels: HOURS, xTicks: compact ? 3 : 6,
+    h(E.ChartPlot, { type: 'line-bars', labels: HOURS, dates: DATES, times: TIMES, xTicks: compact ? 3 : 6,
+      series: [{ name: 'Хешрейт', data: HASH, unit: 'TH/s', format: function (v) { return v.toFixed(2) + ' TH/s'; } }, { name: 'Реджекты', data: REJ, format: function (v) { return v.toFixed(2) + ' %'; } }],
       yLeft: { ticks: [0, 5, 10, 15, 20] }, yRight: { ticks: [0, 0.5, 1, 1.5, 2] }, format: fmt, height: compact ? 160 : 200, label: 'Хешрейт и реджекты за 1 день' }));
   }
 
@@ -165,7 +169,7 @@
         div('demo-filters',
           h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Сеть', hint: 'Комиссия сети 1 USDT', options: NETWORKS, defaultValue: 'trc', className: 'demo-filters__net' }),
           h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Сеть', hint: 'Комиссия сети 1 USDT', options: NETWORKS, defaultValue: 'trc', className: 'demo-filters__net' }),
-          h(E.DateRangeField, { label: 'Период', className: 'demo-filters__period' }),
+          h(E.DateRangeField, { label: 'Период', className: 'demo-filters__period', panel: { isDateDisabled: function (d) { return d > new Date().toISOString().slice(0, 10); } } }),
           h(E.Button, { type: 'tertiary', size: 'm', label: 'Выгрузить', iconLeft: h(E.Icon, { name: 'file-excel' }), className: 'demo-filters__btn' })),
         div('demo-history',
           h(E.Card, { padding: 'm', className: 'demo-history__total' },
