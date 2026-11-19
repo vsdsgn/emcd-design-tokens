@@ -13,7 +13,7 @@
 - Когда использовать: график внутри Chart card.
 - Когда нет: таблица данных — Table; один показатель — Stat card.
 - Правило выбора варианта:
-  - Skeleton у Line + Bars (19.11) — как у Line: сетка и оси без данных
+  - Skeleton у Line + Bars (19.11) — как у Line: силуэт без сетки (решение 15.11)
   - Type: Bars — выплаты, начисления; Line — хешрейт; Area — хешрейт WL, мощность Monitoring; Line + Bars — хешрейт + реджекты на второй оси Y; Multi-line — несколько однородных рядов (температура плат); Dual area — две величины (хешрейт пула + курс монеты); Stacked bars — доли целого по статусам (пользователи WL Users).
   - State: Default — данные есть; Hover — выбрана точка (Chart crosshair + Chart tooltip); Skeleton — загрузка; Empty — данных за период нет; Disabled — график недоступен.
   - Составные типы (Line + Bars, Multi-line, Dual area, Stacked bars) имеют только Default и Hover; Skeleton / Empty / Disabled берутся у базового типа.

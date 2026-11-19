@@ -385,19 +385,27 @@
 
 /* Skeleton — 🟡 beta (Figma «🟡 Skeleton»: Shape). Кирпич загрузки для текста и блоков без своего State=Skeleton (строки списков, факты; patterns 3.11a).
    Заливка skeleton/base; Text 12 и Title 20 — radius/inner, Circle — radius/full, Rect — radius/container. Inline-block по центру строки: строка текста сохраняет свою высоту.
-   Общий пульс всех скелетонов экрана (кирпич и State=Skeleton компонентов): прозрачность 1 → 0.55 → 1 за 1.2 с, синхронно; «Уменьшить движение» — статично. */
+   Общий блик всех скелетонов экрана (кирпич и State=Skeleton компонентов): слева направо 1.2 с, синхронно; «Уменьшить движение» — пульсация прозрачности. */
 .emcd-skeleton { display: inline-block; vertical-align: middle; width: 120px; max-width: 100%; height: 12px; border-radius: var(--radius-inner, 8px); background: var(--skeleton-base); }
 .emcd-skeleton--title { width: 160px; height: 20px; }
 .emcd-skeleton--circle { width: 40px; height: 40px; border-radius: var(--radius-full, 999px); }
 .emcd-skeleton--rect { display: block; width: 100%; height: 120px; border-radius: var(--radius-container, 12px); }
+@keyframes emcd-skeleton-shimmer { from { background-position: -100vw 0; } to { background-position: 100vw 0; } }
 @keyframes emcd-skeleton-pulse { 50% { opacity: 0.55; } }
+/* Блик (контракт Skeleton, решение 2026-10-31): один общий градиент на экран — background-attachment: fixed синхронизирует все скелетоны. */
 :is(.emcd-skeleton, .emcd-amount__bone, .emcd-chart-metric__bone, .emcd-kv__bone, .emcd-stat__bone, .emcd-legend-item__bone, .emcd-td__bone, .emcd-th__bone,
   .emcd-coin--skeleton, .emcd-avatar--skeleton .emcd-avatar__circle, .emcd-badge--skeleton, .emcd-chip--skeleton, .emcd-tab--skeleton .emcd-tab__label,
-  .emcd-field--skeleton :is(.emcd-input, .emcd-textarea, .emcd-field__label)) { animation: emcd-skeleton-pulse 1.2s ease-in-out infinite; }
+  .emcd-field--skeleton :is(.emcd-input, .emcd-textarea, .emcd-field__label)) {
+  background-color: var(--skeleton-base);
+  background-image: linear-gradient(90deg, transparent 0, var(--skeleton-shimmer) 50%, transparent 100%);
+  background-size: 50vw 100%; background-repeat: no-repeat; background-attachment: fixed;
+  animation: emcd-skeleton-shimmer 1.2s linear infinite;
+}
+/* «Уменьшить движение»: блик не бежит — мягкая пульсация прозрачности (статичных скелетонов не делаем). */
 @media (prefers-reduced-motion: reduce) {
   :is(.emcd-skeleton, .emcd-amount__bone, .emcd-chart-metric__bone, .emcd-kv__bone, .emcd-stat__bone, .emcd-legend-item__bone, .emcd-td__bone, .emcd-th__bone,
     .emcd-coin--skeleton, .emcd-avatar--skeleton .emcd-avatar__circle, .emcd-badge--skeleton, .emcd-chip--skeleton, .emcd-tab--skeleton .emcd-tab__label,
-    .emcd-field--skeleton :is(.emcd-input, .emcd-textarea, .emcd-field__label)) { animation: none; }
+    .emcd-field--skeleton :is(.emcd-input, .emcd-textarea, .emcd-field__label)) { background-image: none; animation: emcd-skeleton-pulse 1.2s ease-in-out infinite; }
 }
 
 /* Progress — 🟡 beta (Figma «🟡 Progress»: Size × Tone × Mode). Доля выполненного; Indeterminate — только Accent. */

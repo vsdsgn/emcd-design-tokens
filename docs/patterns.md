@@ -290,7 +290,7 @@ Compact (App, 375, Viewport=Compact) — «Воркеры · Compact (App) · Da
 - **Данные — State=Skeleton у компонента, той же высоты:** Amount, Chart metric, Key-value row (подпись остаётся, значение — плашка), Stat card, Chip, Legend item, Chart plot, Table cell / header cell, Coin, Avatar, Badge, Date range field. Высота блока при загрузке не меняется — после ответа ничего не прыгает.
 - **Тон неизвестен до данных:** Stat card и статусы в загрузке — Tone=Neutral; Amount — Sign=None.
 - **Текст без собственного Skeleton** (строки списков, факты) — `Skeleton` Shape=Text / Title той же ширины, что ожидаемый текст.
-- Skeleton показываем, если загрузка дольше 1 с; анимация — `motion` пульс, при reduced motion — статично.
+- Skeleton показываем, если загрузка дольше 1 с; анимация — по контракту Skeleton: общий блик 1.2 с, при «Уменьшить движение» — пульсация прозрачности.
 - Пример: «Дашборд Web · загрузка», «Дашборд mobile · загрузка» (Web App — Migration test, страница «Пересборка · Майнинг Web»).
 
 ### 3.12 Пустое состояние
