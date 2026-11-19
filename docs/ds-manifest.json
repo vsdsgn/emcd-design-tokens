@@ -3,26 +3,26 @@
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
-   "unknown": 94
+   "unknown": 98
   },
   "sets": {
-   "unknown": 96
+   "unknown": 100
   },
   "status": {
    "beta": 87,
-   "draft": 4,
+   "draft": 8,
    "service": 4,
    "template": 1
   },
-  "variants": 1626,
+  "variants": 1632,
   "incompleteMatrix": 17,
-  "propsNotBoundEverywhere": 18,
+  "propsNotBoundEverywhere": 19,
   "rawMinMax": 1,
-  "withRawValues": 66,
+  "withRawValues": 70,
   "withFocusRing": 21,
   "withHitArea": 20,
   "withSafeMargin": 23,
-  "pagesWithoutV3Board": 1,
+  "pagesWithoutV3Board": 5,
   "pagesWithFullBoard": 19,
   "baseSets": 11
  },
@@ -217,6 +217,96 @@
       "skeleton": [
        "f:skeleton/base",
        "r:radius/chip"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Action bar",
+   "pageId": "2311:2",
+   "pageMark": "🟠",
+   "boards": [],
+   "boardMissing": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+   ],
+   "sets": [
+    {
+     "name": "Action bar",
+     "id": "2311:70",
+     "type": "SET",
+     "status": "draft",
+     "descLen": 839,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Actions:",
+      "Правила:",
+      "Когда нет:",
+      "Поиск:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Actions": [
+       "1",
+       "2"
+      ]
+     },
+     "variants": 2,
+     "full": 2,
+     "props": [],
+     "nested": {
+      "Button": 3
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 4,
+     "raw": [
+      "(root):w=375",
+      "(root):h=80"
+     ],
+     "tokens": {
+      "(root)": [
+       "f:surface/level-0",
+       "gap:space/8",
+       "p:space/16",
+       "p:space/32"
+      ],
+      "action 1": [
+       "f:action/primary/default",
+       "f:action/secondary/default",
+       "gap:space/4",
+       "h:control/height/md",
+       "minw:size/button/min",
+       "p:space/12",
+       "r:radius/control"
+      ],
+      "action 2": [
+       "f:action/secondary/default",
+       "gap:space/4",
+       "h:control/height/md",
+       "minw:size/button/min",
+       "p:space/12",
+       "r:radius/control"
       ]
      },
      "statusFirstLine": true
@@ -2950,6 +3040,7 @@
       "meta": [
        "f:text/disabled",
        "f:text/inverse",
+       "f:text/inverse-secondary",
        "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
@@ -8395,6 +8486,91 @@
   },
   {
    "level": "unknown",
+   "page": "Promo carousel",
+   "pageId": "2310:2",
+   "pageMark": "🟠",
+   "boards": [],
+   "boardMissing": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+   ],
+   "sets": [
+    {
+     "name": "Promo carousel",
+     "id": "2310:3",
+     "type": "COMPONENT",
+     "status": "draft",
+     "descLen": 729,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Правила:",
+      "Когда нет:",
+      "A11y:",
+      "Поиск:"
+     ],
+     "inBoard": false,
+     "axes": {},
+     "variants": 1,
+     "full": 1,
+     "props": [
+      {
+       "name": "Slides",
+       "type": "SLOT",
+       "bound": 1
+      }
+     ],
+     "nested": {
+      "Promo card": 3,
+      "Page indicator": 1
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 1,
+     "raw": [
+      "(root):w=343"
+     ],
+     "tokens": {
+      "(root)": [
+       "gap:space/12"
+      ],
+      "Slides": [
+       "gap:space/8"
+      ],
+      "Promo card": [
+       "f:surface/level-1",
+       "gap:space/8",
+       "p:space/24",
+       "r:radius/surface",
+       "s:border/subtle",
+       "sw:border/width/default"
+      ],
+      "page indicator": [
+       "gap:space/6"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
    "page": "Radio",
    "pageId": "322:2",
    "pageMark": "🟡",
@@ -10487,6 +10663,7 @@
        "f:surface/next",
        "gap:space/8",
        "p:card/padding",
+       "p:space/32",
        "p:space/4",
        "r:radius/container",
        "s:border/subtle",
@@ -10751,6 +10928,119 @@
        "h:size/dot/sm",
        "w:size/dot/md",
        "w:size/dot/sm"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Status summary",
+   "pageId": "2309:3033",
+   "pageMark": "🟠",
+   "boards": [],
+   "boardMissing": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+   ],
+   "sets": [
+    {
+     "name": "Status summary",
+     "id": "2309:3299",
+     "type": "SET",
+     "status": "draft",
+     "descLen": 685,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Layout:",
+      "Правила:",
+      "Когда нет:",
+      "Поиск:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Layout": [
+       "Column",
+       "Row"
+      ]
+     },
+     "variants": 2,
+     "full": 2,
+     "props": [
+      {
+       "name": "Show all link",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 1
+      }
+     ],
+     "nested": {
+      "Stat card": 6,
+      "Button": 1
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 2,
+     "raw": [
+      "(root):w=160",
+      "(root):w=343"
+     ],
+     "tokens": {
+      "(root)": [
+       "gap:space/12",
+       "gap:space/8"
+      ],
+      "tiles": [
+       "gap:space/8"
+      ],
+      "tile · Отключённые": [
+       "f:status/danger/subtle",
+       "gap:space/8",
+       "p:card/padding",
+       "p:space/32",
+       "p:space/4",
+       "r:radius/container"
+      ],
+      "tile · Нестабильные": [
+       "f:status/warning/subtle",
+       "gap:space/8",
+       "p:card/padding",
+       "p:space/32",
+       "p:space/4",
+       "r:radius/container"
+      ],
+      "tile · Активные": [
+       "f:surface/next",
+       "gap:space/8",
+       "p:card/padding",
+       "p:space/32",
+       "p:space/4",
+       "r:radius/container",
+       "s:border/subtle",
+       "sw:border/width/default"
+      ],
+      "all link": [
+       "gap:space/4",
+       "minw:size/button/min",
+       "r:radius/xs"
       ]
      },
      "statusFirstLine": true
@@ -13527,6 +13817,141 @@
        "minw:size/button/min",
        "p:space/6",
        "r:radius/control-sm"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Top bar",
+   "pageId": "2312:2",
+   "pageMark": "🟠",
+   "boards": [],
+   "boardMissing": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+   ],
+   "sets": [
+    {
+     "name": "Top bar",
+     "id": "2312:35",
+     "type": "SET",
+     "status": "draft",
+     "descLen": 846,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Под ней —",
+      "Platform:",
+      "Правила:",
+      "Поиск:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Platform": [
+       "Mobile web"
+      ]
+     },
+     "variants": 1,
+     "full": 1,
+     "props": [
+      {
+       "name": "Logo",
+       "type": "SLOT",
+       "bound": 1
+      },
+      {
+       "name": "Account",
+       "type": "TEXT",
+       "def": "Alexandrewang",
+       "bound": 1
+      },
+      {
+       "name": "Balance",
+       "type": "TEXT",
+       "def": "$123 456",
+       "bound": 1
+      },
+      {
+       "name": "Cents",
+       "type": "TEXT",
+       "def": ".78",
+       "bound": 1
+      },
+      {
+       "name": "Show balance",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 1
+      }
+     ],
+     "nested": {
+      "(icons)": 2,
+      "Icon button": 1
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 2,
+     "raw": [
+      "(root):w=375",
+      "(root):h=56"
+     ],
+     "tokens": {
+      "(root)": [
+       "f:surface/level-0",
+       "gap:space/12",
+       "p:space/16",
+       "p:space/8"
+      ],
+      "logo (placeholder)": [
+       "f:text/primary",
+       "fontFamily:font/family/display",
+       "fontSize:type/heading/lg/size",
+       "fontWeight:font-weight/bold",
+       "lineHeight:type/heading/lg/line-height"
+      ],
+      "account": [
+       "gap:space/4"
+      ],
+      "account name": [
+       "f:text/primary",
+       "fontSize:type/label/lg/size",
+       "lineHeight:type/label/lg/line-height"
+      ],
+      "balance": [
+       "f:text/primary",
+       "fontSize:type/label/lg/size",
+       "gap:space/4",
+       "lineHeight:type/label/lg/line-height"
+      ],
+      "cents": [
+       "f:text/tertiary",
+       "fontSize:type/label/lg/size",
+       "lineHeight:type/label/lg/line-height"
+      ],
+      "menu": [
+       "gap:space/6",
+       "h:control/height/md",
+       "r:radius/control",
+       "w:control/height/md"
       ]
      },
      "statusFirstLine": true

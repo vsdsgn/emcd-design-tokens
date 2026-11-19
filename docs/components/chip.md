@@ -13,7 +13,7 @@
 - Когда нет: режим или период из 2–4 — Segmented; разделы — Tabs; неинтерактивная метка — Badge.
 - Правило выбора варианта:
   - Size: S 32 — фильтры над таблицами и списками; M 40 — выбор варианта в форме или виджете.
-  - Selected=On — инверсная белая плашка `action/inverse/default`, подпись `text/inverse`, счётчик `text/inverse` (19.11: `text/tertiary` на белой плашке не виден; 18.11, по Web App и мобильному вебу: «1 день», «Все 20»; 17.11 было `control/segment`).
+  - Selected=On — инверсная белая плашка `action/inverse/default`, подпись `text/inverse`, счётчик `text/inverse-secondary` (19.11: `text/tertiary` на белой плашке не виден; 18.11, по Web App и мобильному вебу: «1 день», «Все 20»; 17.11 было `control/segment`).
   - Meta — вторичное значение («8 %»); Remove — только у выбранных фильтров в строке активных фильтров; иконка или монета — слева, одна.
   - Status dot (18.11): точка статуса `_Dot` S перед подписью — фильтр по статусу; тон — у открытого экземпляра `status dot`
   - Фильтр списка по статусу («Онлайн 128 · Офлайн 4») — ряд Chip S с Meta-счётчиком над списком; не Tabs (решение 2026-11-16, `docs/patterns.md`).
@@ -82,7 +82,7 @@
 - `корень`: заливка / цвет `action/inverse/default`, `control/segment`, `skeleton/base`; интервал `space/6`; высота `control/height/md`, `control/height/sm`; maxw `size/chip/max`; отступы `control/padding-x/sm`, `space/12`; радиус `radius/control`, `radius/control-sm`; обводка `control/border/default`, `control/border/disabled`; толщина обводки `border/width/default`.
 - `status dot`: высота `size/dot/sm`; ширина `size/dot/sm`.
 - `label`: заливка / цвет `text/disabled`, `text/inverse`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- `meta`: заливка / цвет `text/disabled`, `text/inverse`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `meta`: заливка / цвет `text/disabled`, `text/inverse`, `text/inverse-secondary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm`.
 - Min / max корня: maxWidth 240 size/chip/max.
 - Значений без переменной: 48 (напр. `hit area · web:w=84`, `hit area · web:h=32`, `hit area · web:w=82`, `hit area · web:w=88`) — размеры слоёв зон и то, что перечислено в разделе 14.

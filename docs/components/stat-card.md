@@ -85,7 +85,7 @@
 - Дельта читается словами: «рост на 2,4 % к вчера».
 
 ## 10. Tokens
-- `корень`: заливка / цвет `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/next`; интервал `space/8`; отступы `card/padding`, `space/4`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/next`; интервал `space/8`; отступы `card/padding`, `space/32`, `space/4`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `ambient light`: эффект `light/ambient/blur`; заливка / цвет `light/ambient/color`.
 - `label row`: интервал `space/4`.
 - `label`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
