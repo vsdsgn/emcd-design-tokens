@@ -1,0 +1,14 @@
+/* Coin stack — 🟡 beta (Figma «🟡 Coin stack»: Size × Count; Show more + More). Монеты внахлёст ≈ 25 % (size/overlap: S −6 · M −8 · L −10), монеты 24 / 32 / 40;
+   кольцо каждой монеты — цвет подложки (surface/current); «+N» — status/neutral/subtle поверх surface/next, текст label-sm Medium text-secondary. */
+.emcd-coin-stack { --ov: var(--size-overlap-sm, -6px); --ring: var(--surface-current, var(--surface-level-0)); display: inline-flex; align-items: center; flex: none; vertical-align: middle; }
+.emcd-coin-stack--m { --ov: var(--size-overlap-md, -8px); }
+.emcd-coin-stack--l { --ov: var(--size-overlap-lg, -10px); }
+.emcd-coin-stack > * + * { margin-inline-start: var(--ov); }
+.emcd-coin-stack__coin { box-shadow: 0 0 0 var(--border-width-strong, 2px) var(--ring); }
+.emcd-coin-stack__more { position: relative; display: inline-grid; place-items: center; box-sizing: border-box; flex: none;
+  min-width: var(--size-media-sm, 24px); height: var(--size-media-sm, 24px); padding: 0 var(--space-4, 4px); border-radius: var(--radius-full, 999px);
+  background: linear-gradient(var(--status-neutral-subtle), var(--status-neutral-subtle)), var(--surface-next, var(--surface-level-1));
+  box-shadow: 0 0 0 var(--border-width-strong, 2px) var(--ring); color: var(--text-secondary);
+  font: 500 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-sans); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.emcd-coin-stack--m .emcd-coin-stack__more { min-width: var(--size-media-md, 32px); height: var(--size-media-md, 32px); }
+.emcd-coin-stack--l .emcd-coin-stack__more { min-width: var(--size-media-lg, 40px); height: var(--size-media-lg, 40px); }

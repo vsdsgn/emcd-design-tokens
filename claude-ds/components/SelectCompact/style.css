@@ -1,0 +1,25 @@
+/* Select compact — 🟡 beta (Figma «🟡 Select compact»: State; Text, Show leading, Leading). Селектор «на месте» без лейбла: высота size/row/compact 36, ширина по содержимому до 200,
+   подложка action/secondary/default, радиус radius/control-sm, поле space/8; значение (Coin 24 + текст label-md Medium, до 122) → зазор space/16 → шеврон 16.
+   Hover / Pressed — слой state/layer; Open — шеврон вверх; Disabled — подложка action/disabled, текст и шеврон погашены. Список — Menu (listbox). */
+.emcd-select-compact { position: relative; display: inline-flex; max-width: var(--size-select-compact-max, 200px); vertical-align: middle; }
+.emcd-select-compact__trigger { position: relative; display: inline-flex; align-items: center; gap: var(--space-16, 16px); box-sizing: border-box; max-width: 100%; height: var(--size-row-compact, 36px);
+  padding: 0 var(--space-8, 8px); margin: 0; border: 0; border-radius: var(--radius-control-sm); background: var(--action-secondary-default); color: var(--text-primary);
+  font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+.emcd-select-compact__trigger::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-select-compact__trigger:hover::before { opacity: var(--state-hover, .06); }
+.emcd-select-compact__trigger:active::before { opacity: var(--state-pressed, .10); }
+.emcd-select-compact__trigger:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-select-compact__trigger::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: max(100%, var(--touch-min, 24px)); height: max(100%, var(--touch-min, 24px)); }
+.emcd-select-compact__value { position: relative; display: inline-flex; align-items: center; gap: var(--space-6, 6px); min-width: 0; }
+.emcd-select-compact__leading { display: inline-flex; flex: none; }
+.emcd-select-compact__text { min-width: 0; max-width: 122px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-select-compact__chevron { position: relative; color: var(--icon-secondary); transition: transform var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-select-compact--open .emcd-select-compact__chevron { transform: rotate(180deg); }
+.emcd-select-compact--open .emcd-select-compact__trigger::before { opacity: 0; }
+.emcd-select-compact__trigger:disabled { background: var(--action-disabled); color: var(--text-disabled); cursor: not-allowed; }
+.emcd-select-compact__trigger:disabled::before { display: none; }
+.emcd-select-compact__trigger:disabled .emcd-select-compact__chevron { color: var(--icon-disabled); }
+.emcd-select-compact__trigger:disabled .emcd-select-compact__leading { opacity: 0.4; filter: grayscale(1); }
+.emcd-select-compact__menu { position: absolute; z-index: 40; top: calc(100% + var(--space-4, 4px)); inset-inline-end: 0; min-width: 100%; }
+@media (prefers-reduced-motion: reduce) { .emcd-select-compact__trigger::before, .emcd-select-compact__chevron { transition: none; } }

@@ -23,7 +23,7 @@
     "draft-audit": "node scripts/draft-audit.mjs",
     "a11y:apca": "python3 scripts/apca-check.py",
     "a11y": "python3 scripts/a11y-check.py && python3 scripts/apca-check.py",
-    "code": "node scripts/code-build.mjs",
+    "code": "node scripts/icons-code.mjs && node scripts/code-build.mjs",
     "test:code": "cd tests/code && npm ci --silent && node ssr.mjs"
   },
   "files": [

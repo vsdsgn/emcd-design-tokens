@@ -1,0 +1,11 @@
+/* Page indicator — 🟡 beta (Figma «🟡 Page indicator»: Count × Selected). Точки карусели (_Page dot): 6 × 6 (size/dot/sm), radius/chip, icon/tertiary;
+   текущая — вытянутая 16, control/checked; зазор space/6; смена — 200 мс. Кликабельные точки — кнопки с зоной нажатия ≥ touch/min. */
+.emcd-page-indicator { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-6, 6px); }
+.emcd-page-dot { position: relative; display: block; flex: none; box-sizing: border-box; width: var(--size-dot-sm, 6px); height: var(--size-dot-sm, 6px); padding: 0; margin: 0; border: 0;
+  border-radius: var(--radius-chip, 999px); background: var(--icon-tertiary); outline: none;
+  transition: width 200ms var(--motion-easing-standard, cubic-bezier(.2,0,0,1)), background-color 200ms var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-page-dot[aria-current="true"] { width: 16px; background: var(--control-checked); }
+button.emcd-page-dot { cursor: pointer; }
+button.emcd-page-dot::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: var(--touch-min, 24px); height: var(--touch-min, 24px); }
+button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); }
+@media (prefers-reduced-motion: reduce) { .emcd-page-dot { transition: none; } }

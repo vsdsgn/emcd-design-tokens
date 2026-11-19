@@ -1,0 +1,13 @@
+/* Table row — 🟡 beta (Figma «🟡 Table row»: Density × Selected × State). tr из Table cell: Compact 48 (size/table/row-sm) · Regular 64 (size/row/lg); разделитель снизу border/subtle;
+   без своих боковых полей. Selected — accent/subtle. Кликабельная (onClick) — Hover / Pressed слоем state/layer, фокус — внутреннее кольцо. */
+.emcd-tr { --h: var(--size-table-row-sm, 48px); }
+.emcd-tr--regular { --h: var(--size-row-lg, 64px); }
+.emcd-tr > .emcd-td { position: relative; height: var(--h); box-shadow: inset 0 calc(-1 * var(--border-width-default, 1px)) 0 var(--border-subtle); }
+.emcd-tr--selected > .emcd-td { background: var(--accent-subtle); }
+.emcd-tr--interactive { cursor: pointer; outline: none; }
+.emcd-tr--interactive > .emcd-td::before { content: ""; position: absolute; inset: 0; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-tr--interactive:hover > .emcd-td::before { opacity: var(--state-hover, .06); }
+.emcd-tr--interactive:active > .emcd-td::before { opacity: var(--state-pressed, .10); }
+.emcd-tr--interactive:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: calc(-1 * var(--border-width-focus-ring, 2px)); }
+@media (prefers-reduced-motion: reduce) { .emcd-tr--interactive > .emcd-td::before { transition: none; } }

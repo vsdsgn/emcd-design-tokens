@@ -1,0 +1,8 @@
+/* Status summary — 🟠 draft (Figma «🟠 Status summary»: Layout Column · Row; Show all link). Сводка воркеров: 3 × Stat card Align=Center (Danger → Warning → Neutral) со стрелкой-ссылкой;
+   плитки — radius/container, зазор space/8. Column (Web) — колонка у графика, плитки делят высоту; Row (Compact) — три равные колонки + Button Text «Все воркеры» (зазор space/12). */
+.emcd-status-summary { display: flex; flex-direction: column; gap: var(--space-12, 12px); min-width: 0; }
+.emcd-status-summary__tiles { display: flex; flex-direction: column; gap: var(--space-8, 8px); flex: 1; min-width: 0; }
+.emcd-status-summary__tile { flex: 1 1 0; }
+.emcd-status-summary--row .emcd-status-summary__tiles { flex-direction: row; }
+.emcd-status-summary--row .emcd-status-summary__tile { min-width: 0; }
+.emcd-status-summary__all { align-self: flex-start; margin-inline-start: var(--space-4, 4px); }

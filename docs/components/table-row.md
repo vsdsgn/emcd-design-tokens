@@ -100,7 +100,7 @@
 - Описание: 1478 знаков, разделы: Status: Level: Строка таблицы: Density: State: Колонки: A11y: Часть Table. Поиск: Legacy: Когда использовать: Правила:
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`TableRow`), Vue `packages/vue/src/DsTableRow.vue`, CSS `claude-ds/components/TableRow/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTableRow>`; Flutter: `DsTableRow`.
 - Props: `density`: compact | regular; `selected`: boolean.

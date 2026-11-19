@@ -1,0 +1,18 @@
+/* Legend item — 🟡 beta (Figma «🟡 Legend item»: Selected × State; Label, Value, Show value). Маркер (Legend swatch) → зазор space/6 → подпись label-md Medium → значение;
+   max-width size/legend-item/max 160. Default — подпись text-secondary; Hover (кликабельный) и Selected — text-primary. Skeleton — полоса skeleton/base высотой строки.
+   Легенда — список <ul class="emcd-legend">, зазор 16, перенос строк. */
+.emcd-legend { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8, 8px) var(--space-16, 16px); margin: 0; padding: 0; list-style: none; }
+.emcd-legend > li { display: flex; min-width: 0; }
+.emcd-legend-item { position: relative; display: inline-flex; align-items: center; gap: var(--space-6, 6px); box-sizing: border-box; max-width: var(--size-legend-item-max, 160px); min-width: 0;
+  padding: 0; margin: 0; border: 0; background: none; color: var(--text-secondary); font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans);
+  text-align: start; transition: color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-legend-item__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-legend-item__value { flex: none; color: var(--text-primary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.emcd-legend-item--selected { color: var(--text-primary); }
+.emcd-legend-item--interactive { cursor: pointer; outline: none; border-radius: var(--radius-2xs, 2px); }
+.emcd-legend-item--interactive:hover { color: var(--text-primary); }
+.emcd-legend-item--interactive:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); }
+.emcd-legend-item--interactive::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: max(100%, var(--touch-min, 24px)); }
+.emcd-legend-item--skeleton { height: var(--type-label-md-line-height, 20px); }
+.emcd-legend-item__bone { display: block; width: 88px; height: 12px; border-radius: var(--radius-chip, 999px); background: var(--skeleton-base); }
+@media (prefers-reduced-motion: reduce) { .emcd-legend-item { transition: none; } }

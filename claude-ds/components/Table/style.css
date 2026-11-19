@@ -1,0 +1,7 @@
+/* Table — паттерн Web (не набор Figma): шапка Table header cell + строки Table row из Table cell (patterns.md 3.5). Таблица на ширину карточки, колонки — col width (доли или px);
+   не помещается — горизонтальная прокрутка обёртки. Шапка без разделителя (разделители — у строк). На Compact — List item / Transaction. */
+.emcd-table-wrap { width: 100%; min-width: 0; overflow-x: auto; }
+.emcd-table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; color: var(--text-primary); font-family: var(--font-sans); }
+/* Строка шапки — без разделителя и подложки: разделители у строк данных */
+.emcd-table__head { background: none; }
+.emcd-table__caption { padding: 0 0 var(--space-8, 8px); text-align: start; color: var(--text-secondary); font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); }

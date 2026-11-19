@@ -84,7 +84,7 @@
 - Описание: 1114 знаков, разделы: Status: Level: Показатель: Когда использовать: Правила: A11y: Подпись и единица —
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`ChartMetric`), Vue `packages/vue/src/DsChartMetric.vue`, CSS `claude-ds/components/ChartMetric/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsChartMetric>`; Flutter: `DsChartMetric`.
 - Props: `tone`: default | danger | warning | success; `label`: string или слот; `value`: string или слот; `icon`: boolean = false; `unit`: string или слот; `showUnit`: boolean = true.

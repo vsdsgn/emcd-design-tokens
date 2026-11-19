@@ -81,7 +81,7 @@
 - Описание: 1013 знаков, разделы: Status: Level: Строка «название — Default — A11y: Когда использовать: Правила: Длинный текст: Legacy:
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`KeyValueRow`), Vue `packages/vue/src/DsKeyValueRow.vue`, CSS `claude-ds/components/KeyValueRow/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsKeyValueRow>`; Flutter: `DsKeyValueRow`.
 - Props: `emphasis`: default | total | muted; `leader`: boolean; `key`: string или слот; `value`: string или слот.

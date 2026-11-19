@@ -1,0 +1,28 @@
+/* Nav item — 🟡 beta (Figma «🟡 Nav item»: Collapsed × Selected × State; Counter, Badge). Пункт сайдбара Web: высота size/row/compact 36, поля space/6, радиус radius/control,
+   иконка 20 (icon-tertiary) → зазор space/12 → подпись type/label/lg Medium (text-primary). Selected — плашка action/secondary/default + полоса border/accent 2 × 20 слева.
+   Hover / Pressed — слой state/layer 6 % / 10 %; Collapsed — квадрат 36, подпись в Tooltip, Counter поверх иконки. */
+.emcd-nav-item { position: relative; display: flex; align-items: center; gap: var(--space-12, 12px); box-sizing: border-box; width: 100%; min-width: 0; height: var(--size-row-compact, 36px);
+  padding: 0 var(--space-6, 6px); margin: 0; border: 0; border-radius: var(--radius-control); background: transparent; color: var(--text-primary);
+  font: 500 var(--type-label-lg-size, 16px)/var(--type-label-lg-line-height, 20px) var(--font-sans); text-align: start; text-decoration: none;
+  cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+.emcd-nav-item::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-nav-item:hover::before { opacity: var(--state-hover, .06); }
+.emcd-nav-item:active::before { opacity: var(--state-pressed, .10); }
+.emcd-nav-item:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); }
+.emcd-nav-item::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: max(100%, var(--touch-min, 24px)); }
+.emcd-nav-item__icon { display: inline-flex; flex: none; color: var(--icon-tertiary); }
+.emcd-nav-item__icon svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
+.emcd-nav-item__label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-nav-item__badge, .emcd-nav-item__counter { flex: none; margin-inline-start: auto; }
+.emcd-nav-item[aria-current="page"] { background: var(--action-secondary-default); }
+.emcd-nav-item[aria-current="page"] .emcd-nav-item__icon { color: var(--icon-accent, var(--icon-primary)); }
+.emcd-nav-item[aria-current="page"] > .emcd-nav-item__icon::before { content: ""; position: absolute; inset-inline-start: 0; top: 50%; transform: translateY(-50%);
+  width: var(--size-tab-indicator-sm, 2px); height: var(--icon-size-md, 20px); border-radius: var(--radius-full, 999px); background: var(--border-accent); }
+.emcd-nav-item:disabled, .emcd-nav-item[aria-disabled="true"] { color: var(--text-disabled); cursor: not-allowed; }
+.emcd-nav-item:disabled .emcd-nav-item__icon, .emcd-nav-item[aria-disabled="true"] .emcd-nav-item__icon { color: var(--icon-disabled); }
+.emcd-nav-item:disabled::before, .emcd-nav-item[aria-disabled="true"]::before { display: none; }
+/* Collapsed — только иконка, Counter в правом верхнем углу */
+.emcd-nav-item--collapsed { width: var(--size-row-compact, 36px); justify-content: center; padding: 0; }
+.emcd-nav-item--collapsed .emcd-nav-item__counter { position: absolute; top: -4px; inset-inline-end: -4px; margin: 0; }
+@media (prefers-reduced-motion: reduce) { .emcd-nav-item::before { transition: none; } }

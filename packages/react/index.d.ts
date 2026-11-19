@@ -549,3 +549,369 @@ export declare function MenuItem(props: MenuItemProps): JSX.Element;
 export declare function Menu(props: MenuProps): JSX.Element;
 export declare function Select(props: SelectProps): JSX.Element;
 export declare function PasswordField(props: PasswordFieldProps): JSX.Element;
+
+// ───────────── Пачка 3 — экраны майнинга ─────────────
+type IconSlot = string | ReactNode;
+type Series = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+
+export interface IconProps {
+  /** Имя иконки DS (`icons/svg/<name>.svg`; реестр — scripts/icons-code.mjs): sort, sort-line-down, chevron-down, chart-bar, file-excel, wallet, mining-coin… */
+  name: string;
+  /** sm 16 · md 20 · lg 24 · xl 32 (`icon/size/*`); цвет — currentColor. */
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  /** Смысловая иконка — role=img + aria-label; без label — декоративная (aria-hidden). */
+  label?: string;
+  className?: string;
+}
+export interface CoinProps {
+  /** Тикер (btc, kas, ltc, doge) или имя файла Symbols (bitcoin-btc); нет в Symbols — нейтральный круг с первой буквой. */
+  coin?: string;
+  /** xs 16 · s 20 · m 24 · l 32 · xl 40 — по высоте строки или контрола. */
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+  /** Монета сети в правом нижнем углу (USDT TRC-20 / ERC-20); у XS нет. */
+  network?: boolean;
+  networkCoin?: string;
+  skeleton?: boolean;
+  /** Доступное имя; без него монета декоративна — название текстом рядом. */
+  label?: string;
+  className?: string;
+}
+export interface CoinStackProps {
+  /** Тикеры по значимости: первая — главная. */
+  coins: string[];
+  /** s — монеты 24 · m — 32 · l — 40; нахлёст size/overlap. */
+  size?: 's' | 'm' | 'l';
+  /** Сколько монет показать: 2 | 3 | 4 (по умолчанию все, не больше 4). */
+  count?: 2 | 3 | 4;
+  /** Кружок «+N» — по умолчанию, когда монет больше count. */
+  showMore?: boolean;
+  more?: ReactNode;
+  label?: string;
+  className?: string;
+}
+export interface NavItemProps {
+  label: ReactNode;
+  /** Имя иконки DS или узел; обязательна, одна стилистика. */
+  icon?: IconSlot;
+  href?: string;
+  /** Текущий раздел — ровно один на сайдбар: aria-current="page". */
+  selected?: boolean;
+  /** Свёрнутый сайдбар: только иконка, подпись — Tooltip и aria-label. */
+  collapsed?: boolean;
+  /** Counter Danger (число или true) — только то, что требует действия. */
+  counter?: boolean | number | string;
+  /** Метка справа: true + badgeLabel / badgeTone → Badge S, или свой узел Badge. С counter не показывается. */
+  badge?: boolean | ReactNode;
+  badgeLabel?: ReactNode;
+  badgeTone?: 'neutral' | 'accent' | 'success' | 'warning' | 'danger';
+  disabled?: boolean;
+  onClick?: (e: unknown) => void;
+  className?: string;
+}
+export interface KeyValueRowProps {
+  /** Total — итог: одна на сводку, последней (линия сверху, Medium); Muted — второстепенная. */
+  emphasis?: 'default' | 'total' | 'muted';
+  /** Точечная линия от названия к значению — широкая строка. */
+  leader?: boolean;
+  /** Название (Key в Figma): `key` зарезервирован в React и Vue. До двух строк. */
+  label: ReactNode;
+  /** Значение в формате локали с единицей; одна строка до 200. */
+  value?: ReactNode;
+  className?: string;
+}
+export interface SearchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'value' | 'defaultValue' | 'onChange'> {
+  /** s 32 · m 40. */
+  size?: 's' | 'm';
+  /** Подсказка («Поиск воркеров»); то же, что placeholder. */
+  text?: string;
+  value?: string;
+  defaultValue?: string;
+  onChange?: (value: string, event: unknown) => void;
+  onClear?: (event: unknown) => void;
+  clearLabel?: string;
+  /** Доступное имя; по умолчанию — подсказка. */
+  label?: string;
+}
+export interface SelectCompactOption { value: string | number; label: string; coin?: string; leading?: ReactNode; description?: ReactNode; disabled?: boolean }
+export interface SelectCompactProps {
+  /** Подпись значения; по умолчанию — выбранная опция. */
+  text?: string;
+  /** Что выбирается — доступное имя «Монета: KAS». */
+  label?: string;
+  /** Список (Menu listbox); без options — только кнопка: свой Menu / Sheet через onOpenChange. */
+  options?: SelectCompactOption[];
+  value?: string | number;
+  defaultValue?: string | number;
+  onChange?: (value: string | number) => void;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  /** Coin или Coin stack; по умолчанию — монета опции. */
+  leading?: ReactNode;
+  showLeading?: boolean;
+  disabled?: boolean;
+  menuSize?: 'm' | 'l';
+  className?: string;
+}
+export interface DateRangeFieldProps {
+  label?: ReactNode;
+  /** Даты в формате локали («01.11.26»); между ними — направленная стрелка. */
+  from?: string;
+  to?: string;
+  placeholder?: string;
+  /** Ограничение периода — до выбора; error — после (вместо hint). */
+  hint?: ReactNode;
+  error?: ReactNode;
+  state?: 'default' | 'error' | 'disabled' | 'skeleton';
+  labelPosition?: 'on-border' | 'above';
+  /** Открыть панель (Calendar Range + пресеты — у продукта): нажатие, Enter, Space, ↓. */
+  onOpen?: (event: unknown) => void;
+  className?: string;
+}
+export interface PageIndicatorProps {
+  /** 2–5 слайдов; больше — счётчик «3 / 12». */
+  count?: number;
+  /** Номер текущего слайда с 1. */
+  selected?: number;
+  /** Точки кликабельны (есть свайп или стрелки); без него — декоративны. */
+  onSelect?: (n: number, event: unknown) => void;
+  label?: string;
+  className?: string;
+}
+export interface LegendSwatchProps {
+  /** dot — столбцы, области; line — линии (серии 5–8 пунктиром). */
+  marker?: 'dot' | 'line';
+  /** 1 — border/accent (основная серия), 2–8 — data/2…8. */
+  series?: Series;
+  className?: string;
+}
+export interface LegendItemProps {
+  label: ReactNode;
+  value?: ReactNode;
+  showValue?: boolean;
+  selected?: boolean;
+  marker?: 'dot' | 'line';
+  series?: Series;
+  skeleton?: boolean;
+  /** Кликабельная легенда — скрыть / показать серию (aria-pressed). */
+  onClick?: (e: unknown) => void;
+  className?: string;
+}
+export interface ChartMetricProps {
+  /** Смысл значения, не оценка. */
+  tone?: 'default' | 'danger' | 'warning' | 'success';
+  label: ReactNode;
+  value: ReactNode;
+  unit?: ReactNode;
+  showUnit?: boolean;
+  /** true — lightning; имя иконки DS или узел; цвет — как у значения. */
+  icon?: boolean | IconSlot;
+  className?: string;
+}
+export type SortDir = 'none' | 'ascending' | 'descending';
+export interface TableHeaderCellProps {
+  /** start — текст, даты; end — числа и суммы. */
+  align?: 'start' | 'end';
+  /** Без sort — неуправляемый от defaultSort; клик: None → Descending → Ascending. */
+  sort?: SortDir;
+  defaultSort?: SortDir;
+  onSort?: (sort: SortDir) => void;
+  sortable?: boolean;
+  label: ReactNode;
+  showFilter?: boolean;
+  showInfo?: boolean;
+  infoLabel?: string;
+  skeleton?: boolean;
+  width?: number | string;
+  className?: string;
+}
+export interface TableCellProps {
+  align?: 'start' | 'end';
+  /** Две строки текста по умолчанию; иначе — children (атом DS: Coin, Amount, Status, Icon button…). */
+  primary?: ReactNode;
+  secondary?: ReactNode;
+  children?: ReactNode;
+  skeleton?: boolean;
+  disabled?: boolean;
+  className?: string;
+}
+export interface TableRowProps {
+  /** compact 48 — одна строка; regular 64 — две строки и медиа. Одна плотность на таблицу. */
+  density?: 'compact' | 'regular';
+  selected?: boolean;
+  /** Строка открывает детали: Hover / Pressed, Tab + Enter. */
+  onClick?: (e: unknown) => void;
+  children?: ReactNode;
+  className?: string;
+}
+export interface TableColumn<R = any> { key: string; label: ReactNode; align?: 'start' | 'end'; sortable?: boolean; width?: number | string; render?: (row: R) => ReactNode }
+export interface TableProps<R = any> {
+  columns?: TableColumn<R>[];
+  rows?: (R & { id?: string | number; selected?: boolean })[];
+  density?: 'compact' | 'regular';
+  /** Текущая сортировка; данные сортирует продукт. */
+  sort?: { key: string; dir: SortDir } | null;
+  defaultSort?: { key: string; dir: SortDir } | null;
+  onSort?: (sort: { key: string; dir: SortDir }) => void;
+  onRowClick?: (row: R, event: unknown) => void;
+  skeletonRows?: number;
+  label?: string;
+  caption?: ReactNode;
+  children?: ReactNode;
+  className?: string;
+}
+export interface PromoCardProps {
+  /** s — сайдбар (222); m — мобильный веб и App (335); l — дашборд Web (545). */
+  size?: 's' | 'm' | 'l';
+  /** accent — главная акция экрана: градиентная обводка, действие Primary. */
+  tone?: 'neutral' | 'accent';
+  /** center — анонс без картинки и закрытия: бейдж над заголовком. */
+  align?: 'start' | 'center';
+  title: ReactNode;
+  description?: ReactNode;
+  showDescription?: boolean;
+  showAction?: boolean;
+  actionLabel?: ReactNode;
+  onAction?: (e: unknown) => void;
+  showMedia?: boolean;
+  /** Картинка: src или узел; alt пустой — смысла без текста не несёт. */
+  media?: string | ReactNode;
+  showClose?: boolean;
+  onClose?: (e: unknown) => void;
+  closeLabel?: string;
+  showBadge?: boolean;
+  badgeLabel?: ReactNode;
+  children?: ReactNode;
+  className?: string;
+}
+export interface SidebarNavEntry extends Partial<NavItemProps> { divider?: boolean; key?: string | number }
+export interface SidebarProps {
+  /** Рейка 72: только иконки, подписи в Tooltip; промо скрыто. */
+  collapsed?: boolean;
+  /** Кнопка «свернуть / развернуть» (aria-expanded). */
+  onCollapsedChange?: (collapsed: boolean) => void;
+  header?: ReactNode;
+  logo?: ReactNode;
+  /** Язык — Button Secondary XS («RU»). */
+  language?: ReactNode;
+  onLanguage?: (e: unknown) => void;
+  /** Главное действие — Button Primary S на всю ширину. */
+  cta?: ReactNode;
+  nav?: ReactNode;
+  items?: SidebarNavEntry[];
+  /** Promo card S; false — без промо. */
+  promo?: boolean | ReactNode;
+  footer?: ReactNode;
+  account?: { name: string; link?: ReactNode; src?: string; onClick?: (e: unknown) => void };
+  label?: string;
+  className?: string;
+}
+export interface ChartSeries { name?: string; data: number[] }
+export interface ChartPlotProps {
+  /** line-bars — хешрейт + реджекты на второй оси; dual-area — две величины; stacked-bars — доли по статусам. */
+  type?: 'bars' | 'line' | 'area' | 'line-bars' | 'multi-line' | 'dual-area' | 'stacked-bars';
+  /** Серия 1 — border/accent, далее data/2…8; вторая ось — data/4. */
+  series?: ChartSeries[];
+  /** Подписи X по точкам; показывается не больше xTicks (Web 6, мобильный 3). */
+  labels?: string[];
+  xTicks?: number;
+  yLeft?: { ticks: number[] };
+  yRight?: { ticks: number[] };
+  format?: (value: number, axis: 'left' | 'right') => string;
+  height?: number;
+  state?: 'default' | 'skeleton' | 'empty' | 'disabled';
+  emptyText?: string;
+  /** Что показывает и за какой период (role=img). */
+  label?: string;
+  className?: string;
+}
+export interface ChartCardProps {
+  label?: string;
+  metrics?: ChartMetricProps[];
+  /** Период — ряд Chip (выбранный — белый); не Segmented. */
+  periods?: { value: string | number; label: ReactNode }[];
+  period?: string | number;
+  defaultPeriod?: string | number;
+  onPeriodChange?: (value: string | number) => void;
+  /** s — Web; m — Compact (на всю ширину равными долями). */
+  periodSize?: 's' | 'm';
+  periodLabel?: string;
+  legend?: LegendItemProps[];
+  sum?: ReactNode;
+  showBottom?: boolean;
+  top?: ReactNode;
+  bottom?: ReactNode;
+  /** Content — Chart plot. */
+  children?: ReactNode;
+  content?: ReactNode;
+  className?: string;
+}
+export interface TopBarProps {
+  platform?: 'mobile-web';
+  logo?: ReactNode;
+  account?: ReactNode;
+  onAccount?: (e: unknown) => void;
+  balance?: string;
+  /** Копейки — text-tertiary («.78»). */
+  cents?: string;
+  showBalance?: boolean;
+  onBalance?: (e: unknown) => void;
+  onMenu?: (e: unknown) => void;
+  menuLabel?: string;
+  className?: string;
+}
+export interface StatusSummaryItem { tone: 'danger' | 'warning' | 'neutral' | 'success'; label: string; value?: ReactNode }
+export interface StatusSummaryProps {
+  /** column — Web (колонка у графика); row — Compact (ряд + «Все воркеры»). */
+  layout?: 'column' | 'row';
+  offline?: ReactNode;
+  unstable?: ReactNode;
+  active?: ReactNode;
+  items?: StatusSummaryItem[];
+  onItem?: (item: StatusSummaryItem, e: unknown) => void;
+  showAllLink?: boolean;
+  allLinkLabel?: ReactNode;
+  onAllLink?: (e: unknown) => void;
+  className?: string;
+}
+export interface PromoCarouselProps {
+  /** 2–5 Promo card M. */
+  slides?: ReactNode[];
+  children?: ReactNode;
+  label?: string;
+  index?: number;
+  defaultIndex?: number;
+  onIndexChange?: (index: number) => void;
+  className?: string;
+}
+export interface ActionBarProps {
+  /** 1 — Primary; 2 — Tertiary поровну. */
+  actions?: (Omit<ButtonProps, 'iconLeft'> & { iconLeft?: IconSlot })[];
+  children?: ReactNode;
+  className?: string;
+}
+
+export declare function Icon(props: IconProps): JSX.Element;
+export declare function Coin(props: CoinProps): JSX.Element;
+export declare function CoinStack(props: CoinStackProps): JSX.Element;
+export declare function NavItem(props: NavItemProps): JSX.Element;
+export declare function KeyValueRow(props: KeyValueRowProps): JSX.Element;
+export declare function Search(props: SearchProps): JSX.Element;
+export declare function SelectCompact(props: SelectCompactProps): JSX.Element;
+export declare function DateRangeField(props: DateRangeFieldProps): JSX.Element;
+export declare function PageIndicator(props: PageIndicatorProps): JSX.Element;
+export declare function LegendSwatch(props: LegendSwatchProps): JSX.Element;
+export declare function LegendItem(props: LegendItemProps): JSX.Element;
+export declare function ChartMetric(props: ChartMetricProps): JSX.Element;
+export declare function TableHeaderCell(props: TableHeaderCellProps): JSX.Element;
+export declare function TableCell(props: TableCellProps): JSX.Element;
+export declare function TableRow(props: TableRowProps): JSX.Element;
+export declare function Table<R = any>(props: TableProps<R>): JSX.Element;
+export declare function PromoCard(props: PromoCardProps): JSX.Element | null;
+export declare function Sidebar(props: SidebarProps): JSX.Element;
+export declare function ChartPlot(props: ChartPlotProps): JSX.Element;
+export declare function ChartCard(props: ChartCardProps): JSX.Element;
+export declare function TopBar(props: TopBarProps): JSX.Element;
+export declare function StatusSummary(props: StatusSummaryProps): JSX.Element;
+export declare function PromoCarousel(props: PromoCarouselProps): JSX.Element;
+export declare function ActionBar(props: ActionBarProps): JSX.Element;

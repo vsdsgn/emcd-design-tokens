@@ -1,0 +1,41 @@
+/* Chart plot — 🟡 beta (Figma «🟡 Chart plot»: Type × State). Область графика: SVG-серии + сетка пунктиром border/subtle; подписи осей — font/family/mono, label-sm, text-tertiary (только здесь моно).
+   Серия 1 — border/accent (бренд), 2–8 — data/2…8 (вторая ось Line + Bars / Dual area — data/4); линии chart/stroke, серии 5–8 пунктиром; область — заливка 0.45.
+   Skeleton — skeleton/base («пила» у столбцов, силуэт у линий); Empty — сетка и «Нет данных за период» (body-md, text-tertiary); Disabled — серии action/disabled. */
+.emcd-chart-plot { --emcd-chart-h: 200px; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: var(--emcd-chart-h) auto; column-gap: var(--space-8, 8px); row-gap: var(--space-4, 4px);
+  min-width: 0; color: var(--text-tertiary); font: 400 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-mono); font-variant-numeric: tabular-nums; }
+.emcd-chart-plot--dual { grid-template-columns: auto minmax(0, 1fr) auto; }
+.emcd-chart-plot__axis { position: relative; min-width: 16px; max-width: var(--size-chart-axis-label-max, 48px); }
+.emcd-chart-plot__tick { position: absolute; transform: translateY(-50%); white-space: nowrap; }
+.emcd-chart-plot__axis--left .emcd-chart-plot__tick { right: 0; }
+.emcd-chart-plot__axis--right .emcd-chart-plot__tick { left: 0; }
+/* ширина колонки оси — по самой длинной подписи: невидимый дубль задаёт ширину */
+.emcd-chart-plot__axis::before { content: "00.0"; visibility: hidden; }
+.emcd-chart-plot__area-box { position: relative; min-width: 0; }
+.emcd-chart-plot__svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.emcd-chart-plot__grid { stroke: var(--border-subtle); stroke-width: var(--border-width-default, 1px); stroke-dasharray: 2 4; vector-effect: non-scaling-stroke; }
+.emcd-chart-plot__series { --c: var(--border-accent); }
+.emcd-chart-plot__series--1 { --c: var(--border-accent); }
+.emcd-chart-plot__series--2 { --c: var(--data-2); }
+.emcd-chart-plot__series--3 { --c: var(--data-3); }
+.emcd-chart-plot__series--4 { --c: var(--data-4); }
+.emcd-chart-plot__series--5 { --c: var(--data-5); }
+.emcd-chart-plot__series--6 { --c: var(--data-6); }
+.emcd-chart-plot__series--7 { --c: var(--data-7); }
+.emcd-chart-plot__series--8 { --c: var(--data-8); }
+.emcd-chart-plot__bar { fill: var(--c); }
+.emcd-chart-plot__line { fill: none; stroke: var(--c); stroke-width: var(--chart-stroke, 2px); stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.emcd-chart-plot__line--dash-5 { stroke-dasharray: 4 2; }
+.emcd-chart-plot__line--dash-6 { stroke-dasharray: 2 2; }
+.emcd-chart-plot__line--dash-7 { stroke-dasharray: 6 2 2 2; }
+.emcd-chart-plot__line--dash-8 { stroke-dasharray: 1 2; }
+.emcd-chart-plot__area { fill: var(--c); fill-opacity: 0.45; stroke: none; }
+.emcd-chart-plot__x-row { grid-column: 2; position: relative; height: var(--type-label-sm-line-height, 16px); }
+.emcd-chart-plot__x { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; }
+.emcd-chart-plot__empty { position: absolute; inset: 0; display: grid; place-items: center; color: var(--text-tertiary); font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); }
+.emcd-chart-plot__bone { fill: var(--skeleton-base); }
+.emcd-chart-plot--disabled .emcd-chart-plot__series { --c: var(--action-disabled); }
+/* Skeleton — пульсация прозрачности (блик Skeleton); «Уменьшить движение» — без анимации. Empty — без подписей X. */
+.emcd-chart-plot--skeleton .emcd-chart-plot__svg { animation: emcd-chart-pulse 1.2s ease-in-out infinite; }
+@keyframes emcd-chart-pulse { 50% { opacity: 0.55; } }
+.emcd-chart-plot--empty .emcd-chart-plot__x-row { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .emcd-chart-plot--skeleton .emcd-chart-plot__svg { animation: none; } }

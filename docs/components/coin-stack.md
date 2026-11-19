@@ -77,7 +77,7 @@
 - Описание: 496 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`CoinStack`), Vue `packages/vue/src/DsCoinStack.vue`, CSS `claude-ds/components/CoinStack/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsCoinStack>`; Flutter: `DsCoinStack`.
 - Props: `size`: s | m | l; `count`: 2 | 3 | 4; `showMore`: boolean = false; `more`: string или слот.

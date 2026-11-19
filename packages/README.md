@@ -8,6 +8,8 @@
 
 Пилот: Button, Icon button, Badge, Chip, Checkbox, Radio (+ Radio group), Toggle, Input, Textarea, Modal.
 Пачка 2: Tabs (+ Tab), Segmented (+ Segment), Card, Stat card, Amount, Toast, Tooltip, Suggest, Status, Counter, Avatar, Divider, Spinner, Progress, List item, Transaction, Select, Menu (+ Menu item), Password field.
+Пачка 3 (экраны майнинга): Icon, Coin, Coin stack, Nav item, Key-value row, Search, Select compact, Date range field, Page indicator, Legend swatch, Legend item, Chart metric, Table header cell, Table cell, Table row, Table (паттерн), Promo card, Sidebar, Chart plot, Chart card; конструкции (draft) — Top bar, Status summary, Promo carousel, Action bar.
+Иконки и монеты для кода — реестр `scripts/icons-code.mjs` (из `icons/svg` и `icons/symbols/coin`): блок `// @icons:begin` в `react/src/index.js` и `vue/src/icons.js`; `npm run code` запускает его перед `code-build`.
 Контролы неуправляемые по умолчанию (без `value` / `v-model` — своё состояние; прототип кликается), с `value` + `onChange` — управляемые. Props — по контрактам `docs/components/*.md`. Тема, бренд и платформа — атрибуты `data-theme`, `data-brand`, `data-platform` на `<html>` (`build/css`).
 
 ```html

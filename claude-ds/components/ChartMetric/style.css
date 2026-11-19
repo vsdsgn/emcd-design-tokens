@@ -1,0 +1,14 @@
+/* Chart metric — 🟡 beta (Figma «🟡 Chart metric»: Tone; Label, Value, Icon, Unit, Show unit). Показатель над графиком: подпись body-sm text-tertiary (до 228, многоточие) →
+   зазор space/4 → значение font/display, heading-lg Bold (цвет по Tone) + единица того же кегля text-tertiary; иконка 20 слева от значения цвета значения. max-width size/chart-metric/max. */
+.emcd-chart-metric { --value: var(--text-primary); display: flex; flex-direction: column; gap: var(--space-4, 4px); min-width: 0; max-width: var(--size-chart-metric-max, 240px); }
+.emcd-chart-metric--danger { --value: var(--text-danger); }
+.emcd-chart-metric--warning { --value: var(--text-warning); }
+.emcd-chart-metric--success { --value: var(--text-success); }
+.emcd-chart-metric__label { max-width: 228px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-tertiary);
+  font: 500 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); }
+.emcd-chart-metric__value-row { display: flex; align-items: baseline; gap: var(--space-4, 4px); min-width: 0; max-width: 228px;
+  font: 700 var(--type-heading-lg-size, 24px)/var(--type-heading-lg-line-height, 32px) var(--font-display, var(--font-sans)); font-variant-numeric: tabular-nums; }
+.emcd-chart-metric__icon { display: inline-flex; flex: none; align-self: center; color: var(--value); }
+.emcd-chart-metric__icon svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
+.emcd-chart-metric__value { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--value); }
+.emcd-chart-metric__unit { flex: none; color: var(--text-tertiary); white-space: nowrap; }

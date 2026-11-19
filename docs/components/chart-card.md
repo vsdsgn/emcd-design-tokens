@@ -97,7 +97,7 @@
 - Описание: 1132 знаков, разделы: Status: Level: Виджет графика: Состояния графика — Когда использовать: A11y: Поиск: Legacy: Правила:
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`ChartCard`), Vue `packages/vue/src/DsChartCard.vue`, CSS `claude-ds/components/ChartCard/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsChartCard>`; Flutter: `DsChartCard`.
 - Props: `showBottom`: boolean = true; `top`: string или слот; `content`: string или слот; `bottom`: string или слот.

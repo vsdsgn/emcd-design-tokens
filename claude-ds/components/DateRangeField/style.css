@@ -1,0 +1,9 @@
+/* Date range field — 🟡 beta (Figma «🟡 Date range field»: State). Поле периода на базе Input M с подписью на рамке: «ДД.ММ.ГГ → ДД.ММ.ГГ» + icon/calendar справа;
+   min-width size/field/min 160. Состояния — из Input (.emcd-field*). Панель с Calendar (Range) и пресетами — у продукта (onOpen). */
+.emcd-date-range { display: flex; min-width: var(--size-field-min, 160px); }
+.emcd-date-range .emcd-field { min-width: var(--size-field-min, 160px); }
+.emcd-date-range .emcd-input { cursor: pointer; }
+.emcd-date-range .emcd-input input { cursor: inherit; font-variant-numeric: tabular-nums; }
+.emcd-date-range .emcd-input__trailing { color: var(--icon-secondary); }
+.emcd-date-range .emcd-field--disabled .emcd-input { cursor: not-allowed; }
+.emcd-date-range .emcd-field--disabled .emcd-input__trailing { color: var(--icon-disabled); }

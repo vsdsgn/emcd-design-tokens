@@ -1,0 +1,15 @@
+/* Legend swatch — 🟡 beta (Figma «🟡 Legend swatch»: Marker × Series). Маркер серии 12 × 12 (size/legend-swatch): Dot — точка 8, Line — отрезок толщиной chart/stroke;
+   Series 1 — border/accent (основная серия — бренд, 17.11), 2–8 — data/2…8; у линий серий 5–8 — пунктир (5 — 4/2, 6 — 2/2, 7 — 6/2/2/2, 8 — 1/2). Цвет тот же, что у серии на Chart plot. */
+.emcd-legend-swatch { --c: var(--border-accent); display: inline-grid; place-items: center; flex: none; width: var(--size-legend-swatch, 12px); height: var(--size-legend-swatch, 12px); }
+.emcd-legend-swatch__dot { width: 8px; height: 8px; border-radius: var(--radius-chip, 999px); background: var(--c); }
+.emcd-legend-swatch svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.emcd-legend-swatch--line { place-items: stretch; }
+.emcd-legend-swatch line { stroke: var(--c); stroke-width: var(--chart-stroke, 2px); stroke-linecap: butt; }
+.emcd-legend-swatch--s1 { --c: var(--border-accent); }
+.emcd-legend-swatch--s2 { --c: var(--data-2); }
+.emcd-legend-swatch--s3 { --c: var(--data-3); }
+.emcd-legend-swatch--s4 { --c: var(--data-4); }
+.emcd-legend-swatch--s5 { --c: var(--data-5); }
+.emcd-legend-swatch--s6 { --c: var(--data-6); }
+.emcd-legend-swatch--s7 { --c: var(--data-7); }
+.emcd-legend-swatch--s8 { --c: var(--data-8); }

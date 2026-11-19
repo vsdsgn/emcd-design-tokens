@@ -1,0 +1,9 @@
+/* Promo carousel — 🟠 draft (Figma «🟠 Promo carousel»: слот Slides). Промо внизу мобильного дашборда: дорожка с прокруткой scroll-snap, слайд — Promo card M шириной 311 (следующая подглядывает),
+   зазор space/8; под дорожкой Page indicator (отступ space/12), синхронный с прокруткой. */
+.emcd-promo-carousel { display: flex; flex-direction: column; gap: var(--space-12, 12px); min-width: 0; }
+.emcd-promo-carousel__track { position: relative; display: flex; gap: var(--space-8, 8px); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.emcd-promo-carousel__track::-webkit-scrollbar { display: none; }
+.emcd-promo-carousel__slide { flex: 0 0 min(311px, calc(100% - 2 * var(--space-16, 16px))); min-width: 0; scroll-snap-align: start; display: flex; }
+.emcd-promo-carousel__slide > * { flex: 1; min-width: 0; }
+.emcd-promo-carousel__dots { align-self: center; }
+@media (prefers-reduced-motion: reduce) { .emcd-promo-carousel__track { scroll-behavior: auto; } }

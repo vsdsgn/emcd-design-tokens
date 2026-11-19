@@ -15,7 +15,10 @@ const CHECK = process.argv.includes('--check');
 const ORDER = ['Button', 'IconButton', 'Badge', 'Chip', 'Checkbox', 'Radio', 'Toggle', 'Input', 'Textarea', 'Modal',
   // пачка 2: простые → составные; Select после Input и Menu, Transaction после ListItem
   'Counter', 'Status', 'Avatar', 'Divider', 'Spinner', 'Progress', 'Amount', 'Card', 'StatCard', 'Tooltip', 'Toast', 'Suggest',
-  'Tabs', 'Segmented', 'ListItem', 'Transaction', 'Menu', 'Select', 'PasswordField'];
+  'Tabs', 'Segmented', 'ListItem', 'Transaction', 'Menu', 'Select', 'PasswordField',
+  // пачка 3 — экраны майнинга: атомы → молекулы → организмы → конструкции (draft)
+  'Icon', 'Coin', 'CoinStack', 'LegendSwatch', 'LegendItem', 'PageIndicator', 'NavItem', 'KeyValueRow', 'Search', 'SelectCompact', 'DateRangeField', 'ChartMetric',
+  'TableHeaderCell', 'TableCell', 'TableRow', 'Table', 'PromoCard', 'Sidebar', 'ChartPlot', 'ChartCard', 'TopBar', 'StatusSummary', 'PromoCarousel', 'ActionBar'];
 const dirs = fs.readdirSync(path.join(ROOT, 'claude-ds/components')).filter((d) => fs.existsSync(path.join(ROOT, 'claude-ds/components', d, 'style.css')));
 const extra = dirs.filter((d) => !ORDER.includes(d)).sort();
 // Мост имён: CSS компонентов написан под имена Claude DS (tokens.json); в build/css часть имён другая.
@@ -24,6 +27,7 @@ const BRIDGE = `:where(:root) {
   --font-display: var(--brand-font-family-display), "Inter", system-ui, sans-serif;
   --font-mono: var(--brand-font-family-mono), "IBM Plex Mono", ui-monospace, monospace;
   --radius-xs: var(--brand-radius-xs); --radius-sm: var(--brand-radius-sm); --radius-control-xs: var(--brand-radius-control-xs);
+  --radius-2xs: var(--brand-radius-2xs); --radius-full: var(--brand-radius-full);
 }`;
 const css = ['/* EMCD DS 2.0 — стили компонентов (классы emcd-*). Генерируется scripts/code-build.mjs из claude-ds/components/<Comp>/style.css; токены — build/css (подключить раньше). */', BRIDGE]
   .concat([...ORDER.filter((d) => dirs.includes(d)), ...extra].map((d) => r(`claude-ds/components/${d}/style.css`).trim())).join('\n\n') + '\n';

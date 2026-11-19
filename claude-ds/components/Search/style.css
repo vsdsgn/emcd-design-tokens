@@ -1,0 +1,25 @@
+/* Search — 🟠 draft (Figma «🟠 Search»: Size × State). Поле поиска: подложка surface/level-2, обводка border/subtle, радиус radius/control; S 32 · M 40;
+   лупа 20 (icon-tertiary) → текст (body-md; S — body-sm) → «Очистить» (Icon button Ghost S, когда введено). Hover — слой 6 %, Focus — обводка border/focus. */
+.emcd-search { --h: var(--control-height-md, 40px); --fs: var(--type-body-md-size, 14px); --lh: var(--type-body-md-line-height, 20px);
+  position: relative; display: flex; align-items: center; gap: var(--space-8, 8px); box-sizing: border-box; width: 100%; min-width: 0; height: var(--h);
+  padding: 0 var(--space-4, 4px) 0 var(--space-12, 12px); border-radius: var(--radius-control); background: var(--surface-level-2);
+  box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); color: var(--text-primary);
+  transition: box-shadow var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-search--s { --h: var(--control-height-sm, 32px); --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); }
+.emcd-search::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-search:hover::before { opacity: var(--state-hover, .06); }
+.emcd-search:focus-within::before { opacity: 0; }
+.emcd-search:focus-within { box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-focus); }
+.emcd-search:has(:focus-visible) { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 2px; }
+.emcd-search > * { position: relative; }
+.emcd-search__icon { color: var(--icon-tertiary); }
+.emcd-search__input { all: unset; flex: 1; min-width: 0; height: var(--h); box-sizing: border-box; font: 500 var(--fs)/var(--lh) var(--font-sans); color: var(--text-primary); text-overflow: ellipsis; }
+.emcd-search__input::placeholder { color: var(--text-tertiary); }
+.emcd-search__input::-webkit-search-cancel-button, .emcd-search__input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
+.emcd-search__clear { flex: none; }
+.emcd-search--s .emcd-search__clear { --h: var(--control-height-xs, 24px); }
+.emcd-search--disabled { cursor: not-allowed; }
+.emcd-search--disabled::before { display: none; }
+.emcd-search--disabled :is(.emcd-search__icon, .emcd-search__input, .emcd-search__input::placeholder) { color: var(--text-disabled); }
+@media (prefers-reduced-motion: reduce) { .emcd-search, .emcd-search::before { transition: none; } }

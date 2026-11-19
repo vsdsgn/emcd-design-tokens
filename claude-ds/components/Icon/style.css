@@ -1,0 +1,5 @@
+/* Icon — иконка DS по имени (icons/svg, реестр scripts/icons-code.mjs). Размер — icon/size/*: sm 16 · md 20 (по умолчанию) · lg 24 · xl 32; цвет — currentColor (цвет текста родителя). */
+.emcd-icon { display: inline-block; flex: none; width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); vertical-align: middle; color: inherit; overflow: visible; }
+.emcd-icon--sm { width: var(--icon-size-sm, 16px); height: var(--icon-size-sm, 16px); }
+.emcd-icon--lg { width: var(--icon-size-lg, 24px); height: var(--icon-size-lg, 24px); }
+.emcd-icon--xl { width: var(--icon-size-xl, 32px); height: var(--icon-size-xl, 32px); }

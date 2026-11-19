@@ -108,7 +108,7 @@
 - Описание: 1262 знаков, разделы: Status: Level: Промо-карточка: Когда использовать: Правила: A11y: Legacy: Токены: Действие —
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`PromoCard`), Vue `packages/vue/src/DsPromoCard.vue`, CSS `claude-ds/components/PromoCard/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsPromoCard>`; Flutter: `DsPromoCard`.
 - Props: `size`: s | m | l; `tone`: neutral | accent; `align`: start | center; `title`: string или слот; `description`: string или слот; `showDescription`: boolean = true; `showAction`: boolean = true; `showMedia`: boolean = false; `showClose`: boolean = true; `showBadge`: boolean = false.

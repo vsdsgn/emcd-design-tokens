@@ -1,0 +1,15 @@
+/* Top bar — 🟠 draft (Figma «🟠 Top bar»: Platform Mobile web; Logo, Account, Balance, Cents, Show balance). Шапка мобильного веба: surface/level-0, поля space/8 / space/16, зазор space/12;
+   логотип heading-lg Bold display; аккаунт и баланс — label-lg text-primary + шеврон 16 (копейки text-tertiary); «Меню» — Icon button Ghost M справа. */
+.emcd-top-bar { display: flex; align-items: center; gap: var(--space-12, 12px); box-sizing: border-box; width: 100%; min-height: calc(var(--control-height-md, 40px) + 2 * var(--space-8, 8px));
+  padding: var(--space-8, 8px) var(--space-16, 16px); background: var(--surface-level-0); color: var(--text-primary); }
+.emcd-top-bar__logo { display: inline-flex; align-items: center; flex: none; font: 700 var(--type-heading-lg-size, 24px)/var(--type-heading-lg-line-height, 32px) var(--font-display, var(--font-sans)); }
+.emcd-top-bar__logo :is(svg, img) { display: block; height: 20px; width: auto; }
+.emcd-top-bar__account, .emcd-top-bar__balance { position: relative; display: inline-flex; align-items: center; gap: var(--space-4, 4px); min-width: 0; padding: 0; margin: 0; border: 0; background: none;
+  color: var(--text-primary); font: 500 var(--type-label-lg-size, 16px)/var(--type-label-lg-line-height, 20px) var(--font-sans); cursor: pointer; outline: none; border-radius: var(--radius-xs, 4px); }
+.emcd-top-bar__account:focus-visible, .emcd-top-bar__balance:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); }
+.emcd-top-bar__account::after, .emcd-top-bar__balance::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: max(100%, var(--touch-min, 24px)); }
+.emcd-top-bar__account .emcd-icon, .emcd-top-bar__balance .emcd-icon { color: var(--icon-tertiary); }
+.emcd-top-bar__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-top-bar__amount { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.emcd-top-bar__cents { color: var(--text-tertiary); }
+.emcd-top-bar__menu { margin-inline-start: auto; }

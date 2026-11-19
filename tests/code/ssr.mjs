@@ -134,8 +134,75 @@ const RC = {
     ...['error', 'disabled', 'loading', 'skeleton'].map((state) => ({ state, label: 'x', hint: 'Подсказка', options: [] })), { state: 'loading', open: true, options: [] },
   ],
   PasswordField: [{}, { showRequirements: false, size: 'l', labelPosition: 'above' }, { state: 'error', error: 'Неверный пароль', defaultValue: 'Abc1!' }, { state: 'disabled', defaultVisible: true }],
+  // Пачка 3 — экраны майнинга
+  Icon: [...['sm', 'md', 'lg', 'xl'].map((size) => ({ name: 'chart-bar', size })), { name: 'file-excel', label: 'Выгрузить' }, { name: 'нет-такой' }],
+  Coin: [...['xs', 's', 'm', 'l', 'xl'].map((size) => ({ coin: 'kas', size })), ...['btc', 'ltc', 'doge', 'bitcoin-btc', 'eth'].map((coin) => ({ coin, size: 'm' })),
+    { coin: 'usdt', size: 'l', network: true, networkCoin: 'trx' }, { coin: 'btc', size: 'xs', network: true }, { skeleton: true, size: 'm' }, { coin: 'kas', label: 'Kaspa' }],
+  CoinStack: [...['s', 'm', 'l'].flatMap((size) => [2, 3, 4].map((count) => ({ size, count, coins: ['kas', 'btc', 'ltc', 'doge'] }))),
+    { coins: ['ltc', 'eth', 'btc', 'doge', 'kas', 'bel', 'pep'], count: 2 }, { coins: ['kas', 'eth'], showMore: true, more: '+1', label: 'KAS и ETH' }],
+  NavItem: [{ label: 'Майнинг', icon: 'mining-coin', href: '#', selected: true }, { label: 'P2P', icon: 'exchange', badge: true, badgeLabel: '0% Комиссия' },
+    { label: 'Стейкинг', icon: 'percentage', badge: h(R.Badge, { size: 's', tone: 'accent', style: 'solid', label: 'Новое' }) }, { label: 'Воркеры', counter: 3 },
+    { label: 'Дашборд', collapsed: true, counter: true }, { label: 'Активы', icon: ico(), collapsed: true, selected: true }, { label: 'OnLock', icon: 'lock', disabled: true, href: '#' }],
+  KeyValueRow: ['default', 'total', 'muted'].flatMap((emphasis) => [false, true].map((leader) => ({ emphasis, leader, label: 'Комиссия сети', value: '0.00050000 BTC' }))),
+  Search: [{}, { size: 's', text: 'Поиск воркеров' }, { defaultValue: 'worker-1' }, { value: 'x', onChange: () => {} }, { disabled: true, defaultValue: 'x' }],
+  SelectCompact: [{ label: 'Монета', options: [{ value: 'kas', label: 'KAS', coin: 'kas' }, { value: 'btc', label: 'BTC', coin: 'btc', disabled: true }] },
+    { label: 'Монета', defaultValue: 'btc', defaultOpen: true, options: [{ value: 'kas', label: 'KAS', coin: 'kas' }, { value: 'btc', label: 'BTC', coin: 'btc' }] },
+    { text: 'TRC-20', showLeading: false, label: 'Сеть' }, { text: 'KAS + 1', leading: h(R.CoinStack, { coins: ['kas', 'eth'] }) }, { text: 'USDT', disabled: true, leading: h(R.Coin, { coin: 'usdt', size: 'm' }) }],
+  DateRangeField: [{}, { from: '01.11.26', to: '19.11.26', hint: 'Выгрузить можно за 3 месяца' }, { state: 'error', error: 'Больше 3 месяцев', from: '01.01.26', to: '19.11.26' },
+    { state: 'disabled' }, { state: 'skeleton' }, { labelPosition: 'above', label: 'Период выгрузки' }],
+  PageIndicator: [2, 3, 4, 5].flatMap((count) => [1, count].map((selected) => ({ count, selected }))).concat([{ count: 3, selected: 2, onSelect: () => {} }]),
+  LegendSwatch: ['dot', 'line'].flatMap((marker) => [1, 2, 3, 4, 5, 6, 7, 8].map((series) => ({ marker, series }))),
+  LegendItem: [{ label: 'Хешрейт, TH/s' }, { label: 'Реджекты, %', series: 4, selected: true, value: '1.2 %', showValue: true }, { label: 'Линия', marker: 'line', series: 5, onClick: () => {} }, { skeleton: true }],
+  ChartMetric: [...['default', 'danger', 'warning', 'success'].map((tone) => ({ tone, label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true })),
+    { label: 'Реджекты за 1 день', value: '5.05', unit: '%' }, { label: 'x', value: '1', showUnit: false, unit: 'TH/s', icon: 'chart-bar' }, { label: 'x', value: '1', icon: ico() }],
+  TableHeaderCell: [...['start', 'end'].flatMap((align) => ['none', 'ascending', 'descending'].map((sort) => ({ align, sort, onSort: () => {}, label: 'Хешрейт' }))),
+    { label: 'Имя и статус', defaultSort: 'descending' }, { label: 'Тип', sortable: false, showFilter: true, showInfo: true }, { skeleton: true, label: 'x' }, { align: 'end', skeleton: true }],
+  TableCell: [{ primary: '12 окт 2025', secondary: '10:37' }, { align: 'end', children: h(R.Amount, { value: '10.45', ticker: 'TH/s', align: 'end' }) }, { skeleton: true }, { align: 'end', skeleton: true }, { disabled: true, primary: 'worker-4' }],
+  TableRow: [{ children: h(R.TableCell, { primary: 'worker-1' }) }, { density: 'regular', selected: true, children: h(R.TableCell, { primary: 'x' }) }, { onClick: () => {}, children: h(R.TableCell, { primary: 'x' }) }],
+  Table: [
+    { label: 'Воркеры', columns: [{ key: 'name', label: 'Имя и статус', sortable: true }, { key: 'hr', label: 'Текущий хешрейт', align: 'end', sortable: true, width: 160 }, { key: 'act', label: '', align: 'end', render: () => h(R.IconButton, { size: 's', label: 'Ещё', icon: ico() }) }],
+      rows: [{ id: 1, name: h(R.Status, { label: 'worker-1' }), hr: '10.45 TH/s' }, { id: 2, name: 'worker-2', hr: '8.00 TH/s', selected: true }], defaultSort: { key: 'name', dir: 'descending' }, onRowClick: () => {} },
+    { density: 'regular', caption: 'История', columns: [{ key: 'd', label: 'Дата' }], rows: [], skeletonRows: 2 },
+    { label: 'Свои строки', children: h(R.TableRow, null, h(R.TableCell, { primary: 'x' })) },
+  ],
+  PromoCard: [...['s', 'm', 'l'].flatMap((size) => ['neutral', 'accent'].map((tone) => ({ size, tone, title: 'Нет оборудования?', description: 'Получи каталог ASIC по выгодным ценам', showMedia: true }))),
+    { align: 'center', tone: 'accent', size: 'm', showBadge: true, title: 'Мониторинг', description: 'Следи за площадками', actionLabel: 'Перейти к Мониторингу' },
+    { showBadge: true, showClose: false, showAction: false, showDescription: false, title: 'x' }, { size: 'm', showMedia: true, media: 'promo.png', title: 'x', onClose: () => {}, onAction: () => {} }],
+  Sidebar: [
+    { logo: 'EMCD', language: 'RU', onCollapsedChange: () => {}, cta: h(R.Button, { size: 's', label: 'Подключить' }), account: { name: 'Alexandrewang' },
+      items: [{ label: 'Активы', icon: 'wallet', href: '#' }, { label: 'Майнинг', icon: 'mining-coin', selected: true, href: '#' }, { divider: true }, { label: 'P2P', icon: 'exchange', badge: true, badgeLabel: '0% Комиссия' }],
+      promo: h(R.PromoCard, { title: '14% ты получил бы', showMedia: true }) },
+    { collapsed: true, onCollapsedChange: () => {}, account: { name: 'A' }, items: [{ label: 'Активы', icon: 'wallet' }, { label: 'Майнинг', icon: 'mining-coin', selected: true, counter: 2 }], promo: h('div') },
+    { header: h('div', null, 'шапка'), nav: h(R.NavItem, { label: 'x' }), footer: h('div', null, 'низ'), promo: false },
+  ],
+  ChartPlot: [
+    ...['bars', 'line', 'area', 'multi-line', 'stacked-bars'].map((type) => ({ type, label: 'Хешрейт за сутки', labels: ['00:00', '04:00', '08:00', '12:00'], series: [{ name: 'A', data: [1, 3, 2, 4] }, { name: 'B', data: [2, 1, 2, 1] }] })),
+    { type: 'line-bars', labels: Array.from({ length: 24 }, (_, i) => `${String(i).padStart(2, '0')}:00`), series: [{ name: 'Хешрейт', data: Array.from({ length: 24 }, (_, i) => 12 + (i % 5)) }, { name: 'Реджекты', data: Array.from({ length: 24 }, (_, i) => (i % 3) * 0.6) }] },
+    { type: 'dual-area', yLeft: { ticks: [0, 10, 20] }, format: (v) => String(v), series: [{ data: [1, 2] }, { data: [3, 1] }] },
+    { type: 'multi-line', series: Array.from({ length: 6 }, (_, i) => ({ data: [i, i + 1, i] })) },
+    ...['skeleton', 'empty', 'disabled'].flatMap((state) => [{ type: 'bars', state, series: [{ data: [1, 2] }] }, { type: 'line', state, series: [{ data: [1, 2] }] }]),
+  ],
+  ChartCard: [
+    { label: 'Хешрейт', metrics: [{ label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true }, { label: 'Реджекты за 1 день', value: '5.05', unit: '%' }],
+      periods: [{ value: '1d', label: '1 день' }, { value: '7d', label: '7 дней' }, { value: '30d', label: '30 дней' }], legend: [{ label: 'Хешрейт, TH/s' }, { label: 'Реджекты, %', series: 4 }], sum: 'Итого 24.47 TH/s',
+      children: h(R.ChartPlot, { type: 'line-bars', series: [{ data: [1, 2] }, { data: [0.5, 1] }] }) },
+    { periods: [{ value: 1, label: '1 д' }], periodSize: 'm', period: 1, onPeriodChange: () => {}, showBottom: false, legend: [{ label: 'x' }] },
+    { top: h('div', null, 'верх'), bottom: h('div', null, 'низ'), content: 'график' },
+  ],
+  TopBar: [{ account: 'Alexandrewang', balance: '$123 456', cents: '.78' }, { showBalance: false, account: 'x', logo: h('span', null, 'E') }, { onMenu: () => {}, onAccount: () => {}, onBalance: () => {}, balance: '$1' }],
+  StatusSummary: [{ offline: 9, unstable: 1, active: 40 }, { layout: 'row', offline: 9, unstable: 1, active: 40, onAllLink: () => {}, onItem: () => {} }, { layout: 'row', showAllLink: false, items: [{ tone: 'success', label: 'Все', value: 50 }] }],
+  PromoCarousel: [{ slides: [h(R.PromoCard, { size: 'm', title: 'Забусти свой майнинг', showMedia: true }), h(R.PromoCard, { size: 'm', title: 'Каталог' }), h(R.PromoCard, { size: 'm', title: 'Рефералы' })] },
+    { children: [h('div', { key: 1 }, 'a'), h('div', { key: 2 }, 'b')], index: 1, onIndexChange: () => {} }, { slides: [h('div', null, 'один')] }],
+  ActionBar: [{ actions: [{ label: 'Подключить', iconLeft: 'plus' }] }, { actions: [{ label: 'Подключить', iconLeft: 'plus' }, { label: 'Создать группу' }] }, { children: h(R.Button, { label: 'x' }) }],
 };
 
+// Обёртки для элементов, которые по правилам HTML живут только внутри таблицы (иначе React предупреждает о вложенности)
+const WRAP = {
+  TableHeaderCell: (el) => h('table', null, h('thead', null, h('tr', null, el))),
+  TableCell: (el) => h('table', null, h('tbody', null, h('tr', null, el))),
+  TableRow: (el) => h('table', null, h('tbody', null, el)),
+  KeyValueRow: (el) => h('dl', null, el),
+};
 const exported = Object.keys(R).filter((k) => k !== 'components');
 for (const name of exported) {
   const cases = RC[name];
@@ -145,7 +212,8 @@ for (const name of exported) {
     cases.forEach((props, i) => {
       captured.length = 0;
       try {
-        const html = renderToString(h('div', { 'data-theme': theme }, h(R[name], props)));
+        const el = h(R[name], props);
+        const html = renderToString(h('div', { 'data-theme': theme }, WRAP[name] ? WRAP[name](el) : el));
         stats.react++;
         checkClasses(html, `React ${name}#${i}`);
         if (captured.length) failures.push(`React ${name}#${i} (${theme}): предупреждение — ${captured[0].slice(0, 300)}`);
@@ -159,6 +227,8 @@ for (const name of Object.keys(RC)) if (!exported.includes(name)) failures.push(
 const { parse, compileScript } = await import('@vue/compiler-sfc');
 const VUE_SRC = path.join(ROOT, 'packages/vue/src');
 const vueFiles = fs.readdirSync(VUE_SRC).filter((f) => f.endsWith('.vue')).sort();
+// Вспомогательные модули Vue (реестр иконок, геометрия графика) — рядом со скомпилированными компонентами
+for (const f of fs.readdirSync(VUE_SRC).filter((x) => x.endsWith('.js') && x !== 'index.js')) fs.copyFileSync(path.join(VUE_SRC, f), path.join(OUT, f));
 for (const f of vueFiles) {
   const src = fs.readFileSync(path.join(VUE_SRC, f), 'utf8');
   const { descriptor, errors } = parse(src, { filename: f });
@@ -215,8 +285,52 @@ const VC = {
   DsSelect: [[{ label: 'Монета', options: [{ value: 'btc', label: 'BTC' }] }], [{ size: 'l', modelValue: 'btc', open: true, options: [{ value: 'btc', label: 'BTC' }, { value: 'x', label: 'X', disabled: true }] }],
     ...['error', 'disabled', 'loading', 'skeleton'].map((state) => [{ state, label: 'x', hint: 'y' }])],
   DsPasswordField: [[{}], [{ showRequirements: false, size: 'l', labelPosition: 'above' }], [{ state: 'error', error: 'Неверный', modelValue: 'Abc1!' }], [{ state: 'disabled', visible: true }]],
+  // Пачка 3 — экраны майнинга
+  DsIcon: ['sm', 'md', 'lg', 'xl'].map((size) => [{ name: 'chart-bar', size }]).concat([[{ name: 'file-excel', label: 'Выгрузить' }], [{ name: 'нет-такой' }]]),
+  DsCoin: ['xs', 's', 'm', 'l', 'xl'].map((size) => [{ coin: 'kas', size }]).concat([[{ coin: 'eth', size: 'm' }], [{ coin: 'usdt', size: 'l', network: true, networkCoin: 'trx' }], [{ skeleton: true }], [{ coin: 'btc', label: 'Bitcoin' }]]),
+  DsCoinStack: ['s', 'm', 'l'].map((size) => [{ size, coins: ['kas', 'btc', 'ltc', 'doge'] }]).concat([[{ coins: ['ltc', 'eth', 'btc', 'doge', 'kas'], count: 2 }], [{ coins: ['kas', 'eth'], showMore: true, more: '+1', label: 'x' }]]),
+  DsNavItem: [[{ label: 'Майнинг', icon: 'mining-coin', href: '#', selected: true }], [{ label: 'P2P', icon: 'exchange', badge: true, badgeLabel: '0% Комиссия' }], [{ label: 'x', counter: 3 }],
+    [{ label: 'Дашборд', collapsed: true, counter: true }], [{ label: 'x', disabled: true, href: '#' }], [{ label: 'x' }, { icon: vico, badge: () => 'бейдж' }]],
+  DsKeyValueRow: ['default', 'total', 'muted'].map((emphasis, i) => [{ emphasis, leader: i === 1, label: 'Комиссия сети', value: '0.00050000 BTC' }]),
+  DsSearch: [[{}], [{ size: 's', text: 'Поиск воркеров' }], [{ modelValue: 'worker-1' }], [{ disabled: true, modelValue: 'x' }]],
+  DsSelectCompact: [[{ label: 'Монета', options: [{ value: 'kas', label: 'KAS', coin: 'kas' }, { value: 'btc', label: 'BTC', coin: 'btc', disabled: true }] }],
+    [{ label: 'Монета', modelValue: 'btc', open: true, options: [{ value: 'kas', label: 'KAS', coin: 'kas' }, { value: 'btc', label: 'BTC', coin: 'btc' }] }],
+    [{ text: 'TRC-20', showLeading: false }], [{ text: 'KAS + 1' }, { leading: () => 'стопка' }], [{ text: 'USDT', disabled: true }]],
+  DsDateRangeField: [[{}], [{ from: '01.11.26', to: '19.11.26', hint: 'x' }], [{ state: 'error', error: 'x' }], [{ state: 'disabled' }], [{ state: 'skeleton' }]],
+  DsPageIndicator: [2, 3, 4, 5].map((count) => [{ count, selected: count }]).concat([[{ count: 3, selected: 2, interactive: true }]]),
+  DsLegendSwatch: ['dot', 'line'].flatMap((marker) => [1, 4, 5, 8].map((series) => [{ marker, series }])),
+  DsLegendItem: [[{ label: 'Хешрейт, TH/s' }], [{ label: 'Реджекты, %', series: 4, selected: true, value: '1.2 %', showValue: true }], [{ label: 'x', marker: 'line', series: 6, interactive: true }], [{ skeleton: true }]],
+  DsChartMetric: ['default', 'danger', 'warning', 'success'].map((tone) => [{ tone, label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true }])
+    .concat([[{ label: 'x', value: 1, showUnit: false, icon: 'chart-bar' }], [{ label: 'x', value: 1 }, { icon: vico }]]),
+  DsTableHeaderCell: ['start', 'end'].flatMap((align) => ['none', 'ascending', 'descending'].map((sort) => [{ align, sort, label: 'Хешрейт' }]))
+    .concat([[{ label: 'Тип', sortable: false, showFilter: true, showInfo: true }], [{ skeleton: true }]]),
+  DsTableCell: [[{ primary: '12 окт 2025', secondary: '10:37' }], [{ align: 'end' }, { default: () => '10.45 TH/s' }], [{ skeleton: true }], [{ disabled: true, primary: 'x' }]],
+  DsTableRow: [[{}, { default: () => vh('td', null, 'x') }], [{ density: 'regular', selected: true, interactive: true }, { default: () => vh('td', null, 'x') }]],
+  DsTable: [[{ label: 'Воркеры', interactive: true, columns: [{ key: 'name', label: 'Имя', sortable: true }, { key: 'hr', label: 'Хешрейт', align: 'end', sortable: true, width: 160 }],
+    rows: [{ id: 1, name: 'worker-1', hr: '10.45 TH/s' }, { id: 2, name: 'worker-2', hr: '8.00 TH/s', selected: true }], sort: { key: 'name', dir: 'descending' } }, { 'cell-name': ({ row }) => `★ ${row.name}` }],
+    [{ density: 'regular', caption: 'История', columns: [{ key: 'd', label: 'Дата' }], skeletonRows: 2 }], [{ label: 'x' }, { default: () => vh('tr', null, [vh('td', null, 'x')]) }]],
+  DsPromoCard: ['s', 'm', 'l'].flatMap((size) => ['neutral', 'accent'].map((tone) => [{ size, tone, title: 'Нет оборудования?', description: 'Получи каталог', showMedia: true }]))
+    .concat([[{ align: 'center', tone: 'accent', size: 'm', showBadge: true, title: 'Мониторинг', description: 'x' }], [{ showBadge: true, showClose: false, showAction: false, title: 'x', media: 'p.png', showMedia: true }]]),
+  DsSidebar: [[{ language: 'RU', collapsible: true, account: { name: 'Alexandrewang' }, items: [{ label: 'Активы', icon: 'wallet' }, { label: 'Майнинг', icon: 'mining-coin', selected: true }, { divider: true }, { label: 'P2P', badge: true, badgeLabel: '0%' }] },
+    { cta: () => 'cta', promo: () => 'promo', footer: () => 'низ' }],
+    [{ collapsed: true, collapsible: true, account: { name: 'A' }, items: [{ label: 'Активы', icon: 'wallet', counter: 2 }] }], [{ promo: false }, { header: () => 'шапка', nav: () => 'nav' }]],
+  DsChartPlot: ['bars', 'line', 'area', 'line-bars', 'multi-line', 'dual-area', 'stacked-bars'].map((type) => [{ type, label: 'x', labels: ['00:00', '04:00', '08:00'], series: [{ data: [1, 3, 2] }, { data: [0.5, 1, 1.5] }] }])
+    .concat(['skeleton', 'empty', 'disabled'].flatMap((state) => [[{ type: 'bars', state, series: [{ data: [1, 2] }] }], [{ type: 'line', state, series: [{ data: [1, 2] }] }]])),
+  DsChartCard: [[{ label: 'Хешрейт', metrics: [{ label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true }], periods: [{ value: '1d', label: '1 день' }, { value: '7d', label: '7 дней' }],
+    legend: [{ label: 'Хешрейт, TH/s' }, { label: 'Реджекты, %', series: 4 }], sum: 'Итого' }, { default: () => 'график' }], [{ periods: [{ value: 1, label: '1 д' }], periodSize: 'm', period: 1, showBottom: false }],
+    [{}, { top: () => 'верх', bottom: () => 'низ', default: () => 'x' }]],
+  DsTopBar: [[{ account: 'Alexandrewang', balance: '$123 456', cents: '.78' }], [{ showBalance: false, account: 'x' }, { logo: () => 'E' }]],
+  DsStatusSummary: [[{ offline: 9, unstable: 1, active: 40 }], [{ layout: 'row', offline: 9, unstable: 1, active: 40 }], [{ layout: 'row', showAllLink: false, items: [{ tone: 'success', label: 'Все', value: 50 }] }]],
+  DsPromoCarousel: [[{}, { default: () => [vh('div', null, 'a'), vh('div', null, 'b'), vh('div', null, 'c')] }], [{ index: 1, label: 'Анонсы' }, { default: () => [vh('div', null, 'a'), vh('div', null, 'b')] }], [{}, { default: () => vh('div', null, 'один') }]],
+  DsActionBar: [[{ actions: [{ label: 'Подключить' }] }], [{ actions: [{ label: 'Подключить' }, { label: 'Создать группу' }] }], [{}, { default: () => 'кнопки' }]],
 };
 
+const VWRAP = {
+  DsTableHeaderCell: (n) => vh('table', null, [vh('thead', null, [vh('tr', null, [n])])]),
+  DsTableCell: (n) => vh('table', null, [vh('tbody', null, [vh('tr', null, [n])])]),
+  DsTableRow: (n) => vh('table', null, [vh('tbody', null, [n])]),
+  DsKeyValueRow: (n) => vh('dl', null, [n]),
+};
 for (const f of vueFiles) {
   const name = f.replace(/\.vue$/, '');
   const cases = VC[name];
@@ -229,7 +343,8 @@ for (const f of vueFiles) {
   for (const theme of THEMES) {
     for (const [i, [props, slots]] of cases.entries()) {
       const warns = [];
-      const app = vue.createSSRApp({ render: () => vh('div', { 'data-theme': theme }, [vh(Comp, props, slots)]) });
+      const node = vh(Comp, props, slots);
+      const app = vue.createSSRApp({ render: () => vh('div', { 'data-theme': theme }, [VWRAP[name] ? VWRAP[name](node) : node]) });
       app.config.warnHandler = (msg) => warns.push(msg);
       app.config.errorHandler = (err) => { throw err; };
       captured.length = 0;

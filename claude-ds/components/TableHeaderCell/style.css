@@ -1,0 +1,21 @@
+/* Table header cell — 🟡 beta (Figma «🟡 Table header cell»: Align × Sort × State; Sortable, Show filter, Show info). th: высота size/table/header 44, поля space/12, min-width size/table-cell/min 80;
+   подпись label-md Medium — несортированная text-tertiary, отсортированная text-primary; иконка сортировки 16 перед подписью: sort (None) · sort-line-down · sort-line-up.
+   Сортируемая — кнопка внутри th: Hover / Pressed — слой state/layer; клик None → Descending → Ascending. Skeleton — полоса skeleton/base. */
+.emcd-th { box-sizing: border-box; height: var(--size-table-header, 44px); min-width: var(--size-table-cell-min, 80px); padding: 0 var(--space-12, 12px); text-align: start; vertical-align: middle;
+  color: var(--text-tertiary); font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); white-space: nowrap; }
+.emcd-th--end { text-align: end; }
+.emcd-th--sorted { color: var(--text-primary); }
+.emcd-th--skeleton { pointer-events: none; }
+.emcd-th__button, .emcd-th__content { position: relative; display: inline-flex; align-items: center; gap: var(--space-4, 4px); max-width: 100%; min-width: 0; vertical-align: middle; }
+.emcd-th__button { padding: 0; margin: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+.emcd-th__button::before { content: ""; position: absolute; inset: -4px -6px; border-radius: var(--radius-inner, 8px); background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
+  transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
+.emcd-th__button:hover::before { opacity: var(--state-hover, .06); }
+.emcd-th__button:active::before { opacity: var(--state-pressed, .10); }
+.emcd-th__button:hover { color: var(--text-primary); }
+.emcd-th__button:focus-visible::before { opacity: 1; background: transparent; box-shadow: inset 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); }
+.emcd-th__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.emcd-th__sort, .emcd-th__filter, .emcd-th__info { color: var(--icon-tertiary); }
+.emcd-th--sorted .emcd-th__sort { color: var(--icon-primary, var(--text-primary)); }
+.emcd-th__bone { display: inline-block; width: 64px; height: 12px; border-radius: var(--radius-chip, 999px); background: var(--skeleton-base); vertical-align: middle; }
+@media (prefers-reduced-motion: reduce) { .emcd-th__button::before { transition: none; } }

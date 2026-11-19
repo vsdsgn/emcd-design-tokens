@@ -1,0 +1,17 @@
+/* Key-value row — 🟡 beta (Figma «🟡 Key-value row»: Emphasis × Leader). «Название — значение» в сводке: dt (text-secondary, body-md, до 2 строк) и dd (text-primary, одна строка до 200);
+   зазор space/16, поля space/8 сверху и снизу. Total — итог: линия сверху border-subtle, поле space/12, оба Label/MD Medium. Muted — значение text-secondary. Leader — точечная линия border-strong.
+   Ряд строк — в <dl class="emcd-kv-list">. Числа — шрифт текста с табличными цифрами. */
+.emcd-kv-list { display: flex; flex-direction: column; margin: 0; padding: 0; }
+.emcd-kv { display: flex; align-items: baseline; gap: var(--space-16, 16px); min-width: 0; padding: var(--space-8, 8px) 0; }
+.emcd-kv__key { flex: 1 1 auto; display: flex; align-items: baseline; min-width: 0; margin: 0; color: var(--text-secondary);
+  font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); }
+.emcd-kv__key-text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; min-width: 0; }
+.emcd-kv__value { flex: none; max-width: 200px; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: end; color: var(--text-primary);
+  font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); font-variant-numeric: tabular-nums; }
+.emcd-kv--muted .emcd-kv__value { color: var(--text-secondary); }
+.emcd-kv--total { padding-top: var(--space-12, 12px); box-shadow: inset 0 var(--border-width-default, 1px) 0 var(--border-subtle); }
+.emcd-kv--total :is(.emcd-kv__key, .emcd-kv__value) { font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); font-variant-numeric: tabular-nums; }
+.emcd-kv--total .emcd-kv__key { color: var(--text-primary); }
+/* Leader — точечная линия, заполняет промежуток между названием и значением */
+.emcd-kv--leader .emcd-kv__key::after { content: ""; flex: 1 1 var(--space-16, 16px); min-width: var(--space-16, 16px); margin-inline-start: var(--space-16, 16px);
+  border-bottom: var(--border-width-default, 1px) dotted var(--border-strong); transform: translateY(-4px); }

@@ -1,0 +1,15 @@
+/* Coin — 🟡 beta (Figma «🟡 Coin»: Size × Network × State). Монета из Symbols; Size XS 16 · S 20 · M 24 · L 32 · XL 40 (size/media/*).
+   Network — монета сети 45 % в правом нижнем углу с кольцом surface/current (выступает за корень: родитель без обрезки). Нет в Symbols — нейтральный круг с буквой. */
+.emcd-coin { --s: var(--size-media-2xs, 16px); position: relative; display: inline-flex; flex: none; width: var(--s); height: var(--s); vertical-align: middle; border-radius: var(--radius-full, 999px); }
+.emcd-coin--s { --s: var(--size-media-xs, 20px); }
+.emcd-coin--m { --s: var(--size-media-sm, 24px); }
+.emcd-coin--l { --s: var(--size-media-md, 32px); }
+.emcd-coin--xl { --s: var(--size-media-lg, 40px); }
+.emcd-coin__glyph { display: block; width: 100%; height: 100%; border-radius: var(--radius-full, 999px); }
+.emcd-coin__fallback { display: grid; place-items: center; box-sizing: border-box; background: var(--status-neutral-subtle); color: var(--text-secondary);
+  font: 600 calc(var(--s) * 0.5)/1 var(--font-sans); user-select: none; }
+.emcd-coin__network { position: absolute; right: -2px; bottom: -2px; width: 45%; height: 45%; border-radius: var(--radius-full, 999px);
+  background: var(--surface-current, var(--surface-level-0)); box-shadow: 0 0 0 var(--border-width-strong, 2px) var(--surface-current, var(--surface-level-0)); }
+.emcd-coin__network .emcd-coin__fallback { font-size: calc(var(--s) * 0.25); }
+/* Skeleton — круг skeleton/base того же размера */
+.emcd-coin--skeleton { background: var(--skeleton-base); }

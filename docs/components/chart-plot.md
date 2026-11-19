@@ -99,7 +99,7 @@
 - Описание: 1681 знаков, разделы: Status: Level: Область графика (в коде — Type — State: Legacy: Когда использовать: Правила: A11y: Матрица:
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`ChartPlot`), Vue `packages/vue/src/DsChartPlot.vue`, CSS `claude-ds/components/ChartPlot/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsChartPlot>`; Flutter: `DsChartPlot`.
 - Props: `type`: bars | line | area | line-bars | multi-line | dual-area | stacked-bars.

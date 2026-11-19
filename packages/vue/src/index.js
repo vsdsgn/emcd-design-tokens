@@ -1,4 +1,4 @@
-// EMCD DS 2.0 — компоненты Vue 3 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19; все beta). Стили — packages/styles/components.css (классы emcd-*), токены — build/css.
+// EMCD DS 2.0 — компоненты Vue 3 (пачка 1 — пилот из 10 наборов; пачка 2 — ещё 19; пачка 3 — наборы экранов майнинга и конструкции). Стили — packages/styles/components.css (классы emcd-*), токены — build/css.
 export { default as DsButton } from './DsButton.vue';
 export { default as DsIconButton } from './DsIconButton.vue';
 export { default as DsBadge } from './DsBadge.vue';
@@ -33,3 +33,29 @@ export { default as DsMenuItem } from './DsMenuItem.vue';
 export { default as DsMenu } from './DsMenu.vue';
 export { default as DsSelect } from './DsSelect.vue';
 export { default as DsPasswordField } from './DsPasswordField.vue';
+// Пачка 3 — экраны майнинга
+export { default as DsIcon } from './DsIcon.vue';
+export { default as DsCoin } from './DsCoin.vue';
+export { default as DsCoinStack } from './DsCoinStack.vue';
+export { default as DsNavItem } from './DsNavItem.vue';
+export { default as DsKeyValueRow } from './DsKeyValueRow.vue';
+export { default as DsSearch } from './DsSearch.vue';
+export { default as DsSelectCompact } from './DsSelectCompact.vue';
+export { default as DsDateRangeField } from './DsDateRangeField.vue';
+export { default as DsPageIndicator } from './DsPageIndicator.vue';
+export { default as DsLegendSwatch } from './DsLegendSwatch.vue';
+export { default as DsLegendItem } from './DsLegendItem.vue';
+export { default as DsChartMetric } from './DsChartMetric.vue';
+export { default as DsTableHeaderCell } from './DsTableHeaderCell.vue';
+export { default as DsTableCell } from './DsTableCell.vue';
+export { default as DsTableRow } from './DsTableRow.vue';
+export { default as DsTable } from './DsTable.vue';
+export { default as DsPromoCard } from './DsPromoCard.vue';
+export { default as DsSidebar } from './DsSidebar.vue';
+export { default as DsChartPlot } from './DsChartPlot.vue';
+export { default as DsChartCard } from './DsChartCard.vue';
+export { default as DsTopBar } from './DsTopBar.vue';
+export { default as DsStatusSummary } from './DsStatusSummary.vue';
+export { default as DsPromoCarousel } from './DsPromoCarousel.vue';
+export { default as DsActionBar } from './DsActionBar.vue';
+export { ICONS, COINS } from './icons.js';

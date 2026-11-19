@@ -111,7 +111,7 @@
 - Описание: 1147 знаков, разделы: Status: Level: Сайдбар: Слоты: Правила: A11y: Когда использовать: Expressive: Поиск: Legacy: Expressive (привязано):
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`Sidebar`), Vue `packages/vue/src/DsSidebar.vue`, CSS `claude-ds/components/Sidebar/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsSidebar>`; Flutter: `DsSidebar`.
 - Props: `collapsed`: boolean; `header`: string или слот; `nav`: string или слот; `footer`: string или слот; `promo`: boolean = true.
