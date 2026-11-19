@@ -1,6 +1,6 @@
 {
   "source": "figma:icons",
-  "count": 119,
+  "count": 115,
   "icons": [
     {
       "name": "add-phone-number",
@@ -18,6 +18,16 @@
       "description": "Внимание (глиф).\nПоиск: внимание, восклицательный, предупреждение, alert, exclamation, warning, djcrkbwfntkmysq, фдуке\nLegacy: ic-alert.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
     },
     {
+      "name": "alert-circle",
+      "figma": "icon/alert-circle",
+      "description": "Ошибка, внимание.\nПоиск: ошибка, внимание, восклицательный знак, alert, error, warning circle, фдуке\nLegacy: smbl-status-error, smbl-status-danger.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+    },
+    {
+      "name": "alert-triangle",
+      "figma": "icon/alert-triangle",
+      "description": "Предупреждение, требует внимания.\nПоиск: предупреждение, внимание, треугольник, warning, caution, alert triangle, цфктштп\nLegacy: smbl-status-alert, smbl-status-warning.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+    },
+    {
       "name": "aml-not-passed",
       "figma": "icon/aml-not-passed",
       "description": "AML не пройден.\nПоиск: aml не пройден, aml, проверка, отклонено, щит, aml failed, compliance, rejected, фьд\nLegacy: ic-aml-not-passed.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
@@ -30,22 +40,22 @@
     {
       "name": "arrow-exit",
       "figma": "icon/arrow-exit",
-      "description": "Выйти.\nПоиск: выйти, выход, logout, выйти из аккаунта, log out, exit, sign out, ds[jl, дщп щге\nLegacy: ic-arrow-exit.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+      "description": "Выйти.\nПоиск: выйти, выход, logout, выйти из аккаунта, log out, exit, sign out, ds[jl, дщп щге\nLegacy: ic-arrow-exit.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular.\nRTL: зеркалится (направленная иконка)."
     },
     {
       "name": "arrow-left",
       "figma": "icon/arrow-left",
-      "description": "Стрелка влево.\nПоиск: стрелка влево, назад, влево, arrow left, back, yfpfl, фккщц дуае\nLegacy: ic-arrow-left.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+      "description": "Стрелка влево.\nПоиск: стрелка влево, назад, влево, arrow left, back, yfpfl, фккщц дуае\nLegacy: ic-arrow-left.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular.\nRTL: зеркалится (направленная иконка)."
     },
     {
       "name": "arrow-new-tab",
       "figma": "icon/arrow-new-tab",
-      "description": "Открыть в новой вкладке.\nПоиск: открыть в новой вкладке, внешняя ссылка, перейти, external link, open new tab, учеуктфд дштл\nLegacy: ic-arrow-new-tab.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+      "description": "Открыть в новой вкладке.\nПоиск: открыть в новой вкладке, внешняя ссылка, перейти, external link, open new tab, учеуктфд дштл\nLegacy: ic-arrow-new-tab.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular.\nRTL: зеркалится (направленная иконка)."
     },
     {
       "name": "arrow-right",
       "figma": "icon/arrow-right",
-      "description": "Стрелка вправо.\nПоиск: стрелка вправо, вперёд, далее, arrow right, next, forward, фккщц кшпре\nLegacy: ic-arrow-right.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+      "description": "Стрелка вправо.\nПоиск: стрелка вправо, вперёд, далее, arrow right, next, forward, фккщц кшпре\nLegacy: ic-arrow-right.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular.\nRTL: зеркалится (направленная иконка)."
     },
     {
       "name": "arrow-up",
@@ -100,12 +110,12 @@
     {
       "name": "card",
       "figma": "icon/card",
-      "description": "Карта.\nПоиск: карта, банковская карта, оплата, card, bank card, payment, сфкв\nLegacy: ic-card.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+      "description": "Карта.\nПоиск: карта, банковская карта, оплата, card, bank card, payment, сфкв\nLegacy: ic-card. Восстановлена по пропорциям legacy 2026-10-16 (была меньше остальных).\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
     },
     {
       "name": "chart-bar",
       "figma": "icon/chart-bar",
-      "description": "Столбчатый график: действие «График» в строке таблицы.\nПоиск: график, столбцы, chart, bar.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+      "description": "Столбчатый график.\nПоиск: график, статистика, столбцы, chart, bar chart, stats, uhfabr\nLegacy: ic-chart (кнопка графика в таблице воркеров Web App).\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
     },
     {
       "name": "chat",
@@ -116,6 +126,11 @@
       "name": "check",
       "figma": "icon/check",
       "description": "Галочка.\nПоиск: галочка, готово, выбрано, успех, check, done, tick, срусл\nLegacy: ic-check.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+    },
+    {
+      "name": "check-circle",
+      "figma": "icon/check-circle",
+      "description": "Успешно, выполнено.\nПоиск: успешно, готово, галочка в круге, success, done, check circle, ыгссуыы\nLegacy: smbl-status-success.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
     },
     {
       "name": "check-paid",
@@ -130,12 +145,12 @@
     {
       "name": "chevron-left",
       "figma": "icon/chevron-left",
-      "description": "Шеврон влево.\nПоиск: шеврон влево, назад, chevron left, back, срумкщт дуае\nLegacy: ic-chevron-left.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+      "description": "Шеврон влево.\nПоиск: шеврон влево, назад, chevron left, back, срумкщт дуае\nLegacy: ic-chevron-left.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular.\nRTL: зеркалится (направленная иконка)."
     },
     {
       "name": "chevron-right",
       "figma": "icon/chevron-right",
-      "description": "Шеврон вправо.\nПоиск: шеврон вправо, перейти, далее, chevron right, next, срумкщт кшпре\nLegacy: ic-chevron-right.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+      "description": "Шеврон вправо.\nПоиск: шеврон вправо, перейти, далее, chevron right, next, срумкщт кшпре\nLegacy: ic-chevron-right.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular.\nRTL: зеркалится (направленная иконка)."
     },
     {
       "name": "chevron-up",
@@ -298,6 +313,11 @@
       "description": "История.\nПоиск: история, время, часы, history, time, clock, ршыещкн\nLegacy: ic-time.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
     },
     {
+      "name": "home",
+      "figma": "icon/home",
+      "description": "Главная.\nПоиск: главная, дашборд, домой, home, dashboard, house, ukfdyfz\nLegacy: ic-home (новая, на основе Lucide house).\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+    },
+    {
       "name": "image",
       "figma": "icon/image",
       "description": "Изображение.\nПоиск: изображение, картинка, фото, image, picture, photo, шьфпу\nLegacy: ic-image.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
@@ -335,7 +355,7 @@
     {
       "name": "list",
       "figma": "icon/list",
-      "description": "Список.\nПоиск: список, перечень, строки, list, дшые\nLegacy: ic-list.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+      "description": "Список.\nПоиск: список, перечень, строки, list, дшые\nLegacy: ic-list.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular.\nRTL: зеркалится (направленная иконка)."
     },
     {
       "name": "lock",
@@ -460,7 +480,7 @@
     {
       "name": "send",
       "figma": "icon/send",
-      "description": "Отправить.\nПоиск: отправить, перевод, вывод, send, transfer, ыутв\nLegacy: ic-send.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+      "description": "Отправить.\nПоиск: отправить, перевод, вывод, send, transfer, ыутв\nLegacy: ic-send.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular.\nRTL: зеркалится (направленная иконка)."
     },
     {
       "name": "settings",
@@ -476,36 +496,6 @@
       "name": "shield-check",
       "figma": "icon/shield-check",
       "description": "Защищено.\nПоиск: защищено, безопасность, проверено, shield check, secured, ыршудв\nLegacy: ic-shield-check.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
-    },
-    {
-      "name": "social-instagram",
-      "figma": "icon/social/instagram",
-      "description": "Instagram.\nПоиск: instagram, инстаграм, штыефпкфь\nSource: Remix Icon (Apache 2.0), instagram.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
-    },
-    {
-      "name": "social-linkedin",
-      "figma": "icon/social/linkedin",
-      "description": "LinkedIn.\nПоиск: linkedin, линкедин, дштлувшт\nSource: Remix Icon (Apache 2.0), linkedin.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
-    },
-    {
-      "name": "social-telegram",
-      "figma": "icon/social/telegram",
-      "description": "Telegram.\nПоиск: telegram, телеграм, тг, еудупкфь\nSource: Remix Icon (Apache 2.0), telegram.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
-    },
-    {
-      "name": "social-vk",
-      "figma": "icon/social/vk",
-      "description": "ВКонтакте.\nПоиск: вконтакте, вк, vk, vkontakte, мл\nSource: Remix Icon (Apache 2.0), vk.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
-    },
-    {
-      "name": "social-x",
-      "figma": "icon/social/x",
-      "description": "X (Twitter).\nПоиск: x, twitter, твиттер, икс\nSource: Remix Icon (Apache 2.0), x.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
-    },
-    {
-      "name": "social-youtube",
-      "figma": "icon/social/youtube",
-      "description": "YouTube.\nПоиск: youtube, ютуб, видео, нщгегиу\nSource: Remix Icon (Apache 2.0), youtube.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
     },
     {
       "name": "sort",
@@ -536,16 +526,6 @@
       "name": "stop",
       "figma": "icon/stop",
       "description": "Запрет.\nПоиск: запрет, нельзя, стоп, stop, forbidden, ban, ыещз\nLegacy: ic-stop.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
-    },
-    {
-      "name": "store-apple",
-      "figma": "icon/store/apple",
-      "description": "App Store.\nПоиск: app store, эпл, ios, apple, фзз ыещку\nSource: Remix Icon (Apache 2.0), apple.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
-    },
-    {
-      "name": "store-google-play",
-      "figma": "icon/store/google-play",
-      "description": "Google Play.\nПоиск: google play, андроид, гугл плей, android, пщщпду здфн\nSource: Remix Icon (Apache 2.0), google-play.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
     },
     {
       "name": "suitcase",

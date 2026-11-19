@@ -1,5 +1,5 @@
 <svg class="ds-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="10" cy="15.1471" r="0.75" transform="rotate(90 10 15.1471)" stroke="currentColor" stroke-width="0.705882" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-<circle cx="10" cy="9.99999" r="0.75" transform="rotate(90 10 9.99999)" stroke="currentColor" stroke-width="0.705882" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-<circle cx="10" cy="4.85294" r="0.75" transform="rotate(90 10 4.85294)" stroke="currentColor" stroke-width="0.705882" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+<path d="M10 10.8333C10.4602 10.8333 10.8333 10.4602 10.8333 10C10.8333 9.53977 10.4602 9.16667 10 9.16667C9.53977 9.16667 9.16667 9.53977 9.16667 10C9.16667 10.4602 9.53977 10.8333 10 10.8333Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+<path d="M10 4.99999C10.4602 4.99999 10.8333 4.6269 10.8333 4.16666C10.8333 3.70642 10.4602 3.33333 10 3.33333C9.53977 3.33333 9.16667 3.70642 9.16667 4.16666C9.16667 4.6269 9.53977 4.99999 10 4.99999Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+<path d="M10 16.6667C10.4602 16.6667 10.8333 16.2936 10.8333 15.8333C10.8333 15.3731 10.4602 15 10 15C9.53977 15 9.16667 15.3731 9.16667 15.8333C9.16667 16.2936 9.53977 16.6667 10 16.6667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
 </svg>
