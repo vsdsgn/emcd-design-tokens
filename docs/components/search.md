@@ -62,7 +62,7 @@
 
 ## 12. Figma projection
 - Набор `Search`, вариантов 10 из 10; оси: Size, State.
-- Борда: шаблона v3 нет.
+- Борда: «Search — борда · шаблон v3», разделов 6.
 - Описание: 1026 знаков, разделы: Status: Level: Search — Когда использовать: Правила: A11y:
 
 ## 13. Code projection
@@ -76,7 +76,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - SERVICE: нет кольца фокуса, зоны нажатия, безопасного поля
-  - BOARD: нет борды v3
 
 ## 15. Migration
 - Legacy: не указано в описании набора — искать в `docs/migration/components.csv`, DS Web / App и продуктах

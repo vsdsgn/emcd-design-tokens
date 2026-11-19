@@ -85,5 +85,14 @@ for (const p of manifest.pages) for (const b of p.boards || []) {
   fs.writeFileSync(`${out}/${b.id.replace(':', '-')}.json`, JSON.stringify(D));
   done.push(`${b.id} ${bname} · наборов ${sets.length} · ${sets[0].status}`);
 }
+// Новая борда: набор из --only без борды v3, но с контрактом (черновики) — данные без D.board, генератор ставит борду справа от содержимого страницы. Файл — new-<id набора>.json.
+const withBoard = new Set(manifest.pages.flatMap((p) => (p.boards || []).filter((b) => b.v3).map((b) => b.name.replace(/ — борда.*/, ''))));
+if (only) for (const p of manifest.pages) for (const s of p.sets) {
+  if (!only.has(s.name) || withBoard.has(s.name)) continue;
+  const c = parse(s.name); if (!c) { skipped.push(`${s.name}: контракта нет`); continue; }
+  const D = { boardName: `${s.name} — борда · шаблон v3`, pageId: p.pageId, page: p.page, name: s.name, generated: manifest.generated, sets: [{ id: s.id, name: s.name, ...c, codeName: `Ds${pascal(s.name)}` }], usedIn: (usedIn[s.name] || []).filter((x) => x.name !== s.name).slice(0, 4) };
+  fs.writeFileSync(`${out}/new-${s.id.replace(':', '-')}.json`, JSON.stringify(D));
+  done.push(`новая ${s.name} · ${c.status}`);
+}
 console.log(done.join('\n'));
 if (skipped.length) console.log('ПРОПУЩЕНО:\n' + skipped.join('\n'));

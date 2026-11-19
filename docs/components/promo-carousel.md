@@ -55,7 +55,7 @@
 
 ## 12. Figma projection
 - Компонент `Promo carousel`; оси: нет.
-- Борда: шаблона v3 нет.
+- Борда: «Promo carousel — борда · шаблон v3», разделов 9.
 - Описание: 729 знаков, разделы: Status: Level: Правила: Когда нет: A11y: Поиск:
 
 ## 13. Code projection
@@ -68,7 +68,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:
-  - BOARD: нет борды v3
 
 ## 15. Migration
 - Legacy: App «Дашборд» — баннеры-карусель с точками

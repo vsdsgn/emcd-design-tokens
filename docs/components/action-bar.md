@@ -54,7 +54,7 @@
 
 ## 12. Figma projection
 - Набор `Action bar`, вариантов 2 из 2; оси: Actions.
-- Борда: шаблона v3 нет.
+- Борда: «Action bar — борда · шаблон v3», разделов 9.
 - Описание: 839 знаков, разделы: Status: Level: Actions: Правила: Когда нет: Поиск:
 
 ## 13. Code projection
@@ -67,7 +67,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, A11y:
-  - BOARD: нет борды v3
 
 ## 15. Migration
 - Legacy: мобильный веб «Воркеры», «История» — нижние кнопки

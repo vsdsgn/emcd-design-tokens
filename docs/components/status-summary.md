@@ -63,7 +63,7 @@
 
 ## 12. Figma projection
 - Набор `Status summary`, вариантов 2 из 2; оси: Layout.
-- Борда: шаблона v3 нет.
+- Борда: «Status summary — борда · шаблон v3», разделов 9.
 - Описание: 685 знаков, разделы: Status: Level: Layout: Правила: Когда нет: Поиск:
 
 ## 13. Code projection
@@ -76,7 +76,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:, A11y:
-  - BOARD: нет борды v3
 
 ## 15. Migration
 - Legacy: Web App «Дашборд» — плитки статусов справа от графика; мобильный веб — ряд плиток
