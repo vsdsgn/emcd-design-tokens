@@ -95,7 +95,7 @@
 - Описание: 1016 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены: Title —
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsTooltipTour>`; Flutter: `DsTooltipTour`.
 - Props: `placement`: top | bottom; `tone`: neutral | accent; `step`: string или слот; `title`: string или слот; `description`: string или слот; `showStep`: boolean = true; `showSkip`: boolean = true.

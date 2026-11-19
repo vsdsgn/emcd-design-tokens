@@ -70,7 +70,7 @@
 - Описание: 1034 знаков, разделы: Status: Level: Когда использовать: Default — A11y: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsScrollbar>`; Flutter: `DsScrollbar`.
 - Props: `orientation`: vertical | horizontal.

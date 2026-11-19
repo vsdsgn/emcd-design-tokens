@@ -101,7 +101,7 @@
 - Описание: 1510 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Suggest`), Vue `packages/vue/src/DsSuggest.vue`, CSS `claude-ds/components/Suggest/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsSuggest>`; Flutter: `DsSuggest`.
 - Props: `layout`: card | strip; `tone`: neutral | accent | success | warning | danger; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `showDescription`: boolean = true; `showLeading`: boolean = true; `primaryAction`: boolean = true; `secondaryAction`: boolean = false; `close`: boolean = true; `leading`: string или слот.

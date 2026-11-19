@@ -97,7 +97,7 @@
 - Описание: 1132 знаков, разделы: Status: Level: Виджет графика: Состояния графика — Когда использовать: A11y: Поиск: Legacy: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsChartCard>`; Flutter: `DsChartCard`.
 - Props: `showBottom`: boolean = true; `top`: string или слот; `content`: string или слот; `bottom`: string или слот.

@@ -84,7 +84,7 @@
 - Описание: 1114 знаков, разделы: Status: Level: Показатель: Когда использовать: Правила: A11y: Подпись и единица —
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsChartMetric>`; Flutter: `DsChartMetric`.
 - Props: `tone`: default | danger | warning | success; `label`: string или слот; `value`: string или слот; `icon`: boolean = false; `unit`: string или слот; `showUnit`: boolean = true.

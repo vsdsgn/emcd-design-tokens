@@ -104,7 +104,7 @@
 - Описание: 4502 знаков, разделы: Status: Level: Кнопка действия. Когда использовать: Матрица: • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted — • Default —
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Button`), Vue `packages/vue/src/DsButton.vue`, CSS `claude-ds/components/Button/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsButton>`; Flutter: `DsButton`.
 - Props: `type`: primary | inverted | tertiary | tertiary-outline | text | secondary; `tone`: default | danger; `size`: s | m | l | xl | xs; `label`: string или слот; `iconLeft`: boolean = false; `iconRight`: boolean = false; `loading`: boolean = false.

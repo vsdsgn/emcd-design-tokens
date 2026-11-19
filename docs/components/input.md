@@ -100,7 +100,7 @@
 - Экземпляров в файле (13.11): 272, у всех первый слой — `Field`; «Show counter без Show helper» — 0.
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Input`), Vue `packages/vue/src/DsInput.vue`, CSS `claude-ds/components/Input/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsInput>`; Flutter: `DsInput`.
 - Props: `size`: m | l; `labelPosition`: on-border | above.

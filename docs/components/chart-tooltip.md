@@ -85,7 +85,7 @@
 - Описание: 714 знаков, разделы: Status: Level: Тултип точки графика: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsChartTooltip>`; Flutter: `DsChartTooltip`.
 - Props: `rows`: 1 | 2 | 3 | 4; `showDate`: boolean = true.

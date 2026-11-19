@@ -100,7 +100,7 @@
 - Описание: 1023 знаков, разделы: Status: Level: Шапка страницы: Size: Правила: A11y: Когда использовать: Поиск: Legacy:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsPageHeader>`; Flutter: `DsPageHeader`.
 - Props: `size`: large | compact; `title`: string или слот; `subtitle`: string или слот; `showSubtitle`: boolean = true; `breadcrumbs`: boolean = false; `showActions`: boolean = true; `showTabs`: boolean = false; `actions`: string или слот; `tabs`: string или слот.

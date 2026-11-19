@@ -108,7 +108,7 @@
 - Описание: 1734 знаков, разделы: Status: Level: Stat card: Правила: Длинный текст: A11y: Когда использовать: Expressive: Поиск: Legacy: Motion: Expressive (привязано):
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`StatCard`), Vue `packages/vue/src/DsStatCard.vue`, CSS `claude-ds/components/StatCard/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsStatCard>`; Flutter: `DsStatCard`.
 - Props: `tone`: neutral | danger | warning | success; `align`: start | center; `label`: string или слот; `value`: string или слот; `unit`: string или слот; `info`: boolean = true; `delta`: boolean = true; `deltaCaption`: string или слот; `showFooter`: boolean = false; `footer`: string или слот; `ambientLight`: boolean = false; `link`: boolean = false.

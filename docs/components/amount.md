@@ -80,7 +80,7 @@
 - Описание: 1781 знаков, разделы: Status: Level: Форматирование — Точность: Знак: Цифры табличные: Fiat — A11y: Когда использовать: Правила: Align (17.
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Amount`), Vue `packages/vue/src/DsAmount.vue`, CSS `claude-ds/components/Amount/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsAmount>`; Flutter: `DsAmount`.
 - Props: `size`: s | m | l | xl; `sign`: none | positive | negative; `align`: start | end; `value`: string или слот; `ticker`: string или слот; `fiat`: string или слот; `showFiat`: boolean = true.

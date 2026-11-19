@@ -109,7 +109,7 @@
 - Описание: 2072 знаков, разделы: Status: Level: Когда использовать: Header: Footer: Body и Footer — Когда нет: A11y: Поиск: Legacy: Motion: Тень:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Modal`), Vue `packages/vue/src/DsModal.vue`, CSS `claude-ds/components/Modal/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsModal>`; Flutter: `DsModal`.
 - Props: `header`: title | coin | empty; `footer`: single | stacked | horizontal | none; `title`: string или слот; `divider`: boolean = false; `showClose`: boolean = true; `headerDescription`: boolean = true; `body`: string или слот; `footerSlot`: string или слот.

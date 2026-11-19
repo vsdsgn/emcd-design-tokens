@@ -75,7 +75,7 @@
 - Описание: 1540 знаков, разделы: Status: Level: Card — Атом-шаблон: Level — Когда использовать: Правила: Legacy: A11y:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Card`), Vue `packages/vue/src/DsCard.vue`, CSS `claude-ds/components/Card/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsCard>`; Flutter: `DsCard`.
 - Props: `level`: 1 | 2 | 3 | 0; `radius`: container | surface | inner; `padding`: s | m | l; `border`: boolean; `content`: string или слот.

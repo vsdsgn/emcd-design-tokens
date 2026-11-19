@@ -76,7 +76,7 @@
 - Описание: 1060 знаков, разделы: Status: Level: Разделитель: Когда использовать: Правила: A11y: Матрица:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Divider`), Vue `packages/vue/src/DsDivider.vue`, CSS `claude-ds/components/Divider/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsDivider>`; Flutter: `DsDivider`.
 - Props: `orientation`: horizontal | vertical; `label`: boolean; `style`: solid | dotted; `labelText`: string или слот.

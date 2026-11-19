@@ -10,6 +10,8 @@
 //   service (служебный «_…», не публикуется) — только из contract-data, без записи — ошибка; template (шаблон экрана,
 //   не Base) — контракта нет.
 import fs from 'node:fs';
+import path from 'node:path';
+const ROOT_CB = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 import { DATA } from './contract-data.mjs';
 import { findings } from './draft-findings.mjs';
 
@@ -71,8 +73,15 @@ function propsBlock(s) {
   return out.join('\n');
 }
 
+const CODE_REACT = new Set([...fs.readFileSync(path.join(ROOT_CB, 'packages/react/src/index.js'), 'utf8').matchAll(/^export (?:const|function) (\w+)/gm)].map((m) => m[1]));
+const CODE_VUE = new Set(fs.existsSync(path.join(ROOT_CB, 'packages/vue/src')) ? fs.readdirSync(path.join(ROOT_CB, 'packages/vue/src')).filter((f) => f.endsWith('.vue')).map((f) => f.slice(0, -4)) : []);
+
 function codeBlock(s, d) {
-  const out = [`Кода нет: DSP, Vue и Flutter недоступны (\`docs/dsp-check-2026-11-12.md\`). Ожидаемый API по правилам имён \`scripts/parity.mjs\` — сверить, когда появится манифест кода.`, ''];
+  const name0 = pascal(s.name);
+  const inRepo = CODE_REACT.has(name0) && CODE_VUE.has('Ds' + name0);
+  const out = [inRepo
+    ? `Код в репо: React \`packages/react/src/index.js\` (\`${name0}\`), Vue \`packages/vue/src/Ds${name0}.vue\`, CSS \`claude-ds/components/${name0}/style.css\`; проверка — \`npm run test:code\`. Прод (DSP / ui-emcd-web, Flutter) — сверка через \`scripts/parity.mjs\`, когда появится манифест кода.`
+    : `Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (\`docs/dsp-check-2026-11-12.md\`). Ожидаемый API по правилам имён \`scripts/parity.mjs\`.`, ''];
   const name = pascal(s.name);
   const props = [];
   for (const [a, v] of Object.entries(s.axes || {})) { if (a === 'State') continue; const bool = v.length <= 2 && v.every((x) => /^(on|off|true|false)$/i.test(x)); props.push(`\`${camel(a)}\`: ${bool ? 'boolean' : v.map(val).join(' | ')}`); }

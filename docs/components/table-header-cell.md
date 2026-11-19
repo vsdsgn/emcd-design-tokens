@@ -97,7 +97,7 @@
 - Описание: 1318 знаков, разделы: Status: Level: Правила: Длинный текст: A11y: Часть Table. Поиск: Legacy: Когда использовать: Матрица: Sortable (18.
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsTableHeaderCell>`; Flutter: `DsTableHeaderCell`.
 - Props: `align`: start | end; `sort`: none | ascending | descending; `label`: string или слот; `showFilter`: boolean = false; `showInfo`: boolean = false; `sortable`: boolean = true.

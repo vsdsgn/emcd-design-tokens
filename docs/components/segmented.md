@@ -86,7 +86,7 @@
 - Описание: 1222 знаков, разделы: Status: Level: Segmented: Когда использовать: Правила: Длинный текст: Уровни: A11y: Поиск: Legacy:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Segmented`), Vue `packages/vue/src/DsSegmented.vue`, CSS `claude-ds/components/Segmented/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsSegmented>`; Flutter: `DsSegmented`.
 - Props: `size`: s | m | l; `items`: 2 | 3 | 4.

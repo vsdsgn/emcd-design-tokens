@@ -63,7 +63,7 @@
 - Описание: 611 знаков, разделы: Status: Level: Служебный: Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsTooltipArrow>`; Flutter: `DsTooltipArrow`.
 - Служебный набор: в публичный API библиотеки не выходит — внутренняя часть родителя.

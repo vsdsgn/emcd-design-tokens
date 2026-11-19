@@ -100,7 +100,7 @@
 - Описание: 1259 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Поиск: Legacy: Motion: Expressive (привязано): Тень: Поверхность —
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsSheet>`; Flutter: `DsSheet`.
 - Props: `title`: string или слот; `showGrabber`: boolean = true; `showClose`: boolean = true; `showFooter`: boolean = true; `headerActions`: string или слот; `body`: string или слот; `footer`: string или слот; `showHeaderActions`: boolean = false.

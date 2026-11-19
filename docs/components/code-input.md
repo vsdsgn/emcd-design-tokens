@@ -90,7 +90,7 @@
 - Описание: 1790 знаков, разделы: Status: Level: Ввод одноразового кода: Основа — Поведение (для кода): Движение: A11y: Хаптик: Поиск: Legacy: Когда использовать: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsCodeInput>`; Flutter: `DsCodeInput`.
 - Props: `length`: 4 | 6; `message`: string или слот; `showMessage`: boolean = true.

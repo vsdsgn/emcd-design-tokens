@@ -68,7 +68,7 @@
 - Описание: 770 знаков, разделы: Status: Level: Зона загрузки файла: На Compact — A11y: Когда использовать: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsFileUpload>`; Flutter: `DsFileUpload`.
 - Props: нет.

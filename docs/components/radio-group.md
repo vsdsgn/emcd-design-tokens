@@ -96,7 +96,7 @@
 - Описание: 1312 знаков, разделы: Status: Level: Radio group: • Direction: • Error — • M: Когда использовать: Правила: A11y: Show label = Off —
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`RadioGroup`), Vue `packages/vue/src/DsRadioGroup.vue`, CSS `claude-ds/components/RadioGroup/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsRadioGroup>`; Flutter: `DsRadioGroup`.
 - Props: `direction`: vertical | horizontal; `size`: m | s; `showLabel`: boolean = true; `showHelper`: boolean = true; `label`: string или слот; `helper`: string или слот.

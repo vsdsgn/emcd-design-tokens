@@ -84,7 +84,7 @@
 - Описание: 922 знаков, разделы: Status: Level: Progress: Когда использовать: Правила: A11y: Поиск: Legacy: Motion:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Progress`), Vue `packages/vue/src/DsProgress.vue`, CSS `claude-ds/components/Progress/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsProgress>`; Flutter: `DsProgress`.
 - Props: `size`: s | m; `tone`: accent | success | warning | danger; `mode`: determinate | indeterminate; `label`: string или слот; `value`: string или слот; `showLabel`: boolean = true.

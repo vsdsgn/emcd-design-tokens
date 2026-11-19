@@ -92,7 +92,7 @@
 - Описание: 1402 знаков, разделы: Status: Level: Таб: Когда использовать: Правила: Матрица: Overflow: A11y: Поиск: Legacy: Status dot (18.
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Tab`), Vue `packages/vue/src/DsTab.vue`, CSS `claude-ds/components/Tab/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTab>`; Flutter: `DsTab`.
 - Props: `size`: m | l | page | s; `selected`: boolean; `label`: string или слот; `counter`: boolean = false; `icon`: boolean = false; `statusDot`: boolean = false.

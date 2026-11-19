@@ -95,7 +95,7 @@
 - Экземпляров в файле (13.11): 152; значения свойств перенесены у 72; обрезаний родительскими рамками — 0; «Show counter без Show helper» — 0.
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Textarea`), Vue `packages/vue/src/DsTextarea.vue`, CSS `claude-ds/components/Textarea/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTextarea>`; Flutter: `DsTextarea`.
 - Props: `size`: m | l; `labelPosition`: above.

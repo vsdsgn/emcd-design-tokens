@@ -95,7 +95,7 @@
 - Описание: 1258 знаков, разделы: Status: Level: Меню (Dropdown): Когда использовать: Правила: Цвета: A11y: Поиск: Legacy: Motion: Expressive (привязано): Тень:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Menu`), Vue `packages/vue/src/DsMenu.vue`, CSS `claude-ds/components/Menu/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsMenu>`; Flutter: `DsMenu`.
 - Props: `size`: m | l; `items`: string или слот; `search`: boolean = false.

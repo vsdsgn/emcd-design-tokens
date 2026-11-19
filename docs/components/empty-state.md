@@ -97,7 +97,7 @@
 - Описание: 1286 знаков, разделы: Status: Level: Empty state: Когда использовать: Правила: A11y: Поиск: Legacy: Матрица:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsEmptyState>`; Flutter: `DsEmptyState`.
 - Props: `size`: l | m | s; `layout`: horizontal | vertical; `title`: string или слот; `text`: string или слот; `showText`: boolean = true; `showIllustration`: boolean = true; `showActions`: boolean = true; `illustration`: string или слот; `actions`: string или слот; `dashedBackground`: boolean = false.

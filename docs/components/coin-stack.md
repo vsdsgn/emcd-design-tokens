@@ -77,7 +77,7 @@
 - Описание: 496 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsCoinStack>`; Flutter: `DsCoinStack`.
 - Props: `size`: s | m | l; `count`: 2 | 3 | 4; `showMore`: boolean = false; `more`: string или слот.

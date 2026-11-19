@@ -91,7 +91,7 @@
 - Описание: 2646 знаков, разделы: Status: Level: Кнопка-иконка: Когда использовать: Матрица: • Ghost — • Primary — • Secondary — • Text — • Inverted — Квадрат: A11y:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`IconButton`), Vue `packages/vue/src/DsIconButton.vue`, CSS `claude-ds/components/IconButton/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsIconButton>`; Flutter: `DsIconButton`.
 - Props: `type`: primary | secondary | tertiary | tertiary-outline | ghost | text | inverted; `tone`: default | danger; `size`: s | m | l | xs; `loading`: boolean; `label`: string или слот.

@@ -64,7 +64,7 @@
 - Описание: 558 знаков, разделы: Status: Level: Когда использовать: A11y: Правила: Матрица:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsStepProgress>`; Flutter: `DsStepProgress`.
 - Props: `count`: 3 | 4 | 5 | 6 | 7; `step`: 1 | 2 | 3 | 4 | 5 | 6 | 7.

@@ -76,7 +76,7 @@
 - Описание: 1142 знаков, разделы: Status: Level: Side panel: Когда использовать: Правила: A11y: Поиск: Legacy: Motion: Expressive (привязано): Тень:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsSidePanel>`; Flutter: `DsSidePanel`.
 - Props: `size`: m | l; `title`: string или слот; `showClose`: boolean = true; `showFooter`: boolean = true; `headerActions`: string или слот; `body`: string или слот; `footer`: string или слот; `showHeaderActions`: boolean = false.

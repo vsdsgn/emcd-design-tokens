@@ -101,7 +101,7 @@
 - Описание: 1037 знаков, разделы: Status: Level: Когда нет: A11y: Когда использовать: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`PasswordField`), Vue `packages/vue/src/DsPasswordField.vue`, CSS `claude-ds/components/PasswordField/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsPasswordField>`; Flutter: `DsPasswordField`.
 - Props: `showRequirements`: boolean = true.

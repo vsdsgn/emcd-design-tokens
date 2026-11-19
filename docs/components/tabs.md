@@ -91,7 +91,7 @@
 - Описание: 1113 знаков, разделы: Status: Level: Бар табов. Правила: Когда использовать: Хаптик: Поиск: Legacy: A11y:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Tabs`), Vue `packages/vue/src/DsTabs.vue`, CSS `claude-ds/components/Tabs/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTabs>`; Flutter: `DsTabs`.
 - Props: `size`: m | l | page | s; `tab3`: boolean = true; `tab4`: boolean = true; `tab5`: boolean = false; `tab6`: boolean = false.

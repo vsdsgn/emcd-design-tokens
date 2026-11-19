@@ -98,7 +98,7 @@
 - Описание: 925 знаков, разделы: Status: Level: Выбираемая карточка: Когда использовать: Правила: A11y: Legacy: Токены:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsRadioCard>`; Flutter: `DsRadioCard`.
 - Props: `status`: boolean; `label`: string или слот; `details`: string или слот; `showDetails`: boolean = true.

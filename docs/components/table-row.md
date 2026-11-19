@@ -100,7 +100,7 @@
 - Описание: 1478 знаков, разделы: Status: Level: Строка таблицы: Density: State: Колонки: A11y: Часть Table. Поиск: Legacy: Когда использовать: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsTableRow>`; Flutter: `DsTableRow`.
 - Props: `density`: compact | regular; `selected`: boolean.

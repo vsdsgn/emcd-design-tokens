@@ -76,7 +76,7 @@
 - Описание: 958 знаков, разделы: Status: Level: Круговой прогресс: S 24 — A11y: Поиск: Legacy: Motion: Когда использовать: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsProgressCircle>`; Flutter: `DsProgressCircle`.
 - Props: `size`: s | m | l; `value`: string или слот.

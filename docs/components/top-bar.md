@@ -72,7 +72,7 @@
 - Описание: 846 знаков, разделы: Status: Level: Под ней — Platform: Правила: Поиск:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsTopBar>`; Flutter: `DsTopBar`.
 - Props: `platform`: mobile-web; `logo`: string или слот; `account`: string или слот; `balance`: string или слот; `cents`: string или слот; `showBalance`: boolean = true.

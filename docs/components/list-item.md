@@ -82,7 +82,7 @@
 - Описание: 1567 знаков, разделы: Status: Level: Code: Строка списка: Size: Суммы — A11y: Когда использовать: Поиск: Legacy: Кольцо фокуса: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`ListItem`), Vue `packages/vue/src/DsListItem.vue`, CSS `claude-ds/components/ListItem/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsListItem>`; Flutter: `DsListItem`.
 - Props: `size`: l | m; `content`: text-first | description-first | big-value | description-only.

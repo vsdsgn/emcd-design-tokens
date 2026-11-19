@@ -79,7 +79,7 @@
 - Описание: 929 знаков, разделы: Status: Level: Когда использовать: Pages — Prev/next — A11y: Хаптик: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsPagination>`; Flutter: `DsPagination`.
 - Props: `type`: pages | compact; `size`: s | m.

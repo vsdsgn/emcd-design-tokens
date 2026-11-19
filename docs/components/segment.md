@@ -85,7 +85,7 @@
 - Описание: 994 знаков, разделы: Status: Level: Сегмент — Tone: Только внутри Segmented. Поиск: Legacy: Когда использовать: Правила: Длинный текст: Матрица: A11y:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Segment`), Vue `packages/vue/src/DsSegment.vue`, CSS `claude-ds/components/Segment/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsSegment>`; Flutter: `DsSegment`.
 - Props: `size`: s | m | l; `selected`: boolean; `tone`: neutral | accent; `label`: string или слот; `showLabel`: boolean = true; `icon`: boolean = false.

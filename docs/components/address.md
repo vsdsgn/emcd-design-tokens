@@ -85,7 +85,7 @@
 - Описание: 1184 знаков, разделы: Status: Level: Short — Копировать — Когда нет: A11y: Формат адреса: Когда использовать: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsAddress>`; Flutter: `DsAddress`.
 - Props: `format`: short | full; `showQR`: boolean = true.

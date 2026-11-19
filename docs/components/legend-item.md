@@ -100,7 +100,7 @@
 - Описание: 1148 знаков, разделы: Status: Level: Элемент легенды графика: State как у legacy . Правила: A11y: Когда использовать: Поиск: Legacy: Матрица:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsLegendItem>`; Flutter: `DsLegendItem`.
 - Props: `selected`: boolean; `label`: string или слот; `value`: string или слот; `showValue`: boolean = false.

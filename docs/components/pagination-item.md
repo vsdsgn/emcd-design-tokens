@@ -82,7 +82,7 @@
 - Описание: 825 знаков, разделы: Status: Level: A11y: Когда использовать: Правила: Матрица: Legacy:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsPaginationItem>`; Flutter: `DsPaginationItem`.
 - Props: `size`: s | m; `selected`: boolean; `page`: string или слот.

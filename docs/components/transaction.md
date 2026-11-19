@@ -82,7 +82,7 @@
 - Описание: 1124 знаков, разделы: Status: Level: Когда нет: State: A11y: Когда использовать: Правила:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Transaction`), Vue `packages/vue/src/DsTransaction.vue`, CSS `claude-ds/components/Transaction/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTransaction>`; Flutter: `DsTransaction`.
 - Props: `type`: withdrawal | deposit | reward | exchange; `status`: completed | pending | failed.

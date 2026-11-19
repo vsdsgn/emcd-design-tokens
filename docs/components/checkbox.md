@@ -77,7 +77,7 @@
 - Свойства Label, Description, Show label, Show description, Show hit area, Safe margin — на вложенном слое `_Selection control`; Focus ring — на глифе контрола. Растянул контрол по ширине — слою `_Selection control` поставить Fill.
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Checkbox`), Vue `packages/vue/src/DsCheckbox.vue`, CSS `claude-ds/components/Checkbox/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsCheckbox>`; Flutter: `DsCheckbox`.
 - Props: `status`: off | on | indeterminate; `tone`: default | danger; `size`: m | s; `controlPosition`: start | end.

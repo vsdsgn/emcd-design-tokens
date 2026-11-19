@@ -99,7 +99,7 @@
 - Описание: 1289 знаков, разделы: Status: Level: Когда использовать: Icon — Позиция: A11y: Тень: Правила: Матрица: Legacy: Свойства (17.
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsFloatingButton>`; Flutter: `DsFloatingButton`.
 - Props: `layout`: icon | extended; `loading`: boolean; `label`: string или слот.

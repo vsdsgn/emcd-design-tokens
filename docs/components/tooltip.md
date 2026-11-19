@@ -84,7 +84,7 @@
 - Описание: 4197 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: • Пояснение термина: • Приложение и касание — • Ошибки формы — • Пузырь: • Neutral — • Placement — • Arrow —
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Tooltip`), Vue `packages/vue/src/DsTooltip.vue`, CSS `claude-ds/components/Tooltip/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTooltip>`; Flutter: `DsTooltip`.
 - Props: `placement`: top | bottom | start | end; `tone`: neutral | accent; `arrow`: center | start | end; `text`: string или слот.

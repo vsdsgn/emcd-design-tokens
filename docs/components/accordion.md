@@ -96,7 +96,7 @@
 - Описание: 1384 знаков, разделы: Status: Level: Аккордеон: Движение: A11y: Когда использовать: Motion: Поиск: Legacy: Правила: Длинный текст:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsAccordion>`; Flutter: `DsAccordion`.
 - Props: `size`: l | m; `open`: boolean; `label`: string или слот; `divider`: boolean = true; `content`: string или слот.

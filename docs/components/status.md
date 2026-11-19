@@ -71,7 +71,7 @@
 - Описание: 818 знаков, разделы: Status: Level: Статус: Когда использовать: Правила тона: S — A11y: Поиск: Legacy:
 
 ## 13. Code projection
-Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
+Код в репо: React `packages/react/src/index.js` (`Status`), Vue `packages/vue/src/DsStatus.vue`, CSS `claude-ds/components/Status/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsStatus>`; Flutter: `DsStatus`.
 - Props: `size`: s | m; `tone`: success | warning | danger | info | neutral; `label`: string или слот; `showLabel`: boolean = true.
