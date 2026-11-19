@@ -960,18 +960,18 @@ export function ChartPlot({ type = 'bars', series = [], labels = [], xTicks = 6,
   h('div', { className: 'emcd-chart-plot__x-row', 'aria-hidden': true }, !skeleton && !empty && xl));
 }
 
-/** Chart card — виджет графика: Top (Chart metric × 1–3 + период — ряд Chip, выбранный белый), Content (Chart plot — children), Bottom (легенда Legend item + итог sum).
+/** Chart card — виджет графика: Top (Chart metric × 1–3 + период — ряд Chip, выбранный белый; в конце Top — легенда над графиком), Content (Chart plot — children), Bottom — итог за период (sum).
  *  metrics: [{ label, value, unit, icon, tone }]; periods: [{ value, label }] — период (без period — неуправляемый, onPeriodChange(value)); periodSize: s (Web) | m (Compact).
- *  legend: [{ label, series, marker, value, showValue }]; showBottom=false — без легенды и итога. top / bottom — свои узлы вместо собранных. label — имя группы. */
+ *  legend: [{ label, series, marker, value, showValue }] — над графиком (19.11, по продукту); showBottom=false — без итога. top / bottom — свои узлы вместо собранных. label — имя группы. */
 export function ChartCard({ label, metrics = [], periods, period, defaultPeriod, onPeriodChange, periodSize = 's', periodLabel = 'Период', legend = [], sum, showBottom = true, top, bottom, children, content, className, ...rest }) {
   const [cur, set] = useControllable(period, defaultPeriod ?? (periods && periods[0] ? periods[0].value : undefined), onPeriodChange);
-  const topNode = top ?? ((metrics.length || periods) ? h('div', { className: 'emcd-chart-card__top' },
+  const headNode = (metrics.length || periods) ? h('div', { className: 'emcd-chart-card__top' },
     metrics.length > 0 && h('div', { className: 'emcd-chart-card__metrics' }, metrics.map((m, i) => h(ChartMetric, { key: i, ...m }))),
     periods && h('div', { className: cx('emcd-chart-card__periods', periodSize === 'm' && 'emcd-chart-card__periods--m'), role: 'group', 'aria-label': periodLabel },
-      periods.map((p) => h(Chip, { key: p.value, size: periodSize, label: p.label, selected: p.value === cur, onClick: (e) => set(p.value, e) })))) : null);
-  const bottomNode = bottom ?? ((legend.length || sum != null) ? h('div', { className: 'emcd-chart-card__bottom' },
-    legend.length > 0 && h('ul', { className: 'emcd-legend' }, legend.map((l, i) => h('li', { key: i }, h(LegendItem, { ...l })))),
-    sum != null && h('span', { className: 'emcd-chart-card__sum' }, sum)) : null);
+      periods.map((p) => h(Chip, { key: p.value, size: periodSize, label: p.label, selected: p.value === cur, onClick: (e) => set(p.value, e) })))) : null;
+  const legendNode = legend.length > 0 ? h('ul', { className: 'emcd-legend emcd-chart-card__legend' }, legend.map((l, i) => h('li', { key: i }, h(LegendItem, { ...l })))) : null;
+  const topNode = top ?? ((headNode || legendNode) ? h('div', { className: 'emcd-chart-card__head' }, headNode, legendNode) : null);
+  const bottomNode = bottom ?? (sum != null ? h('div', { className: 'emcd-chart-card__bottom' }, h('span', { className: 'emcd-chart-card__sum' }, sum)) : null);
   return h('section', { role: 'group', 'aria-label': label, className: cx('emcd-chart-card', className), ...rest },
     topNode, h('div', { className: 'emcd-chart-card__content' }, children ?? content), showBottom && bottomNode);
 }

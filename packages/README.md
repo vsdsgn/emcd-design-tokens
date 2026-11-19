@@ -41,7 +41,7 @@ Vue: `import { DsButton } from '…/packages/vue/src'` → `<DsButton type="prim
 | Chip | Selected — белая инверсная плашка, Meta `text-inverse-secondary`, слой состояний обычный; `statusDot` + `statusTone`; Disabled — без подложки |
 | Tab / Tabs | `size`: `page` вместо `xl` (64, heading-md Medium); `statusDot` + `statusTone`; Counter — квадрат |
 | Status | точка 6 у S и M; подпись Medium, `text-primary`; общая точка `.emcd-dot` для Tab и Chip |
-| Amount | S 12 / M 14 — шрифт текста с табличными цифрами (моно снято); L — `heading-xl` Bold, тикер того же кегля Medium; XL — display; `align` start · end |
+| Amount | S 12 / M 14 — шрифт текста с табличными цифрами (моно снято); L — `heading-lg` (Web 24, Compact 20) Bold, тикер того же кегля Medium; XL — display; `align` start · end |
 | Stat card | `tone` neutral · danger · warning · success; `align` start · center (поля 4 / 32); `link` + `onLink` (Icon button XS: Danger — Secondary Danger, иначе Tertiary); min-width снят |
 | Suggest | Strip — `radius-inner`, без иконки (если не передан `leading`), заголовок label-md цвета тона, крестик в строке |
 | List item | `showDescription` (по умолчанию true) |
