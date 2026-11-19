@@ -9,14 +9,14 @@
 - Figma: Components, страница «Top bar» (`2312:2`), набор `2312:35`.
 
 ## 2. Intent
-- Верхняя панель корневых экранов: Platform Mobile web — слот Logo, аккаунт (имя + шеврон), баланс (копейки text/tertiary) и Icon button «Меню»; App (19.11) — Select compact аккаунта (без leading) в начале, Select compact монеты (Coin stack) и Icon button Secondary M «+» («Подключить») в конце, без логотипа, баланса и меню; высота 56, поля 8 / 16, зазор App 8. Код: `platform` mobile-web · app; App — `account`, `coin` / `coins`, `onAdd`.
+- Верхняя панель корневых экранов: Platform Mobile web — слот Logo (по умолчанию — Logo · Network=EMCD, Style=Mono, 24), аккаунт (имя + шеврон), баланс (копейки text/tertiary) и Icon button «Меню»; App (19.11) — Select compact аккаунта (без leading) в начале, Select compact монеты (Coin stack) и Icon button Tertiary M «+» («Подключить») в конце, без логотипа, баланса и меню; высота 56, поля 8 / 16, зазор App 8. Код: `platform` mobile-web · app; App — `account`, `coin` / `coins`, `onAdd`.
 - Когда использовать: корневые экраны мобильного веба и App, над Tabs M разделов
 - Когда нет: Web — Sidebar + шапка страницы
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `logo (placeholder)`, `account`, `account name`, `balance`, `cents`, `menu`, `end`, `coin`, `add`.
-- Вложено: иконки ×2, `Icon button` ×2, `Select compact` ×2.
+- Слои с токенами: `account`, `account name`, `balance`, `cents`, `menu`, `end`, `coin`, `add`.
+- Вложено: `Logo` ×1, иконки ×2, `Icon button` ×2, `Select compact` ×2.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -55,7 +55,6 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `surface/level-0`; интервал `space/12`, `space/8`; отступы `space/16`, `space/8`.
-- `logo (placeholder)`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
 - `account`: заливка / цвет `action/secondary/default`; интервал `space/16`, `space/4`; высота `size/row/compact`; maxw `size/select-compact/max`; отступы `space/8`; радиус `radius/control-sm`.
 - `account name`: заливка / цвет `text/primary`; типографика `type/label/lg`.
 - `balance`: заливка / цвет `text/primary`; типографика `type/label/lg`; интервал `space/4`.
@@ -72,7 +71,7 @@
 ## 12. Figma projection
 - Набор `Top bar`, вариантов 2 из 2; оси: Platform.
 - Борда: «Top bar — борда · шаблон v3», разделов 9.
-- Описание: 943 знаков, разделы: Status: Level: Под ней — Platform: Правила: Поиск:
+- Описание: 994 знаков, разделы: Status: Level: Под ней — Platform: Правила: Поиск:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`TopBar`), Vue `packages/vue/src/DsTopBar.vue`, CSS `claude-ds/components/TopBar/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.

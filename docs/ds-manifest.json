@@ -12391,7 +12391,7 @@
      "id": "65:105",
      "type": "SET",
      "status": "beta",
-     "descLen": 1119,
+     "descLen": 1175,
      "descHeads": [
       "Status:",
       "Level:",
@@ -14121,7 +14121,7 @@
      "id": "2312:35",
      "type": "SET",
      "status": "draft",
-     "descLen": 943,
+     "descLen": 994,
      "descHeads": [
       "Status:",
       "Level:",
@@ -14171,6 +14171,7 @@
       }
      ],
      "nested": {
+      "Logo": 1,
       "(icons)": 2,
       "Icon button": 2,
       "Select compact": 2
@@ -14195,13 +14196,6 @@
        "gap:space/8",
        "p:space/16",
        "p:space/8"
-      ],
-      "logo (placeholder)": [
-       "f:text/primary",
-       "fontFamily:font/family/display",
-       "fontSize:type/heading/lg/size",
-       "fontWeight:font-weight/bold",
-       "lineHeight:type/heading/lg/line-height"
       ],
       "account": [
        "f:action/secondary/default",

@@ -13,6 +13,7 @@
 - Когда использовать: основные разделы продукта на Compact, 3–5 пунктов.
 - Когда нет: подразделы экрана — Tabs; больше 5 разделов — пятый пункт «Ещё» со списком.
 - Правило выбора варианта:
+  - Знак Action (19.11): в Icon · swap — Logo · Network=EMCD, Style=Mono (в предпочтительных значениях свойства; по умолчанию у набора — dots-grid, общий для Item и Action). Цвет — `icon/primary`, на плашке `action/secondary/default`. В коде `type: 'action'` без `icon` — `logo-emcd`.
   - Type (19.11): Item — раздел; Action — центральная мультикнопка App («E» → шит быстрых действий): плашка 56 × 40 `action/secondary/default` с обводкой `border/accent`, иконка или логотип без подписи; одна на Tab bar, по центру, без Selected
   - Selected=On — текущий раздел (`icon/accent` + `text/accent`); Off — `text/secondary`.
   - Badge dot — в разделе есть то, что требует действия; число не показываем.
@@ -83,7 +84,7 @@
 ## 12. Figma projection
 - Набор `Tab bar item`, вариантов 6 из 8; оси: Selected, State, Type.
 - Борда: «Tab bar item — борда · шаблон v3», разделов 12.
-- Описание: 1119 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Хаптик: Поиск: Legacy: Disabled не используется: Type (19.
+- Описание: 1175 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Хаптик: Поиск: Legacy: Disabled не используется: Type (19.
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`TabBarItem`), Vue `packages/vue/src/DsTabBarItem.vue`, CSS `claude-ds/components/TabBarItem/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.

@@ -1398,7 +1398,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-top-bar { display: flex; align-items: center; gap: var(--space-12, 12px); box-sizing: border-box; width: 100%; min-height: calc(var(--control-height-md, 40px) + 2 * var(--space-8, 8px));
   padding: var(--space-8, 8px) var(--space-16, 16px); background: var(--surface-level-0); color: var(--text-primary); }
 .emcd-top-bar__logo { display: inline-flex; align-items: center; flex: none; font: 700 var(--type-heading-lg-size, 24px)/var(--type-heading-lg-line-height, 32px) var(--font-display, var(--font-sans)); }
-.emcd-top-bar__logo :is(svg, img) { display: block; height: 20px; width: auto; }
+.emcd-top-bar__logo :is(svg, img) { display: block; height: var(--icon-size-lg, 24px); width: auto; }
 .emcd-top-bar__account, .emcd-top-bar__balance { position: relative; display: inline-flex; align-items: center; gap: var(--space-4, 4px); min-width: 0; padding: 0; margin: 0; border: 0; background: none;
   color: var(--text-primary); font: 500 var(--type-label-lg-size, 16px)/var(--type-label-lg-line-height, 20px) var(--font-sans); cursor: pointer; outline: none; border-radius: var(--radius-xs, 4px); }
 .emcd-top-bar__account:focus-visible, .emcd-top-bar__balance:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); }

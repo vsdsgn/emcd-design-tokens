@@ -285,6 +285,7 @@ export const DATA = [
     use: 'основные разделы продукта на Compact, 3–5 пунктов.',
     dont: 'подразделы экрана — Tabs; больше 5 разделов — пятый пункт «Ещё» со списком.',
     rule: [
+      'Знак Action (19.11): в Icon · swap — Logo · Network=EMCD, Style=Mono (в предпочтительных значениях свойства; по умолчанию у набора — dots-grid, общий для Item и Action). Цвет — `icon/primary`, на плашке `action/secondary/default`. В коде `type: \'action\'` без `icon` — `logo-emcd`.',
       'Type (19.11): Item — раздел; Action — центральная мультикнопка App («E» → шит быстрых действий): плашка 56 × 40 `action/secondary/default` с обводкой `border/accent`, иконка или логотип без подписи; одна на Tab bar, по центру, без Selected','Selected=On — текущий раздел (`icon/accent` + `text/accent`); Off — `text/secondary`.', 'Badge dot — в разделе есть то, что требует действия; число не показываем.', 'Подпись `type/overline` (10) — 17.11, по продукту App (системная норма iOS).'],
     never: 'Disabled (недоступный раздел скрывается); подпись в два слова; число в бейдже.',
     anatomy: ['Корень 72×56 (`size/tab-bar-item/width`, `control/height/xl`): `icon` (замена экземпляра) + `label` (Label/SM) + `badge dot`.', 'Служебные: `state layer`, `focus ring`, зоны, `safe area · outer`.'],
