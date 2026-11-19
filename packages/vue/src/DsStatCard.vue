@@ -3,6 +3,7 @@
 import DsBadge from './DsBadge.vue';
 import DsTooltip from './DsTooltip.vue';
 import DsIconButton from './DsIconButton.vue';
+import DsIcon from './DsIcon.vue';
 defineProps({
   tone: { type: String, default: 'neutral' },        // neutral | danger | warning | success (плитки статусной сводки)
   align: { type: String, default: 'start' },         // start | center (плитки-счётчики статусов)
@@ -43,7 +44,7 @@ defineEmits(['link']);
     </div>
     <div v-if="showFooter && $slots.footer" class="emcd-stat__footer"><slot name="footer" /></div>
     <DsIconButton v-if="link" :type="tone === 'danger' ? 'secondary' : 'tertiary'" :tone="tone === 'danger' ? 'danger' : 'default'" size="xs" :label="linkLabel" class="emcd-stat__link" @click="$emit('link', $event)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <DsIcon name="chevron-right" />
     </DsIconButton>
   </div>
 </template>

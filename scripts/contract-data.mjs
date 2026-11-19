@@ -1531,7 +1531,7 @@ export const DATA = [
     use: 'пункт основной навигации в сайдбаре (Web, Large+).',
     dont: 'переключение внутри страницы — Tabs; в App и на Compact — Tab bar item.',
     rule: [
-      'Подпись — `type/label/lg` (16, 18.11, по продукту: иконка не крупнее подписи); иконка 20',
+      'Подпись — `type/label/lg` (16, 18.11, по продукту: иконка не крупнее подписи); иконка 24 (19.11, по экрану Figma: подпись с x 66 = поле 6 + иконка 24 + зазор 12)',
       'Collapsed: Off — развёрнутый сайдбар (иконка + подпись); On — свёрнутый (только иконка, подпись — в Tooltip справа). Все пункты сайдбара — в одном значении.',
       'Selected=On — текущий раздел, ровно один на сайдбар; у выбранного есть Hover / Pressed.',
       'Icon · swap — обязательна, одна стилистика (Icons). Label — одно-два слова.',
@@ -3590,7 +3590,7 @@ export const DATA = [
       'Collapsed: Off (240) — Large+ по умолчанию; On (72) — Medium или по кнопке «свернуть», подписи пунктов — в Tooltip.',
       'Все Nav item в сайдбаре — в одном значении Collapsed с корнем; Selected — ровно один пункт.',
       'Promo: On — промо-карточка (Promo card) в развёрнутом сайдбаре; при Collapsed=On промо нет.',
-      'Header — `brand` (логотип продукта / бренда, WL подставляет свой; справа язык — Button Secondary XS) и `cta` — Button Primary S на всю ширину («Подключить оборудование»); Footer — настройки и `account` (переключатель профиля). По актуальному сайдбару майнинга из DS Web (17.11); баланс и кнопки CHW — не наши.',
+      'Header — `brand` (логотип продукта / бренда, WL подставляет свой; справа язык — Button Tertiary XS (19.11, по экрану Figma — нейтральная)) и `cta` — Button Primary S на всю ширину («Подключить оборудование»); Footer — настройки и `account` (переключатель профиля). По актуальному сайдбару майнинга из DS Web (17.11); баланс и кнопки CHW — не наши.',
       'Порядок (16.11, по продукту Web App): Header → Nav → Promo card → Footer; промо стоит над профилем, Nav занимает оставшуюся высоту.',
       'Зазор пунктов Nav — `space/2` (17.11, по макету сайдбара).',
     ],
@@ -3598,7 +3598,7 @@ export const DATA = [
     anatomy: [
       'Корень — вертикальный стек, отступ `space/12`, зазор `space/8`, `radius/container`; ширина `size/sidebar/expanded` / `collapsed` (240 / 72), высота 800 — числом (образец).',
       'Поверхность: Expressive — `material/regular/fill` + `material/regular/blur`, кромка `edge/hairline`; Base — непрозрачная поверхность без блюра.',
-      'Header (вертикальный, зазор `space/12`, отступ снизу `space/12`): `brand` — ряд высотой 48 (`logo (placeholder)` — `font/family/display`, `type/heading/lg`, `font-weight/bold`, `text/primary`; `language` — Button Secondary XS), `cta` — Button Primary S.',
+      'Header (вертикальный, зазор `space/12`, отступ снизу `space/12`): `brand` — ряд высотой 48 (`logo (placeholder)` — `font/family/display`, `type/heading/lg`, `font-weight/bold`, `text/primary`; `language` — Button Tertiary XS), `cta` — Button Primary S.',
       '`promo` — Promo card Size=S с картинкой (Show media = On): `surface/level-1`, `radius/container`, отступ `space/16`, обводка `border/subtle`.',
       'Nav (зазор `space/4`): Nav item (`size/row/compact`, `radius/control`); `divider` — линия `border/subtle` между группами.',
       'Footer (зазор `space/4`): Nav item настроек и `account` — ряд (заливка `surface/level-2`, `radius/control`, отступ и зазор `space/8`): Avatar M, имя (`type/label/md`, `text/primary`, усечение), ссылка «Профиль» (`type/label/sm`, `text/accent`), шеврон вниз; при Collapsed=On — только Avatar.',

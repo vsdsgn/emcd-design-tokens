@@ -1,5 +1,5 @@
 <!-- Sidebar — основная навигация Web (Large+), плавающая панель L1. collapsed — рейка 72 (v-model:collapsed + collapsible — кнопка «свернуть», aria-expanded).
-     Header: слот header или logo (слот logo) + language (Button Secondary XS, событие language) + слот cta. Nav: слот nav или items — [{ label, icon, href, selected, counter, badge, badgeLabel, badgeTone } | { divider: true }] (событие navigate(item)).
+     Header: слот header или logo (слот logo) + language (Button Tertiary XS, событие language) + слот cta. Nav: слот nav или items — [{ label, icon, href, selected, counter, badge, badgeLabel, badgeTone } | { divider: true }] (событие navigate(item)).
      promo — показывать слот promo (Promo card S), при collapsed скрыт. Footer: слот footer + account — { name, link, src } (событие account). Контракт: docs/components/sidebar.md -->
 <script setup>
 import DsIcon from './DsIcon.vue';
@@ -30,7 +30,7 @@ const emit = defineEmits(['language', 'navigate', 'account']);
             <DsIcon :name="collapsed ? 'chevron-right' : 'chevron-left'" />
           </DsIconButton>
           <span v-if="!collapsed" class="emcd-sidebar__logo"><slot name="logo">{{ logo }}</slot></span>
-          <DsButton v-if="!collapsed && language" type="secondary" size="xs" :label="language" class="emcd-sidebar__language" @click="emit('language', $event)" />
+          <DsButton v-if="!collapsed && language" type="tertiary" size="xs" :label="language" class="emcd-sidebar__language" @click="emit('language', $event)" />
         </div>
         <div v-if="!collapsed && $slots.cta" class="emcd-sidebar__cta"><slot name="cta" /></div>
       </slot>

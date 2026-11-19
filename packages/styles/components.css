@@ -406,7 +406,7 @@
 .emcd-amount__value { font: var(--fw) var(--fs)/var(--lh) var(--ff); font-variant-numeric: tabular-nums; color: var(--text-primary); }
 .emcd-amount__ticker { font: var(--tfw) var(--tfs)/var(--tlh) var(--font-sans); color: var(--text-secondary); }
 .emcd-amount__fiat { font: 400 var(--ffs)/var(--flh) var(--font-sans); font-variant-numeric: tabular-nums; color: var(--text-secondary); white-space: nowrap; }
-.emcd-amount--m { --fs: var(--type-body-md-size, 14px); --lh: var(--type-body-md-line-height, 20px); }
+.emcd-amount--m { --fs: var(--type-body-md-size, 14px); --lh: var(--type-body-md-line-height, 20px); --ffs: var(--fs); --flh: var(--lh); } /* фиат M — body-md 14, как значение (экран «История» Web 19.11) */
 .emcd-amount--l { --fs: var(--type-heading-lg-size, 24px); --lh: var(--type-heading-lg-line-height, 32px); --fw: 700; --tfw: 500;
   --ffs: var(--type-body-md-size, 14px); --flh: var(--type-body-md-line-height, 20px); }
 .emcd-amount--xl { --fs: var(--type-display-lg-size, 32px); --lh: var(--type-display-lg-line-height, 40px); --ff: var(--font-display, var(--font-sans)); --fw: 700;
@@ -873,7 +873,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 @media (prefers-reduced-motion: reduce) { .emcd-page-dot { transition: none; } }
 
 /* Nav item — 🟡 beta (Figma «🟡 Nav item»: Collapsed × Selected × State; Counter, Badge). Пункт сайдбара Web: высота size/row/compact 36, поля space/6, радиус radius/control,
-   иконка 20 (icon-tertiary) → зазор space/12 → подпись type/label/lg Medium (text-primary). Selected — плашка action/secondary/default + полоса border/accent 2 × 20 слева.
+   иконка 24 (icon-tertiary; 19.11 — по экрану Figma, подпись с x 66) → зазор space/12 → подпись type/label/lg Medium (text-primary). Selected — плашка action/secondary/default + полоса border/accent 2 × 20 слева.
    Hover / Pressed — слой state/layer 6 % / 10 %; Collapsed — квадрат 36, подпись в Tooltip, Counter поверх иконки. */
 .emcd-nav-item { position: relative; display: flex; align-items: center; gap: var(--space-12, 12px); box-sizing: border-box; width: 100%; min-width: 0; height: var(--size-row-compact, 36px);
   padding: 0 var(--space-6, 6px); margin: 0; border: 0; border-radius: var(--radius-control); background: transparent; color: var(--text-primary);
@@ -886,7 +886,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-nav-item:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); }
 .emcd-nav-item::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: max(100%, var(--touch-min, 24px)); }
 .emcd-nav-item__icon { display: inline-flex; flex: none; color: var(--icon-tertiary); }
-.emcd-nav-item__icon svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
+.emcd-nav-item__icon svg { width: 24px; height: 24px; }
 .emcd-nav-item__label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .emcd-nav-item__badge, .emcd-nav-item__counter { flex: none; margin-inline-start: auto; }
 .emcd-nav-item[aria-current="page"] { background: var(--action-secondary-default); }
@@ -1054,6 +1054,11 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 /* Строка шапки — без разделителя и подложки: разделители у строк данных */
 .emcd-table__head { background: none; }
 .emcd-table__caption { padding: 0 0 var(--space-8, 8px); text-align: start; color: var(--text-secondary); font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); }
+/* Compact (< 600, мобильный веб «Воркеры» 19.11, замер экрана Figma): поля ячеек 6, шапка label-sm — 4 колонки помещаются в 343 без усечения */
+@media (max-width: 37.49em) {
+  .emcd-table :is(.emcd-td, .emcd-th) { min-width: 0; padding-inline: var(--space-6, 6px); }
+  .emcd-table .emcd-th { font-size: var(--type-label-sm-size, 12px); line-height: var(--type-label-sm-line-height, 16px); }
+}
 
 /* Promo card — 🟡 beta (Figma «🟡 Promo card»: Size × Tone × Align; Title, Description, Show description / action / media / close / badge).
    Подложка surface/level-1, обводка border/subtle (Accent — градиент border/accent → border/subtle), обрезка по краю. S — сайдбар: поля 16, radius/container, мин. высота 120, текст label-sm;
@@ -1096,13 +1101,14 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-promo--center .emcd-promo__title-row { justify-content: center; }
 
 /* Sidebar — 🟡 beta (Figma «🟡 Sidebar»: Collapsed; Header, Nav, Promo, Footer). Плавающая панель L1 на bg/base: ширина size/sidebar/expanded 240 / collapsed 72, поля space/12, зазор space/8,
-   radius/container, кромка edge/hairline; высота — на всю высоту окна, Nav прокручивается внутри. Header (зазор 12): brand 48 — логотип heading-lg Bold display + язык Button Secondary XS; cta — Button Primary S.
+   radius/container, кромка edge/hairline; высота — на всю высоту окна, Nav прокручивается внутри. Header (зазор 12): brand 48 — логотип heading-lg Bold display + язык Button Tertiary XS (19.11, по экрану Figma — нейтральная); cta — Button Primary S.
    Nav — Nav item с шагом 38 (зазор space/2), divider border/subtle; Promo — Promo card S; Footer — account: surface/level-2, radius/control, поле и зазор space/8, Avatar M 40, имя label-md, «Профиль» label-sm text-accent. */
 .emcd-sidebar { display: flex; flex-direction: column; gap: var(--space-8, 8px); box-sizing: border-box; width: var(--size-sidebar-expanded, 240px); height: 100%; min-height: 0;
   padding: var(--space-12, 12px); border-radius: var(--radius-container); background: var(--surface-level-1); color: var(--text-primary);
   box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--edge-hairline, var(--border-subtle)); }
 .emcd-sidebar--collapsed { width: var(--size-sidebar-collapsed, 72px); align-items: center; }
-.emcd-sidebar__header { display: flex; flex-direction: column; gap: var(--space-12, 12px); padding-bottom: var(--space-12, 12px); width: 100%; }
+/* 19.11, по экрану Figma: brand с y 16 от края панели, первый пункт — через 24 от brand */
+.emcd-sidebar__header { display: flex; flex-direction: column; gap: var(--space-12, 12px); padding: var(--space-4, 4px) 0 var(--space-16, 16px); width: 100%; }
 .emcd-sidebar__brand { display: flex; align-items: center; gap: var(--space-8, 8px); min-height: 48px; padding: 0 var(--space-4, 4px); }
 .emcd-sidebar--collapsed .emcd-sidebar__brand { justify-content: center; padding: 0; }
 .emcd-sidebar__logo { display: inline-flex; align-items: center; flex: 1; min-width: 0; font: 700 var(--type-heading-lg-size, 24px)/var(--type-heading-lg-line-height, 32px) var(--font-display, var(--font-sans));
@@ -1186,8 +1192,11 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-chart-card__top { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--space-16, 16px); }
 .emcd-chart-card__metrics { display: flex; flex-wrap: wrap; gap: var(--space-16, 16px) var(--space-32, 32px); min-width: 0; }
 .emcd-chart-card__periods { display: flex; gap: var(--space-8, 8px); flex: none; }
-.emcd-chart-card__periods--m { flex: 1 1 100%; }
-.emcd-chart-card__periods--m > .emcd-chip { flex: 1 1 0; justify-content: center; }
+/* Chip M: Web — справа по содержимому (экраны Figma 17.11), Compact (< 600) — на всю ширину равными долями */
+@media (max-width: 37.49em) {
+  .emcd-chart-card__periods--m { flex: 1 1 100%; }
+  .emcd-chart-card__periods--m > .emcd-chip { flex: 1 1 0; justify-content: center; }
+}
 .emcd-chart-card__content { display: flex; flex-direction: column; gap: var(--space-8, 8px); min-width: 0; }
 .emcd-chart-card__bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-16, 16px); }
 .emcd-chart-card__sum { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary);
@@ -1229,7 +1238,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 @media (prefers-reduced-motion: reduce) { .emcd-promo-carousel__track { scroll-behavior: auto; } }
 
 /* Action bar — 🟠 draft (Figma «🟠 Action bar»: Actions 1 · 2). Нижняя панель действий Compact: 1–2 Button M поровну (зазор space/8), подложка surface/level-0, прилипает к низу;
-   поля space/16 сверху и по бокам, снизу space/32 (Figma) или space/16 + safe area — что больше. Одно действие — Primary; два — Tertiary (action/secondary/default). */
+   поля space/16 сверху и по бокам; снизу space/24 (замер экранов Figma 19.11: высота 80 = 16 + 40 + 24) или space/16 + safe area — что больше. Одно действие — Primary; два — Tertiary (action/secondary/default). */
 .emcd-action-bar { position: sticky; bottom: 0; z-index: 10; display: flex; gap: var(--space-8, 8px); box-sizing: border-box; width: 100%;
-  padding: var(--space-16, 16px) var(--space-16, 16px) max(var(--space-32, 32px), calc(var(--space-16, 16px) + env(safe-area-inset-bottom, 0px))); background: var(--surface-level-0); }
+  padding: var(--space-16, 16px) var(--space-16, 16px) max(var(--space-24, 24px), calc(var(--space-16, 16px) + env(safe-area-inset-bottom, 0px))); background: var(--surface-level-0); }
 .emcd-action-bar > .emcd-btn { flex: 1 1 0; min-width: 0; max-width: none; }

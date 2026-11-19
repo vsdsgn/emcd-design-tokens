@@ -2,7 +2,7 @@
 
 Один показатель с подписью: хешрейт, баланс, начислено за 24 ч, активные воркеры. Основа дашборда.
 
-**Оси (как в Figma «🟡 Stat card»):** State Default · Skeleton × Tone Neutral · Danger · Warning · Success × Align Start · Center; свойства Label, Value, Unit, Info, Delta, Delta caption, Show footer, Footer, Ambient light, Link (Icon button XS со стрелкой в правом нижнем углу: Danger — Secondary Danger, иначе Tertiary). Tone ≠ Neutral — плитки статусной сводки (`status-*-subtle`, значение `text-*`); Center — плитки статусов (поля 4 по бокам, 32 снизу). min-width нет.
+**Оси (как в Figma «🟡 Stat card»):** State Default · Skeleton × Tone Neutral · Danger · Warning · Success × Align Start · Center; свойства Label, Value, Unit, Info, Delta, Delta caption, Show footer, Footer, Ambient light, Link (Icon button XS с шевроном `chevron-right` в правом нижнем углу: Danger — Secondary Danger, иначе Tertiary). Tone ≠ Neutral — плитки статусной сводки (`status-*-subtle`, значение `text-*`); Center — плитки статусов (поля 4 по бокам, 32 снизу). min-width нет.
 
 **Когда какой:** Default — данные есть; Skeleton — грузятся дольше 1 с. Label — что и за какой период («Хешрейт · 24 ч»); Value — крупное число; Unit — отдельно, сразу за числом. Delta — есть сравнение с прошлым периодом: Badge S (Success — рост, Danger — падение, Neutral — без изменений) + подпись («к вчера»). Info — у метрики есть определение (тултип у «i»). Show footer — спарклайн, мини-график или ссылка. Ambient light — только у одной герой-карточки на экран (Expressive; в Base пятно прозрачное).
 

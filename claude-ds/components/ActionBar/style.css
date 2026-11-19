@@ -1,5 +1,5 @@
 /* Action bar — 🟠 draft (Figma «🟠 Action bar»: Actions 1 · 2). Нижняя панель действий Compact: 1–2 Button M поровну (зазор space/8), подложка surface/level-0, прилипает к низу;
-   поля space/16 сверху и по бокам, снизу space/32 (Figma) или space/16 + safe area — что больше. Одно действие — Primary; два — Tertiary (action/secondary/default). */
+   поля space/16 сверху и по бокам; снизу space/24 (замер экранов Figma 19.11: высота 80 = 16 + 40 + 24) или space/16 + safe area — что больше. Одно действие — Primary; два — Tertiary (action/secondary/default). */
 .emcd-action-bar { position: sticky; bottom: 0; z-index: 10; display: flex; gap: var(--space-8, 8px); box-sizing: border-box; width: 100%;
-  padding: var(--space-16, 16px) var(--space-16, 16px) max(var(--space-32, 32px), calc(var(--space-16, 16px) + env(safe-area-inset-bottom, 0px))); background: var(--surface-level-0); }
+  padding: var(--space-16, 16px) var(--space-16, 16px) max(var(--space-24, 24px), calc(var(--space-16, 16px) + env(safe-area-inset-bottom, 0px))); background: var(--surface-level-0); }
 .emcd-action-bar > .emcd-btn { flex: 1 1 0; min-width: 0; max-width: none; }

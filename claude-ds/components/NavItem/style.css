@@ -1,5 +1,5 @@
 /* Nav item — 🟡 beta (Figma «🟡 Nav item»: Collapsed × Selected × State; Counter, Badge). Пункт сайдбара Web: высота size/row/compact 36, поля space/6, радиус radius/control,
-   иконка 20 (icon-tertiary) → зазор space/12 → подпись type/label/lg Medium (text-primary). Selected — плашка action/secondary/default + полоса border/accent 2 × 20 слева.
+   иконка 24 (icon-tertiary; 19.11 — по экрану Figma, подпись с x 66) → зазор space/12 → подпись type/label/lg Medium (text-primary). Selected — плашка action/secondary/default + полоса border/accent 2 × 20 слева.
    Hover / Pressed — слой state/layer 6 % / 10 %; Collapsed — квадрат 36, подпись в Tooltip, Counter поверх иконки. */
 .emcd-nav-item { position: relative; display: flex; align-items: center; gap: var(--space-12, 12px); box-sizing: border-box; width: 100%; min-width: 0; height: var(--size-row-compact, 36px);
   padding: 0 var(--space-6, 6px); margin: 0; border: 0; border-radius: var(--radius-control); background: transparent; color: var(--text-primary);
@@ -12,7 +12,7 @@
 .emcd-nav-item:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); }
 .emcd-nav-item::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: max(100%, var(--touch-min, 24px)); }
 .emcd-nav-item__icon { display: inline-flex; flex: none; color: var(--icon-tertiary); }
-.emcd-nav-item__icon svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
+.emcd-nav-item__icon svg { width: 24px; height: 24px; }
 .emcd-nav-item__label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .emcd-nav-item__badge, .emcd-nav-item__counter { flex: none; margin-inline-start: auto; }
 .emcd-nav-item[aria-current="page"] { background: var(--action-secondary-default); }

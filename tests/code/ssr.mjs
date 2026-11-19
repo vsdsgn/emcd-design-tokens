@@ -130,6 +130,7 @@ const RC = {
   Menu: [{ items: [{ group: 'Группа' }, { label: 'A' }, { divider: true }, { label: 'B', tone: 'danger' }] }, { search: true, size: 'l', role: 'listbox', items: [{ label: 'A' }] }],
   Select: [
     { label: 'Монета', options: [{ value: 'btc', label: 'BTC' }, { value: 'eth', label: 'ETH', disabled: true }] },
+    { label: 'Сеть', labelPosition: 'on-border', hint: 'Комиссия сети 1 USDT', defaultValue: 'trc', options: [{ value: 'trc', label: 'TRC-20 · Tron' }] },
     { size: 'l', defaultValue: 'btc', defaultOpen: true, options: [{ value: 'btc', label: 'BTC', leading: ico() }] },
     ...['error', 'disabled', 'loading', 'skeleton'].map((state) => ({ state, label: 'x', hint: 'Подсказка', options: [] })), { state: 'loading', open: true, options: [] },
   ],
@@ -282,7 +283,7 @@ const VC = {
   DsTransaction: ['withdrawal', 'deposit', 'reward', 'exchange'].map((type, i) => [{ type, status: ['completed', 'pending', 'failed', 'completed'][i], value: '0.1', ticker: 'BTC', description: '19.11' }]),
   DsMenuItem: [[{ label: 'Копировать' }], [{ size: 'l', tone: 'danger', label: 'x', description: 'y' }, { leading: vico, trailing: () => 'x' }], [{ showSelection: true, selected: true, label: 'x' }], [{ disabled: true, label: 'x' }]],
   DsMenu: [[{ items: [{ group: 'Группа' }, { label: 'A' }, { divider: true }, { label: 'B', tone: 'danger' }] }], [{ search: true, size: 'l', role: 'listbox', items: [{ label: 'A' }] }]],
-  DsSelect: [[{ label: 'Монета', options: [{ value: 'btc', label: 'BTC' }] }], [{ size: 'l', modelValue: 'btc', open: true, options: [{ value: 'btc', label: 'BTC' }, { value: 'x', label: 'X', disabled: true }] }],
+  DsSelect: [[{ label: 'Монета', options: [{ value: 'btc', label: 'BTC' }] }], [{ label: 'Сеть', labelPosition: 'on-border', options: [{ value: 'btc', label: 'BTC' }] }], [{ size: 'l', modelValue: 'btc', open: true, options: [{ value: 'btc', label: 'BTC' }, { value: 'x', label: 'X', disabled: true }] }],
     ...['error', 'disabled', 'loading', 'skeleton'].map((state) => [{ state, label: 'x', hint: 'y' }])],
   DsPasswordField: [[{}], [{ showRequirements: false, size: 'l', labelPosition: 'above' }], [{ state: 'error', error: 'Неверный', modelValue: 'Abc1!' }], [{ state: 'disabled', visible: true }]],
   // Пачка 3 — экраны майнинга

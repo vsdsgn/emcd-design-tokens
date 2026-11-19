@@ -9,8 +9,11 @@
 .emcd-chart-card__top { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--space-16, 16px); }
 .emcd-chart-card__metrics { display: flex; flex-wrap: wrap; gap: var(--space-16, 16px) var(--space-32, 32px); min-width: 0; }
 .emcd-chart-card__periods { display: flex; gap: var(--space-8, 8px); flex: none; }
-.emcd-chart-card__periods--m { flex: 1 1 100%; }
-.emcd-chart-card__periods--m > .emcd-chip { flex: 1 1 0; justify-content: center; }
+/* Chip M: Web — справа по содержимому (экраны Figma 17.11), Compact (< 600) — на всю ширину равными долями */
+@media (max-width: 37.49em) {
+  .emcd-chart-card__periods--m { flex: 1 1 100%; }
+  .emcd-chart-card__periods--m > .emcd-chip { flex: 1 1 0; justify-content: center; }
+}
 .emcd-chart-card__content { display: flex; flex-direction: column; gap: var(--space-8, 8px); min-width: 0; }
 .emcd-chart-card__bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-16, 16px); }
 .emcd-chart-card__sum { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary);

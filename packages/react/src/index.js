@@ -252,9 +252,8 @@ export function Card({ level = 1, radius = 'container', padding = 's', border = 
 }
 
 const DELTA_TONE = { success: 'success', danger: 'danger', neutral: 'neutral' };
-const ARROW_RIGHT = () => ICO(P('M5 12h14M13 6l6 6-6 6'));
 /** Stat card — один показатель. tone: neutral | danger | warning | success (плитки статусной сводки); align: start | center (плитки статусов).
- *  delta + deltaValue («+4,2 %») + deltaTone: success рост · danger падение · neutral без изменений. link — Icon button XS со стрелкой (onLink): Danger — Secondary Danger, иначе Tertiary. */
+ *  delta + deltaValue («+4,2 %») + deltaTone: success рост · danger падение · neutral без изменений. link — Icon button XS с шевроном chevron-right, как в Figma (onLink): Danger — Secondary Danger, иначе Tertiary. */
 export function StatCard({ tone = 'neutral', align = 'start', label, value, unit, info = true, infoText, delta = true, deltaValue, deltaTone = 'success', deltaCaption, showFooter = false, footer,
   link = false, linkLabel = 'Открыть список', onLink, ambientLight = false, skeleton = false, className, ...rest }) {
   const cls = cx('emcd-stat', tone !== 'neutral' && 'emcd-stat--' + tone, align === 'center' && 'emcd-stat--center', ambientLight && 'emcd-stat--ambient', skeleton && 'emcd-stat--skeleton', className);
@@ -271,7 +270,7 @@ export function StatCard({ tone = 'neutral', align = 'start', label, value, unit
     delta && deltaValue != null && h('div', { className: 'emcd-stat__delta-row' },
       h(Badge, { size: 's', tone: DELTA_TONE[deltaTone] || 'neutral', label: deltaValue }), deltaCaption != null && h('span', { className: 'emcd-stat__caption' }, deltaCaption)),
     showFooter && footer != null && h('div', { className: 'emcd-stat__footer' }, footer),
-    link && h(IconButton, { type: tone === 'danger' ? 'secondary' : 'tertiary', tone: tone === 'danger' ? 'danger' : 'default', size: 'xs', label: linkLabel, className: 'emcd-stat__link', icon: ARROW_RIGHT(), onClick: onLink }));
+    link && h(IconButton, { type: tone === 'danger' ? 'secondary' : 'tertiary', tone: tone === 'danger' ? 'danger' : 'default', size: 'xs', label: linkLabel, className: 'emcd-stat__link', icon: h(Icon, { name: 'chevron-right' }), onClick: onLink }));
 }
 
 const TIP_ARROW = h('svg', { className: 'emcd-tooltip__arrow', viewBox: '0 0 26 9', 'aria-hidden': true },
@@ -464,7 +463,7 @@ export const Menu = React.forwardRef(function Menu({ size = 'm', search = false,
 });
 
 /** Select — поле выбора одного значения (5+ вариантов). options: [{ value, label, description, leading, disabled }]. Без value — неуправляемый. На Compact — Sheet (в продукте). */
-export function Select({ size = 'm', label, hint, error, state = 'default', placeholder = 'Выберите …', options = [], value, defaultValue, onChange, open, defaultOpen = false, onOpenChange,
+export function Select({ size = 'm', labelPosition = 'above', label, hint, error, state = 'default', placeholder = 'Выберите …', options = [], value, defaultValue, onChange, open, defaultOpen = false, onOpenChange,
   leading, menuSize = 'm', className, ...rest }) {
   const id = useId();
   const [cur, setCur] = useControllable(value, defaultValue, onChange);
@@ -495,7 +494,7 @@ export function Select({ size = 'm', label, hint, error, state = 'default', plac
     } else if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); setActive(e.key === 'Home' ? enabled[0] : enabled[enabled.length - 1]); }
     else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (options[active]) choose(options[active]); }
   };
-  return h('div', { ref: root, className: cx('emcd-field', size !== 'm' && 'emcd-field--' + size, isError && 'emcd-field--error', state === 'disabled' && 'emcd-field--disabled', state === 'skeleton' && 'emcd-field--skeleton', className), 'aria-hidden': state === 'skeleton' || undefined },
+  return h('div', { ref: root, className: cx('emcd-field', size !== 'm' && 'emcd-field--' + size, labelPosition === 'on-border' && label && 'emcd-field--on-border', isError && 'emcd-field--error', state === 'disabled' && 'emcd-field--disabled', state === 'skeleton' && 'emcd-field--skeleton', className), 'aria-hidden': state === 'skeleton' || undefined },
     label && h('span', { className: 'emcd-field__label', id: id + '-l' }, label),
     h('div', { className: cx('emcd-select', isOpen && 'emcd-select--open') },
       h('button', { ref: btn, type: 'button', role: 'combobox', className: 'emcd-input emcd-select__trigger', disabled: blocked, 'aria-haspopup': 'listbox', 'aria-expanded': !!isOpen, 'aria-controls': id + '-lb',
@@ -859,7 +858,7 @@ export function PromoCard({ size = 's', tone = 'neutral', align = 'start', title
 }
 
 /** Sidebar — основная навигация Web (Large+): плавающая панель L1. collapsed — рейка 72 (только иконки, подписи в Tooltip), иначе 240.
- *  Header: header (свой узел) или logo + language (Button Secondary XS, onLanguage) + cta (узел, Button Primary S); onCollapsedChange — кнопка «свернуть» (aria-expanded).
+ *  Header: header (свой узел) или logo + language (Button Tertiary XS, onLanguage) + cta (узел, Button Primary S); onCollapsedChange — кнопка «свернуть» (aria-expanded).
  *  Nav: nav (узел) или items — [{ label, icon, href, selected, counter, badge, badgeLabel, badgeTone, onClick } | { divider: true }]; Selected — ровно один.
  *  promo — true / false или узел (Promo card S с картинкой); при collapsed скрыт. Footer: footer (узел) + account — { name, link: 'Профиль', src, onClick } (Avatar M + имя + ссылка + шеврон). */
 export function Sidebar({ collapsed = false, onCollapsedChange, collapseLabel = 'Свернуть меню', expandLabel = 'Развернуть меню', header, logo, language, onLanguage, cta,
@@ -869,7 +868,7 @@ export function Sidebar({ collapsed = false, onCollapsedChange, collapseLabel = 
       onCollapsedChange && h(IconButton, { type: 'tertiary', size: 'xs', label: collapsed ? expandLabel : collapseLabel, 'aria-expanded': !collapsed, className: 'emcd-sidebar__toggle',
         icon: h(Icon, { name: collapsed ? 'chevron-right' : 'chevron-left' }), onClick: () => onCollapsedChange(!collapsed) }),
       !collapsed && h('span', { className: 'emcd-sidebar__logo' }, logo ?? 'EMCD'),
-      !collapsed && language != null && h(Button, { type: 'secondary', size: 'xs', label: language, className: 'emcd-sidebar__language', onClick: onLanguage })),
+      !collapsed && language != null && h(Button, { type: 'tertiary', size: 'xs', label: language, className: 'emcd-sidebar__language', onClick: onLanguage })),
     !collapsed && cta ? h('div', { key: 'c', className: 'emcd-sidebar__cta' }, cta) : null];
   const navBody = nav ?? (items || []).map((it, i) => (it.divider ? h('hr', { key: 'd' + i, className: 'emcd-sidebar__divider' })
     : h(NavItem, { key: it.key ?? i, ...it, collapsed })));

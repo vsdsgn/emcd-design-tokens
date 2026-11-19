@@ -6,6 +6,7 @@ import DsMenuItem from './DsMenuItem.vue';
 const props = defineProps({
   size: { type: String, default: 'm' },          // m | l — как у Input рядом (XL снят 17.11)
   label: String,
+  labelPosition: { type: String, default: 'above' }, // above — формы; on-border — панели фильтров и калькуляторы (patterns.md 0, п. 12)
   hint: String,
   error: String,
   state: { type: String, default: 'default' },
@@ -40,7 +41,7 @@ const onKey = (e) => {
 };
 </script>
 <template>
-  <div ref="root" :class="['emcd-field', size !== 'm' && `emcd-field--${size}`, isError && 'emcd-field--error', state === 'disabled' && 'emcd-field--disabled', state === 'skeleton' && 'emcd-field--skeleton']" :aria-hidden="state === 'skeleton' || undefined">
+  <div ref="root" :class="['emcd-field', size !== 'm' && `emcd-field--${size}`, labelPosition === 'on-border' && label && 'emcd-field--on-border', isError && 'emcd-field--error', state === 'disabled' && 'emcd-field--disabled', state === 'skeleton' && 'emcd-field--skeleton']" :aria-hidden="state === 'skeleton' || undefined">
     <span v-if="label" :id="`${id}-l`" class="emcd-field__label">{{ label }}</span>
     <div :class="['emcd-select', open && 'emcd-select--open']">
       <button ref="trigger" type="button" role="combobox" class="emcd-input emcd-select__trigger" :disabled="blocked" aria-haspopup="listbox" :aria-expanded="open" :aria-controls="`${id}-lb`"

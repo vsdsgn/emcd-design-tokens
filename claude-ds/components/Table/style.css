@@ -5,3 +5,8 @@
 /* Строка шапки — без разделителя и подложки: разделители у строк данных */
 .emcd-table__head { background: none; }
 .emcd-table__caption { padding: 0 0 var(--space-8, 8px); text-align: start; color: var(--text-secondary); font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); }
+/* Compact (< 600, мобильный веб «Воркеры» 19.11, замер экрана Figma): поля ячеек 6, шапка label-sm — 4 колонки помещаются в 343 без усечения */
+@media (max-width: 37.49em) {
+  .emcd-table :is(.emcd-td, .emcd-th) { min-width: 0; padding-inline: var(--space-6, 6px); }
+  .emcd-table .emcd-th { font-size: var(--type-label-sm-size, 12px); line-height: var(--type-label-sm-line-height, 16px); }
+}

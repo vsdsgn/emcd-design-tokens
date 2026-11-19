@@ -277,7 +277,7 @@ export interface StatCardProps {
   showFooter?: boolean;
   /** Спарклайн, мини-график или ссылка. */
   footer?: ReactNode;
-  /** Icon button XS со стрелкой в правом нижнем углу — плитка ведёт в список (Danger — Secondary Danger, иначе Tertiary). */
+  /** Icon button XS с шевроном `chevron-right` в правом нижнем углу — плитка ведёт в список (Danger — Secondary Danger, иначе Tertiary). */
   link?: boolean;
   /** aria-label и тултип кнопки-ссылки. */
   linkLabel?: string;
@@ -488,7 +488,8 @@ export interface SelectOption { value: string | number; label: ReactNode; descri
 export interface SelectProps extends Controlled<string | number> {
   /** = размер соседних полей формы (XL снят 2026-11-17). */
   size?: 'm' | 'l';
-  /** Лейбл всегда над полем. */
+  /** above — по умолчанию (формы); on-border — в разрыве рамки: панели фильтров и калькуляторы (patterns.md 0, п. 12; экраны «История» 19.11). */
+  labelPosition?: 'above' | 'on-border';
   label?: ReactNode;
   hint?: ReactNode;
   error?: ReactNode;
@@ -792,7 +793,7 @@ export interface SidebarProps {
   onCollapsedChange?: (collapsed: boolean) => void;
   header?: ReactNode;
   logo?: ReactNode;
-  /** Язык — Button Secondary XS («RU»). */
+  /** Язык — Button Tertiary XS («RU»). */
   language?: ReactNode;
   onLanguage?: (e: unknown) => void;
   /** Главное действие — Button Primary S на всю ширину. */
@@ -836,7 +837,9 @@ export interface ChartCardProps {
   /** s — Web; m — Compact (на всю ширину равными долями). */
   periodSize?: 's' | 'm';
   periodLabel?: string;
+  /** Легенда — над графиком, в конце Top (19.11); две серии на двух осях — по краям. */
   legend?: LegendItemProps[];
+  /** Bottom — итог за период. */
   sum?: ReactNode;
   showBottom?: boolean;
   top?: ReactNode;
