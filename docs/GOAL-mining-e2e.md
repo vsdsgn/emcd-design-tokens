@@ -28,6 +28,7 @@
 - Amount, Chart metric, Key-value row — State=Skeleton (та же высота); Chart plot — Skeleton у Line + Bars.
 
 - Card — Ambient light; Amount — ось Tone; новый Section header (draft).
+- Top bar — Platform=App (аккаунт, монета, «+»).
 
 ## Журнал
 - 19.11 — Page header в коде (beta): `size` large · compact (Heading/XL · Heading/LG), `title` — `h1` (`level` 1–3), `subtitle` + `showSubtitle`, слоты `breadcrumbs` (в `nav`, только вложенные страницы), `actions` (Large — справа, до двух; Compact — ряд под заголовком с переносом), `tabs` (последним). React, Vue, CSS, d.ts, Claude DS, SSR (68 компонентов); контракт — раздел «Код». Демо: заголовки «Калькулятор доходности» и «Мои Watcher link» — Page header Large (у Watcher-link 2 Select — фильтры, не Actions: остались в ряду меню вместе с «Создать»). Проверки зелёные, сравнения без сдвигов.

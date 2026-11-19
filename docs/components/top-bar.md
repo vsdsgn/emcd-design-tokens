@@ -9,15 +9,15 @@
 - Figma: Components, страница «Top bar» (`2312:2`), набор `2312:35`.
 
 ## 2. Intent
-- Верхняя панель мобильного веба: слот Logo, аккаунт (имя + шеврон), баланс (копейки text/tertiary) и Icon button «Меню». Platform: Mobile web (App — следующим вариантом).
+- Верхняя панель мобильного веба: слот Logo, аккаунт (имя + шеврон), баланс (копейки text/tertiary) и Icon button «Меню». Platform: Mobile web; App (19.11) — Select compact аккаунта, Select compact монеты и Icon button «+».
 - Когда использовать: корневые экраны мобильного веба, над Tabs M разделов
 - Когда нет: Web — Sidebar + шапка страницы; App — Top bar App (план)
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `logo (placeholder)`, `account`, `account name`, `balance`, `cents`, `menu`.
-- Вложено: иконки ×2, `Icon button` ×1.
-- Служебные слои (вариантов из 1): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Слои с токенами: `logo (placeholder)`, `account`, `account name`, `balance`, `cents`, `menu`, `coin`, `end`, `add`.
+- Вложено: иконки ×2, `Icon button` ×2, `Select compact` ×2, `Coin` ×1.
+- Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Оси State нет.
@@ -27,19 +27,19 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Platform | Mobile web | — |
+| Platform | Mobile web · App | — |
 
-Матрица полная: 1 вариантов.
+Матрица полная: 2 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Logo | слот | — | 1 из 1 |
-| Account | текст | «Alexandrewang» | 1 из 1 |
-| Balance | текст | «$123 456» | 1 из 1 |
-| Cents | текст | «.78» | 1 из 1 |
-| Show balance | булево | вкл | 1 из 1 |
+| Logo | слот | — | 1 из 2 |
+| Account | текст | «Alexandrewang» | 1 из 2 |
+| Balance | текст | «$123 456» | 1 из 2 |
+| Cents | текст | «.78» | 1 из 2 |
+| Show balance | булево | вкл | 1 из 2 |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -54,28 +54,31 @@
 - «Меню» — кнопка с подписью; баланс — одной фразой
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/level-0`; интервал `space/12`; отступы `space/16`, `space/8`.
+- `корень`: заливка / цвет `surface/level-0`; интервал `space/12`, `space/8`; отступы `space/16`, `space/8`.
 - `logo (placeholder)`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
-- `account`: интервал `space/4`.
+- `account`: заливка / цвет `action/secondary/default`; интервал `space/16`, `space/4`; высота `size/row/compact`; maxw `size/select-compact/max`; отступы `space/8`; радиус `radius/control-sm`.
 - `account name`: заливка / цвет `text/primary`; типографика `type/label/lg`.
 - `balance`: заливка / цвет `text/primary`; типографика `type/label/lg`; интервал `space/4`.
 - `cents`: заливка / цвет `text/tertiary`; типографика `type/label/lg`.
 - `menu`: интервал `space/6`; высота `control/height/md`; радиус `radius/control`; ширина `control/height/md`.
-- Значений без переменной: 2 (напр. `(root):w=375`, `(root):h=56`).
+- `coin`: заливка / цвет `action/secondary/default`; интервал `space/16`; высота `size/media/sm`, `size/row/compact`; maxw `size/select-compact/max`; отступы `space/8`; радиус `radius/control-sm`; ширина `size/media/sm`.
+- `end`: интервал `space/8`.
+- `add`: заливка / цвет `action/accent/default`; интервал `space/6`; высота `control/height/md`; радиус `radius/control`; ширина `control/height/md`.
+- Значений без переменной: 4 (напр. `(root):w=375`, `(root):h=56`).
 
 ## 11. Platforms
 - Не описано: заполнить при переводе в beta.
 
 ## 12. Figma projection
-- Набор `Top bar`, вариантов 1 из 1; оси: Platform.
+- Набор `Top bar`, вариантов 2 из 2; оси: Platform.
 - Борда: «Top bar — борда · шаблон v3», разделов 9.
-- Описание: 846 знаков, разделы: Status: Level: Под ней — Platform: Правила: Поиск:
+- Описание: 943 знаков, разделы: Status: Level: Под ней — Platform: Правила: Поиск:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`TopBar`), Vue `packages/vue/src/DsTopBar.vue`, CSS `claude-ds/components/TopBar/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTopBar>`; Flutter: `DsTopBar`.
-- Props: `platform`: mobile-web; `logo`: string или слот; `account`: string или слот; `balance`: string или слот; `cents`: string или слот; `showBalance`: boolean = true.
+- Props: `platform`: mobile-web | app; `logo`: string или слот; `account`: string или слот; `balance`: string или слот; `cents`: string или слот; `showBalance`: boolean = true.
 
 ## 14. Acceptance (2026-11-19)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.

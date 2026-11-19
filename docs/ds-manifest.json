@@ -14,9 +14,9 @@
    "service": 4,
    "template": 1
   },
-  "variants": 1683,
+  "variants": 1684,
   "incompleteMatrix": 20,
-  "propsNotBoundEverywhere": 19,
+  "propsNotBoundEverywhere": 20,
   "rawMinMax": 1,
   "withRawValues": 71,
   "withFocusRing": 21,
@@ -14114,7 +14114,7 @@
      "id": "2312:35",
      "type": "SET",
      "status": "draft",
-     "descLen": 846,
+     "descLen": 943,
      "descHeads": [
       "Status:",
       "Level:",
@@ -14126,11 +14126,12 @@
      "inBoard": false,
      "axes": {
       "Platform": [
-       "Mobile web"
+       "Mobile web",
+       "App"
       ]
      },
-     "variants": 1,
-     "full": 1,
+     "variants": 2,
+     "full": 2,
      "props": [
       {
        "name": "Logo",
@@ -14164,7 +14165,9 @@
      ],
      "nested": {
       "(icons)": 2,
-      "Icon button": 1
+      "Icon button": 2,
+      "Select compact": 2,
+      "Coin": 1
      },
      "minmax": [],
      "layers": {
@@ -14174,7 +14177,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 2,
+     "rawCount": 4,
      "raw": [
       "(root):w=375",
       "(root):h=56"
@@ -14183,6 +14186,7 @@
       "(root)": [
        "f:surface/level-0",
        "gap:space/12",
+       "gap:space/8",
        "p:space/16",
        "p:space/8"
       ],
@@ -14194,7 +14198,13 @@
        "lineHeight:type/heading/lg/line-height"
       ],
       "account": [
-       "gap:space/4"
+       "f:action/secondary/default",
+       "gap:space/16",
+       "gap:space/4",
+       "h:size/row/compact",
+       "maxw:size/select-compact/max",
+       "p:space/8",
+       "r:radius/control-sm"
       ],
       "account name": [
        "f:text/primary",
@@ -14213,6 +14223,26 @@
        "lineHeight:type/label/lg/line-height"
       ],
       "menu": [
+       "gap:space/6",
+       "h:control/height/md",
+       "r:radius/control",
+       "w:control/height/md"
+      ],
+      "coin": [
+       "f:action/secondary/default",
+       "gap:space/16",
+       "h:size/media/sm",
+       "h:size/row/compact",
+       "maxw:size/select-compact/max",
+       "p:space/8",
+       "r:radius/control-sm",
+       "w:size/media/sm"
+      ],
+      "end": [
+       "gap:space/8"
+      ],
+      "add": [
+       "f:action/accent/default",
        "gap:space/6",
        "h:control/height/md",
        "r:radius/control",
