@@ -23,8 +23,8 @@
   --surface-level-3: var(--color-neutral-700);
   --surface-inverse: var(--color-neutral-50);
   --text-primary: var(--color-neutral-50);
-  --text-secondary: var(--color-alpha-white-72);
-  --text-tertiary: var(--color-alpha-white-56);
+  --text-secondary: var(--color-alpha-white-56);
+  --text-tertiary: var(--color-alpha-white-48);
   --text-disabled: var(--color-alpha-white-40);
   --text-inverse: var(--color-neutral-950);
   --text-danger: var(--color-red-350);
@@ -35,8 +35,8 @@
   --text-danger-pressed: var(--color-red-200);
   --text-inverse-secondary: var(--color-alpha-black-56);
   --icon-primary: var(--color-neutral-50);
-  --icon-secondary: var(--color-alpha-white-72);
-  --icon-tertiary: var(--color-alpha-white-56);
+  --icon-secondary: var(--color-alpha-white-56);
+  --icon-tertiary: var(--color-alpha-white-48);
   --icon-disabled: var(--color-alpha-white-40);
   --icon-inverse: var(--color-neutral-950);
   --icon-danger: var(--color-red-350);

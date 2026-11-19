@@ -94,11 +94,11 @@
     },
     "secondary": {
       "$type": "color",
-      "$value": "{color.alpha.white.72}"
+      "$value": "{color.alpha.white.56}"
     },
     "tertiary": {
       "$type": "color",
-      "$value": "{color.alpha.white.56}"
+      "$value": "{color.alpha.white.48}"
     },
     "disabled": {
       "$type": "color",
@@ -180,11 +180,11 @@
     },
     "secondary": {
       "$type": "color",
-      "$value": "{color.alpha.white.72}"
+      "$value": "{color.alpha.white.56}"
     },
     "tertiary": {
       "$type": "color",
-      "$value": "{color.alpha.white.56}"
+      "$value": "{color.alpha.white.48}"
     },
     "disabled": {
       "$type": "color",
