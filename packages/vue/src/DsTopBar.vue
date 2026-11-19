@@ -1,5 +1,5 @@
 <!-- Top bar (draft) — верхняя панель корневых экранов. platform: mobile-web — логотип (слот logo), аккаунт + шеврон (событие account), баланс с копейками text-tertiary (событие balance), «Меню» (событие menu);
-     app (19.11) — Select compact аккаунта в начале (без leading), в конце Select compact монеты (Coin stack из coins) + Icon button Secondary M «+» (событие add, addLabel «Подключить»).
+     app (19.11) — Select compact аккаунта в начале (без leading), в конце Select compact монеты (Coin stack из coins) + Icon button Tertiary M «+» (событие add, addLabel «Подключить»).
      app: accountOptions + v-model:accountValue / coinOptions + v-model:coinValue — списки; без списка — события account / coin (свой Sheet). Контракт: docs/components/top-bar.md -->
 <script setup>
 import { computed } from 'vue';

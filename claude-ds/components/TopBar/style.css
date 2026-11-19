@@ -13,7 +13,7 @@
 .emcd-top-bar__amount { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .emcd-top-bar__cents { color: var(--text-tertiary); }
 .emcd-top-bar__menu { margin-inline-start: auto; }
-/* Platform = App (19.11): в начале Select compact аккаунта (без leading), в конце Select compact монеты (Coin stack) + Icon button Secondary M «+»; без логотипа, баланса и меню.
+/* Platform = App (19.11): в начале Select compact аккаунта (без leading), в конце Select compact монеты (Coin stack) + Icon button Tertiary M «+»; без логотипа, баланса и меню.
    Высота 56, поля space/8 / space/16, зазор space/8, surface/level-0 — как у Mobile web. */
 .emcd-top-bar--app { gap: var(--space-8, 8px); }
 .emcd-top-bar__select { min-width: 0; }

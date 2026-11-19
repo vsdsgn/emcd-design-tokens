@@ -151,3 +151,16 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 .demo-settings-card { gap: var(--space-24); }
 .demo-settings-types { gap: var(--space-8); }
 .demo-payout { gap: var(--space-4); } /* сумма над «В Explorer» (3.6a Compact) */
+
+/* ───────── App (iOS, 19.11) ───────── */
+.demo-app { position: relative; display: flex; flex-direction: column; height: 100vh; overflow: hidden; background: var(--surface-level-0); }
+.demo-app__status { flex: none; height: 54px; }
+.demo-app__sheet { flex: 1; min-height: 0; overflow: hidden; gap: var(--space-8); margin-bottom: -40px; } /* лист уходит под Tab bar, как на макете */
+.demo-app__tabbar { flex: none; position: relative; z-index: 1; }
+.demo-app__fab { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(91px + var(--space-32)); }
+.demo-app-coin { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
+.demo-app-account { gap: var(--space-8); }
+.demo-block { width: 100%; }
+.demo-app-totals, .demo-app-list { display: flex; flex-direction: column; }
+.demo-app-actions { position: absolute; left: 0; right: 0; bottom: 91px; display: flex; gap: var(--space-8); padding: var(--space-12) var(--space-16); }
+.demo-app-actions > * { flex: 1; }

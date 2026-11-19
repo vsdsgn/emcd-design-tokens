@@ -513,8 +513,74 @@
         h(E.PromoCard, { size: 'm', tone: 'accent', title: 'Заработай до 8% годовых', description: 'Открой Coinhold и зарабатывай на хранении криптовалют', actionLabel: 'Открыть Coinhold', showClose: false, showMedia: true })));
   }
 
+  // ───────── App (iOS, 19.11): Top bar App · Card L1 Surface (лист под шапкой) · Tab bar с Action «E» ─────────
+  var APP_TABS = [{ label: 'Главная', icon: 'dots-grid' }, { label: 'Майнинг', icon: 'devices', badgeDot: true }, { label: 'Действия', type: 'action' },
+    { label: 'Доход', icon: 'wallet' }, { label: 'P2P', icon: 'history' }];
+  function AppShell(props) {
+    return div('demo-app',
+      // статус-бар iOS — часть устройства, не DS: только высота
+      h('div', { className: 'demo-app__status', 'aria-hidden': true }),
+      h(E.TopBar, { platform: 'app', account: 'rruuff', coins: ['btc', 'eth'], coin: 'BTC + 1' }),
+      h(E.Card, { level: 1, radius: 'surface', padding: 'm', className: 'demo-app__sheet' }, props.children),
+      props.over,
+      h(E.TabBar, { className: 'demo-app__tabbar', defaultValue: 'Майнинг', items: APP_TABS }));
+  }
+  var appRow = function (label, desc, value, fiat, divider) {
+    return h(E.ListItem, { size: 'm', inset: false, divider: !!divider, label: label, description: desc, showDescription: !!desc,
+      trailing: h(E.Amount, { size: 'm', align: 'end', value: value, ticker: 'BTC', fiat: fiat }) });
+  };
+  function AppDashboard() {
+    return h(AppShell, { over: h(E.FloatingButton, { layout: 'extended', size: 'm', type: 'primary', label: 'Калькулятор', icon: 'calculator', className: 'demo-app__fab' }) },
+      div('demo-app-coin', text('demo-caption demo-caption--md', 'Монета отображения'),
+        h(E.SelectCompact, { label: 'Монета отображения', text: 'BTC', leading: h(E.Coin, { coin: 'btc', size: 's' }) })),
+      h(E.Card, { level: 2, padding: 's', border: true }, appRow('Будет выплачено', 'при достижении 0.0001 BTC', '0.00005797', '≈ $3 172.51')),
+      h(E.Card, { level: 2, padding: 's', border: false, className: 'demo-app-account' }, appRow('Майнинг-счёт', 'Ваш остаток средств', '21.4492000', '≈ $14 317.42'),
+        h(E.Button, { type: 'secondary', size: 'm', label: 'Вывести', className: 'demo-block' })),
+      div('demo-app-totals', appRow('Всего выплат', null, '21.4492000', '≈ $14 317.42', true), appRow('Добыто', 'за 04.09', '0.00008291', '≈ $3.17', true),
+        appRow('Прогноз на сегодня', 'на основе данных за 04.09', '0.00005797', '≈ $3.17')));
+  }
+  function AppWorkers() {
+    var num = function (v, u) { return h(E.Amount, { size: 's', align: 'end', value: v, ticker: u }); };
+    var cols = [
+      { key: 'name', label: 'Воркер', sortable: true, render: function (r) { return h(E.Status, { size: 's', tone: 'success', label: r.name }); } },
+      { key: 'cur', label: 'Хешрейт', sortable: true, align: 'end', render: function (r) { return num(r.cur, 'TH/s'); } },
+      { key: 'h24', label: 'За 24 ч', sortable: true, align: 'end', render: function (r) { return num(r.h24, 'TH/s'); } },
+      { key: 'rej', label: 'Реджекты', sortable: true, align: 'end', render: function (r) { return num(r.rej, '%'); } }];
+    var rows = [0, 1, 2, 3, 4, 5, 6].map(function (i) { return { id: i, name: 'worker', cur: '105.28', h24: '118.28', rej: i ? '1.05' : '0' }; });
+    return h(AppShell, { over: h(E.FloatingButton, { layout: 'extended', size: 'm', type: 'secondary', label: 'Выгрузить', icon: 'file-excel', className: 'demo-app__fab' }) },
+      h(E.Tabs, { size: 'm', label: 'Разделы майнинга', defaultValue: 'Воркеры', items: ['Дашборд', 'Воркеры', 'История'].map(function (l) { return { value: l, label: l }; }) }),
+      div('demo-chips',
+        h(E.Chip, { size: 's', label: 'Все', metaText: '100', selected: true }),
+        h(E.Chip, { size: 's', label: 'Активные', metaText: '75', statusDot: true, statusTone: 'success' }),
+        h(E.Chip, { size: 's', label: 'Нестабильные', metaText: '2', statusDot: true, statusTone: 'warning' }),
+        h(E.Chip, { size: 's', label: 'Отключённые', metaText: '23', statusDot: true, statusTone: 'danger' })),
+      div('demo-mw-row', h(E.Search, { size: 'm', text: 'Поиск воркера', className: 'demo-grow' }),
+        h(E.Segmented, { size: 'm', label: 'Вид', items: [
+          { value: 'list', label: 'Список', showLabel: false, icon: h(E.Icon, { name: 'list' }) },
+          { value: 'groups', label: 'Группы', showLabel: false, icon: h(E.Icon, { name: 'folder' }) }] })),
+      h(E.Table, { label: 'Воркеры', density: 'compact', columns: cols, rows: rows, className: 'demo-mw-table' }));
+  }
+  function AppHistory() {
+    var tx = ['16 фев 2026, 11:38', '12 фев 2026, 10:35', '29 янв 2026, 15:36', '24 янв 2026, 12:38'].map(function (d) {
+      return h(E.Transaction, { key: d, showLeading: false, type: 'reward', status: 'completed', label: 'PPLNS начисление', description: d, value: '0.00004480', ticker: 'LTC', fiat: '≈ $62.89' });
+    });
+    return h(AppShell, { over: div('demo-app-actions',
+        h(E.Button, { type: 'tertiary', size: 'm', label: 'Фильтры', iconLeft: h(E.Icon, { name: 'tuning' }) }),
+        h(E.Button, { type: 'tertiary', size: 'm', label: 'Выгрузить', iconLeft: h(E.Icon, { name: 'file-excel' }) })) },
+      h(E.Tabs, { size: 'm', label: 'Разделы майнинга', defaultValue: 'История', items: ['Дашборд', 'Воркеры', 'История', 'Настройки'].map(function (l) { return { value: l, label: l }; }) }),
+      h(E.Segmented, { size: 'l', block: true, label: 'Вид истории', items: [{ value: 'acc', label: 'Начисления' }, { value: 'pay', label: 'Выплаты' }] }),
+      h(E.Card, { level: 2, padding: 'm', border: true, className: 'demo-mw-total' },
+        div('demo-mw-total__row',
+          div('demo-stat', h(E.Amount, { size: 'l', value: '≈ $35 534.55' }), text('demo-caption demo-caption--md', 'Сумма всех начислений')),
+          h(E.CoinStack, { coins: ['ltc', 'eth', 'x'], size: 'm', count: 2, more: '6' }),
+          h(E.Icon, { name: 'chevron-right', className: 'demo-muted' })),
+        h(E.Suggest, { layout: 'strip', tone: 'warning', title: 'Начисляем ежедневно с 14:00 до 18:00', primaryAction: false, close: false })),
+      div('demo-app-list', tx));
+  }
+
   var SCREENS = { 'web-dashboard': WebDashboard, 'web-workers': WebWorkers, 'web-history': WebHistory, 'mw-dashboard': MwDashboard, 'mw-workers': MwWorkers, 'mw-history': MwHistory,
     'web-calculator': WebCalculator, 'mw-calculator': MwCalculator, 'web-watcher': WebWatcher, 'web-settings': WebSettings,
-    'web-payouts': WebPayouts, 'mw-payouts': MwPayouts, 'mw-watcher': MwWatcher, 'mw-settings-notify': MwSettingsNotify, 'mw-settings-withdraw': MwSettingsWithdraw };
+    'web-payouts': WebPayouts, 'mw-payouts': MwPayouts, 'mw-watcher': MwWatcher, 'mw-settings-notify': MwSettingsNotify, 'mw-settings-withdraw': MwSettingsWithdraw,
+    'app-dashboard': AppDashboard, 'app-workers': AppWorkers, 'app-history': AppHistory };
   ReactDOM.createRoot(document.getElementById('root')).render(h(SCREENS[screen] || WebDashboard));
 })();

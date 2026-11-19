@@ -9,7 +9,7 @@
   position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--gap); vertical-align: middle; box-sizing: border-box; min-width: var(--size-button-min, 64px);
   height: var(--h); padding: 0 var(--px); border: 0; border-radius: var(--r); margin: 0;
   font: 500 var(--fs)/var(--lh) var(--font-sans); font-feature-settings: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
-  background: var(--bg); color: var(--fg); max-width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  background: var(--bg); color: var(--fg); max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   cursor: pointer; -webkit-tap-highlight-color: transparent; outline: none; text-decoration: none;
   transition: transform var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)), color 120ms cubic-bezier(.2,0,0,1); }
 .emcd-btn > * { position: relative; z-index: 1; }

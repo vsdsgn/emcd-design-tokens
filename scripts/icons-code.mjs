@@ -20,7 +20,7 @@ export const LIST = [
   // действия и показатели майнинга
   'chart-bar', 'file-excel', 'download', 'send', 'question', 'lightning', 'trend-up', 'settings', 'user', 'users', 'bell-notifications', 'calculator', 'history',
   // пункты сайдбара Web App (Активы · Криптокарта · Майнинг · Торговля · P2P · Coinhold · Стейкинг · Indesk · OnLock)
-  'wallet', 'card', 'mining-coin', 'exchange', 'coinhold-coins', 'percentage', 'suitcase', 'lock', 'web', 'gift', 'rocket',
+  'wallet', 'devices', 'card', 'mining-coin', 'exchange', 'coinhold-coins', 'percentage', 'suitcase', 'lock', 'web', 'gift', 'rocket',
 ];
 // Монеты: тикер → файл icons/symbols/coin
 const COIN_FILES = { btc: 'bitcoin-btc', kas: 'kaspa-kas', ltc: 'litecoin-ltc', doge: 'dogecoin-doge', eth: 'ethereum-eth', usdt: 'tether-usdt' };

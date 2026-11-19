@@ -4,6 +4,9 @@
 
 
 ## 2026-11-19 (вечер) — после второго Publish
+- **Transaction:** `showLeading` (false — без плашки типа, история начислений App); сумма — Amount M (как в Figma: 14 / 14, было S). Figma: вложенный Amount — Align=End во всех 36 вариантах (было Start; ждёт Publish).
+- **Button:** снят `max-width: 280` в коде (в контракте ограничения нет: ширина растёт до контейнера, min 64).
+- **Иконки кода:** + `devices` (Майнинг в Tab bar App).
 - **Icons:** новый вариант Logo · Network=EMCD, Style=Mono. В коде — иконка `logo-emcd` (заливка `currentColor`, файл `icons/symbols/logo/emcd.svg`).
 - **Top bar:** логотип по умолчанию — `logo-emcd` (было — буква «E»); App — «+» Icon button Tertiary (было Secondary), монета — в правом блоке.
 - **Tab bar item:** `type: 'action'` без `icon` — знак EMCD.

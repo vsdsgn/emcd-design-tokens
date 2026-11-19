@@ -5,6 +5,7 @@ import DsListItem from './DsListItem.vue';
 import DsAmount from './DsAmount.vue';
 import DsStatus from './DsStatus.vue';
 const props = defineProps({
+  showLeading: { type: Boolean, default: true }, // false — без плашки типа (история начислений App)
   type: { type: String, default: 'withdrawal' }, // withdrawal | deposit | reward | exchange
   status: { type: String, default: 'completed' }, // completed | pending | failed
   label: String,                                 // «Вывод BTC»
@@ -27,11 +28,11 @@ const sign = computed(() => (props.status === 'failed' || props.type === 'exchan
 </script>
 <template>
   <DsListItem size="m" :label="label ?? t[0]" :description="description" :href="href" :interactive="!href" :class="['emcd-tx', `emcd-tx--${type}`, `emcd-tx--${status}`]" @click="$emit('click', $event)">
-    <template #leading><span class="emcd-tx__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path :d="t[1]"/></svg></span></template>
+    <template v-if="showLeading" #leading><span class="emcd-tx__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path :d="t[1]"/></svg></span></template>
     <template #trailing>
-      <DsAmount v-if="status === 'completed'" size="s" :sign="sign" :value="value" :ticker="ticker" :fiat="fiat" :show-fiat="fiat != null" align="end" />
+      <DsAmount v-if="status === 'completed'" size="m" :sign="sign" :value="value" :ticker="ticker" :fiat="fiat" :show-fiat="fiat != null" align="end" />
       <template v-else>
-        <DsAmount size="s" :sign="sign" :value="value" :ticker="ticker" :show-fiat="false" align="end" />
+        <DsAmount size="m" :sign="sign" :value="value" :ticker="ticker" :show-fiat="false" align="end" />
         <DsStatus size="s" :tone="st[0]" :label="statusLabel ?? st[1]" />
       </template>
     </template>

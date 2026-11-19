@@ -1,6 +1,6 @@
 # Демо K4 — майнинг из кода (React, Dark)
 
-15 экранов майнинга, собранных **только из компонентов репо** (`window.EMCD` из `claude-ds/bundle/bundle.js`), рядом с макетами Figma.
+18 экранов майнинга (Web, мобильный веб, App), собранных **только из компонентов репо** (`window.EMCD` из `claude-ds/bundle/bundle.js`), рядом с макетами Figma.
 
 | Экран | Файл | Размер | Каркас |
 |---|---|---|---|
@@ -19,6 +19,9 @@
 | Watcher-link · мобильный веб (3.9a) | `mw-watcher.html` | 375 × 812 | Suggest Strip Accent; Page header Compact + Icon button Secondary «Фильтр»; Card M столбиком; Floating button Extended L по центру снизу |
 | Настройки → Уведомления · мобильный веб (3.9a) | `mw-settings-notify.html` | 375 × 812 | Segmented на всю ширину; Card L: Section header M, Select аккаунта с подсказкой, List item M с шевроном |
 | Настройки → Вывод · мобильный веб (3.9a) | `mw-settings-withdraw.html` | 375 × вся высота | Segmented; Select «Монета майнинга» (Coin); Card L «Куда выводить средства?»: Toggle, Select, Input Read-only, Checkbox, Divider, Toggle, Promo card M Accent |
+| App · Дашборд (вывод) | `app-dashboard.html` | 375 × 812, iOS | Top bar App · Card L1 Surface (лист) · Tab bar с Action (знак EMCD); монета отображения — Select compact; Card L2 S: List item + Amount M по концу; «Вывести» — Button Secondary на всю ширину; Floating button M Primary «Калькулятор» |
+| App · Воркеры | `app-workers.html` | 375 × 812, iOS | Tabs M · Chip S со Status dot · Search + Segmented (иконки) · Table compact · Floating button M Secondary «Выгрузить» |
+| App · История (начисления) | `app-history.html` | 375 × 812, iOS | Tabs M · Segmented L · Card L2 M (Amount L, Coin stack +6, Suggest Strip Warning) · Transaction без плашки типа · «Фильтры» / «Выгрузить» — Button Tertiary M над Tab bar |
 
 Состав: `screens.js` (экраны на `React.createElement`, данные и тексты — с макетов), `demo.css` (только раскладка: flex / grid, токены `space-*`, тексты на токенах типографики), `vendor/` — React 18.3.1 UMD (копия из `tests/code/node_modules`, демо работает без сети), `reference/` — рендеры Figma 19.11 (калькулятор, Watcher-link, Настройки — экраны «… · DS 2.0»; Watcher-link и Настройки сняты в 1200 × 750 — в сравнении растягиваются до ширины страницы).
 Атрибуты: `<html data-theme="dark" data-brand="emcd" data-platform="web | mobile-web" data-style="expressive">`; токены — `build/css/index.css`, стили компонентов — `packages/styles/components.css`.
@@ -118,3 +121,14 @@ npm run demo:mining -- mw-workers web-history   # выборочно
 | Подписи оси X графика: отступ от области 12, на макете ~24 | Chart plot | мелкое, проверить |
 | Меню экрана Web («Bitcoin +1» / «Список · Группы») на макете ниже на 8–10 | Select M 40 против Segmented с полями; раскладка макета | мелкое |
 | Ширина текстов 1–5 % | шрифт-заменитель | заглушка |
+
+## App (iOS, 19.11)
+
+Макеты — «… · App · DS 2.0» в файле App Migration test. Статус-бар iOS и индикатор «домой» — устройство, в коде только высота (54). Компоненты по сравнению: Transaction — `showLeading` (без плашки типа, контракт 17.11), сумма — Amount M (в Figma 14 / 14, было S с фиатом 12); Button — снят `max-width: 280` (в контракте ограничения нет, «Вывести» на всю карточку упиралась в 280); иконка `devices` (Майнинг в Tab bar). На экранах: Amount в строках — Align=End, иконка выгрузки `file-xls` → `file-excel` (правило patterns), лист Воркеров — Card Padding M, как у остальных.
+
+| Расхождение (19.11) | Причина | Статус |
+|---|---|---|
+| Табы на ~12 ниже, чем на макете | на макете Tabs стоят ближе к верху листа, чем поле Card M; сверить поле листа в Figma | проверить в Figma |
+| Воркеры: 3 таба на макете растянуты на ширину (по 104), в коде по содержимому | правила «растягивать при ≤ 3» у Tabs нет ни в контракте, ни в коде | вопрос |
+| Segmented «Список / Группы» в коде шире (сегмент не уже 72) | на макете 96 по содержимому | мелкое |
+| Transaction в Figma: фиат под суммой выровнен по началу | набор: вложенный Amount Align=Start; исправлено в Components (Align=End) | ждёт Publish (на экранах — override) |

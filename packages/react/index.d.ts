@@ -502,6 +502,8 @@ export interface TransactionProps {
   status?: 'completed' | 'pending' | 'failed';
   /** Действие + монета: «Вывод BTC», «Обмен BTC → USDT». */
   label?: ReactNode;
+  /** false — без плашки типа (история начислений App, 17.11). По умолчанию true. */
+  showLeading?: boolean;
   /** Дата. */
   description?: ReactNode;
   /** Сумма без знака — знак по type и status. */
@@ -1062,9 +1064,9 @@ export interface ChartCardProps {
   className?: string;
 }
 export interface TopBarProps {
-  /** mobile-web — логотип, аккаунт, баланс, «Меню»; app (19.11) — Select compact аккаунта в начале, Select compact монеты (Coin stack) + Icon button Secondary M «+» в конце; без логотипа, баланса и меню. */
+  /** mobile-web — логотип, аккаунт, баланс, «Меню»; app (19.11) — Select compact аккаунта в начале, Select compact монеты (Coin stack) + Icon button Tertiary M «+» в конце; без логотипа, баланса и меню. */
   platform?: 'mobile-web' | 'app';
-  /** Только mobile-web. */
+  /** Только mobile-web. По умолчанию — знак EMCD (logo-emcd, 24). */
   logo?: ReactNode;
   /** Имя аккаунта (app — подпись Select compact без leading). */
   account?: ReactNode;
@@ -1083,7 +1085,7 @@ export interface TopBarProps {
   onCoinChange?: (value: string | number) => void;
   /** app без coinOptions — открыть свой список монет. */
   onCoin?: () => void;
-  /** app: Icon button Secondary M «+». */
+  /** app: Icon button Tertiary M «+». */
   onAdd?: (e: unknown) => void;
   /** Доступное имя «+» — «Подключить». */
   addLabel?: string;
@@ -1156,7 +1158,7 @@ export interface TabBarItemProps {
   selected?: boolean;
   /** Подпись — одно слово; у action — доступное имя (обязательно). */
   label: string;
-  /** Имя иконки DS или узел (логотип у action). По умолчанию dots-grid. */
+  /** Имя иконки DS или узел (логотип у action). По умолчанию: item — dots-grid, action — logo-emcd (знак EMCD). */
   icon?: IconSlot;
   /** Точка без числа: в разделе есть то, что требует действия. */
   badgeDot?: boolean;

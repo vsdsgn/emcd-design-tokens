@@ -16,7 +16,9 @@ const SCREENS = [
   // 19.11: Калькулятор (3.10a), Watcher-link и Настройки (3.9a); макеты Watcher-link и Настроек — 1200 × 750 (кадр 1440 в масштабе) → в сравнении растягиваются до ширины страницы
   ['web-calculator', 1440, 914], ['mw-calculator', 375, 812, true], ['web-watcher', 1440, 900], ['web-settings', 1440, 900],
   // 19.11: макеты экранов DS (Figma «… · DS 2.0»): мобильные 370 × 800 (кадр 375 в масштабе), «Вывод» — 375 × 1042 (вся высота), Выплаты Web — 1200 × 750
-  ['web-payouts', 1440, 900], ['mw-payouts', 375, 812], ['mw-watcher', 375, 812], ['mw-settings-notify', 375, 812], ['mw-settings-withdraw', 375, 812, true]];
+  ['web-payouts', 1440, 900], ['mw-payouts', 375, 812], ['mw-watcher', 375, 812], ['mw-settings-notify', 375, 812], ['mw-settings-withdraw', 375, 812, true],
+  // 19.11: App (iOS) — экраны «… · App · DS 2.0» (статус-бар — устройство, в коде только его высота 54)
+  ['app-dashboard', 375, 812], ['app-workers', 375, 812], ['app-history', 375, 812]];
 const only = process.argv.slice(2);
 // Блоки, чья высота в загрузке (State=Skeleton) должна совпасть с загруженной: [подпись, селектор] — каждый найденный элемент по порядку
 const LOADING_BLOCKS = {
