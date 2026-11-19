@@ -73,6 +73,7 @@ Vue: `import { DsButton } from '…/packages/vue/src'` → `<DsButton type="prim
 | Amount | `tone`: default · success · danger — цвет значения и тикера без знака (только `sign="none"`; итог дохода — success); со знаком не применяется |
 | Card | `ambientLight` — пятно `light-ambient-color` / `light-ambient-blur` справа сверху, обрезано радиусом (`overflow: hidden`), в Base прозрачное; одна герой-карточка на экран |
 | Select | без лишнего по умолчанию: helper — только при `hint` / `error`, единицы нет (заглушки набора Figma «USDT», «Комиссия сети 1 USDT» не переносятся) |
+| Checkbox · Toggle · Radio | узкая колонка (patterns 3.9a «Настройки → Вывод» Compact): строка Checkbox / Radio не шире контейнера (`max-width: min(480px, 100%)`), подпись и описание переносятся, в т. ч. длинное слово (`overflow-wrap: anywhere`); коробочка и дорожка Toggle не сжимаются (демо K4, 19.11) |
 | Suggest | Strip: текст и кнопка в одну строку от ширины текста 160 (было 240) — колонка 400, экран 375 |
 | Skeleton (новый) | `shape` text 12 · title 20 (`radius/inner`) · circle (`radius/full`) · rect (`radius/container`), `width` / `height`; inline-block по центру строки — строка текста сохраняет высоту; `aria-hidden`, `aria-busy` — у контейнера. Блик `emcd-skeleton-shimmer` (1.2 с, один градиент на экран через `background-attachment: fixed`) — общий для кирпича и State=Skeleton всех компонентов; `prefers-reduced-motion` — пульсация прозрачности `emcd-skeleton-pulse` (контракт Skeleton, решение 2026-10-31; правило 3.11a приведено 19.11) |
 

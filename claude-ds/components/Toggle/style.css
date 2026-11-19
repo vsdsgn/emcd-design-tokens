@@ -5,7 +5,8 @@
 .emcd-toggle--s { --w: 40px; --h: 24px; --knob: 16px; --lh: 20px; gap: 8px; font: 500 14px/20px var(--font-sans); }
 /* Control position = Start — дорожка перед подписью (по умолчанию — End, у конца строки) */
 .emcd-toggle--start { flex-direction: row; justify-content: flex-start; width: fit-content; }
-.emcd-toggle__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+/* Узкая колонка (patterns 3.9a): подпись и описание переносятся (длинное слово — тоже), дорожка не сжимается */
+.emcd-toggle__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
 .emcd-toggle__desc { font: 500 12px/16px var(--font-sans); color: var(--text-secondary); }
 .emcd-toggle input { appearance: none; -webkit-appearance: none; position: relative; flex: none; width: var(--w); height: var(--h); margin: 0; border-radius: var(--radius-chip, 9999px);
   background-color: var(--control-track); cursor: pointer; outline: none;

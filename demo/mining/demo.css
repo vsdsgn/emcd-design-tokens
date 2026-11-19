@@ -140,3 +140,15 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 .demo-notify__row--head { align-items: start; }
 .demo-notify__label { color: var(--text-primary); font: 400 var(--type-body-md-size)/var(--type-body-md-line-height) var(--font-sans); }
 .demo-notify__desc { display: flex; align-items: center; gap: var(--space-8); }
+
+/* ───────── Мобильный: Watcher-link, Настройки (3.9a Compact) ───────── */
+.demo-mw-head { justify-content: space-between; }
+.demo-link--mw { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-16); }
+.demo-link__top { display: flex; align-items: flex-start; gap: var(--space-4); }
+.demo-link--mw .demo-link__term { max-width: none; }
+/* Floating button Extended — по центру снизу над контентом (позиция — у продукта, patterns 3.9a) */
+.demo-fab-dock { position: sticky; bottom: 0; display: flex; justify-content: center; padding: var(--space-16); padding-bottom: calc(var(--space-24) + env(safe-area-inset-bottom, 0px)); pointer-events: none; }
+.demo-fab-dock > * { pointer-events: auto; }
+.demo-settings-card { gap: var(--space-24); }
+.demo-settings-types { gap: var(--space-8); }
+.demo-payout { gap: var(--space-4); } /* сумма над «В Explorer» (3.6a Compact) */

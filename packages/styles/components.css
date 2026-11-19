@@ -156,12 +156,13 @@
 
 /* Checkbox — 🟡 beta (Figma «🟡 Checkbox»: Status × Tone × Size × Control × State).
    Строка .emcd-check (коробочка + подпись + описание) — общая с Radio. */
-.emcd-check { --lh: 24px; display: flex; align-items: flex-start; gap: 12px; width: fit-content; max-width: 480px;
+.emcd-check { --lh: 24px; display: flex; align-items: flex-start; gap: 12px; width: fit-content; max-width: min(480px, 100%); box-sizing: border-box;
   font: 500 16px/24px var(--font-sans); color: var(--text-primary); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .emcd-check--s { --lh: 20px; gap: 8px; font: 500 14px/20px var(--font-sans); }
 /* Control position = End — строки настроек: подпись на всю ширину, коробочка у конца */
 .emcd-check--end { flex-direction: row-reverse; justify-content: space-between; width: 100%; }
-.emcd-check__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+/* Узкая колонка (patterns 3.9a): строка не шире контейнера, подпись и описание переносятся (длинное слово — тоже) */
+.emcd-check__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
 .emcd-check__desc { font: 500 12px/16px var(--font-sans); color: var(--text-secondary); }
 .emcd-check input { appearance: none; -webkit-appearance: none; position: relative; flex: none; box-sizing: border-box; width: 20px; height: 20px; margin: calc((var(--lh) - 20px) / 2) 0;
   border-radius: var(--radius-control-xs, 6px); border: 1px solid var(--border-strong); background-color: var(--control-box);
@@ -200,7 +201,8 @@
 .emcd-toggle--s { --w: 40px; --h: 24px; --knob: 16px; --lh: 20px; gap: 8px; font: 500 14px/20px var(--font-sans); }
 /* Control position = Start — дорожка перед подписью (по умолчанию — End, у конца строки) */
 .emcd-toggle--start { flex-direction: row; justify-content: flex-start; width: fit-content; }
-.emcd-toggle__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+/* Узкая колонка (patterns 3.9a): подпись и описание переносятся (длинное слово — тоже), дорожка не сжимается */
+.emcd-toggle__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
 .emcd-toggle__desc { font: 500 12px/16px var(--font-sans); color: var(--text-secondary); }
 .emcd-toggle input { appearance: none; -webkit-appearance: none; position: relative; flex: none; width: var(--w); height: var(--h); margin: 0; border-radius: var(--radius-chip, 9999px);
   background-color: var(--control-track); cursor: pointer; outline: none;

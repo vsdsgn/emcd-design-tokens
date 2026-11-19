@@ -1,4 +1,4 @@
-/* Демо K4: 6 экранов майнинга из компонентов репо (window.EMCD — claude-ds/bundle/bundle.js, React 18 UMD из vendor/).
+/* Демо K4: 15 экранов майнинга из компонентов репо (window.EMCD — claude-ds/bundle/bundle.js, React 18 UMD из vendor/).
    Каркас — flex / grid и токены отступов (patterns.md 0.0: Web 40 / 32 / 24 / 16; мобильный веб 16 / 12 / 24). Каждый видимый элемент UI — компонент DS;
    свои узлы — только раскладка (demo.css) и подписи-тексты на токенах типографики. Тексты и числа — как на макетах Figma (reference/*.png). */
 (function () {
@@ -406,7 +406,115 @@
         })));
   }
 
+  // ───────── История → Выплаты (patterns 3.6a) ─────────
+  // те же строки, что «Начисления» (HISTORY), + направление выплаты
+  var PAY_DIRS = ['На EMCD wallet', 'На внешний кошелёк', 'На внешний кошелёк', 'На EMCD wallet', 'На EMCD wallet'];
+  var explorer = function (size) { return h(E.Button, { type: 'text', size: size, label: 'В Explorer', iconRight: h(E.Icon, { name: 'arrow-new-tab' }) }); };
+  function WebPayouts() {
+    var cols = [
+      { key: 'date', label: 'Дата и время', width: '24%', render: function (r) { return twoLines(r.date, r.time); } },
+      { key: 'value', label: 'Сумма', width: '26%', render: function (r) { return div('demo-amount-cell', h(E.Coin, { coin: r.coin, size: 's' }), h(E.Amount, { size: 'm', value: r.value, ticker: r.ticker, fiat: r.fiat })); } },
+      { key: 'dir', label: 'Направление', width: '28%', render: function (r) { return text('demo-two__p', PAY_DIRS[r.id]); } },
+      { key: 'details', label: 'Детали', render: function () { return explorer('s'); } }];
+    var coinRow = function (coin, val, fiat) {
+      return h(E.ListItem, { size: 'm', inset: false, showDescription: false, leading: h(E.Coin, { coin: coin, size: 'm' }), label: val, trailing: text('demo-muted', fiat) });
+    };
+    return h(WebShell, { tab: 'История' },
+      div('demo-menu demo-menu--split', coinSelect(['ltc', 'eth', 'x'], 'Litecoin + 6', '6'),
+        h(E.Segmented, { size: 'm', label: 'Вид истории', defaultValue: 'pay', className: 'demo-seg-wide', items: [{ value: 'acc', label: 'Начисления' }, { value: 'pay', label: 'Выплаты' }] })),
+      div('demo-blocks',
+        div('demo-filters',
+          // фильтры 3.6a: «Монеты» и «Тип выплат» (на макете — заглушки «Сеть»)
+          h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Монеты', options: [{ value: 'all', label: 'Все монеты' }, { value: 'ltc', label: 'LTC' }, { value: 'doge', label: 'DOGE' }], defaultValue: 'all', className: 'demo-filters__net' }),
+          h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Тип выплат', options: [{ value: 'all', label: 'Все направления' }, { value: 'wallet', label: 'На EMCD wallet' }, { value: 'ext', label: 'На внешний кошелёк' }, { value: 'ch', label: 'На Coinhold' }], defaultValue: 'all', className: 'demo-filters__net' }),
+          h(E.DateRangeField, { label: 'Период', className: 'demo-filters__period', panel: { isDateDisabled: function (d) { return d > new Date().toISOString().slice(0, 10); } } }),
+          h(E.Button, { type: 'tertiary', size: 'm', label: 'Выгрузить', iconLeft: h(E.Icon, { name: 'file-excel' }), className: 'demo-filters__btn' })),
+        div('demo-history',
+          h(E.Card, { padding: 'm', className: 'demo-history__total' },
+            h(E.Suggest, { layout: 'strip', tone: 'warning', title: 'Выплаты ежедневно с 15:00 до 16:00', primaryAction: false, close: false }),
+            div('demo-total', h(E.Amount, { size: 'l', value: '$12 457.89' }), text('demo-caption demo-caption--md', 'Всего выплачено')),
+            h(E.Divider, null),
+            div('demo-group', text('demo-caption demo-caption--md', 'На EMCD wallet'), div('emcd-list', coinRow('ltc', '8.9012 LTC', '≈ $78.90'))),
+            div('demo-group', text('demo-caption demo-caption--md', 'На внешний кошелёк'),
+              div('emcd-list', coinRow('doge', '9.0123 DOGE', '≈ $34.56'), coinRow('bel', '123.4567 BEL', '≈ $90.12'), coinRow('lky', '67.8901 LKY', '≈ $89.01'), coinRow('pep', '789.0123 PEP', '≈ $45.67')))),
+          h(E.Card, { padding: 'm', className: 'demo-history__table' },
+            h(E.Table, { label: 'Выплаты', density: 'regular', columns: cols, rows: HISTORY })))));
+  }
+
+  function MwPayouts() {
+    var rows = [['Кошелёк EMCD', '20', true], ['Кошелёк EMCD', '19', true], ['На Coinhold', '18', false], ['Внешний кошелёк', '17', true], ['Кошелёк EMCD', '16', true]].map(function (r) {
+      return h(E.ListItem, { key: r[1], size: 'm', divider: true, label: r[0], description: r[1] + ' дек 2025, 11:38',
+        // сумма без фиата; ссылка в Explorer — кроме Coinhold (3.6a)
+        trailing: div('demo-two demo-two--end demo-payout', h(E.Amount, { size: 'm', align: 'end', value: '0.00004480', ticker: 'ETC' }), r[2] && explorer('xs')) });
+    });
+    return h(MwShell, { tab: 'История', bar: h(E.ActionBar, { badge: true, actions: [{ label: 'Фильтры', iconLeft: 'tuning' }, { label: 'Выгрузить', iconLeft: 'file-excel' }] }) },
+      h(E.Segmented, { size: 'm', block: true, label: 'Вид истории', defaultValue: 'pay', items: [{ value: 'acc', label: 'Начисления' }, { value: 'pay', label: 'Выплаты' }] }),
+      h(E.Card, { padding: 'm', border: false, className: 'demo-mw-total' },
+        coinSelect(['ltc', 'eth', 'x'], 'Litecoin + 6', '6', 'l'),
+        div('demo-mw-total__row',
+          div('demo-stat', h(E.Amount, { size: 'l', value: '≈ $35 534.55' }), text('demo-caption demo-caption--md', 'Сумма всех выплат')),
+          h(E.CoinStack, { coins: ['ltc', 'eth', 'x'], size: 's', count: 2, more: '6' }),
+          h(E.Icon, { name: 'chevron-right', className: 'demo-muted' })),
+        h(E.Suggest, { layout: 'strip', tone: 'warning', title: 'Выплачиваем ежедневно с 14:00 до 18:00', primaryAction: false, close: false })),
+      div('demo-mw-list', rows));
+  }
+
+  // ───────── Watcher-link · мобильный (3.9a Compact) ─────────
+  function MwWatcher() {
+    return h(MwShell, { tab: 'Watcher-link', bar: div('demo-fab-dock', h(E.FloatingButton, { layout: 'extended', size: 'l', label: 'Создать Watcher link' })) },
+      h(E.Suggest, { layout: 'strip', tone: 'accent', title: 'Подключай сторонние сервисы с помощью API-ключей', primaryLabel: 'Перейти', close: false }),
+      div('demo-mw-row demo-mw-head',
+        h(E.PageHeader, { size: 'compact', title: 'Мои Watcher link' }),
+        h(E.IconButton, { type: 'secondary', size: 'm', label: 'Фильтр', icon: h(E.Icon, { name: 'tuning' }) })),
+      div('demo-links', LINKS.map(function (l, i) {
+        return h(E.Card, { key: i, padding: 'm', className: 'demo-link demo-link--mw' + (l.on ? '' : ' demo-link--off') },
+          div('demo-link__top',
+            div('demo-two demo-grow', text('demo-link__name', l.name), text('demo-two__s', l.created)),
+            h(E.IconButton, { type: 'ghost', size: 's', label: 'Скопировать ссылку', icon: h(E.Icon, { name: 'link' }) }),
+            h(E.IconButton, { type: 'ghost', size: 's', label: 'Ещё', icon: h(E.Icon, { name: 'more-horizontal' }) })),
+          div('demo-link__account', text('demo-link__text', l.account), l.main && h(E.Badge, { size: 's', label: 'Основной' })),
+          div('demo-two', text('demo-link__text', l.access), l.export && text('demo-two__s', 'С выгрузкой')),
+          div('demo-link__term', text('demo-link__text', l.until), l.pct != null && h(E.Progress, { size: 's', tone: l.tone, percent: l.pct, label: 'Срок ссылки', showLabel: false })));
+      })));
+  }
+
+  // ───────── Настройки · мобильный (3.9a Compact) ─────────
+  var SETTINGS_SEG = function (v) {
+    return h(E.Segmented, { size: 'm', block: true, label: 'Раздел настроек', defaultValue: v, items: [{ value: 'out', label: 'Вывод' }, { value: 'notify', label: 'Уведомления' }] });
+  };
+  function MwSettingsNotify() {
+    return h(MwShell, { tab: 'Настройки' },
+      SETTINGS_SEG('notify'),
+      h(E.Card, { padding: 'l', className: 'demo-settings-card' },
+        h(E.SectionHeader, { size: 'm', level: 2, title: 'Следи за событиями майнинга' }),
+        h(E.Select, { size: 'm', label: 'Аккаунт', hint: 'Уведомления настраиваются для выбранного аккаунта', defaultValue: 'main',
+          options: [{ value: 'main', label: 'SergeySiminiv1337' }, { value: 'second', label: 'petrovskii' }] }),
+        div('demo-calc-group demo-settings-types', text('demo-caption demo-caption--md', 'Какие уведомления получать'),
+          div('emcd-list', NOTIFY.map(function (r, i) {
+            // канал настраивается на следующем экране — строка с шевроном, без матрицы чекбоксов
+            return h(E.ListItem, { key: r.id, size: 'm', inset: false, href: '#', divider: i < NOTIFY.length - 1, label: r.label, description: r.desc, showDescription: !!r.desc,
+              trailing: h(E.Icon, { name: 'chevron-right' }) });
+          })))));
+  }
+
+  function MwSettingsWithdraw() {
+    var btc = function () { return h(E.Coin, { coin: 'btc', size: 's' }); };
+    return h(MwShell, { tab: 'Настройки' },
+      SETTINGS_SEG('out'),
+      h(E.Select, { size: 'm', label: 'Монета майнинга', defaultValue: 'btc', options: [{ value: 'btc', label: 'Bitcoin', leading: btc() }, { value: 'ltc', label: 'Litecoin', leading: h(E.Coin, { coin: 'ltc', size: 's' }) }] }),
+      h(E.Card, { padding: 'l', className: 'demo-settings-card' },
+        h(E.SectionHeader, { size: 'm', level: 2, title: 'Куда выводить средства?' }),
+        h(E.Toggle, { status: true, label: 'На основной счёт', description: 'Выплачиваем ежедневно с 10:00 до 12:00, без ограничений' }),
+        h(E.Select, { size: 'm', label: 'Монета', defaultValue: 'btc', options: [{ value: 'btc', label: 'BTC', leading: btc() }, { value: 'usdt', label: 'USDT' }] }),
+        h(E.Input, { size: 'm', state: 'readonly', label: 'Внутренний адрес BTC кошелька', defaultValue: 'tb1qy4npsm8wledn07jq5j5yx2276qdszp8w4cy3v' }),
+        h(E.Checkbox, { label: 'Автоконвертация начислений', description: 'Автоматически будем менять % от майнинговых начислений на другую крипту по курсу на момент выплаты. Минимальная сумма обмена — 10 USDT в эквиваленте BTC' }),
+        h(E.Divider, null),
+        h(E.Toggle, { status: false, label: 'На Coinhold', description: 'Дополнительный доход с намайненного — до 8% годовых' }),
+        h(E.PromoCard, { size: 'm', tone: 'accent', title: 'Заработай до 8% годовых', description: 'Открой Coinhold и зарабатывай на хранении криптовалют', actionLabel: 'Открыть Coinhold', showClose: false, showMedia: false })));
+  }
+
   var SCREENS = { 'web-dashboard': WebDashboard, 'web-workers': WebWorkers, 'web-history': WebHistory, 'mw-dashboard': MwDashboard, 'mw-workers': MwWorkers, 'mw-history': MwHistory,
-    'web-calculator': WebCalculator, 'mw-calculator': MwCalculator, 'web-watcher': WebWatcher, 'web-settings': WebSettings };
+    'web-calculator': WebCalculator, 'mw-calculator': MwCalculator, 'web-watcher': WebWatcher, 'web-settings': WebSettings,
+    'web-payouts': WebPayouts, 'mw-payouts': MwPayouts, 'mw-watcher': MwWatcher, 'mw-settings-notify': MwSettingsNotify, 'mw-settings-withdraw': MwSettingsWithdraw };
   ReactDOM.createRoot(document.getElementById('root')).render(h(SCREENS[screen] || WebDashboard));
 })();
