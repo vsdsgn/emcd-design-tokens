@@ -2,7 +2,7 @@
 
 Неинтерактивная метка статуса или свойства: «Активен», «Новое», «−5 %», монета. Нажать нельзя.
 
-**Оси (как в Figma «🟡 Badge»):** Size — S 20 · M 24 · L 32; Tone — Neutral · Accent · Success · Warning · Danger; Style — Subtle (по умолчанию) · Solid; State — Default · Skeleton. Свойства: Label, Icon.
+**Оси (как в Figma «🟡 Badge»):** Size — S 20 · M 24 · L 32; Tone — Neutral · Accent · Success · Warning · Danger; Style — Subtle (по умолчанию; у Neutral — обводка `border-subtle`, текст `text-secondary`) · Solid; State — Default · Skeleton. Свойства: Label, Icon.
 
 **Когда какой:** Success — работает, выплачено; Warning — требует внимания; Danger — ошибка, неактивен; Accent — промо, новое, информационная метка; Neutral — свойство без оценки. Subtle — таблицы и списки; Solid — одна главная метка на карточке или экране.
 

@@ -19,4 +19,34 @@
 React: `import { Button } from '…/packages/react/src/index.js'` → `<Button type="primary" label="Вывести" />`.
 Vue: `import { DsButton } from '…/packages/vue/src'` → `<DsButton type="primary" label="Вывести" />`.
 
+## Проверка — `npm run test:code`
+
+Стенд `tests/code/` (свой `package.json`: react 18.3.1, react-dom, vue 3.5, @vue/server-renderer, @vue/compiler-sfc; корневые devDependencies не трогает):
+- React — каждый экспорт `react/src/index.js` рендерится `renderToString` с представительными props (все значения осей + свойства 17–19.11) в Light и Dark; ошибка или предупреждение React — провал;
+- Vue — каждый `vue/src/*.vue` компилируется `@vue/compiler-sfc` и рендерится `@vue/server-renderer`; предупреждение Vue — провал;
+- классы — каждый `emcd-*` из разметки обоих фреймворков должен быть в `styles/components.css`.
+
+Новый компонент — добавить представительные props в `tests/code/ssr.mjs` (без них стенд падает).
+
+## Приведено к контрактам 17–19.11
+
+| Набор | Что изменилось |
+|---|---|
+| Button | `size`: + `xs` 24 (только Web, без min-width); `xl` — только App (главный CTA внизу экрана); зазор иконка — подпись 10 (XS — 6); поля M 12, L / XL 16; min-width 64; иконки цвета подписи; Text — без отступов, `action-primary-default` |
+| Icon button | `size`: `xs` · `s` · `m` · `l` (XL снят) |
+| Badge | Subtle · Neutral — `status-neutral-subtle` + обводка `border-subtle`, текст `text-secondary` |
+| Counter | квадрат `radius-sm`; Neutral — обводка `border-subtle`, цифра `text-secondary` |
+| Chip | Selected — белая инверсная плашка, Meta `text-inverse-secondary`, слой состояний обычный; `statusDot` + `statusTone`; Disabled — без подложки |
+| Tab / Tabs | `size`: `page` вместо `xl` (64, heading-md Medium); `statusDot` + `statusTone`; Counter — квадрат |
+| Status | точка 6 у S и M; подпись Medium, `text-primary`; общая точка `.emcd-dot` для Tab и Chip |
+| Amount | S 12 / M 14 — шрифт текста с табличными цифрами (моно снято); L — `heading-xl` Bold, тикер того же кегля Medium; XL — display; `align` start · end |
+| Stat card | `tone` neutral · danger · warning · success; `align` start · center (поля 4 / 32); `link` + `onLink` (Icon button XS: Danger — Secondary Danger, иначе Tertiary); min-width снят |
+| Suggest | Strip — `radius-inner`, без иконки (если не передан `leading`), заголовок label-md цвета тона, крестик в строке |
+| List item | `showDescription` (по умолчанию true) |
+| Segmented / Segment | `size`: `s` · `m` · `l` (XL снят); сегмент не уже 64 / 80 / 96; подпись S — label-sm |
+| Input / Select / Textarea / Password field | `size`: `m` · `l` (XL снят); Input — `labelPosition` по умолчанию `on-border`; Hover — обводка `control-border-hover`; Textarea — `size` |
+| Card | Padding L — 24 сверху и снизу, 32 по бокам |
+| Progress | значение — шрифт текста (моно снято) |
+| Modal | кнопки футера — Button L (было XL) |
+
 Пакеты пока не публикуются в npm: разработка забирает исходники; DSP / ui-emcd-web сверяет с ними свои компоненты.

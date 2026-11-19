@@ -7,7 +7,7 @@
 .emcd-progress--danger { --fill: var(--status-danger-solid); }
 .emcd-progress__row { display: flex; align-items: baseline; gap: var(--space-8, 8px); }
 .emcd-progress__label { flex: 1; min-width: 0; font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.emcd-progress__value { flex: none; font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-mono); font-variant-numeric: tabular-nums; color: var(--text-secondary); white-space: nowrap; }
+.emcd-progress__value { flex: none; font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); font-variant-numeric: tabular-nums; color: var(--text-secondary); white-space: nowrap; }
 .emcd-progress__track { position: relative; height: var(--track); border-radius: var(--radius-chip, 999px); background: var(--control-track); overflow: hidden; }
 .emcd-progress__fill { position: absolute; inset: 0 auto 0 0; border-radius: inherit; background: var(--fill);
   transition: width var(--motion-duration-enter, 240ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }

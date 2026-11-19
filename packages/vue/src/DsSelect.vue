@@ -4,7 +4,7 @@ import { computed, ref, useId, watch, onBeforeUnmount } from 'vue';
 import DsMenu from './DsMenu.vue';
 import DsMenuItem from './DsMenuItem.vue';
 const props = defineProps({
-  size: { type: String, default: 'm' },          // m | l | xl — как у Input рядом
+  size: { type: String, default: 'm' },          // m | l — как у Input рядом (XL снят 17.11)
   label: String,
   hint: String,
   error: String,

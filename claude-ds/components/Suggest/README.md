@@ -4,7 +4,7 @@
 
 **Оси (как в Figma «🟡 Suggest»):** Layout Card · Strip × Tone Neutral · Accent · Success · Warning · Danger; свойства Title, Show title, Description, Show description, Show leading, слот Leading, Primary action, Secondary action, Close.
 
-**Когда какой:** Card — в колонке или карточке, кнопки под текстом; Strip — вверху страницы на всю ширину, кнопки в строку справа. Neutral — по умолчанию (`surface-raised`); Accent — предложение и информационное объявление (`accent-subtle`; тона Info нет — Info = цвет бренда); Success / Warning / Danger — системное объявление (`status-*-subtle`). Leading — по умолчанию иконка тона; можно логотип продукта или монету (Coin).
+**Когда какой:** Card — в колонке или карточке, кнопки под текстом; Strip — вверху страницы на всю ширину: плашка `radius-inner`, без иконки, заголовок label-md цвета тона, кнопки и крестик в строку справа. Neutral — по умолчанию (`surface-raised`); Accent — предложение и информационное объявление (`accent-subtle`; тона Info нет — Info = цвет бренда); Success / Warning / Danger — системное объявление (`status-*-subtle`). Leading — по умолчанию иконка тона; можно логотип продукта или монету (Coin).
 
 **Когда нет:** краткий отклик на действие — Toast; блокирующий вопрос — Modal; промо с картинкой — Promo card.
 

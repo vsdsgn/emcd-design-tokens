@@ -1,12 +1,18 @@
-/* Status — 🟡 beta (Figma «🟡 Status»: Size × Tone). Точка + подпись: состояние, которое обновляется само. */
+/* Status — 🟡 beta (Figma «🟡 Status»: Size × Tone). Точка + подпись: состояние, которое обновляется само.
+   Точка — size/dot/sm (6) у S и M (17.11); подпись Medium, text/primary: S — body/sm, M — body/md. */
 .emcd-status { --dot: var(--status-success-solid); --d: var(--size-dot-sm, 6px);
   display: inline-flex; align-items: center; gap: var(--space-6, 6px); max-width: 100%; vertical-align: middle;
-  font: 400 12px/16px var(--font-sans); color: var(--text-primary); white-space: nowrap; }
+  font: 500 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); color: var(--text-primary); white-space: nowrap; }
 .emcd-status__dot { flex: none; width: var(--d); height: var(--d); border-radius: 50%; background: var(--dot); }
 .emcd-status__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-.emcd-status--m { --d: var(--size-dot-md, 8px); gap: var(--space-8, 8px); font-size: 14px; line-height: 20px; }
+.emcd-status--m { gap: var(--space-8, 8px); font-size: var(--type-body-md-size, 14px); line-height: var(--type-body-md-line-height, 20px); }
 .emcd-status--warning { --dot: var(--status-warning-solid); }
 .emcd-status--danger { --dot: var(--status-danger-solid); }
 .emcd-status--info { --dot: var(--status-info-solid); }
 .emcd-status--neutral { --dot: var(--status-neutral-solid); }
-.emcd-status--neutral .emcd-status__label { color: var(--text-secondary); }
+/* _Dot S — точка статуса перед подписью в Tab и Chip (Status dot, 18.11): success | warning | danger | neutral */
+.emcd-dot { --dot: var(--status-success-solid); display: inline-block; flex: none; width: var(--size-dot-sm, 6px); height: var(--size-dot-sm, 6px); border-radius: 50%; background: var(--dot); }
+.emcd-dot--warning { --dot: var(--status-warning-solid); }
+.emcd-dot--danger { --dot: var(--status-danger-solid); }
+.emcd-dot--info { --dot: var(--status-info-solid); }
+.emcd-dot--neutral { --dot: var(--status-neutral-solid); }

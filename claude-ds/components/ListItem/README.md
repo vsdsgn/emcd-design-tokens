@@ -2,7 +2,7 @@
 
 Строка списка данных: монета, кошелёк, воркер, настройка. Слот Leading слева, тексты по Content, слот Trailing справа.
 
-**Оси (как в Figma «🟡 List item»):** Size L · M × Content Text first · Description first · Big value · Description only × State Default · Hover · Pressed · Disabled. Свойства базы `_List row`: Label, Description, Subvalue, слоты Leading и Trailing, Divider.
+**Оси (как в Figma «🟡 List item»):** Size L · M × Content Text first · Description first · Big value · Description only × State Default · Hover · Pressed · Disabled. Свойства базы `_List row`: Label, Description, Show description (по умолчанию On; Off — строка из одного названия), Subvalue, слоты Leading и Trailing, Divider.
 
 **Когда какой:** L — Web (текст 16 / 14, высота 76); M — Compact (14 / 12, высота 60). Text first — название, под ним описание; Description first — описание над названием; Big value — описание над крупным значением с единицей (Subvalue); Description only — одна строка. Hover / Pressed — только если строка открывает детали (`href` / `onClick`).
 

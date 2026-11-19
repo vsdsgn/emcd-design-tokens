@@ -4,7 +4,7 @@ import { computed } from 'vue';
 const props = defineProps({
   type: { type: String, default: 'tertiary' }, // primary | secondary | tertiary | tertiary-outline | ghost | text | inverted
   tone: { type: String, default: 'default' },
-  size: { type: String, default: 'm' },
+  size: { type: String, default: 'm' },        // xs 24 | s 32 | m 40 | l 48 (XL снят 17.11)
   label: { type: String, required: true },
   loading: Boolean,
   disabled: Boolean,

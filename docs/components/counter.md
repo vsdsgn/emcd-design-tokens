@@ -15,6 +15,8 @@
 - Правило выбора варианта:
   - Tone: Neutral — количество в табах и фильтрах; Accent — новое, требует внимания; Danger — ошибки и проблемы (неактивные воркеры).
   - Size: S 16 — в табах M и на иконках; M 20 — в табах L и пунктах меню.
+  - Форма (17.11, по продукту): квадрат `radius/sm`, не круг.
+  - Neutral (17.11, по продукту): как Badge — обводка `border/subtle`, цифра `text/secondary`.
 
 ## 3. Anatomy
 - Корень: квадрат со скруглением `radius/sm` (17.11; было капсула `radius/full`), min-width = высота; заливка: Neutral — `status/neutral/subtle`, Accent — `control/checked`, Danger — `status/danger/solid`.

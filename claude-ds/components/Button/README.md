@@ -2,11 +2,11 @@
 
 Кнопка запускает действие: отправить, сохранить, перейти к шагу.
 
-**Оси (как в Figma «🟡 Button»):** Type — Primary · Secondary · Tertiary · Tertiary outline · Text · Inverted; Tone — Default · Danger (у Primary, Secondary, Text); Size — S 32 · M 40 · L 48 · XL 56; State — Default · Hover · Pressed · Disabled. Loading — свойство, а не состояние оси.
+**Оси (как в Figma «🟡 Button»):** Type — Primary · Secondary · Tertiary · Tertiary outline · Text · Inverted; Tone — Default · Danger (у Primary, Secondary, Text); Size — XS 24 · S 32 · M 40 · L 48 · XL 56; State — Default · Hover · Pressed · Disabled. Loading — свойство, а не состояние оси.
 
 **Когда какой:** Primary — одно главное действие на экране. Secondary (тонированная подложка бренда) — важное, но не главное. Tertiary (нейтральная подложка) и Tertiary outline — второстепенные: отмена, фильтры, экспорт. Text — действие в строке или внутри текста. Inverted — на тёмных и цветных подложках. Tone · Danger — опасное подтверждённое действие (удалить, отключить), а не любая ошибка.
 
-**Размер:** S — таблицы и плотные панели; M — Web по умолчанию; L — App по умолчанию; XL — главное действие экрана, онбординг.
+**Размер:** XS 24 — мелкие действия в шапке сайдбара и плотных панелях (только Web, без min-width); S — таблицы и плотные панели; M — Web по умолчанию; L — App и мобильный веб по умолчанию, футер Modal; XL — только App: один главный CTA внизу экрана (на Web не используется). Зазор иконка — подпись 10 (XS — 6); иконки — цвета подписи; Text — без отступов, брендовый `action-primary-default`.
 
 **Поверхности:** Primary — на L0–L2; Secondary — только на L0–L1.
 
@@ -20,4 +20,4 @@
 
 **Движение и хаптики:** Hover и Pressed — 120 мс `motion-easing-standard`; нажатие — масштаб 0.96; касание — `haptic/press`; reduced motion — без анимаций и масштаба.
 
-Классы: `emcd-btn emcd-btn--{primary|secondary|tertiary|outline|text|inverted} [emcd-btn--danger] [emcd-btn--{s|l|xl}]`. Алиасов `--error`, `--secondary-error`, `--text-error` больше нет — только `emcd-btn--danger`.
+Классы: `emcd-btn emcd-btn--{primary|secondary|tertiary|outline|text|inverted} [emcd-btn--danger] [emcd-btn--{xs|s|l|xl}]`. Алиасов `--error`, `--secondary-error`, `--text-error` больше нет — только `emcd-btn--danger`.

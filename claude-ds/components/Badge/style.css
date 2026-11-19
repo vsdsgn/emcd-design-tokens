@@ -1,7 +1,7 @@
 /* Badge — 🟡 beta (Figma «🟡 Badge»: Size × Tone × Style). Неинтерактивная метка; радиус не pill. */
-.emcd-badge { --bg: var(--action-secondary-default); --fg: var(--text-primary);
+.emcd-badge { --bg: var(--status-neutral-subtle); --fg: var(--text-secondary); --edge: var(--border-subtle);
   display: inline-flex; align-items: center; gap: 4px; box-sizing: border-box; height: 24px; padding: 0 10px; border-radius: var(--radius-sm, 8px); vertical-align: middle;
-  font: 500 12px/16px var(--font-sans); max-width: 160px; white-space: nowrap; background: var(--bg); color: var(--fg); }
+  font: 500 12px/16px var(--font-sans); max-width: 160px; white-space: nowrap; background: var(--bg); color: var(--fg); box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--edge); }
 .emcd-badge__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .emcd-badge svg { width: 12px; height: 12px; flex: none; }
 .emcd-badge__dot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: currentColor; }
@@ -9,7 +9,8 @@
 .emcd-badge--s { height: 20px; padding: 0 8px; }
 .emcd-badge--l { height: 32px; padding: 0 12px; gap: 6px; border-radius: var(--radius-control-sm, 10px); font: 500 14px/20px var(--font-sans); }
 .emcd-badge--l svg { width: 16px; height: 16px; }
-/* Tone × Style=Subtle (по умолчанию) */
+/* Tone × Style=Subtle (по умолчанию). Neutral (17.11, по продукту): обводка border/subtle, текст text/secondary; у остальных тонов обводки нет */
+.emcd-badge:is(.emcd-badge--accent, .emcd-badge--success, .emcd-badge--warning, .emcd-badge--danger, .emcd-badge--solid, .emcd-badge--skeleton) { --edge: transparent; }
 .emcd-badge--accent { --bg: var(--accent-subtle); --fg: var(--accent-on-subtle); }
 .emcd-badge--success { --bg: var(--status-success-subtle); --fg: var(--status-success-on-subtle); }
 .emcd-badge--warning { --bg: var(--status-warning-subtle); --fg: var(--status-warning-on-subtle); }

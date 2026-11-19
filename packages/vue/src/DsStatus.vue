@@ -1,7 +1,7 @@
 <!-- Status — точка + подпись: состояние, которое обновляется само. showLabel=false — подпись уходит в aria-label. Контракт: docs/components/status.md -->
 <script setup>
 defineProps({
-  size: { type: String, default: 's' },       // s — таблицы | m — карточки и шапки
+  size: { type: String, default: 's' },       // s — таблицы (12) | m — карточки и шапки (14); точка 6 у обоих
   tone: { type: String, default: 'success' }, // success | warning | danger | info | neutral
   label: String,
   showLabel: { type: Boolean, default: true },

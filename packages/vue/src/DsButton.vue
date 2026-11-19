@@ -4,7 +4,7 @@ import { computed } from 'vue';
 const props = defineProps({
   type: { type: String, default: 'primary' }, // primary | secondary | tertiary | tertiary-outline | text | inverted
   tone: { type: String, default: 'default' }, // default | danger
-  size: { type: String, default: 'm' },       // s | m | l | xl
+  size: { type: String, default: 'm' },       // xs 24 (Web) | s | m | l | xl (только App: главный CTA внизу экрана)
   label: String,
   loading: Boolean,
   disabled: Boolean,

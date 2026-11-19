@@ -14,4 +14,4 @@
 
 **Доступность:** статус — словом, не только цветом; без подписи — `role="img"` и `aria-label`.
 
-Классы: `emcd-status [emcd-status--m] [emcd-status--{warning|danger|info|neutral}]`; внутри `emcd-status__dot`, `emcd-status__label`.
+Классы: `emcd-status [emcd-status--m] [emcd-status--{warning|danger|info|neutral}]`; внутри `emcd-status__dot` (6 у S и M), `emcd-status__label` (Medium). Точка статуса для Tab и Chip — `emcd-dot [emcd-dot--{warning|danger|info|neutral}]`.

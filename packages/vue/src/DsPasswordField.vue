@@ -16,7 +16,8 @@ const props = defineProps({
   state: { type: String, default: 'default' }, // default | error | disabled
   error: String,
   hint: String,
-  size: { type: String, default: 'm' },
+  size: { type: String, default: 'm' },             // m | l
+  labelPosition: { type: String, default: 'on-border' }, // on-border | above
 });
 const model = defineModel({ type: String, default: '' });
 const visible = defineModel('visible', { type: Boolean, default: false });
@@ -24,7 +25,7 @@ const met = computed(() => props.requirements.map((r) => !!r.test(model.value ||
 </script>
 <template>
   <div :class="['emcd-password', state === 'disabled' && 'emcd-password--disabled']">
-    <DsInput v-model="model" :size="size" :label="label" :placeholder="placeholder" :state="state" :error="error" :hint="hint" :type="visible ? 'text' : 'password'"
+    <DsInput v-model="model" :size="size" :label-position="labelPosition" :label="label" :placeholder="placeholder" :state="state" :error="error" :hint="hint" :type="visible ? 'text' : 'password'"
       :autocomplete="showRequirements ? 'new-password' : 'current-password'">
       <template #trailing>
         <DsIconButton type="ghost" size="s" :label="visible ? 'Скрыть пароль' : 'Показать пароль'" :aria-pressed="visible" :disabled="state === 'disabled'" @click.prevent="visible = !visible">

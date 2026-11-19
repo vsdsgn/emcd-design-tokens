@@ -2,7 +2,7 @@
 
 Выбор одного значения из 2–4 взаимоисключающих; результат применяется сразу (период графика, Купить / Продать, вид список / сетка). Сегменты — Segment.
 
-**Оси (как в Figma «🟡 Segmented» и «🟡 Segment»):** Segmented — Size S 32 · M 40 · L 48 · XL 56 × Items 2 · 3 · 4. Segment — Size × Selected × Tone Neutral · Accent × State Default · Hover · Pressed · Disabled; свойства Label, Show label, Icon.
+**Оси (как в Figma «🟡 Segmented» и «🟡 Segment»):** Segmented — Size S 32 · M 40 · L 48 (XL снят 17.11) × Items 2 · 3 · 4. Segment — Size × Selected × Tone Neutral · Accent × State Default · Hover · Pressed · Disabled; свойства Label, Show label, Icon.
 
 **Когда какой:** Size = размер соседнего поля или кнопки. Items — по числу значений; при 4 — короткие подписи («24 ч», «7 д», «30 д», «Год»). Tone Neutral — по умолчанию; Accent (выбранный тинтом `accent-subtle`) — редко, режим с промо или главным действием. Только иконки — Show label = off и обязательная подпись в `aria-label`. Период графика — Segmented S в шапке Chart card.
 
@@ -16,4 +16,4 @@
 
 **Код:** React `<Segmented items=[…] />` или `<Segmented><Segment value … /></Segmented>`; без `value` — неуправляемый. Vue — `<DsSegmented v-model … />`, `<DsSegment>`. Ось Items в коде — длина `items`.
 
-Классы: `emcd-segmented [emcd-segmented--{m|l|xl}] [emcd-segmented--block]`; сегмент `emcd-segment [emcd-segment--accent] [emcd-segment--icon-only]` (`aria-checked`, `disabled`), подпись `emcd-segment__label`.
+Классы: `emcd-segmented [emcd-segmented--{m|l}] [emcd-segmented--block]`; сегмент `emcd-segment [emcd-segment--accent] [emcd-segment--icon-only]` (`aria-checked`, `disabled`), подпись `emcd-segment__label`.

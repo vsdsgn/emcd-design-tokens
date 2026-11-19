@@ -2,7 +2,7 @@
 
 Поле выбора одного значения из списка (сеть вывода, кошелёк, монета, валюта). Поле как у Input, справа шеврон; по нажатию — Menu под полем (на Compact — Sheet).
 
-**Оси (как в Figma «🟡 Select»):** Size M · L · XL × State Default · Hover · Open · Filled · Error · Disabled · Loading · Skeleton; лейбл, helper, плейсхолдер, значение и Show leading — у вложенного Input.
+**Оси (как в Figma «🟡 Select»):** Size M · L (XL снят 17.11) × State Default · Hover · Open · Filled · Error · Disabled · Loading · Skeleton; лейбл, helper, плейсхолдер, значение и Show leading — у вложенного Input.
 
 **Когда какой:** Size = размер соседних полей формы (тот же, что у Input рядом). Default — пусто, плейсхолдер «Выберите …»; Filled — значение выбрано; Error — ошибка выбора, сообщение вместо helper; Loading — варианты грузятся (спиннер перед шевроном); Skeleton — форма грузится. Монета / сеть выбранного значения — в слот Leading (Coin).
 
@@ -14,4 +14,4 @@
 
 **Доступность:** кнопка `role="combobox"` + `aria-haspopup="listbox"`, `aria-expanded`, `aria-controls`; список `role="listbox"`, пункты `role="option"` + `aria-selected`; активный — `aria-activedescendant`. ↓ / ↑ / Enter / Пробел открывают, стрелки и Home / End двигают, Enter выбирает, Escape и Tab закрывают; клик вне — закрыть.
 
-Классы: база поля Input — `emcd-field [emcd-field--{l|xl}] [emcd-field--{error|disabled|skeleton}]`, `emcd-field__label`, `emcd-field__hint`; `emcd-select [emcd-select--open]` → `emcd-input emcd-select__trigger` (`emcd-input__leading`, `emcd-select__value [emcd-select__value--placeholder]`, `emcd-select__chevron`) и Menu `emcd-select__menu`.
+Классы: база поля Input — `emcd-field [emcd-field--l] [emcd-field--{error|disabled|skeleton}]`, `emcd-field__label`, `emcd-field__hint`; `emcd-select [emcd-select--open]` → `emcd-input emcd-select__trigger` (`emcd-input__leading`, `emcd-select__value [emcd-select__value--placeholder]`, `emcd-select__chevron`) и Menu `emcd-select__menu`.

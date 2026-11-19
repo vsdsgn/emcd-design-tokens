@@ -7,3 +7,4 @@ tests/perf/out/
 tests/devices/out/
 claude-ds/out/
 docs/private/
+tests/code/.out/

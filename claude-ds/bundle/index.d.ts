@@ -2,16 +2,18 @@
 // Значения props — из контрактов docs/components/*.md. Стили — классы emcd-* (components.css), токены — build/css.
 import type { ReactNode, ButtonHTMLAttributes, InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 
-type Size4 = 's' | 'm' | 'l' | 'xl';
+type StatusTone = 'success' | 'warning' | 'danger' | 'neutral';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   /** primary — одно главное действие; secondary — вспомогательное в цвет бренда; tertiary — нейтральное; tertiary-outline — с обводкой; text — ссылка-действие; inverted — на тёмной / промо-подложке. */
   type?: 'primary' | 'secondary' | 'tertiary' | 'tertiary-outline' | 'text' | 'inverted';
   /** danger — разрушающее действие (удалить, отключить). */
   tone?: 'default' | 'danger';
-  /** s 32 — таблицы; m 40 — Web по умолчанию; l 48 — App по умолчанию; xl 56 — главные действия, футер модалки. */
-  size?: Size4;
+  /** xs 24 — мелкие действия в шапке сайдбара и плотных панелях (только Web, без min-width); s 32 — таблицы, тулбары, фильтры; m 40 — Web по умолчанию;
+   *  l 48 — App и мобильный веб по умолчанию, футер Modal; xl 56 — только App: один главный CTA внизу экрана (на Web не используется). */
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   label?: ReactNode;
+  /** Иконка слева — цвета подписи (currentColor); зазор до подписи 10 (XS — 6). */
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
   /** Спиннер вместо иконки, aria-busy. */
@@ -22,7 +24,8 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
 export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   type?: 'primary' | 'secondary' | 'tertiary' | 'tertiary-outline' | 'ghost' | 'text' | 'inverted';
   tone?: 'default' | 'danger';
-  size?: Size4;
+  /** Квадрат xs 24 (только Web) · s 32 · m 40 · l 48; иконка xs / s 16 · m 20 · l 24. XL снят 2026-11-17. */
+  size?: 'xs' | 's' | 'm' | 'l';
   /** Обязательно: доступное имя и тултип на Web. */
   label: string;
   icon?: ReactNode;
@@ -33,7 +36,7 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
 export interface BadgeProps {
   /** s 20 — таблицы; m 24 — карточки; l 32 — крупные заголовки. */
   size?: 's' | 'm' | 'l';
-  /** Тона Info нет: Info = цвет бренда → accent. */
+  /** Тона Info нет: Info = цвет бренда → accent. Subtle · Neutral — обводка border-subtle, текст text-secondary. */
   tone?: 'neutral' | 'accent' | 'success' | 'warning' | 'danger';
   /** subtle — по умолчанию; solid — одна главная метка на карточке. */
   style?: 'subtle' | 'solid';
@@ -45,11 +48,16 @@ export interface BadgeProps {
 
 export interface ChipProps {
   size?: 's' | 'm';
+  /** Инверсная белая плашка (action-inverse-default), подпись text-inverse, metaText — text-inverse-secondary. */
   selected?: boolean;
   label?: ReactNode;
   /** Счётчик или значение справа от подписи. */
   metaText?: ReactNode;
   icon?: ReactNode;
+  /** Точка статуса перед подписью — фильтр по статусу. */
+  statusDot?: boolean;
+  /** Тон точки: success — по умолчанию. */
+  statusTone?: StatusTone;
   trailingIcon?: ReactNode;
   /** Есть — показывается крестик удаления. */
   onRemove?: () => void;
@@ -85,9 +93,9 @@ export interface ToggleProps extends CheckBase {
 }
 
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  /** m 40 — Web; l 48 — App; xl 56 — крупные формы. */
-  size?: 'm' | 'l' | 'xl';
-  /** above — подпись над полем; on-border — в разрыве рамки (короткая подпись). */
+  /** m 40 — Web; l 48 — App (XL снят 2026-11-17). */
+  size?: 'm' | 'l';
+  /** on-border — по умолчанию: в разрыве рамки (короткая подпись, формы вывода и сумм); above — над полем (длинные формы, длинная подпись). */
   labelPosition?: 'above' | 'on-border';
   state?: 'default' | 'error' | 'disabled' | 'readonly' | 'loading' | 'skeleton';
   label?: ReactNode;
@@ -102,6 +110,8 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
 }
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  /** = размер соседних полей формы; меняет шрифт и отступы, высота одинакова. Подпись — только над полем. */
+  size?: 'm' | 'l';
   state?: 'default' | 'error' | 'disabled' | 'readonly';
   label?: ReactNode;
   hint?: ReactNode;
@@ -125,7 +135,7 @@ export interface ModalProps {
   closeLabel?: string;
   /** sm 400 · md 560 · lg 720. */
   width?: 'sm' | 'md' | 'lg';
-  /** Кнопки футера: Button size="xl". */
+  /** Кнопки футера: Button size="l" на всю ширину (до 2026-11-17 — xl). */
   actions?: ReactNode;
   children?: ReactNode;
   scrim?: boolean;
@@ -150,13 +160,13 @@ type Controlled<T> = { value?: T; defaultValue?: T; onChange?: (value: T, event?
 export interface CounterProps {
   /** s 16 — в табах M и на иконках; m 20 — в табах L и пунктах меню. */
   size?: 's' | 'm';
-  /** neutral — количество; accent — новое, требует внимания; danger — ошибки и проблемы. */
+  /** neutral — количество (квадрат с обводкой, цифра text-secondary); accent — новое, требует внимания; danger — ошибки и проблемы. */
   tone?: 'neutral' | 'accent' | 'danger';
   value?: ReactNode;
 }
 
 export interface StatusProps {
-  /** s — таблицы; m — карточки и шапки. */
+  /** s — таблицы (12); m — карточки и шапки (14). Точка 6 у обоих. */
   size?: 's' | 'm';
   /** success — работает; warning — нестабилен; danger — не работает; info — в процессе; neutral — выключен, нет данных. */
   tone?: 'success' | 'warning' | 'danger' | 'info' | 'neutral';
@@ -214,7 +224,7 @@ export interface ProgressProps {
 }
 
 export interface AmountProps {
-  /** s — строки таблиц и списков; m — карточки; l — заголовок блока; xl — главный баланс (один на экран). */
+  /** s 12 — строки списков и таблиц на Compact; m 14 — карточки и таблицы Web; l 24 Bold (тикер 24 Medium) — заголовок блока, итоги; xl — главный баланс (один на экран). S / M — шрифт текста с табличными цифрами. */
   size?: 's' | 'm' | 'l' | 'xl';
   /** positive — поступление «+», цвет успеха; negative — списание «−» (U+2212), не красный; none — остаток, цена. */
   sign?: 'none' | 'positive' | 'negative';
@@ -233,7 +243,7 @@ export interface CardProps {
   level?: 0 | 1 | 2 | 3;
   /** container — карточки в сетке; surface — крупные блоки; inner — вложенные плашки. */
   radius?: 'container' | 'surface' | 'inner';
-  /** s 12 · m 16 · l 24 — один на группу карточек. */
+  /** s 12 · m 16 · l 24 × 32 (сверху-снизу × по бокам) — один на группу карточек. */
   padding?: 's' | 'm' | 'l';
   /** Обводка border-subtle вне раскладки. */
   border?: boolean;
@@ -246,6 +256,10 @@ export interface CardProps {
 }
 
 export interface StatCardProps {
+  /** neutral — по умолчанию; danger / warning / success — плитки статусной сводки (Отключённые / Нестабильные / Активные): подложка status-*-subtle, значение text-*. */
+  tone?: 'neutral' | 'danger' | 'warning' | 'success';
+  /** start — по умолчанию; center — плитки-счётчики статусов воркеров: всё по центру, поля 4 по бокам и 32 снизу. */
+  align?: 'start' | 'center';
   /** Что и за какой период: «Хешрейт · 24 ч». */
   label?: ReactNode;
   value?: ReactNode;
@@ -263,6 +277,11 @@ export interface StatCardProps {
   showFooter?: boolean;
   /** Спарклайн, мини-график или ссылка. */
   footer?: ReactNode;
+  /** Icon button XS со стрелкой в правом нижнем углу — плитка ведёт в список (Danger — Secondary Danger, иначе Tertiary). */
+  link?: boolean;
+  /** aria-label и тултип кнопки-ссылки. */
+  linkLabel?: string;
+  onLink?: () => void;
   /** Только одна герой-карточка на экран (Expressive). */
   ambientLight?: boolean;
   /** Загрузка дольше 1 с — три полосы, высота как у Default. */
@@ -311,7 +330,7 @@ export interface ToastProps {
 }
 
 export interface SuggestProps {
-  /** card — в колонке или карточке; strip — вверху страницы на всю ширину. */
+  /** card — в колонке или карточке; strip — вверху страницы на всю ширину: плашка radius-inner, заголовок label-md цвета тона, без иконки. */
   layout?: 'card' | 'strip';
   /** neutral — по умолчанию; accent — предложение, объявление (Info = accent); success / warning / danger — системное объявление. */
   tone?: 'neutral' | 'accent' | 'success' | 'warning' | 'danger';
@@ -319,6 +338,7 @@ export interface SuggestProps {
   showTitle?: boolean;
   description?: ReactNode;
   showDescription?: boolean;
+  /** По умолчанию: card — вкл; strip — выкл (полоса без иконки, 17.11), если не передан leading. */
   showLeading?: boolean;
   /** Слот Leading: по умолчанию иконка тона; логотип продукта или Coin. */
   leading?: ReactNode;
@@ -337,8 +357,8 @@ export interface SuggestProps {
 }
 
 export interface TabProps {
-  /** s 32 — в виджете; m 48 — App, мобильный веб; l 56 — Web; xl 64 — табы-заголовок. По умолчанию — от Tabs. */
-  size?: Size4;
+  /** s 32 — в виджете; m 48 — App, мобильный веб; l 56 — Web; page 64 — табы-заголовок страницы (было xl до 2026-11-17). По умолчанию — от Tabs. */
+  size?: 's' | 'm' | 'l' | 'page';
   /** Внутри Tabs выбор — по value. */
   selected?: boolean;
   value?: string | number;
@@ -348,11 +368,14 @@ export interface TabProps {
   counterTone?: 'neutral' | 'accent' | 'danger';
   /** Только если иконка у всех табов. */
   icon?: ReactNode;
+  /** Точка статуса перед подписью — табы-фильтры по статусу («Активные» success, «Нестабильные» warning, «Отключённые» danger). */
+  statusDot?: boolean;
+  statusTone?: StatusTone;
   disabled?: boolean;
   skeleton?: boolean;
 }
 export interface TabsProps extends Controlled<string | number> {
-  size?: Size4;
+  size?: 's' | 'm' | 'l' | 'page';
   /** 2–6 вкладок (в Figma — Tab 3 … Tab 6). Или дети Tab с value. */
   items?: Array<TabProps & { value?: string | number }>;
   /** aria-label бара. */
@@ -372,8 +395,8 @@ export interface SegmentProps {
   disabled?: boolean;
 }
 export interface SegmentedProps extends Controlled<string | number> {
-  /** = размер соседнего поля или кнопки: s 32 · m 40 · l 48 · xl 56. */
-  size?: Size4;
+  /** = размер соседнего поля или кнопки: s 32 · m 40 · l 48 (XL снят 2026-11-17: Web — m, App — l). Сегмент не уже s 64 · m 80 · l 96. */
+  size?: 's' | 'm' | 'l';
   /** 2–4 значения (в Figma — Items 2 · 3 · 4). Больше 4 — Select. Или дети Segment. */
   items?: Array<SegmentProps & { value?: string | number }>;
   tone?: 'neutral' | 'accent';
@@ -391,6 +414,8 @@ export interface ListItemProps {
   content?: 'text-first' | 'description-first' | 'big-value' | 'description-only';
   label?: ReactNode;
   description?: ReactNode;
+  /** false — строка из одного названия (19.11; во всех content, кроме description-only). По умолчанию true. */
+  showDescription?: boolean;
   /** big-value: крупное значение. */
   value?: ReactNode;
   /** big-value: единица. */
@@ -461,8 +486,8 @@ export interface MenuProps {
 
 export interface SelectOption { value: string | number; label: ReactNode; description?: ReactNode; leading?: ReactNode; disabled?: boolean; }
 export interface SelectProps extends Controlled<string | number> {
-  /** = размер соседних полей формы. */
-  size?: 'm' | 'l' | 'xl';
+  /** = размер соседних полей формы (XL снят 2026-11-17). */
+  size?: 'm' | 'l';
   /** Лейбл всегда над полем. */
   label?: ReactNode;
   hint?: ReactNode;
@@ -498,7 +523,8 @@ export interface PasswordFieldProps extends Omit<InputHTMLAttributes<HTMLInputEl
   visible?: boolean;
   defaultVisible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
-  size?: 'm' | 'l' | 'xl';
+  size?: 'm' | 'l';
+  labelPosition?: 'above' | 'on-border';
 }
 
 export declare function Counter(props: CounterProps): JSX.Element;

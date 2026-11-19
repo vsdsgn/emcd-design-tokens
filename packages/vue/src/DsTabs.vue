@@ -3,7 +3,7 @@
 import { computed, provide, ref, onMounted, toRef } from 'vue';
 import DsTab from './DsTab.vue';
 const props = defineProps({
-  size: { type: String, default: 'm' }, // s — в виджете | m — App и мобильный веб | l — Web | xl — табы-заголовок
+  size: { type: String, default: 'm' }, // s — в виджете | m — App и мобильный веб | l — Web | page — табы-заголовок страницы (было xl)
   items: Array,
   label: String,                        // aria-label бара
 });

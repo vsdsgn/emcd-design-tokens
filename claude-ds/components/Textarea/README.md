@@ -2,7 +2,7 @@
 
 Поле для текста длиннее одной строки: комментарий, обращение в поддержку.
 
-**Оси (как в Figma «🟡 Textarea»):** Size — M · L · XL; State — Default · Hover · Focus · Error · Disabled · Read-only · Loading · Skeleton. Подпись — только Above. Свойства: Label, Value, Helper, Counter.
+**Оси (как в Figma «🟡 Textarea»):** Size — M · L (XL снят 17.11); State — Default · Hover · Focus · Error · Disabled · Read-only · Loading · Skeleton. Подпись — только Above. Свойства: Label, Value, Helper, Counter.
 
 **Когда нет:** одна строка — Input.
 
@@ -12,4 +12,4 @@
 
 **Доступность:** `<textarea>` с `<label>`; лимит — `aria-describedby` на счётчик; Error — `aria-invalid`.
 
-Классы: `emcd-field [emcd-field--{l|xl}] [emcd-field--{error|disabled|readonly|skeleton}]`; внутри — `emcd-field__label`, `textarea.emcd-textarea`, `emcd-field__row` с `emcd-field__hint` и `emcd-field__counter`.
+Классы: `emcd-field [emcd-field--l] [emcd-field--{error|disabled|readonly|skeleton}]`; внутри — `emcd-field__label`, `textarea.emcd-textarea`, `emcd-field__row` с `emcd-field__hint` и `emcd-field__counter`.

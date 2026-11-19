@@ -1,14 +1,17 @@
-/* Amount — 🟡 beta (Figma «🟡 Amount»: Size × Sign). Сумма, тикер через неразрывный пробел, фиат второй строкой.
-   S / M — моно (колонки выравниваются); L / XL — display. Списание не красное. */
-.emcd-amount { --fs: 14px; --lh: 20px; --ff: var(--font-mono); --fw: 400; --tfs: 14px; --tlh: 20px; --ffs: 12px; --flh: 16px;
-  display: inline-flex; flex-direction: column; gap: 2px; min-width: 0; vertical-align: middle; }
+/* Amount — 🟡 beta (Figma «🟡 Amount»: Size × Sign × Align). Сумма, тикер через неразрывный пробел, фиат второй строкой.
+   S 12 / M 14 — font/family/text с табличными цифрами (моно снято 17.11); L — type/heading/xl 24 Bold, тикер того же кегля Medium (18.11); XL — display Bold. Списание не красное. */
+.emcd-amount { --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); --ff: var(--font-sans); --fw: 400;
+  --tfs: var(--fs); --tlh: var(--lh); --tfw: 400; --ffs: var(--type-body-sm-size, 12px); --flh: var(--type-body-sm-line-height, 16px);
+  display: inline-flex; flex-direction: column; gap: var(--space-2, 2px); min-width: 0; vertical-align: middle; }
 .emcd-amount__row { display: inline-flex; align-items: baseline; white-space: nowrap; }
 .emcd-amount__value { font: var(--fw) var(--fs)/var(--lh) var(--ff); font-variant-numeric: tabular-nums; color: var(--text-primary); }
-.emcd-amount__ticker { font: 400 var(--tfs)/var(--tlh) var(--font-sans); color: var(--text-secondary); }
-.emcd-amount__fiat { font: 400 var(--ffs)/var(--flh) var(--font-sans); color: var(--text-secondary); white-space: nowrap; }
-.emcd-amount--m { --fs: 16px; --lh: 24px; --tfs: 16px; --tlh: 24px; --ffs: 14px; --flh: 20px; }
-.emcd-amount--l { --fs: 24px; --lh: 32px; --ff: var(--font-display, var(--font-sans)); --fw: 700; --tfs: 16px; --tlh: 24px; --ffs: 14px; --flh: 20px; }
-.emcd-amount--xl { --fs: 32px; --lh: 40px; --ff: var(--font-display, var(--font-sans)); --fw: 700; --tfs: 20px; --tlh: 28px; --ffs: 16px; --flh: 24px; }
+.emcd-amount__ticker { font: var(--tfw) var(--tfs)/var(--tlh) var(--font-sans); color: var(--text-secondary); }
+.emcd-amount__fiat { font: 400 var(--ffs)/var(--flh) var(--font-sans); font-variant-numeric: tabular-nums; color: var(--text-secondary); white-space: nowrap; }
+.emcd-amount--m { --fs: var(--type-body-md-size, 14px); --lh: var(--type-body-md-line-height, 20px); }
+.emcd-amount--l { --fs: var(--type-heading-xl-size, 24px); --lh: var(--type-heading-xl-line-height, 32px); --fw: 700; --tfw: 500;
+  --ffs: var(--type-body-md-size, 14px); --flh: var(--type-body-md-line-height, 20px); }
+.emcd-amount--xl { --fs: var(--type-display-lg-size, 32px); --lh: var(--type-display-lg-line-height, 40px); --ff: var(--font-display, var(--font-sans)); --fw: 700;
+  --tfs: var(--type-body-lg-size, 16px); --tlh: var(--type-body-lg-line-height, 24px); --ffs: var(--type-body-md-size, 14px); --flh: var(--type-body-md-line-height, 20px); }
 .emcd-amount--l .emcd-amount__value, .emcd-amount--xl .emcd-amount__value { letter-spacing: -0.01em; }
-.emcd-amount--end { align-items: flex-end; text-align: right; }
+.emcd-amount--end { align-items: flex-end; text-align: end; }
 .emcd-amount--positive .emcd-amount__value { color: var(--text-success); }

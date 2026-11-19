@@ -2,9 +2,9 @@
 
 Поле для одной строки текста или числа.
 
-**Оси (как в Figma «🟡 Input»):** Size — M 40 · L 48 · XL 56; Label position — On border · Above; State — Default · Hover · Focus · Error · Disabled · Read-only · Loading · Skeleton. Свойства: Label, Value, Helper, Counter, слоты Leading · Inline · Trailing.
+**Оси (как в Figma «🟡 Input»):** Size — M 40 · L 48 (XL снят 17.11); Label position — On border (по умолчанию) · Above; State — Default · Hover · Focus · Error · Disabled · Read-only · Loading · Skeleton. Свойства: Label, Value, Helper, Counter, слоты Leading · Inline · Trailing.
 
-**Когда какой:** M — Web по умолчанию; L — App и мобильный веб; XL — онбординг, главный шаг. Рядом с кнопкой — тот же размер (Input M ↔ Button M). On border — короткая подпись в разрыве рамки, компактные формы; Above — подпись над полем, длинные подписи и формы с пояснениями. В одной форме — одно положение.
+**Когда какой:** M — Web по умолчанию; L — App и мобильный веб. Рядом с кнопкой — тот же размер (Input M ↔ Button M). On border — короткая подпись в разрыве рамки, компактные формы; Above — подпись над полем, длинные подписи и формы с пояснениями. В одной форме — одно положение.
 
 **Когда нет:** несколько строк — Textarea; выбор из списка — Select; сумма с валютой — Input amount; пароль — Password field.
 
@@ -16,4 +16,4 @@
 
 **Доступность:** нативный `<input>` с `<label>`; Error — `aria-invalid` и `aria-describedby` на Helper; `readonly` и `disabled` — нативные атрибуты; статус не только цветом.
 
-Классы: `emcd-field [emcd-field--{l|xl}] [emcd-field--on-border] [emcd-field--{error|disabled|readonly|skeleton}]`; внутри — `emcd-field__label`, `emcd-input` (`emcd-input__leading`, `input`, `emcd-input__suffix`, `emcd-input__trailing`), `emcd-field__hint`, `emcd-field__counter` (вместе — в `emcd-field__row`).
+Классы: `emcd-field [emcd-field--l] [emcd-field--on-border] [emcd-field--{error|disabled|readonly|skeleton}]`; внутри — `emcd-field__label`, `emcd-input` (`emcd-input__leading`, `input`, `emcd-input__suffix`, `emcd-input__trailing`), `emcd-field__hint`, `emcd-field__counter` (вместе — в `emcd-field__row`).

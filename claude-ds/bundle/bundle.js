@@ -20,9 +20,11 @@ const CLOSE = h('svg', { viewBox: '0 0 24 24', fill: 'none', stroke: 'currentCol
 
 // Button / Icon button: type → класс (tertiary-outline = outline в CSS)
 const BTN_TYPE = { primary: 'primary', secondary: 'secondary', tertiary: 'tertiary', 'tertiary-outline': 'outline', text: 'text', inverted: 'inverted', ghost: 'ghost' };
-const SIZE_MOD = { s: 's', m: '', l: 'l', xl: 'xl' };
+const SIZE_MOD = { xs: 'xs', s: 's', m: '', l: 'l', xl: 'xl' };
+// Точка статуса _Dot S (Status dot у Tab и Chip): success | warning | danger | neutral
+const DOT = (tone, k) => h('span', { key: k, className: cx('emcd-dot', tone && tone !== 'success' && 'emcd-dot--' + tone), 'aria-hidden': true });
 
-/** Button — действие. Одна главная (primary) на экран или блок. */
+/** Button — действие. Одна главная (primary) на экран или блок. size: xs 24 (Web) · s 32 · m 40 (Web) · l 48 (App) · xl 56 (только App: главный CTA внизу экрана). Иконки — цвета подписи. */
 const Button = React.forwardRef(function Button(
   { type = 'primary', tone = 'default', size = 'm', label, children, iconLeft, iconRight, loading = false, disabled, htmlType = 'button', className, ...rest }, ref) {
   return h('button', {
@@ -32,7 +34,7 @@ const Button = React.forwardRef(function Button(
   }, loading ? SPINNER() : iconLeft, h('span', null, label ?? children), !loading && iconRight);
 });
 
-/** Icon button — действие иконкой; `label` обязателен (доступное имя и тултип на Web). */
+/** Icon button — действие иконкой; `label` обязателен (доступное имя и тултип на Web). size: xs 24 · s 32 · m 40 · l 48 (XL снят). */
 const IconButton = React.forwardRef(function IconButton(
   { type = 'tertiary', tone = 'default', size = 'm', label, icon, children, loading = false, disabled, htmlType = 'button', className, ...rest }, ref) {
   return h('button', {
@@ -50,15 +52,15 @@ function Badge({ size = 'm', tone = 'neutral', style = 'subtle', label, children
   }, icon, h('span', { className: 'emcd-badge__label' }, label ?? children));
 }
 
-/** Chip — фильтр или выбор; `selected` → aria-pressed. `onRemove` — крестик удаления. */
-function Chip({ size = 's', selected = false, label, children, metaText, icon, onRemove, removeLabel = 'Убрать', trailingIcon, disabled, onClick, className, ...rest }) {
-  const body = [icon, h('span', { key: 'l', className: 'emcd-chip__label' }, label ?? children), metaText != null && h('span', { key: 'm', className: 'emcd-chip__meta' }, metaText), trailingIcon];
+/** Chip — фильтр или выбор; `selected` → aria-pressed (инверсная белая плашка). `statusDot` — точка статуса перед подписью (statusTone). `onRemove` — крестик удаления. */
+function Chip({ size = 's', selected = false, label, children, metaText, icon, statusDot = false, statusTone = 'success', onRemove, removeLabel = 'Убрать', trailingIcon, disabled, onClick, className, ...rest }) {
+  const body = [icon, statusDot && DOT(statusTone, 'dot'), h('span', { key: 'l', className: 'emcd-chip__label' }, label ?? children), metaText != null && h('span', { key: 'm', className: 'emcd-chip__meta' }, metaText), trailingIcon];
   if (onRemove) {
     return h('span', { className: cx('emcd-chip', size === 'm' && 'emcd-chip--m', selected && 'emcd-chip--selected', className), ...rest },
       h('button', { type: 'button', className: 'emcd-chip__action', 'aria-pressed': selected, disabled, onClick }, ...body),
       h('button', { type: 'button', className: 'emcd-chip__remove', 'aria-label': removeLabel, disabled, onClick: onRemove }, CLOSE));
   }
-  return h('button', { type: 'button', className: cx('emcd-chip', size === 'm' && 'emcd-chip--m', className), 'aria-pressed': selected, disabled, onClick, title: typeof (label ?? children) === 'string' ? (label ?? children) : undefined, ...rest }, ...body);
+  return h('button', { type: 'button', className: cx('emcd-chip', size === 'm' && 'emcd-chip--m', selected && 'emcd-chip--selected', className), 'aria-pressed': selected, disabled, onClick, title: typeof (label ?? children) === 'string' ? (label ?? children) : undefined, ...rest }, ...body);
 }
 
 function CheckLike({ kind, status, tone = 'default', size = 'm', controlPosition = 'start', label, description, children, disabled, onChange, className, inputProps, ...rest }) {
@@ -87,7 +89,7 @@ function RadioGroup({ legend, children, className, ...rest }) {
 /** Toggle — мгновенное вкл / выкл без кнопки «Сохранить». По умолчанию переключатель справа (controlPosition = end). */
 function Toggle({ status = false, controlPosition = 'end', ...p }) { return h(CheckLike, { kind: 'toggle', status, controlPosition, ...p }); }
 
-function Field({ size = 'm', labelPosition = 'above', state = 'default', label, hint, error, counter, className, children, as = 'label' }) {
+function Field({ size = 'm', labelPosition = 'on-border', state = 'default', label, hint, error, counter, className, children, as = 'label' }) {
   const isError = state === 'error' || !!error;
   const msg = error || hint;
   const id = useId();
@@ -99,7 +101,7 @@ function Field({ size = 'm', labelPosition = 'above', state = 'default', label, 
 
 /** Input — однострочное поле. state: default | error | disabled | readonly | loading | skeleton. */
 const Input = React.forwardRef(function Input(
-  { size = 'm', labelPosition = 'above', state = 'default', label, hint, error, counter, leading, trailing, suffix, className, ...inputProps }, ref) {
+  { size = 'm', labelPosition = 'on-border', state = 'default', label, hint, error, counter, leading, trailing, suffix, className, ...inputProps }, ref) {
   return h(Field, { size, labelPosition, state: state === 'loading' ? 'default' : state, label, hint, error, counter, className },
     (describedBy, isError) => h('span', { className: 'emcd-input' },
       leading && h('span', { className: 'emcd-input__leading' }, leading),
@@ -108,12 +110,12 @@ const Input = React.forwardRef(function Input(
       state === 'loading' ? h('span', { className: 'emcd-input__trailing' }, SPINNER('emcd-field__spinner')) : trailing && h('span', { className: 'emcd-input__trailing' }, trailing)));
 });
 
-/** Textarea — многострочное поле; растёт по содержимому до max-height, дальше скролл. */
+/** Textarea — многострочное поле; растёт по содержимому до max-height, дальше скролл. size: m | l (меняет шрифт и отступы); подпись только над полем. */
 const Textarea = React.forwardRef(function Textarea(
-  { state = 'default', label, hint, error, counter, maxLength, className, value, defaultValue, ...rest }, ref) {
+  { size = 'm', state = 'default', label, hint, error, counter, maxLength, className, value, defaultValue, ...rest }, ref) {
   const [len, setLen] = React.useState(String(value ?? defaultValue ?? '').length);
   const shown = counter ?? (maxLength ? `${value != null ? String(value).length : len}/${maxLength}` : undefined);
-  return h(Field, { state, label, hint, error, counter: shown, className },
+  return h(Field, { size, labelPosition: 'above', state, label, hint, error, counter: shown, className },
     (describedBy, isError) => h('textarea', { ref, className: 'emcd-textarea', maxLength, value, defaultValue, disabled: state === 'disabled', readOnly: state === 'readonly', 'aria-invalid': isError || undefined, 'aria-describedby': describedBy,
       onInput: (e) => setLen(e.target.value.length), ...rest }));
 });
@@ -254,9 +256,12 @@ function Card({ level = 1, radius = 'container', padding = 's', border = true, a
 }
 
 const DELTA_TONE = { success: 'success', danger: 'danger', neutral: 'neutral' };
-/** Stat card — один показатель. delta + deltaValue («+4,2 %») + deltaTone: success рост · danger падение · neutral без изменений. */
-function StatCard({ label, value, unit, info = true, infoText, delta = true, deltaValue, deltaTone = 'success', deltaCaption, showFooter = false, footer, ambientLight = false, skeleton = false, className, ...rest }) {
-  const cls = cx('emcd-stat', ambientLight && 'emcd-stat--ambient', skeleton && 'emcd-stat--skeleton', className);
+const ARROW_RIGHT = () => ICO(P('M5 12h14M13 6l6 6-6 6'));
+/** Stat card — один показатель. tone: neutral | danger | warning | success (плитки статусной сводки); align: start | center (плитки статусов).
+ *  delta + deltaValue («+4,2 %») + deltaTone: success рост · danger падение · neutral без изменений. link — Icon button XS со стрелкой (onLink): Danger — Secondary Danger, иначе Tertiary. */
+function StatCard({ tone = 'neutral', align = 'start', label, value, unit, info = true, infoText, delta = true, deltaValue, deltaTone = 'success', deltaCaption, showFooter = false, footer,
+  link = false, linkLabel = 'Открыть список', onLink, ambientLight = false, skeleton = false, className, ...rest }) {
+  const cls = cx('emcd-stat', tone !== 'neutral' && 'emcd-stat--' + tone, align === 'center' && 'emcd-stat--center', ambientLight && 'emcd-stat--ambient', skeleton && 'emcd-stat--skeleton', className);
   if (skeleton) {
     return h('div', { className: cls, 'aria-busy': true, ...rest },
       h('div', { className: 'emcd-stat__label-row' }, h('span', { className: 'emcd-stat__bone', style: { width: 96, height: 12 } })),
@@ -269,7 +274,8 @@ function StatCard({ label, value, unit, info = true, infoText, delta = true, del
     h('div', { className: 'emcd-stat__value-row' }, h('span', { className: 'emcd-stat__value' }, value), unit != null && h('span', { className: 'emcd-stat__unit' }, unit)),
     delta && deltaValue != null && h('div', { className: 'emcd-stat__delta-row' },
       h(Badge, { size: 's', tone: DELTA_TONE[deltaTone] || 'neutral', label: deltaValue }), deltaCaption != null && h('span', { className: 'emcd-stat__caption' }, deltaCaption)),
-    showFooter && footer != null && h('div', { className: 'emcd-stat__footer' }, footer));
+    showFooter && footer != null && h('div', { className: 'emcd-stat__footer' }, footer),
+    link && h(IconButton, { type: tone === 'danger' ? 'secondary' : 'tertiary', tone: tone === 'danger' ? 'danger' : 'default', size: 'xs', label: linkLabel, className: 'emcd-stat__link', icon: ARROW_RIGHT(), onClick: onLink }));
 }
 
 const TIP_ARROW = h('svg', { className: 'emcd-tooltip__arrow', viewBox: '0 0 26 9', 'aria-hidden': true },
@@ -321,14 +327,16 @@ function Toast({ layout = 'card', tone = 'info', title, showTitle = true, descri
 
 const SUGGEST_ICON = { neutral: I.info, accent: I.info, success: I.checkCircle, warning: I.alertTriangle, danger: I.alertCircle };
 /** Suggest — сообщение внутри страницы (Card — в колонке; Strip — вверху на всю ширину). 0–2 кнопки; крестик скрывает. */
-function Suggest({ layout = 'card', tone = 'neutral', title, showTitle = true, description, showDescription = true, showLeading = true, leading,
+function Suggest({ layout = 'card', tone = 'neutral', title, showTitle = true, description, showDescription = true, showLeading, leading,
   primaryAction = true, primaryLabel = 'Подробнее', onPrimary, secondaryAction = false, secondaryLabel = 'Позже', onSecondary,
   close = true, onClose, closeLabel = 'Скрыть', className, children, ...rest }) {
   const [shown, setShown] = React.useState(true);
   if (!shown) return null;
   const strip = layout === 'strip';
+  // Strip (17.11, по продукту) — без иконки: левый блок только если явно передан leading или showLeading
+  const lead = showLeading ?? (strip ? leading != null : true);
   return h('section', { className: cx('emcd-suggest', strip && 'emcd-suggest--strip', tone !== 'neutral' && 'emcd-suggest--' + tone, !close && 'emcd-suggest--no-close', className), ...rest },
-    showLeading && h('span', { className: 'emcd-suggest__leading' }, leading ?? (SUGGEST_ICON[tone] || I.info)()),
+    lead && h('span', { className: 'emcd-suggest__leading' }, leading ?? (SUGGEST_ICON[tone] || I.info)()),
     h('div', { className: 'emcd-suggest__content' },
       h('div', { className: 'emcd-suggest__text' },
         showTitle && title != null && h('p', { className: 'emcd-suggest__title' }, title),
@@ -341,16 +349,17 @@ function Suggest({ layout = 'card', tone = 'neutral', title, showTitle = true, d
 }
 
 const TabsCtx = React.createContext(null);
-/** Tab — вкладка Tabs. counter — число в Counter (Neutral; counterTone accent / danger — только если требует действия). */
-function Tab({ size, selected, value, label, children, counter, counterTone = 'neutral', icon, disabled, skeleton = false, onClick, className, ...rest }) {
+/** Tab — вкладка Tabs. size: s | m | l | page (табы-заголовок страницы, было xl). counter — число в Counter (Neutral; counterTone accent / danger — только если требует действия).
+ *  statusDot — точка статуса перед подписью (табы-фильтры по статусу), тон — statusTone. */
+function Tab({ size, selected, value, label, children, counter, counterTone = 'neutral', icon, statusDot = false, statusTone = 'success', disabled, skeleton = false, onClick, className, ...rest }) {
   const ctx = React.useContext(TabsCtx);
   const sz = size ?? (ctx && ctx.size) ?? 'm';
   const sel = ctx && value !== undefined ? ctx.value === value : !!selected;
   return h('button', { type: 'button', role: 'tab', 'aria-selected': sel, tabIndex: ctx ? (sel ? 0 : -1) : undefined, disabled: disabled || skeleton, 'aria-hidden': skeleton || undefined,
     className: cx('emcd-tab', sz !== 'm' && 'emcd-tab--' + sz, skeleton && 'emcd-tab--skeleton', className),
     onClick: (e) => { if (ctx && value !== undefined) ctx.select(value, e); if (onClick) onClick(e); }, ...rest },
-  icon, h('span', { className: 'emcd-tab__label' }, label ?? children),
-  counter != null && counter !== false && h(Counter, { size: sz === 'l' || sz === 'xl' ? 'm' : 's', tone: counterTone, value: counter }),
+  icon, statusDot && DOT(statusTone), h('span', { className: 'emcd-tab__label' }, label ?? children),
+  counter != null && counter !== false && h(Counter, { size: sz === 'l' || sz === 'page' ? 'm' : 's', tone: counterTone, value: counter }),
   h('span', { className: 'emcd-tab__ring', 'aria-hidden': true }));
 }
 /** Tabs — бар вкладок (2–6). items: [{ value, label, counter, icon, disabled }] или дети Tab с value. Без value — неуправляемый (первая выбрана). */
@@ -391,12 +400,13 @@ function Segmented({ size = 's', items, value, defaultValue, onChange, tone = 'n
       items ? items.map((it, i) => h(Segment, { key: it.value ?? i, ...it, value: it.value ?? i })) : children));
 }
 
-/** List item — строка списка. content: text-first | description-first | big-value | description-only. href / onClick — строка открывает детали (Hover / Pressed). */
-function ListItem({ size = 'l', content = 'text-first', label, description, value, subvalue, leading, trailing, divider = false, disabled = false, href, onClick, as, className, children, ...rest }) {
+/** List item — строка списка. content: text-first | description-first | big-value | description-only; showDescription=false — без описания. href / onClick — строка открывает детали (Hover / Pressed). */
+function ListItem({ size = 'l', content = 'text-first', label, description, showDescription = true, value, subvalue, leading, trailing, divider = false, disabled = false, href, onClick, as, className, children, ...rest }) {
   const interactive = !!(href || onClick);
   const tag = as ?? (href ? 'a' : onClick ? 'button' : 'div');
   const L = label != null && h('span', { key: 'l', className: 'emcd-list-item__label' }, label);
-  const D = description != null && h('span', { key: 'd', className: 'emcd-list-item__desc' }, description);
+  // showDescription=false (19.11) — строка из одного названия (во всех Content, кроме description-only)
+  const D = showDescription && description != null && h('span', { key: 'd', className: 'emcd-list-item__desc' }, description);
   const body = content === 'description-first' ? [D, L]
     : content === 'big-value' ? [D, h('span', { key: 'v', className: 'emcd-list-item__value-row' }, h('span', { className: 'emcd-list-item__value' }, value ?? label), subvalue != null && h('span', { className: 'emcd-list-item__subvalue' }, subvalue))]
       : content === 'description-only' ? [h('span', { key: 'l', className: 'emcd-list-item__label' }, label ?? description)] : [L, D];

@@ -3,8 +3,8 @@
 import { computed, useId } from 'vue';
 const model = defineModel({ type: [String, Number] });
 const props = defineProps({
-  size: { type: String, default: 'm' },                // m | l | xl
-  labelPosition: { type: String, default: 'above' },   // above | on-border
+  size: { type: String, default: 'm' },                // m 40 | l 48 (XL снят 17.11)
+  labelPosition: { type: String, default: 'on-border' }, // on-border — по умолчанию (короткая подпись) | above — длинные формы
   state: { type: String, default: 'default' },
   label: String,
   hint: String,

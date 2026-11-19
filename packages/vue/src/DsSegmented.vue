@@ -3,7 +3,7 @@
 import { computed, provide, ref, onMounted, toRef } from 'vue';
 import DsSegment from './DsSegment.vue';
 const props = defineProps({
-  size: { type: String, default: 's' },    // s 32 | m 40 | l 48 | xl 56 — как у соседнего поля или кнопки
+  size: { type: String, default: 's' },    // s 32 | m 40 | l 48 — как у соседнего поля или кнопки (XL снят 17.11)
   items: Array,
   tone: { type: String, default: 'neutral' }, // neutral | accent
   label: String,                           // aria-label группы

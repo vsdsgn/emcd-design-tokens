@@ -2,7 +2,7 @@
 <script setup>
 import { computed } from 'vue';
 const props = defineProps({
-  size: { type: String, default: 's' },    // s — строки | m — карточки | l — заголовок блока | xl — главный баланс
+  size: { type: String, default: 's' },    // s 12 — строки Compact | m 14 — карточки, таблицы Web | l 24 Bold — заголовок блока | xl — главный баланс
   sign: { type: String, default: 'none' }, // none | positive | negative
   value: [String, Number],
   ticker: String,

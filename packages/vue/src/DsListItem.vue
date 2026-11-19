@@ -6,6 +6,7 @@ const props = defineProps({
   content: { type: String, default: 'text-first' },
   label: String,
   description: String,
+  showDescription: { type: Boolean, default: true },  // false — строка из одного названия (19.11)
   value: [String, Number],                            // big-value: крупное значение
   subvalue: String,                                   // big-value: единица
   divider: Boolean,
@@ -24,15 +25,15 @@ const tag = computed(() => (props.href ? 'a' : props.interactive ? 'button' : 'd
     <span v-if="$slots.leading" class="emcd-list-item__leading"><slot name="leading" /></span>
     <span class="emcd-list-item__content">
       <template v-if="content === 'description-first'">
-        <span v-if="description" class="emcd-list-item__desc">{{ description }}</span><span v-if="label" class="emcd-list-item__label">{{ label }}</span>
+        <span v-if="showDescription && description" class="emcd-list-item__desc">{{ description }}</span><span v-if="label" class="emcd-list-item__label">{{ label }}</span>
       </template>
       <template v-else-if="content === 'big-value'">
-        <span v-if="description" class="emcd-list-item__desc">{{ description }}</span>
+        <span v-if="showDescription && description" class="emcd-list-item__desc">{{ description }}</span>
         <span class="emcd-list-item__value-row"><span class="emcd-list-item__value">{{ value ?? label }}</span><span v-if="subvalue" class="emcd-list-item__subvalue">{{ subvalue }}</span></span>
       </template>
       <span v-else-if="content === 'description-only'" class="emcd-list-item__label">{{ label ?? description }}</span>
       <template v-else>
-        <span v-if="label" class="emcd-list-item__label">{{ label }}</span><span v-if="description" class="emcd-list-item__desc">{{ description }}</span>
+        <span v-if="label" class="emcd-list-item__label">{{ label }}</span><span v-if="showDescription && description" class="emcd-list-item__desc">{{ description }}</span>
       </template>
       <slot />
     </span>
