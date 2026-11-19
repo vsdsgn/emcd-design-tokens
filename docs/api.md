@@ -47,6 +47,7 @@
 | `size` | s \| m \| l \| xl | по правилу контракта | ось Size |
 | `sign` | none \| positive \| negative | по правилу контракта | ось Sign |
 | `align` | start \| end | по правилу контракта | ось Align |
+| `tone` | default \| success \| danger | по правилу контракта | ось Tone |
 | `value` | string | — | свойство Value |
 | `ticker` | string | — | свойство Ticker |
 | `fiat` | string | — | свойство Fiat |
@@ -163,6 +164,7 @@
 | `padding` | s \| m \| l | по правилу контракта | ось Padding |
 | `border` | on \| off | по правилу контракта | ось Border |
 | `content` | slot | — | свойство Content |
+| `ambientLight` | boolean | false | свойство Ambient light |
 
 ## Chart card
 

@@ -13,6 +13,7 @@
 - Когда использовать: сгруппировать связанное содержимое на подложке — виджет, блок формы, элемент сетки.
 - Когда нет: разделить два абзаца — отступ или Divider; всплывающее содержимое — Modal, Sheet, Popover.
 - Правило выбора варианта:
+  - Ambient light (19.11): On — фоновое пятно `light/ambient` справа сверху (в Base прозрачное, видно в Style=Expressive); одна герой-карточка на экран (Coinhold в Калькуляторе); как у Stat card
   - Level — по вложенности, не для украшения: 1 — на странице, 2 — внутри карточки, 3 — внутри вложенного блока; 0 — белая карточка на подложке L1, только с Border = On.
   - Radius: Surface — крупные блоки страницы; Container — карточки в сетке; Inner — вложенные плашки. Числа 24 / 16 / 8 — для EMCD, у брендов свои (`radius/*`).
   - Padding: S 12 · M 16 · L 24 — один на группу карточек.
@@ -46,6 +47,7 @@
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
 | Content | слот | — | 72 из 72 |
+| Ambient light | булево | выкл | 72 из 72 |
 
 ## 6. Content / slots
 - Текста у карточки нет — длинный текст, перенос и усечение задаёт содержимое слота. Языки на стенде (de, ar, hi, th, ja, kk) раскладку не меняют.
@@ -64,6 +66,7 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `surface/level-0`, `surface/level-1`, `surface/level-2`, `surface/level-3`; отступы `space/12`, `space/16`, `space/24`, `space/32`; радиус `radius/container`, `radius/inner`, `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `ambient light`: эффект `light/ambient/blur`; заливка / цвет `light/ambient/color`; радиус `radius/container`, `radius/inner`, `radius/surface`.
 - Значений без переменной: 72 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -72,13 +75,13 @@
 ## 12. Figma projection
 - Набор `Card`, вариантов 72 из 72; оси: Level, Radius, Padding, Border.
 - Борда: «Card — борда · шаблон v3», разделов 11.
-- Описание: 1540 знаков, разделы: Status: Level: Card — Атом-шаблон: Level — Когда использовать: Правила: Legacy: A11y:
+- Описание: 1740 знаков, разделы: Status: Level: Card — Атом-шаблон: Level — Когда использовать: Правила: Legacy: A11y: Ambient light (19.
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Card`), Vue `packages/vue/src/DsCard.vue`, CSS `claude-ds/components/Card/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsCard>`; Flutter: `DsCard`.
-- Props: `level`: 1 | 2 | 3 | 0; `radius`: container | surface | inner; `padding`: s | m | l; `border`: boolean; `content`: string или слот.
+- Props: `level`: 1 | 2 | 3 | 0; `radius`: container | surface | inner; `padding`: s | m | l; `border`: boolean; `content`: string или слот; `ambientLight`: boolean = false.
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.

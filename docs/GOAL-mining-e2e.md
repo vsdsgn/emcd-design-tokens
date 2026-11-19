@@ -27,6 +27,8 @@
 - Tab bar item — Type=Action (центральная «E» App).
 - Amount, Chart metric, Key-value row — State=Skeleton (та же высота); Chart plot — Skeleton у Line + Bars.
 
+- Card — Ambient light; Amount — ось Tone; новый Section header (draft).
+
 ## Журнал
 - 19.11 — код загрузки (patterns 3.11a): `skeleton` у Amount (значение — плашка высотой строки, фиат — короче при `showFiat`, sign не применяется), Chart metric, Key-value row, Chip, Status summary (Tone=Neutral); Stat card Skeleton — строка дельты только при `delta` (плитка статуса была выше на 28); Chart plot Line + Bars Skeleton = Line; новый Skeleton (кирпич Text · Title · Circle · Rect) + общий синхронный пульс всех скелетонов, reduced motion — статично. React, Vue, CSS, d.ts, Claude DS (README / preview, status.json +Skeleton), SSR (66 компонентов). Демо: `?state=loading` у дашбордов Web и мобильного, скриншоты `out/*-loading.png`, проверка высот блоков (±1 px) в `shots.mjs` — совпадают. Проверки зелёные.
 - 19.11 — код, пачка 5 (правки App 19.11 из очереди Publish): Floating button (`layout`, `size` l / m, `type` primary / secondary только у Extended), Tab bar + Tab bar item (`type: 'action'` — центральная «E»), Transaction Completed без Status (сумма + фиат), Action bar `badge` / `badgeText`, List item `inset`; контракт Chart tooltip — `rows` массивом. React, Vue, CSS, d.ts, Claude DS (README / preview), status.json (+TabBar, TabBarItem), SSR (65 компонентов). Демо: бейдж «A» над «Выгрузить» (мобильная История), строки монет «Истории» Web — `inset={false}` (48); две строки README демо закрыты. Проверки зелёные.
