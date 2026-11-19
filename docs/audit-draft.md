@@ -5,13 +5,13 @@
 
 ## Сводка
 
-- Наборов не в beta: 10 (draft 5, другой статус 5: _Page dot (service), _Dot (service), _Step segment (service), _Tooltip arrow (service), Status screen (template)).
+- Наборов не в beta: 14 (draft 9, другой статус 5: _Page dot (service), _Dot (service), _Step segment (service), _Tooltip arrow (service), Status screen (template)).
 - Без замечаний по манифесту: 8 (File upload, _Page dot, Side panel, Snack, _Dot, _Step segment, _Tooltip arrow, Status screen).
-- Наборов с замечанием: SERVICE — 1, DESC — 1, BOARD — 1.
+- Наборов с замечанием: DESC — 5, SERVICE — 1, BOARD — 1.
 
 Коды: DESC — разделы описания; MATRIX — неполная матрица осей; AXES — булева ось (кроме осей выбора Status / Selected и списка BOOL_OK) или Left / Right; PROPS — свойство не привязано ни в одном варианте; MINMAX — min / max числом; RAW — значения без переменной (без размеров образца на корне и зоны нажатия; строки реестра docs/exceptions.md — в списке RAW_OK); SERVICE — у набора с Hover / Pressed / Focus нет служебных слоёв; BOARD — нет борды v3 или её разделов (разделы, которых у набора нет по смыслу, перечисляет блок «Не собрано в этой версии» на самой борде).
 
-## Уровень не указан в манифесте (10)
+## Уровень не указан в манифесте (14)
 
 | Набор | Страница | Вариантов | Замечания |
 |---|---|---|---|
@@ -19,9 +19,13 @@
 | _Page dot | Page dot | 2 | — |
 | _Step segment | Step segment | 3 | — |
 | _Tooltip arrow | Tooltip | 2 | — |
+| Action bar | Action bar | 2 | DESC: нет: Когда использовать:, A11y: |
 | File upload | File upload | 6 | — |
+| Promo carousel | Promo carousel | 1 | DESC: нет: Когда использовать: |
 | Search | Search | 10 | SERVICE: нет кольца фокуса, зоны нажатия, безопасного поля |
 | Section header | Section header | 2 | DESC: нет: Когда использовать:<br>BOARD: нет борды v3 |
 | Side panel | Side panel | 2 | — |
 | Snack | Snack | 5 | — |
 | Status screen | Шаблоны экранов (не Base) | 3 | — |
+| Status summary | Status summary | 2 | DESC: нет: Когда использовать:, A11y: |
+| Top bar | Top bar | 1 | DESC: нет: Когда использовать:, A11y: |
