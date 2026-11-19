@@ -14166,8 +14166,7 @@
      "nested": {
       "(icons)": 2,
       "Icon button": 2,
-      "Select compact": 2,
-      "Coin": 1
+      "Select compact": 2
      },
      "minmax": [],
      "layers": {
@@ -14228,21 +14227,19 @@
        "r:radius/control",
        "w:control/height/md"
       ],
-      "coin": [
-       "f:action/secondary/default",
-       "gap:space/16",
-       "h:size/media/sm",
-       "h:size/row/compact",
-       "maxw:size/select-compact/max",
-       "p:space/8",
-       "r:radius/control-sm",
-       "w:size/media/sm"
-      ],
       "end": [
        "gap:space/8"
       ],
+      "coin": [
+       "f:action/secondary/default",
+       "gap:space/16",
+       "h:size/row/compact",
+       "maxw:size/select-compact/max",
+       "p:space/8",
+       "r:radius/control-sm"
+      ],
       "add": [
-       "f:action/accent/default",
+       "f:action/secondary/default",
        "gap:space/6",
        "h:control/height/md",
        "r:radius/control",

@@ -16,22 +16,14 @@
 | K6 | Один Publish Components в конце, экраны обновлены, HANDOFF и патчноут для разработки | — | [ ] |
 
 ## Очередь на Publish Components (правки после последнего Publish)
-- Amount L — `type/heading/lg` (было xl).
-- Promo card Align=Center — заголовок на всю ширину.
-- Status summary Layout=Column — плитки тянутся по высоте.
-- Action bar — низ `space/24` (высота 80 = 16 + 40 + 24, как на экранах), высота по содержимому.
-- Sidebar — язык Button Tertiary XS (как на экранах).
-- Action bar — свойство Badge (бейдж автодействия над последней кнопкой).
-- Floating button — оси Size (L | M) и Type (Primary | Secondary) для Extended.
-- Transaction — у Completed статус скрыт, показан фиат.
-- Tab bar item — Type=Action (центральная «E» App).
-- Amount, Chart metric, Key-value row — State=Skeleton (та же высота); Chart plot — Skeleton у Line + Bars.
+Publish 19.11 (Стефан) закрыл всё прежнее: Amount L / Tone / Skeleton, Promo Align, Status summary, Action bar (низ, Badge), Sidebar, Floating button, Transaction, Tab bar item Action, Chart metric / Key-value row / Chart plot Skeleton, Card Ambient light, Section header, Top bar App, Select. Экраны обновлены (refresh-swap 258 + 44 экземпляра App).
 
-- Card — Ambient light; Amount — ось Tone; новый Section header (draft).
-- Top bar — Platform=App (аккаунт, монета, «+»).
-- Select — шеврон справа вернулся (терялся после перехода на _Field base), без «USDT» и подсказки по умолчанию.
+Осталось на следующий Publish:
+- Top bar Platform=App — монета-селект перенесён в «end», лишний Coin убран, «+» — Icon button Tertiary (на экранах — override).
+- Promo card Center — ряд бейдж + заголовок без Wrap, у заголовка снят max-width (с бейджем «Мониторинг» рвался по буквам; на экранах — override Wrap).
 
 ## Журнал
+- 19.11 — после Publish: экраны майнинга обновлены (258 экземпляров Web / мобильный + 44 App), Section header вместо заголовков-текстов (калькулятор, настройки, вывод, Watcher-link), итог калькулятора — Amount Tone=Success, Coinhold — Card Ambient light; App — Floating button M (Secondary «Выгрузить», Primary «Калькулятор»), Tab bar с центральной Action, Top bar App. Найдено и исправлено в Components: Promo Center (заголовок по буквам), Top bar App (монета). Манифест D46.
 - 19.11 — код: Top bar `platform` mobile-web · app (App — Select compact аккаунта без leading; Select compact монеты с Coin stack + Icon button Secondary M «+» «Подключить»; высота 56, поля 8 / 16, зазор 8; `account`, `accountOptions`, `coin`, `coins`, `coinOptions`, `onAdd`) — React, Vue, CSS, d.ts, Claude DS (README / preview), SSR. Promo card: `media` — фон справа снизу за текстом, колонку не сужает (было: текст сужался до 100 % − ½ картинки, описание в карточке 279 усекалось); картинка в «Настройки → Вывод» возвращена, в карусели дашборда заголовок переносится как на макете. Выплаты Web по переснятому эталону: строка «на 24 ниже» снята, «Все выплаты» в фильтре, «В Explorer» — мелкое. Проверки зелёные.
 - 19.11 — демо: +5 экранов (всего 15) — Выплаты Web и мобильный (3.6a: направление, «В Explorer» Button Text S / XS + `arrow-new-tab`, у Coinhold ссылки нет), Watcher-link мобильный (3.9a Compact: Suggest Accent, Page header Compact + Icon button Secondary «Фильтр», Card M столбиком, Floating button Extended L «Создать Watcher link» по центру снизу), Настройки → Уведомления мобильный (Segmented на всю ширину, Card L: Section header M, Select аккаунта с подсказкой, List item M с шевроном) и Настройки → Вывод мобильный (Select монеты с Coin, Card L «Куда выводить средства?»: Toggle × 2 с описанием, Select, Input Read-only, Checkbox с описанием, Divider, Promo card M Accent). Сравнения с экранами DS 2.0 (`reference/`). Компонент: Checkbox / Toggle в узкой колонке — строка не шире контейнера, подпись переносится (было: Checkbox 181 в колонке 96, слово Toggle вылезало). Проверки зелёные, консоль чистая.
 - 19.11 — Page header в коде (beta): `size` large · compact (Heading/XL · Heading/LG), `title` — `h1` (`level` 1–3), `subtitle` + `showSubtitle`, слоты `breadcrumbs` (в `nav`, только вложенные страницы), `actions` (Large — справа, до двух; Compact — ряд под заголовком с переносом), `tabs` (последним). React, Vue, CSS, d.ts, Claude DS, SSR (68 компонентов); контракт — раздел «Код». Демо: заголовки «Калькулятор доходности» и «Мои Watcher link» — Page header Large (у Watcher-link 2 Select — фильтры, не Actions: остались в ряду меню вместе с «Создать»). Проверки зелёные, сравнения без сдвигов.

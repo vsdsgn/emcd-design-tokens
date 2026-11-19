@@ -15,8 +15,8 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `logo (placeholder)`, `account`, `account name`, `balance`, `cents`, `menu`, `coin`, `end`, `add`.
-- Вложено: иконки ×2, `Icon button` ×2, `Select compact` ×2, `Coin` ×1.
+- Слои с токенами: `logo (placeholder)`, `account`, `account name`, `balance`, `cents`, `menu`, `end`, `coin`, `add`.
+- Вложено: иконки ×2, `Icon button` ×2, `Select compact` ×2.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -61,9 +61,9 @@
 - `balance`: заливка / цвет `text/primary`; типографика `type/label/lg`; интервал `space/4`.
 - `cents`: заливка / цвет `text/tertiary`; типографика `type/label/lg`.
 - `menu`: интервал `space/6`; высота `control/height/md`; радиус `radius/control`; ширина `control/height/md`.
-- `coin`: заливка / цвет `action/secondary/default`; интервал `space/16`; высота `size/media/sm`, `size/row/compact`; maxw `size/select-compact/max`; отступы `space/8`; радиус `radius/control-sm`; ширина `size/media/sm`.
 - `end`: интервал `space/8`.
-- `add`: заливка / цвет `action/accent/default`; интервал `space/6`; высота `control/height/md`; радиус `radius/control`; ширина `control/height/md`.
+- `coin`: заливка / цвет `action/secondary/default`; интервал `space/16`; высота `size/row/compact`; maxw `size/select-compact/max`; отступы `space/8`; радиус `radius/control-sm`.
+- `add`: заливка / цвет `action/secondary/default`; интервал `space/6`; высота `control/height/md`; радиус `radius/control`; ширина `control/height/md`.
 - Значений без переменной: 4 (напр. `(root):w=375`, `(root):h=56`).
 
 ## 11. Platforms
