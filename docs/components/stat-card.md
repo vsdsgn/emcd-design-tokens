@@ -12,7 +12,7 @@
 - Когда использовать: одно ключевое число с подписью и динамикой (хешрейт, доход).
 - Когда нет: несколько чисел для сравнения — Table / List.
 - Правило выбора варианта:
-  - Align (19.11): Start — по умолчанию (дашборд-сводки, ряд метрик); Center — плитки-счётчики статусов воркеров (Web и мобильный дашборд, как в продукте): подпись, число и дельта по центру
+  - Align (19.11): Start — по умолчанию (дашборд-сводки, ряд метрик); Center — плитки-счётчики статусов воркеров (Web и мобильный дашборд, как в продукте): подпись, число и дельта по центру; у Center боковые поля `space/4` — три плитки в ряд на 375 без переноса подписи.
   - Link (18.11): Icon button XS со стрелкой в правом нижнем углу — плитка ведёт в список (статусы воркеров); Danger — Secondary Danger, остальные — Tertiary
   - State: Default — данные есть; Skeleton — данные грузятся дольше 1 с.
   - Label — что и за какой период; Value — крупное число (Heading/XL); Unit — отдельным текстом рядом с числом.
@@ -85,7 +85,7 @@
 - Дельта читается словами: «рост на 2,4 % к вчера».
 
 ## 10. Tokens
-- `корень`: заливка / цвет `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/next`; интервал `space/8`; отступы `card/padding`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/next`; интервал `space/8`; отступы `card/padding`, `space/4`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `ambient light`: эффект `light/ambient/blur`; заливка / цвет `light/ambient/color`.
 - `label row`: интервал `space/4`.
 - `label`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.

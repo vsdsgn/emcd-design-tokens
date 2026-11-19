@@ -823,6 +823,7 @@ Props нет.
 |---|---|---|---|
 | `size` | s \| m \| l | по правилу контракта | ось Size |
 | `tone` | neutral \| accent | по правилу контракта | ось Tone |
+| `align` | start \| center | по правилу контракта | ось Align |
 | `title` | string | — | свойство Title |
 | `description` | string | — | свойство Description |
 | `showDescription` | boolean | true | свойство Show description |

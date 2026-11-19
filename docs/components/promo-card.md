@@ -12,6 +12,7 @@
 - Когда использовать: предложение продукта или акции в сайдбаре и на экране («Нет оборудования? Получи каталог»).
 - Когда нет: системное сообщение, объявление или предупреждение — Suggest; отклик на действие — Toast.
 - Правило выбора варианта:
+  - Align (19.11): Start — по умолчанию (текст слева, картинка справа); Center — анонс без картинки и без закрытия (верхний баннер «Мониторинг» на мобильном дашборде): бейдж над заголовком, текст и действие по центру.
   - Size: S — сайдбар (ширина 222); M — экран мобильного веба и App (335); L — дашборд Web (545). По эталону Web App «Баннеры» (17.11).
   - Tone: Neutral — по умолчанию (обводка `border/subtle`, действие Button Secondary); Accent — главная акция экрана (градиентная обводка `border/accent` → `border/subtle`, свечение `action/primary/default`, действие Button Primary).
   - Show description — описание под заголовком; выключается, когда заголовок говорит всё.
@@ -30,8 +31,8 @@
 - `action` — вложенный Button S (`control/height/sm`).
 - `media` — абсолютный слой под содержимым: `glow` (эллипс: Accent — `action/primary/default`, Neutral — `surface/level-3`; размытие слоя 80 / 160) и `image` (плейсхолдер `surface/level-2`, в макете — заливка картинкой) — S 104 · M 172 · L 272.
 - Служебных слоёв нет.
-- Вложено: `Badge` ×6, `Button` ×6, `Icon button` ×6.
-- Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Badge` ×12, `Button` ×12, `Icon button` ×12.
+- Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; интерактивно только действие (Button) или вся карточка как одна цель.
@@ -44,20 +45,21 @@
 |---|---|---|
 | Size | S · M · L | S |
 | Tone | Neutral · Accent | Neutral |
+| Align | Start · Center | — |
 
-Матрица полная: 6 вариантов.
+Матрица полная: 12 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Title | текст | «Нет оборудования?» | 6 из 6 |
-| Description | текст | «Получи каталог ASIC по выгодным ценам» | 6 из 6 |
-| Show description | булево | вкл | 6 из 6 |
-| Show action | булево | вкл | 6 из 6 |
-| Show media | булево | выкл | 6 из 6 |
-| Show close | булево | вкл | 6 из 6 |
-| Show badge | булево | выкл | 6 из 6 |
+| Title | текст | «Нет оборудования?» | 12 из 12 |
+| Description | текст | «Получи каталог ASIC по выгодным ценам» | 12 из 12 |
+| Show description | булево | вкл | 12 из 12 |
+| Show action | булево | вкл | 12 из 12 |
+| Show media | булево | выкл | 12 из 12 |
+| Show close | булево | вкл | 12 из 12 |
+| Show badge | булево | выкл | 12 из 12 |
 
 - Title, Description — текст; Show description (вкл.), Show action (вкл.), Show media (выкл.), Show close (вкл., 2026-11-15), Show badge (выкл., 2026-11-17).
 
@@ -91,25 +93,25 @@
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/heading/md`, `type/label/sm`.
 - `badge`: заливка / цвет `accent/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/sm`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/body/md`, `type/label/sm`.
-- `action`: заливка / цвет `action/accent/default`, `action/primary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`, `radius/xs`.
+- `action`: заливка / цвет `action/accent/default`, `action/primary/default`; интервал `space/4`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/control-sm`, `radius/xs`.
 - `close`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
 - Min / max корня: minHeight 120 числом, minHeight 178 числом, minHeight 204 числом.
-- Значений без переменной: 9 (напр. `(root):w=222`, `(root):sw=1`, `(root):w=335`, `(root):w=545`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 18 (напр. `(root):w=222`, `(root):sw=1`, `(root):w=335`, `(root):w=545`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Promo card`, вариантов 6 из 6; оси: Size, Tone.
+- Набор `Promo card`, вариантов 12 из 12; оси: Size, Tone, Align.
 - Борда: «Promo card — борда · шаблон v3», разделов 12.
-- Описание: 1071 знаков, разделы: Status: Level: Промо-карточка: Когда использовать: Правила: A11y: Legacy: Токены: Действие —
+- Описание: 1262 знаков, разделы: Status: Level: Промо-карточка: Когда использовать: Правила: A11y: Legacy: Токены: Действие —
 
 ## 13. Code projection
 Кода нет: DSP, Vue и Flutter недоступны (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs` — сверить, когда появится манифест кода.
 
 - Vue: `<DsPromoCard>`; Flutter: `DsPromoCard`.
-- Props: `size`: s | m | l; `tone`: neutral | accent; `title`: string или слот; `description`: string или слот; `showDescription`: boolean = true; `showAction`: boolean = true; `showMedia`: boolean = false; `showClose`: boolean = true; `showBadge`: boolean = false.
+- Props: `size`: s | m | l; `tone`: neutral | accent; `align`: start | center; `title`: string или слот; `description`: string или слот; `showDescription`: boolean = true; `showAction`: boolean = true; `showMedia`: boolean = false; `showClose`: boolean = true; `showBadge`: boolean = false.
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.

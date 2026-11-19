@@ -14,7 +14,7 @@
    "service": 4,
    "template": 1
   },
-  "variants": 1620,
+  "variants": 1626,
   "incompleteMatrix": 17,
   "propsNotBoundEverywhere": 18,
   "rawMinMax": 1,
@@ -8212,7 +8212,7 @@
      "id": "1662:1174",
      "type": "SET",
      "status": "beta",
-     "descLen": 1071,
+     "descLen": 1262,
      "descHeads": [
       "Status:",
       "Level:",
@@ -8234,58 +8234,62 @@
       "Tone": [
        "Neutral",
        "Accent"
+      ],
+      "Align": [
+       "Start",
+       "Center"
       ]
      },
-     "variants": 6,
-     "full": 6,
+     "variants": 12,
+     "full": 12,
      "props": [
       {
        "name": "Title",
        "type": "TEXT",
        "def": "Нет оборудования?",
-       "bound": 6
+       "bound": 12
       },
       {
        "name": "Description",
        "type": "TEXT",
        "def": "Получи каталог ASIC по выгодным ценам",
-       "bound": 6
+       "bound": 12
       },
       {
        "name": "Show description",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 6
+       "bound": 12
       },
       {
        "name": "Show action",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 6
+       "bound": 12
       },
       {
        "name": "Show media",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 6
+       "bound": 12
       },
       {
        "name": "Show close",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 6
+       "bound": 12
       },
       {
        "name": "Show badge",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 6
+       "bound": 12
       }
      ],
      "nested": {
-      "Badge": 6,
-      "Button": 6,
-      "Icon button": 6
+      "Badge": 12,
+      "Button": 12,
+      "Icon button": 12
      },
      "minmax": [
       "minh=120 RAW",
@@ -8299,7 +8303,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 9,
+     "rawCount": 18,
      "raw": [
       "(root):w=222",
       "(root):sw=1",
@@ -8371,7 +8375,7 @@
       "action": [
        "f:action/accent/default",
        "f:action/primary/default",
-       "gap:space/2",
+       "gap:space/4",
        "h:control/height/sm",
        "minw:size/button/min",
        "p:space/6",
@@ -10483,6 +10487,7 @@
        "f:surface/next",
        "gap:space/8",
        "p:card/padding",
+       "p:space/4",
        "r:radius/container",
        "s:border/subtle",
        "sw:border/width/default"
