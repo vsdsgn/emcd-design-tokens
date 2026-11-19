@@ -22,6 +22,9 @@
 - Action bar — низ `space/24` (высота 80 = 16 + 40 + 24, как на экранах), высота по содержимому.
 - Sidebar — язык Button Tertiary XS (как на экранах).
 - Action bar — свойство Badge (бейдж автодействия над последней кнопкой).
+- Floating button — оси Size (L | M) и Type (Primary | Secondary) для Extended.
+- Transaction — у Completed статус скрыт, показан фиат.
+- Tab bar item — Type=Action (центральная «E» App).
 
 ## Журнал
 - 19.11 — иконки переэкспортированы из Figma (115, хеши сверены), символы ETH / USDT; контракты Promo S (3 строки), Table cell 14, Select labelPosition, Nav item 24; манифест D37 (Action bar, Sidebar). Все проверки зелёные, демо пересобрано. K3–K5 выполнены. Дальше — K6: один Publish.
