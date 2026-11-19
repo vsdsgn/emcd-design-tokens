@@ -31,6 +31,7 @@ export function chartModel({ type = 'bars', series = [], labels = [], xTicks = 6
   const barKind = kinds[0] === 'bar' || kinds[0] === 'stack';
   const bars = series.map((s, i) => i).filter((i) => kindOf(i) === 'bar');
   const marks = [];
+  // Skeleton: столбцы — «пила», линии и области — силуэт; составные — по базовому (Line + Bars как Line, 19.11), колонки осей и строка X сохраняют место
   if (skeleton) {
     if (barKind) { const m = n > 1 ? Math.min(n, 24) : 12; const w = W / m; for (let k = 0; k < m; k++) { const v = 0.35 + 0.25 * ((k % 4) / 3); marks.push({ tag: 'rect', key: 'k' + k, cls: 'emcd-chart-plot__bone', attrs: { x: k * w + w * 0.3, y: H * (1 - v), width: w * 0.4, height: H * v } }); } }
     else marks.push({ tag: 'path', key: 'k', cls: 'emcd-chart-plot__bone', attrs: { d: `M0 ${H * 0.55} C ${W * 0.2} ${H * 0.25}, ${W * 0.35} ${H * 0.75}, ${W * 0.55} ${H * 0.45} S ${W * 0.85} ${H * 0.3}, ${W} ${H * 0.5} L ${W} ${H} L 0 ${H} Z` } });

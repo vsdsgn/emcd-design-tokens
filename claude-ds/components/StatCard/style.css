@@ -29,7 +29,7 @@
 .emcd-stat--ambient::before { content: ""; position: absolute; z-index: -1; right: -20%; top: -40%; width: 70%; aspect-ratio: 1; border-radius: 50%;
   background: var(--light-ambient-color, transparent); filter: blur(var(--light-ambient-blur, 48px)); pointer-events: none; }
 /* Skeleton — три полосы на месте подписи, числа и дельты */
-.emcd-stat__bone { display: block; border-radius: var(--radius-inner); background: var(--skeleton-base); }
+.emcd-stat__bone { display: block; max-width: 100%; border-radius: var(--radius-inner); background: var(--skeleton-base); }
 .emcd-stat--skeleton .emcd-stat__label-row, .emcd-stat--skeleton .emcd-stat__delta-row { height: var(--type-body-sm-line-height, 16px); }
 .emcd-stat--skeleton .emcd-stat__delta-row { height: 20px; }
 .emcd-stat--skeleton .emcd-stat__value-row { height: var(--type-heading-xl-line-height, 40px); align-items: center; }

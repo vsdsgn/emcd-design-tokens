@@ -33,3 +33,7 @@
 .emcd-chip:disabled, .emcd-chip[aria-disabled="true"] { --bg: transparent; --fg: var(--text-disabled); --meta: var(--text-disabled); border-color: var(--control-border-disabled); cursor: not-allowed; transform: none; }
 .emcd-chip:disabled::before, .emcd-chip[aria-disabled="true"]::before { display: none; }
 @media (prefers-reduced-motion: reduce) { .emcd-chip, .emcd-chip::before { transition: none; } .emcd-chip:active { transform: none; } }
+/* Skeleton — плашка skeleton/base того же размера вместо содержимого (подпись задаёт ширину, скрыта); не нажимается */
+.emcd-chip--skeleton { --bg: var(--skeleton-base); border-color: transparent; cursor: default; pointer-events: none; }
+.emcd-chip--skeleton > * { visibility: hidden; }
+.emcd-chip--skeleton::before, .emcd-chip--skeleton::after { display: none; }

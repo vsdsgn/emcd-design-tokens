@@ -9,6 +9,7 @@ const props = defineProps({
   fiat: String,
   showFiat: { type: Boolean, default: true },
   align: { type: String, default: 'start' }, // start | end (в Trailing строки)
+  skeleton: Boolean,                         // загрузка: значение → плашка высотой строки, фиат → короче (если showFiat); sign не применяется
 });
 const shown = computed(() => {
   if (props.value == null) return '';
@@ -17,7 +18,11 @@ const shown = computed(() => {
 });
 </script>
 <template>
-  <span :class="['emcd-amount', size !== 's' && `emcd-amount--${size}`, sign !== 'none' && `emcd-amount--${sign}`, align === 'end' && 'emcd-amount--end']">
+  <span v-if="skeleton" :class="['emcd-amount', size !== 's' && `emcd-amount--${size}`, align === 'end' && 'emcd-amount--end', 'emcd-amount--skeleton']" aria-busy="true">
+    <span class="emcd-amount__row"><span class="emcd-amount__bone" aria-hidden="true" /></span>
+    <span v-if="showFiat" class="emcd-amount__bone emcd-amount__bone--fiat" aria-hidden="true" />
+  </span>
+  <span v-else :class="['emcd-amount', size !== 's' && `emcd-amount--${size}`, sign !== 'none' && `emcd-amount--${sign}`, align === 'end' && 'emcd-amount--end']">
     <span class="emcd-amount__row"><span class="emcd-amount__value"><slot>{{ shown }}</slot></span><template v-if="ticker">&nbsp;<span class="emcd-amount__ticker">{{ ticker }}</span></template></span>
     <span v-if="showFiat && fiat" class="emcd-amount__fiat">{{ fiat }}</span>
   </span>

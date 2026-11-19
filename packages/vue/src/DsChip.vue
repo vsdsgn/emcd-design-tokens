@@ -10,11 +10,15 @@ defineProps({
   removable: Boolean,
   removeLabel: { type: String, default: 'Убрать' },
   disabled: Boolean,
+  skeleton: Boolean, // загрузка: плашка skeleton/base того же размера, не нажимается
 });
 defineEmits(['click', 'remove']);
 </script>
 <template>
-  <span v-if="removable" :class="['emcd-chip', size === 'm' && 'emcd-chip--m', selected && 'emcd-chip--selected']">
+  <span v-if="skeleton" :class="['emcd-chip', size === 'm' && 'emcd-chip--m', 'emcd-chip--skeleton']" aria-hidden="true">
+    <span class="emcd-chip__label"><slot>{{ label }}</slot></span><span v-if="metaText != null" class="emcd-chip__meta">{{ metaText }}</span>
+  </span>
+  <span v-else-if="removable" :class="['emcd-chip', size === 'm' && 'emcd-chip--m', selected && 'emcd-chip--selected']">
     <button type="button" class="emcd-chip__action" :aria-pressed="selected" :disabled="disabled" @click="$emit('click', $event)">
       <slot name="icon" /><span v-if="statusDot" :class="['emcd-dot', statusTone !== 'success' && `emcd-dot--${statusTone}`]" aria-hidden="true" /><span class="emcd-chip__label"><slot>{{ label }}</slot></span><span v-if="metaText != null" class="emcd-chip__meta">{{ metaText }}</span>
     </button>

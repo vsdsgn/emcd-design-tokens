@@ -15,3 +15,7 @@
 /* Leader — точечная линия, заполняет промежуток между названием и значением */
 .emcd-kv--leader .emcd-kv__key::after { content: ""; flex: 1 1 var(--space-16, 16px); min-width: var(--space-16, 16px); margin-inline-start: var(--space-16, 16px);
   border-bottom: var(--border-width-default, 1px) dotted var(--border-strong); transform: translateY(-4px); }
+/* Skeleton (State=Skeleton, 19.11) — ключ остаётся, значение → плашка высотой строки, radius/container. dd по центру строки (без базовой линии) — высота строки как у Default. */
+.emcd-kv--skeleton .emcd-kv__value { align-self: center; }
+.emcd-kv__bone { display: block; width: 96px; height: var(--type-body-md-line-height, 20px); border-radius: var(--radius-container, 12px); background: var(--skeleton-base); }
+.emcd-kv--total .emcd-kv__bone { height: var(--type-label-md-line-height, 20px); }

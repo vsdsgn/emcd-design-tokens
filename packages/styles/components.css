@@ -149,6 +149,10 @@
 .emcd-chip:disabled, .emcd-chip[aria-disabled="true"] { --bg: transparent; --fg: var(--text-disabled); --meta: var(--text-disabled); border-color: var(--control-border-disabled); cursor: not-allowed; transform: none; }
 .emcd-chip:disabled::before, .emcd-chip[aria-disabled="true"]::before { display: none; }
 @media (prefers-reduced-motion: reduce) { .emcd-chip, .emcd-chip::before { transition: none; } .emcd-chip:active { transform: none; } }
+/* Skeleton — плашка skeleton/base того же размера вместо содержимого (подпись задаёт ширину, скрыта); не нажимается */
+.emcd-chip--skeleton { --bg: var(--skeleton-base); border-color: transparent; cursor: default; pointer-events: none; }
+.emcd-chip--skeleton > * { visibility: hidden; }
+.emcd-chip--skeleton::before, .emcd-chip--skeleton::after { display: none; }
 
 /* Checkbox — 🟡 beta (Figma «🟡 Checkbox»: Status × Tone × Size × Control × State).
    Строка .emcd-check (коробочка + подпись + описание) — общая с Radio. */
@@ -379,6 +383,23 @@
 @keyframes emcd-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .emcd-spinner { animation-duration: 2400ms; } }
 
+/* Skeleton — 🟡 beta (Figma «🟡 Skeleton»: Shape). Кирпич загрузки для текста и блоков без своего State=Skeleton (строки списков, факты; patterns 3.11a).
+   Заливка skeleton/base; Text 12 и Title 20 — radius/inner, Circle — radius/full, Rect — radius/container. Inline-block по центру строки: строка текста сохраняет свою высоту.
+   Общий пульс всех скелетонов экрана (кирпич и State=Skeleton компонентов): прозрачность 1 → 0.55 → 1 за 1.2 с, синхронно; «Уменьшить движение» — статично. */
+.emcd-skeleton { display: inline-block; vertical-align: middle; width: 120px; max-width: 100%; height: 12px; border-radius: var(--radius-inner, 8px); background: var(--skeleton-base); }
+.emcd-skeleton--title { width: 160px; height: 20px; }
+.emcd-skeleton--circle { width: 40px; height: 40px; border-radius: var(--radius-full, 999px); }
+.emcd-skeleton--rect { display: block; width: 100%; height: 120px; border-radius: var(--radius-container, 12px); }
+@keyframes emcd-skeleton-pulse { 50% { opacity: 0.55; } }
+:is(.emcd-skeleton, .emcd-amount__bone, .emcd-chart-metric__bone, .emcd-kv__bone, .emcd-stat__bone, .emcd-legend-item__bone, .emcd-td__bone, .emcd-th__bone,
+  .emcd-coin--skeleton, .emcd-avatar--skeleton .emcd-avatar__circle, .emcd-badge--skeleton, .emcd-chip--skeleton, .emcd-tab--skeleton .emcd-tab__label,
+  .emcd-field--skeleton :is(.emcd-input, .emcd-textarea, .emcd-field__label)) { animation: emcd-skeleton-pulse 1.2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  :is(.emcd-skeleton, .emcd-amount__bone, .emcd-chart-metric__bone, .emcd-kv__bone, .emcd-stat__bone, .emcd-legend-item__bone, .emcd-td__bone, .emcd-th__bone,
+    .emcd-coin--skeleton, .emcd-avatar--skeleton .emcd-avatar__circle, .emcd-badge--skeleton, .emcd-chip--skeleton, .emcd-tab--skeleton .emcd-tab__label,
+    .emcd-field--skeleton :is(.emcd-input, .emcd-textarea, .emcd-field__label)) { animation: none; }
+}
+
 /* Progress — 🟡 beta (Figma «🟡 Progress»: Size × Tone × Mode). Доля выполненного; Indeterminate — только Accent. */
 .emcd-progress { --track: var(--size-track-sm, 4px); --fill: var(--control-checked);
   display: flex; flex-direction: column; gap: var(--space-8, 8px); width: 100%; min-width: 120px; }
@@ -414,6 +435,15 @@
 .emcd-amount--l .emcd-amount__value, .emcd-amount--xl .emcd-amount__value { letter-spacing: -0.01em; }
 .emcd-amount--end { align-items: flex-end; text-align: end; }
 .emcd-amount--positive .emcd-amount__value { color: var(--text-success); }
+/* Skeleton (State=Skeleton, 19.11) — плашка вместо суммы той же высоты: строка значения → плашка высотой строки размера (--lh) на всю доступную ширину (не шире предела размера),
+   фиат → короче (--flh), если showFiat. Sign не применяется. S / M — radius/inner, L / XL — radius/container. Пульс — общий (блок Skeleton). */
+.emcd-amount--skeleton { --bone-max: 96px; --bone-r: var(--radius-inner, 8px); display: flex; width: 100%; max-width: var(--bone-max); }
+.emcd-amount--m.emcd-amount--skeleton { --bone-max: 140px; }
+.emcd-amount--l.emcd-amount--skeleton { --bone-max: 200px; --bone-r: var(--radius-container, 12px); }
+.emcd-amount--xl.emcd-amount--skeleton { --bone-max: 280px; --bone-r: var(--radius-container, 12px); }
+.emcd-amount--skeleton .emcd-amount__row { display: flex; width: 100%; }
+.emcd-amount__bone { display: block; width: 100%; height: var(--lh); border-radius: var(--bone-r); background: var(--skeleton-base); }
+.emcd-amount__bone--fiat { width: 60%; height: var(--flh); }
 
 /* Card — 🟡 beta (Figma «🟡 Card»: Level × Radius × Padding × Border). Подложка без своего содержимого; без тени.
    Обводка — вне раскладки (inset box-shadow): размер content не меняется. */
@@ -467,7 +497,7 @@
 .emcd-stat--ambient::before { content: ""; position: absolute; z-index: -1; right: -20%; top: -40%; width: 70%; aspect-ratio: 1; border-radius: 50%;
   background: var(--light-ambient-color, transparent); filter: blur(var(--light-ambient-blur, 48px)); pointer-events: none; }
 /* Skeleton — три полосы на месте подписи, числа и дельты */
-.emcd-stat__bone { display: block; border-radius: var(--radius-inner); background: var(--skeleton-base); }
+.emcd-stat__bone { display: block; max-width: 100%; border-radius: var(--radius-inner); background: var(--skeleton-base); }
 .emcd-stat--skeleton .emcd-stat__label-row, .emcd-stat--skeleton .emcd-stat__delta-row { height: var(--type-body-sm-line-height, 16px); }
 .emcd-stat--skeleton .emcd-stat__delta-row { height: 20px; }
 .emcd-stat--skeleton .emcd-stat__value-row { height: var(--type-heading-xl-line-height, 40px); align-items: center; }
@@ -920,6 +950,10 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 /* Leader — точечная линия, заполняет промежуток между названием и значением */
 .emcd-kv--leader .emcd-kv__key::after { content: ""; flex: 1 1 var(--space-16, 16px); min-width: var(--space-16, 16px); margin-inline-start: var(--space-16, 16px);
   border-bottom: var(--border-width-default, 1px) dotted var(--border-strong); transform: translateY(-4px); }
+/* Skeleton (State=Skeleton, 19.11) — ключ остаётся, значение → плашка высотой строки, radius/container. dd по центру строки (без базовой линии) — высота строки как у Default. */
+.emcd-kv--skeleton .emcd-kv__value { align-self: center; }
+.emcd-kv__bone { display: block; width: 96px; height: var(--type-body-md-line-height, 20px); border-radius: var(--radius-container, 12px); background: var(--skeleton-base); }
+.emcd-kv--total .emcd-kv__bone { height: var(--type-label-md-line-height, 20px); }
 
 /* Search — 🟠 draft (Figma «🟠 Search»: Size × State). Поле поиска: подложка surface/level-2, обводка border/subtle, радиус radius/control; S 32 · M 40;
    лупа 20 (icon-tertiary) → текст (body-md; S — body-sm) → «Очистить» (Icon button Ghost S, когда введено). Hover — слой 6 %, Focus — обводка border/focus. */
@@ -1053,6 +1087,9 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-chart-metric__icon svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
 .emcd-chart-metric__value { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--value); }
 .emcd-chart-metric__unit { flex: none; color: var(--text-tertiary); white-space: nowrap; }
+/* Skeleton (State=Skeleton, 19.11) — подпись остаётся, строка значения → плашка той же высоты (heading-lg line-height), radius/container. Пульс — общий (блок Skeleton). */
+.emcd-chart-metric__bone { display: block; width: 120px; max-width: 100%; height: var(--type-heading-lg-line-height, 32px); border-radius: var(--radius-container, 12px); background: var(--skeleton-base); }
+.emcd-chart-metric--skeleton .emcd-chart-metric__value-row { align-items: center; }
 
 /* Table header cell — 🟡 beta (Figma «🟡 Table header cell»: Align × Sort × State; Sortable, Show filter, Show info). th: высота size/table/header 44, поля space/12, min-width size/table-cell/min 80;
    подпись label-md Medium — несортированная text-tertiary, отсортированная text-primary; иконка сортировки 16 перед подписью: sort (None) · sort-line-down · sort-line-up.

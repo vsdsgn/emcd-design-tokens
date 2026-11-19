@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Демо K4: скриншоты 6 экранов майнинга (Playwright Chromium) и сравнение с макетами Figma.
 //   npm run demo:mining  →  demo/mining/out/<screen>.png + out/compare-<screen>.png (макет | код | разница) + out/web-dashboard-hover.png (hover графика)
+//   + загрузка дашбордов (?state=loading, patterns 3.11a) → out/<screen>-loading.png; высоты блоков (сводка, факты, график, плитки статусов) в загрузке = после загрузки (±1 px), иначе провал
 // Репо раздаётся статически (свой http-сервер), браузер не скачивается — берётся установленный Playwright.
 import http from 'node:http';
 import fs from 'node:fs';
@@ -13,6 +14,15 @@ const SCREENS = [
   ['web-dashboard', 1440, 900], ['web-workers', 1440, 900], ['web-history', 1440, 900],
   ['mw-dashboard', 375, 812, true], ['mw-workers', 375, 812], ['mw-history', 375, 812]];
 const only = process.argv.slice(2);
+// Блоки, чья высота в загрузке (State=Skeleton) должна совпасть с загруженной: [подпись, селектор] — каждый найденный элемент по порядку
+const LOADING_BLOCKS = {
+  'web-dashboard': [['сводка', '.demo-summary'], ['факты', '.demo-facts'], ['график', '.demo-chart'], ['показатель графика', '.emcd-chart-metric'], ['легенда', '.emcd-chart-card__legend'],
+    ['область графика', '.emcd-chart-plot'], ['плитка статуса', '.emcd-status-summary__tile'], ['ряд графика', '.demo-chart-row']],
+  'mw-dashboard': [['сводка', '.demo-mw-summary'], ['факты', '.demo-mw-facts'], ['график', '.demo-chart--mw'], ['показатель графика', '.emcd-chart-metric'], ['легенда', '.emcd-chart-card__legend'],
+    ['область графика', '.emcd-chart-plot'], ['плитка статуса', '.emcd-status-summary__tile'], ['сводка статусов', '.emcd-status-summary']],
+};
+const heights = (page, blocks) => page.evaluate((bl) => bl.flatMap(([label, sel]) => [...document.querySelectorAll(sel)].map((el, i) => ({ key: `${label} ${i + 1}`, h: el.getBoundingClientRect().height }))), blocks);
+const heightFails = [];
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.png': 'image/png', '.svg': 'image/svg+xml', '.json': 'application/json', '.woff2': 'font/woff2' };
 
 const server = http.createServer((req, res) => {
@@ -35,11 +45,14 @@ try {
     const page = await ctx.newPage();
     page.on('pageerror', (e) => errors.push(`${name}: ${e.message}`));
     page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') errors.push(`${name}: console ${m.type()}: ${m.text()}`); });
-    await page.goto(`${base}/demo/mining/${name}.html`, { waitUntil: 'networkidle' });
-    // Шрифты бренда (Roobert PRO, IBM Plex Mono) лицензионные и в репо их нет: на стенде — ближайшие по метрикам свободные (только для скриншота)
-    if (!process.env.DEMO_REAL_FONTS) await page.addStyleTag({ content: "@font-face{font-family:'Roobert PRO';src:local('Liberation Sans'),local('Arial')}@font-face{font-family:'IBM Plex Mono';src:local('Liberation Mono'),local('Courier New')}" });
-    await page.waitForSelector('#root > *');
-    await page.evaluate(() => document.fonts.ready);
+    const load = async (pg, query = '') => {
+      await pg.goto(`${base}/demo/mining/${name}.html${query}`, { waitUntil: 'networkidle' });
+      // Шрифты бренда (Roobert PRO, IBM Plex Mono) лицензионные и в репо их нет: на стенде — ближайшие по метрикам свободные (только для скриншота)
+      if (!process.env.DEMO_REAL_FONTS) await pg.addStyleTag({ content: "@font-face{font-family:'Roobert PRO';src:local('Liberation Sans'),local('Arial')}@font-face{font-family:'IBM Plex Mono';src:local('Liberation Mono'),local('Courier New')}" });
+      await pg.waitForSelector('#root > *');
+      await pg.evaluate(() => document.fonts.ready);
+    };
+    await load(page);
     const shot = path.join(OUT, `${name}.png`);
     await page.screenshot({ path: shot, fullPage: !!full });
     // Hover графика (Chart crosshair + Chart tooltip): указатель на ~60 % ширины области → out/web-dashboard-hover.png (без сравнения — в макетах hover нет)
@@ -71,11 +84,32 @@ try {
           <img src="data:image/png;base64,${ref}" style="display:block"><img src="data:image/png;base64,${cur}" style="position:absolute;left:0;top:0;mix-blend-mode:difference"></div></figure>
       </div></body>`);
     await cmp.locator('#c').screenshot({ path: path.join(OUT, `compare-${name}.png`) });
-    await ctx.close();
     console.log(`demo:mining — ${name} ${w}×${full ? 'full' : hgt} → out/${name}.png, out/compare-${name}.png`);
+    // Загрузка (patterns 3.11a): ?state=loading — скриншот (пульс остановлен) и сверка высот блоков с загруженной страницей
+    const blocks = LOADING_BLOCKS[name];
+    if (blocks) {
+      const loaded = await heights(page, blocks);
+      const lp = await ctx.newPage();
+      lp.on('pageerror', (e) => errors.push(`${name}-loading: ${e.message}`));
+      lp.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') errors.push(`${name}-loading: console ${m.type()}: ${m.text()}`); });
+      await load(lp, '?state=loading');
+      if (!(await lp.locator('.emcd-amount--skeleton').count()) || !(await lp.locator('.emcd-chart-plot--skeleton').count())) errors.push(`${name}-loading: нет Skeleton у Amount / Chart plot`);
+      await lp.screenshot({ path: path.join(OUT, `${name}-loading.png`), fullPage: !!full, animations: 'disabled' });
+      const busy = await heights(lp, blocks);
+      const rows = loaded.map((a) => { const b = busy.find((x) => x.key === a.key); return { key: a.key, loaded: a.h, loading: b ? b.h : NaN }; });
+      for (const b of busy) if (!loaded.some((a) => a.key === b.key)) rows.push({ key: b.key, loaded: NaN, loading: b.h });
+      const bad = rows.filter((r) => !(Math.abs(r.loaded - r.loading) <= 1));
+      for (const r of bad) heightFails.push(`${name}: ${r.key} — загружено ${r.loaded}, загрузка ${r.loading}`);
+      console.log(`demo:mining — ${name}?state=loading → out/${name}-loading.png; высоты блоков (${rows.length}): ${bad.length ? 'расходятся ' + bad.length : 'совпадают ±1 px'}`
+        + '\n  ' + rows.map((r) => `${r.key} ${Math.round(r.loaded * 10) / 10}/${Math.round(r.loading * 10) / 10}`).join(' · '));
+      await lp.close();
+    }
+    await ctx.close();
   }
 } finally {
   await browser.close();
   server.close();
 }
-if (errors.length) { console.error('demo:mining — ошибки страницы:\n' + errors.join('\n')); process.exit(1); }
+if (heightFails.length) console.error('demo:mining — загрузка меняет высоту блоков (patterns 3.11a):\n' + heightFails.join('\n'));
+if (errors.length) console.error('demo:mining — ошибки страницы:\n' + errors.join('\n'));
+if (errors.length || heightFails.length) process.exit(1);

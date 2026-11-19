@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Progress"},{"name":"Amount"},{"name":"Card"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
+/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Skeleton"},{"name":"Progress"},{"name":"Amount"},{"name":"Card"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
 /* EMCD DS 2.0 — компоненты React 18. Генерируется scripts/code-build.mjs из packages/react/src/index.js — не править руками. */
 (function () {
 'use strict';
@@ -52,8 +52,13 @@ function Badge({ size = 'm', tone = 'neutral', style = 'subtle', label, children
   }, icon, h('span', { className: 'emcd-badge__label' }, label ?? children));
 }
 
-/** Chip — фильтр или выбор; `selected` → aria-pressed (инверсная белая плашка). `statusDot` — точка статуса перед подписью (statusTone). `onRemove` — крестик удаления. */
-function Chip({ size = 's', selected = false, label, children, metaText, icon, statusDot = false, statusTone = 'success', onRemove, removeLabel = 'Убрать', trailingIcon, disabled, onClick, className, ...rest }) {
+/** Chip — фильтр или выбор; `selected` → aria-pressed (инверсная белая плашка). `statusDot` — точка статуса перед подписью (statusTone). `onRemove` — крестик удаления.
+ *  skeleton — плашка skeleton/base того же размера (подпись задаёт ширину, скрыта), не нажимается и скрыта от читалки. */
+function Chip({ size = 's', selected = false, label, children, metaText, icon, statusDot = false, statusTone = 'success', onRemove, removeLabel = 'Убрать', trailingIcon, disabled, skeleton = false, onClick, className, ...rest }) {
+  if (skeleton) {
+    return h('span', { className: cx('emcd-chip', size === 'm' && 'emcd-chip--m', 'emcd-chip--skeleton', className), 'aria-hidden': true, ...rest },
+      h('span', { className: 'emcd-chip__label' }, label ?? children), metaText != null && h('span', { className: 'emcd-chip__meta' }, metaText));
+  }
   const body = [icon, statusDot && DOT(statusTone, 'dot'), h('span', { key: 'l', className: 'emcd-chip__label' }, label ?? children), metaText != null && h('span', { key: 'm', className: 'emcd-chip__meta' }, metaText), trailingIcon];
   if (onRemove) {
     return h('span', { className: cx('emcd-chip', size === 'm' && 'emcd-chip--m', selected && 'emcd-chip--selected', className), ...rest },
@@ -223,6 +228,13 @@ function Spinner({ size = 's', label = 'Загрузка', className, ...rest })
     h('path', { d: 'M21 12a9 9 0 0 0-9-9', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round' }));
 }
 
+/** Skeleton — кирпич загрузки для текста и блоков без своего State=Skeleton (строки списков, факты). shape: text 12 · title 20 (radius/inner) | circle (radius/full) | rect (radius/container).
+ *  width / height — по ожидаемому контенту (число — px). Декоративен (aria-hidden): aria-busy — у контейнера. Все скелетоны экрана пульсируют синхронно; reduced motion — статично (patterns 3.11a). */
+function Skeleton({ shape = 'text', width, height, className, style, ...rest }) {
+  return h('span', { className: cx('emcd-skeleton', shape !== 'text' && 'emcd-skeleton--' + shape, className), 'aria-hidden': true,
+    style: width != null || height != null ? { width, height, ...style } : style, ...rest });
+}
+
 /** Progress — доля выполненного. percent 0–100 — ширина fill; value — текст справа («6 000 / 10 000 USDT»). Indeterminate — только Accent. */
 function Progress({ size = 's', tone = 'accent', mode = 'determinate', label, value, percent = 0, showLabel = true, className, ...rest }) {
   const ind = mode === 'indeterminate';
@@ -236,8 +248,14 @@ function Progress({ size = 's', tone = 'accent', mode = 'determinate', label, va
 }
 
 const MINUS = '−';
-/** Amount — сумма + тикер (неразрывный пробел) + фиат второй строкой. Sign: positive «+» и цвет успеха; negative «−» (U+2212), не красный. */
-function Amount({ size = 's', sign = 'none', value, ticker, fiat, showFiat = true, align = 'start', className, ...rest }) {
+/** Amount — сумма + тикер (неразрывный пробел) + фиат второй строкой. Sign: positive «+» и цвет успеха; negative «−» (U+2212), не красный.
+ *  skeleton — загрузка: строка значения → плашка высотой строки размера (на всю доступную ширину, не шире предела размера), фиат → короче, если showFiat; sign не применяется. */
+function Amount({ size = 's', sign = 'none', value, ticker, fiat, showFiat = true, align = 'start', skeleton = false, className, ...rest }) {
+  if (skeleton) {
+    return h('span', { className: cx('emcd-amount', size !== 's' && 'emcd-amount--' + size, align === 'end' && 'emcd-amount--end', 'emcd-amount--skeleton', className), 'aria-busy': true, ...rest },
+      h('span', { className: 'emcd-amount__row' }, h('span', { className: 'emcd-amount__bone', 'aria-hidden': true })),
+      showFiat && h('span', { className: 'emcd-amount__bone emcd-amount__bone--fiat', 'aria-hidden': true }));
+  }
   let v = value;
   if (typeof v === 'number' || typeof v === 'string') {
     v = String(v).replace(/^[-+−]\s*/, '');
@@ -256,7 +274,7 @@ function Card({ level = 1, radius = 'container', padding = 's', border = true, a
 }
 
 const DELTA_TONE = { success: 'success', danger: 'danger', neutral: 'neutral' };
-/** Stat card — один показатель. tone: neutral | danger | warning | success (плитки статусной сводки); align: start | center (плитки статусов).
+/** Stat card — один показатель. skeleton — полосы на месте подписи, числа и дельты (дельта — если delta), высота как у Default; тон в загрузке — neutral (решает родитель). tone: neutral | danger | warning | success (плитки статусной сводки); align: start | center (плитки статусов).
  *  delta + deltaValue («+4,2 %») + deltaTone: success рост · danger падение · neutral без изменений. link — Icon button XS с шевроном chevron-right, как в Figma (onLink): Danger — Secondary Danger, иначе Tertiary. */
 function StatCard({ tone = 'neutral', align = 'start', label, value, unit, info = true, infoText, delta = true, deltaValue, deltaTone = 'success', deltaCaption, showFooter = false, footer,
   link = false, linkLabel = 'Открыть список', onLink, ambientLight = false, skeleton = false, className, ...rest }) {
@@ -265,7 +283,9 @@ function StatCard({ tone = 'neutral', align = 'start', label, value, unit, info 
     return h('div', { className: cls, 'aria-busy': true, ...rest },
       h('div', { className: 'emcd-stat__label-row' }, h('span', { className: 'emcd-stat__bone', style: { width: 96, height: 12 } })),
       h('div', { className: 'emcd-stat__value-row' }, h('span', { className: 'emcd-stat__bone', style: { width: 140, height: 28 } })),
-      h('div', { className: 'emcd-stat__delta-row' }, h('span', { className: 'emcd-stat__bone', style: { width: 112, height: 16 } })));
+      // строки — как у Default (та же высота): дельта — только при delta, подвал — при showFooter
+      delta && h('div', { className: 'emcd-stat__delta-row' }, h('span', { className: 'emcd-stat__bone', style: { width: 112, height: 16 } })),
+      showFooter && footer != null && h('div', { className: 'emcd-stat__footer' }, footer));
   }
   return h('div', { className: cls, ...rest },
     h('div', { className: 'emcd-stat__label-row' }, h('span', { className: 'emcd-stat__label' }, label),
@@ -670,11 +690,12 @@ function NavItem({ label, children, icon: ic = 'dots-grid', href, selected = fal
 }
 
 /** Key-value row — «название — значение» в сводке (dt + dd; ряд строк оборачивать в <dl class="emcd-kv-list">). label — название (Key в Figma: `key` занят в React и Vue).
- *  emphasis: default | total (итог: одна, последней, линия сверху, Medium) | muted (второстепенная); leader — точечная линия от названия к значению. */
-function KeyValueRow({ emphasis = 'default', leader = false, label, value, children, className, ...rest }) {
-  return h('div', { className: cx('emcd-kv', emphasis !== 'default' && 'emcd-kv--' + emphasis, leader && 'emcd-kv--leader', className), ...rest },
+ *  emphasis: default | total (итог: одна, последней, линия сверху, Medium) | muted (второстепенная); leader — точечная линия от названия к значению.
+ *  skeleton — загрузка: название остаётся, значение — плашка высотой строки. */
+function KeyValueRow({ emphasis = 'default', leader = false, label, value, children, skeleton = false, className, ...rest }) {
+  return h('div', { className: cx('emcd-kv', emphasis !== 'default' && 'emcd-kv--' + emphasis, leader && 'emcd-kv--leader', skeleton && 'emcd-kv--skeleton', className), 'aria-busy': skeleton || undefined, ...rest },
     h('dt', { className: 'emcd-kv__key' }, h('span', { className: 'emcd-kv__key-text' }, label)),
-    h('dd', { className: 'emcd-kv__value' }, value ?? children));
+    h('dd', { className: 'emcd-kv__value' }, skeleton ? h('span', { className: 'emcd-kv__bone', 'aria-hidden': true }) : value ?? children));
 }
 
 /** Search — поле поиска (лупа, текст, крестик «Очистить», когда введено). size: s 32 · m 40. text / placeholder — подсказка. Esc очищает.
@@ -964,8 +985,14 @@ function LegendItem({ label, children, value, showValue = false, selected = fals
 }
 
 /** Chart metric — показатель над графиком: подпись (text-tertiary) + крупное значение (heading-lg, display) + единица. tone: default | danger | warning | success — смысл значения.
- *  icon — true (lightning), имя иконки DS или узел: иконка слева от значения цвета тона. role=group с aria-label «Подпись: значение единица». */
-function ChartMetric({ tone = 'default', label, value, unit, showUnit = true, icon: ic = false, className, ...rest }) {
+ *  icon — true (lightning), имя иконки DS или узел: иконка слева от значения цвета тона. role=group с aria-label «Подпись: значение единица».
+ *  skeleton — загрузка: подпись остаётся, строка значения — плашка той же высоты; тон не применяется. */
+function ChartMetric({ tone = 'default', label, value, unit, showUnit = true, icon: ic = false, skeleton = false, className, ...rest }) {
+  if (skeleton) {
+    return h('div', { role: 'group', 'aria-label': typeof label === 'string' ? label : undefined, 'aria-busy': true, className: cx('emcd-chart-metric', 'emcd-chart-metric--skeleton', className), ...rest },
+      h('span', { className: 'emcd-chart-metric__label', title: typeof label === 'string' ? label : undefined }, label),
+      h('span', { className: 'emcd-chart-metric__value-row', 'aria-hidden': true }, h('span', { className: 'emcd-chart-metric__bone' })));
+  }
   const iconNode = ic === true ? h(Icon, { name: 'lightning' }) : icon(ic || null);
   const aria = typeof label === 'string' && value != null && typeof value !== 'object' ? `${label}: ${value}${showUnit && unit ? ' ' + unit : ''}` : undefined;
   return h('div', { role: 'group', 'aria-label': aria, className: cx('emcd-chart-metric', tone !== 'default' && 'emcd-chart-metric--' + tone, className), ...rest },
@@ -1163,6 +1190,7 @@ function ChartPlot({ type = 'bars', series = [], labels = [], xTicks = 6, yLeft,
   const live = interactive && !skeleton && !empty && state !== 'disabled';
   const bars = series.map((s, i) => [s, i]).filter(([, i]) => kindOf(i) === 'bar');
   const marks = [];
+  // Skeleton: столбцы — «пила»; линии и области — силуэт. Составные типы — по базовому (Line + Bars как Line, 19.11): данных нет, колонки осей (и правая у Line + Bars) и строка X сохраняют место
   if (skeleton) {
     if (kinds[0] === 'bar' || kinds[0] === 'stack') { const m = n > 1 ? Math.min(n, 24) : 12; for (let k = 0; k < m; k++) { const w = W / m; const v = 0.35 + 0.25 * ((k % 4) / 3); marks.push(h('rect', { key: 'k' + k, className: 'emcd-chart-plot__bone', x: k * w + w * 0.3, y: H * (1 - v), width: w * 0.4, height: H * v })); } }
     else marks.push(h('path', { key: 'k', className: 'emcd-chart-plot__bone', d: `M0 ${H * 0.55} C ${W * 0.2} ${H * 0.25}, ${W * 0.35} ${H * 0.75}, ${W * 0.55} ${H * 0.45} S ${W * 0.85} ${H * 0.3}, ${W} ${H * 0.5} L ${W} ${H} L 0 ${H} Z` }));
@@ -1281,11 +1309,14 @@ function TopBar({ platform = 'mobile-web', logo, account, onAccount, balance, ce
 
 const SUMMARY = [{ tone: 'danger', label: 'Отключённые' }, { tone: 'warning', label: 'Нестабильные' }, { tone: 'neutral', label: 'Активные' }];
 /** Status summary (draft) — сводка воркеров: 3 × Stat card Align=Center (Отключённые → Нестабильные → Активные) со стрелкой-ссылкой. layout: column (Web, колонка у графика) | row (Compact, ряд + «Все воркеры»).
- *  offline / unstable / active — числа (или items: [{ tone, label, value }]); onItem(item) — переход в «Воркеры» с фильтром; showAllLink + onAllLink — ссылка «Все воркеры» (только row). */
-function StatusSummary({ layout = 'column', offline, unstable, active, items, onItem, showAllLink = true, allLinkLabel = 'Все воркеры', onAllLink, className, ...rest }) {
+ *  offline / unstable / active — числа (или items: [{ tone, label, value }]); onItem(item) — переход в «Воркеры» с фильтром; showAllLink + onAllLink — ссылка «Все воркеры» (только row).
+ *  skeleton — загрузка: плитки Stat card Skeleton, тон neutral (до данных неизвестен), та же высота; «Все воркеры» остаётся. */
+function StatusSummary({ layout = 'column', offline, unstable, active, items, onItem, showAllLink = true, allLinkLabel = 'Все воркеры', onAllLink, skeleton = false, className, ...rest }) {
   const list = items ?? SUMMARY.map((d, i) => ({ ...d, value: [offline, unstable, active][i] }));
-  return h('div', { className: cx('emcd-status-summary', layout === 'row' && 'emcd-status-summary--row', className), ...rest },
-    h('div', { className: 'emcd-status-summary__tiles' }, list.map((it, i) => h(StatCard, { key: i, tone: it.tone, align: 'center', label: it.label, value: it.value, delta: false, info: false,
+  return h('div', { className: cx('emcd-status-summary', layout === 'row' && 'emcd-status-summary--row', className), 'aria-busy': skeleton || undefined, ...rest },
+    h('div', { className: 'emcd-status-summary__tiles' }, list.map((it, i) => skeleton
+      ? h(StatCard, { key: i, tone: 'neutral', align: 'center', delta: false, skeleton: true, className: 'emcd-status-summary__tile' })
+      : h(StatCard, { key: i, tone: it.tone, align: 'center', label: it.label, value: it.value, delta: false, info: false,
       link: true, linkLabel: `${it.label}, ${it.value ?? ''}`.replace(/, $/, ''), onLink: (e) => { if (onItem) onItem(it, e); }, className: 'emcd-status-summary__tile' }))),
     layout === 'row' && showAllLink && h(Button, { type: 'text', size: 's', label: allLinkLabel, iconRight: h(Icon, { name: 'chevron-right', size: 'sm' }), onClick: onAllLink, className: 'emcd-status-summary__all' }));
 }
@@ -1379,5 +1410,5 @@ function TabBar({ items, value, defaultValue, onChange, onAction, safeArea = tru
   return h('nav', { 'aria-label': label, className: cx('emcd-tab-bar', !safeArea && 'emcd-tab-bar--no-safe-area', className), ...rest },
     h('div', { className: 'emcd-tab-bar__items' }, body));
 }
-window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Progress, Amount, Card, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
+window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, Amount, Card, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
 })();

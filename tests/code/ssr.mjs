@@ -67,6 +67,7 @@ const RC = {
     { label: '360 дней' }, { size: 'm', label: '90 дней', metaText: '8 %' }, { selected: true, label: 'Все', metaText: '20' },
     ...['success', 'warning', 'danger', 'neutral'].map((statusTone) => ({ statusDot: true, statusTone, label: 'Онлайн', metaText: '128' })),
     { selected: true, label: 'BTC', onRemove: () => {} }, { icon: ico(), trailingIcon: ico(), label: 'Монета' }, { disabled: true, label: 'Нет' },
+    { skeleton: true, label: '7 дней' }, { skeleton: true, size: 'm', selected: true, label: 'Все', metaText: '20' },
   ],
   Checkbox: [{ label: 'Согласен' }, { status: 'on', label: 'Да', description: 'Описание' }, { status: 'indeterminate', size: 's', label: 'Часть' }, { tone: 'danger', controlPosition: 'end', label: 'Ошибка' }],
   Radio: [{ label: 'Один', name: 'r', value: '1' }, { status: true, size: 's', label: 'Два', name: 'r', value: '2' }, { tone: 'danger', controlPosition: 'end', label: 'Три' }],
@@ -88,16 +89,19 @@ const RC = {
   Avatar: [{ name: 'Иван' }, { size: 's', initials: 'И', status: true }, { size: 'm', src: 'a.png', alt: 'Фото' }, { size: 'l', type: 'icon' }, { skeleton: true }],
   Divider: [{}, { label: true }, { orientation: 'vertical' }, { style: 'dotted' }],
   Spinner: [{}, { size: 'm' }, { size: 'l', label: 'Загружаем' }],
+  Skeleton: [{}, { shape: 'title', width: 200 }, { shape: 'circle', width: 24, height: 24 }, { shape: 'rect', height: 80, style: { marginTop: 4 } }],
   Progress: [{ label: 'Лимит', value: '6 000 / 10 000 USDT', percent: 60 }, ...['success', 'warning', 'danger'].map((tone) => ({ tone, size: 'm', percent: 90, label: 'x' })), { mode: 'indeterminate', label: 'Загрузка' }],
   Amount: [
     ...['s', 'm', 'l', 'xl'].flatMap((size) => ['none', 'positive', 'negative'].map((sign) => ({ size, sign, value: '0.12345678', ticker: 'BTC', fiat: '≈ $2,731.40' }))),
     { align: 'end', value: 12, ticker: 'USDT', showFiat: false },
+    // Skeleton (19.11): sign не применяется, фиат — при showFiat
+    ...['s', 'm', 'l', 'xl'].map((size) => ({ size, sign: 'positive', skeleton: true })), { skeleton: true, align: 'end', showFiat: false, value: '1' },
   ],
   Card: [{ children: 'Контент' }, { level: 0, radius: 'surface', padding: 'l', children: 'x' }, { level: 2, radius: 'inner', padding: 'm', border: false, children: 'x' }, { level: 3, href: '#', children: 'x' }, { onClick: () => {}, children: 'x' }],
   StatCard: [
     { label: 'Хешрейт · 24 ч', value: '124.5', unit: 'TH/s', infoText: 'Средний хешрейт', deltaValue: '+4.2%', deltaCaption: 'к вчера' },
     ...['neutral', 'danger', 'warning', 'success'].flatMap((tone) => ['start', 'center'].map((align) => ({ tone, align, link: true, label: 'Воркеры', value: '12', delta: false }))),
-    { deltaTone: 'danger', deltaValue: '−1%', showFooter: true, footer: h('span', null, 'graph'), ambientLight: true, label: 'x', value: '1' }, { skeleton: true }, { skeleton: true, align: 'center', tone: 'success' },
+    { deltaTone: 'danger', deltaValue: '−1%', showFooter: true, footer: h('span', null, 'graph'), ambientLight: true, label: 'x', value: '1' }, { skeleton: true }, { skeleton: true, align: 'center', tone: 'success' }, { skeleton: true, align: 'center', delta: false, link: true }, { skeleton: true, showFooter: true, footer: h('span', null, 'graph') },
   ],
   Tooltip: [{ text: 'Подсказка' }, ...['bottom', 'start', 'end'].map((placement) => ({ placement, tone: 'accent', arrow: 'start', text: 'x' })), { text: 'x', children: h('button', null, 'i') }, { text: 'x', open: true, children: h('button', null, 'i') }],
   Toast: [{ title: 'Готово', description: 'Описание' }, ...['success', 'warning', 'danger', 'neutral'].map((tone) => ({ tone, title: 'x', actions: true, timer: true, duration: 5000 })), { layout: 'informer', title: 'Нет сети' }],
@@ -146,7 +150,8 @@ const RC = {
   NavItem: [{ label: 'Майнинг', icon: 'mining-coin', href: '#', selected: true }, { label: 'P2P', icon: 'exchange', badge: true, badgeLabel: '0% Комиссия' },
     { label: 'Стейкинг', icon: 'percentage', badge: h(R.Badge, { size: 's', tone: 'accent', style: 'solid', label: 'Новое' }) }, { label: 'Воркеры', counter: 3 },
     { label: 'Дашборд', collapsed: true, counter: true }, { label: 'Активы', icon: ico(), collapsed: true, selected: true }, { label: 'OnLock', icon: 'lock', disabled: true, href: '#' }],
-  KeyValueRow: ['default', 'total', 'muted'].flatMap((emphasis) => [false, true].map((leader) => ({ emphasis, leader, label: 'Комиссия сети', value: '0.00050000 BTC' }))),
+  KeyValueRow: ['default', 'total', 'muted'].flatMap((emphasis) => [false, true].map((leader) => ({ emphasis, leader, label: 'Комиссия сети', value: '0.00050000 BTC' })))
+    .concat(['default', 'total'].map((emphasis) => ({ emphasis, leader: true, skeleton: true, label: 'Текущий хешрейт' }))),
   Search: [{}, { size: 's', text: 'Поиск воркеров' }, { defaultValue: 'worker-1' }, { value: 'x', onChange: () => {} }, { disabled: true, defaultValue: 'x' }],
   SelectCompact: [{ label: 'Монета', options: [{ value: 'kas', label: 'KAS', coin: 'kas' }, { value: 'btc', label: 'BTC', coin: 'btc', disabled: true }] },
     { label: 'Монета', defaultValue: 'btc', defaultOpen: true, options: [{ value: 'kas', label: 'KAS', coin: 'kas' }, { value: 'btc', label: 'BTC', coin: 'btc' }] },
@@ -163,7 +168,7 @@ const RC = {
   PageIndicator: [2, 3, 4, 5].flatMap((count) => [1, count].map((selected) => ({ count, selected }))).concat([{ count: 3, selected: 2, onSelect: () => {} }]),
   LegendSwatch: ['dot', 'line'].flatMap((marker) => [1, 2, 3, 4, 5, 6, 7, 8].map((series) => ({ marker, series }))),
   LegendItem: [{ label: 'Хешрейт, TH/s' }, { label: 'Реджекты, %', series: 4, selected: true, value: '1.2 %', showValue: true }, { label: 'Линия', marker: 'line', series: 5, onClick: () => {} }, { skeleton: true }],
-  ChartMetric: [...['default', 'danger', 'warning', 'success'].map((tone) => ({ tone, label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true })),
+  ChartMetric: [...['default', 'danger', 'warning', 'success'].map((tone) => ({ tone, label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true })), { label: 'Текущий хешрейт', skeleton: true, tone: 'danger', icon: true },
     { label: 'Реджекты за 1 день', value: '5.05', unit: '%' }, { label: 'x', value: '1', showUnit: false, unit: 'TH/s', icon: 'chart-bar' }, { label: 'x', value: '1', icon: ico() }],
   TableHeaderCell: [...['start', 'end'].flatMap((align) => ['none', 'ascending', 'descending'].map((sort) => ({ align, sort, onSort: () => {}, label: 'Хешрейт' }))),
     { label: 'Имя и статус', defaultSort: 'descending' }, { label: 'Тип', sortable: false, showFilter: true, showInfo: true }, { skeleton: true, label: 'x' }, { align: 'end', skeleton: true }],
@@ -195,6 +200,7 @@ const RC = {
     { type: 'dual-area', yLeft: { ticks: [0, 10, 20] }, format: (v) => String(v), series: [{ data: [1, 2] }, { data: [3, 1] }] },
     { type: 'multi-line', series: Array.from({ length: 6 }, (_, i) => ({ data: [i, i + 1, i] })) },
     ...['skeleton', 'empty', 'disabled'].flatMap((state) => [{ type: 'bars', state, series: [{ data: [1, 2] }] }, { type: 'line', state, series: [{ data: [1, 2] }] }]),
+    { type: 'line-bars', state: 'skeleton', label: 'Хешрейт и реджекты', labels: ['00:00', '04:00'], series: [{ data: [1, 2] }, { data: [0.5, 1] }] },
     // Hover: точка выбрана (перекрестие + тултип), столбцы — полоса; неинтерактивный — role=img
     { type: 'line-bars', defaultIndex: 1, labels: ['00:00', '04:00', '08:00'], dates: ['23.06', '23.06', '23.06'], times: ['00:00', '04:00', '08:00'],
       series: [{ name: 'Хешрейт', data: [1, 3, 2], unit: 'TH/s', marker: 'line' }, { name: 'Реджекты', data: [0.5, 1, 1.5], format: (v) => v + ' %' }] },
@@ -209,7 +215,7 @@ const RC = {
     { top: h('div', null, 'верх'), bottom: h('div', null, 'низ'), content: 'график' },
   ],
   TopBar: [{ account: 'Alexandrewang', balance: '$123 456', cents: '.78' }, { showBalance: false, account: 'x', logo: h('span', null, 'E') }, { onMenu: () => {}, onAccount: () => {}, onBalance: () => {}, balance: '$1' }],
-  StatusSummary: [{ offline: 9, unstable: 1, active: 40 }, { layout: 'row', offline: 9, unstable: 1, active: 40, onAllLink: () => {}, onItem: () => {} }, { layout: 'row', showAllLink: false, items: [{ tone: 'success', label: 'Все', value: 50 }] }],
+  StatusSummary: [{ offline: 9, unstable: 1, active: 40 }, { skeleton: true }, { layout: 'row', skeleton: true }, { layout: 'row', offline: 9, unstable: 1, active: 40, onAllLink: () => {}, onItem: () => {} }, { layout: 'row', showAllLink: false, items: [{ tone: 'success', label: 'Все', value: 50 }] }],
   PromoCarousel: [{ slides: [h(R.PromoCard, { size: 'm', title: 'Забусти свой майнинг', showMedia: true }), h(R.PromoCard, { size: 'm', title: 'Каталог' }), h(R.PromoCard, { size: 'm', title: 'Рефералы' })] },
     { children: [h('div', { key: 1 }, 'a'), h('div', { key: 2 }, 'b')], index: 1, onIndexChange: () => {} }, { slides: [h('div', null, 'один')] }],
   ActionBar: [{ actions: [{ label: 'Подключить', iconLeft: 'plus' }] }, { actions: [{ label: 'Подключить', iconLeft: 'plus' }, { label: 'Создать группу' }] }, { children: h(R.Button, { label: 'x' }) },
@@ -279,7 +285,7 @@ const VC = {
   DsButton: [[{ label: 'Вывести' }], ...['xs', 's', 'l', 'xl'].map((size) => [{ size, label: 'x' }, { iconLeft: vico, iconRight: vico }]), [{ type: 'text', tone: 'danger', label: 'x' }], [{ loading: true, label: 'x' }]],
   DsIconButton: [...['xs', 's', 'm', 'l'].map((size) => [{ size, label: 'Закрыть' }, { default: vico }]), [{ type: 'ghost', tone: 'danger', loading: true, label: 'x' }]],
   DsBadge: [[{ label: 'Активен' }], [{ size: 'l', tone: 'success', variant: 'solid', label: 'x' }, { icon: vico }], [{ size: 's', tone: 'accent' }], [{ skeleton: true, label: 'x' }]],
-  DsChip: [[{ label: '360 дней' }], [{ selected: true, label: 'Все', metaText: 20 }], [{ statusDot: true, statusTone: 'danger', label: 'Офлайн', metaText: 4 }], [{ removable: true, selected: true, label: 'BTC', statusDot: true }], [{ size: 'm', disabled: true, label: 'x' }]],
+  DsChip: [[{ label: '360 дней' }], [{ selected: true, label: 'Все', metaText: 20 }], [{ statusDot: true, statusTone: 'danger', label: 'Офлайн', metaText: 4 }], [{ removable: true, selected: true, label: 'BTC', statusDot: true }], [{ size: 'm', disabled: true, label: 'x' }], [{ skeleton: true, label: '7 дней', metaText: 3 }]],
   DsCheckbox: [[{ label: 'Согласен' }], [{ status: 'indeterminate', size: 's', label: 'x', description: 'y' }], [{ status: 'on', tone: 'danger', controlPosition: 'end', label: 'x' }]],
   DsRadio: [[{ label: 'Один', name: 'r', value: '1' }], [{ status: true, size: 's', label: 'x', name: 'r', value: '2' }]],
   DsRadioGroup: [[{ legend: 'Сеть' }, { default: () => 'x' }]],
@@ -293,12 +299,14 @@ const VC = {
   DsAvatar: [[{ name: 'Иван' }], [{ size: 's', initials: 'И', status: true }], [{ size: 'm', src: 'a.png' }], [{ size: 'l', type: 'icon' }], [{ skeleton: true }]],
   DsDivider: [[{}], [{ label: true }], [{ orientation: 'vertical' }], [{ variant: 'dotted' }]],
   DsSpinner: [[{}], [{ size: 'l', label: 'x' }]],
+  DsSkeleton: [[{}], [{ shape: 'title', width: 200 }], [{ shape: 'circle', width: 24, height: 24 }], [{ shape: 'rect', height: '80px' }]],
   DsProgress: [[{ label: 'Лимит', value: '6 000 / 10 000', percent: 60 }], [{ tone: 'danger', size: 'm', percent: 100 }], [{ mode: 'indeterminate', label: 'x' }]],
-  DsAmount: ['s', 'm', 'l', 'xl'].map((size) => [{ size, sign: 'positive', value: '0.1234', ticker: 'BTC', fiat: '≈ $2,731.40' }]).concat([[{ sign: 'negative', align: 'end', value: 5, ticker: 'USDT', showFiat: false }]]),
+  DsAmount: ['s', 'm', 'l', 'xl'].map((size) => [{ size, sign: 'positive', value: '0.1234', ticker: 'BTC', fiat: '≈ $2,731.40' }]).concat([[{ sign: 'negative', align: 'end', value: 5, ticker: 'USDT', showFiat: false }]])
+    .concat(['s', 'm', 'l', 'xl'].map((size) => [{ size, skeleton: true, sign: 'positive' }]), [[{ skeleton: true, align: 'end', showFiat: false }]]),
   DsCard: [[{}, { default: () => 'x' }], [{ level: 0, radius: 'surface', padding: 'l' }, { default: () => 'x' }], [{ level: 2, href: '#' }, { default: () => 'x' }]],
   DsStatCard: [[{ label: 'Хешрейт', value: '124.5', unit: 'TH/s', infoText: 'x', deltaValue: '+4%', deltaCaption: 'к вчера' }],
     ...['neutral', 'danger', 'warning', 'success'].flatMap((tone) => ['start', 'center'].map((align) => [{ tone, align, link: true, label: 'Воркеры', value: '12', delta: false }])),
-    [{ showFooter: true, ambientLight: true, label: 'x', value: 1 }, { footer: () => 'graph' }], [{ skeleton: true, align: 'center' }]],
+    [{ showFooter: true, ambientLight: true, label: 'x', value: 1 }, { footer: () => 'graph' }], [{ skeleton: true, align: 'center' }], [{ skeleton: true, align: 'center', delta: false }], [{ skeleton: true, showFooter: true }, { footer: () => 'graph' }]],
   DsTooltip: [[{ text: 'Подсказка' }], [{ placement: 'end', tone: 'accent', arrow: 'start', text: 'x' }, { default: () => vh('button', null, 'i') }]],
   DsToast: [[{ title: 'Готово', description: 'x' }], [{ tone: 'danger', actions: true, timer: true, duration: 5000, title: 'x' }], [{ layout: 'informer', tone: 'neutral', title: 'x' }]],
   DsSuggest: ['neutral', 'accent', 'success', 'warning', 'danger'].flatMap((tone) => ['card', 'strip'].map((layout) => [{ tone, layout, title: 'Кошелёк', description: 'x', secondaryAction: true }]))
@@ -322,7 +330,8 @@ const VC = {
   DsCoinStack: ['s', 'm', 'l'].map((size) => [{ size, coins: ['kas', 'btc', 'ltc', 'doge'] }]).concat([[{ coins: ['ltc', 'eth', 'btc', 'doge', 'kas'], count: 2 }], [{ coins: ['kas', 'eth'], showMore: true, more: '+1', label: 'x' }]]),
   DsNavItem: [[{ label: 'Майнинг', icon: 'mining-coin', href: '#', selected: true }], [{ label: 'P2P', icon: 'exchange', badge: true, badgeLabel: '0% Комиссия' }], [{ label: 'x', counter: 3 }],
     [{ label: 'Дашборд', collapsed: true, counter: true }], [{ label: 'x', disabled: true, href: '#' }], [{ label: 'x' }, { icon: vico, badge: () => 'бейдж' }]],
-  DsKeyValueRow: ['default', 'total', 'muted'].map((emphasis, i) => [{ emphasis, leader: i === 1, label: 'Комиссия сети', value: '0.00050000 BTC' }]),
+  DsKeyValueRow: ['default', 'total', 'muted'].map((emphasis, i) => [{ emphasis, leader: i === 1, label: 'Комиссия сети', value: '0.00050000 BTC' }])
+    .concat([[{ leader: true, skeleton: true, label: 'Текущий хешрейт' }], [{ emphasis: 'total', skeleton: true, label: 'Итого' }]]),
   DsSearch: [[{}], [{ size: 's', text: 'Поиск воркеров' }], [{ modelValue: 'worker-1' }], [{ disabled: true, modelValue: 'x' }]],
   DsSelectCompact: [[{ label: 'Монета', options: [{ value: 'kas', label: 'KAS', coin: 'kas' }, { value: 'btc', label: 'BTC', coin: 'btc', disabled: true }] }],
     [{ label: 'Монета', modelValue: 'btc', open: true, options: [{ value: 'kas', label: 'KAS', coin: 'kas' }, { value: 'btc', label: 'BTC', coin: 'btc' }] }],
@@ -338,7 +347,7 @@ const VC = {
   DsLegendSwatch: ['dot', 'line'].flatMap((marker) => [1, 4, 5, 8].map((series) => [{ marker, series }])),
   DsLegendItem: [[{ label: 'Хешрейт, TH/s' }], [{ label: 'Реджекты, %', series: 4, selected: true, value: '1.2 %', showValue: true }], [{ label: 'x', marker: 'line', series: 6, interactive: true }], [{ skeleton: true }]],
   DsChartMetric: ['default', 'danger', 'warning', 'success'].map((tone) => [{ tone, label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true }])
-    .concat([[{ label: 'x', value: 1, showUnit: false, icon: 'chart-bar' }], [{ label: 'x', value: 1 }, { icon: vico }]]),
+    .concat([[{ label: 'x', value: 1, showUnit: false, icon: 'chart-bar' }], [{ label: 'x', value: 1 }, { icon: vico }], [{ label: 'Текущий хешрейт', skeleton: true, tone: 'danger' }]]),
   DsTableHeaderCell: ['start', 'end'].flatMap((align) => ['none', 'ascending', 'descending'].map((sort) => [{ align, sort, label: 'Хешрейт' }]))
     .concat([[{ label: 'Тип', sortable: false, showFilter: true, showInfo: true }], [{ skeleton: true }]]),
   DsTableCell: [[{ primary: '12 окт 2025', secondary: '10:37' }], [{ align: 'end' }, { default: () => '10.45 TH/s' }], [{ skeleton: true }], [{ disabled: true, primary: 'x' }]],
@@ -353,6 +362,7 @@ const VC = {
     [{ collapsed: true, collapsible: true, account: { name: 'A' }, items: [{ label: 'Активы', icon: 'wallet', counter: 2 }] }], [{ promo: false }, { header: () => 'шапка', nav: () => 'nav' }]],
   DsChartPlot: ['bars', 'line', 'area', 'line-bars', 'multi-line', 'dual-area', 'stacked-bars'].map((type) => [{ type, label: 'x', labels: ['00:00', '04:00', '08:00'], series: [{ data: [1, 3, 2] }, { data: [0.5, 1, 1.5] }] }])
     .concat(['skeleton', 'empty', 'disabled'].flatMap((state) => [[{ type: 'bars', state, series: [{ data: [1, 2] }] }], [{ type: 'line', state, series: [{ data: [1, 2] }] }]]))
+    .concat([[{ type: 'line-bars', state: 'skeleton', label: 'x', labels: ['00:00', '04:00'], series: [{ data: [1, 2] }, { data: [0.5, 1] }] }]])
     .concat([[{ type: 'line-bars', index: 1, labels: ['00:00', '04:00', '08:00'], dates: ['23.06', '23.06', '23.06'], times: ['00:00', '04:00', '08:00'],
       series: [{ name: 'Хешрейт', data: [1, 3, 2], unit: 'TH/s', marker: 'line' }, { name: 'Реджекты', data: [0.5, 1, 1.5], format: (v) => v + ' %' }] }],
     [{ type: 'stacked-bars', index: 0, valueFormat: (v) => String(v), series: [{ name: 'A', data: [1, 2] }, { name: 'B', data: [2, 1] }] }], [{ type: 'line', interactive: false, index: 0, series: [{ data: [1, 2] }] }]]),
@@ -364,7 +374,7 @@ const VC = {
     legend: [{ label: 'Хешрейт, TH/s' }, { label: 'Реджекты, %', series: 4 }], sum: 'Итого' }, { default: () => 'график' }], [{ periods: [{ value: 1, label: '1 д' }], periodSize: 'm', period: 1, showBottom: false }],
     [{}, { top: () => 'верх', bottom: () => 'низ', default: () => 'x' }]],
   DsTopBar: [[{ account: 'Alexandrewang', balance: '$123 456', cents: '.78' }], [{ showBalance: false, account: 'x' }, { logo: () => 'E' }]],
-  DsStatusSummary: [[{ offline: 9, unstable: 1, active: 40 }], [{ layout: 'row', offline: 9, unstable: 1, active: 40 }], [{ layout: 'row', showAllLink: false, items: [{ tone: 'success', label: 'Все', value: 50 }] }]],
+  DsStatusSummary: [[{ offline: 9, unstable: 1, active: 40 }], [{ skeleton: true }], [{ layout: 'row', skeleton: true }], [{ layout: 'row', offline: 9, unstable: 1, active: 40 }], [{ layout: 'row', showAllLink: false, items: [{ tone: 'success', label: 'Все', value: 50 }] }]],
   DsPromoCarousel: [[{}, { default: () => [vh('div', null, 'a'), vh('div', null, 'b'), vh('div', null, 'c')] }], [{ index: 1, label: 'Анонсы' }, { default: () => [vh('div', null, 'a'), vh('div', null, 'b')] }], [{}, { default: () => vh('div', null, 'один') }]],
   DsActionBar: [[{ actions: [{ label: 'Подключить' }] }], [{ actions: [{ label: 'Подключить' }, { label: 'Создать группу' }] }], [{}, { default: () => 'кнопки' }],
     [{ badge: true, actions: [{ label: 'Фильтры' }, { label: 'Выгрузить' }] }], [{ badge: true, badgeText: 'Авто', actions: [{ label: 'Выгрузить' }] }]],

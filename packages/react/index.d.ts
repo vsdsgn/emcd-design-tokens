@@ -63,6 +63,8 @@ export interface ChipProps {
   onRemove?: () => void;
   removeLabel?: string;
   disabled?: boolean;
+  /** Загрузка (State=Skeleton): плашка skeleton/base того же размера, не нажимается, aria-hidden. */
+  skeleton?: boolean;
   onClick?: () => void;
 }
 
@@ -208,6 +210,16 @@ export interface SpinnerProps {
   label?: string;
 }
 
+export interface SkeletonProps {
+  /** По форме будущего контента: text — строка (12), title — заголовок (20), circle — аватар / монета, rect — картинка, блок. */
+  shape?: 'text' | 'title' | 'circle' | 'rect';
+  /** Ширина ожидаемого контента (число — px). */
+  width?: number | string;
+  height?: number | string;
+  className?: string;
+  style?: Record<string, unknown>;
+}
+
 export interface ProgressProps {
   /** s — дорожка 4 (строки, карточки); m — 8 (отдельный блок). */
   size?: 's' | 'm';
@@ -236,6 +248,8 @@ export interface AmountProps {
   showFiat?: boolean;
   /** end — в Trailing строки (выравнивание по правому краю). */
   align?: 'start' | 'end';
+  /** Загрузка (State=Skeleton): строка значения — плашка высотой строки размера, фиат — короче (если showFiat); sign не применяется. */
+  skeleton?: boolean;
 }
 
 export interface CardProps {
@@ -284,7 +298,7 @@ export interface StatCardProps {
   onLink?: () => void;
   /** Только одна герой-карточка на экран (Expressive). */
   ambientLight?: boolean;
-  /** Загрузка дольше 1 с — три полосы, высота как у Default. */
+  /** Загрузка дольше 1 с — полосы подписи, числа и дельты (дельта — при delta), высота как у Default; тон в загрузке — neutral. */
   skeleton?: boolean;
 }
 
@@ -538,6 +552,7 @@ export declare function Status(props: StatusProps): JSX.Element;
 export declare function Avatar(props: AvatarProps): JSX.Element;
 export declare function Divider(props: DividerProps): JSX.Element;
 export declare function Spinner(props: SpinnerProps): JSX.Element;
+export declare function Skeleton(props: SkeletonProps): JSX.Element;
 export declare function Progress(props: ProgressProps): JSX.Element;
 export declare function Amount(props: AmountProps): JSX.Element;
 export declare function Card(props: CardProps): JSX.Element;
@@ -623,6 +638,8 @@ export interface KeyValueRowProps {
   label: ReactNode;
   /** Значение в формате локали с единицей; одна строка до 200. */
   value?: ReactNode;
+  /** Загрузка (State=Skeleton): название остаётся, значение — плашка той же высоты. */
+  skeleton?: boolean;
   className?: string;
 }
 export interface SearchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'value' | 'defaultValue' | 'onChange'> {
@@ -799,11 +816,13 @@ export interface ChartMetricProps {
   /** Смысл значения, не оценка. */
   tone?: 'default' | 'danger' | 'warning' | 'success';
   label: ReactNode;
-  value: ReactNode;
+  value?: ReactNode;
   unit?: ReactNode;
   showUnit?: boolean;
   /** true — lightning; имя иконки DS или узел; цвет — как у значения. */
   icon?: boolean | IconSlot;
+  /** Загрузка (State=Skeleton): подпись остаётся, строка значения — плашка той же высоты; value не нужен. */
+  skeleton?: boolean;
   className?: string;
 }
 export type SortDir = 'none' | 'ascending' | 'descending';
@@ -1017,6 +1036,8 @@ export interface StatusSummaryProps {
   showAllLink?: boolean;
   allLinkLabel?: ReactNode;
   onAllLink?: (e: unknown) => void;
+  /** Загрузка: плитки Stat card Skeleton, Tone=Neutral, та же высота. */
+  skeleton?: boolean;
   className?: string;
 }
 export interface PromoCarouselProps {

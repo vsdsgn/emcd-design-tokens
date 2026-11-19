@@ -20,7 +20,7 @@ defineProps({
   link: Boolean,                                     // Icon button XS со стрелкой: Danger — Secondary Danger, иначе Tertiary
   linkLabel: { type: String, default: 'Открыть список' },
   ambientLight: Boolean,                             // одна герой-карточка на экран
-  skeleton: Boolean,
+  skeleton: Boolean,                                 // загрузка: полосы подписи, числа и дельты (дельта — при delta), высота как у Default; тон — neutral (решает родитель)
 });
 defineEmits(['link']);
 </script>
@@ -28,7 +28,8 @@ defineEmits(['link']);
   <div v-if="skeleton" :class="['emcd-stat', tone !== 'neutral' && `emcd-stat--${tone}`, align === 'center' && 'emcd-stat--center', 'emcd-stat--skeleton', ambientLight && 'emcd-stat--ambient']" aria-busy="true">
     <div class="emcd-stat__label-row"><span class="emcd-stat__bone" style="width:96px;height:12px" /></div>
     <div class="emcd-stat__value-row"><span class="emcd-stat__bone" style="width:140px;height:28px" /></div>
-    <div class="emcd-stat__delta-row"><span class="emcd-stat__bone" style="width:112px;height:16px" /></div>
+    <div v-if="delta" class="emcd-stat__delta-row"><span class="emcd-stat__bone" style="width:112px;height:16px" /></div>
+    <div v-if="showFooter && $slots.footer" class="emcd-stat__footer"><slot name="footer" /></div>
   </div>
   <div v-else :class="['emcd-stat', tone !== 'neutral' && `emcd-stat--${tone}`, align === 'center' && 'emcd-stat--center', ambientLight && 'emcd-stat--ambient']">
     <div class="emcd-stat__label-row">

@@ -63,7 +63,7 @@
 - Описание: 1289 знаков, разделы: Status: Level: Кирпичи скелетона: Цвет — Правила: A11y: Когда использовать: Поиск: Motion: Shimmer: Legacy:
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`Skeleton`), Vue `packages/vue/src/DsSkeleton.vue`, CSS `claude-ds/components/Skeleton/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsSkeleton>`; Flutter: `DsSkeleton`.
 - Props: `shape`: text | title | circle | rect.

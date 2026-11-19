@@ -24,6 +24,11 @@ npm run demo:mining -- mw-workers web-history   # выборочно
 Скрипт `shots.mjs` раздаёт репо своим http-сервером, открывает страницы в Playwright Chromium (установленный, `deviceScaleFactor` 1), пишет `out/<экран>.png` и `out/compare-<экран>.png` (макет | код | разница `difference`); для дашборда Web — ещё `out/web-dashboard-hover.png` (указатель на ~60 % ширины графика, без сравнения: в макетах hover нет); в «Истории» Web проверяет, что клик по «Периоду» открывает панель, а Esc закрывает. `out/` в `.gitignore`. Ошибка или предупреждение в консоли страницы — провал.
 Посмотреть в браузере: любой статический сервер из корня репо → `/demo/mining/web-dashboard.html`.
 
+## Загрузка (patterns 3.11a, 19.11)
+
+`web-dashboard.html?state=loading` и `mw-dashboard.html?state=loading` — те же экраны в загрузке: Sidebar / Top bar, табы разделов, меню экрана (монета, периоды графика), «Подключить», промо и Action bar живые; данные — State=Skeleton компонентов: Amount L (значение + фиат), Coin, Chart metric, Legend item, Chart plot Line + Bars, Status summary (Stat card Tone=Neutral); факты без своего Skeleton — кирпич `Skeleton` Text по ширине ожидаемого текста (подписи остаются).
+`shots.mjs` снимает `out/web-dashboard-loading.png`, `out/mw-dashboard-loading.png` (пульс остановлен) и сверяет высоты блоков с загруженной страницей — сводка, факты, карточка графика, показатели, легенда, область графика, плитки статусов, ряд графика / сводка статусов; расхождение больше 1 px — провал. Результат 19.11: 12 + 12 блоков, совпадают (на Web плитки тянутся по высоте графика — реальная проверка плиток — на мобильном: 104 / 104).
+
 ## Заглушки
 
 - **Шрифты.** Roobert PRO и IBM Plex Mono лицензионные, в репо их нет. На стенде скриншотов подставлены Liberation Sans / Liberation Mono (близкие метрики; `@font-face` только в `shots.mjs`; отключить — `DEMO_REAL_FONTS=1`). Ширина текста отличается на 1–5 %.

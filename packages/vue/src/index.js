@@ -16,6 +16,7 @@ export { default as DsStatus } from './DsStatus.vue';
 export { default as DsAvatar } from './DsAvatar.vue';
 export { default as DsDivider } from './DsDivider.vue';
 export { default as DsSpinner } from './DsSpinner.vue';
+export { default as DsSkeleton } from './DsSkeleton.vue';
 export { default as DsProgress } from './DsProgress.vue';
 export { default as DsAmount } from './DsAmount.vue';
 export { default as DsCard } from './DsCard.vue';

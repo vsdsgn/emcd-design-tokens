@@ -12,3 +12,6 @@
 .emcd-chart-metric__icon svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
 .emcd-chart-metric__value { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--value); }
 .emcd-chart-metric__unit { flex: none; color: var(--text-tertiary); white-space: nowrap; }
+/* Skeleton (State=Skeleton, 19.11) — подпись остаётся, строка значения → плашка той же высоты (heading-lg line-height), radius/container. Пульс — общий (блок Skeleton). */
+.emcd-chart-metric__bone { display: block; width: 120px; max-width: 100%; height: var(--type-heading-lg-line-height, 32px); border-radius: var(--radius-container, 12px); background: var(--skeleton-base); }
+.emcd-chart-metric--skeleton .emcd-chart-metric__value-row { align-items: center; }

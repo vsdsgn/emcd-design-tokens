@@ -9,6 +9,12 @@
   var F = React.Fragment;
   var div = function (cls) { var kids = [].slice.call(arguments, 1); return h.apply(null, ['div', { className: cls }].concat(kids)); };
   var text = function (cls, t) { return h('span', { className: cls }, t); };
+  // Загрузка (patterns 3.11a): ?state=loading — каркас (Sidebar / Top bar, табы, меню экрана, Action bar) живой, данные — State=Skeleton компонентов той же высоты;
+  // текст без своего Skeleton — кирпич Skeleton по ширине ожидаемого текста; Stat card — Tone=Neutral, Amount — Sign=None
+  var LOADING = new URLSearchParams(location.search).get('state') === 'loading';
+  var sk = function (w, shape) { return h(E.Skeleton, { shape: shape, width: w }); };
+  // значение факта: в загрузке — кирпич в той же строке текста (высота строки сохраняется)
+  var val = function (cls, t, w) { return text(cls, LOADING ? sk(w) : t); };
 
   // ───────── данные с макетов ─────────
   var HASH = [14.6, 16.1, 15.2, 18.9, 17.6, 13.1, 18.3, 16.9, 17.2, 14.8, 16.2, 15.1, 11.0, 11.3, 10.1, 10.5, 7.9, 7.6, 9.4, 12.1, 7.8, 10.6, 9.3, 7.0, 10.8, 10.6, 9.1, 11.6, 8.8, 11.7, 11.3, 9.6, 12.4, 10.6, 11.1, 14.4, 13.1, 16.6, 15.7, 14.6, 13.5, 12.0, 17.6, 17.3, 17.1, 14.3, 16.8, 12.5, 12.9, 15.6, 13.7, 15.4, 15.0, 12.4, 13.9, 11.9, 11.4, 12.2, 11.9, 12.8, 13.4, 13.0, 11.6, 12.4, 11.5, 10.5, 11.2, 10.0, 10.9];
@@ -60,7 +66,7 @@
           h(E.Tabs, { size: 'page', label: 'Разделы майнинга', defaultValue: tab, className: 'demo-web__tabs',
             items: ['Дашборд', 'Воркеры', 'История', 'Настройки', 'Калькулятор', 'Watcher-link'].map(function (l) { return { value: l, label: l }; }) }),
           h(E.Button, { type: 'text', size: 'l', label: 'Подключить', iconLeft: h(E.Icon, { name: 'plus' }), className: 'demo-web__action' })),
-        div('demo-web__content', props.children)));
+        h('div', { className: 'demo-web__content', 'aria-busy': LOADING || undefined }, props.children)));
   }
 
   function MwShell(props) {
@@ -68,7 +74,7 @@
       h(E.TopBar, { logo: text('demo-logo demo-logo--mw', 'E'), account: 'Alexandrewang', balance: '$123 456', cents: '.78' }),
       h(E.Tabs, { size: 'm', label: 'Разделы майнинга', defaultValue: props.tab, className: 'demo-mw__tabs',
         items: ['Дашборд', 'Воркеры', 'История', 'Настройки', 'Калькулятор', 'Watcher-link'].map(function (l) { return { value: l, label: l }; }) }),
-      div('demo-mw__content', props.children),
+      h('div', { className: 'demo-mw__content', 'aria-busy': LOADING || undefined }, props.children),
       props.bar);
   }
 
@@ -81,8 +87,10 @@
   function chartCard(compact) {
     return h(E.ChartCard, {
       label: 'Хешрейт', className: compact ? 'demo-chart demo-chart--mw' : 'demo-chart',
-      metrics: METRICS, periods: PERIODS, periodSize: 'm', legend: LEGEND, showBottom: false },
-    h(E.ChartPlot, { type: 'line-bars', labels: HOURS, dates: DATES, times: TIMES, xTicks: compact ? 3 : 6,
+      // периоды — меню (живые); показатели и легенда — Skeleton; график — Chart plot State=Skeleton (Line + Bars как Line)
+      metrics: LOADING ? METRICS.map(function (m) { return { label: m.label, skeleton: true }; }) : METRICS,
+      periods: PERIODS, periodSize: 'm', legend: LEGEND.map(function (l) { return LOADING ? { label: l.label, series: l.series, skeleton: true } : l; }), showBottom: false },
+    h(E.ChartPlot, { type: 'line-bars', state: LOADING ? 'skeleton' : 'default', labels: HOURS, dates: DATES, times: TIMES, xTicks: compact ? 3 : 6,
       series: [{ name: 'Хешрейт', data: HASH, unit: 'TH/s', format: function (v) { return v.toFixed(2) + ' TH/s'; } }, { name: 'Реджекты', data: REJ, format: function (v) { return v.toFixed(2) + ' %'; } }],
       yLeft: { ticks: [0, 5, 10, 15, 20] }, yRight: { ticks: [0, 0.5, 1, 1.5, 2] }, format: fmt, height: compact ? 160 : 200, label: 'Хешрейт и реджекты за 1 день' }));
   }
@@ -97,17 +105,17 @@
             SUMMARY.map(function (s, i) {
               // как на макете: «Добыто» и «Прогноз» — пара, «Сумма к выплате» отделена разделителем
               return h(F, { key: i }, i === 2 && h(E.Divider, { orientation: 'vertical' }),
-                div('demo-stat', text('demo-caption', s.label), h(E.Amount, { size: 'l', value: s.value, ticker: 'KAS', fiat: s.fiat })));
+                div('demo-stat', text('demo-caption', s.label), h(E.Amount, { size: 'l', value: s.value, ticker: 'KAS', fiat: s.fiat, skeleton: LOADING })));
             }),
             h(E.SelectCompact, { label: 'Монета выплаты', options: KAS_OPTIONS, className: 'demo-summary__coin' })),
           h(E.Card, { level: 2, radius: 'inner', border: false, className: 'demo-facts' },
             div('demo-facts__row',
-              div('demo-fact', h(E.Coin, { coin: 'kas', size: 's' }), text('demo-fact__key', 'KAS'), text('demo-fact__val', '$0.07'), text('demo-delta demo-delta--down', '−3.61 %')),
-              div('demo-fact', text('demo-fact__key', 'Дневной доход'), text('demo-fact__val', '0.2243 KAS'), text('demo-fact__key', 'за 1 TH/s')),
-              div('demo-fact', text('demo-fact__key', 'Сложность сети'), text('demo-fact__val', '61.18 P'), text('demo-delta demo-delta--up', '+0.23 %'),
+              div('demo-fact', h(E.Coin, { coin: 'kas', size: 's', skeleton: LOADING }), text('demo-fact__key', 'KAS'), val('demo-fact__val', '$0.07', 40), val('demo-delta demo-delta--down', '−3.61 %', 48)),
+              div('demo-fact', text('demo-fact__key', 'Дневной доход'), val('demo-fact__val', '0.2243 KAS', 80), text('demo-fact__key', 'за 1 TH/s')),
+              div('demo-fact', text('demo-fact__key', 'Сложность сети'), val('demo-fact__val', '61.18 P', 56), val('demo-delta demo-delta--up', '+0.23 %', 48),
                 h(E.IconButton, { type: 'ghost', size: 's', label: 'Открыть в эксплорере', icon: h(E.Icon, { name: 'arrow-new-tab' }) })),
-              div('demo-fact', text('demo-fact__key', 'Блоков до пересчёта'), text('demo-fact__val', '248'), text('demo-fact__key', '~1 д 11 ч 3 м'))))),
-        div('demo-chart-row', chartCard(false), h(E.StatusSummary, { layout: 'column', offline: 9, unstable: 1, active: 40, className: 'demo-chart-row__summary' }))));
+              div('demo-fact', text('demo-fact__key', 'Блоков до пересчёта'), val('demo-fact__val', '248', 32), val('demo-fact__key', '~1 д 11 ч 3 м', 88))))),
+        div('demo-chart-row', chartCard(false), h(E.StatusSummary, { layout: 'column', offline: 9, unstable: 1, active: 40, skeleton: LOADING, className: 'demo-chart-row__summary' }))));
   }
 
   function WebWorkers() {
@@ -194,17 +202,17 @@
       h(E.PromoCard, { size: 'm', tone: 'accent', align: 'center', showBadge: true, title: 'Мониторинг', description: 'Следи за площадками, оборудованием и процессами в одном месте', actionLabel: 'Перейти к Мониторингу' }),
       h(E.Card, { padding: 'm', border: false, className: 'demo-mw-summary' },
         h(E.SelectCompact, { label: 'Монета выплаты', options: KAS_OPTIONS, className: 'demo-mw-summary__coin' }),
-        SUMMARY.map(function (s, i) { return div('demo-stat', text('demo-caption demo-caption--md', s.label), h(E.Amount, { key: i, size: 'l', value: s.value, ticker: 'KAS', fiat: s.fiat })); })),
+        SUMMARY.map(function (s, i) { return div('demo-stat', text('demo-caption demo-caption--md', s.label), h(E.Amount, { key: i, size: 'l', value: s.value, ticker: 'KAS', fiat: s.fiat, skeleton: LOADING })); })),
       h(E.Card, { padding: 'm', border: false, className: 'demo-mw-facts' },
-        h(E.ListItem, { size: 'm', showDescription: false, divider: true, leading: h(E.Coin, { coin: 'kas', size: 'l' }), label: 'KAS',
-          trailing: div('demo-two demo-two--end', text('demo-two__p', '$0.07'), text('demo-delta demo-delta--down', '−3.61 %')) }),
-        h(E.ListItem, { size: 'm', showDescription: false, divider: true, label: 'Дневной доход', trailing: div('demo-two demo-two--end', text('demo-two__p', '0.2243 KAS'), text('demo-two__s', 'за 1 TH/s')) }),
+        h(E.ListItem, { size: 'm', showDescription: false, divider: true, leading: h(E.Coin, { coin: 'kas', size: 'l', skeleton: LOADING }), label: 'KAS',
+          trailing: div('demo-two demo-two--end', val('demo-two__p', '$0.07', 40), val('demo-delta demo-delta--down', '−3.61 %', 48)) }),
+        h(E.ListItem, { size: 'm', showDescription: false, divider: true, label: 'Дневной доход', trailing: div('demo-two demo-two--end', val('demo-two__p', '0.2243 KAS', 80), text('demo-two__s', 'за 1 TH/s')) }),
         h(E.ListItem, { size: 'm', showDescription: false, divider: true, label: 'Сложность сети', trailing: div('demo-fact',
           h(E.IconButton, { type: 'ghost', size: 's', label: 'Открыть в эксплорере', icon: h(E.Icon, { name: 'arrow-new-tab' }) }),
-          div('demo-two demo-two--end', text('demo-two__p', '61.18 P'), text('demo-delta demo-delta--up', '+0.23 %'))) }),
-        h(E.ListItem, { size: 'm', showDescription: false, label: 'Блоков до пересчёта', trailing: div('demo-two demo-two--end', text('demo-two__p', '248'), text('demo-two__s', '~1 д 11 ч 3 м')) })),
+          div('demo-two demo-two--end', val('demo-two__p', '61.18 P', 56), val('demo-delta demo-delta--up', '+0.23 %', 48))) }),
+        h(E.ListItem, { size: 'm', showDescription: false, label: 'Блоков до пересчёта', trailing: div('demo-two demo-two--end', val('demo-two__p', '248', 32), val('demo-two__s', '~1 д 11 ч 3 м', 88)) })),
       chartCard(true),
-      h(E.Card, { padding: 'm', border: false }, h(E.StatusSummary, { layout: 'row', offline: 9, unstable: 1, active: 40 })),
+      h(E.Card, { padding: 'm', border: false }, h(E.StatusSummary, { layout: 'row', offline: 9, unstable: 1, active: 40, skeleton: LOADING })),
       h(E.PromoCarousel, { slides: [
         h(E.PromoCard, { key: 1, size: 'm', title: 'Забусти свой майнинг с нашей прошивкой', showMedia: true, showClose: false, showDescription: false }),
         h(E.PromoCard, { key: 2, size: 'm', title: 'Coinhold — до 14% годовых', showMedia: true, showClose: false, showDescription: false }),

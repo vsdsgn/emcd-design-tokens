@@ -9,11 +9,16 @@ const props = defineProps({
   unit: String,
   showUnit: { type: Boolean, default: true },
   icon: { type: [Boolean, String], default: false },
+  skeleton: Boolean, // загрузка: подпись остаётся, строка значения — плашка той же высоты
 });
 const aria = computed(() => (props.label && props.value != null ? `${props.label}: ${props.value}${props.showUnit && props.unit ? ' ' + props.unit : ''}` : undefined));
 </script>
 <template>
-  <div role="group" :aria-label="aria" :class="['emcd-chart-metric', tone !== 'default' && `emcd-chart-metric--${tone}`]">
+  <div v-if="skeleton" role="group" :aria-label="label" aria-busy="true" class="emcd-chart-metric emcd-chart-metric--skeleton">
+    <span class="emcd-chart-metric__label" :title="label"><slot name="label">{{ label }}</slot></span>
+    <span class="emcd-chart-metric__value-row" aria-hidden="true"><span class="emcd-chart-metric__bone" /></span>
+  </div>
+  <div v-else role="group" :aria-label="aria" :class="['emcd-chart-metric', tone !== 'default' && `emcd-chart-metric--${tone}`]">
     <span class="emcd-chart-metric__label" :title="label"><slot name="label">{{ label }}</slot></span>
     <span class="emcd-chart-metric__value-row" :aria-hidden="aria ? 'true' : undefined">
       <span v-if="icon || $slots.icon" class="emcd-chart-metric__icon"><slot name="icon"><DsIcon :name="icon === true ? 'lightning' : icon" /></slot></span>
