@@ -26,7 +26,8 @@
 - `key` — `text/secondary`, Body/MD Regular; у Total — Label/MD Medium.
 - `value` — Default: `text/primary`, `font/family/text`; Muted: `text/secondary`; Total: Label/MD Medium, `font/family/text` (как Default: числа в столбце выравниваются; 2026-11-16, пилот «Вывод»); max-width 200.
 - `leader` (Leader=On) — точечная линия между `key` и `value`: обводка `border/strong`, пунктир; заполняет промежуток.
-- Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Skeleton` ×6.
+- Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
@@ -39,15 +40,16 @@
 |---|---|---|
 | Emphasis | Default · Total · Muted | Default |
 | Leader | Off · On | Off |
+| State | Default · Skeleton | — |
 
-Матрица полная: 6 вариантов.
+Матрица полная: 12 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Key | текст | «Комиссия сети» | 6 из 6 |
-| Value | текст | «0,00050000 BTC» | 6 из 6 |
+| Key | текст | «Комиссия сети» | 12 из 12 |
+| Value | текст | «0,00050000 BTC» | 12 из 12 |
 
 ## 6. Content / slots
 - Key — название параметра; Value — значение в формате локали с единицей («0,00050000 BTC»).
@@ -71,13 +73,14 @@
 - `key`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/md`, `type/label/md`.
 - `value`: заливка / цвет `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/md`, `type/label/md`.
 - `leader`: обводка `border/strong`.
-- Значений без переменной: 6 (напр. `(root):w=360`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- `skeleton · value`: заливка / цвет `skeleton/base`; радиус `radius/container`.
+- Значений без переменной: 12 (напр. `(root):w=360`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Key-value row`, вариантов 6 из 6; оси: Emphasis, Leader.
+- Набор `Key-value row`, вариантов 12 из 12; оси: Emphasis, Leader, State.
 - Борда: «Key-value row — борда · шаблон v3», разделов 11.
 - Описание: 1013 знаков, разделы: Status: Level: Строка «название — Default — A11y: Когда использовать: Правила: Длинный текст: Legacy:
 
@@ -86,6 +89,7 @@
 
 - Vue: `<DsKeyValueRow>`; Flutter: `DsKeyValueRow`.
 - Props: `emphasis`: default | total | muted; `leader`: boolean; `key`: string или слот; `value`: string или слот.
+- Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.

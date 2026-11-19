@@ -22,7 +22,8 @@
 ## 3. Anatomy
 - Корень — вертикальный стек: строка `value` + `ticker`, под ней `fiat` (`text/secondary`).
 - S / M — `font/family/text` с табличными цифрами (17.11: моно — только в осях графиков; было `font/family/mono`); L — `type/heading/lg` (Web 24, Compact 20; 19.11: было `type/heading/xl` — на Web давал 32, в продукте сводка 24), Bold, `font/family/text`, тикер того же кегля Medium (18.11: итоги «Всего начислено», «Сумма всех выплат», сводка дашборда; 17.11 было 20 Medium); XL — `font/family/display`, Bold.
-- Служебные слои (вариантов из 24): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Skeleton` ×16.
+- Служебные слои (вариантов из 32): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
@@ -36,17 +37,18 @@
 | Size | S · M · L · XL | S |
 | Sign | None · Positive · Negative | None |
 | Align | Start · End | — |
+| State | Default · Skeleton | — |
 
-Матрица полная: 24 вариантов.
+Матрица: 32 из 48.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Value | текст | «0,12345678» | 24 из 24 |
-| Ticker | текст | «BTC» | 24 из 24 |
-| Fiat | текст | «≈ 2 731,40 $» | 24 из 24 |
-| Show fiat | булево | вкл | 24 из 24 |
+| Value | текст | «0,12345678» | 32 из 32 |
+| Ticker | текст | «BTC» | 32 из 32 |
+| Fiat | текст | «≈ 2 731,40 $» | 32 из 32 |
+| Show fiat | булево | вкл | 32 из 32 |
 
 ## 6. Content / slots
 - Value — число в формате локали (разделители разрядов и дробной части), точность — по монете; Ticker — код монеты или валюты; Fiat — «≈ сумма валюта».
@@ -71,12 +73,14 @@
 - `ticker`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/lg`, `type/body/md`, `type/body/sm`, `type/heading/lg`.
 - `fiat`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`, `type/body/sm`.
 - `sign`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/lg`.
+- `skeleton · value`: заливка / цвет `skeleton/base`; радиус `radius/container`, `radius/inner`.
+- `skeleton · fiat`: заливка / цвет `skeleton/base`; радиус `radius/container`, `radius/inner`.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Amount`, вариантов 24 из 24; оси: Size, Sign, Align.
+- Набор `Amount`, вариантов 32 из 48; оси: Size, Sign, Align, State.
 - Борда: «Amount — борда · шаблон v3», разделов 12.
 - Описание: 1781 знаков, разделы: Status: Level: Форматирование — Точность: Знак: Цифры табличные: Fiat — A11y: Когда использовать: Правила: Align (17.
 
@@ -85,6 +89,7 @@
 
 - Vue: `<DsAmount>`; Flutter: `DsAmount`.
 - Props: `size`: s | m | l | xl; `sign`: none | positive | negative; `align`: start | end; `value`: string или слот; `ticker`: string или слот; `fiat`: string или слот; `showFiat`: boolean = true.
+- Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.

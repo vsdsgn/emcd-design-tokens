@@ -14,8 +14,8 @@
    "service": 4,
    "template": 1
   },
-  "variants": 1649,
-  "incompleteMatrix": 18,
+  "variants": 1665,
+  "incompleteMatrix": 20,
   "propsNotBoundEverywhere": 19,
   "rawMinMax": 1,
   "withRawValues": 70,
@@ -544,37 +544,43 @@
       "Align": [
        "Start",
        "End"
+      ],
+      "State": [
+       "Default",
+       "Skeleton"
       ]
      },
-     "variants": 24,
-     "full": 24,
+     "variants": 32,
+     "full": 48,
      "props": [
       {
        "name": "Value",
        "type": "TEXT",
        "def": "0,12345678",
-       "bound": 24
+       "bound": 32
       },
       {
        "name": "Ticker",
        "type": "TEXT",
        "def": "BTC",
-       "bound": 24
+       "bound": 32
       },
       {
        "name": "Fiat",
        "type": "TEXT",
        "def": "≈ 2 731,40 $",
-       "bound": 24
+       "bound": 32
       },
       {
        "name": "Show fiat",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 24
+       "bound": 32
       }
      ],
-     "nested": {},
+     "nested": {
+      "Skeleton": 16
+     },
      "minmax": [],
      "layers": {
       "ring": 0,
@@ -648,6 +654,16 @@
        "lineHeight:type/body/sm/line-height",
        "lineHeight:type/display/lg/line-height",
        "lineHeight:type/heading/lg/line-height"
+      ],
+      "skeleton · value": [
+       "f:skeleton/base",
+       "r:radius/container",
+       "r:radius/inner"
+      ],
+      "skeleton · fiat": [
+       "f:skeleton/base",
+       "r:radius/container",
+       "r:radius/inner"
       ]
      },
      "statusFirstLine": true
@@ -2181,50 +2197,55 @@
        "Danger",
        "Warning",
        "Success"
+      ],
+      "State": [
+       "Default",
+       "Skeleton"
       ]
      },
-     "variants": 4,
-     "full": 4,
+     "variants": 5,
+     "full": 8,
      "props": [
       {
        "name": "Label",
        "type": "TEXT",
        "def": "Текущий хешрейт",
-       "bound": 4
+       "bound": 5
       },
       {
        "name": "Value",
        "type": "TEXT",
        "def": "89.94",
-       "bound": 4
+       "bound": 5
       },
       {
        "name": "Icon",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 4
+       "bound": 5
       },
       {
        "name": "Icon · swap",
        "type": "INSTANCE_SWAP",
        "def": "icon/lightning",
-       "bound": 4
+       "bound": 5
       },
       {
        "name": "Unit",
        "type": "TEXT",
        "def": "TH/s",
-       "bound": 4
+       "bound": 5
       },
       {
        "name": "Show unit",
        "type": "BOOLEAN",
-       "def": true,
-       "bound": 4
+       "def": false,
+       "bound": 5
       }
      ],
      "nested": {
-      "(icons)": 4
+      "(icons)": 5,
+      "Skeleton": 1
      },
      "minmax": [
       "maxw=240 size/chart-metric/max"
@@ -2273,6 +2294,10 @@
        "fontSize:type/heading/lg/size",
        "fontWeight:font-weight/bold",
        "lineHeight:type/heading/lg/line-height"
+      ],
+      "skeleton · value": [
+       "f:skeleton/base",
+       "r:radius/container"
       ]
      },
      "statusFirstLine": true
@@ -2314,7 +2339,7 @@
      "id": "97:921",
      "type": "SET",
      "status": "beta",
-     "descLen": 1681,
+     "descLen": 1722,
      "descHeads": [
       "Status:",
       "Level:",
@@ -2346,7 +2371,7 @@
        "Disabled"
       ]
      },
-     "variants": 23,
+     "variants": 24,
      "full": 35,
      "props": [],
      "nested": {
@@ -2361,7 +2386,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 80,
+     "rawCount": 82,
      "raw": [
       "(root):w=473",
       "(root):h=140",
@@ -5882,25 +5907,31 @@
       "Leader": [
        "Off",
        "On"
+      ],
+      "State": [
+       "Default",
+       "Skeleton"
       ]
      },
-     "variants": 6,
-     "full": 6,
+     "variants": 12,
+     "full": 12,
      "props": [
       {
        "name": "Key",
        "type": "TEXT",
        "def": "Комиссия сети",
-       "bound": 6
+       "bound": 12
       },
       {
        "name": "Value",
        "type": "TEXT",
        "def": "0,00050000 BTC",
-       "bound": 6
+       "bound": 12
       }
      ],
-     "nested": {},
+     "nested": {
+      "Skeleton": 6
+     },
      "minmax": [],
      "layers": {
       "ring": 0,
@@ -5909,7 +5940,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 6,
+     "rawCount": 12,
      "raw": [
       "(root):w=360"
      ],
@@ -5944,6 +5975,10 @@
       ],
       "leader": [
        "s:border/strong"
+      ],
+      "skeleton · value": [
+       "f:skeleton/base",
+       "r:radius/container"
       ]
      },
      "statusFirstLine": true

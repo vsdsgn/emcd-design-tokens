@@ -52,6 +52,8 @@
 | `fiat` | string | — | свойство Fiat |
 | `showFiat` | boolean | true | свойство Show fiat |
 
+Состояния в Figma: Default · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
+
 ## Avatar
 
 уровень не указан · beta · Vue `<DsAvatar>` · Flutter `DsAvatar` · контракт `docs/components/avatar.md`
@@ -198,7 +200,9 @@
 | `value` | string | — | свойство Value |
 | `icon` | boolean | false | свойство Icon |
 | `unit` | string | — | свойство Unit |
-| `showUnit` | boolean | true | свойство Show unit |
+| `showUnit` | boolean | false | свойство Show unit |
+
+Состояния в Figma: Default · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 
 Иконки (Icon) в коде — слот или имя иконки, а не boolean + swap.
 
@@ -550,6 +554,8 @@ Props нет.
 | `leader` | off \| on | по правилу контракта | ось Leader |
 | `key` | string | — | свойство Key |
 | `value` | string | — | свойство Value |
+
+Состояния в Figma: Default · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 
 ## Legend item
 

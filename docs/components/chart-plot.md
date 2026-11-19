@@ -28,7 +28,7 @@
 - Skeleton — `skeleton/base`; Disabled — `action/disabled`; Empty — «Нет данных за период» (`type/body/md`, `text/tertiary`) на сетке.
 - Hover — Chart crosshair (точка `border/accent`, кольцо `surface/current` × `border/width/focus`, ореол 0.24) + Chart tooltip.
 - Вложено: `Chart crosshair` ×7, `Chart tooltip` ×7.
-- Служебные слои (вариантов из 23): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Служебные слои (вариантов из 24): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): График: Hover — Chart crosshair + Chart tooltip; Skeleton — загрузка; Empty — нет данных; Disabled — `action/disabled`.
@@ -46,7 +46,7 @@
 | Type | Bars · Line · Area · Line + Bars · Multi-line · Dual area · Stacked bars | Bars |
 | State | Default · Hover · Skeleton · Empty · Disabled | Default |
 
-Матрица: 23 из 35.
+Матрица: 24 из 35.
 
 - Свойств нет; тексты — во вложенном Chart tooltip и в Empty.
 
@@ -88,16 +88,16 @@
 - `halo`: заливка / цвет `border/accent`.
 - `point`: заливка / цвет `border/accent`; обводка `surface/current`; толщина обводки `border/width/focus`.
 - `Нет данных за период`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
-- Значений без переменной: 80 (напр. `(root):w=473`, `(root):h=140`, `area:o=0.45`, `bar:o=0.35`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 82 (напр. `(root):w=473`, `(root):h=140`, `area:o=0.45`, `bar:o=0.35`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — с указателем (Web); на касании — тап по точке, точка остаётся до тапа вне графика.
 
 ## 12. Figma projection
-- Набор `Chart plot`, вариантов 23 из 35; оси: Type, State.
+- Набор `Chart plot`, вариантов 24 из 35; оси: Type, State.
 - Борда: «Chart plot — борда · шаблон v3», разделов 12.
-- Описание: 1681 знаков, разделы: Status: Level: Область графика (в коде — Type — State: Legacy: Когда использовать: Правила: A11y: Матрица:
+- Описание: 1722 знаков, разделы: Status: Level: Область графика (в коде — Type — State: Legacy: Когда использовать: Правила: A11y: Матрица:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`ChartPlot`), Vue `packages/vue/src/DsChartPlot.vue`, CSS `claude-ds/components/ChartPlot/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.

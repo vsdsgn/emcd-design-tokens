@@ -23,8 +23,8 @@
 ## 3. Anatomy
 - Корень — вертикальный стек (`space/4`), max-width `size/chart-metric/max`: `label` (`text/secondary`, `type/body/sm`) и `value row`.
 - `value row` (`space/4`): `icon` (`icon/size/md`, свойства Icon и Icon · swap) + `value` (`font/family/display`, `type/heading/lg` — 24 на Web, 16.11 по продукту; было `type/heading/md`, `font-weight/bold`; цвет по Tone: `text/primary` / `text/danger` / `text/warning` / `text/success`).
-- Вложено: иконки ×4.
-- Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: иконки ×5, `Skeleton` ×1.
+- Служебные слои (вариантов из 5): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
@@ -36,19 +36,20 @@
 | Ось | Значения | По умолчанию |
 |---|---|---|
 | Tone | Default · Danger · Warning · Success | Default |
+| State | Default · Skeleton | — |
 
-Матрица полная: 4 вариантов.
+Матрица: 5 из 8.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «Текущий хешрейт» | 4 из 4 |
-| Value | текст | «89.94» | 4 из 4 |
-| Icon | булево | выкл | 4 из 4 |
-| Icon · swap | замена экземпляра | `icon/lightning` | 4 из 4 |
-| Unit | текст | «TH/s» | 4 из 4 |
-| Show unit | булево | вкл | 4 из 4 |
+| Label | текст | «Текущий хешрейт» | 5 из 5 |
+| Value | текст | «89.94» | 5 из 5 |
+| Icon | булево | выкл | 5 из 5 |
+| Icon · swap | замена экземпляра | `icon/lightning` | 5 из 5 |
+| Unit | текст | «TH/s» | 5 из 5 |
+| Show unit | булево | выкл | 5 из 5 |
 
 ## 6. Content / slots
 - Label — короткое название показателя: одна строка, max-width 228, усечение многоточием; полный текст — в `title` / тултипе.
@@ -74,13 +75,14 @@
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `value`: заливка / цвет `text/danger`, `text/primary`, `text/success`, `text/warning`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
 - `unit`: заливка / цвет `text/tertiary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`.
+- `skeleton · value`: заливка / цвет `skeleton/base`; радиус `radius/container`.
 - Min / max корня: maxWidth 240 size/chart-metric/max.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Chart metric`, вариантов 4 из 4; оси: Tone.
+- Набор `Chart metric`, вариантов 5 из 8; оси: Tone, State.
 - Борда: «Chart metric — борда · шаблон v3», разделов 11.
 - Описание: 1114 знаков, разделы: Status: Level: Показатель: Когда использовать: Правила: A11y: Подпись и единица —
 
@@ -88,7 +90,8 @@
 Код в репо: React `packages/react/src/index.js` (`ChartMetric`), Vue `packages/vue/src/DsChartMetric.vue`, CSS `claude-ds/components/ChartMetric/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsChartMetric>`; Flutter: `DsChartMetric`.
-- Props: `tone`: default | danger | warning | success; `label`: string или слот; `value`: string или слот; `icon`: boolean = false; `unit`: string или слот; `showUnit`: boolean = true.
+- Props: `tone`: default | danger | warning | success; `label`: string или слот; `value`: string или слот; `icon`: boolean = false; `unit`: string или слот; `showUnit`: boolean = false.
+- Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.
