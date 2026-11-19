@@ -9,7 +9,7 @@ import DsSelectCompact from './DsSelectCompact.vue';
 import DsCoinStack from './DsCoinStack.vue';
 const props = defineProps({
   platform: { type: String, default: 'mobile-web' },   // mobile-web | app
-  logo: { type: String, default: 'E' },
+  logo: { type: String, default: undefined }, // без logo и слота — знак EMCD (Logo · Mono)
   account: String,
   balance: String,
   cents: String,
@@ -37,11 +37,11 @@ const stack = computed(() => (props.coins && props.coins.length ? props.coins : 
       <DsSelectCompact v-else-if="coin != null" label="Монета" :text="coin" :open="false" class="emcd-top-bar__select" @update:open="(o) => o && emit('coin')">
         <template v-if="stack.length" #leading><DsCoinStack :coins="stack" size="s" /></template>
       </DsSelectCompact>
-      <DsIconButton type="secondary" size="m" :label="addLabel" class="emcd-top-bar__add" @click="emit('add', $event)"><DsIcon name="plus" /></DsIconButton>
+      <DsIconButton type="tertiary" size="m" :label="addLabel" class="emcd-top-bar__add" @click="emit('add', $event)"><DsIcon name="plus" /></DsIconButton>
     </div>
   </header>
   <header v-else class="emcd-top-bar" :data-platform-variant="platform">
-    <span class="emcd-top-bar__logo"><slot name="logo">{{ logo }}</slot></span>
+    <span class="emcd-top-bar__logo"><slot name="logo"><template v-if="logo">{{ logo }}</template><DsIcon v-else name="logo-emcd" label="EMCD" /></slot></span>
     <button v-if="account" type="button" class="emcd-top-bar__account" @click="emit('account', $event)"><span class="emcd-top-bar__name">{{ account }}</span><DsIcon name="chevron-down" size="sm" /></button>
     <button v-if="showBalance && balance" type="button" class="emcd-top-bar__balance" :aria-label="`Баланс ${balance}${cents ?? ''}`" @click="emit('balance', $event)">
       <span class="emcd-top-bar__amount">{{ balance }}<span v-if="cents" class="emcd-top-bar__cents">{{ cents }}</span></span><DsIcon name="chevron-down" size="sm" />

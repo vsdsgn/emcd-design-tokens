@@ -13,7 +13,7 @@
 - **Amount без знака, но с тоном** (итог «≈ $352 665.84» зелёный в продукте) — сейчас Sign=Positive добавляет «+». Рекомендация: ось `Tone` Default | Success | Danger отдельно от `Sign`.
 - **Card Tone=Accent** (карточка Coinhold с градиентной обводкой и подсветкой) — сейчас Card Level 2 без акцента. Рекомендация: Tone Neutral | Accent у Card, как у Promo card.
 
-## Знак «E» (центр Tab bar App, 19.11)
+## ~~Знак «E» (центр Tab bar App, 19.11)~~ — Стефан добавил Logo · Network=EMCD (Icons · Media) 19.11; в коде — `logo-emcd`; на экранах App — после Publish Icons
 - В DS Icons / Media нет фирменного знака «E»: на App-экранах в Tab bar item Type=Action стоит legacy-иконка. Нужен знак в Logo / Media (или Icons) — рекомендация: Logo · EMCD mark, монохром + цвет бренда; после — заменить на экранах и в коде (`TabBarItem type: 'action'` сейчас принимает любую иконку).
 
 ## _Selection control — перенос подписи (19.11, найдено на «Настройки · Вывод»)

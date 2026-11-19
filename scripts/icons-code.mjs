@@ -41,12 +41,15 @@ for (const n of LIST) {
   if (!fs.existsSync(path.join(ROOT, f))) throw new Error(`icons-code: нет ${f}`);
   icons[n] = parse(read(f), f);
 }
+// Логотипы (Media · Logo, Mono — заливка currentColor): имя иконки → файл icons/symbols/logo
+const LOGO_FILES = { 'logo-emcd': 'emcd' };
+for (const [n, file] of Object.entries(LOGO_FILES)) icons[n] = parse(read(`icons/symbols/logo/${file}.svg`), file);
 const coins = {};
 for (const [t, file] of Object.entries(COIN_FILES)) coins[t] = parse(read(`icons/symbols/coin/${file}.svg`), file);
 
 const json = (o) => '{\n' + Object.entries(o).map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n') + '\n}';
 const block = `// @icons:begin — генерирует scripts/icons-code.mjs из icons/svg и icons/symbols/coin; не править руками.
-// Иконки: имя → { viewBox, body } (обводка currentColor). Монеты: тикер → { viewBox, body } (цвета Symbols).
+// Иконки: имя → { viewBox, body } (обводка currentColor; logo-* — заливка currentColor). Монеты: тикер → { viewBox, body } (цвета Symbols).
 const ICONS = ${json(icons)};
 const COINS = ${json(coins)};
 // @icons:end`;

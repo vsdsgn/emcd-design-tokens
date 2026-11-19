@@ -6,7 +6,6 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 
 /* тексты */
 .demo-logo { font: 700 var(--type-heading-lg-size)/var(--type-heading-lg-line-height) var(--font-display); letter-spacing: -0.02em; font-style: italic; }
-.demo-logo--mw { font-style: normal; }
 .demo-caption { color: var(--text-secondary); font: 400 var(--type-body-sm-size)/var(--type-body-sm-line-height) var(--font-sans); }
 .demo-caption--md { font-size: var(--type-body-md-size); line-height: var(--type-body-md-line-height); }
 .demo-muted { color: var(--text-secondary); font: 400 var(--type-body-md-size)/var(--type-body-md-line-height) var(--font-sans); font-variant-numeric: tabular-nums; }

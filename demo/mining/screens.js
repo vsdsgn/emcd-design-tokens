@@ -71,7 +71,7 @@
 
   function MwShell(props) {
     return div('demo-mw',
-      h(E.TopBar, { logo: text('demo-logo demo-logo--mw', 'E'), account: 'Alexandrewang', balance: '$123 456', cents: '.78' }),
+      h(E.TopBar, { account: 'Alexandrewang', balance: '$123 456', cents: '.78' }),
       h(E.Tabs, { size: 'm', label: 'Разделы майнинга', defaultValue: props.tab, className: 'demo-mw__tabs',
         items: ['Дашборд', 'Воркеры', 'История', 'Настройки', 'Калькулятор', 'Watcher-link'].map(function (l) { return { value: l, label: l }; }) }),
       h('div', { className: 'demo-mw__content', 'aria-busy': LOADING || undefined }, props.children),
