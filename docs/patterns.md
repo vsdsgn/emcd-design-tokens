@@ -272,7 +272,8 @@ Compact (App, 375, Viewport=Compact) — «Воркеры · Compact (App) · Da
 
 - **Настройки → Уведомления (Web):** меню — Select аккаунта (On border) слева, Segmented L «Вывод / Уведомления» справа; ниже одна Card L: шапка «Типы уведомлений» + Checkbox M с подписью и описанием на каждый канал («Эл. почта» ruf•••, «Telegram» @ruf•••) — это заголовки колонок; строки через Divider: тип (+ описание и Button Text «Настроить»), в колонках Checkbox без подписи (имя — заголовок колонки, `aria-labelledby`). Матрица каналов × типов — Checkbox, а не Toggle (Toggle — одна настройка в строке).
 - **Watcher-link (Web):** Suggest Strip Accent «Подключай сторонние сервисы…» + «Перейти»; меню — заголовок Page header + Select «Аккаунт» и «Сортировать по» + Button Primary M «Создать Watcher link»; список — Card M на ссылку: название и дата · срок (текст + Progress S, тон по остатку: Success → Warning → Danger) · аккаунт (+ Badge S «Основной») · доступы (+ «С выгрузкой») · Toggle без подписи · Icon button Ghost S «Скопировать ссылку» и «Ещё» (Menu). Выключенная ссылка — тексты `text/tertiary`, Toggle Off.
-- Экраны: «Настройки · Уведомления Web · DS 2.0», «Watcher-link Web · DS 2.0».
+- **Compact:** Watcher-link — Suggest Strip Accent, заголовок + Icon button Secondary «Фильтр», ссылки — Card M столбиком (название + «Скопировать» + «Ещё» · аккаунт + Badge · доступы · срок + Progress), «Создать Watcher link» — Floating button Extended по центру снизу. Настройки → Уведомления — Segmented на всю ширину, Card L: заголовок, Select аккаунта с подсказкой, список типов — List item M с шевроном (настройка канала на следующем экране), без матрицы чекбоксов.
+- Экраны: «Настройки · Уведомления Web / mobile · DS 2.0», «Watcher-link Web / mobile · DS 2.0». Заголовки пока текстом — после Publish заменить на Section header.
 
 ### 3.10 Промо-блоки
 
