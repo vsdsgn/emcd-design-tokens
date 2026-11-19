@@ -19,6 +19,8 @@
 - Amount L — `type/heading/lg` (было xl).
 - Promo card Align=Center — заголовок на всю ширину.
 - Status summary Layout=Column — плитки тянутся по высоте.
+- Action bar — низ `space/24` (высота 80 = 16 + 40 + 24, как на экранах), высота по содержимому.
+- Sidebar — язык Button Tertiary XS (как на экранах).
 
 ## Журнал
 - 19.11 — цель поставлена. K1 выполнен (шапка Web — Divider вместо обводки, BTC — символ DS). Код, пачка A (c3f2f7c): стенд `npm run test:code` (SSR React / Vue, классы ↔ CSS), 29 наборов приведены к контрактам 17–19.11. Контракты: раздел «Код» показывает код в репо.
