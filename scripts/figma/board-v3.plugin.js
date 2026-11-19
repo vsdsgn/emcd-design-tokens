@@ -107,11 +107,15 @@ try {
   { const r = sec('04', 'Состояния', 'Все варианты набора в светлой и тёмной теме.'); if (S.states.length) bullets(r, S.states);
     for (const [t, name] of [['Light', 'Светлая тема'], ['Dark', 'Тёмная тема']]) { const b = block(r, name + ' · ' + variants.length + ' ' + (variants.length % 10 === 1 && variants.length % 100 !== 11 ? 'вариант' : [2, 3, 4].includes(variants.length % 10) && ![12, 13, 14].includes(variants.length % 100) ? 'варианта' : 'вариантов')); const st = stage({ ...BASE, Theme: t }, RW); add(b, st); add(st, matrix(L, RW - 96)); } }
   // 05
-  { const have = SERVICE.filter(n => L.key(n) && defs[L.key(n)].type === 'BOOLEAN');
-    if (have.length) { const r = sec('05', 'Зоны', 'Служебные слои: зона нажатия, кольцо фокуса, безопасное поле. Включаются свойствами, в макетах выключены.'); const w = wrap(RW, 16); add(r, w);
+  { let have = SERVICE.filter(n => L.key(n) && defs[L.key(n)].type === 'BOOLEAN'); let nestedName = null;
+    const svcIn = x => { try { return SERVICE.filter(n => Object.keys(x.componentProperties).some(k => k.split('#')[0] === n)); } catch (e) { return []; } };
+    if (!have.length) { const probe = def.createInstance(); const nx = probe.findAll(x => x.type === 'INSTANCE').find(x => svcIn(x).length); if (nx) { nestedName = nx.name; have = svcIn(nx); } probe.remove(); }
+    const target = i => nestedName ? i.findAll(x => x.type === 'INSTANCE' && x.name === nestedName)[0] : i;
+    const keyOf = (x, n) => Object.keys(x.componentProperties).find(k => k.split('#')[0] === n);
+    if (have.length) { const r = sec('05', 'Зоны', 'Служебные слои: зона нажатия, кольцо фокуса, безопасное поле. Включаются свойствами, в макетах выключены.' + (nestedName ? ' У надстройки — свойства вложенной базы «' + nestedName + '».' : '')); const w = wrap(RW, 16); add(r, w);
       const cells = []; for (const n of have) if (n === 'Show hit area') cells.push([n, 'Web', 'Зона нажатия · указатель (Web)'], [n, 'iOS', 'Зона нажатия · касание (iOS)']); else cells.push([n, 'Web', n === 'Focus ring' ? 'Кольцо фокуса' : 'Безопасное поле']);
       const cw = def.width <= 420 ? 548 : RW;
-      for (const [n, pf, label] of cells) { const st = stage({ ...BASE, Platform: pf }, cw, 32); st.counterAxisAlignItems = 'CENTER'; st.clipsContent = false; add(w, st); const lab = cap(label); add(st, lab); lab.layoutAlign = 'STRETCH'; const i = inst(def, cw - 64); add(st, i); try { i.setProperties({ [L.key(n)]: true }); } catch (e) { errors.push('05 ' + n + ': ' + String(e.message || e).slice(0, 80)); } }
+      for (const [n, pf, label] of cells) { const st = stage({ ...BASE, Platform: pf }, cw, 32); st.counterAxisAlignItems = 'CENTER'; st.clipsContent = false; add(w, st); const lab = cap(label); add(st, lab); lab.layoutAlign = 'STRETCH'; const i = inst(def, cw - 64); add(st, i); try { const tg = target(i); tg.setProperties({ [keyOf(tg, n)]: true }); } catch (e) { errors.push('05 ' + n + ': ' + String(e.message || e).slice(0, 80)); } }
     } else skip('05 · Зоны', 'у набора нет служебных свойств Focus ring / Show hit area / Safe margin'); }
   // 06
   { const r = sec('06', 'На поверхностях', 'Компонент на уровнях L0–L3 в обеих темах: фон — `surface/current`.');
