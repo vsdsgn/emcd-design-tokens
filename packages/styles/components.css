@@ -1205,8 +1205,8 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 
 /* Promo card — 🟡 beta (Figma «🟡 Promo card»: Size × Tone × Align; Title, Description, Show description / action / media / close / badge).
    Подложка surface/level-1, обводка border/subtle (Accent — градиент border/accent → border/subtle), обрезка по краю. S — сайдбар: поля 16, radius/container, мин. высота 120, текст label-sm;
-   M — мобильный: поля 24, radius/surface, 178, заголовок heading-md Medium, описание body-md; L — дашборд Web: поля 24 / 32, 204. Текст при картинке — фиксированной ширины (124 · 230 · 340).
-   Media — свечение (Accent — action/primary/default, Neutral — surface/level-3) и картинка 104 · 172 · 272 справа, выходит за край. Center — бейдж над заголовком, всё по центру. */
+   M — мобильный: поля 24, radius/surface, 178, заголовок heading-md Medium, описание body-md; L — дашборд Web: поля 24 / 32, 204. Текст при картинке — фиксированной ширины (124 · 230 · 340), не уже колонки.
+   Media — абсолютный фон справа снизу за текстом (inset-inline-end / bottom): свечение (Accent — action/primary/default, Neutral — surface/level-3) и картинка 104 · 172 · 272, выходит за край. Center — бейдж над заголовком, всё по центру. */
 .emcd-promo { --pad: var(--space-16, 16px); --gap: var(--space-8, 8px); --tgap: var(--space-4, 4px); --text-w: 124px; --media: 104px; --min-h: 120px; --glow: var(--surface-level-3);
   --tfs: var(--type-label-sm-size, 12px); --tlh: var(--type-label-sm-line-height, 16px); --tff: var(--font-sans); --dfs: var(--type-label-sm-size, 12px); --dlh: var(--type-label-sm-line-height, 16px);
   position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: var(--space-8, 8px); box-sizing: border-box; min-height: var(--min-h); min-width: 0; overflow: hidden;
@@ -1224,7 +1224,8 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
   mask: linear-gradient(var(--fixed-light) 0 0) content-box exclude, linear-gradient(var(--fixed-light) 0 0); }
 .emcd-promo__column { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; gap: var(--gap); flex: 1; min-width: 0; }
 .emcd-promo__text { display: flex; flex-direction: column; gap: var(--tgap); min-width: 0; max-width: 100%; }
-.emcd-promo--media .emcd-promo__text { width: var(--text-w); max-width: calc(100% - var(--media) / 2); }
+/* Media — фон под текстом (как слой media в Figma): колонку не сужает; текст — ширины контракта (124 · 230 · 340), в узкой карточке — по колонке, описание не режется сверх 3 строк */
+.emcd-promo--media .emcd-promo__text { width: var(--text-w); max-width: 100%; }
 .emcd-promo__title-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4, 4px) var(--space-8, 8px); min-width: 0; }
 .emcd-promo__title { margin: 0; min-width: 0; font: 500 var(--tfs)/var(--tlh) var(--tff); color: var(--text-primary); overflow-wrap: anywhere;
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
@@ -1392,7 +1393,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-chart-card__sum { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary);
   font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); }
 
-/* Top bar — 🟠 draft (Figma «🟠 Top bar»: Platform Mobile web; Logo, Account, Balance, Cents, Show balance). Шапка мобильного веба: surface/level-0, поля space/8 / space/16, зазор space/12;
+/* Top bar — 🟠 draft (Figma «🟠 Top bar»: Platform Mobile web · App; Logo, Account, Balance, Cents, Show balance). Шапка мобильного веба: surface/level-0, поля space/8 / space/16, зазор space/12;
    логотип heading-lg Bold display; аккаунт и баланс — label-lg text-primary + шеврон 16 (копейки text-tertiary); «Меню» — Icon button Ghost M справа. */
 .emcd-top-bar { display: flex; align-items: center; gap: var(--space-12, 12px); box-sizing: border-box; width: 100%; min-height: calc(var(--control-height-md, 40px) + 2 * var(--space-8, 8px));
   padding: var(--space-8, 8px) var(--space-16, 16px); background: var(--surface-level-0); color: var(--text-primary); }
@@ -1407,6 +1408,12 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-top-bar__amount { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .emcd-top-bar__cents { color: var(--text-tertiary); }
 .emcd-top-bar__menu { margin-inline-start: auto; }
+/* Platform = App (19.11): в начале Select compact аккаунта (без leading), в конце Select compact монеты (Coin stack) + Icon button Secondary M «+»; без логотипа, баланса и меню.
+   Высота 56, поля space/8 / space/16, зазор space/8, surface/level-0 — как у Mobile web. */
+.emcd-top-bar--app { gap: var(--space-8, 8px); }
+.emcd-top-bar__select { min-width: 0; }
+.emcd-top-bar__end { display: flex; align-items: center; gap: var(--space-8, 8px); min-width: 0; margin-inline-start: auto; }
+.emcd-top-bar__add { flex: none; }
 
 /* Status summary — 🟠 draft (Figma «🟠 Status summary»: Layout Column · Row; Show all link). Сводка воркеров: 3 × Stat card Align=Center (Danger → Warning → Neutral) со стрелкой-ссылкой;
    плитки — radius/container, зазор space/8. Column (Web) — колонка у графика, плитки делят высоту; Row (Compact) — три равные колонки + Button Text «Все воркеры» (зазор space/12). */

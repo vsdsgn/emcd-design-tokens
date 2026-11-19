@@ -9,9 +9,9 @@
 - Figma: Components, страница «Top bar» (`2312:2`), набор `2312:35`.
 
 ## 2. Intent
-- Верхняя панель мобильного веба: слот Logo, аккаунт (имя + шеврон), баланс (копейки text/tertiary) и Icon button «Меню». Platform: Mobile web; App (19.11) — Select compact аккаунта, Select compact монеты и Icon button «+».
-- Когда использовать: корневые экраны мобильного веба, над Tabs M разделов
-- Когда нет: Web — Sidebar + шапка страницы; App — Top bar App (план)
+- Верхняя панель корневых экранов: Platform Mobile web — слот Logo, аккаунт (имя + шеврон), баланс (копейки text/tertiary) и Icon button «Меню»; App (19.11) — Select compact аккаунта (без leading) в начале, Select compact монеты (Coin stack) и Icon button Secondary M «+» («Подключить») в конце, без логотипа, баланса и меню; высота 56, поля 8 / 16, зазор App 8. Код: `platform` mobile-web · app; App — `account`, `coin` / `coins`, `onAdd`.
+- Когда использовать: корневые экраны мобильного веба и App, над Tabs M разделов
+- Когда нет: Web — Sidebar + шапка страницы
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy

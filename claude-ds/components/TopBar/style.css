@@ -1,4 +1,4 @@
-/* Top bar — 🟠 draft (Figma «🟠 Top bar»: Platform Mobile web; Logo, Account, Balance, Cents, Show balance). Шапка мобильного веба: surface/level-0, поля space/8 / space/16, зазор space/12;
+/* Top bar — 🟠 draft (Figma «🟠 Top bar»: Platform Mobile web · App; Logo, Account, Balance, Cents, Show balance). Шапка мобильного веба: surface/level-0, поля space/8 / space/16, зазор space/12;
    логотип heading-lg Bold display; аккаунт и баланс — label-lg text-primary + шеврон 16 (копейки text-tertiary); «Меню» — Icon button Ghost M справа. */
 .emcd-top-bar { display: flex; align-items: center; gap: var(--space-12, 12px); box-sizing: border-box; width: 100%; min-height: calc(var(--control-height-md, 40px) + 2 * var(--space-8, 8px));
   padding: var(--space-8, 8px) var(--space-16, 16px); background: var(--surface-level-0); color: var(--text-primary); }
@@ -13,3 +13,9 @@
 .emcd-top-bar__amount { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .emcd-top-bar__cents { color: var(--text-tertiary); }
 .emcd-top-bar__menu { margin-inline-start: auto; }
+/* Platform = App (19.11): в начале Select compact аккаунта (без leading), в конце Select compact монеты (Coin stack) + Icon button Secondary M «+»; без логотипа, баланса и меню.
+   Высота 56, поля space/8 / space/16, зазор space/8, surface/level-0 — как у Mobile web. */
+.emcd-top-bar--app { gap: var(--space-8, 8px); }
+.emcd-top-bar__select { min-width: 0; }
+.emcd-top-bar__end { display: flex; align-items: center; gap: var(--space-8, 8px); min-width: 0; margin-inline-start: auto; }
+.emcd-top-bar__add { flex: none; }

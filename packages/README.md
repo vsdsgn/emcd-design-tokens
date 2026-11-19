@@ -11,6 +11,7 @@
 Пачка 3 (экраны майнинга): Icon, Coin, Coin stack, Nav item, Key-value row, Search, Select compact, Date range field, Page indicator, Legend swatch, Legend item, Chart metric, Table header cell, Table cell, Table row, Table (паттерн), Promo card, Sidebar, Chart plot, Chart card; конструкции (draft) — Top bar, Status summary, Promo carousel, Action bar.
 Пачка 4 (19.11): Chart crosshair, Chart tooltip (hover Chart plot), Date cell, Calendar, Date range panel (встроенная панель Date range field).
 Пачка 5 (19.11, App): Floating button, Tab bar item, Tab bar.
+Top bar `platform` (19.11): mobile-web — логотип, аккаунт, баланс, «Меню»; app — Select compact аккаунта (без leading) · Select compact монеты (Coin stack: `coin` / `coins`) + Icon button Secondary M «+» (`onAdd`, «Подключить»), высота 56, поля 8 / 16, зазор 8. Promo card: картинка — абсолютный фон справа снизу за текстом, колонку не сужает (текст 124 · 230 · 340, в узкой карточке — по колонке).
 Пачка 6 (19.11, Калькулятор и Настройки): Section header (draft, новый); Amount `tone`; Card `ambientLight`; Page header (beta).
 Загрузка (19.11, patterns 3.11a): Skeleton (кирпич Text · Title · Circle · Rect) + `skeleton` у Amount, Chart metric, Key-value row, Chip, Status summary; общий синхронный блик всех скелетонов (контракт Skeleton; «Уменьшить движение» — пульсация).
 Иконки и монеты для кода — реестр `scripts/icons-code.mjs` (из `icons/svg` и `icons/symbols/coin`): блок `// @icons:begin` в `react/src/index.js` и `vue/src/icons.js`; `npm run code` запускает его перед `code-build`.

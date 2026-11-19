@@ -426,7 +426,7 @@
         div('demo-filters',
           // фильтры 3.6a: «Монеты» и «Тип выплат» (на макете — заглушки «Сеть»)
           h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Монеты', options: [{ value: 'all', label: 'Все монеты' }, { value: 'ltc', label: 'LTC' }, { value: 'doge', label: 'DOGE' }], defaultValue: 'all', className: 'demo-filters__net' }),
-          h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Тип выплат', options: [{ value: 'all', label: 'Все направления' }, { value: 'wallet', label: 'На EMCD wallet' }, { value: 'ext', label: 'На внешний кошелёк' }, { value: 'ch', label: 'На Coinhold' }], defaultValue: 'all', className: 'demo-filters__net' }),
+          h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Тип выплат', options: [{ value: 'all', label: 'Все выплаты' }, { value: 'wallet', label: 'На EMCD wallet' }, { value: 'ext', label: 'На внешний кошелёк' }, { value: 'ch', label: 'На Coinhold' }], defaultValue: 'all', className: 'demo-filters__net' }),
           h(E.DateRangeField, { label: 'Период', className: 'demo-filters__period', panel: { isDateDisabled: function (d) { return d > new Date().toISOString().slice(0, 10); } } }),
           h(E.Button, { type: 'tertiary', size: 'm', label: 'Выгрузить', iconLeft: h(E.Icon, { name: 'file-excel' }), className: 'demo-filters__btn' })),
         div('demo-history',
@@ -510,7 +510,7 @@
         h(E.Checkbox, { label: 'Автоконвертация начислений', description: 'Автоматически будем менять % от майнинговых начислений на другую крипту по курсу на момент выплаты. Минимальная сумма обмена — 10 USDT в эквиваленте BTC' }),
         h(E.Divider, null),
         h(E.Toggle, { status: false, label: 'На Coinhold', description: 'Дополнительный доход с намайненного — до 8% годовых' }),
-        h(E.PromoCard, { size: 'm', tone: 'accent', title: 'Заработай до 8% годовых', description: 'Открой Coinhold и зарабатывай на хранении криптовалют', actionLabel: 'Открыть Coinhold', showClose: false, showMedia: false })));
+        h(E.PromoCard, { size: 'm', tone: 'accent', title: 'Заработай до 8% годовых', description: 'Открой Coinhold и зарабатывай на хранении криптовалют', actionLabel: 'Открыть Coinhold', showClose: false, showMedia: true })));
   }
 
   var SCREENS = { 'web-dashboard': WebDashboard, 'web-workers': WebWorkers, 'web-history': WebHistory, 'mw-dashboard': MwDashboard, 'mw-workers': MwWorkers, 'mw-history': MwHistory,

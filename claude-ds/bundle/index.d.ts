@@ -1062,10 +1062,31 @@ export interface ChartCardProps {
   className?: string;
 }
 export interface TopBarProps {
-  platform?: 'mobile-web';
+  /** mobile-web — логотип, аккаунт, баланс, «Меню»; app (19.11) — Select compact аккаунта в начале, Select compact монеты (Coin stack) + Icon button Secondary M «+» в конце; без логотипа, баланса и меню. */
+  platform?: 'mobile-web' | 'app';
+  /** Только mobile-web. */
   logo?: ReactNode;
+  /** Имя аккаунта (app — подпись Select compact без leading). */
   account?: ReactNode;
-  onAccount?: (e: unknown) => void;
+  /** mobile-web — нажатие на аккаунт; app без accountOptions — открыть свой список (Sheet). */
+  onAccount?: (e?: unknown) => void;
+  /** app: список аккаунтов (Menu listbox Select compact). */
+  accountOptions?: SelectCompactOption[];
+  accountValue?: string | number;
+  onAccountChange?: (value: string | number) => void;
+  /** app: подпись монеты («BTC»). */
+  coin?: string;
+  /** app: тикеры Coin stack в leading монеты; по умолчанию [coin]. */
+  coins?: string[];
+  coinOptions?: SelectCompactOption[];
+  coinValue?: string | number;
+  onCoinChange?: (value: string | number) => void;
+  /** app без coinOptions — открыть свой список монет. */
+  onCoin?: () => void;
+  /** app: Icon button Secondary M «+». */
+  onAdd?: (e: unknown) => void;
+  /** Доступное имя «+» — «Подключить». */
+  addLabel?: string;
   balance?: string;
   /** Копейки — text-tertiary («.78»). */
   cents?: string;

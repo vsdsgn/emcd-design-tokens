@@ -1329,9 +1329,24 @@ function ChartCard({ label, metrics = [], periods, period, defaultPeriod, onPeri
     topNode, h('div', { className: 'emcd-chart-card__content' }, children ?? content), showBottom && bottomNode);
 }
 
-/** Top bar (draft) — шапка мобильного веба: логотип, аккаунт (имя + шеврон), баланс (копейки text-tertiary) и «Меню». platform: mobile-web (App — следующим вариантом).
- *  onAccount / onBalance / onMenu — нажатия; showBalance=false — без баланса. */
-function TopBar({ platform = 'mobile-web', logo, account, onAccount, balance, cents, showBalance = true, onBalance, onMenu, menuLabel = 'Меню', className, ...rest }) {
+/** Top bar (draft) — верхняя панель корневых экранов. platform: mobile-web — логотип, аккаунт (имя + шеврон), баланс (копейки text-tertiary) и «Меню»;
+ *  app (19.11) — в начале Select compact аккаунта (без leading), в конце Select compact монеты (Coin stack) + Icon button Secondary M «+» (addLabel «Подключить»); без логотипа, баланса и меню.
+ *  mobile-web: onAccount / onBalance / onMenu — нажатия; showBalance=false — без баланса.
+ *  app: account — имя; accountOptions + onAccountChange — список аккаунтов (без списка onAccount — открыть свой Sheet); coin — подпись монеты («BTC»), coins — тикеры Coin stack (по умолчанию [coin]);
+ *  coinOptions + onCoinChange (или onCoin); onAdd — «Подключить». */
+function TopBar({ platform = 'mobile-web', logo, account, onAccount, balance, cents, showBalance = true, onBalance, onMenu, menuLabel = 'Меню',
+  accountOptions, accountValue, onAccountChange, coin, coins, coinOptions, coinValue, onCoinChange, onCoin, onAdd, addLabel = 'Подключить', className, ...rest }) {
+  if (platform === 'app') {
+    const stack = coins && coins.length ? coins : coin ? [String(coin).toLowerCase()] : [];
+    return h('header', { className: cx('emcd-top-bar', 'emcd-top-bar--app', className), 'data-platform-variant': platform, ...rest },
+      account != null && h(SelectCompact, { label: 'Аккаунт', text: accountOptions ? undefined : account, options: accountOptions, value: accountValue, onChange: onAccountChange,
+        showLeading: false, onOpenChange: accountOptions ? undefined : (o) => { if (o && onAccount) onAccount(); }, open: accountOptions ? undefined : false, className: 'emcd-top-bar__select' }),
+      h('div', { className: 'emcd-top-bar__end' },
+        coin != null && h(SelectCompact, { label: 'Монета', text: coinOptions ? undefined : coin, options: coinOptions, value: coinValue, onChange: onCoinChange,
+          leading: stack.length ? h(CoinStack, { coins: stack, size: 's' }) : undefined, onOpenChange: coinOptions ? undefined : (o) => { if (o && onCoin) onCoin(); },
+          open: coinOptions ? undefined : false, className: 'emcd-top-bar__select' }),
+        h(IconButton, { type: 'secondary', size: 'm', label: addLabel, className: 'emcd-top-bar__add', icon: h(Icon, { name: 'plus' }), onClick: onAdd })));
+  }
   return h('header', { className: cx('emcd-top-bar', className), 'data-platform-variant': platform, ...rest },
     h('span', { className: 'emcd-top-bar__logo' }, logo ?? 'E'),
     account != null && h('button', { type: 'button', className: 'emcd-top-bar__account', onClick: onAccount },
