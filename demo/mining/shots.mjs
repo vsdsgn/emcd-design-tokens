@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Демо K4: скриншоты 6 экранов майнинга (Playwright Chromium) и сравнение с макетами Figma.
+// Демо K4: скриншоты 10 экранов майнинга (Playwright Chromium) и сравнение с макетами Figma.
 //   npm run demo:mining  →  demo/mining/out/<screen>.png + out/compare-<screen>.png (макет | код | разница) + out/web-dashboard-hover.png (hover графика)
 //   + загрузка дашбордов (?state=loading, patterns 3.11a) → out/<screen>-loading.png; высоты блоков (сводка, факты, график, плитки статусов) в загрузке = после загрузки (±1 px), иначе провал
 // Репо раздаётся статически (свой http-сервер), браузер не скачивается — берётся установленный Playwright.
@@ -12,7 +12,9 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../.
 const OUT = path.join(ROOT, 'demo/mining/out');
 const SCREENS = [
   ['web-dashboard', 1440, 900], ['web-workers', 1440, 900], ['web-history', 1440, 900],
-  ['mw-dashboard', 375, 812, true], ['mw-workers', 375, 812], ['mw-history', 375, 812]];
+  ['mw-dashboard', 375, 812, true], ['mw-workers', 375, 812], ['mw-history', 375, 812],
+  // 19.11: Калькулятор (3.10a), Watcher-link и Настройки (3.9a); макеты Watcher-link и Настроек — 1200 × 750 (кадр 1440 в масштабе) → в сравнении растягиваются до ширины страницы
+  ['web-calculator', 1440, 914], ['mw-calculator', 375, 812, true], ['web-watcher', 1440, 900], ['web-settings', 1440, 900]];
 const only = process.argv.slice(2);
 // Блоки, чья высота в загрузке (State=Skeleton) должна совпасть с загруженной: [подпись, селектор] — каждый найденный элемент по порядку
 const LOADING_BLOCKS = {
@@ -54,7 +56,10 @@ try {
     };
     await load(page);
     const shot = path.join(OUT, `${name}.png`);
+    // Вся высота: окно растягивается до высоты страницы — закреплённый снизу Action bar (sticky) встаёт в конец страницы, как на макете
+    if (full) await page.setViewportSize({ width: w, height: await page.evaluate(() => document.documentElement.scrollHeight) });
     await page.screenshot({ path: shot, fullPage: !!full });
+    if (full) await page.setViewportSize({ width: w, height: hgt });
     // Hover графика (Chart crosshair + Chart tooltip): указатель на ~60 % ширины области → out/web-dashboard-hover.png (без сравнения — в макетах hover нет)
     if (name === 'web-dashboard') {
       const b = await page.locator('.emcd-chart-plot__area-box').first().boundingBox();
@@ -71,17 +76,17 @@ try {
       await page.keyboard.press('Escape');
       await page.waitForSelector('.emcd-date-panel', { state: 'detached' });
     }
-    // Сравнение: макет | код | разница (mix-blend-mode: difference) — в той же странице, без зависимостей
+    // Сравнение: макет | код | разница (mix-blend-mode: difference) — в той же странице, без зависимостей; макет приводится к ширине страницы (другой масштаб кадра)
     const ref = fs.readFileSync(path.join(ROOT, `demo/mining/reference/${name}.png`)).toString('base64');
     const cur = fs.readFileSync(shot).toString('base64');
     const cmp = await ctx.newPage();
     await cmp.setViewportSize({ width: w * 3 + 64, height: 400 });
     await cmp.setContent(`<!doctype html><body style="margin:0;background:#222;font:14px system-ui;color:#ddd">
       <div style="display:flex;gap:16px;padding:16px;align-items:flex-start" id="c">
-        <figure style="margin:0"><figcaption>Figma — ${name}</figcaption><img src="data:image/png;base64,${ref}"></figure>
+        <figure style="margin:0"><figcaption>Figma — ${name}</figcaption><img src="data:image/png;base64,${ref}" style="display:block;width:${w}px"></figure>
         <figure style="margin:0"><figcaption>Код (demo/mining) — ${name}</figcaption><img src="data:image/png;base64,${cur}"></figure>
         <figure style="margin:0"><figcaption>Разница</figcaption><div style="position:relative;isolation:isolate">
-          <img src="data:image/png;base64,${ref}" style="display:block"><img src="data:image/png;base64,${cur}" style="position:absolute;left:0;top:0;mix-blend-mode:difference"></div></figure>
+          <img src="data:image/png;base64,${ref}" style="display:block;width:${w}px"><img src="data:image/png;base64,${cur}" style="position:absolute;left:0;top:0;mix-blend-mode:difference"></div></figure>
       </div></body>`);
     await cmp.locator('#c').screenshot({ path: path.join(OUT, `compare-${name}.png`) });
     console.log(`demo:mining — ${name} ${w}×${full ? 'full' : hgt} → out/${name}.png, out/compare-${name}.png`);

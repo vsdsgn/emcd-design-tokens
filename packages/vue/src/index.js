@@ -20,6 +20,7 @@ export { default as DsSkeleton } from './DsSkeleton.vue';
 export { default as DsProgress } from './DsProgress.vue';
 export { default as DsAmount } from './DsAmount.vue';
 export { default as DsCard } from './DsCard.vue';
+export { default as DsSectionHeader } from './DsSectionHeader.vue';
 export { default as DsStatCard } from './DsStatCard.vue';
 export { default as DsTooltip } from './DsTooltip.vue';
 export { default as DsToast } from './DsToast.vue';

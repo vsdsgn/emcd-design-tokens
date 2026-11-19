@@ -16,7 +16,7 @@
 /* Strip (17.11, по продукту) — плашка radius/inner на всю ширину вверху страницы: без иконки, заголовок label/md цвета тона, центр по вертикали, кнопки и крестик в строку справа */
 .emcd-suggest--strip { width: 100%; align-items: center; padding: var(--space-12, 12px) var(--space-16, 16px); border-radius: var(--radius-inner); }
 .emcd-suggest--strip .emcd-suggest__content { flex-direction: row; align-items: center; flex-wrap: wrap; gap: var(--space-16, 16px); }
-.emcd-suggest--strip .emcd-suggest__text { flex: 1 1 240px; }
+.emcd-suggest--strip .emcd-suggest__text { flex: 1 1 160px; } /* 19.11: в колонке 400 (Калькулятор) и на 375 текст и кнопка в одну строку, заголовок переносится */
 .emcd-suggest--strip .emcd-suggest__title { font-size: var(--type-label-md-size, 14px); line-height: var(--type-label-md-line-height, 20px); color: var(--tone-fg); }
 .emcd-suggest--strip .emcd-suggest__close.emcd-btn { position: static; flex: none; }
 /* Tone */

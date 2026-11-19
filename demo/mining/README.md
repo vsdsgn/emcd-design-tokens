@@ -1,6 +1,6 @@
 # Демо K4 — майнинг из кода (React, Dark)
 
-6 экранов майнинга, собранных **только из компонентов репо** (`window.EMCD` из `claude-ds/bundle/bundle.js`), рядом с макетами Figma.
+10 экранов майнинга, собранных **только из компонентов репо** (`window.EMCD` из `claude-ds/bundle/bundle.js`), рядом с макетами Figma.
 
 | Экран | Файл | Размер | Каркас |
 |---|---|---|---|
@@ -10,14 +10,18 @@
 | Дашборд · мобильный веб | `mw-dashboard.html` | 375 × вся высота | Top bar + Tabs M + контент (поля 16, зазор 12) |
 | Воркеры · мобильный веб | `mw-workers.html` | 375 × 812 | + Action bar |
 | История · мобильный веб | `mw-history.html` | 375 × 812 | + Action bar |
+| Калькулятор · Web (3.10a) | `web-calculator.html` | 1440 × 914 | Sidebar + Tabs Page; заголовок страницы + две колонки (форма · 400 «Ожидаемый доход» + Suggest Strip) |
+| Калькулятор · мобильный веб (3.10a) | `mw-calculator.html` | 375 × вся высота | Top bar + Tabs M; одна колонка + Action bar «Начать майнить» |
+| Watcher-link · Web (3.9a) | `web-watcher.html` | 1440 × 900 | Suggest Strip Accent; меню (заголовок, 2 Select, Button Primary M); список Card M |
+| Настройки → Уведомления · Web (3.9a) | `web-settings.html` | 1440 × 900 | меню (Select аккаунта, Segmented L); Card L — матрица Checkbox |
 
-Состав: `screens.js` (экраны на `React.createElement`, данные и тексты — с макетов), `demo.css` (только раскладка: flex / grid, токены `space-*`, тексты на токенах типографики), `vendor/` — React 18.3.1 UMD (копия из `tests/code/node_modules`, демо работает без сети), `reference/` — рендеры Figma 19.11.
+Состав: `screens.js` (экраны на `React.createElement`, данные и тексты — с макетов), `demo.css` (только раскладка: flex / grid, токены `space-*`, тексты на токенах типографики), `vendor/` — React 18.3.1 UMD (копия из `tests/code/node_modules`, демо работает без сети), `reference/` — рендеры Figma 19.11 (калькулятор, Watcher-link, Настройки — экраны «… · DS 2.0»; Watcher-link и Настройки сняты в 1200 × 750 — в сравнении растягиваются до ширины страницы).
 Атрибуты: `<html data-theme="dark" data-brand="emcd" data-platform="web | mobile-web" data-style="expressive">`; токены — `build/css/index.css`, стили компонентов — `packages/styles/components.css`.
 
 ## Как запустить
 
 ```bash
-npm run demo:mining            # все 6 экранов
+npm run demo:mining            # все 10 экранов
 npm run demo:mining -- mw-workers web-history   # выборочно
 ```
 
@@ -61,6 +65,23 @@ npm run demo:mining -- mw-workers web-history   # выборочно
 | Строки монет в сводке «История» Web: List item M 60 с полями 16 (на макете 48 без полей) | `ListItem inset={false}` — без боковых полей, высота по содержимому (48); строки группы — в `emcd-list` без зазора | компонент + демо (19.11) |
 | Нет бейджа автовыгрузки «A» над «Выгрузить» (мобильная История) | `ActionBar badge` — Badge S Neutral над последней кнопкой (top −10, конец −4); колонки Action bar — сеткой поровну | компонент + демо (19.11) |
 | Поле «Период» в «Истории» Web не открывалось | `DateRangeField panel` — поповер Date range panel (пресеты, Calendar Range, «Сбросить» / «Применить»); будущие даты недоступны | компонент + демо (19.11) |
+
+## Калькулятор, Watcher-link, Настройки (19.11)
+
+Собраны из `window.EMCD`: заголовки секций — `SectionHeader` (M «Переводить на Coinhold», S «Сколько переводить?», «Прогноз доходности», M «Типы уведомлений»), карточка Coinhold — `Card` `ambientLight` (Level 2 на Web, Level 1 на мобильном), итог дохода — `Amount` XL `tone="success"`; поля — Input M On border с единицей в Trailing; период и доля — ряд Chip M (выбор одного); прогноз — Progress S (первый accent, второй success) + Amount S; монеты — Coin + Amount (S на Web в 2 колонки, M на мобильном); «Время выплат» — Key-value row; VIP — Suggest Strip Neutral. Watcher-link: Card M на ссылку, срок — Progress S по тону остатка, Badge S «Основной», Toggle без подписи (`inputProps.aria-label`), Icon button Ghost S `link` / `more-horizontal`; выключенная — тексты `text-tertiary`. Настройки: заголовки колонок — Checkbox M с подписью и описанием, ячейки — Checkbox без подписи с `aria-labelledby` (колонка + строка), «Настроить» — Button Text XS.
+Заголовок страницы («Калькулятор доходности», «Мои Watcher link») — текст на токенах `heading-xl`: Page header в коде нет. В `shots.mjs` экраны «вся высота» снимаются с окном во всю страницу — Action bar (sticky) встаёт в конец, как на макете.
+
+| Расхождение (19.11) | Причина | Статус |
+|---|---|---|
+| «Сколько переводить?»: на макете Web — Segmented «24 ч · 7 д · 30 д · Год» | правило 3.10a и задача — доля Chip M × 4 (25 / 50 / 75 / 100 %), как на мобильном макете; Web-экран не обновлён | проверить в Figma |
+| Итог дохода на мобильном макете белый, на Web «+≈» | решение 19.11: Amount XL Tone=Success без знака (Tone только при Sign=None) | экраны — после Publish |
+| Amount XL шире на 5–10 % (касается поля карточки 400) | display-lg 56 на 1440 + шрифт-заменитель | заглушка шрифта |
+| Пятно Ambient light у Coinhold видно (Expressive), на макете почти нет | демо в `data-style="expressive"`; на экране Figma эффект слабее / Base | проверить в Figma |
+| Input min-width 160: два поля в ряд на 375 не помещаются (2 × 151) | на мобильном демо `min-width: 0` у полей калькулятора; на макете «Комиссия» вылезает за карточку | вопрос: min-width Input на Compact |
+| Select «Аккаунт» / «Сортировать по» на макете с «USDT» и helper «Комиссия сети 1 USDT» | заглушки набора Select в Figma не скрыты на экране; код без `hint` ничего лишнего не рисует | поправить экран |
+| Segmented «Вывод · Уведомления»: на макете 168, «Уведо…» усечено | в коде по содержимому (сегмент L не уже 96) | поправить экран |
+| Строки Watcher-link и матрицы уведомлений выше на 4–8 | Card M поля 16 / шрифт; макет плотнее | мелкое |
+| Иконки BEL, LKY, PEP — буква в круге | нет в Symbols кода | заглушка |
 
 ## Расхождения, которые остались
 

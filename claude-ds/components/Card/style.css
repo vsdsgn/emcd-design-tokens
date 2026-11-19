@@ -10,6 +10,11 @@
 .emcd-card--padding-m { padding: var(--space-16, 16px); gap: var(--space-16, 16px); }
 .emcd-card--padding-l { padding: var(--space-24, 24px) var(--space-32, 32px); gap: var(--space-16, 16px); }
 .emcd-card--border { box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); }
+/* Ambient light (19.11) — фоновое пятно light/ambient справа сверху, обрезано радиусом карточки (как у Stat card). В стиле Base токен прозрачный (blur 0) — пятна нет.
+   Одна герой-карточка на экран. Содержимое не выходит за карточку: всплывающее (Menu, Tooltip) — порталом. */
+.emcd-card--ambient { isolation: isolate; overflow: hidden; }
+.emcd-card--ambient::after { content: ""; position: absolute; z-index: -1; right: -20%; top: -40%; width: 70%; aspect-ratio: 1; border-radius: 50%;
+  background: var(--light-ambient-color, transparent); filter: blur(var(--light-ambient-blur, 48px)); pointer-events: none; }
 /* Кликабельная карточка — одна ссылка или кнопка на всю площадь: слой состояний, кольцо фокуса с зазором 2 */
 .emcd-card--interactive { cursor: pointer; text-decoration: none; text-align: inherit; font: inherit; border: 0; outline: none; width: 100%; }
 .emcd-card--interactive::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;

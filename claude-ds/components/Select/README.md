@@ -14,4 +14,6 @@
 
 **Доступность:** кнопка `role="combobox"` + `aria-haspopup="listbox"`, `aria-expanded`, `aria-controls`; список `role="listbox"`, пункты `role="option"` + `aria-selected`; активный — `aria-activedescendant`. ↓ / ↑ / Enter / Пробел открывают, стрелки и Home / End двигают, Enter выбирает, Escape и Tab закрывают; клик вне — закрыть.
 
+Без лишнего по умолчанию (19.11): helper (`emcd-field__row`) — только при `hint` / `error`, единицы и суффикса у Select нет; подпись — только при `label`. Тексты-заглушки набора Figma («USDT», «Комиссия сети 1 USDT») в код не переносятся.
+
 Классы: база поля Input — `emcd-field [emcd-field--l] [emcd-field--on-border] [emcd-field--{error|disabled|skeleton}]`, `emcd-field__label`, `emcd-field__hint`; `emcd-select [emcd-select--open]` → `emcd-input emcd-select__trigger` (`emcd-input__leading`, `emcd-select__value [emcd-select__value--placeholder]`, `emcd-select__chevron`) и Menu `emcd-select__menu`.

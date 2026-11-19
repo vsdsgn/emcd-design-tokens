@@ -2,9 +2,9 @@
 
 Денежная сумма: число, тикер и необязательный фиатный эквивалент. Единый способ показать сумму в продукте.
 
-**Оси (как в Figma «🟡 Amount»):** Size S · M · L · XL × Sign None · Positive · Negative × Align Start · End; свойства Value, Ticker, Fiat, Show fiat.
+**Оси (как в Figma «🟡 Amount»):** Size S · M · L · XL × Sign None · Positive · Negative × Align Start · End × Tone Default · Success · Danger (19.11); свойства Value, Ticker, Fiat, Show fiat.
 
-**Когда какой:** S 12 — строки списков и таблиц на Compact; M 14 — карточки и таблицы Web; L — заголовок блока; XL — главный баланс экрана (один на экран). Sign None — остаток и цена; Positive — поступление: знак «+», цвет `text-success`; Negative — списание: знак «−» (U+2212), цвет `text-primary`. Show fiat — эквивалент второй строкой; в плотных таблицах, где фиат — отдельная колонка, выключается.
+**Когда какой:** S 12 — строки списков и таблиц на Compact; M 14 — карточки и таблицы Web; L — заголовок блока; XL — главный баланс экрана (один на экран). Sign None — остаток и цена; Positive — поступление: знак «+», цвет `text-success`; Negative — списание: знак «−» (U+2212), цвет `text-primary`. Tone (19.11) — цвет суммы и тикера без знака, только Sign None: Success — итог дохода (Калькулятор, Amount XL), Danger — расход; со знаком не применяется (знак и цвет — Sign). Show fiat — эквивалент второй строкой; в плотных таблицах, где фиат — отдельная колонка, выключается.
 
 **Когда нет:** ввод суммы — Input amount; изменение в процентах — Badge или Chart metric; число без валюты — обычный текст.
 
@@ -14,4 +14,4 @@
 
 **Доступность:** знак — символом, не только цветом; сумма читается целиком (без обрезки).
 
-Классы: `emcd-amount [emcd-amount--{m|l|xl}] [emcd-amount--{positive|negative}] [emcd-amount--end]`; внутри `emcd-amount__row` (`emcd-amount__value`, `emcd-amount__ticker`), `emcd-amount__fiat`.
+Классы: `emcd-amount [emcd-amount--{m|l|xl}] [emcd-amount--{positive|negative}] [emcd-amount--tone-{success|danger}] [emcd-amount--end]`; внутри `emcd-amount__row` (`emcd-amount__value`, `emcd-amount__ticker`), `emcd-amount__fiat`.

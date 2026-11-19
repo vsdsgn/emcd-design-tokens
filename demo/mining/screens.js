@@ -262,6 +262,150 @@
       div('demo-mw-list', rows));
   }
 
-  var SCREENS = { 'web-dashboard': WebDashboard, 'web-workers': WebWorkers, 'web-history': WebHistory, 'mw-dashboard': MwDashboard, 'mw-workers': MwWorkers, 'mw-history': MwHistory };
+  // ───────── Калькулятор доходности (patterns 3.10a) ─────────
+  var CALC_FIELDS = [
+    { key: 'hash', label: 'Твой хешрейт', value: '100', unit: 'TH/s' }, { key: 'fee', label: 'Комиссия', value: '1.5', unit: '%' },
+    { key: 'power', label: 'Энергопотребление всех устройств', value: '10', unit: 'кВт·ч' }, { key: 'price', label: 'Цена за кВт·ч', value: '1.5', unit: '$' }];
+  var CALC_PERIODS = ['1 день', '7 дней', '30 дней', '90 дней', '180 дней', '360 дней'];
+  var CALC_SHARES = ['25 %', '50 %', '75 %', '100 %'];
+  var CALC_COINS = [
+    { coin: 'ltc', value: '537.4296', ticker: 'LTC', fiat: '≈ $50 384.85', mwFiat: '≈ $48 255.72', scheme: 'PPS' },
+    { coin: 'doge', value: '1 778 773.453', ticker: 'DOGE', fiat: '≈ $302 391.48', scheme: 'PPLNS' },
+    { coin: 'bel', value: '3 738.632399', ticker: 'BEL', fiat: '≈ $635.56', scheme: 'PPLNS' },
+    { coin: 'lky', value: '1 503.3672', ticker: 'LKY', fiat: '≈ $255.57', scheme: 'PPLNS' },
+    { coin: 'pep', value: '5 036 284.45', ticker: 'PEP', fiat: '≈ $1 007.25', scheme: 'PPLNS' }];
+  var CALC_COIN_OPTIONS = [{ value: 'ltc', label: 'LTC +5', coin: 'ltc' }, { value: 'doge', label: 'DOGE', coin: 'doge' }];
+  var calcField = function (f, size) {
+    return h(E.Input, { key: f.key, size: size || 'm', label: f.label, defaultValue: f.value, inputMode: 'decimal', trailing: text('demo-unit', f.unit), className: 'demo-calc-field demo-calc-field--' + f.key });
+  };
+  // ряд Chip M — выбор одного (aria-pressed); неуправляемый в прототипе — состояние в странице
+  function ChipRow(props) {
+    var st = React.useState(props.selected);
+    return h('div', { className: 'demo-chip-row' + (props.className ? ' ' + props.className : ''), role: 'group', 'aria-label': props.label },
+      props.items.map(function (l) { return h(E.Chip, { key: l, size: 'm', label: l, selected: st[0] === l, onClick: function () { st[1](l); } }); }));
+  }
+  // тон Progress — по порядку (первый — accent, второй — success), как на макетах Web и мобильного
+  var forecast = function (label, tone, pct, value, fiat) {
+    return div('demo-forecast',
+      h(E.Progress, { size: 's', tone: tone, percent: pct, label: label, showLabel: false }),
+      div('demo-forecast__row', text('demo-caption', label), h(E.Amount, { size: 's', value: value, ticker: 'LTC', fiat: fiat })));
+  };
+  function coinholdCard(mobile) {
+    var mining = ['Майнинг', '537.4296', '≈ $48 255.72'], plus = ['Майнинг + Coinhold', '561.166074', '≈ $50 384.85'];
+    var forecasts = (mobile ? [plus, mining] : [mining, plus]).map(function (f, i) { return h(F, { key: i }, forecast(f[0], i ? 'success' : 'accent', i ? 60 : (mobile ? 60 : 59), f[1], f[2])); });
+    return h(E.Card, { level: mobile ? 1 : 2, padding: mobile ? 'm' : 'l', border: false, ambientLight: true, className: 'demo-coinhold' + (mobile ? ' demo-coinhold--mw' : '') },
+      h(E.SectionHeader, { size: 'm', title: 'Переводить на Coinhold', caption: mobile ? undefined : 'Ещё больше дохода с намайненных монет',
+        trailing: h(E.Toggle, { status: !mobile, label: 'до 9% годовых', className: 'demo-coinhold__toggle' }) }),
+      div('demo-calc-group', h(E.SectionHeader, { size: 's', level: 4, title: 'Сколько переводить?' }),
+        h(ChipRow, { label: 'Сколько переводить', items: CALC_SHARES, selected: '75 %', className: 'demo-chip-row--fill' })),
+      div('demo-calc-group', h(E.SectionHeader, { size: 's', level: 4, title: 'Прогноз доходности' }),
+        div('demo-forecasts', forecasts),
+        text('demo-caption', 'Расчёт основан на сроке майнинга, текущем курсе монеты и условиях Coinhold')),
+      h(E.Button, { type: 'secondary', size: 'm', label: 'Открыть Coinhold', className: 'demo-coinhold__btn' }));
+  }
+  function incomeCard(mobile) {
+    return h(E.Card, { padding: mobile ? 'm' : 'l', border: false, className: 'demo-income' + (mobile ? ' demo-income--mw' : '') },
+      div('demo-income__head',
+        text('demo-caption demo-caption--md', mobile ? 'Доход за 360 дней' : 'Ожидаемый доход'),
+        !mobile && h(E.SelectCompact, { label: 'Монета', options: CALC_COIN_OPTIONS, className: 'demo-push' })),
+      div('demo-income__total',
+        // итог дохода — Amount XL Tone=Success (решение 19.11); без Coinhold (мобильный: переключатель выкл.) — без зачёркнутой суммы
+        h(E.Amount, { size: 'xl', tone: 'success', value: mobile ? '≈ $350 536.71' : '≈ $352 665.84' }),
+        !mobile && h('s', { className: 'demo-caption demo-caption--md' }, '≈ $350 536.71')),
+      div('demo-income__coins', CALC_COINS.map(function (c) {
+        return div('demo-income__coin', h(E.Coin, { key: 'c', coin: c.coin, size: 's' }),
+          h(E.Amount, { key: 'a', size: mobile ? 'm' : 's', value: c.value, ticker: c.ticker, fiat: (mobile && c.mwFiat ? c.mwFiat : c.fiat) + ' · ' + c.scheme }));
+      })),
+      div('demo-income__expense', text('demo-caption', 'Расходы на электричество:'), text('demo-danger', '− $120.01')),
+      text('demo-caption', 'Расчёт основан на доходности пула в течение последней недели с учётом энергозатрат, без учёта роста сложности сети'),
+      h('dl', { className: 'emcd-kv-list demo-income__kv' }, h(E.KeyValueRow, { label: 'Время выплат', value: 'Ежедневно, с 16:00 по 17:00' })),
+      !mobile && h(E.Button, { type: 'primary', size: 'l', label: 'Начать майнить', className: 'demo-income__cta' }));
+  }
+  var vipSuggest = function () {
+    return h(E.Suggest, { layout: 'strip', tone: 'neutral', title: 'VIP-условия для большого хешрейта', primaryLabel: 'Оставить заявку', close: false, className: 'demo-vip' });
+  };
+
+  function WebCalculator() {
+    return h(WebShell, { tab: 'Калькулятор' },
+      h('h1', { className: 'demo-page-title' }, 'Калькулятор доходности'),
+      div('demo-calc',
+        h(E.Card, { padding: 'l', className: 'demo-calc__form' },
+          div('demo-calc__fields', CALC_FIELDS.map(function (f) { return calcField(f); })),
+          div('demo-calc-group', text('demo-caption demo-caption--md', 'Укажи срок'), h(ChipRow, { label: 'Срок', items: CALC_PERIODS, selected: '360 дней', className: 'demo-chip-row--fill' })),
+          coinholdCard(false)),
+        div('demo-calc__side', incomeCard(false), vipSuggest())));
+  }
+
+  function MwCalculator() {
+    return h(MwShell, { tab: 'Калькулятор', bar: h(E.ActionBar, { actions: [{ label: 'Начать майнить' }] }) },
+      h(E.Card, { padding: 'm', border: false, className: 'demo-calc__form demo-calc__form--mw' },
+        div('demo-calc__fields demo-calc__fields--mw', CALC_FIELDS.map(function (f) { return calcField(f); })),
+        div('demo-calc-group', text('demo-caption demo-caption--md', 'Укажи срок'), h(ChipRow, { label: 'Срок', items: CALC_PERIODS, selected: '360 дней', className: 'demo-chip-row--scroll' }))),
+      coinholdCard(true),
+      incomeCard(true),
+      vipSuggest());
+  }
+
+  // ───────── Watcher-link (patterns 3.9a) ─────────
+  var LINKS = [
+    { name: 'U soseda poka ego net doma', created: 'от 10 декабря 2025', until: 'До 1 января 2026', tone: 'success', pct: 60, account: 'petrovskii', main: true, access: 'Все доступы', export: true, on: true },
+    { name: 'Dagestan', created: 'от 28 ноября 2025', until: 'До 28 января 2026', tone: 'success', pct: 60, account: 'jasdknaskjna', access: 'Хешрейт, Воркеры, Начисления', on: true },
+    { name: 'Тест', created: 'от 13 ноября 2025', until: 'До 28 января 2026', tone: 'warning', pct: 60, account: 'evgeniibiryukov', access: 'Хешрейт, Воркеры', on: true },
+    { name: 'Наш сквад', created: 'от 15 ноября 2025', until: 'До 15 января 2026', tone: 'success', pct: 60, account: 'kk1skdaa', access: 'Выплаты, Начисления', export: true, on: true },
+    { name: 'Кефир и булочка', created: 'от 1 октября 2025', until: 'До 31 сентября 2025', tone: 'danger', pct: 60, account: 'jnas123', access: 'Хешрейт, Воркеры, Начисления', export: true, on: true },
+    { name: 'Ultimate', created: 'от 5 августа 2025', until: 'Бессрочно', account: 'Все аккаунты', access: 'Все доступы', export: true, on: false }];
+  function WebWatcher() {
+    return h(WebShell, { tab: 'Watcher-link' },
+      h(E.Suggest, { layout: 'strip', tone: 'accent', title: 'Подключай сторонние сервисы с помощью API-ключей', primaryLabel: 'Перейти', close: false }),
+      div('demo-menu demo-menu--watcher',
+        h('h1', { className: 'demo-page-title demo-grow' }, 'Мои Watcher link'),
+        h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Аккаунт', defaultValue: 'all', className: 'demo-watcher__select',
+          options: [{ value: 'all', label: 'Все аккаунты' }, { value: 'petrovskii', label: 'petrovskii' }] }),
+        h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Сортировать по', defaultValue: 'date', className: 'demo-watcher__select',
+          options: [{ value: 'date', label: 'Дате создания' }, { value: 'name', label: 'Названию' }] }),
+        h(E.Button, { type: 'primary', size: 'm', label: 'Создать Watcher link' })),
+      div('demo-links', LINKS.map(function (l, i) {
+        return h(E.Card, { key: i, padding: 'm', className: 'demo-link' + (l.on ? '' : ' demo-link--off') },
+          div('demo-two', text('demo-link__name', l.name), text('demo-two__s', l.created)),
+          div('demo-link__term', text('demo-link__text', l.until), l.pct != null && h(E.Progress, { size: 's', tone: l.tone, percent: l.pct, label: 'Срок ссылки', showLabel: false })),
+          div('demo-link__account', text('demo-link__text', l.account), l.main && h(E.Badge, { size: 's', label: 'Основной' })),
+          div('demo-two', text('demo-link__text', l.access), l.export && text('demo-two__s', 'С выгрузкой')),
+          div('demo-link__actions',
+            h(E.Toggle, { status: l.on, inputProps: { 'aria-label': 'Ссылка «' + l.name + '» активна' } }),
+            h(E.IconButton, { type: 'ghost', size: 's', label: 'Скопировать ссылку', icon: h(E.Icon, { name: 'link' }) }),
+            h(E.IconButton, { type: 'ghost', size: 's', label: 'Ещё', icon: h(E.Icon, { name: 'more-horizontal' }) })));
+      })));
+  }
+
+  // ───────── Настройки → Уведомления (patterns 3.9a) ─────────
+  var NOTIFY = [
+    { id: 'pay', label: 'Выплаты', mail: true, tg: true }, { id: 'acc', label: 'Начисления', mail: true, tg: false },
+    { id: 'status', label: 'Статус майнинга', mail: false, tg: true },
+    { id: 'drop', label: 'Снижение хешрейта', desc: 'Чтобы не пропускать снижение хешрейта', action: 'Настроить', mail: true, tg: true }];
+  function WebSettings() {
+    var cell = function (row, ch) {
+      return h(E.Checkbox, { status: row[ch] ? 'on' : 'off', className: 'demo-notify__cell', inputProps: { 'aria-labelledby': 'col-' + ch + ' row-' + row.id } });
+    };
+    return h(WebShell, { tab: 'Настройки' },
+      div('demo-menu demo-menu--split',
+        h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Аккаунт', defaultValue: 'main', className: 'demo-settings__account',
+          options: [{ value: 'main', label: 'SergeySiminiv1337' }, { value: 'second', label: 'petrovskii' }] }),
+        h(E.Segmented, { size: 'l', label: 'Раздел настроек', defaultValue: 'notify', className: 'demo-settings__seg', items: [{ value: 'out', label: 'Вывод' }, { value: 'notify', label: 'Уведомления' }] })),
+      h(E.Card, { padding: 'l', className: 'demo-notify' },
+        div('demo-notify__row demo-notify__row--head',
+          h(E.SectionHeader, { size: 'm', level: 2, title: 'Типы уведомлений', caption: 'Какие уведомления хочешь получать' }),
+          h(E.Checkbox, { id: 'col-mail', label: 'Эл. почта', description: 'ruf•••@•••cd.io', className: 'demo-notify__col' }),
+          h(E.Checkbox, { id: 'col-tg', label: 'Telegram', description: '@ruf•••', className: 'demo-notify__col' })),
+        NOTIFY.map(function (r) {
+          return h(F, { key: r.id }, h(E.Divider, null),
+            div('demo-notify__row',
+              div('demo-two', text('demo-notify__label', h('span', { id: 'row-' + r.id }, r.label)),
+                r.desc && div('demo-notify__desc', text('demo-two__s', r.desc), h(E.Button, { type: 'text', size: 'xs', label: r.action }))),
+              cell(r, 'mail'), cell(r, 'tg')));
+        })));
+  }
+
+  var SCREENS = { 'web-dashboard': WebDashboard, 'web-workers': WebWorkers, 'web-history': WebHistory, 'mw-dashboard': MwDashboard, 'mw-workers': MwWorkers, 'mw-history': MwHistory,
+    'web-calculator': WebCalculator, 'mw-calculator': MwCalculator, 'web-watcher': WebWatcher, 'web-settings': WebSettings };
   ReactDOM.createRoot(document.getElementById('root')).render(h(SCREENS[screen] || WebDashboard));
 })();

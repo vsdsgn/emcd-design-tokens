@@ -15,6 +15,9 @@
 .emcd-amount--l .emcd-amount__value, .emcd-amount--xl .emcd-amount__value { letter-spacing: -0.01em; }
 .emcd-amount--end { align-items: flex-end; text-align: end; }
 .emcd-amount--positive .emcd-amount__value { color: var(--text-success); }
+/* Tone (19.11) — цвет суммы и тикера без знака (Sign=None): итог дохода (Калькулятор) — Success. Со знаком не применяется: знак и цвет — Sign */
+.emcd-amount--tone-success .emcd-amount__value, .emcd-amount--tone-success .emcd-amount__ticker { color: var(--text-success); }
+.emcd-amount--tone-danger .emcd-amount__value, .emcd-amount--tone-danger .emcd-amount__ticker { color: var(--text-danger); }
 /* Skeleton (State=Skeleton, 19.11) — плашка вместо суммы той же высоты: строка значения → плашка высотой строки размера (--lh) на всю доступную ширину (не шире предела размера),
    фиат → короче (--flh), если showFiat. Sign не применяется. S / M — radius/inner, L / XL — radius/container. Пульс — общий (блок Skeleton). */
 .emcd-amount--skeleton { --bone-max: 96px; --bone-r: var(--radius-inner, 8px); display: flex; width: 100%; max-width: var(--bone-max); }

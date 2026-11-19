@@ -69,7 +69,7 @@
 - Описание: 857 знаков, разделы: Status: Level: Size: Когда нет: Правила: A11y: Поиск:
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`SectionHeader`), Vue `packages/vue/src/DsSectionHeader.vue`, CSS `claude-ds/components/SectionHeader/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsSectionHeader>`; Flutter: `DsSectionHeader`.
 - Props: `size`: m | s; `trailing`: string или слот; `title`: string или слот; `caption`: string или слот; `showCaption`: boolean = false; `showTrailing`: boolean = false.

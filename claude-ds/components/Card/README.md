@@ -2,9 +2,11 @@
 
 Контейнер-подложка: уровень поверхности, радиус, внутренний отступ и обводка. Своего содержимого нет.
 
-**Оси (как в Figma «🟡 Card»):** Level 1 · 2 · 3 · 0 × Radius Container · Surface · Inner × Padding S 12 · M 16 · L 24 × Border On · Off (72 варианта).
+**Оси (как в Figma «🟡 Card»):** Level 1 · 2 · 3 · 0 × Radius Container · Surface · Inner × Padding S 12 · M 16 · L 24 × Border On · Off (72 варианта) + свойство Ambient light (19.11).
 
 **Когда какой:** Level — по вложенности, не для украшения: 1 — на странице, 2 — внутри карточки, 3 — во вложенном блоке, 0 — белая карточка на подложке L1, только с Border. Radius: Surface — крупные блоки страницы; Container — карточки в сетке; Inner — вложенные плашки (числа у брендов свои, `radius-*`). Padding — один на группу карточек. Border On — где подложка сливается с фоном (L0 в светлой теме, соседние уровни, Level 0, Dark).
+
+Ambient light — фоновое пятно `light-ambient-color` / `light-ambient-blur` справа сверху, обрезано радиусом (как у Stat card): только одна герой-карточка на экран (Coinhold в Калькуляторе); в стиле Base токен прозрачный — видно в Expressive. Содержимое не выходит за карточку (всплывающее — порталом).
 
 **Когда нет:** разделить два абзаца — отступ или Divider; всплывающее содержимое — Modal, Sheet, Popover.
 
@@ -14,4 +16,4 @@
 
 **Доступность:** некликабельная — `div`; кликабельная — `<a>` или `<button>` целиком, внутри без других интерактивных элементов.
 
-Классы: `emcd-card [emcd-card--level-{0|2|3}] [emcd-card--radius-{surface|inner}] [emcd-card--padding-{m|l}] [emcd-card--border] [emcd-card--interactive]`.
+Классы: `emcd-card [emcd-card--level-{0|2|3}] [emcd-card--radius-{surface|inner}] [emcd-card--padding-{m|l}] [emcd-card--border] [emcd-card--ambient] [emcd-card--interactive]`.

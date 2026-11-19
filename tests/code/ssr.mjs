@@ -94,10 +94,15 @@ const RC = {
   Amount: [
     ...['s', 'm', 'l', 'xl'].flatMap((size) => ['none', 'positive', 'negative'].map((sign) => ({ size, sign, value: '0.12345678', ticker: 'BTC', fiat: '≈ $2,731.40' }))),
     { align: 'end', value: 12, ticker: 'USDT', showFiat: false },
+    // Tone (19.11): цвет суммы без знака; со знаком не применяется
+    ...['success', 'danger'].flatMap((tone) => [{ size: 'xl', tone, value: '≈ $352 665.84', showFiat: false }, { tone, sign: 'positive', value: 1, ticker: 'LTC' }]),
     // Skeleton (19.11): sign не применяется, фиат — при showFiat
     ...['s', 'm', 'l', 'xl'].map((size) => ({ size, sign: 'positive', skeleton: true })), { skeleton: true, align: 'end', showFiat: false, value: '1' },
   ],
-  Card: [{ children: 'Контент' }, { level: 0, radius: 'surface', padding: 'l', children: 'x' }, { level: 2, radius: 'inner', padding: 'm', border: false, children: 'x' }, { level: 3, href: '#', children: 'x' }, { onClick: () => {}, children: 'x' }],
+  Card: [{ children: 'Контент' }, { level: 0, radius: 'surface', padding: 'l', children: 'x' }, { level: 2, radius: 'inner', padding: 'm', border: false, children: 'x' }, { level: 3, href: '#', children: 'x' }, { onClick: () => {}, children: 'x' }, { level: 2, padding: 'l', ambientLight: true, children: 'Coinhold' }],
+  SectionHeader: [{ title: 'Переводить на Coinhold', caption: 'Ещё больше дохода с намайненных монет', trailing: h(R.Toggle, { status: true, label: 'до 9% годовых' }) },
+    { size: 's', title: 'Сколько переводить?' }, { size: 's', level: 4, title: 'Прогноз доходности', caption: 'скрыта', showCaption: false },
+    { level: 2, title: 'Типы уведомлений', children: h(R.Button, { type: 'text', size: 's', label: 'Отключить всё' }) }, { level: 5, title: 'x', trailing: 'y', showTrailing: false }],
   StatCard: [
     { label: 'Хешрейт · 24 ч', value: '124.5', unit: 'TH/s', infoText: 'Средний хешрейт', deltaValue: '+4.2%', deltaCaption: 'к вчера' },
     ...['neutral', 'danger', 'warning', 'success'].flatMap((tone) => ['start', 'center'].map((align) => ({ tone, align, link: true, label: 'Воркеры', value: '12', delta: false }))),
@@ -302,8 +307,10 @@ const VC = {
   DsSkeleton: [[{}], [{ shape: 'title', width: 200 }], [{ shape: 'circle', width: 24, height: 24 }], [{ shape: 'rect', height: '80px' }]],
   DsProgress: [[{ label: 'Лимит', value: '6 000 / 10 000', percent: 60 }], [{ tone: 'danger', size: 'm', percent: 100 }], [{ mode: 'indeterminate', label: 'x' }]],
   DsAmount: ['s', 'm', 'l', 'xl'].map((size) => [{ size, sign: 'positive', value: '0.1234', ticker: 'BTC', fiat: '≈ $2,731.40' }]).concat([[{ sign: 'negative', align: 'end', value: 5, ticker: 'USDT', showFiat: false }]])
-    .concat(['s', 'm', 'l', 'xl'].map((size) => [{ size, skeleton: true, sign: 'positive' }]), [[{ skeleton: true, align: 'end', showFiat: false }]]),
-  DsCard: [[{}, { default: () => 'x' }], [{ level: 0, radius: 'surface', padding: 'l' }, { default: () => 'x' }], [{ level: 2, href: '#' }, { default: () => 'x' }]],
+    .concat(['s', 'm', 'l', 'xl'].map((size) => [{ size, skeleton: true, sign: 'positive' }]), [[{ skeleton: true, align: 'end', showFiat: false }]], [[{ size: 'xl', tone: 'success', value: '≈ $352 665.84' }], [{ tone: 'danger', value: '120.01', ticker: '$' }], [{ tone: 'success', sign: 'negative', value: 1 }]]),
+  DsCard: [[{}, { default: () => 'x' }], [{ level: 0, radius: 'surface', padding: 'l' }, { default: () => 'x' }], [{ level: 2, href: '#' }, { default: () => 'x' }], [{ level: 2, ambientLight: true }, { default: () => 'x' }]],
+  DsSectionHeader: [[{ title: 'Переводить на Coinhold', caption: 'Ещё больше дохода' }, { trailing: () => 'toggle' }], [{ size: 's', title: 'Сколько переводить?' }],
+    [{ size: 's', level: 4, title: 'x', caption: 'скрыта', showCaption: false, trailing: 'y', showTrailing: false }], [{ level: 2, title: 'Типы уведомлений', trailing: 'Отключить всё' }], [{ title: 'x' }, { default: () => 'слот' }]],
   DsStatCard: [[{ label: 'Хешрейт', value: '124.5', unit: 'TH/s', infoText: 'x', deltaValue: '+4%', deltaCaption: 'к вчера' }],
     ...['neutral', 'danger', 'warning', 'success'].flatMap((tone) => ['start', 'center'].map((align) => [{ tone, align, link: true, label: 'Воркеры', value: '12', delta: false }])),
     [{ showFooter: true, ambientLight: true, label: 'x', value: 1 }, { footer: () => 'graph' }], [{ skeleton: true, align: 'center' }], [{ skeleton: true, align: 'center', delta: false }], [{ skeleton: true, showFooter: true }, { footer: () => 'graph' }]],

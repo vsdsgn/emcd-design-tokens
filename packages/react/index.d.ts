@@ -240,6 +240,8 @@ export interface AmountProps {
   size?: 's' | 'm' | 'l' | 'xl';
   /** positive — поступление «+», цвет успеха; negative — списание «−» (U+2212), не красный; none — остаток, цена. */
   sign?: 'none' | 'positive' | 'negative';
+  /** Цвет суммы и тикера без знака (только sign none, 19.11): success — итог дохода (Калькулятор); danger — расход. Знак и цвет вместе — sign. */
+  tone?: 'default' | 'success' | 'danger';
   /** Число без знака — знак ставит sign. */
   value?: ReactNode;
   ticker?: ReactNode;
@@ -261,12 +263,32 @@ export interface CardProps {
   padding?: 's' | 'm' | 'l';
   /** Обводка border-subtle вне раскладки. */
   border?: boolean;
+  /** Ambient light (19.11): пятно light/ambient справа сверху, обрезано радиусом; в Base прозрачное (видно в Expressive). Одна герой-карточка на экран; содержимое не выходит за карточку. */
+  ambientLight?: boolean;
   /** Кликабельная карточка: ссылка на всю площадь. */
   href?: string;
   /** Кликабельная карточка: кнопка на всю площадь. */
   onClick?: () => void;
   as?: string;
   children?: ReactNode;
+}
+
+export interface SectionHeaderProps {
+  /** m — label/lg 16 Medium (секция карточки: «Переводить на Coinhold»); s — label/md 14 Medium (подсекция: «Сколько переводить?»). */
+  size?: 'm' | 's';
+  /** Уровень заголовка: h2–h4 (по умолчанию h3 — секция внутри страницы с h1 / h2). */
+  level?: 2 | 3 | 4;
+  title: ReactNode;
+  /** Строка под заголовком — body/sm text/secondary. */
+  caption?: ReactNode;
+  /** По умолчанию — есть ли caption. */
+  showCaption?: boolean;
+  /** Слот справа: Toggle, Button Text, Badge, Select compact (или children). */
+  trailing?: ReactNode;
+  /** По умолчанию — есть ли trailing / children. */
+  showTrailing?: boolean;
+  children?: ReactNode;
+  className?: string;
 }
 
 export interface StatCardProps {
@@ -556,6 +578,8 @@ export declare function Skeleton(props: SkeletonProps): JSX.Element;
 export declare function Progress(props: ProgressProps): JSX.Element;
 export declare function Amount(props: AmountProps): JSX.Element;
 export declare function Card(props: CardProps): JSX.Element;
+/** Section header — заголовок секции внутри карточки или формы (draft). */
+export declare function SectionHeader(props: SectionHeaderProps): JSX.Element;
 export declare function StatCard(props: StatCardProps): JSX.Element;
 export declare function Tooltip(props: TooltipProps): JSX.Element;
 export declare function Toast(props: ToastProps): JSX.Element | null;

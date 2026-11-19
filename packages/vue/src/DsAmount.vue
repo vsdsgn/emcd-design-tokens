@@ -1,9 +1,10 @@
-<!-- Amount — сумма + тикер (неразрывный пробел) + фиат. sign: positive «+» и цвет успеха; negative «−» (U+2212), не красный. Контракт: docs/components/amount.md -->
+<!-- Amount — сумма + тикер (неразрывный пробел) + фиат. sign: positive «+» и цвет успеха; negative «−» (U+2212), не красный. tone: success | danger — цвет суммы без знака. Контракт: docs/components/amount.md -->
 <script setup>
 import { computed } from 'vue';
 const props = defineProps({
   size: { type: String, default: 's' },    // s 12 — строки Compact | m 14 — карточки, таблицы Web | l 24 Bold — заголовок блока | xl — главный баланс
   sign: { type: String, default: 'none' }, // none | positive | negative
+  tone: { type: String, default: 'default' }, // default | success | danger — цвет суммы и тикера без знака (только sign none; 19.11)
   value: [String, Number],
   ticker: String,
   fiat: String,
@@ -22,7 +23,7 @@ const shown = computed(() => {
     <span class="emcd-amount__row"><span class="emcd-amount__bone" aria-hidden="true" /></span>
     <span v-if="showFiat" class="emcd-amount__bone emcd-amount__bone--fiat" aria-hidden="true" />
   </span>
-  <span v-else :class="['emcd-amount', size !== 's' && `emcd-amount--${size}`, sign !== 'none' && `emcd-amount--${sign}`, align === 'end' && 'emcd-amount--end']">
+  <span v-else :class="['emcd-amount', size !== 's' && `emcd-amount--${size}`, sign !== 'none' && `emcd-amount--${sign}`, sign === 'none' && tone !== 'default' && `emcd-amount--tone-${tone}`, align === 'end' && 'emcd-amount--end']">
     <span class="emcd-amount__row"><span class="emcd-amount__value"><slot>{{ shown }}</slot></span><template v-if="ticker">&nbsp;<span class="emcd-amount__ticker">{{ ticker }}</span></template></span>
     <span v-if="showFiat && fiat" class="emcd-amount__fiat">{{ fiat }}</span>
   </span>

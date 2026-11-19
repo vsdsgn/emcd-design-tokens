@@ -16,7 +16,7 @@ export const LIST = [
   'sort', 'sort-line-down', 'sort-line-up', 'filter', 'info',
   // контролы и навигация
   'chevron-down', 'chevron-up', 'chevron-left', 'chevron-right', 'arrow-right', 'arrow-left', 'arrow-new-tab', 'close', 'check', 'plus', 'minus',
-  'menu', 'more-horizontal', 'more-vertical', 'dots-grid', 'search', 'calendar', 'list', 'folder', 'folder-add', 'tuning', 'eye', 'eye-off', 'copy', 'refresh',
+  'menu', 'more-horizontal', 'more-vertical', 'dots-grid', 'search', 'calendar', 'list', 'folder', 'folder-add', 'tuning', 'eye', 'eye-off', 'copy', 'link', 'refresh',
   // действия и показатели майнинга
   'chart-bar', 'file-excel', 'download', 'send', 'question', 'lightning', 'trend-up', 'settings', 'user', 'users', 'bell-notifications', 'calculator', 'history',
   // пункты сайдбара Web App (Активы · Криптокарта · Майнинг · Торговля · P2P · Coinhold · Стейкинг · Indesk · OnLock)
