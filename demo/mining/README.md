@@ -10,9 +10,9 @@
 | Дашборд · мобильный веб | `mw-dashboard.html` | 375 × вся высота | Top bar + Tabs M + контент (поля 16, зазор 12) |
 | Воркеры · мобильный веб | `mw-workers.html` | 375 × 812 | + Action bar |
 | История · мобильный веб | `mw-history.html` | 375 × 812 | + Action bar |
-| Калькулятор · Web (3.10a) | `web-calculator.html` | 1440 × 914 | Sidebar + Tabs Page; заголовок страницы + две колонки (форма · 400 «Ожидаемый доход» + Suggest Strip) |
+| Калькулятор · Web (3.10a) | `web-calculator.html` | 1440 × 914 | Sidebar + Tabs Page; Page header Large + две колонки (форма · 400 «Ожидаемый доход» + Suggest Strip) |
 | Калькулятор · мобильный веб (3.10a) | `mw-calculator.html` | 375 × вся высота | Top bar + Tabs M; одна колонка + Action bar «Начать майнить» |
-| Watcher-link · Web (3.9a) | `web-watcher.html` | 1440 × 900 | Suggest Strip Accent; меню (заголовок, 2 Select, Button Primary M); список Card M |
+| Watcher-link · Web (3.9a) | `web-watcher.html` | 1440 × 900 | Suggest Strip Accent; меню (Page header Large, 2 Select, Button Primary M); список Card M |
 | Настройки → Уведомления · Web (3.9a) | `web-settings.html` | 1440 × 900 | меню (Select аккаунта, Segmented L); Card L — матрица Checkbox |
 
 Состав: `screens.js` (экраны на `React.createElement`, данные и тексты — с макетов), `demo.css` (только раскладка: flex / grid, токены `space-*`, тексты на токенах типографики), `vendor/` — React 18.3.1 UMD (копия из `tests/code/node_modules`, демо работает без сети), `reference/` — рендеры Figma 19.11 (калькулятор, Watcher-link, Настройки — экраны «… · DS 2.0»; Watcher-link и Настройки сняты в 1200 × 750 — в сравнении растягиваются до ширины страницы).
@@ -69,7 +69,7 @@ npm run demo:mining -- mw-workers web-history   # выборочно
 ## Калькулятор, Watcher-link, Настройки (19.11)
 
 Собраны из `window.EMCD`: заголовки секций — `SectionHeader` (M «Переводить на Coinhold», S «Сколько переводить?», «Прогноз доходности», M «Типы уведомлений»), карточка Coinhold — `Card` `ambientLight` (Level 2 на Web, Level 1 на мобильном), итог дохода — `Amount` XL `tone="success"`; поля — Input M On border с единицей в Trailing; период и доля — ряд Chip M (выбор одного); прогноз — Progress S (первый accent, второй success) + Amount S; монеты — Coin + Amount (S на Web в 2 колонки, M на мобильном); «Время выплат» — Key-value row; VIP — Suggest Strip Neutral. Watcher-link: Card M на ссылку, срок — Progress S по тону остатка, Badge S «Основной», Toggle без подписи (`inputProps.aria-label`), Icon button Ghost S `link` / `more-horizontal`; выключенная — тексты `text-tertiary`. Настройки: заголовки колонок — Checkbox M с подписью и описанием, ячейки — Checkbox без подписи с `aria-labelledby` (колонка + строка), «Настроить» — Button Text XS.
-Заголовок страницы («Калькулятор доходности», «Мои Watcher link») — текст на токенах `heading-xl`: Page header в коде нет. В `shots.mjs` экраны «вся высота» снимаются с окном во всю страницу — Action bar (sticky) встаёт в конец, как на макете.
+Заголовок страницы («Калькулятор доходности», «Мои Watcher link») — `PageHeader` Large (`h1`, Heading/XL, сверху `space-8`). У Watcher-link два Select — фильтры экрана, не Actions (контракт: до двух кнопок), поэтому шапка без действий стоит в ряду меню вместе с Select и «Создать Watcher link», как на макете. В `shots.mjs` экраны «вся высота» снимаются с окном во всю страницу — Action bar (sticky) встаёт в конец, как на макете.
 
 | Расхождение (19.11) | Причина | Статус |
 |---|---|---|

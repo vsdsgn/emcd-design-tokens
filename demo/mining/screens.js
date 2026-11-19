@@ -327,7 +327,7 @@
 
   function WebCalculator() {
     return h(WebShell, { tab: 'Калькулятор' },
-      h('h1', { className: 'demo-page-title' }, 'Калькулятор доходности'),
+      h(E.PageHeader, { size: 'large', title: 'Калькулятор доходности' }),
       div('demo-calc',
         h(E.Card, { padding: 'l', className: 'demo-calc__form' },
           div('demo-calc__fields', CALC_FIELDS.map(function (f) { return calcField(f); })),
@@ -358,7 +358,8 @@
     return h(WebShell, { tab: 'Watcher-link' },
       h(E.Suggest, { layout: 'strip', tone: 'accent', title: 'Подключай сторонние сервисы с помощью API-ключей', primaryLabel: 'Перейти', close: false }),
       div('demo-menu demo-menu--watcher',
-        h('h1', { className: 'demo-page-title demo-grow' }, 'Мои Watcher link'),
+        // Page header Large без действий: 2 Select — фильтры экрана (не Actions), «Создать» стоит с ними в одном ряду меню, как на макете
+        h(E.PageHeader, { size: 'large', title: 'Мои Watcher link', className: 'demo-grow' }),
         h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Аккаунт', defaultValue: 'all', className: 'demo-watcher__select',
           options: [{ value: 'all', label: 'Все аккаунты' }, { value: 'petrovskii', label: 'petrovskii' }] }),
         h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Сортировать по', defaultValue: 'date', className: 'demo-watcher__select',

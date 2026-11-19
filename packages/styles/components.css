@@ -492,6 +492,26 @@
 .emcd-section-header--s .emcd-section-header__text { gap: var(--space-2, 2px); }
 .emcd-section-header--s .emcd-section-header__title { font-size: var(--type-label-md-size, 14px); line-height: var(--type-label-md-line-height, 20px); }
 
+/* Page header — 🟡 beta (Figma «Page header»: Size Large · Compact). Шапка страницы: Breadcrumbs (только вложенные страницы Web), title row — текст (Title h1 + Subtitle) и слот Actions, слот Tabs последним.
+   Large — Web: Heading/XL, зазоры 16, действия справа (до двух: Secondary M + Primary M), табы через 24. Compact — под Top bar на корневых экранах App / мобильного веба:
+   Heading/LG, поля 4 / control/padding-x/lg / 8, зазоры 12, действия рядом под заголовком с переносом, табы через 16. Текст — не уже size/page-header/text-min. */
+.emcd-page-header { --_gap: var(--space-16, 16px); --_tabs-gap: var(--space-24, 24px);
+  display: flex; flex-direction: column; gap: var(--_gap); min-width: 0; padding: var(--space-8, 8px) 0 0; }
+.emcd-page-header__breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8, 8px); min-width: 0; }
+.emcd-page-header__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--_gap); min-width: 0; } /* узко (текст уже text-min) — действия переносятся под текст */
+.emcd-page-header__text { display: flex; flex: 1 1 0; flex-direction: column; gap: var(--space-4, 4px); min-width: min(100%, var(--size-page-header-text-min, 200px)); }
+.emcd-page-header__title { margin: 0; font: 700 var(--type-heading-xl-size, 32px)/var(--type-heading-xl-line-height, 40px) var(--font-display, var(--font-sans)); letter-spacing: -0.01em; color: var(--text-primary); overflow-wrap: anywhere; }
+.emcd-page-header__subtitle { margin: 0; font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); color: var(--text-secondary); }
+.emcd-page-header__actions { display: flex; flex: none; align-items: center; gap: var(--space-8, 8px); }
+.emcd-page-header__tabs { min-width: 0; margin-top: calc(var(--_tabs-gap) - var(--_gap)); }
+.emcd-page-header--compact { --_gap: var(--space-12, 12px); --_tabs-gap: var(--space-16, 16px); padding: var(--space-4, 4px) var(--control-padding-x-lg, 16px) var(--space-8, 8px); }
+.emcd-page-header--compact .emcd-page-header__row { flex-direction: column; align-items: stretch; }
+.emcd-page-header--compact .emcd-page-header__text { min-width: 0; }
+.emcd-page-header--compact .emcd-page-header__title { font-size: var(--type-heading-lg-size, 24px); line-height: var(--type-heading-lg-line-height, 32px); }
+.emcd-page-header--compact .emcd-page-header__actions { flex: 0 1 auto; flex-wrap: wrap; }
+/* Compact: табы шире корня — горизонтальный скролл (по Tabs) */
+.emcd-page-header--compact .emcd-page-header__tabs { overflow-x: auto; scrollbar-width: none; }
+
 /* Stat card — 🟡 beta (Figma «🟡 Stat card»: State × Tone × Align). Один показатель: подпись, число, единица, дельта.
    Tone=Neutral — подложка на уровень выше текущей (surface-next) с обводкой; Danger / Warning / Success — status/*-subtle без обводки, значение text/*.
    Align=Center — плитки статусов: всё по центру, поля space/4 по бокам и space/32 снизу. Link — Icon button XS в правом нижнем углу. min-width снят (17.11). */

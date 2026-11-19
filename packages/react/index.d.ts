@@ -291,6 +291,31 @@ export interface SectionHeaderProps {
   className?: string;
 }
 
+export interface PageHeaderProps {
+  /** large — Web (Large+): Heading/XL, действия справа; compact — под Top bar на корневых экранах App / мобильного веба: Heading/LG, действия рядом под заголовком (переносятся). */
+  size?: 'large' | 'compact';
+  /** Уровень заголовка: h1–h3 (по умолчанию h1 — заголовок страницы). */
+  level?: 1 | 2 | 3;
+  title: ReactNode;
+  /** Сводка одной строкой (body/md text/secondary), не описание раздела. */
+  subtitle?: ReactNode;
+  /** По умолчанию — есть ли subtitle. */
+  showSubtitle?: boolean;
+  /** Слот Breadcrumbs — только на вложенных страницах Web (2+ уровня); оборачивается в nav с aria-label. Нет слота — крошек нет (Figma Breadcrumbs = Off). */
+  breadcrumbs?: ReactNode;
+  /** aria-label навигации крошек (по умолчанию «Хлебные крошки»). */
+  breadcrumbsLabel?: string;
+  /** Слот Actions — до двух Button M (Secondary + Primary). Large — справа от текста; Compact — ряд под заголовком с переносом. */
+  actions?: ReactNode;
+  /** По умолчанию — есть ли actions (на корневых экранах App действия — в Top bar: false). */
+  showActions?: boolean;
+  /** Слот Tabs — Tabs того же размера, что шапка; всегда последним, контент сразу под ним. */
+  tabs?: ReactNode;
+  /** По умолчанию — есть ли tabs. */
+  showTabs?: boolean;
+  className?: string;
+}
+
 export interface StatCardProps {
   /** neutral — по умолчанию; danger / warning / success — плитки статусной сводки (Отключённые / Нестабильные / Активные): подложка status-*-subtle, значение text-*. */
   tone?: 'neutral' | 'danger' | 'warning' | 'success';
@@ -580,6 +605,8 @@ export declare function Amount(props: AmountProps): JSX.Element;
 export declare function Card(props: CardProps): JSX.Element;
 /** Section header — заголовок секции внутри карточки или формы (draft). */
 export declare function SectionHeader(props: SectionHeaderProps): JSX.Element;
+/** Page header — шапка страницы: заголовок h1, подзаголовок, крошки, действия, табы (beta). */
+export declare function PageHeader(props: PageHeaderProps): JSX.Element;
 export declare function StatCard(props: StatCardProps): JSX.Element;
 export declare function Tooltip(props: TooltipProps): JSX.Element;
 export declare function Toast(props: ToastProps): JSX.Element | null;

@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Skeleton"},{"name":"Progress"},{"name":"Amount"},{"name":"Card"},{"name":"SectionHeader"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
+/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Skeleton"},{"name":"Progress"},{"name":"Amount"},{"name":"Card"},{"name":"SectionHeader"},{"name":"PageHeader"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
 /* EMCD DS 2.0 — компоненты React 18. Генерируется scripts/code-build.mjs из packages/react/src/index.js — не править руками. */
 (function () {
 'use strict';
@@ -287,6 +287,23 @@ function SectionHeader({ size = 'm', level = 3, title, caption, showCaption, tra
       h('h' + lv, { className: 'emcd-section-header__title' }, title),
       withCaption && h('p', { className: 'emcd-section-header__caption' }, caption)),
     withTrailing && h('div', { className: 'emcd-section-header__trailing' }, tr));
+}
+
+/** Page header — шапка страницы (beta, 19.11). size: large — Web, Heading/XL, действия справа (до двух: Secondary M + Primary M);
+ *  compact — под Top bar на корневых экранах App / мобильного веба, Heading/LG, действия рядом под заголовком с переносом.
+ *  title — заголовок `level` (по умолчанию h1); subtitle — сводка одной строкой (showSubtitle); breadcrumbs — слот, только на вложенных страницах Web
+ *  (оборачивается в nav «Хлебные крошки»); actions — слот (showActions); tabs — слот Tabs того же размера, последним (showTabs). Контракт: docs/components/page-header.md */
+function PageHeader({ size = 'large', level = 1, title, subtitle, showSubtitle, breadcrumbs, breadcrumbsLabel = 'Хлебные крошки', actions, showActions, tabs, showTabs, className, ...rest }) {
+  const lv = [1, 2, 3].includes(Number(level)) ? Number(level) : 1;
+  const on = (show, v) => (show ?? true) && v != null && v !== false;
+  return h('header', { className: cx('emcd-page-header', size === 'compact' && 'emcd-page-header--compact', className), ...rest },
+    breadcrumbs != null && breadcrumbs !== false && h('nav', { className: 'emcd-page-header__breadcrumbs', 'aria-label': breadcrumbsLabel }, breadcrumbs),
+    h('div', { className: 'emcd-page-header__row' },
+      h('div', { className: 'emcd-page-header__text' },
+        h('h' + lv, { className: 'emcd-page-header__title' }, title),
+        on(showSubtitle, subtitle) && h('p', { className: 'emcd-page-header__subtitle' }, subtitle)),
+      on(showActions, actions) && h('div', { className: 'emcd-page-header__actions' }, actions)),
+    on(showTabs, tabs) && h('div', { className: 'emcd-page-header__tabs' }, tabs));
 }
 
 const DELTA_TONE = { success: 'success', danger: 'danger', neutral: 'neutral' };
@@ -1427,5 +1444,5 @@ function TabBar({ items, value, defaultValue, onChange, onAction, safeArea = tru
   return h('nav', { 'aria-label': label, className: cx('emcd-tab-bar', !safeArea && 'emcd-tab-bar--no-safe-area', className), ...rest },
     h('div', { className: 'emcd-tab-bar__items' }, body));
 }
-window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, Amount, Card, SectionHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
+window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
 })();

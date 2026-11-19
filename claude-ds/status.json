@@ -36,6 +36,7 @@
     "Modal": "beta",
     "NavItem": "beta",
     "Notification": "beta",
+    "PageHeader": "beta",
     "PageIndicator": "beta",
     "Pagination": "beta",
     "PasswordField": "beta",

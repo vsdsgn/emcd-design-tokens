@@ -285,6 +285,23 @@ export function SectionHeader({ size = 'm', level = 3, title, caption, showCapti
     withTrailing && h('div', { className: 'emcd-section-header__trailing' }, tr));
 }
 
+/** Page header — шапка страницы (beta, 19.11). size: large — Web, Heading/XL, действия справа (до двух: Secondary M + Primary M);
+ *  compact — под Top bar на корневых экранах App / мобильного веба, Heading/LG, действия рядом под заголовком с переносом.
+ *  title — заголовок `level` (по умолчанию h1); subtitle — сводка одной строкой (showSubtitle); breadcrumbs — слот, только на вложенных страницах Web
+ *  (оборачивается в nav «Хлебные крошки»); actions — слот (showActions); tabs — слот Tabs того же размера, последним (showTabs). Контракт: docs/components/page-header.md */
+export function PageHeader({ size = 'large', level = 1, title, subtitle, showSubtitle, breadcrumbs, breadcrumbsLabel = 'Хлебные крошки', actions, showActions, tabs, showTabs, className, ...rest }) {
+  const lv = [1, 2, 3].includes(Number(level)) ? Number(level) : 1;
+  const on = (show, v) => (show ?? true) && v != null && v !== false;
+  return h('header', { className: cx('emcd-page-header', size === 'compact' && 'emcd-page-header--compact', className), ...rest },
+    breadcrumbs != null && breadcrumbs !== false && h('nav', { className: 'emcd-page-header__breadcrumbs', 'aria-label': breadcrumbsLabel }, breadcrumbs),
+    h('div', { className: 'emcd-page-header__row' },
+      h('div', { className: 'emcd-page-header__text' },
+        h('h' + lv, { className: 'emcd-page-header__title' }, title),
+        on(showSubtitle, subtitle) && h('p', { className: 'emcd-page-header__subtitle' }, subtitle)),
+      on(showActions, actions) && h('div', { className: 'emcd-page-header__actions' }, actions)),
+    on(showTabs, tabs) && h('div', { className: 'emcd-page-header__tabs' }, tabs));
+}
+
 const DELTA_TONE = { success: 'success', danger: 'danger', neutral: 'neutral' };
 /** Stat card — один показатель. skeleton — полосы на месте подписи, числа и дельты (дельта — если delta), высота как у Default; тон в загрузке — neutral (решает родитель). tone: neutral | danger | warning | success (плитки статусной сводки); align: start | center (плитки статусов).
  *  delta + deltaValue («+4,2 %») + deltaTone: success рост · danger падение · neutral без изменений. link — Icon button XS с шевроном chevron-right, как в Figma (onLink): Danger — Secondary Danger, иначе Tertiary. */
@@ -1425,7 +1442,7 @@ export function TabBar({ items, value, defaultValue, onChange, onAction, safeAre
 }
 
 export const components = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal,
-  Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, Amount, Card, SectionHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented,
+  Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented,
   ListItem, Transaction, MenuItem, Menu, Select, PasswordField,
   Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateRangeField, DateCell, Calendar, DateRangePanel, PageIndicator, LegendSwatch, LegendItem, ChartMetric,
   TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar,

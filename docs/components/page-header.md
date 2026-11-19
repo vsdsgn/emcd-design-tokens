@@ -100,17 +100,19 @@
 - Описание: 1023 знаков, разделы: Status: Level: Шапка страницы: Size: Правила: A11y: Когда использовать: Поиск: Legacy:
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`PageHeader`), Vue `packages/vue/src/DsPageHeader.vue`, CSS `claude-ds/components/PageHeader/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsPageHeader>`; Flutter: `DsPageHeader`.
 - Props: `size`: large | compact; `title`: string или слот; `subtitle`: string или слот; `showSubtitle`: boolean = true; `breadcrumbs`: boolean = false; `showActions`: boolean = true; `showTabs`: boolean = false; `actions`: string или слот; `tabs`: string или слот.
+- `breadcrumbs`, `actions`, `tabs` — слоты; булевы Figma (Breadcrumbs, Show actions, Show tabs) в коде — наличие слота, `showActions` / `showTabs` / `showSubtitle` по умолчанию — есть ли содержимое; крошки оборачиваются в `nav` (`breadcrumbsLabel`, по умолчанию «Хлебные крошки»).
+- `level` — уровень заголовка 1–3 (по умолчанию `h1`). Фильтры и сортировка экрана (Select, Segmented) — не Actions: остаются в меню экрана рядом с шапкой.
 
 ## 14. Acceptance (2026-11-19)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина корня числом (1120 / 375).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props пропущена: кода нет.
-- Не проверено: полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; Large шире ячеек стенда — действия видны только на листах 200 % и свойств, текст и языки — по видимой части; RTL на стенде не зеркалится; кода нет — parity props пропущена.
+- Не проверено: полный крест 72 ячеек — на стенде 2026-11-15 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; Large шире ячеек стенда — действия видны только на листах 200 % и свойств, текст и языки — по видимой части; RTL на стенде не зеркалится; код есть (19.11, демо майнинга — Калькулятор и Watcher-link Web), манифеста кода нет — parity props пропущена.
 
 ## 15. Migration
 - DS Web widget Navigation header → Page header (Size Large / Compact; Breadcrumbs, Show subtitle, Show actions, Show tabs; слоты Actions, Tabs).
