@@ -65,7 +65,7 @@
 
 ## 12. Figma projection
 - Набор `Section header`, вариантов 2 из 2; оси: Size.
-- Борда: шаблона v3 нет.
+- Борда: «Section header — борда · шаблон v3», разделов 8.
 - Описание: 857 знаков, разделы: Status: Level: Size: Когда нет: Правила: A11y: Поиск:
 
 ## 13. Code projection
@@ -78,7 +78,6 @@
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - DESC: нет: Когда использовать:
-  - BOARD: нет борды v3
 
 ## 15. Migration
 - Legacy: — (новое 19.11, по Калькулятору и Настройкам)

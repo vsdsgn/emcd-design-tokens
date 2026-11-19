@@ -86,7 +86,7 @@
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`, `type/heading/xl`.
 - `subtitle`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - `Actions`: gap2 `space/8`; интервал `space/8`.
-- `Button`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/2`; высота `control/height/md`; мин. ширина `size/button/min`; отступы `space/8`; радиус `radius/control`.
+- `Button`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/4`; высота `control/height/md`; мин. ширина `size/button/min`; отступы `space/12`; радиус `radius/control`.
 - `Tabs`: интервал `space/16`, `space/24`; обводка `border/subtle`.
 - Значений без переменной: 2 (напр. `(root):w=1120`, `(root):w=375`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
@@ -96,7 +96,7 @@
 
 ## 12. Figma projection
 - Набор `Page header`, вариантов 2 из 2; оси: Size.
-- Борда: «Page header — борда · шаблон v3», разделов 11.
+- Борда: «Page header — борда · шаблон v3», разделов 12.
 - Описание: 1023 знаков, разделы: Status: Level: Шапка страницы: Size: Правила: A11y: Когда использовать: Поиск: Legacy:
 
 ## 13. Code projection
