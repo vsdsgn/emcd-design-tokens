@@ -15,8 +15,8 @@
 - Правило выбора варианта: не описано — заполнить при переводе в beta.
 
 ## 3. Anatomy
-- Слои с токенами: `action 1`, `action 2`.
-- Вложено: `Button` ×3.
+- Слои с токенами: `action 1`, `badge`, `action 2`.
+- Вложено: `Button` ×3, `Badge` ×2.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
@@ -30,6 +30,12 @@
 | Actions | 1 · 2 | — |
 
 Матрица полная: 2 вариантов.
+
+Свойства:
+
+| Свойство | Тип | По умолчанию | Привязано в вариантах |
+|---|---|---|---|
+| Badge | булево | выкл | 2 из 2 |
 
 ## 6. Content / slots
 - Не описано: заполнить при переводе в beta.
@@ -46,6 +52,7 @@
 ## 10. Tokens
 - `корень`: заливка / цвет `surface/level-0`; интервал `space/8`; отступы `space/16`, `space/24`.
 - `action 1`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/4`; высота `control/height/md`; мин. ширина `size/button/min`; отступы `space/12`; радиус `radius/control`.
+- `badge`: заливка / цвет `status/neutral/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `action 2`: заливка / цвет `action/secondary/default`; интервал `space/4`; высота `control/height/md`; мин. ширина `size/button/min`; отступы `space/12`; радиус `radius/control`.
 - Значений без переменной: 2 (напр. `(root):w=375`).
 
@@ -55,13 +62,13 @@
 ## 12. Figma projection
 - Набор `Action bar`, вариантов 2 из 2; оси: Actions.
 - Борда: «Action bar — борда · шаблон v3», разделов 9.
-- Описание: 839 знаков, разделы: Status: Level: Actions: Правила: Когда нет: Поиск:
+- Описание: 988 знаков, разделы: Status: Level: Actions: Badge: Правила: Когда нет: Поиск:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`ActionBar`), Vue `packages/vue/src/DsActionBar.vue`, CSS `claude-ds/components/ActionBar/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsActionBar>`; Flutter: `DsActionBar`.
-- Props: `actions`: 1 | 2.
+- Props: `actions`: 1 | 2; `badge`: boolean = false.
 
 ## 14. Acceptance (2026-11-19)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.

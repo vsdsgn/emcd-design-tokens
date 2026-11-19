@@ -80,7 +80,7 @@
 ## 12. Figma projection
 - Набор `Transaction`, вариантов 36 из 36; оси: Type, Status, State.
 - Борда: «Transaction — борда · шаблон v3», разделов 11.
-- Описание: 1124 знаков, разделы: Status: Level: Когда нет: State: A11y: Когда использовать: Правила:
+- Описание: 1244 знаков, разделы: Status: Level: Когда нет: State: A11y: Когда использовать: Правила:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Transaction`), Vue `packages/vue/src/DsTransaction.vue`, CSS `claude-ds/components/Transaction/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.

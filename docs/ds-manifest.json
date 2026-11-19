@@ -14,8 +14,8 @@
    "service": 4,
    "template": 1
   },
-  "variants": 1632,
-  "incompleteMatrix": 17,
+  "variants": 1649,
+  "incompleteMatrix": 18,
   "propsNotBoundEverywhere": 19,
   "rawMinMax": 1,
   "withRawValues": 70,
@@ -258,11 +258,12 @@
      "id": "2311:70",
      "type": "SET",
      "status": "draft",
-     "descLen": 839,
+     "descLen": 988,
      "descHeads": [
       "Status:",
       "Level:",
       "Actions:",
+      "Badge:",
       "Правила:",
       "Когда нет:",
       "Поиск:"
@@ -276,9 +277,17 @@
      },
      "variants": 2,
      "full": 2,
-     "props": [],
+     "props": [
+      {
+       "name": "Badge",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 2
+      }
+     ],
      "nested": {
-      "Button": 3
+      "Button": 3,
+      "Badge": 2
      },
      "minmax": [],
      "layers": {
@@ -307,6 +316,16 @@
        "minw:size/button/min",
        "p:space/12",
        "r:radius/control"
+      ],
+      "badge": [
+       "f:status/neutral/subtle",
+       "gap:space/4",
+       "h:size/badge-height/sm",
+       "maxw:size/badge/max",
+       "p:space/8",
+       "r:radius/sm",
+       "s:border/subtle",
+       "sw:border/width/default"
       ],
       "action 2": [
        "f:action/secondary/default",
@@ -4849,7 +4868,7 @@
      "id": "179:1295",
      "type": "SET",
      "status": "beta",
-     "descLen": 1289,
+     "descLen": 1672,
      "descHeads": [
       "Status:",
       "Level:",
@@ -4861,7 +4880,8 @@
       "Правила:",
       "Матрица:",
       "Legacy:",
-      "Свойства (17."
+      "Свойства (17.",
+      "Size (19."
      ],
      "inBoard": false,
      "axes": {
@@ -4878,60 +4898,71 @@
        "Hover",
        "Pressed",
        "Disabled"
+      ],
+      "Size": [
+       "L",
+       "M"
+      ],
+      "Type": [
+       "Primary",
+       "Secondary"
       ]
      },
-     "variants": 10,
-     "full": 16,
+     "variants": 25,
+     "full": 64,
      "props": [
       {
        "name": "Show hit area",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 10
+       "bound": 25
       },
       {
        "name": "Safe margin",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 10
+       "bound": 25
       },
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 10
+       "bound": 25
       },
       {
        "name": "Label",
        "type": "TEXT",
        "def": "Добавить воркер",
-       "bound": 5
+       "bound": 20
       },
       {
        "name": "Icon",
        "type": "INSTANCE_SWAP",
        "def": "icon/plus",
-       "bound": 10
+       "bound": 25
       }
      ],
      "nested": {
-      "(icons)": 10,
-      "Spinner": 2
+      "(icons)": 25,
+      "Spinner": 5
      },
      "minmax": [],
      "layers": {
-      "ring": 10,
-      "hitWeb": 10,
-      "hitApp": 10,
-      "hit": 10,
-      "safe": 10
+      "ring": 25,
+      "hitWeb": 25,
+      "hitApp": 25,
+      "hit": 25,
+      "safe": 25
      },
-     "rawCount": 20,
+     "rawCount": 50,
      "raw": [
       "hit area · web:w=56",
       "hit area · web:h=56",
       "hit area · web:w=183",
-      "hit area · web:w=187"
+      "hit area · web:w=187",
+      "hit area · web:w=173",
+      "hit area · web:h=40",
+      "hit area · web:w=177"
      ],
      "tokens": {
       "(root)": [
@@ -4939,8 +4970,12 @@
        "effects:shadow/key",
        "f:action/disabled",
        "f:action/primary/default",
+       "f:action/secondary/default",
+       "gap:space/6",
        "gap:space/8",
+       "h:control/height/md",
        "h:control/height/xl",
+       "p:space/16",
        "p:space/20",
        "r:radius/chip",
        "w:control/height/xl"
@@ -4980,6 +5015,7 @@
       "label": [
        "f:text/disabled",
        "f:text/on-accent",
+       "f:text/primary",
        "fontFamily:font/family/text",
        "fontSize:type/label/md/size",
        "fontWeight:font-weight/medium",
@@ -12175,7 +12211,7 @@
      "id": "65:105",
      "type": "SET",
      "status": "beta",
-     "descLen": 864,
+     "descLen": 1119,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12185,7 +12221,8 @@
       "Хаптик:",
       "Поиск:",
       "Legacy:",
-      "Disabled не используется:"
+      "Disabled не используется:",
+      "Type (19."
      ],
      "inBoard": false,
      "axes": {
@@ -12196,60 +12233,64 @@
       "State": [
        "Default",
        "Pressed"
+      ],
+      "Type": [
+       "Item",
+       "Action"
       ]
      },
-     "variants": 4,
-     "full": 4,
+     "variants": 6,
+     "full": 8,
      "props": [
       {
        "name": "Label",
        "type": "TEXT",
        "def": "Дашборд",
-       "bound": 4
+       "bound": 6
       },
       {
        "name": "Icon · swap",
        "type": "INSTANCE_SWAP",
        "def": "icon/dots-grid",
-       "bound": 4
+       "bound": 6
       },
       {
        "name": "Badge dot",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 4
+       "bound": 6
       },
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 4
+       "bound": 6
       },
       {
        "name": "Show hit area",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 4
+       "bound": 6
       },
       {
        "name": "Safe margin",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 4
+       "bound": 6
       }
      ],
      "nested": {
-      "(icons)": 4
+      "(icons)": 6
      },
      "minmax": [],
      "layers": {
-      "ring": 4,
-      "hitWeb": 4,
-      "hitApp": 4,
-      "hit": 4,
-      "safe": 4
+      "ring": 6,
+      "hitWeb": 6,
+      "hitApp": 6,
+      "hit": 6,
+      "safe": 6
      },
-     "rawCount": 8,
+     "rawCount": 12,
      "raw": [
       "hit area · web:w=72",
       "hit area · web:h=56"
@@ -12293,6 +12334,12 @@
        "f:state/layer",
        "o:state/pressed",
        "r:radius/control"
+      ],
+      "plate": [
+       "f:action/secondary/default",
+       "r:radius/control",
+       "s:border/accent",
+       "sw:border/width/default"
       ]
      },
      "statusFirstLine": true
@@ -14038,7 +14085,7 @@
      "id": "172:832",
      "type": "SET",
      "status": "beta",
-     "descLen": 1124,
+     "descLen": 1244,
      "descHeads": [
       "Status:",
       "Level:",

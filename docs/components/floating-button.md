@@ -25,8 +25,8 @@
 - `icon/plus` (`icon/size/md`) + `label` (`type/label/md`, `text/on-accent`) — подпись только у Extended.
 - Loading=True: Spinner Size=L вместо иконки (дорожка `text/on-accent`, дуга `icon/on-accent`); у Extended подпись остаётся.
 - Служебные: `state layer`, `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer`.
-- Вложено: иконки ×10, `Spinner` ×2.
-- Служебные слои (вариантов из 10): кольцо фокуса 10 · зона Web 10 · зона касания 10 · безопасное поле 10.
+- Вложено: иконки ×25, `Spinner` ×5.
+- Служебные слои (вариантов из 25): кольцо фокуса 25 · зона Web 25 · зона касания 25 · безопасное поле 25.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Плашка: слой `state/layer-inverse` × `state/hover` / `state/pressed`; Disabled — `action/disabled` и `text/disabled`.
@@ -45,18 +45,20 @@
 | Layout | Icon · Extended | Icon |
 | Loading | False · True | False |
 | State | Default · Hover · Pressed · Disabled | Default |
+| Size | L · M | — |
+| Type | Primary · Secondary | — |
 
-Матрица: 10 из 16.
+Матрица: 25 из 64.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Show hit area | булево | выкл | 10 из 10 · служебное |
-| Safe margin | булево | выкл | 10 из 10 · служебное |
-| Focus ring | булево | выкл | 10 из 10 · служебное |
-| Label | текст | «Добавить воркер» | 5 из 10 |
-| Icon | замена экземпляра | `icon/plus` | 10 из 10 |
+| Show hit area | булево | выкл | 25 из 25 · служебное |
+| Safe margin | булево | выкл | 25 из 25 · служебное |
+| Focus ring | булево | выкл | 25 из 25 · служебное |
+| Label | текст | «Добавить воркер» | 20 из 25 |
+| Icon | замена экземпляра | `icon/plus` | 25 из 25 |
 
 - Show hit area, Safe margin, Focus ring — служебные, по умолчанию Off.
 
@@ -82,12 +84,12 @@
 - Disabled — `aria-disabled`; Loading — `aria-busy`.
 
 ## 10. Tokens
-- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/disabled`, `action/primary/default`; интервал `space/8`; высота `control/height/xl`; отступы `space/20`; радиус `radius/chip`; ширина `control/height/xl`.
+- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/disabled`, `action/primary/default`, `action/secondary/default`; интервал `space/6`, `space/8`; высота `control/height/md`, `control/height/xl`; отступы `space/16`, `space/20`; радиус `radius/chip`; ширина `control/height/xl`.
 - `icon/plus`: высота `icon/size/md`; ширина `icon/size/md`.
 - `spinner`: высота `icon/size/lg`; ширина `icon/size/lg`.
-- `label`: заливка / цвет `text/disabled`, `text/on-accent`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `label`: заливка / цвет `text/disabled`, `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - Служебные слои (общие правила — `service-layers.md`): `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `focus ring`: радиус `radius/chip`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `state layer`: заливка / цвет `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/chip`.
-- Значений без переменной: 20 (напр. `hit area · web:w=56`, `hit area · web:h=56`, `hit area · web:w=183`, `hit area · web:w=187`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 50 (напр. `hit area · web:w=56`, `hit area · web:h=56`, `hit area · web:w=183`, `hit area · web:w=187`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Только Compact: App (iOS, Android) и мобильный веб; на Web не используется — там Button в шапке страницы.
@@ -95,15 +97,15 @@
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Floating button`, вариантов 10 из 16; оси: Layout, Loading, State.
+- Набор `Floating button`, вариантов 25 из 64; оси: Layout, Loading, State, Size, Type.
 - Борда: «Floating button — борда · шаблон v3», разделов 12.
-- Описание: 1289 знаков, разделы: Status: Level: Когда использовать: Icon — Позиция: A11y: Тень: Правила: Матрица: Legacy: Свойства (17.
+- Описание: 1672 знаков, разделы: Status: Level: Когда использовать: Icon — Позиция: A11y: Тень: Правила: Матрица: Legacy: Свойства (17. Size (19.
 
 ## 13. Code projection
 Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsFloatingButton>`; Flutter: `DsFloatingButton`.
-- Props: `layout`: icon | extended; `loading`: boolean; `label`: string или слот.
+- Props: `layout`: icon | extended; `loading`: boolean; `size`: l | m; `type`: primary | secondary; `label`: string или слот.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
 ## 14. Acceptance (2026-11-19)

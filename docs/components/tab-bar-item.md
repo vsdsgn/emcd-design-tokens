@@ -22,8 +22,8 @@
 ## 3. Anatomy
 - Корень 72×56 (`size/tab-bar-item/width`, `control/height/xl`): `icon` (замена экземпляра) + `label` (Label/SM) + `badge dot`.
 - Служебные: `state layer`, `focus ring`, зоны, `safe area · outer`.
-- Вложено: иконки ×4.
-- Служебные слои (вариантов из 4): кольцо фокуса 4 · зона Web 4 · зона касания 4 · безопасное поле 4.
+- Вложено: иконки ×6.
+- Служебные слои (вариантов из 6): кольцо фокуса 6 · зона Web 6 · зона касания 6 · безопасное поле 6.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Навигация; Hover нет (касание), Pressed — слой `state/layer` × `state/pressed`.
@@ -37,19 +37,20 @@
 |---|---|---|
 | Selected | Off · On | Off |
 | State | Default · Pressed | Default |
+| Type | Item · Action | — |
 
-Матрица полная: 4 вариантов.
+Матрица: 6 из 8.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «Дашборд» | 4 из 4 |
-| Icon · swap | замена экземпляра | `icon/dots-grid` | 4 из 4 |
-| Badge dot | булево | выкл | 4 из 4 |
-| Focus ring | булево | выкл | 4 из 4 · служебное |
-| Show hit area | булево | выкл | 4 из 4 · служебное |
-| Safe margin | булево | выкл | 4 из 4 · служебное |
+| Label | текст | «Дашборд» | 6 из 6 |
+| Icon · swap | замена экземпляра | `icon/dots-grid` | 6 из 6 |
+| Badge dot | булево | выкл | 6 из 6 |
+| Focus ring | булево | выкл | 6 из 6 · служебное |
+| Show hit area | булево | выкл | 6 из 6 · служебное |
+| Safe margin | булево | выкл | 6 из 6 · служебное |
 
 ## 6. Content / slots
 - Подпись — одно слово, max-width 72, усечение многоточием; на 200 % текста подпись не переносится — проверить на стенде.
@@ -71,23 +72,24 @@
 - `корень`: интервал `space/2`; высота `control/height/xl`; ширина `size/tab-bar-item/width`.
 - `label`: заливка / цвет `text/accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/overline`.
 - `badge dot`: заливка / цвет `status/danger/solid`.
+- `plate`: заливка / цвет `action/secondary/default`; радиус `radius/control`; обводка `border/accent`; толщина обводки `border/width/default`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/2xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/pressed`; радиус `radius/control`.
-- Значений без переменной: 8 (напр. `hit area · web:w=72`, `hit area · web:h=56`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 12 (напр. `hit area · web:w=72`, `hit area · web:h=56`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Только касание: iOS, Android, Mobile web. На Web (Large) навигация — Sidebar.
 - Нижний отступ safe area — у Tab bar, не у пункта.
 
 ## 12. Figma projection
-- Набор `Tab bar item`, вариантов 4 из 4; оси: Selected, State.
+- Набор `Tab bar item`, вариантов 6 из 8; оси: Selected, State, Type.
 - Борда: «Tab bar item — борда · шаблон v3», разделов 12.
-- Описание: 864 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Хаптик: Поиск: Legacy: Disabled не используется:
+- Описание: 1119 знаков, разделы: Status: Level: Правила: A11y: Когда использовать: Хаптик: Поиск: Legacy: Disabled не используется: Type (19.
 
 ## 13. Code projection
 Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsTabBarItem>`; Flutter: `DsTabBarItem`.
-- Props: `selected`: boolean; `label`: string или слот; `badgeDot`: boolean = false.
+- Props: `selected`: boolean; `type`: item | action; `label`: string или слот; `badgeDot`: boolean = false.
 - Состояния (Default, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
 ## 14. Acceptance (2026-11-19)
