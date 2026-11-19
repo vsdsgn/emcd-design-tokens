@@ -2,6 +2,34 @@
 
 Формат: дата · что · где. Пишется после каждой группы правок.
 
+## 2026-11-17 — 2026-11-19 (ревью экранов майнинга; выпуск для разработки)
+
+**MAJOR (ломает макеты / API):**
+- **XL снят на уровне системы:** Icon button, Segment / Segmented, Input / Select / Textarea, `_Field base` — вариантов XL нет (замена → L); Modal → Button L; **Tab / Tabs XL → Page** (табы-разделы страницы). Button XL — только App (одна главная кнопка экрана).
+- **Моно только в осях графиков:** Amount, Key-value row, Progress, Progress circle → шрифт текста с табличными цифрами (Address — исключение).
+
+**Foundations:** Theme Dark `text|icon/secondary` 72 → 56 %, `text|icon/tertiary` 56 → 48 % (тише, как в продукте; контраст AA на L0–L3). Описания переменных обновлены.
+
+**Новые свойства (минор):**
+- Stat card — `Align` Start | Center (Center: поля `space/4`, низ `space/32`), `Link` (Icon button XS со стрелкой), Tone, без min-width.
+- Promo card — `Align` Start | Center (Center: анонс без картинки, бейдж над заголовком); S / M / L, Accent — градиентная обводка, Badge, перенос заголовка.
+- Tab, Chip — `Status dot`; Table header cell — `Sortable` (нейтральная `icon/sort`); Button / Icon button — Size XS 24.
+
+**Изменения вида:**
+- Chip Selected — инверсная белая плашка (`action/inverse/default`), подпись `text/inverse`, счётчик `text/inverse-secondary`.
+- Amount L — `type/heading/xl` 24 Bold, тикер Medium; Amount S — строки Compact (12), M — таблицы Web и карточки (14).
+- Nav item — подпись `type/label/lg` 16 (бейдж остался 12); Button — зазор иконка → подпись 10, поля M 12; Chart metric — подпись и единица `text/tertiary`.
+- Counter Neutral и Badge Subtle Neutral — квадрат / обводка `border/subtle`, текст `text/secondary`.
+- Графики: серия 1 — `border/accent`, маркер легенды в цвет серии; единицы в легенде, на осях — только значения.
+- Suggest Strip — `radius/inner`, заголовок цвета тона, без иконки.
+- `_List row` Type=List — описание по Show description (в List item по умолчанию On).
+
+**Новые наборы (draft, конструкции):** Top bar (Mobile web), Status summary (Layout Column | Row), Promo carousel (слот Slides + Page indicator), Action bar (Actions 1 | 2).
+
+**Иконки:** `icon/chart-bar` (действие «График» в таблице). Выгрузка отчёта — `icon/file-excel`.
+
+**Правила (`docs/patterns.md`):** лестница отступов 40 / 32 / 24 / 16; иерархия навигации (период — Chip, вид данных — Segmented, Tabs Page → M → S); конструкции (раздел 0.2).
+
 ## 2026-11-16
 
 - **Suggest — MAJOR:** булево Leading → Show leading; иконка слева — в слоте Leading (можно логотип или Coin). **Foundations (ждут Publish):** `surface/accent`, `surface/inverse` — некликабельные заливки (Tooltip / Tooltip tour Accent, точка Notification, Toast Informer Neutral) вместо `action/primary|inverse/default`.
