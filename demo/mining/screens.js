@@ -577,9 +577,28 @@
       div('demo-app-list', tx));
   }
 
+  function AppPayouts() {
+    var rows = [['Кошелёк EMCD', '20', true], ['Кошелёк EMCD', '19', true], ['На Coinhold', '18', false], ['Внешний кошелёк', '17', true]].map(function (r, i, all) {
+      return h(E.ListItem, { key: r[1], size: 'm', divider: i < all.length - 1, label: r[0], description: r[1] + ' дек 2025, 11:38',
+        trailing: div('demo-two demo-two--end demo-payout', h(E.Amount, { size: 'm', align: 'end', value: '0.00004480', ticker: 'ETC' }), r[2] && explorer('xs')) });
+    });
+    return h(AppShell, { tabs: true, over: div('demo-app-actions',
+        h(E.Button, { type: 'tertiary', size: 'm', label: 'Фильтры', iconLeft: h(E.Icon, { name: 'tuning' }) }),
+        h(E.Button, { type: 'tertiary', size: 'm', label: 'Выгрузить', iconLeft: h(E.Icon, { name: 'file-excel' }) })) },
+      h(E.Tabs, { size: 'm', fill: true, label: 'Разделы майнинга', defaultValue: 'История', items: ['Дашборд', 'Воркеры', 'История', 'Настройки'].map(function (l) { return { value: l, label: l }; }) }),
+      h(E.Segmented, { size: 'l', block: true, label: 'Вид истории', defaultValue: 'pay', items: [{ value: 'acc', label: 'Начисления' }, { value: 'pay', label: 'Выплаты' }] }),
+      h(E.Card, { level: 2, padding: 'm', border: true, className: 'demo-mw-total' },
+        div('demo-mw-total__row',
+          div('demo-stat', h(E.Amount, { size: 'l', value: '≈ $35 534.55' }), text('demo-caption demo-caption--md', 'Сумма всех выплат')),
+          h(E.CoinStack, { coins: ['ltc', 'eth', 'x'], size: 'm', count: 2, more: '6' }),
+          h(E.Icon, { name: 'chevron-right', className: 'demo-muted' })),
+        h(E.Suggest, { layout: 'strip', tone: 'warning', title: 'Выплачиваем ежедневно с 14:00 до 18:00', primaryAction: false, close: false })),
+      div('demo-app-list', rows));
+  }
+
   var SCREENS = { 'web-dashboard': WebDashboard, 'web-workers': WebWorkers, 'web-history': WebHistory, 'mw-dashboard': MwDashboard, 'mw-workers': MwWorkers, 'mw-history': MwHistory,
     'web-calculator': WebCalculator, 'mw-calculator': MwCalculator, 'web-watcher': WebWatcher, 'web-settings': WebSettings,
     'web-payouts': WebPayouts, 'mw-payouts': MwPayouts, 'mw-watcher': MwWatcher, 'mw-settings-notify': MwSettingsNotify, 'mw-settings-withdraw': MwSettingsWithdraw,
-    'app-dashboard': AppDashboard, 'app-workers': AppWorkers, 'app-history': AppHistory };
+    'app-dashboard': AppDashboard, 'app-workers': AppWorkers, 'app-history': AppHistory, 'app-payouts': AppPayouts };
   ReactDOM.createRoot(document.getElementById('root')).render(h(SCREENS[screen] || WebDashboard));
 })();

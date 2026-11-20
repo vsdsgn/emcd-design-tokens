@@ -1,6 +1,6 @@
 # Демо K4 — майнинг из кода (React, Dark)
 
-18 экранов майнинга (Web, мобильный веб, App), собранных **только из компонентов репо** (`window.EMCD` из `claude-ds/bundle/bundle.js`), рядом с макетами Figma.
+19 экранов майнинга (Web, мобильный веб, App), собранных **только из компонентов репо** (`window.EMCD` из `claude-ds/bundle/bundle.js`), рядом с макетами Figma.
 
 | Экран | Файл | Размер | Каркас |
 |---|---|---|---|
@@ -21,6 +21,7 @@
 | Настройки → Вывод · мобильный веб (3.9a) | `mw-settings-withdraw.html` | 375 × вся высота | Segmented; Select «Монета майнинга» (Coin); Card L «Куда выводить средства?»: Toggle, Select, Input Read-only, Checkbox, Divider, Toggle, Promo card M Accent |
 | App · Дашборд (вывод) | `app-dashboard.html` | 375 × 812, iOS | Top bar App · Card L1 Surface (лист) · Tab bar с Action (знак EMCD); монета отображения — Select compact; Card L2 S: List item + Amount M по концу; «Вывести» — Button Secondary на всю ширину; Floating button M Primary «Калькулятор» |
 | App · Воркеры | `app-workers.html` | 375 × 812, iOS | Tabs M · Chip S со Status dot · Search + Segmented (иконки) · Table compact · Floating button M Secondary «Выгрузить» |
+| App · История (выплаты, 3.6a) | `app-payouts.html` | 375 × 812, iOS | как «История» App: Segmented — Выплаты; строка — List item M: направление + дата, справа Amount без фиата + «В Explorer» (у Coinhold нет) |
 | App · История (начисления) | `app-history.html` | 375 × 812, iOS | Tabs M · Segmented L · Card L2 M (Amount L, Coin stack +6, Suggest Strip Warning) · Transaction без плашки типа · «Фильтры» / «Выгрузить» — Button Tertiary M над Tab bar |
 
 Состав: `screens.js` (экраны на `React.createElement`, данные и тексты — с макетов), `demo.css` (только раскладка: flex / grid, токены `space-*`, тексты на токенах типографики), `vendor/` — React 18.3.1 UMD (копия из `tests/code/node_modules`, демо работает без сети), `reference/` — рендеры Figma 19.11 (калькулятор, Watcher-link, Настройки — экраны «… · DS 2.0»; Watcher-link и Настройки сняты в 1200 × 750 — в сравнении растягиваются до ширины страницы).
@@ -132,3 +133,12 @@ npm run demo:mining -- mw-workers web-history   # выборочно
 | ~~Воркеры: 3 таба на макете растянуты, в коде по содержимому~~ | решение 20.11: на Compact табы растягиваются поровну, если помещаются (`fill`), на Web — по содержимому; «История» App — тоже растянута; зазор Tabs M в коде был 20 (в Figma 16, у S наоборот) — исправлено | исправлено |
 | Segmented «Список / Группы» в коде шире (сегмент не уже 72) | на макете 96 по содержимому | мелкое |
 | ~~Transaction в Figma: фиат под суммой выровнен по началу~~ | набор: вложенный Amount Align=End (Publish 20.11) | исправлено |
+
+## App · Выплаты (20.11)
+
+Собран заново в Figma по продуктовому экрану (App «Начисления и выплаты» → «Выплаты (Mobile flow)»), строки — по правилу 3.6a, как на мобильном вебе. Полоса Suggest: сообщение — заголовок (цвет тона, как в продукте), а не описание — экраны App приведены (на Web так и было).
+
+| Расхождение | Причина | Статус |
+|---|---|---|
+| Иконка «В Explorer» на макете 20, в коде 16 | размер иконки на платформе App (токен) больше; в коде размеры иконок от платформы не зависят | вопрос к коду платформ |
+| Coin stack в сводке: на макете M 24, в коде крупнее | размер M в коде — 32? сверить с контрактом Coin stack | проверить |
