@@ -23,7 +23,8 @@ export const LIST = [
   'wallet', 'devices', 'card', 'mining-coin', 'exchange', 'coinhold-coins', 'percentage', 'suitcase', 'lock', 'web', 'gift', 'rocket',
 ];
 // Монеты: тикер → файл icons/symbols/coin
-const COIN_FILES = { btc: 'bitcoin-btc', kas: 'kaspa-kas', ltc: 'litecoin-ltc', doge: 'dogecoin-doge', eth: 'ethereum-eth', usdt: 'tether-usdt' };
+const COIN_FILES = { btc: 'bitcoin-btc', kas: 'kaspa-kas', ltc: 'litecoin-ltc', doge: 'dogecoin-doge', eth: 'ethereum-eth', usdt: 'tether-usdt',
+  jkc: 'junkcoin-jkc', bel: 'bellscoin-bel', lky: 'lucky-lky', pep: 'pepecoin-pep' };
 
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 function parse(svg, where) {
@@ -31,7 +32,9 @@ function parse(svg, where) {
   if (!m) throw new Error(`icons-code: не SVG — ${where}`);
   const viewBox = (m[1].match(/viewBox="([^"]+)"/) || [])[1];
   const body = m[2].replace(/\s*\n\s*/g, '').trim();
-  if (/<!--|<script|<style|\sid="/i.test(body)) throw new Error(`icons-code: комментарий, script, style или id в ${where}`);
+  // id запрещены (тело вставляется инлайном много раз на странице) — кроме id="emcd-coin-<тикер>-<n>": градиенты и маски монет (lucky-lky),
+  // которые без id не выразить. Префикс уникален для монеты; одинаковые id у копий одной монеты ссылаются на одинаковые определения.
+  if (/<!--|<script|<style/i.test(body) || /\sid="(?!emcd-coin-[a-z0-9]+-\d+")/i.test(body)) throw new Error(`icons-code: комментарий, script, style или id в ${where}`);
   return { viewBox, body };
 }
 

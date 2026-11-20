@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-20: beta 87 наборов, draft 9, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-20: beta 92 наборов, draft 4, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -36,6 +36,7 @@
 ## Компоненты: beta — можно брать
 
 - [Accordion](docs/components/accordion.md): Вопрос или раздел, который раскрывается по нажатию на заголовок (FAQ, условия, детали расчёта). Контент — слот. Основа — legacy `baseAccordion --1.5`: пункт 64 (L), текст 16, круглый шеврон 24, разделитель
+- [Action bar](docs/components/action-bar.md): Нижняя панель действий Compact: 1–2 Button M на всю ширину, подложка `surface/level-0`, прилипает к низу экрана
 - [Address](docs/components/address.md): Адрес кошелька или хэш с копированием и QR: подпись, строка с адресом и двумя кнопками, статус «Адрес скопирован»
 - [Amount](docs/components/amount.md): Денежная сумма: число, тикер и необязательный фиатный эквивалент. Единый способ показать сумму в продукте
 - [Avatar](docs/components/avatar.md): Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото
@@ -90,10 +91,13 @@
 - [Progress](docs/components/progress.md): Линейный прогресс: доля выполненного, когда длительность или объём известны (лимит вывода, заполненность, шаг загрузки файла, срок до выплаты)
 - [Progress circle](docs/components/progress-circle.md): Круговой прогресс: известная доля, когда места мало или прогресс — главное на карточке (заполнение пула, выполнение задания)
 - [Promo card](docs/components/promo-card.md): Промо-карточка: заголовок, необязательные описание и действие, необязательная картинка справа
+- [Promo carousel](docs/components/promo-carousel.md): Промо-карусель Compact: слот Slides — 2–5 Promo card M шириной 311 (следующая подглядывает), под ней Page indicator
 - [Radio](docs/components/radio.md): Один вариант из нескольких (2–5). Основа — legacy `baseRadio` (круг 20, точка 8, подпись через 12)
 - [Radio card](docs/components/radio-card.md): Выбираемая карточка: радио, подпись и необязательные детали, которые раскрываются у выбранной. Нажимается вся карточка
 - [Radio group](docs/components/radio-group.md): Группа радио: подпись группы, варианты, под ними подсказка или ошибка
 - [Scrollbar](docs/components/scrollbar.md): Полоса прокрутки для своих скролл-контейнеров: выпадающие списки, панели, таблицы. Источник — legacy DS Web «Scrollbar» и сырой «Scroll» 4 px в продуктах
+- [Search](docs/components/search.md): Поле поиска: лупа, текст, крестик «Очистить» (когда введено). Поиск воркеров, монет, операций
+- [Section header](docs/components/section-header.md): Заголовок секции внутри карточки или формы: Title, необязательная Caption, слот Trailing справа
 - [Segment](docs/components/segment.md): Элемент Segmented. Отдельно не используется
 - [Segmented](docs/components/segmented.md): Выбор одного значения из 2–4 взаимоисключающих; результат применяется сразу (период графика, Купить / Продать, вид список / сетка)
 - [Select](docs/components/select.md): Поле выбора одного значения из списка (сеть вывода, кошелёк, монета, валюта). Поле как у Input (размеры, лейбл, helper, ошибка), справа шеврон; по нажатию открывает Menu (на Compact — Sheet)
@@ -103,6 +107,7 @@
 - [Spinner](docs/components/spinner.md): Индикатор загрузки: действие идёт, длительность неизвестна
 - [Stat card](docs/components/stat-card.md): Один показатель с подписью: хешрейт, баланс, начислено за 24 ч, активные воркеры. Основа дашборда
 - [Status](docs/components/status.md): Точка + подпись: состояние объекта (воркер, устройство, сервис, выплата) в строке таблицы, списке, шапке
+- [Status summary](docs/components/status-summary.md): Сводка воркеров по статусам: три плитки Stat card Align=Center — Отключённые · Нестабильные · Активные; плитка ведёт в «Воркеры» с фильтром
 - [Step](docs/components/step.md): Один шаг в Stepper: символ (Step symbol) + подпись и необязательное описание
 - [Step progress](docs/components/step-progress.md): Полоска из 3–7 равных сегментов: сколько шагов пройдено в линейной последовательности без названий. Источник — legacy «slider counter» (Tooltip tour, DS Web и DS App)
 - [Step symbol](docs/components/step-symbol.md): Кружок шага в Step: номер, иконка или точка в одном из трёх состояний
@@ -137,7 +142,7 @@
 
 ## Компоненты: draft — не брать
 
-- уровень не указан (9): Action bar, File upload, Promo carousel, Search, Section header, Side panel, Snack, Status summary, Top bar
+- уровень не указан (4): File upload, Side panel, Snack, Top bar
 - шаблоны экранов, не Base (1): Status screen
 
 ## Проверки

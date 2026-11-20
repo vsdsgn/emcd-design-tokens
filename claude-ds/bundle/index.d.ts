@@ -1143,6 +1143,8 @@ export interface ActionBarProps {
   badge?: boolean;
   /** Текст бейджа. По умолчанию «A». */
   badgeText?: string;
+  /** Доступное описание кнопки с бейджем (aria-describedby). По умолчанию «Автодействие включено». */
+  badgeLabel?: string;
   children?: ReactNode;
   className?: string;
 }

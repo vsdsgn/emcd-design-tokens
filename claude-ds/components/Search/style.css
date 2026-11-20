@@ -1,4 +1,4 @@
-/* Search — 🟠 draft (Figma «🟠 Search»: Size × State). Поле поиска: подложка surface/level-2, обводка border/subtle, радиус radius/control; S 32 · M 40;
+/* Search — 🟡 beta (Figma «Search»: Size × State). Поле поиска: подложка surface/level-2, обводка border/subtle, радиус radius/control; S 32 · M 40;
    лупа 20 (icon-tertiary) → текст (body-md; S — body-sm) → «Очистить» (Icon button Ghost S, когда введено). Hover — слой 6 %, Focus — обводка border/focus. */
 .emcd-search { --h: var(--control-height-md, 40px); --fs: var(--type-body-md-size, 14px); --lh: var(--type-body-md-line-height, 20px);
   position: relative; display: flex; align-items: center; gap: var(--space-8, 8px); box-sizing: border-box; width: 100%; min-width: 0; height: var(--h);
@@ -18,7 +18,7 @@
 .emcd-search__input::placeholder { color: var(--text-tertiary); }
 .emcd-search__input::-webkit-search-cancel-button, .emcd-search__input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
 .emcd-search__clear { flex: none; }
-.emcd-search--s .emcd-search__clear { --h: var(--control-height-xs, 24px); }
+.emcd-search--s .emcd-search__clear { --h: var(--control-height-sm, 32px); } /* как в Figma (20.11): крестик S — control/height/sm */
 .emcd-search--disabled { cursor: not-allowed; }
 .emcd-search--disabled::before { display: none; }
 .emcd-search--disabled :is(.emcd-search__icon, .emcd-search__input, .emcd-search__input::placeholder) { color: var(--text-disabled); }

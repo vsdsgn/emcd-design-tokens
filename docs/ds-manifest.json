@@ -9,8 +9,8 @@
    "unknown": 101
   },
   "status": {
-   "beta": 87,
-   "draft": 9,
+   "beta": 92,
+   "draft": 4,
    "service": 4,
    "template": 1
   },
@@ -227,11 +227,11 @@
    "level": "unknown",
    "page": "Action bar",
    "pageId": "2311:2",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Action bar — борда · шаблон v3",
-     "id": "2326:7023",
+     "id": "2336:29307",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -257,8 +257,8 @@
      "name": "Action bar",
      "id": "2311:70",
      "type": "SET",
-     "status": "draft",
-     "descLen": 988,
+     "status": "beta",
+     "descLen": 1338,
      "descHeads": [
       "Status:",
       "Level:",
@@ -266,7 +266,10 @@
       "Badge:",
       "Правила:",
       "Когда нет:",
-      "Поиск:"
+      "Поиск:",
+      "Когда использовать:",
+      "A11y:",
+      "Beta (20."
      ],
      "inBoard": false,
      "axes": {
@@ -8586,7 +8589,7 @@
    "level": "unknown",
    "page": "Promo carousel",
    "pageId": "2310:2",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Promo carousel — борда · шаблон v3",
@@ -8616,15 +8619,16 @@
      "name": "Promo carousel",
      "id": "2310:3",
      "type": "COMPONENT",
-     "status": "draft",
-     "descLen": 729,
+     "status": "beta",
+     "descLen": 810,
      "descHeads": [
       "Status:",
       "Level:",
       "Правила:",
       "Когда нет:",
       "A11y:",
-      "Поиск:"
+      "Поиск:",
+      "Beta (20."
      ],
      "inBoard": false,
      "axes": {},
@@ -9211,7 +9215,7 @@
    "level": "unknown",
    "page": "Search",
    "pageId": "2233:839",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Search — борда · шаблон v3",
@@ -9241,15 +9245,16 @@
      "name": "Search",
      "id": "2233:913",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1026,
+     "status": "beta",
+     "descLen": 1115,
      "descHeads": [
       "Status:",
       "Level:",
       "Search —",
       "Когда использовать:",
       "Правила:",
-      "A11y:"
+      "A11y:",
+      "Beta (20."
      ],
      "inBoard": false,
      "axes": {
@@ -9334,7 +9339,7 @@
    "level": "unknown",
    "page": "Section header",
    "pageId": "2342:1340",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Section header — борда · шаблон v3",
@@ -9364,8 +9369,8 @@
      "name": "Section header",
      "id": "2342:1351",
      "type": "SET",
-     "status": "draft",
-     "descLen": 857,
+     "status": "beta",
+     "descLen": 1114,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9373,7 +9378,9 @@
       "Когда нет:",
       "Правила:",
       "A11y:",
-      "Поиск:"
+      "Поиск:",
+      "Когда использовать:",
+      "Beta (20."
      ],
      "inBoard": false,
      "axes": {
@@ -11180,7 +11187,7 @@
    "level": "unknown",
    "page": "Status summary",
    "pageId": "2309:3033",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Status summary — борда · шаблон v3",
@@ -11210,15 +11217,18 @@
      "name": "Status summary",
      "id": "2309:3299",
      "type": "SET",
-     "status": "draft",
-     "descLen": 685,
+     "status": "beta",
+     "descLen": 1060,
      "descHeads": [
       "Status:",
       "Level:",
       "Layout:",
       "Правила:",
       "Когда нет:",
-      "Поиск:"
+      "Поиск:",
+      "Когда использовать:",
+      "A11y:",
+      "Beta (20."
      ],
      "inBoard": false,
      "axes": {

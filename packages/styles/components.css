@@ -484,7 +484,7 @@
 .emcd-card--interactive:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .emcd-card--interactive::before { transition: none; } }
 
-/* Section header — 🟠 draft (Figma «Section header»: Size M · S; 19.11). Заголовок секции внутри карточки или формы: Title, Caption, слот Trailing.
+/* Section header — 🟡 beta (Figma «Section header»: Size M · S; 19.11). Заголовок секции внутри карточки или формы: Title, Caption, слот Trailing.
    M — label/lg 16 Medium (секция карточки); S — label/md 14 Medium (подсекция). Caption — body/sm text/secondary. Между текстом и Trailing — space/16; внутри Trailing — space/12. */
 .emcd-section-header { display: flex; align-items: center; gap: var(--space-16, 16px); min-width: 0; }
 .emcd-section-header__text { display: flex; flex: 1 1 auto; flex-direction: column; gap: var(--space-4, 4px); min-width: 0; }
@@ -1005,7 +1005,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-kv__bone { display: block; width: 96px; height: var(--type-body-md-line-height, 20px); border-radius: var(--radius-container, 12px); background: var(--skeleton-base); }
 .emcd-kv--total .emcd-kv__bone { height: var(--type-label-md-line-height, 20px); }
 
-/* Search — 🟠 draft (Figma «🟠 Search»: Size × State). Поле поиска: подложка surface/level-2, обводка border/subtle, радиус radius/control; S 32 · M 40;
+/* Search — 🟡 beta (Figma «Search»: Size × State). Поле поиска: подложка surface/level-2, обводка border/subtle, радиус radius/control; S 32 · M 40;
    лупа 20 (icon-tertiary) → текст (body-md; S — body-sm) → «Очистить» (Icon button Ghost S, когда введено). Hover — слой 6 %, Focus — обводка border/focus. */
 .emcd-search { --h: var(--control-height-md, 40px); --fs: var(--type-body-md-size, 14px); --lh: var(--type-body-md-line-height, 20px);
   position: relative; display: flex; align-items: center; gap: var(--space-8, 8px); box-sizing: border-box; width: 100%; min-width: 0; height: var(--h);
@@ -1025,7 +1025,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-search__input::placeholder { color: var(--text-tertiary); }
 .emcd-search__input::-webkit-search-cancel-button, .emcd-search__input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
 .emcd-search__clear { flex: none; }
-.emcd-search--s .emcd-search__clear { --h: var(--control-height-xs, 24px); }
+.emcd-search--s .emcd-search__clear { --h: var(--control-height-sm, 32px); } /* как в Figma (20.11): крестик S — control/height/sm */
 .emcd-search--disabled { cursor: not-allowed; }
 .emcd-search--disabled::before { display: none; }
 .emcd-search--disabled :is(.emcd-search__icon, .emcd-search__input, .emcd-search__input::placeholder) { color: var(--text-disabled); }
@@ -1422,7 +1422,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-top-bar__title { flex: 1; min-width: 0; margin: 0; text-align: center; font: 500 var(--type-label-lg-size, 16px)/var(--type-label-lg-line-height, 20px) var(--font-sans); color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .emcd-top-bar__slot { flex: none; display: flex; justify-content: flex-end; width: var(--control-height-md, 40px); }
 
-/* Status summary — 🟠 draft (Figma «🟠 Status summary»: Layout Column · Row; Show all link). Сводка воркеров: 3 × Stat card Align=Center (Danger → Warning → Neutral) со стрелкой-ссылкой;
+/* Status summary — 🟡 beta (Figma «Status summary»: Layout Column · Row; Show all link). Сводка воркеров: 3 × Stat card Align=Center (Danger → Warning → Neutral) со стрелкой-ссылкой;
    плитки — radius/container, зазор space/8. Column (Web) — колонка у графика, плитки делят высоту; Row (Compact) — три равные колонки + Button Text «Все воркеры» (зазор space/12). */
 .emcd-status-summary { display: flex; flex-direction: column; gap: var(--space-12, 12px); min-width: 0; }
 .emcd-status-summary__tiles { display: flex; flex-direction: column; gap: var(--space-8, 8px); flex: 1; min-width: 0; }
@@ -1431,7 +1431,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-status-summary--row .emcd-status-summary__tile { min-width: 0; }
 .emcd-status-summary__all { align-self: flex-start; margin-inline-start: var(--space-4, 4px); }
 
-/* Promo carousel — 🟠 draft (Figma «🟠 Promo carousel»: слот Slides). Промо внизу мобильного дашборда: дорожка с прокруткой scroll-snap, слайд — Promo card M шириной 311 (следующая подглядывает),
+/* Promo carousel — 🟡 beta (Figma «Promo carousel»: слот Slides). Промо внизу мобильного дашборда: дорожка с прокруткой scroll-snap, слайд — Promo card M шириной 311 (следующая подглядывает),
    зазор space/8; под дорожкой Page indicator (отступ space/12), синхронный с прокруткой. */
 .emcd-promo-carousel { display: flex; flex-direction: column; gap: var(--space-12, 12px); min-width: 0; }
 .emcd-promo-carousel__track { position: relative; display: flex; gap: var(--space-8, 8px); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
@@ -1441,7 +1441,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-promo-carousel__dots { align-self: center; }
 @media (prefers-reduced-motion: reduce) { .emcd-promo-carousel__track { scroll-behavior: auto; } }
 
-/* Action bar — 🟠 draft (Figma «🟠 Action bar»: Actions 1 · 2; Badge — 19.11). Нижняя панель действий Compact: 1–2 Button M поровну (зазор space/8), подложка surface/level-0, прилипает к низу;
+/* Action bar — 🟡 beta (Figma «Action bar»: Actions 1 · 2; Badge — 19.11). Нижняя панель действий Compact: 1–2 Button M поровну (зазор space/8), подложка surface/level-0, прилипает к низу;
    поля space/16 сверху и по бокам; снизу space/24 (замер экранов Figma 19.11: высота 80 = 16 + 40 + 24) или space/16 + safe area — что больше. Одно действие — Primary; два — Tertiary (action/secondary/default). */
 .emcd-action-bar { position: sticky; bottom: 0; z-index: 10; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: var(--space-8, 8px); box-sizing: border-box; width: 100%;
   padding: var(--space-16, 16px) var(--space-16, 16px) max(var(--space-24, 24px), calc(var(--space-16, 16px) + env(safe-area-inset-bottom, 0px))); background: var(--surface-level-0); }

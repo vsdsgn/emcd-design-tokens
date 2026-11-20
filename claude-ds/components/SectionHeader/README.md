@@ -1,6 +1,6 @@
 # Section header
 
-🟠 Draft (19.11) — в макеты не брать до перевода в beta. Заголовок секции внутри карточки или формы: Title, необязательная Caption, слот Trailing.
+🟡 Beta (20.11) — можно брать в макеты и код. Заголовок секции внутри карточки или формы: Title, необязательная Caption, слот Trailing. Контракт — `docs/components/section-header.md`.
 
 **Оси (как в Figma «Section header»):** Size M · S; свойства Title, Caption, Show caption, Trailing, Show trailing.
 

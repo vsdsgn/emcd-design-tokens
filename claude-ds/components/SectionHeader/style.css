@@ -1,4 +1,4 @@
-/* Section header — 🟠 draft (Figma «Section header»: Size M · S; 19.11). Заголовок секции внутри карточки или формы: Title, Caption, слот Trailing.
+/* Section header — 🟡 beta (Figma «Section header»: Size M · S; 19.11). Заголовок секции внутри карточки или формы: Title, Caption, слот Trailing.
    M — label/lg 16 Medium (секция карточки); S — label/md 14 Medium (подсекция). Caption — body/sm text/secondary. Между текстом и Trailing — space/16; внутри Trailing — space/12. */
 .emcd-section-header { display: flex; align-items: center; gap: var(--space-16, 16px); min-width: 0; }
 .emcd-section-header__text { display: flex; flex: 1 1 auto; flex-direction: column; gap: var(--space-4, 4px); min-width: 0; }

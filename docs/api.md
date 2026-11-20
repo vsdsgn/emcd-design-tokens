@@ -23,6 +23,17 @@
 
 Состояния в Figma: Default · Hover · Skeleton · Disabled · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
 
+## Action bar
+
+уровень не указан · beta · Vue `<DsActionBar>` · Flutter `DsActionBar` · контракт `docs/components/action-bar.md`
+
+Нижняя панель действий Compact: 1–2 Button M на всю ширину, подложка `surface/level-0`, прилипает к низу экрана.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `actions` | 1 \| 2 | по правилу контракта | ось Actions |
+| `badge` | boolean | false | свойство Badge |
+
 ## Address
 
 уровень не указан · beta · Vue `<DsAddress>` · Flutter `DsAddress` · контракт `docs/components/address.md`
@@ -844,6 +855,16 @@ Props нет.
 | `showClose` | boolean | true | свойство Show close |
 | `showBadge` | boolean | false | свойство Show badge |
 
+## Promo carousel
+
+уровень не указан · beta · Vue `<DsPromoCarousel>` · Flutter `DsPromoCarousel` · контракт `docs/components/promo-carousel.md`
+
+Промо-карусель Compact: слот Slides — 2–5 Promo card M шириной 311 (следующая подглядывает), под ней Page indicator.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `slides` | slot | — | свойство Slides |
+
 ## Radio
 
 уровень не указан · beta · Vue `<DsRadio>` · Flutter `DsRadio` · контракт `docs/components/radio.md`
@@ -906,6 +927,34 @@ Props нет.
 | `orientation` | vertical \| horizontal | по правилу контракта | ось Orientation |
 
 Состояния в Figma: Default · Hover · Dragging — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
+
+## Search
+
+уровень не указан · beta · Vue `<DsSearch>` · Flutter `DsSearch` · контракт `docs/components/search.md`
+
+Поле поиска: лупа, текст, крестик «Очистить» (когда введено). Поиск воркеров, монет, операций.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | s \| m | по правилу контракта | ось Size |
+| `text` | string | — | свойство Text |
+
+Состояния в Figma: Default · Hover · Focus · Filled · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+
+## Section header
+
+уровень не указан · beta · Vue `<DsSectionHeader>` · Flutter `DsSectionHeader` · контракт `docs/components/section-header.md`
+
+Заголовок секции внутри карточки или формы: Title, необязательная Caption, слот Trailing справа.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `size` | m \| s | по правилу контракта | ось Size |
+| `trailing` | slot | — | свойство Trailing |
+| `title` | string | — | свойство Title |
+| `caption` | string | — | свойство Caption |
+| `showCaption` | boolean | false | свойство Show caption |
+| `showTrailing` | boolean | false | свойство Show trailing |
 
 ## Segment
 
@@ -1035,6 +1084,17 @@ Props нет.
 | `tone` | success \| warning \| danger \| info \| neutral | по правилу контракта | ось Tone |
 | `label` | string | — | свойство Label |
 | `showLabel` | boolean | true | свойство Show label |
+
+## Status summary
+
+уровень не указан · beta · Vue `<DsStatusSummary>` · Flutter `DsStatusSummary` · контракт `docs/components/status-summary.md`
+
+Сводка воркеров по статусам: три плитки Stat card Align=Center — Отключённые · Нестабильные · Активные; плитка ведёт в «Воркеры» с фильтром.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `layout` | column \| row | по правилу контракта | ось Layout |
+| `showAllLink` | boolean | true | свойство Show all link |
 
 ## Step
 
