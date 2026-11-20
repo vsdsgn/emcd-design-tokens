@@ -75,7 +75,7 @@
 
 ## 12. Figma projection
 - Набор `Action bar`, вариантов 2 из 2; оси: Actions.
-- Борда: «Action bar — борда · шаблон v3», разделов 9.
+- Борда: «Action bar — борда · шаблон v3», разделов 12.
 - Описание: 1338 знаков, разделы: Status: Level: Actions: Badge: Правила: Когда нет: Поиск: Когда использовать: A11y: Beta (20.
 
 ## 13. Code projection

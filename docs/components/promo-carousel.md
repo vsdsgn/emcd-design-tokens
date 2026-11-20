@@ -72,7 +72,7 @@
 
 ## 12. Figma projection
 - Компонент `Promo carousel`; оси: нет.
-- Борда: «Promo carousel — борда · шаблон v3», разделов 9.
+- Борда: «Promo carousel — борда · шаблон v3», разделов 12.
 - Описание: 810 знаков, разделы: Status: Level: Правила: Когда нет: A11y: Поиск: Beta (20.
 
 ## 13. Code projection

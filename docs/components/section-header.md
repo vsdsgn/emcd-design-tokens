@@ -79,7 +79,7 @@
 
 ## 12. Figma projection
 - Набор `Section header`, вариантов 2 из 2; оси: Size.
-- Борда: «Section header — борда · шаблон v3», разделов 8.
+- Борда: «Section header — борда · шаблон v3», разделов 11.
 - Описание: 1114 знаков, разделы: Status: Level: Size: Когда нет: Правила: A11y: Поиск: Когда использовать: Beta (20.
 
 ## 13. Code projection

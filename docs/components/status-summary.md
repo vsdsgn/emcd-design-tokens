@@ -84,7 +84,7 @@
 
 ## 12. Figma projection
 - Набор `Status summary`, вариантов 2 из 2; оси: Layout.
-- Борда: «Status summary — борда · шаблон v3», разделов 9.
+- Борда: «Status summary — борда · шаблон v3», разделов 12.
 - Описание: 1060 знаков, разделы: Status: Level: Layout: Правила: Когда нет: Поиск: Когда использовать: A11y: Beta (20.
 
 ## 13. Code projection
