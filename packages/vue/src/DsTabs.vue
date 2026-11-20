@@ -4,6 +4,7 @@ import { computed, provide, ref, onMounted, toRef } from 'vue';
 import DsTab from './DsTab.vue';
 const props = defineProps({
   size: { type: String, default: 'm' }, // s — в виджете | m — App и мобильный веб | l — Web | page — табы-заголовок страницы (было xl)
+  fill: Boolean,                        // Compact: вкладки делят ширину поровну, если все помещаются; Web — false
   items: Array,
   label: String,                        // aria-label бара
 });
@@ -31,7 +32,7 @@ const keys = (e) => {
 };
 </script>
 <template>
-  <div ref="bar" role="tablist" :aria-label="label" :class="['emcd-tabs', size !== 'm' && `emcd-tabs--${size}`]" @keydown="keys">
+  <div ref="bar" role="tablist" :aria-label="label" :class="['emcd-tabs', size !== 'm' && `emcd-tabs--${size}`, fill && 'emcd-tabs--fill']" @keydown="keys">
     <template v-if="items"><DsTab v-for="(it, i) in items" :key="it.value ?? i" v-bind="it" :value="it.value ?? i" /></template>
     <slot v-else />
   </div>

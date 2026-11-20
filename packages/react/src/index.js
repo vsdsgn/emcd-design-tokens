@@ -411,7 +411,7 @@ export function Tab({ size, selected, value, label, children, counter, counterTo
   h('span', { className: 'emcd-tab__ring', 'aria-hidden': true }));
 }
 /** Tabs — бар вкладок (2–6). items: [{ value, label, counter, icon, disabled }] или дети Tab с value. Без value — неуправляемый (первая выбрана). */
-export function Tabs({ size = 'm', items, value, defaultValue, onChange, label, children, className, ...rest }) {
+export function Tabs({ size = 'm', fill = false, items, value, defaultValue, onChange, label, children, className, ...rest }) {
   const kids = React.Children.toArray(children).filter(React.isValidElement);
   const first = items ? (items[0] && (items[0].value ?? 0)) : kids[0] && kids[0].props.value;
   const [cur, set] = useControllable(value, defaultValue ?? first, onChange);
@@ -421,7 +421,7 @@ export function Tabs({ size = 'm', items, value, defaultValue, onChange, label, 
     if (el && (el.offsetLeft < bar.scrollLeft || el.offsetLeft + el.offsetWidth > bar.scrollLeft + bar.clientWidth)) bar.scrollLeft = el.offsetLeft - 16;
   }, []);
   return h(TabsCtx.Provider, { value: { size, value: cur, select: (v, e) => set(v, e) } },
-    h('div', { ref, role: 'tablist', 'aria-label': label, className: cx('emcd-tabs', size !== 'm' && 'emcd-tabs--' + size, className), onKeyDown: (e) => rovingKeys(e, '[role="tab"]'), ...rest },
+    h('div', { ref, role: 'tablist', 'aria-label': label, className: cx('emcd-tabs', size !== 'm' && 'emcd-tabs--' + size, fill && 'emcd-tabs--fill', className), onKeyDown: (e) => rovingKeys(e, '[role="tab"]'), ...rest },
       items ? items.map((it, i) => h(Tab, { key: it.value ?? i, ...it, value: it.value ?? i })) : children));
 }
 

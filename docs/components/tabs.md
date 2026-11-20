@@ -1,4 +1,4 @@
-# Tabs — контракт (2026-11-19)
+# Tabs — контракт (2026-11-20)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -12,6 +12,7 @@
 - Когда использовать: 2–6 разделов одного контекста.
 - Когда нет: фильтры — Chip / Segmented; основная навигация — Nav item / Tab bar.
 - Правило выбора варианта:
+  - Ширина (20.11): Compact (мобильный веб, App) — вкладки делят ширину поровну (Tab — Fill; в коде `fill`), если все помещаются без прокрутки; не помещаются (6 разделов майнинга на 375) — по содержимому с прокруткой. Web (Large+) — всегда по содержимому.
   - Size: S — мини-табы внутри виджета или карточки; M (зазор 16) — App и мобильный веб; L (зазор 24) — Web; Page — табы-заголовок страницы (до 2026-11-17 — XL). В одном баре один размер.
   - Tab 3 – Tab 6: число вкладок 2–6, включать по порядку.
   - Выбрана одна вкладка; в макете — первая.
@@ -88,7 +89,7 @@
 ## 12. Figma projection
 - Набор `Tabs`, вариантов 4 из 4; оси: Size.
 - Борда: «Tabs — борда · шаблон v3», разделов 12.
-- Описание: 1113 знаков, разделы: Status: Level: Бар табов. Правила: Когда использовать: Хаптик: Поиск: Legacy: A11y:
+- Описание: 1334 знаков, разделы: Status: Level: Бар табов. Правила: Когда использовать: Хаптик: Поиск: Legacy: A11y: Ширина (20.
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Tabs`), Vue `packages/vue/src/DsTabs.vue`, CSS `claude-ds/components/Tabs/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
@@ -96,7 +97,7 @@
 - Vue: `<DsTabs>`; Flutter: `DsTabs`.
 - Props: `size`: m | l | page | s; `tab3`: boolean = true; `tab4`: boolean = true; `tab5`: boolean = false; `tab6`: boolean = false.
 
-## 14. Acceptance (2026-11-19)
+## 14. Acceptance (2026-11-20)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

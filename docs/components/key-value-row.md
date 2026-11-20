@@ -1,4 +1,4 @@
-# Key-value row — контракт (2026-11-19)
+# Key-value row — контракт (2026-11-20)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -91,7 +91,7 @@
 - Props: `emphasis`: default | total | muted; `leader`: boolean; `key`: string или слот; `value`: string или слот.
 - Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-19)
+## 14. Acceptance (2026-11-20)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 200).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

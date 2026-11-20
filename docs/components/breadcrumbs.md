@@ -1,4 +1,4 @@
-# Breadcrumbs — контракт (2026-11-19)
+# Breadcrumbs — контракт (2026-11-20)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -81,7 +81,7 @@
 - Vue: `<DsBreadcrumbs>`; Flutter: `DsBreadcrumbs`.
 - Props: `items`: 2 | 3 | 4 | collapsed.
 
-## 14. Acceptance (2026-11-19)
+## 14. Acceptance (2026-11-20)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

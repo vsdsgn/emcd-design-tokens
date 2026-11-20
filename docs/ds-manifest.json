@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19",
+ "generated": "2026-11-20",
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
@@ -13032,7 +13032,7 @@
      "id": "45:250",
      "type": "SET",
      "status": "beta",
-     "descLen": 1113,
+     "descLen": 1334,
      "descHeads": [
       "Status:",
       "Level:",
@@ -13042,7 +13042,8 @@
       "Хаптик:",
       "Поиск:",
       "Legacy:",
-      "A11y:"
+      "A11y:",
+      "Ширина (20."
      ],
      "inBoard": false,
      "axes": {

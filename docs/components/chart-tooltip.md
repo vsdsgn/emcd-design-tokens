@@ -1,4 +1,4 @@
-# Chart tooltip — контракт (2026-11-19)
+# Chart tooltip — контракт (2026-11-20)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -91,7 +91,7 @@
 - Props: `rows`: 1 | 2 | 3 | 4; `showDate`: boolean = true.
 - `rows` в коде — массив строк `{ label, value, marker?, series?, tone? }` (длина 1–4 ↔ ось Figma Rows; больше четырёх — 4 строки и «+N» через `moreLabel`); `showDate` + `date` / `time`.
 
-## 14. Acceptance (2026-11-19)
+## 14. Acceptance (2026-11-20)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

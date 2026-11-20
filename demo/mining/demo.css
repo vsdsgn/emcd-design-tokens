@@ -156,6 +156,7 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 .demo-app { position: relative; display: flex; flex-direction: column; height: 100vh; overflow: hidden; background: var(--surface-level-0); }
 .demo-app__status { flex: none; height: 54px; }
 .demo-app__sheet { flex: 1; min-height: 0; overflow: hidden; gap: var(--space-8); margin-bottom: -40px; } /* лист уходит под Tab bar, как на макете */
+.demo-app__sheet--tabs { padding-top: var(--space-4); gap: var(--space-16); } /* лист с Tabs сверху: поле space/4 (воздух дают сами Tabs M 48), зазор space/16 — как на макетах */
 .demo-app__tabbar { flex: none; position: relative; z-index: 1; }
 .demo-app__fab { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(91px + var(--space-32)); }
 .demo-app-coin { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }

@@ -521,7 +521,7 @@
       // статус-бар iOS — часть устройства, не DS: только высота
       h('div', { className: 'demo-app__status', 'aria-hidden': true }),
       h(E.TopBar, { platform: 'app', account: 'rruuff', coins: ['btc', 'eth'], coin: 'BTC + 1' }),
-      h(E.Card, { level: 1, radius: 'surface', padding: 'm', className: 'demo-app__sheet' }, props.children),
+      h(E.Card, { level: 1, radius: 'surface', padding: 'm', className: 'demo-app__sheet' + (props.tabs ? ' demo-app__sheet--tabs' : '') }, props.children),
       props.over,
       h(E.TabBar, { className: 'demo-app__tabbar', defaultValue: 'Майнинг', items: APP_TABS }));
   }
@@ -547,8 +547,8 @@
       { key: 'h24', label: 'За 24 ч', sortable: true, align: 'end', render: function (r) { return num(r.h24, 'TH/s'); } },
       { key: 'rej', label: 'Реджекты', sortable: true, align: 'end', render: function (r) { return num(r.rej, '%'); } }];
     var rows = [0, 1, 2, 3, 4, 5, 6].map(function (i) { return { id: i, name: 'worker', cur: '105.28', h24: '118.28', rej: i ? '1.05' : '0' }; });
-    return h(AppShell, { over: h(E.FloatingButton, { layout: 'extended', size: 'm', type: 'secondary', label: 'Выгрузить', icon: 'file-excel', className: 'demo-app__fab' }) },
-      h(E.Tabs, { size: 'm', label: 'Разделы майнинга', defaultValue: 'Воркеры', items: ['Дашборд', 'Воркеры', 'История'].map(function (l) { return { value: l, label: l }; }) }),
+    return h(AppShell, { tabs: true, over: h(E.FloatingButton, { layout: 'extended', size: 'm', type: 'secondary', label: 'Выгрузить', icon: 'file-excel', className: 'demo-app__fab' }) },
+      h(E.Tabs, { size: 'm', fill: true, label: 'Разделы майнинга', defaultValue: 'Воркеры', items: ['Дашборд', 'Воркеры', 'История'].map(function (l) { return { value: l, label: l }; }) }),
       div('demo-chips',
         h(E.Chip, { size: 's', label: 'Все', metaText: '100', selected: true }),
         h(E.Chip, { size: 's', label: 'Активные', metaText: '75', statusDot: true, statusTone: 'success' }),
@@ -564,10 +564,10 @@
     var tx = ['16 фев 2026, 11:38', '12 фев 2026, 10:35', '29 янв 2026, 15:36', '24 янв 2026, 12:38'].map(function (d) {
       return h(E.Transaction, { key: d, showLeading: false, type: 'reward', status: 'completed', label: 'PPLNS начисление', description: d, value: '0.00004480', ticker: 'LTC', fiat: '≈ $62.89' });
     });
-    return h(AppShell, { over: div('demo-app-actions',
+    return h(AppShell, { tabs: true, over: div('demo-app-actions',
         h(E.Button, { type: 'tertiary', size: 'm', label: 'Фильтры', iconLeft: h(E.Icon, { name: 'tuning' }) }),
         h(E.Button, { type: 'tertiary', size: 'm', label: 'Выгрузить', iconLeft: h(E.Icon, { name: 'file-excel' }) })) },
-      h(E.Tabs, { size: 'm', label: 'Разделы майнинга', defaultValue: 'История', items: ['Дашборд', 'Воркеры', 'История', 'Настройки'].map(function (l) { return { value: l, label: l }; }) }),
+      h(E.Tabs, { size: 'm', fill: true, label: 'Разделы майнинга', defaultValue: 'История', items: ['Дашборд', 'Воркеры', 'История', 'Настройки'].map(function (l) { return { value: l, label: l }; }) }),
       h(E.Segmented, { size: 'l', block: true, label: 'Вид истории', items: [{ value: 'acc', label: 'Начисления' }, { value: 'pay', label: 'Выплаты' }] }),
       h(E.Card, { level: 2, padding: 'm', border: true, className: 'demo-mw-total' },
         div('demo-mw-total__row',

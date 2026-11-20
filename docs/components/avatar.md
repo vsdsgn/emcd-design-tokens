@@ -1,4 +1,4 @@
-# Avatar — контракт (2026-11-19)
+# Avatar — контракт (2026-11-20)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -88,7 +88,7 @@
 - Props: `size`: xs | s | m | l; `type`: text | icon | image; `initials`: string или слот; `status`: boolean = false.
 - Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-19)
+## 14. Acceptance (2026-11-20)
 - `audit.plugin.js` — 0 замечаний сверх реестра.
 - `variables-check.plugin.js` — нет: корень — `size/media/xs` / `md` / `lg` / `xl` (привязано 2026-11-16).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

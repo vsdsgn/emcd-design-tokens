@@ -1,4 +1,4 @@
-# Promo card — контракт (2026-11-19)
+# Promo card — контракт (2026-11-20)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -114,7 +114,7 @@
 - Vue: `<DsPromoCard>`; Flutter: `DsPromoCard`.
 - Props: `size`: s | m | l; `tone`: neutral | accent; `align`: start | center; `title`: string или слот; `description`: string или слот; `showDescription`: boolean = true; `showAction`: boolean = true; `showMedia`: boolean = false; `showClose`: boolean = true; `showBadge`: boolean = false.
 
-## 14. Acceptance (2026-11-19)
+## 14. Acceptance (2026-11-20)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

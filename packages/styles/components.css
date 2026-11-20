@@ -663,12 +663,14 @@
 
 /* Tabs + Tab — 🟡 beta (Figma «🟡 Tabs»: Size; «🟡 Tab»: Size × Selected × State). Разделы одного экрана; выбранный — подчёркивание border-accent.
    Бар на ширину секции, разделитель снизу border-subtle; не помещается — горизонтальный скролл, без переноса. */
-.emcd-tabs { --gap: var(--space-20, 20px); position: relative; display: flex; gap: var(--gap); min-width: 0; overflow-x: auto; overflow-y: hidden;
+.emcd-tabs { --gap: var(--space-16, 16px); position: relative; display: flex; gap: var(--gap); min-width: 0; overflow-x: auto; overflow-y: hidden;
   scrollbar-width: none; box-shadow: inset 0 calc(-1 * var(--border-width-default, 1px)) 0 var(--border-subtle); }
 .emcd-tabs::-webkit-scrollbar { display: none; }
-.emcd-tabs--s { --gap: var(--space-16, 16px); }
+.emcd-tabs--s { --gap: var(--space-20, 20px); } /* как в Figma: S 20, M 16 (20.11; было наоборот) */
 .emcd-tabs--l { --gap: var(--space-24, 24px); }
 .emcd-tabs--page { --gap: var(--space-32, 32px); }
+/* Fill (20.11) — только Compact: вкладки поровну на всю ширину, если помещаются; длинная подпись не сжимается (min-width по содержимому) — тогда бар прокручивается. Web — по содержимому. */
+.emcd-tabs--fill > .emcd-tab { flex: 1 1 0; min-width: max-content; justify-content: center; }
 .emcd-tab { --h: var(--control-height-lg, 48px); --ind: var(--size-tab-indicator-sm, 2px); --ind-c: transparent; --fg: var(--text-secondary);
   --fs: var(--type-label-md-size, 14px); --lh: var(--type-label-md-line-height, 20px); --ff: var(--font-sans); --fw: 500;
   position: relative; flex: none; display: inline-flex; align-items: center; gap: var(--space-6, 6px); height: var(--h); max-width: 240px; padding: 0; margin: 0; border: 0;

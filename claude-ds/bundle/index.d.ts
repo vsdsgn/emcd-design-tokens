@@ -437,6 +437,8 @@ export interface TabProps {
 }
 export interface TabsProps extends Controlled<string | number> {
   size?: 's' | 'm' | 'l' | 'page';
+  /** Compact (мобильный веб, App, 20.11): вкладки делят ширину поровну, если все помещаются без прокрутки. На Web (Large+) — false, по содержимому. */
+  fill?: boolean;
   /** 2–6 вкладок (в Figma — Tab 3 … Tab 6). Или дети Tab с value. */
   items?: Array<TabProps & { value?: string | number }>;
   /** aria-label бара. */

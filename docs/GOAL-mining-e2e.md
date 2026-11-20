@@ -20,11 +20,12 @@ Publish 19.11 (Стефан) закрыл всё прежнее: Amount L / Tone
 
 Publish 19.11 (второй): Top bar App и Promo card Center опубликованы, экраны обновлены (App — Top bar заново, монета — Coin stack BTC + 1; Web — Promo уже на новой версии, «Мониторинг» на всю ширину).
 
-Очередь на следующий Publish Components: Top bar Mobile web — Logo по умолчанию (знак EMCD вместо текста-заглушки); Transaction — Amount Align=End; Tab bar item — знак EMCD в предпочтительных значениях Icon · swap.
+Publish 20.11 закрыл: Top bar Logo по умолчанию, Transaction Align=End, Tab bar item — знак в предпочтительных. Очередь: Tabs — правило ширины в описании (без смены вида).
 
 Сделано после Publish Icons: знак EMCD в Tab bar App (3 экрана) и в Top bar мобильного веба (13 экранов, вместо вставленного вектора). Было: **Publish Icons** — вариант Logo · Network=EMCD (Mono) в библиотеке ещё не виден из файлов экранов; после — заменить legacy «E» в Tab bar App (3 экрана).
 
 ## Журнал
+- 20.11 — Tabs: правило ширины (Compact — `fill`, Web — по содержимому), в коде `fill` + зазор M 16 / S 20 как в Figma; App «История» — табы растянуты; демо App — поле листа с табами `space/4`, зазор 16 (сверено с Figma). Манифест D51.
 - 19.11 — демо App (iOS): 3 экрана из кода (`app-dashboard`, `app-workers`, `app-history`, всего 18) рядом с макетами App DS 2.0. По сравнению: Transaction `showLeading` + Amount M, Button без `max-width: 280`, иконка `devices`; на экранах — Amount Align=End, `file-excel`, лист Воркеров Card M; в Components — Transaction Amount Align=End (ждёт Publish). Борды Top bar и Tab bar item пересобраны (D50).
 - 19.11 — второй Publish: Top bar App на экранах App пересобран (монета в «end», «+» Tertiary, Coin stack BTC + 1 из Symbols DS), Promo Center без override. Логотип EMCD (Icons · Media · Logo, Mono) в код: `icons/symbols/logo/emcd.svg`, иконка `logo-emcd` (заливка currentColor) — по умолчанию в Top bar (mobile-web) и Tab bar item `type: 'action'`; «+» Top bar App — Icon button Tertiary. Демо — знак из кода совпадает с макетом.
 - 19.11 — после Publish: экраны майнинга обновлены (258 экземпляров Web / мобильный + 44 App), Section header вместо заголовков-текстов (калькулятор, настройки, вывод, Watcher-link), итог калькулятора — Amount Tone=Success, Coinhold — Card Ambient light; App — Floating button M (Secondary «Выгрузить», Primary «Калькулятор»), Tab bar с центральной Action, Top bar App. Найдено и исправлено в Components: Promo Center (заголовок по буквам), Top bar App (монета). Манифест D46. Борды 12 отстававших наборов + новая Section header пересобраны (D47); эталоны демо (15) пересняты с экранов после Publish, сравнение без новых расхождений.
