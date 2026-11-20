@@ -287,7 +287,7 @@
   var forecast = function (label, tone, pct, value, fiat) {
     return div('demo-forecast',
       h(E.Progress, { size: 's', tone: tone, percent: pct, label: label, showLabel: false }),
-      div('demo-forecast__row', text('demo-caption', label), h(E.Amount, { size: 's', value: value, ticker: 'LTC', fiat: fiat })));
+      div('demo-forecast__row', text('demo-caption', label), h(E.Amount, { size: 's', align: 'end', value: value, ticker: 'LTC', fiat: fiat, className: 'demo-push' })));
   };
   function coinholdCard(mobile) {
     var mining = ['Майнинг', '537.4296', '≈ $48 255.72'], plus = ['Майнинг + Coinhold', '561.166074', '≈ $50 384.85'];
@@ -302,16 +302,16 @@
         text('demo-caption', 'Расчёт основан на сроке майнинга, текущем курсе монеты и условиях Coinhold')),
       h(E.Button, { type: 'secondary', size: 'm', label: 'Открыть Coinhold', className: 'demo-coinhold__btn' }));
   }
-  function incomeCard(mobile) {
+  function incomeCard(mobile, app) {
     return h(E.Card, { padding: mobile ? 'm' : 'l', border: false, className: 'demo-income' + (mobile ? ' demo-income--mw' : '') },
       div('demo-income__head',
         text('demo-caption demo-caption--md', mobile ? 'Доход за 360 дней' : 'Ожидаемый доход'),
         !mobile && h(E.SelectCompact, { label: 'Монета', options: CALC_COIN_OPTIONS, className: 'demo-push' })),
       div('demo-income__total',
         // итог дохода — Amount XL Tone=Success (решение 19.11); без Coinhold (мобильный: переключатель выкл.) — без зачёркнутой суммы
-        h(E.Amount, { size: 'xl', tone: 'success', value: mobile ? '≈ $350 536.71' : '≈ $352 665.84' }),
+        h(E.Amount, { size: mobile ? 'l' : 'xl', tone: 'success', value: mobile ? '≈ $350 536.71' : '≈ $352 665.84' }),
         !mobile && h('s', { className: 'demo-caption demo-caption--md' }, '≈ $350 536.71')),
-      div('demo-income__coins', CALC_COINS.map(function (c) {
+      div('demo-income__coins', (app ? CALC_COINS.concat([{ coin: 'jkc', value: '4 008.9816', ticker: 'JKC', fiat: '≈ $120.26', scheme: 'PPLNS' }]) : CALC_COINS).map(function (c) {
         return div('demo-income__coin', h(E.Coin, { key: 'c', coin: c.coin, size: 's' }),
           h(E.Amount, { key: 'a', size: mobile ? 'm' : 's', value: c.value, ticker: c.ticker, fiat: (mobile && c.mwFiat ? c.mwFiat : c.fiat) + ' · ' + c.scheme }));
       })),
@@ -596,9 +596,95 @@
       div('demo-app-list', rows));
   }
 
+  // ───────── App, 20.11: вложенный экран (Top bar Level=Inner), корневые разделы «Настройки» и «Watcher-link», поток «Выгрузка» (Sheet) — patterns 1.5 ─────────
+  var APP_SECTIONS = ['Дашборд', 'Воркеры', 'История', 'Watcher-link', 'Настройки'];
+  var appTabs = function (v) { return h(E.Tabs, { size: 'm', label: 'Разделы майнинга', defaultValue: v, items: APP_SECTIONS.map(function (l) { return { value: l, label: l }; }), className: 'demo-app__tabs' }); };
+  function AppInner(props) {
+    return div('demo-app demo-app--inner',
+      h('div', { className: 'demo-app__status', 'aria-hidden': true }),
+      h(E.TopBar, { platform: 'app', level: 'inner', title: props.title, onBack: function () {} }),
+      div('demo-app__inner-content', props.children),
+      props.bar);
+  }
+  function AppCalculator() {
+    var coins = h(E.CoinStack, { coins: ['ltc', 'doge'], size: 's' });
+    return h(AppInner, { title: 'Калькулятор', bar: h(E.ActionBar, { actions: [{ label: 'Начать майнить' }] }) },
+      h(E.Card, { padding: 'm', border: false, className: 'demo-calc__form demo-calc__form--mw' },
+        h(E.Select, { size: 'l', labelPosition: 'on-border', label: 'Монета', defaultValue: 'ltc', leading: coins, options: [{ value: 'ltc', label: 'Litecoin + 5' }, { value: 'doge', label: 'Dogecoin' }] }),
+        div('demo-calc__fields demo-calc__fields--mw', CALC_FIELDS.map(function (f) { return calcField(f.key === 'power' ? Object.assign({}, f, { label: 'Энергопотребление инфраструктуры' }) : f, 'l'); })),
+        div('demo-calc-group', text('demo-caption demo-caption--md', 'Укажи срок'), h(ChipRow, { label: 'Срок', items: CALC_PERIODS, selected: '360 дней', className: 'demo-chip-row--scroll' }))),
+      appCoinhold(),
+      incomeCard(true, true),
+      vipSuggest());
+  }
+  // Coinhold в App (по production App): ставка — в подписи Section header, Toggle без своей подписи; доли 100 → 25
+  function appCoinhold() {
+    return h(E.Card, { level: 1, padding: 'm', border: false, ambientLight: true, className: 'demo-coinhold demo-coinhold--mw' },
+      h(E.SectionHeader, { size: 'm', title: 'Переводить на Coinhold', caption: 'До 9% годовых на намайненное',
+        trailing: h(E.Toggle, { status: false, inputProps: { 'aria-label': 'Переводить на Coinhold' } }) }),
+      div('demo-calc-group', h(E.SectionHeader, { size: 's', level: 4, title: 'Сколько переводить?' }),
+        h(ChipRow, { label: 'Сколько переводить', items: CALC_SHARES.slice().reverse(), selected: '75 %', className: 'demo-chip-row--fill' })),
+      div('demo-calc-group', h(E.SectionHeader, { size: 's', level: 4, title: 'Прогноз доходности' }),
+        div('demo-forecasts', forecast('Майнинг + Coinhold', 'accent', 60, '561.166074', '≈ $50 384.85'), forecast('Майнинг', 'success', 60, '537.4296', '≈ $48 255.72')),
+        text('demo-caption', 'Расчёт основан на сроке майнинга, текущем курсе монеты и условиях Coinhold')),
+      h(E.Button, { type: 'secondary', size: 'm', label: 'Открыть Coinhold', className: 'demo-coinhold__btn' }));
+  }
+  function AppSettingsWithdraw() {
+    return h(AppShell, { tabs: true },
+      appTabs('Настройки'),
+      h(E.Suggest, { layout: 'strip', tone: 'neutral', title: 'Перенесли настройки вывода на внешний кошелёк в другой раздел', primaryLabel: 'Перейти', close: false }),
+      h(E.SectionHeader, { size: 'm', level: 2, title: 'Куда выводить средства?' }),
+      h(E.Toggle, { status: true, label: 'На основной счёт', description: 'Выплачиваем ежедневно с 10:00 до 12:00, без ограничений' }),
+      h(E.Divider, null),
+      h(E.Toggle, { status: false, label: 'На Coinhold', description: 'Дополнительный доход с намайненного — до 8% годовых' }),
+      h(E.PromoCard, { size: 'm', tone: 'accent', title: 'Увеличь намайненное: до 7.5% годовых', description: 'Открой Coinhold и зарабатывай на хранении криптовалют', actionLabel: 'Открыть Coinhold', showClose: false }));
+  }
+  function AppSettingsNotify() {
+    return h(AppShell, { tabs: true },
+      appTabs('Настройки'),
+      SETTINGS_SEG('notify'),
+      h(E.SectionHeader, { size: 'm', level: 2, title: 'Следи за событиями майнинга' }),
+      h(E.Select, { size: 'l', labelPosition: 'on-border', label: 'Аккаунт', hint: 'Уведомления настраиваются для выбранного аккаунта', defaultValue: 'main',
+        options: [{ value: 'main', label: 'SergeySemenov2' }, { value: 'second', label: 'petrovskii' }] }),
+      text('demo-caption demo-caption--md', 'Какие уведомления получать'),
+      h(E.Card, { level: 2, padding: 's', border: false }, div('emcd-list', [['Выплаты'], ['Начисления'], ['Статус устройств'], ['Снижение хешрейта', 'Чтобы не пропускать снижение хешрейта']].map(function (r, i, all) {
+        return h(E.ListItem, { key: r[0], size: 'm', inset: false, href: '#', divider: i < all.length - 1, label: r[0], description: r[1], showDescription: !!r[1], trailing: h(E.Icon, { name: 'chevron-right' }) });
+      }))));
+  }
+  function AppWatcher() {
+    var field = function (label, value, badge) { return div('demo-wl-field', text('demo-wl-field__label', label), div('demo-wl-field__value', text('demo-wl-field__text', value), badge && h(E.Badge, { size: 's', label: badge }))); };
+    var card = function (name, access) {
+      return h(E.Card, { key: name, padding: 'm', border: true, className: 'demo-wl-card' },
+        div('demo-wl-card__top', text('demo-wl-card__name', name),
+          h(E.IconButton, { type: 'ghost', size: 's', label: 'Скопировать ссылку', icon: h(E.Icon, { name: 'link' }) }),
+          h(E.IconButton, { type: 'ghost', size: 's', label: 'Ещё', icon: h(E.Icon, { name: 'more-horizontal' }) })),
+        field('Аккаунт', 'rruuff', 'Основной'), field('Создан', '10 декабря 2025'), field('Выгрузка', access), field('Срок действия', 'до 15 января'));
+    };
+    return h(AppShell, { tabs: true, over: h(E.FloatingButton, { layout: 'extended', size: 'm', label: 'Создать Watcher link', className: 'demo-app__fab' }) },
+      appTabs('Watcher-link'),
+      h(E.Suggest, { layout: 'strip', tone: 'accent', title: 'Подключай сторонние сервисы по API', primaryLabel: 'Перейти', close: false }),
+      h(E.SectionHeader, { size: 'm', level: 2, title: 'Мои Watcher link', trailing: h(E.IconButton, { type: 'tertiary', size: 'm', label: 'Фильтр', icon: h(E.Icon, { name: 'filter' }) }) }),
+      div('demo-wl-list', card('U soseda poka ego net doma i on ne vedaet', 'Все доступы'), card('Dagestan', 'Хешрейт • воркеры • начисления')));
+  }
+  function AppExport() {
+    var sel = function (label, value, leading) { return h(E.Select, { size: 'l', labelPosition: 'on-border', label: label, defaultValue: 'v', leading: leading, options: [{ value: 'v', label: value }] }); };
+    return div('demo-app demo-app--sheet',
+      h('div', { className: 'demo-app__status', 'aria-hidden': true }),
+      h(E.Sheet, { title: 'Выгрузить историю', showGrabber: false, fullHeight: true, scrim: false, onClose: function () {},
+        footer: h(E.Button, { type: 'primary', size: 'l', label: 'Сформировать и отправить' }) },
+        h('p', { className: 'demo-sheet-text' }, 'Сформируем в выбранном формате и отправим на почту. Что туда включить?'),
+        sel('Аккаунт', 'Все аккаунты'),
+        sel('Монета', 'Litecoin + 4', h(E.CoinStack, { coins: ['ltc', 'doge', 'x'], size: 's', count: 2, more: '4' })),
+        h(E.DateRangeField, { label: 'Период', hint: 'Выгрузить можно за 3 месяца, но в рамках года' }),
+        sel('Валюта', 'RUB'),
+        sel('Формат выгрузки', 'Таблица CSV', h(E.Icon, { name: 'file-excel' })),
+        h(E.Toggle, { status: false, label: 'Автовыгрузка', description: 'В 12:00 формируем отчёт и отправляем его автоматически' })));
+  }
+
   var SCREENS = { 'web-dashboard': WebDashboard, 'web-workers': WebWorkers, 'web-history': WebHistory, 'mw-dashboard': MwDashboard, 'mw-workers': MwWorkers, 'mw-history': MwHistory,
     'web-calculator': WebCalculator, 'mw-calculator': MwCalculator, 'web-watcher': WebWatcher, 'web-settings': WebSettings,
     'web-payouts': WebPayouts, 'mw-payouts': MwPayouts, 'mw-watcher': MwWatcher, 'mw-settings-notify': MwSettingsNotify, 'mw-settings-withdraw': MwSettingsWithdraw,
-    'app-dashboard': AppDashboard, 'app-workers': AppWorkers, 'app-history': AppHistory, 'app-payouts': AppPayouts };
+    'app-dashboard': AppDashboard, 'app-workers': AppWorkers, 'app-history': AppHistory, 'app-payouts': AppPayouts,
+    'app-calculator': AppCalculator, 'app-settings-withdraw': AppSettingsWithdraw, 'app-settings-notify': AppSettingsNotify, 'app-watcher': AppWatcher, 'app-export': AppExport };
   ReactDOM.createRoot(document.getElementById('root')).render(h(SCREENS[screen] || WebDashboard));
 })();

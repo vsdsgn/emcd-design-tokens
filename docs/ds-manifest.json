@@ -14,7 +14,7 @@
    "service": 4,
    "template": 1
   },
-  "variants": 1684,
+  "variants": 1686,
   "incompleteMatrix": 20,
   "propsNotBoundEverywhere": 20,
   "rawMinMax": 1,
@@ -14122,24 +14122,29 @@
      "id": "2312:35",
      "type": "SET",
      "status": "draft",
-     "descLen": 994,
+     "descLen": 1477,
      "descHeads": [
       "Status:",
       "Level:",
       "Под ней —",
       "Platform:",
       "Правила:",
-      "Поиск:"
+      "Поиск:",
+      "Level (20."
      ],
      "inBoard": false,
      "axes": {
       "Platform": [
        "Mobile web",
        "App"
+      ],
+      "Level": [
+       "Root",
+       "Inner"
       ]
      },
-     "variants": 2,
-     "full": 2,
+     "variants": 4,
+     "full": 4,
      "props": [
       {
        "name": "Logo",
@@ -14169,12 +14174,24 @@
        "type": "BOOLEAN",
        "def": true,
        "bound": 1
+      },
+      {
+       "name": "Title",
+       "type": "TEXT",
+       "def": "Калькулятор",
+       "bound": 2
+      },
+      {
+       "name": "Show action",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 2
       }
      ],
      "nested": {
       "Logo": 1,
       "(icons)": 2,
-      "Icon button": 2,
+      "Icon button": 6,
       "Select compact": 2
      },
      "minmax": [],
@@ -14185,7 +14202,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 4,
+     "rawCount": 8,
      "raw": [
       "(root):w=375",
       "(root):h=56"
@@ -14230,7 +14247,9 @@
        "w:control/height/md"
       ],
       "end": [
-       "gap:space/8"
+       "gap:space/8",
+       "h:control/height/md",
+       "w:control/height/md"
       ],
       "coin": [
        "f:action/secondary/default",
@@ -14242,6 +14261,23 @@
       ],
       "add": [
        "f:action/secondary/default",
+       "gap:space/6",
+       "h:control/height/md",
+       "r:radius/control",
+       "w:control/height/md"
+      ],
+      "back": [
+       "gap:space/6",
+       "h:control/height/md",
+       "r:radius/control",
+       "w:control/height/md"
+      ],
+      "title": [
+       "f:text/primary",
+       "fontSize:type/label/lg/size",
+       "lineHeight:type/label/lg/line-height"
+      ],
+      "action": [
        "gap:space/6",
        "h:control/height/md",
        "r:radius/control",

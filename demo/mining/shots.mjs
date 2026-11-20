@@ -18,7 +18,8 @@ const SCREENS = [
   // 19.11: макеты экранов DS (Figma «… · DS 2.0»): мобильные 370 × 800 (кадр 375 в масштабе), «Вывод» — 375 × 1042 (вся высота), Выплаты Web — 1200 × 750
   ['web-payouts', 1440, 900], ['mw-payouts', 375, 812], ['mw-watcher', 375, 812], ['mw-settings-notify', 375, 812], ['mw-settings-withdraw', 375, 812, true],
   // 19.11: App (iOS) — экраны «… · App · DS 2.0» (статус-бар — устройство, в коде только его высота 54)
-  ['app-dashboard', 375, 812], ['app-workers', 375, 812], ['app-history', 375, 812], ['app-payouts', 375, 812]];
+  ['app-dashboard', 375, 812], ['app-workers', 375, 812], ['app-history', 375, 812], ['app-payouts', 375, 812],
+  ['app-calculator', 375, 812, true], ['app-settings-withdraw', 375, 812], ['app-settings-notify', 375, 812], ['app-watcher', 375, 812], ['app-export', 375, 812]];
 const only = process.argv.slice(2);
 // Блоки, чья высота в загрузке (State=Skeleton) должна совпасть с загруженной: [подпись, селектор] — каждый найденный элемент по порядку
 const LOADING_BLOCKS = {

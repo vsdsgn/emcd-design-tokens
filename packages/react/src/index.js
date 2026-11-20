@@ -1332,8 +1332,37 @@ export function ChartCard({ label, metrics = [], periods, period, defaultPeriod,
  *  mobile-web: onAccount / onBalance / onMenu — нажатия; showBalance=false — без баланса.
  *  app: account — имя; accountOptions + onAccountChange — список аккаунтов (без списка onAccount — открыть свой Sheet); coin — подпись монеты («BTC»), coins — тикеры Coin stack (по умолчанию [coin]);
  *  coinOptions + onCoinChange (или onCoin); onAdd — «Подключить». */
-export function TopBar({ platform = 'mobile-web', logo, account, onAccount, balance, cents, showBalance = true, onBalance, onMenu, menuLabel = 'Меню',
+/** Sheet — шторка Compact (App и мобильный веб): грабер, шапка (title heading/md Bold, headerActions, закрытие), body, footer (кнопки L на всю ширину).
+ *  role=dialog, aria-modal; Esc / onClose закрывают. fullHeight — во всю высоту (поток формы: «Выгрузить историю»), иначе по контенту до 90 %. */
+export function Sheet({ open = true, title, showGrabber = true, showClose = true, onClose, closeLabel = 'Закрыть', headerActions, footer, fullHeight = false, scrim = true, children, className, ...rest }) {
+  const id = useId();
+  React.useEffect(() => {
+    if (!open || !onClose) return undefined;
+    const onKey = (e) => { if (e.key === 'Escape') onClose(e); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open, onClose]);
+  if (!open) return null;
+  const panel = h('section', { role: 'dialog', 'aria-modal': true, 'aria-labelledby': title ? id : undefined, className: cx('emcd-sheet', fullHeight && 'emcd-sheet--full', className), ...rest },
+    showGrabber && h('span', { className: 'emcd-sheet__grabber', 'aria-hidden': true }),
+    (title != null || showClose || headerActions) && h('div', { className: 'emcd-sheet__header' },
+      h('h2', { id, className: 'emcd-sheet__title' }, title),
+      headerActions && h('div', { className: 'emcd-sheet__actions' }, headerActions),
+      showClose && h(IconButton, { type: 'ghost', size: 'm', label: closeLabel, icon: h(Icon, { name: 'close' }), onClick: onClose, className: 'emcd-sheet__close' })),
+    h('div', { className: 'emcd-sheet__body' }, children),
+    footer && h('div', { className: 'emcd-sheet__footer' }, footer));
+  return scrim ? h('div', { className: 'emcd-sheet-scrim', onClick: (e) => { if (e.target === e.currentTarget && onClose) onClose(e); } }, panel) : panel;
+}
+
+export function TopBar({ platform = 'mobile-web', level = 'root', title, onBack, backLabel = 'Назад', action, logo, account, onAccount, balance, cents, showBalance = true, onBalance, onMenu, menuLabel = 'Меню',
   accountOptions, accountValue, onAccountChange, coin, coins, coinOptions, coinValue, onCoinChange, onCoin, onAdd, addLabel = 'Подключить', className, ...rest }) {
+  if (level === 'inner') {
+    // Level=Inner (20.11): вложенный экран — «Назад» · заголовок по центру · место под одно действие (держит заголовок по центру)
+    return h('header', { className: cx('emcd-top-bar', 'emcd-top-bar--inner', className), 'data-platform-variant': platform, ...rest },
+      h(IconButton, { type: 'ghost', size: 'm', label: backLabel, icon: h(Icon, { name: 'chevron-left' }), onClick: onBack, className: 'emcd-top-bar__back' }),
+      h('h1', { className: 'emcd-top-bar__title' }, title),
+      h('div', { className: 'emcd-top-bar__slot' }, action));
+  }
   if (platform === 'app') {
     const stack = coins && coins.length ? coins : coin ? [String(coin).toLowerCase()] : [];
     return h('header', { className: cx('emcd-top-bar', 'emcd-top-bar--app', className), 'data-platform-variant': platform, ...rest },
@@ -1464,4 +1493,4 @@ export const components = { Button, IconButton, Badge, Chip, Checkbox, Radio, Ra
   ListItem, Transaction, MenuItem, Menu, Select, PasswordField,
   Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateRangeField, DateCell, Calendar, DateRangePanel, PageIndicator, LegendSwatch, LegendItem, ChartMetric,
   TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar,
-  FloatingButton, TabBarItem, TabBar };
+  FloatingButton, TabBarItem, TabBar, Sheet };

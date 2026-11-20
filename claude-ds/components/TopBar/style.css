@@ -19,3 +19,8 @@
 .emcd-top-bar__select { min-width: 0; }
 .emcd-top-bar__end { display: flex; align-items: center; gap: var(--space-8, 8px); min-width: 0; margin-inline-start: auto; }
 .emcd-top-bar__add { flex: none; }
+/* Level = Inner (20.11): вложенный экран App / мобильного веба — Icon button Ghost M «Назад» · заголовок по центру (label-lg Medium, одна строка) · место 40 под одно действие справа (держит заголовок по центру). Tabs и баланса нет. */
+.emcd-top-bar--inner { gap: var(--space-8, 8px); }
+.emcd-top-bar__back { flex: none; }
+.emcd-top-bar__title { flex: 1; min-width: 0; margin: 0; text-align: center; font: 500 var(--type-label-lg-size, 16px)/var(--type-label-lg-line-height, 20px) var(--font-sans); color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-top-bar__slot { flex: none; display: flex; justify-content: flex-end; width: var(--control-height-md, 40px); }

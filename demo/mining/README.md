@@ -1,6 +1,6 @@
 # Демо K4 — майнинг из кода (React, Dark)
 
-19 экранов майнинга (Web, мобильный веб, App), собранных **только из компонентов репо** (`window.EMCD` из `claude-ds/bundle/bundle.js`), рядом с макетами Figma.
+24 экрана майнинга (Web, мобильный веб, App), собранных **только из компонентов репо** (`window.EMCD` из `claude-ds/bundle/bundle.js`), рядом с макетами Figma.
 
 | Экран | Файл | Размер | Каркас |
 |---|---|---|---|
@@ -142,3 +142,13 @@ npm run demo:mining -- mw-workers web-history   # выборочно
 |---|---|---|
 | Иконка «В Explorer» на макете 20, в коде 16 | размер иконки на платформе App (токен) больше; в коде размеры иконок от платформы не зависят | вопрос к коду платформ |
 | Coin stack в сводке: на макете M 24, в коде крупнее | размер M в коде — 32? сверить с контрактом Coin stack | проверить |
+
+## App · вложенные экраны, настройки, Watcher-link, выгрузка (20.11)
+
+`app-calculator` (Top bar `level="inner"`, поля L, Coinhold — ставка в подписи, доход 6 монет вкл. JKC), `app-settings-withdraw`, `app-settings-notify`, `app-watcher` (Floating button M над Tab bar), `app-export` (Sheet `fullHeight`). Макеты — «… · App · DS 2.0», каждый сверен с production App глазами (`docs/GOAL-system-ready.md`). Новое в коде: **Sheet** (React / Vue / CSS), **Top bar `level: 'inner'`** (`title`, `onBack`, `action`).
+
+| Расхождение | Причина | Статус |
+|---|---|---|
+| JKC — буква в круге | символа нет в `icons/symbols/coin` кода (в Figma Symbols есть) | экспортировать символ |
+| Ambient light у Coinhold виден в коде (Expressive), на макете нет | макеты App в Base | так и задумано |
+| Шапка калькулятора на макете — временная (Icon button + текст) | Top bar Level=Inner ждёт Publish | после Publish заменить |

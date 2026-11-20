@@ -1068,6 +1068,16 @@ export interface ChartCardProps {
 export interface TopBarProps {
   /** mobile-web — логотип, аккаунт, баланс, «Меню»; app (19.11) — Select compact аккаунта в начале, Select compact монеты (Coin stack) + Icon button Tertiary M «+» в конце; без логотипа, баланса и меню. */
   platform?: 'mobile-web' | 'app';
+  /** root — корневой экран раздела (по умолчанию); inner (20.11) — вложенный: «Назад» · заголовок по центру · одно действие справа. */
+  level?: 'root' | 'inner';
+  /** inner: заголовок экрана (h1). */
+  title?: ReactNode;
+  /** inner: «Назад». */
+  onBack?: (e?: unknown) => void;
+  /** inner: подпись «Назад» для читалки. По умолчанию «Назад». */
+  backLabel?: string;
+  /** inner: одно действие справа (Icon button Ghost M). */
+  action?: ReactNode;
   /** Только mobile-web. По умолчанию — знак EMCD (logo-emcd, 24). */
   logo?: ReactNode;
   /** Имя аккаунта (app — подпись Select compact без leading). */
@@ -1212,6 +1222,27 @@ export declare function ChartTooltip(props: ChartTooltipProps): JSX.Element;
 export declare function ChartPlot(props: ChartPlotProps): JSX.Element;
 export declare function ChartCard(props: ChartCardProps): JSX.Element;
 export declare function TopBar(props: TopBarProps): JSX.Element;
+export interface SheetProps {
+  open?: boolean;
+  /** Заголовок шторки (h2, heading/md Bold). */
+  title?: ReactNode;
+  /** Грабер сверху. По умолчанию true. */
+  showGrabber?: boolean;
+  showClose?: boolean;
+  onClose?: (e?: unknown) => void;
+  closeLabel?: string;
+  /** До двух Icon button в шапке. */
+  headerActions?: ReactNode;
+  /** Кнопки L на всю ширину. */
+  footer?: ReactNode;
+  /** Во всю высоту (поток формы, кнопка внизу). */
+  fullHeight?: boolean;
+  /** Подложка surface-overlay; тап по ней — onClose. По умолчанию true. */
+  scrim?: boolean;
+  children?: ReactNode;
+  className?: string;
+}
+export declare function Sheet(props: SheetProps): JSX.Element | null;
 export declare function StatusSummary(props: StatusSummaryProps): JSX.Element;
 export declare function PromoCarousel(props: PromoCarouselProps): JSX.Element;
 export declare function ActionBar(props: ActionBarProps): JSX.Element;

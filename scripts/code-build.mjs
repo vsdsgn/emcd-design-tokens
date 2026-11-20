@@ -18,7 +18,7 @@ const ORDER = ['Button', 'IconButton', 'Badge', 'Chip', 'Checkbox', 'Radio', 'To
   'Tabs', 'Segmented', 'ListItem', 'Transaction', 'Menu', 'Select', 'PasswordField',
   // пачка 3 — экраны майнинга: атомы → молекулы → организмы → конструкции (draft)
   'Icon', 'Coin', 'CoinStack', 'LegendSwatch', 'LegendItem', 'PageIndicator', 'NavItem', 'KeyValueRow', 'Search', 'SelectCompact', 'DateRangeField', 'Calendar', 'DateRangePanel', 'ChartMetric',
-  'TableHeaderCell', 'TableCell', 'TableRow', 'Table', 'PromoCard', 'Sidebar', 'ChartCrosshair', 'ChartTooltip', 'ChartPlot', 'ChartCard', 'TopBar', 'StatusSummary', 'PromoCarousel', 'ActionBar',
+  'TableHeaderCell', 'TableCell', 'TableRow', 'Table', 'PromoCard', 'Sidebar', 'ChartCrosshair', 'ChartTooltip', 'ChartPlot', 'ChartCard', 'TopBar', 'StatusSummary', 'PromoCarousel', 'ActionBar', 'Sheet',
   // пачка 5 — App: плавающая кнопка, нижняя навигация
   'FloatingButton', 'TabBarItem', 'TabBar'];
 const dirs = fs.readdirSync(path.join(ROOT, 'claude-ds/components')).filter((d) => fs.existsSync(path.join(ROOT, 'claude-ds/components', d, 'style.css')));

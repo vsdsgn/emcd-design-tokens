@@ -9,6 +9,9 @@ import DsSelectCompact from './DsSelectCompact.vue';
 import DsCoinStack from './DsCoinStack.vue';
 const props = defineProps({
   platform: { type: String, default: 'mobile-web' },   // mobile-web | app
+  level: { type: String, default: 'root' },             // root | inner (20.11): «Назад» · заголовок по центру · одно действие (слот action)
+  title: String,
+  backLabel: { type: String, default: 'Назад' },
   logo: { type: String, default: undefined }, // без logo и слота — знак EMCD (Logo · Mono)
   account: String,
   balance: String,
@@ -23,11 +26,16 @@ const props = defineProps({
 });
 const accountValue = defineModel('accountValue', { type: [String, Number], default: undefined });
 const coinValue = defineModel('coinValue', { type: [String, Number], default: undefined });
-const emit = defineEmits(['account', 'balance', 'menu', 'coin', 'add']);
+const emit = defineEmits(['account', 'balance', 'menu', 'coin', 'add', 'back']);
 const stack = computed(() => (props.coins && props.coins.length ? props.coins : props.coin ? [props.coin.toLowerCase()] : []));
 </script>
 <template>
-  <header v-if="platform === 'app'" class="emcd-top-bar emcd-top-bar--app" data-platform-variant="app">
+  <header v-if="level === 'inner'" class="emcd-top-bar emcd-top-bar--inner" :data-platform-variant="platform">
+    <DsIconButton type="ghost" size="m" :label="backLabel" class="emcd-top-bar__back" @click="emit('back', $event)"><DsIcon name="chevron-left" /></DsIconButton>
+    <h1 class="emcd-top-bar__title"><slot name="title">{{ title }}</slot></h1>
+    <div class="emcd-top-bar__slot"><slot name="action" /></div>
+  </header>
+  <header v-else-if="platform === 'app'" class="emcd-top-bar emcd-top-bar--app" data-platform-variant="app">
     <DsSelectCompact v-if="account != null && accountOptions" v-model="accountValue" label="Аккаунт" :options="accountOptions" :show-leading="false" class="emcd-top-bar__select" />
     <DsSelectCompact v-else-if="account != null" label="Аккаунт" :text="account" :show-leading="false" :open="false" class="emcd-top-bar__select" @update:open="(o) => o && emit('account')" />
     <div class="emcd-top-bar__end">
