@@ -159,7 +159,6 @@
     ['12 май 2025', '10:16', 'doge', '0.00127012', 'DOGE', '≈ $57.87', 'PPLNS', '25.00 MH/s']].map(function (r, i) {
     return { id: i, date: r[0], time: r[1], coin: r[2], value: r[3], ticker: r[4], fiat: r[5], type: r[6], hash: r[7] };
   });
-  var NETWORKS = [{ value: 'trc', label: 'TRC-20 · Tron' }, { value: 'erc', label: 'ERC-20 · Ethereum' }];
   function WebHistory() {
     var cols = [
       { key: 'date', label: 'Дата и время', width: '24%', render: function (r) { return twoLines(r.date, r.time); } },
@@ -175,8 +174,8 @@
         h(E.Segmented, { size: 'm', label: 'Вид истории', className: 'demo-seg-wide', items: [{ value: 'acc', label: 'Начисления' }, { value: 'pay', label: 'Выплаты' }] })),
       div('demo-blocks',
         div('demo-filters',
-          h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Сеть', hint: 'Комиссия сети 1 USDT', options: NETWORKS, defaultValue: 'trc', className: 'demo-filters__net' }),
-          h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Сеть', hint: 'Комиссия сети 1 USDT', options: NETWORKS, defaultValue: 'trc', className: 'demo-filters__net' }),
+          h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Монеты', options: [{ value: 'all', label: 'Все монеты' }, { value: 'ltc', label: 'LTC' }, { value: 'doge', label: 'DOGE' }], defaultValue: 'all', className: 'demo-filters__net' }),
+          h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Тип начислений', options: [{ value: 'all', label: 'Все начисления' }, { value: 'pps', label: 'PPS+' }, { value: 'pplns', label: 'PPLNS' }], defaultValue: 'all', className: 'demo-filters__net' }),
           h(E.DateRangeField, { label: 'Период', className: 'demo-filters__period', panel: { isDateDisabled: function (d) { return d > new Date().toISOString().slice(0, 10); } } }),
           h(E.Button, { type: 'tertiary', size: 'm', label: 'Выгрузить', iconLeft: h(E.Icon, { name: 'file-excel' }), className: 'demo-filters__btn' })),
         div('demo-history',
@@ -510,7 +509,7 @@
         h(E.Checkbox, { label: 'Автоконвертация начислений', description: 'Автоматически будем менять % от майнинговых начислений на другую крипту по курсу на момент выплаты. Минимальная сумма обмена — 10 USDT в эквиваленте BTC' }),
         h(E.Divider, null),
         h(E.Toggle, { status: false, label: 'На Coinhold', description: 'Дополнительный доход с намайненного — до 8% годовых' }),
-        h(E.PromoCard, { size: 'm', tone: 'accent', title: 'Заработай до 8% годовых', description: 'Открой Coinhold и зарабатывай на хранении криптовалют', actionLabel: 'Открыть Coinhold', showClose: false, showMedia: true })));
+        h(E.PromoCard, { size: 'm', tone: 'accent', title: 'Заработай до 8% годовых', description: 'Открой Coinhold и зарабатывай на хранении криптовалют', actionLabel: 'Открыть Coinhold', showClose: false })));
   }
 
   // ───────── App (iOS, 19.11): Top bar App · Card L1 Surface (лист под шапкой) · Tab bar с Action «E» ─────────
