@@ -26,7 +26,7 @@
 - `title` — `text/primary`: L `font/family/display` Bold `type/heading/lg`; M / S `font/family/text` Medium `type/label/lg` / `type/label/md`.
 - `caption` — `font/family/text`, `type/body/sm`, `text/secondary` (Show caption).
 - Слот `Trailing` — зазор `space/12`, не сжимается (Show trailing).
-- Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; интерактивно содержимое Trailing.
@@ -37,19 +37,19 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | M · S | M |
+| Size | M · S · L | M |
 
-Матрица полная: 2 вариантов.
+Матрица полная: 3 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Trailing | слот | — | 2 из 2 |
-| Title | текст | «Прогноз доходности» | 2 из 2 |
-| Caption | текст | «Расчёт по текущему курсу» | 2 из 2 |
-| Show caption | булево | выкл | 2 из 2 |
-| Show trailing | булево | выкл | 2 из 2 |
+| Trailing | слот | — | 2 из 3 |
+| Title | текст | «Прогноз доходности» | 2 из 3 |
+| Caption | текст | «Расчёт по текущему курсу» | 2 из 3 |
+| Show caption | булево | выкл | 2 из 3 |
+| Show trailing | булево | выкл | 2 из 3 |
 
 - Title, Caption — текст; Show caption, Show trailing — по умолчанию Off; Trailing — слот.
 
@@ -70,24 +70,24 @@
 ## 10. Tokens
 - `корень`: интервал `space/16`.
 - `text`: интервал `space/2`, `space/4`.
-- `title`: заливка / цвет `text/primary`; типографика `font/family/text`, `type/label/lg`, `type/label/md`.
+- `title`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `font/family/text`, `type/heading/lg`, `type/label/lg`, `type/label/md`.
 - `caption`: заливка / цвет `text/secondary`; типографика `font/family/text`, `type/body/sm`.
 - `Trailing`: интервал `space/12`.
-- Значений без переменной: 2 (напр. `(root):w=360`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 3 (напр. `(root):w=360`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Section header`, вариантов 2 из 2; оси: Size.
+- Набор `Section header`, вариантов 3 из 3; оси: Size.
 - Борда: «Section header — борда · шаблон v3», разделов 11.
-- Описание: 1114 знаков, разделы: Status: Level: Size: Когда нет: Правила: A11y: Поиск: Когда использовать: Beta (20.
+- Описание: 1312 знаков, разделы: Status: Level: Size: Когда нет: Правила: A11y: Поиск: Когда использовать: Beta (20.
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`SectionHeader`), Vue `packages/vue/src/DsSectionHeader.vue`, CSS `claude-ds/components/SectionHeader/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsSectionHeader>`; Flutter: `DsSectionHeader`.
-- Props: `size`: m | s; `trailing`: string или слот; `title`: string или слот; `caption`: string или слот; `showCaption`: boolean = false; `showTrailing`: boolean = false.
+- Props: `size`: m | s | l; `trailing`: string или слот; `title`: string или слот; `caption`: string или слот; `showCaption`: boolean = false; `showTrailing`: boolean = false.
 - `level` — уровень заголовка 2–4 (по умолчанию `h3`); `trailing` или `children` — слот; `showCaption` / `showTrailing` по умолчанию — есть ли содержимое.
 
 ## 14. Acceptance (2026-11-21)

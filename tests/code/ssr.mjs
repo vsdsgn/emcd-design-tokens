@@ -90,6 +90,7 @@ const RC = {
   Divider: [{}, { label: true }, { orientation: 'vertical' }, { style: 'dotted' }],
   Spinner: [{}, { size: 'm' }, { size: 'l', label: 'Загружаем' }],
   Skeleton: [{}, { shape: 'title', width: 200 }, { shape: 'circle', width: 24, height: 24 }, { shape: 'rect', height: 80, style: { marginTop: 4 } }],
+  StatusBar: [{ caption: 'Статусы активных устройств', segments: [{ tone: 'danger', label: 'Сбой', count: 1000, value: '1 000' }, { tone: 'success', label: 'Норма', count: 16500 }, { tone: 'neutral', label: 'Выкл', count: 0, value: '—' }] }, { showCaption: false, showLegend: false, segments: [{ tone: 'danger', label: 'Сбой', count: 1000, value: '1 000' }, { tone: 'success', label: 'Норма', count: 16500 }, { tone: 'neutral', label: 'Выкл', count: 0, value: '—' }] }],
   Progress: [{ label: 'Лимит', value: '6 000 / 10 000 USDT', percent: 60 }, ...['success', 'warning', 'danger'].map((tone) => ({ tone, size: 'm', percent: 90, label: 'x' })), { mode: 'indeterminate', label: 'Загрузка' }],
   Amount: [
     ...['s', 'm', 'l', 'xl'].flatMap((size) => ['none', 'positive', 'negative'].map((sign) => ({ size, sign, value: '0.12345678', ticker: 'BTC', fiat: '≈ $2,731.40' }))),
@@ -313,6 +314,7 @@ const VC = {
   DsDivider: [[{}], [{ label: true }], [{ orientation: 'vertical' }], [{ variant: 'dotted' }]],
   DsSpinner: [[{}], [{ size: 'l', label: 'x' }]],
   DsSkeleton: [[{}], [{ shape: 'title', width: 200 }], [{ shape: 'circle', width: 24, height: 24 }], [{ shape: 'rect', height: '80px' }]],
+  DsStatusBar: [[{ caption: 'Статусы', segments: [{ tone: 'danger', label: 'Сбой', count: 1000, value: '1 000' }, { tone: 'success', label: 'Норма', count: 16500 }, { tone: 'neutral', label: 'Выкл', count: 0, value: '—' }] }]],
   DsProgress: [[{ label: 'Лимит', value: '6 000 / 10 000', percent: 60 }], [{ tone: 'danger', size: 'm', percent: 100 }], [{ mode: 'indeterminate', label: 'x' }]],
   DsAmount: ['s', 'm', 'l', 'xl'].map((size) => [{ size, sign: 'positive', value: '0.1234', ticker: 'BTC', fiat: '≈ $2,731.40' }]).concat([[{ sign: 'negative', align: 'end', value: 5, ticker: 'USDT', showFiat: false }]])
     .concat(['s', 'm', 'l', 'xl'].map((size) => [{ size, skeleton: true, sign: 'positive' }]), [[{ skeleton: true, align: 'end', showFiat: false }]], [[{ size: 'xl', tone: 'success', value: '≈ $352 665.84' }], [{ tone: 'danger', value: '120.01', ticker: '$' }], [{ tone: 'success', sign: 'negative', value: 1 }]]),

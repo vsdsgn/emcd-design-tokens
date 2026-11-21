@@ -431,6 +431,18 @@
 @keyframes emcd-progress-run { from { left: -40%; } to { left: 100%; } }
 @media (prefers-reduced-motion: reduce) { .emcd-progress__fill { transition: none; } .emcd-progress--indeterminate .emcd-progress__fill { animation-duration: 4200ms; } }
 
+/* Status bar — 🟠 draft (Figma «🟠 Status bar», 21.11). Полоса статусов парка: подпись (label/sm text/tertiary), дорожка из сегментов (высота 8, радиус 4, зазор space/4; порядок Danger → Warning → Success → Neutral; ширина — доля), легенда «Status + число» (зазор space/16, внутри space/4). Между частями — space/12. */
+.emcd-status-bar { display: flex; flex-direction: column; gap: var(--space-12, 12px); min-width: 0; }
+.emcd-status-bar__caption { margin: 0; font: 400 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-sans); color: var(--text-tertiary); }
+.emcd-status-bar__track { display: flex; gap: var(--space-4, 4px); height: 8px; }
+.emcd-status-bar__segment { flex: 1 1 0; min-width: 8px; border-radius: 4px; background: var(--status-neutral-solid); }
+.emcd-status-bar__segment--danger { background: var(--status-danger-solid); }
+.emcd-status-bar__segment--warning { background: var(--status-warning-solid); }
+.emcd-status-bar__segment--success { background: var(--status-success-solid); }
+.emcd-status-bar__legend { display: flex; flex-wrap: wrap; gap: var(--space-4, 4px) var(--space-16, 16px); margin: 0; padding: 0; list-style: none; }
+.emcd-status-bar__item { display: inline-flex; align-items: center; gap: var(--space-4, 4px); }
+.emcd-status-bar__value { font: 400 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-sans); font-variant-numeric: tabular-nums; color: var(--text-primary); }
+
 /* Amount — 🟡 beta (Figma «🟡 Amount»: Size × Sign × Align). Сумма, тикер через неразрывный пробел, фиат второй строкой.
    S 12 / M 14 — font/family/text с табличными цифрами (моно снято 17.11); L — type/heading/lg (Web 24, Compact 20; 19.11, было heading/xl = 32 на Web) Bold, тикер того же кегля Medium; XL — display Bold. Списание не красное. */
 .emcd-amount { --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); --ff: var(--font-sans); --fw: 400;
@@ -487,7 +499,7 @@
 .emcd-card--interactive:focus-visible { outline: var(--border-width-focus-ring, 2px) solid var(--border-focus-ring); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .emcd-card--interactive::before { transition: none; } }
 
-/* Section header — 🟡 beta (Figma «Section header»: Size M · S; 19.11). Заголовок секции внутри карточки или формы: Title, Caption, слот Trailing.
+/* Section header — 🟡 beta (Figma «Section header»: Size L · M · S; L — 21.11, разделы страницы на фоне). Заголовок секции внутри карточки или формы: Title, Caption, слот Trailing.
    M — label/lg 16 Medium (секция карточки); S — label/md 14 Medium (подсекция). Caption — body/sm text/secondary. Между текстом и Trailing — space/16; внутри Trailing — space/12. */
 .emcd-section-header { display: flex; align-items: center; gap: var(--space-16, 16px); min-width: 0; }
 .emcd-section-header__text { display: flex; flex: 1 1 auto; flex-direction: column; gap: var(--space-4, 4px); min-width: 0; }
@@ -496,6 +508,7 @@
 .emcd-section-header__trailing { display: inline-flex; flex: none; align-items: center; gap: var(--space-12, 12px); margin-inline-start: auto; }
 .emcd-section-header--s .emcd-section-header__text { gap: var(--space-2, 2px); }
 .emcd-section-header--s .emcd-section-header__title { font-size: var(--type-label-md-size, 14px); line-height: var(--type-label-md-line-height, 20px); }
+.emcd-section-header--l .emcd-section-header__title { font: 700 var(--type-heading-lg-size, 24px)/var(--type-heading-lg-line-height, 32px) var(--font-display, var(--font-sans)); letter-spacing: -0.01em; }
 
 /* Page header — 🟡 beta (Figma «Page header»: Size Large · Compact). Шапка страницы: Breadcrumbs (только вложенные страницы Web), title row — текст (Title h1 + Subtitle) и слот Actions, слот Tabs последним.
    Large — Web: Heading/XL, зазоры 16, действия справа (до двух: Secondary M + Primary M), табы через 16 (по Figma 19.11: один зазор корня). Compact — под Top bar на корневых экранах App / мобильного веба:

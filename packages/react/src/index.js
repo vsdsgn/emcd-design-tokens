@@ -246,6 +246,21 @@ export function Progress({ size = 's', tone = 'accent', mode = 'determinate', la
     h('span', { className: 'emcd-progress__fill', style: ind ? undefined : { width: pct + '%' } })));
 }
 
+/** Status bar — полоса статусов парка (draft, 21.11; Мониторинг «Главная», B2B Analytics): подпись, дорожка из сегментов по статусам и легенда «Status + число».
+ *  segments: [{ tone: 'danger'|'warning'|'success'|'neutral', label, value, count }] — порядок Danger → Warning → Success → Neutral, ширина сегмента — доля count (минимум 8 px). */
+const STATUS_BAR_ORDER = ['danger', 'warning', 'success', 'neutral'];
+export function StatusBar({ caption, showCaption = true, showLegend = true, segments = [], className, ...rest }) {
+  const segs = segments.filter((x) => x && Number(x.count) > 0 || (x && x.value != null)).slice().sort((a, b) => STATUS_BAR_ORDER.indexOf(a.tone) - STATUS_BAR_ORDER.indexOf(b.tone));
+  const total = segs.reduce((a, x) => a + (Number(x.count) || 0), 0);
+  const summary = segs.map((x) => `${x.label} ${x.value ?? x.count}`).join(', ');
+  return h('div', { className: cx('emcd-status-bar', className), ...rest },
+    showCaption && caption != null && h('p', { className: 'emcd-status-bar__caption' }, caption),
+    h('div', { className: 'emcd-status-bar__track', role: 'img', 'aria-label': (typeof caption === 'string' ? caption + ': ' : '') + summary },
+      segs.filter((x) => Number(x.count) > 0).map((x, i) => h('span', { key: i, className: cx('emcd-status-bar__segment', 'emcd-status-bar__segment--' + x.tone), style: { flexGrow: total ? Number(x.count) / total : 1 } }))),
+    showLegend && h('ul', { className: 'emcd-status-bar__legend', 'aria-hidden': true },
+      segs.map((x, i) => h('li', { key: i, className: 'emcd-status-bar__item' }, h(Status, { tone: x.tone, label: x.label }), h('span', { className: 'emcd-status-bar__value' }, x.value ?? x.count)))));
+}
+
 const MINUS = '−';
 /** Amount — сумма + тикер (неразрывный пробел) + фиат второй строкой. Sign: positive «+» и цвет успеха; negative «−» (U+2212), не красный.
  *  tone (19.11): default | success | danger — цвет суммы и тикера без знака (только sign none; итог дохода в Калькуляторе — success); со знаком не применяется.
@@ -1499,7 +1514,7 @@ export function TabBar({ items, value, defaultValue, onChange, onAction, safeAre
 }
 
 export const components = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal,
-  Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented,
+  Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, StatusBar, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented,
   ListItem, Transaction, MenuItem, Menu, Select, PasswordField,
   Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateRangeField, DateCell, Calendar, DateRangePanel, PageIndicator, LegendSwatch, LegendItem, ChartMetric,
   TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar,

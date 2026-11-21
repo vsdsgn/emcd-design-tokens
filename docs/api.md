@@ -945,11 +945,11 @@ Props нет.
 
 уровень не указан · beta · Vue `<DsSectionHeader>` · Flutter `DsSectionHeader` · контракт `docs/components/section-header.md`
 
-Заголовок секции внутри карточки или формы: Title, необязательная Caption, слот Trailing справа.
+Заголовок раздела страницы (L) или секции внутри карточки / формы (M, S): Title, необязательная Caption, слот Trailing справа.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | m \| s | по правилу контракта | ось Size |
+| `size` | m \| s \| l | по правилу контракта | ось Size |
 | `trailing` | slot | — | свойство Trailing |
 | `title` | string | — | свойство Title |
 | `caption` | string | — | свойство Caption |
@@ -1251,6 +1251,10 @@ Props нет.
 |---|---|---|---|
 | `density` | compact \| regular | по правилу контракта | ось Density |
 | `selected` | off \| on | по правилу контракта | ось Selected |
+| `column7` | boolean | false | свойство Column 7 |
+| `column8` | boolean | false | свойство Column 8 |
+| `column9` | boolean | false | свойство Column 9 |
+| `column10` | boolean | false | свойство Column 10 |
 
 Состояния в Figma: Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 

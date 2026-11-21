@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Skeleton"},{"name":"Progress"},{"name":"Amount"},{"name":"Card"},{"name":"SectionHeader"},{"name":"PageHeader"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"Sheet"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
+/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Skeleton"},{"name":"Progress"},{"name":"StatusBar"},{"name":"Amount"},{"name":"Card"},{"name":"SectionHeader"},{"name":"PageHeader"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"Sheet"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
 /* EMCD DS 2.0 — компоненты React 18. Генерируется scripts/code-build.mjs из packages/react/src/index.js — не править руками. */
 (function () {
 'use strict';
@@ -250,6 +250,21 @@ function Progress({ size = 's', tone = 'accent', mode = 'determinate', label, va
     h('span', { className: 'emcd-progress__fill', style: ind ? undefined : { width: pct + '%' } })));
 }
 
+/** Status bar — полоса статусов парка (draft, 21.11; Мониторинг «Главная», B2B Analytics): подпись, дорожка из сегментов по статусам и легенда «Status + число».
+ *  segments: [{ tone: 'danger'|'warning'|'success'|'neutral', label, value, count }] — порядок Danger → Warning → Success → Neutral, ширина сегмента — доля count (минимум 8 px). */
+const STATUS_BAR_ORDER = ['danger', 'warning', 'success', 'neutral'];
+function StatusBar({ caption, showCaption = true, showLegend = true, segments = [], className, ...rest }) {
+  const segs = segments.filter((x) => x && Number(x.count) > 0 || (x && x.value != null)).slice().sort((a, b) => STATUS_BAR_ORDER.indexOf(a.tone) - STATUS_BAR_ORDER.indexOf(b.tone));
+  const total = segs.reduce((a, x) => a + (Number(x.count) || 0), 0);
+  const summary = segs.map((x) => `${x.label} ${x.value ?? x.count}`).join(', ');
+  return h('div', { className: cx('emcd-status-bar', className), ...rest },
+    showCaption && caption != null && h('p', { className: 'emcd-status-bar__caption' }, caption),
+    h('div', { className: 'emcd-status-bar__track', role: 'img', 'aria-label': (typeof caption === 'string' ? caption + ': ' : '') + summary },
+      segs.filter((x) => Number(x.count) > 0).map((x, i) => h('span', { key: i, className: cx('emcd-status-bar__segment', 'emcd-status-bar__segment--' + x.tone), style: { flexGrow: total ? Number(x.count) / total : 1 } }))),
+    showLegend && h('ul', { className: 'emcd-status-bar__legend', 'aria-hidden': true },
+      segs.map((x, i) => h('li', { key: i, className: 'emcd-status-bar__item' }, h(Status, { tone: x.tone, label: x.label }), h('span', { className: 'emcd-status-bar__value' }, x.value ?? x.count)))));
+}
+
 const MINUS = '−';
 /** Amount — сумма + тикер (неразрывный пробел) + фиат второй строкой. Sign: positive «+» и цвет успеха; negative «−» (U+2212), не красный.
  *  tone (19.11): default | success | danger — цвет суммы и тикера без знака (только sign none; итог дохода в Калькуляторе — success); со знаком не применяется.
@@ -285,7 +300,7 @@ function SectionHeader({ size = 'm', level = 3, title, caption, showCaption, tra
   const withCaption = (showCaption ?? caption != null) && caption != null;
   const tr = trailing ?? children;
   const withTrailing = (showTrailing ?? tr != null) && tr != null;
-  return h('div', { className: cx('emcd-section-header', size === 's' && 'emcd-section-header--s', className), ...rest },
+  return h('div', { className: cx('emcd-section-header', size === 's' && 'emcd-section-header--s', size === 'l' && 'emcd-section-header--l', className), ...rest },
     h('div', { className: 'emcd-section-header__text' },
       h('h' + lv, { className: 'emcd-section-header__title' }, title),
       withCaption && h('p', { className: 'emcd-section-header__caption' }, caption)),
@@ -1501,5 +1516,5 @@ function TabBar({ items, value, defaultValue, onChange, onAction, safeArea = tru
   return h('nav', { 'aria-label': label, className: cx('emcd-tab-bar', !safeArea && 'emcd-tab-bar--no-safe-area', className), ...rest },
     h('div', { className: 'emcd-tab-bar__items' }, body));
 }
-window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, Sheet, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
+window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, StatusBar, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, Sheet, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
 })();

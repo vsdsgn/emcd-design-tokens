@@ -14,7 +14,7 @@ const CHECK = process.argv.includes('--check');
 
 const ORDER = ['Button', 'IconButton', 'Badge', 'Chip', 'Checkbox', 'Radio', 'Toggle', 'Input', 'Textarea', 'Modal',
   // пачка 2: простые → составные; Select после Input и Menu, Transaction после ListItem
-  'Counter', 'Status', 'Avatar', 'Divider', 'Spinner', 'Skeleton', 'Progress', 'Amount', 'Card', 'SectionHeader', 'PageHeader', 'StatCard', 'Tooltip', 'Toast', 'Suggest',
+  'Counter', 'Status', 'Avatar', 'Divider', 'Spinner', 'Skeleton', 'Progress', 'StatusBar', 'Amount', 'Card', 'SectionHeader', 'PageHeader', 'StatCard', 'Tooltip', 'Toast', 'Suggest',
   'Tabs', 'Segmented', 'ListItem', 'Transaction', 'Menu', 'Select', 'PasswordField',
   // пачка 3 — экраны майнинга: атомы → молекулы → организмы → конструкции (draft)
   'Icon', 'Coin', 'CoinStack', 'LegendSwatch', 'LegendItem', 'PageIndicator', 'NavItem', 'KeyValueRow', 'Search', 'SelectCompact', 'DateRangeField', 'Calendar', 'DateRangePanel', 'ChartMetric',

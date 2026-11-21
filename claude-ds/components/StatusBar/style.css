@@ -1,0 +1,11 @@
+/* Status bar — 🟠 draft (Figma «🟠 Status bar», 21.11). Полоса статусов парка: подпись (label/sm text/tertiary), дорожка из сегментов (высота 8, радиус 4, зазор space/4; порядок Danger → Warning → Success → Neutral; ширина — доля), легенда «Status + число» (зазор space/16, внутри space/4). Между частями — space/12. */
+.emcd-status-bar { display: flex; flex-direction: column; gap: var(--space-12, 12px); min-width: 0; }
+.emcd-status-bar__caption { margin: 0; font: 400 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-sans); color: var(--text-tertiary); }
+.emcd-status-bar__track { display: flex; gap: var(--space-4, 4px); height: 8px; }
+.emcd-status-bar__segment { flex: 1 1 0; min-width: 8px; border-radius: 4px; background: var(--status-neutral-solid); }
+.emcd-status-bar__segment--danger { background: var(--status-danger-solid); }
+.emcd-status-bar__segment--warning { background: var(--status-warning-solid); }
+.emcd-status-bar__segment--success { background: var(--status-success-solid); }
+.emcd-status-bar__legend { display: flex; flex-wrap: wrap; gap: var(--space-4, 4px) var(--space-16, 16px); margin: 0; padding: 0; list-style: none; }
+.emcd-status-bar__item { display: inline-flex; align-items: center; gap: var(--space-4, 4px); }
+.emcd-status-bar__value { font: 400 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-sans); font-variant-numeric: tabular-nums; color: var(--text-primary); }

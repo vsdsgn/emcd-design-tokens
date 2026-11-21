@@ -222,6 +222,22 @@ export interface SkeletonProps {
   style?: Record<string, unknown>;
 }
 
+export interface StatusBarSegment {
+  tone: 'danger' | 'warning' | 'success' | 'neutral';
+  label: ReactNode;
+  /** Текст числа в легенде («1 000»); по умолчанию count. */
+  value?: ReactNode;
+  /** Количество — доля ширины сегмента; 0 — сегмента нет, пункт легенды остаётся. */
+  count?: number;
+}
+export interface StatusBarProps {
+  /** Подпись над дорожкой: «Статусы активных устройств». */
+  caption?: ReactNode;
+  showCaption?: boolean;
+  showLegend?: boolean;
+  /** Порядок выводится сам: Danger → Warning → Success → Neutral. */
+  segments: StatusBarSegment[];
+}
 export interface ProgressProps {
   /** s — дорожка 4 (строки, карточки); m — 8 (отдельный блок). */
   size?: 's' | 'm';
@@ -276,8 +292,8 @@ export interface CardProps {
 }
 
 export interface SectionHeaderProps {
-  /** m — label/lg 16 Medium (секция карточки: «Переводить на Coinhold»); s — label/md 14 Medium (подсекция: «Сколько переводить?»). */
-  size?: 'm' | 's';
+  /** l — heading/lg, раздел страницы на фоне («Площадки», h2); m — label/lg 16 Medium (секция карточки: «Переводить на Coinhold»); s — label/md 14 Medium (подсекция: «Сколько переводить?»). */
+  size?: 'l' | 'm' | 's';
   /** Уровень заголовка: h2–h4 (по умолчанию h3 — секция внутри страницы с h1 / h2). */
   level?: 2 | 3 | 4;
   title: ReactNode;
@@ -607,6 +623,8 @@ export declare function Divider(props: DividerProps): JSX.Element;
 export declare function Spinner(props: SpinnerProps): JSX.Element;
 export declare function Skeleton(props: SkeletonProps): JSX.Element;
 export declare function Progress(props: ProgressProps): JSX.Element;
+/** Status bar — полоса статусов парка: подпись, сегменты по статусам, легенда «Status + число» (draft). */
+export declare function StatusBar(props: StatusBarProps): JSX.Element;
 export declare function Amount(props: AmountProps): JSX.Element;
 export declare function Card(props: CardProps): JSX.Element;
 /** Section header — заголовок секции внутри карточки или формы (draft). */

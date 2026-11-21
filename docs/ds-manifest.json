@@ -3,26 +3,26 @@
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
-   "unknown": 99
+   "unknown": 100
   },
   "sets": {
-   "unknown": 101
+   "unknown": 102
   },
   "status": {
    "beta": 93,
-   "draft": 3,
+   "draft": 4,
    "service": 4,
    "template": 1
   },
-  "variants": 1686,
+  "variants": 1688,
   "incompleteMatrix": 20,
-  "propsNotBoundEverywhere": 20,
+  "propsNotBoundEverywhere": 21,
   "rawMinMax": 1,
-  "withRawValues": 71,
+  "withRawValues": 72,
   "withFocusRing": 21,
   "withHitArea": 20,
   "withSafeMargin": 23,
-  "pagesWithoutV3Board": 0,
+  "pagesWithoutV3Board": 1,
   "pagesWithFullBoard": 22,
   "baseSets": 11
  },
@@ -9370,7 +9370,7 @@
      "id": "2342:1351",
      "type": "SET",
      "status": "beta",
-     "descLen": 1114,
+     "descLen": 1312,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9386,11 +9386,12 @@
      "axes": {
       "Size": [
        "M",
-       "S"
+       "S",
+       "L"
       ]
      },
-     "variants": 2,
-     "full": 2,
+     "variants": 3,
+     "full": 3,
      "props": [
       {
        "name": "Trailing",
@@ -9431,7 +9432,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 2,
+     "rawCount": 3,
      "raw": [
       "(root):w=360"
      ],
@@ -9445,9 +9446,13 @@
       ],
       "title": [
        "f:text/primary",
+       "fontFamily:font/family/display",
        "fontFamily:font/family/text",
+       "fontSize:type/heading/lg/size",
        "fontSize:type/label/lg/size",
        "fontSize:type/label/md/size",
+       "fontWeight:font-weight/bold",
+       "lineHeight:type/heading/lg/line-height",
        "lineHeight:type/label/lg/line-height",
        "lineHeight:type/label/md/line-height"
       ],
@@ -11185,6 +11190,197 @@
   },
   {
    "level": "unknown",
+   "page": "Status bar",
+   "pageId": "2385:2",
+   "pageMark": "🟠",
+   "boards": [],
+   "boardMissing": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+   ],
+   "sets": [
+    {
+     "name": "Status bar",
+     "id": "2385:3",
+     "type": "COMPONENT",
+     "status": "draft",
+     "descLen": 1016,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Полоса статусов парка:",
+      "Когда использовать:",
+      "Когда нет:",
+      "Правила:",
+      "A11y:"
+     ],
+     "inBoard": false,
+     "axes": {},
+     "variants": 1,
+     "full": 1,
+     "props": [
+      {
+       "name": "Caption",
+       "type": "TEXT",
+       "def": "Статусы активных устройств",
+       "bound": 1
+      },
+      {
+       "name": "Show caption",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 1
+      },
+      {
+       "name": "Show legend",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 1
+      },
+      {
+       "name": "Danger value",
+       "type": "TEXT",
+       "def": "1 000",
+       "bound": 1
+      },
+      {
+       "name": "Show danger",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 1
+      },
+      {
+       "name": "Warning value",
+       "type": "TEXT",
+       "def": "3 000",
+       "bound": 1
+      },
+      {
+       "name": "Show warning",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 1
+      },
+      {
+       "name": "Success value",
+       "type": "TEXT",
+       "def": "16 500",
+       "bound": 1
+      },
+      {
+       "name": "Show success",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 1
+      },
+      {
+       "name": "Neutral value",
+       "type": "TEXT",
+       "def": "61",
+       "bound": 1
+      },
+      {
+       "name": "Show neutral",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 1
+      }
+     ],
+     "nested": {
+      "Status": 4
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 5,
+     "raw": [
+      "(root):w=480",
+      "segment · Danger:r=4",
+      "segment · Warning:r=4",
+      "segment · Success:r=4",
+      "segment · Neutral:r=4"
+     ],
+     "tokens": {
+      "(root)": [
+       "gap:space/12"
+      ],
+      "caption": [
+       "f:text/tertiary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "lineHeight:type/label/sm/line-height"
+      ],
+      "track": [
+       "gap:space/4"
+      ],
+      "segment · Danger": [
+       "f:status/danger/solid"
+      ],
+      "segment · Warning": [
+       "f:status/warning/solid"
+      ],
+      "segment · Success": [
+       "f:status/success/solid"
+      ],
+      "segment · Neutral": [
+       "f:status/neutral/solid"
+      ],
+      "legend": [
+       "gap2:space/4",
+       "gap:space/16"
+      ],
+      "item · Danger": [
+       "gap:space/4"
+      ],
+      "status · Danger": [
+       "gap:space/6"
+      ],
+      "value": [
+       "f:text/primary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "lineHeight:type/label/sm/line-height"
+      ],
+      "item · Warning": [
+       "gap:space/4"
+      ],
+      "status · Warning": [
+       "gap:space/6"
+      ],
+      "item · Success": [
+       "gap:space/4"
+      ],
+      "status · Success": [
+       "gap:space/6"
+      ],
+      "item · Neutral": [
+       "gap:space/4"
+      ],
+      "status · Neutral": [
+       "gap:space/6"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
    "page": "Status summary",
    "pageId": "2309:3033",
    "pageMark": "🟡",
@@ -12864,7 +13060,7 @@
      "id": "63:291",
      "type": "SET",
      "status": "beta",
-     "descLen": 1478,
+     "descLen": 1621,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12915,10 +13111,34 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 12
+      },
+      {
+       "name": "Column 7",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 12
+      },
+      {
+       "name": "Column 8",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 12
+      },
+      {
+       "name": "Column 9",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 12
+      },
+      {
+       "name": "Column 10",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 12
       }
      ],
      "nested": {
-      "Table cell": 72,
+      "Table cell": 120,
       "_Hit area": 24,
       "_Safe margin": 12
      },
@@ -12973,6 +13193,30 @@
        "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/12"
+      ],
+      "cell · 7": [
+       "gap:space/8",
+       "h:size/row/lg",
+       "minw:size/table-cell/min",
+       "p:space/sm"
+      ],
+      "cell · 8": [
+       "gap:space/8",
+       "h:size/row/lg",
+       "minw:size/table-cell/min",
+       "p:space/sm"
+      ],
+      "cell · 9": [
+       "gap:space/8",
+       "h:size/row/lg",
+       "minw:size/table-cell/min",
+       "p:space/sm"
+      ],
+      "cell · 10": [
+       "gap:space/8",
+       "h:size/row/lg",
+       "minw:size/table-cell/min",
+       "p:space/sm"
       ],
       "cell · ⋯": [
        "gap:space/8",

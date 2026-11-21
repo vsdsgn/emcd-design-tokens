@@ -50,11 +50,13 @@
     "Segmented": "beta",
     "Select": "beta",
     "SelectCompact": "beta",
+    "Sheet": "beta",
     "Sidebar": "beta",
     "Skeleton": "beta",
     "Spinner": "beta",
     "StatCard": "beta",
     "Status": "beta",
+    "StatusBar": "draft",
     "StatusScreen": "draft",
     "StatusSummary": "beta",
     "Suggest": "beta",
@@ -70,7 +72,6 @@
     "Toggle": "beta",
     "Tooltip": "beta",
     "TopBar": "beta",
-    "Transaction": "beta",
-    "Sheet": "beta"
+    "Transaction": "beta"
   }
 }
