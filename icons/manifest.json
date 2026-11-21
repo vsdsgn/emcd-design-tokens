@@ -63,6 +63,11 @@
       "description": "Стрелка вверх.\nПоиск: стрелка вверх, вверх, рост, загрузить, arrow up, ddth[, фккщц гз\nLegacy: ic-arrow-up.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
     },
     {
+      "name": "asic",
+      "figma": "icon/asic",
+      "description": "Устройства (асики, майнеры).\nПоиск: устройства, асик, майнер, сервер, оборудование, asic, miner, server, hardware, frcbr, фышс\nИсточник: Мониторинг, пункт Sidebar «Устройства» (legacy ic-device, вариант «блоки»), 21.11.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."
+    },
+    {
       "name": "attach",
       "figma": "icon/attach",
       "description": "Прикрепить.\nПоиск: прикрепить, скрепка, вложение, файл, attach, attachment, paperclip, crhtgrf, феефср\nLegacy: ic-attach.\nТокены: цвет icon/primary, размер icon/size/*, толщина icon/stroke/regular."

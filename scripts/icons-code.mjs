@@ -21,6 +21,8 @@ export const LIST = [
   'chart-bar', 'file-excel', 'download', 'send', 'question', 'lightning', 'trend-up', 'settings', 'user', 'users', 'bell-notifications', 'calculator', 'history',
   // пункты сайдбара Web App (Активы · Криптокарта · Майнинг · Торговля · P2P · Coinhold · Стейкинг · Indesk · OnLock)
   'wallet', 'devices', 'card', 'mining-coin', 'exchange', 'coinhold-coins', 'percentage', 'suitcase', 'lock', 'web', 'gift', 'rocket',
+  // сайдбар Мониторинга (Главная · Площадки · Сотрудники · Устройства · Сканер · Уведомления)
+  'home', 'asic', 'qr-scan',
 ];
 // Монеты: тикер → файл icons/symbols/coin
 const COIN_FILES = { btc: 'bitcoin-btc', kas: 'kaspa-kas', ltc: 'litecoin-ltc', doge: 'dogecoin-doge', eth: 'ethereum-eth', usdt: 'tether-usdt',
