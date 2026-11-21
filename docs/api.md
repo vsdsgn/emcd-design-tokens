@@ -1378,6 +1378,24 @@ Props нет.
 | `showStep` | boolean | true | свойство Show step |
 | `showSkip` | boolean | true | свойство Show skip |
 
+## Top bar
+
+уровень не указан · beta · Vue `<DsTopBar>` · Flutter `DsTopBar` · контракт `docs/components/top-bar.md`
+
+Верхняя панель экранов Compact: на корневом экране — аккаунт и контекст раздела, на вложенном — «Назад» и заголовок по центру. Высота 56, подложка `surface/level-0`.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `platform` | mobile-web \| app | по правилу контракта | ось Platform |
+| `level` | root \| inner | по правилу контракта | ось Level |
+| `logo` | slot | — | свойство Logo |
+| `account` | string | — | свойство Account |
+| `balance` | string | — | свойство Balance |
+| `cents` | string | — | свойство Cents |
+| `showBalance` | boolean | true | свойство Show balance |
+| `title` | string | — | свойство Title |
+| `showAction` | boolean | false | свойство Show action |
+
 ## Transaction
 
 уровень не указан · beta · Vue `<DsTransaction>` · Flutter `DsTransaction` · контракт `docs/components/transaction.md`

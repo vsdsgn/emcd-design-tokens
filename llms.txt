@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-21: beta 92 наборов, draft 4, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-21: beta 93 наборов, draft 3, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -126,6 +126,7 @@
 - [Toggle group](docs/components/toggle-group.md): Группа переключателей: подпись группы, варианты, под ними подсказка
 - [Tooltip](docs/components/tooltip.md): Короткая подсказка к элементу на Web: что делает иконка, что значит термин, почему контрол неактивен, полный текст обрезанного значения. Без действий внутри. Форма — legacy `base tooltip`
 - [Tooltip tour](docs/components/tooltip-tour.md): Подсказка онбординга с шагами: номер шага, заголовок, пояснение и кнопки «Пропустить» и «Далее», стрелка на элемент. Для обучающих туров по экрану
+- [Top bar](docs/components/top-bar.md): Верхняя панель экранов Compact: на корневом экране — аккаунт и контекст раздела, на вложенном — «Назад» и заголовок по центру. Высота 56, подложка `surface/level-0`
 - [Transaction](docs/components/transaction.md): Строка операции в истории: вывод, пополнение, начисление, обмен. Нажимается целиком — открывает детали
 
 ## Базы и служебные слои (в макетах напрямую не используются)
@@ -142,7 +143,7 @@
 
 ## Компоненты: draft — не брать
 
-- уровень не указан (4): File upload, Side panel, Snack, Top bar
+- уровень не указан (3): File upload, Side panel, Snack
 - шаблоны экранов, не Base (1): Status screen
 
 ## Проверки

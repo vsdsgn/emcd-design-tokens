@@ -519,7 +519,7 @@
     return div('demo-app',
       // статус-бар iOS — часть устройства, не DS: только высота
       h('div', { className: 'demo-app__status', 'aria-hidden': true }),
-      h(E.TopBar, { platform: 'app', account: 'rruuff', coins: ['btc', 'eth'], coin: 'BTC + 1' }),
+      h(E.TopBar, { platform: 'app', account: 'rruuff', coins: props.coins || ['btc', 'eth'], coin: props.coin || 'BTC + 1' }),
       h(E.Card, { level: 1, radius: 'surface', padding: 'm', className: 'demo-app__sheet' + (props.tabs ? ' demo-app__sheet--tabs' : '') }, props.children),
       props.over,
       h(E.TabBar, { className: 'demo-app__tabbar', defaultValue: 'Майнинг', items: APP_TABS }));
@@ -681,10 +681,26 @@
         h(E.Toggle, { status: false, label: 'Автовыгрузка', description: 'В 12:00 формируем отчёт и отправляем его автоматически' })));
   }
 
+  function AppMainDashboard() {
+    var sumRow = function (label, desc, value, fiat, divider) { return h(E.ListItem, { key: label, size: 'm', divider: divider, label: label, description: desc, trailing: h(E.Amount, { size: 'm', align: 'end', sign: 'positive', value: value, ticker: 'KAS', fiat: fiat }) }); };
+    var fact = function (label, value, sub, cls, leading, divider) { return h(E.ListItem, { key: label, size: 'm', showDescription: false, divider: divider, leading: leading, label: label, trailing: div('demo-two demo-two--end', text('demo-two__p', value), text(cls || 'demo-two__s', sub)) }); };
+    return h(AppShell, { tabs: true, coin: 'KAS', coins: ['kas'] },
+      h(E.Tabs, { size: 'm', fill: true, label: 'Разделы майнинга', defaultValue: 'Дашборд', items: ['Дашборд', 'Воркеры', 'История', 'Настройки'].map(function (l) { return { value: l, label: l }; }) }),
+      h(E.Card, { level: 2, padding: 's', border: false }, div('emcd-list',
+        sumRow('Сумма к выплате', 'На внутренний кошелёк', '0.0039123', '≈ $0.00018', true), sumRow('Добыто', 'за 20.09', '0.0029123', '≈ $0.00013', true),
+        sumRow('Прогноз на сегодня', 'на основе данных за 20.09', '0.0029124', '≈ $0.00014', false))),
+      h(E.Card, { level: 2, padding: 's', border: false }, div('emcd-list',
+        fact('KAS', '$0.07', '− 3.61 %', 'demo-delta demo-delta--down', h(E.Coin, { coin: 'kas', size: 'l' }), true), fact('Дневной доход', '0.2243 KAS', 'за 1 TH/s', null, null, true),
+        fact('Сложность сети', '61.18 P', '+0.23 %', 'demo-delta demo-delta--up', null, true), fact('Блоков до пересчёта', '248', '~1 д 11 ч 3 м', null, null, false))),
+      chartCard(true),
+      h(E.Card, { padding: 'm', border: false }, h(E.StatusSummary, { layout: 'row', offline: 9, unstable: 4, active: 90 })),
+      h(E.PromoCarousel, { slides: [h(E.PromoCard, { key: 1, size: 'm', title: 'Забусти свой майнинг с нашей прошивкой', actionLabel: 'Подробнее', showMedia: true, showClose: false, showDescription: false })] }));
+  }
+
   var SCREENS = { 'web-dashboard': WebDashboard, 'web-workers': WebWorkers, 'web-history': WebHistory, 'mw-dashboard': MwDashboard, 'mw-workers': MwWorkers, 'mw-history': MwHistory,
     'web-calculator': WebCalculator, 'mw-calculator': MwCalculator, 'web-watcher': WebWatcher, 'web-settings': WebSettings,
     'web-payouts': WebPayouts, 'mw-payouts': MwPayouts, 'mw-watcher': MwWatcher, 'mw-settings-notify': MwSettingsNotify, 'mw-settings-withdraw': MwSettingsWithdraw,
     'app-dashboard': AppDashboard, 'app-workers': AppWorkers, 'app-history': AppHistory, 'app-payouts': AppPayouts,
-    'app-calculator': AppCalculator, 'app-settings-withdraw': AppSettingsWithdraw, 'app-settings-notify': AppSettingsNotify, 'app-watcher': AppWatcher, 'app-export': AppExport };
+    'app-calculator': AppCalculator, 'app-settings-withdraw': AppSettingsWithdraw, 'app-settings-notify': AppSettingsNotify, 'app-watcher': AppWatcher, 'app-export': AppExport, 'app-main-dashboard': AppMainDashboard };
   ReactDOM.createRoot(document.getElementById('root')).render(h(SCREENS[screen] || WebDashboard));
 })();

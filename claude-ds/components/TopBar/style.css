@@ -1,4 +1,4 @@
-/* Top bar — 🟠 draft (Figma «🟠 Top bar»: Platform Mobile web · App; Logo, Account, Balance, Cents, Show balance). Шапка мобильного веба: surface/level-0, поля space/8 / space/16, зазор space/12;
+/* Top bar — 🟡 beta (Figma «Top bar»: Platform Mobile web · App; Level Root · Inner; Logo, Account, Balance, Cents, Show balance). Шапка мобильного веба: surface/level-0, поля space/8 / space/16, зазор space/12;
    логотип heading-lg Bold display; аккаунт и баланс — label-lg text-primary + шеврон 16 (копейки text-tertiary); «Меню» — Icon button Ghost M справа. */
 .emcd-top-bar { display: flex; align-items: center; gap: var(--space-12, 12px); box-sizing: border-box; width: 100%; min-height: calc(var(--control-height-md, 40px) + 2 * var(--space-8, 8px));
   padding: var(--space-8, 8px) var(--space-16, 16px); background: var(--surface-level-0); color: var(--text-primary); }

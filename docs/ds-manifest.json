@@ -9,8 +9,8 @@
    "unknown": 101
   },
   "status": {
-   "beta": 92,
-   "draft": 4,
+   "beta": 93,
+   "draft": 3,
    "service": 4,
    "template": 1
   },
@@ -14099,7 +14099,7 @@
    "level": "unknown",
    "page": "Top bar",
    "pageId": "2312:2",
-   "pageMark": "🟠",
+   "pageMark": "🟡",
    "boards": [
     {
      "name": "Top bar — борда · шаблон v3",
@@ -14129,8 +14129,8 @@
      "name": "Top bar",
      "id": "2312:35",
      "type": "SET",
-     "status": "draft",
-     "descLen": 1477,
+     "status": "beta",
+     "descLen": 1829,
      "descHeads": [
       "Status:",
       "Level:",
@@ -14138,7 +14138,10 @@
       "Platform:",
       "Правила:",
       "Поиск:",
-      "Level (20."
+      "Level (20.",
+      "Когда использовать:",
+      "A11y:",
+      "Beta (21."
      ],
      "inBoard": false,
      "axes": {
