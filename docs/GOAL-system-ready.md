@@ -17,11 +17,12 @@
 | G7 | **Передача** — `docs/dev-handoff-*.md` и патчноут: что готово, как подключить, что ждёт Publish | документ | [x] 20.11 (`docs/dev-handoff-2026-11-20.md`; обновлять по ходу) |
 
 ## Очередь на Publish Components
-- **_Selection control** — Show badge (Badge S Accent Subtle после подписи) → Checkbox / Radio / Toggle. После Publish — бейдж «8% APR» у «На Coinhold» на App «Настройки → Вывод».
+- ~~**_Selection control** — Show badge~~ (Publish 21.11; бейдж «8% APR» у «На Coinhold» на App «Настройки → Вывод» поставлен).
 - ~~**Top bar** — ось Level~~ (Publish 21.11; шапка калькулятора App заменена). Было: ось Level: Root | Inner (новое; Inner — «Назад» Icon button Ghost M · заголовок по центру Label/LG · необязательное действие справа). После Publish — заменить временную шапку «Top bar · Inner (до Publish)» на App-экранах. App Root: монета по умолчанию BTC (была Tether).
 - App-файл: после Publish принять обновления библиотеки (импорт Select давал старую версию с «USDT»).
 
 ## Журнал
+- 21.11 — Publish _Selection control: бейдж «8% APR» на App «Настройки → Вывод» (Figma + эталон демо). После Publish подписи с ручной фиксированной шириной сжались до слова — 4 подписи на App и мобильном вебе переведены в Hug (правило — patterns 0.3).
 - 21.11 — G1: главный «Дашборд» App собран по production (Выгрузка → «Дашборд»): Tabs поровну, сводка (Сумма к выплате · Добыто · Прогноз) — Card L2 S + List item + Amount M Positive, факты KAS (Coin, изменения цветом `text/danger` / `text/success`), Chart card, Status summary Row, Promo carousel; Top bar — монета KAS. Подсказка-онбординг «Не забудьте сделать выгрузку» (Tooltip tour) — не переносилась. Демо `app-main-dashboard` (25 экранов). Top bar → **beta** (контракт, Figma, борда). Все критерии G1–G7 закрыты; очередь Publish — _Selection control · Show badge.
 - 21.11 — Publish Top bar: App «Калькулятор» — настоящий Top bar Level=Inner. Решения Стефана: вкладка «Дашборд»; сумма дохода красная, если расходы перебивают доходность (patterns 3.10a); бейдж у подписи — сделан (`_Selection control` · Show badge, код `badge`).
 - 20.11 — G3: 5 конструкций → **beta** (Section header, Status summary, Promo carousel, Action bar, Search): полные контракты, описания Figma (Когда использовать, A11y, Status: beta), страницы 🟡, status.json; Action bar — бейдж в доступном имени кнопки (`badgeLabel`, aria-describedby); Search S — крестик `control/height/sm` (как в Figma). Символы монет JKC, BEL, LKY, PEP в коде (10 монет). Итого: beta 92, draft 4 (Top bar — после Publish Level; Snack, File upload, Side panel — парковка).

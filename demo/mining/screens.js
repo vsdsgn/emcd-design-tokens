@@ -636,7 +636,7 @@
       h(E.SectionHeader, { size: 'm', level: 2, title: 'Куда выводить средства?' }),
       h(E.Toggle, { status: true, label: 'На основной счёт', description: 'Выплачиваем ежедневно с 10:00 до 12:00, без ограничений' }),
       h(E.Divider, null),
-      h(E.Toggle, { status: false, label: 'На Coinhold', badge: '8% APR', description: 'Дополнительный доход с намайненного' }),
+      h(E.Toggle, { status: false, label: 'На Coinhold', badge: '8% APR', description: 'Дополнительный доход с намайненного — до 8% годовых' }),
       h(E.PromoCard, { size: 'm', tone: 'accent', title: 'Увеличь намайненное: до 7.5% годовых', description: 'Открой Coinhold и зарабатывай на хранении криптовалют', actionLabel: 'Открыть Coinhold', showClose: false }));
   }
   function AppSettingsNotify() {
