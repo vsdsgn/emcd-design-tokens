@@ -1,4 +1,4 @@
-# Status summary — контракт (2026-11-20)
+# Status summary — контракт (2026-11-21)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -94,7 +94,7 @@
 - Props: `layout`: column | row; `showAllLink`: boolean = true.
 - `offline` / `unstable` / `active` — числа или `items: [{ tone, label, value }]`; `skeleton` — загрузка; `allLinkLabel` — по умолчанию «Все воркеры»; «Все воркеры» рисуется только при `layout="row"`.
 
-## 14. Acceptance (2026-11-20)
+## 14. Acceptance (2026-11-21)
 - `audit.plugin.js` — не прогонялся: перевод в beta 20.11 по репо (код, README, `docs/patterns.md`); плагины — вместе с правкой описания набора в Figma.
 - `variables-check.plugin.js` — не прогонялся: перевод в beta 20.11 по репо (код, README, `docs/patterns.md`); плагины — вместе с правкой описания набора в Figma.
 - `audit-parity.plugin.js` — не прогонялся: перевод в beta 20.11 по репо (код, README, `docs/patterns.md`); плагины — вместе с правкой описания набора в Figma.

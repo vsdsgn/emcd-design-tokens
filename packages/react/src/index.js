@@ -64,7 +64,7 @@ export function Chip({ size = 's', selected = false, label, children, metaText, 
   return h('button', { type: 'button', className: cx('emcd-chip', size === 'm' && 'emcd-chip--m', selected && 'emcd-chip--selected', className), 'aria-pressed': selected, disabled, onClick, title: typeof (label ?? children) === 'string' ? (label ?? children) : undefined, ...rest }, ...body);
 }
 
-function CheckLike({ kind, status, tone = 'default', size = 'm', controlPosition = 'start', label, description, children, disabled, onChange, className, inputProps, ...rest }) {
+function CheckLike({ kind, status, tone = 'default', size = 'm', controlPosition = 'start', label, description, badge, children, disabled, onChange, className, inputProps, ...rest }) {
   const ref = React.useRef(null);
   const checked = kind === 'checkbox' ? status === 'on' || status === true : !!status;
   React.useEffect(() => { if (ref.current && kind === 'checkbox') ref.current.indeterminate = status === 'indeterminate'; }, [status, kind]);
@@ -76,7 +76,10 @@ function CheckLike({ kind, status, tone = 'default', size = 'm', controlPosition
     h('input', { ref, type: kind === 'radio' ? 'radio' : 'checkbox', role: isToggle ? 'switch' : undefined, disabled,
       ...(onChange ? { checked, onChange: (e) => onChange(e.target.checked, e) } : { defaultChecked: checked }),
       'aria-invalid': tone === 'danger' || undefined, ...inputProps }),
-    h('span', { className: base + '__text' }, h('span', null, label ?? children), description && h('span', { className: base + '__desc' }, description)));
+    h('span', { className: base + '__text' },
+      // badge (21.11) — Badge S Accent Subtle сразу после подписи: выгода / новизна опции («8% APR»); переносится под длинную подпись
+      badge != null ? h('span', { className: 'emcd-check__label-row' }, h('span', null, label ?? children), h(Badge, { size: 's', tone: 'accent', label: badge, className: 'emcd-check__badge' })) : h('span', null, label ?? children),
+      description && h('span', { className: base + '__desc' }, description)));
 }
 
 /** Checkbox — независимый выбор; status: off | on | indeterminate. onChange(checked, event). */

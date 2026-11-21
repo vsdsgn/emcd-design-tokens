@@ -1,4 +1,4 @@
-# _Dot — контракт (2026-11-20)
+# _Dot — контракт (2026-11-21)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -67,7 +67,7 @@
 - Служебный набор: в публичный API библиотеки не выходит — внутренняя часть родителя.
 - Props: `size`: s | m; `tone`: success | warning | danger | info | neutral.
 
-## 14. Acceptance (2026-11-20)
+## 14. Acceptance (2026-11-21)
 - `audit.plugin.js` — 0 замечаний (вместе со Status).
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13, вместе со Status).

@@ -1,5 +1,6 @@
 <!-- Checkbox — независимый выбор. v-model: boolean; indeterminate — частичный выбор. Контракт: docs/components/checkbox.md -->
 <script setup>
+import DsBadge from './DsBadge.vue';
 const model = defineModel({ type: Boolean, default: false });
 defineProps({
   indeterminate: Boolean,
@@ -7,6 +8,7 @@ defineProps({
   size: { type: String, default: 'm' },                // m | s
   controlPosition: { type: String, default: 'start' }, // start | end
   label: String,
+  badge: String, // Badge S Accent Subtle после подписи (21.11)
   description: String,
   disabled: Boolean,
 });
@@ -14,6 +16,6 @@ defineProps({
 <template>
   <label :class="['emcd-check', size === 's' && 'emcd-check--s', controlPosition === 'end' && 'emcd-check--end', tone === 'danger' && 'emcd-check--danger']">
     <input v-model="model" type="checkbox" :indeterminate.prop="indeterminate" :disabled="disabled" :aria-invalid="tone === 'danger' || undefined" />
-    <span class="emcd-check__text"><span><slot>{{ label }}</slot></span><span v-if="description" class="emcd-check__desc">{{ description }}</span></span>
+    <span class="emcd-check__text"><span v-if="badge" class="emcd-check__label-row"><span><slot>{{ label }}</slot></span><DsBadge size="s" tone="accent" :label="badge" class="emcd-check__badge" /></span><span v-else><slot>{{ label }}</slot></span><span v-if="description" class="emcd-check__desc">{{ description }}</span></span>
   </label>
 </template>

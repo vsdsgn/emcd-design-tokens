@@ -1,4 +1,4 @@
-# Suggest — контракт (2026-11-20)
+# Suggest — контракт (2026-11-21)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -106,7 +106,7 @@
 - Vue: `<DsSuggest>`; Flutter: `DsSuggest`.
 - Props: `layout`: card | strip; `tone`: neutral | accent | success | warning | danger; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `showDescription`: boolean = true; `showLeading`: boolean = true; `primaryAction`: boolean = true; `secondaryAction`: boolean = false; `close`: boolean = true; `leading`: string или слот.
 
-## 14. Acceptance (2026-11-20)
+## 14. Acceptance (2026-11-21)
 - `audit.plugin.js` — не перезапускался после правок 13.11 (ряд кнопок скрывается с Primary action) и 14.11 (Accent — Button Primary).
 - `variables-check.plugin.js` — ширина корня 480 (Card) / 960 (Strip) числом.
 - `audit-parity.plugin.js` — 0 (13.11, прогон по страницам компонентов).

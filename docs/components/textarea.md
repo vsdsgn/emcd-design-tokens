@@ -1,4 +1,4 @@
-# Textarea — контракт (2026-11-20)
+# Textarea — контракт (2026-11-21)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -103,7 +103,7 @@
 - Vue `Textarea` (DSP) — сверка не сделана, код недоступен; HTML/CSS — есть (описание набора).
 - Свойства базы (слой `Field`) — props: `label`, `showLabel`, `value` (v-model), `helper`, `showHelper`, `counter`, `showCounter`, `rows` (минимум 3); `readonly`, `disabled`, `loading`, `skeleton`.
 
-## 14. Acceptance (2026-11-20)
+## 14. Acceptance (2026-11-21)
 - `audit.plugin.js` — 0 (2026-11-13).
 - `variables-check.plugin.js` — 0 у набора (2026-11-13; у базы `minHeight 96 @field` привязан к `size/field/multi-min` 13.11).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,4 +1,4 @@
-# Coin — контракт (2026-11-20)
+# Coin — контракт (2026-11-21)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -81,7 +81,7 @@
 - Props: `size`: xs | s | m | l | xl; `network`: boolean.
 - Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-20)
+## 14. Acceptance (2026-11-21)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: радиусы бейджа сети 3.5–9 числом (круг, радиус = размер / 2).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

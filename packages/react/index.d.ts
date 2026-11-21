@@ -71,6 +71,8 @@ export interface ChipProps {
 interface CheckBase {
   label?: ReactNode;
   description?: ReactNode;
+  /** Бейдж после подписи (Badge S Accent Subtle, 21.11): выгода или новизна опции — «8% APR». */
+  badge?: ReactNode;
   size?: 'm' | 's';
   disabled?: boolean;
   onChange?: (checked: boolean, event: Event) => void;

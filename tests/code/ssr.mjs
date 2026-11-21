@@ -72,7 +72,7 @@ const RC = {
   Checkbox: [{ label: 'Согласен' }, { status: 'on', label: 'Да', description: 'Описание' }, { status: 'indeterminate', size: 's', label: 'Часть' }, { tone: 'danger', controlPosition: 'end', label: 'Ошибка' }],
   Radio: [{ label: 'Один', name: 'r', value: '1' }, { status: true, size: 's', label: 'Два', name: 'r', value: '2' }, { tone: 'danger', controlPosition: 'end', label: 'Три' }],
   RadioGroup: [{ legend: 'Сеть', children: h(R.Radio, { label: 'TRC-20', name: 'n', value: 't' }) }],
-  Toggle: [{ label: 'Уведомления' }, { status: true, size: 's', controlPosition: 'start', label: 'Вкл', description: 'Описание' }],
+  Toggle: [{ label: 'На Coinhold', badge: '8% APR', description: 'Дополнительный доход с намайненного' }, { label: 'Уведомления' }, { status: true, size: 's', controlPosition: 'start', label: 'Вкл', description: 'Описание' }],
   Input: [
     { label: 'Сумма', placeholder: '0' }, { size: 'l', labelPosition: 'above', label: 'Адрес', hint: 'Подсказка', counter: '0/64' },
     ...['error', 'disabled', 'readonly', 'loading', 'skeleton'].map((state) => ({ state, label: 'Поле', defaultValue: 'abc' })),
@@ -302,7 +302,7 @@ const VC = {
   DsCheckbox: [[{ label: 'Согласен' }], [{ status: 'indeterminate', size: 's', label: 'x', description: 'y' }], [{ status: 'on', tone: 'danger', controlPosition: 'end', label: 'x' }]],
   DsRadio: [[{ label: 'Один', name: 'r', value: '1' }], [{ status: true, size: 's', label: 'x', name: 'r', value: '2' }]],
   DsRadioGroup: [[{ legend: 'Сеть' }, { default: () => 'x' }]],
-  DsToggle: [[{ label: 'Уведомления' }], [{ status: true, controlPosition: 'start', size: 's', label: 'x' }]],
+  DsToggle: [[{ label: 'На Coinhold', badge: '8% APR' }], [{ label: 'Уведомления' }], [{ status: true, controlPosition: 'start', size: 's', label: 'x' }]],
   DsInput: [[{ label: 'Сумма' }], [{ size: 'l', labelPosition: 'above', label: 'x', hint: 'y', counter: '0/64', suffix: 'USDT' }, { leading: vico, trailing: vico }],
     ...['error', 'disabled', 'readonly', 'loading', 'skeleton'].map((state) => [{ state, label: 'x' }])],
   DsTextarea: [[{ label: 'Комментарий' }], [{ size: 'l', label: 'x', maxlength: 200, modelValue: 'Текст' }], [{ state: 'error', error: 'Пусто' }]],

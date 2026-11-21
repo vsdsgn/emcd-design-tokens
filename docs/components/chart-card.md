@@ -1,4 +1,4 @@
-# Chart card — контракт (2026-11-20)
+# Chart card — контракт (2026-11-21)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -102,7 +102,7 @@
 - Vue: `<DsChartCard>`; Flutter: `DsChartCard`.
 - Props: `showBottom`: boolean = true; `top`: string или слот; `content`: string или слот; `bottom`: string или слот.
 
-## 14. Acceptance (2026-11-20)
+## 14. Acceptance (2026-11-21)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина корня 580 числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

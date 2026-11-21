@@ -1,4 +1,4 @@
-# Section header — контракт (2026-11-20)
+# Section header — контракт (2026-11-21)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -89,7 +89,7 @@
 - Props: `size`: m | s; `trailing`: string или слот; `title`: string или слот; `caption`: string или слот; `showCaption`: boolean = false; `showTrailing`: boolean = false.
 - `level` — уровень заголовка 2–4 (по умолчанию `h3`); `trailing` или `children` — слот; `showCaption` / `showTrailing` по умолчанию — есть ли содержимое.
 
-## 14. Acceptance (2026-11-20)
+## 14. Acceptance (2026-11-21)
 - `audit.plugin.js` — не прогонялся: перевод в beta 20.11 по репо (код, README, `docs/patterns.md`); плагины — вместе с правкой описания набора в Figma.
 - `variables-check.plugin.js` — не прогонялся: перевод в beta 20.11 по репо (код, README, `docs/patterns.md`); плагины — вместе с правкой описания набора в Figma.
 - `audit-parity.plugin.js` — не прогонялся: перевод в beta 20.11 по репо (код, README, `docs/patterns.md`); плагины — вместе с правкой описания набора в Figma.

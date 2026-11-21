@@ -1,4 +1,4 @@
-# Tab bar — контракт (2026-11-20)
+# Tab bar — контракт (2026-11-21)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -88,7 +88,7 @@
 - `items`: массив Tab bar item (3–5, лишние отсекаются) + `value` / `defaultValue` / `onChange` (Vue `v-model`); пункт `type: 'action'` не выбирается — `onAction` (Vue событие `action`).
 - Safe area — нижнее поле `max(os/safe-area/bottom, env(safe-area-inset-bottom))`; `label` — `aria-label` nav (по умолчанию «Основная навигация»).
 
-## 14. Acceptance (2026-11-20)
+## 14. Acceptance (2026-11-21)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина корня 375 — числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

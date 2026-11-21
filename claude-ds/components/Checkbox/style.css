@@ -29,3 +29,6 @@
 .emcd-check:has(input:disabled) { cursor: not-allowed; }
 .emcd-check:has(input:disabled), .emcd-check:has(input:disabled) .emcd-check__desc { color: var(--text-disabled); }
 @media (prefers-reduced-motion: reduce) { .emcd-check input { transition: none; } .emcd-check:active input { transform: none; } }
+/* Бейдж после подписи (21.11, Show badge в _Selection control): в строку с подписью, при нехватке места — под неё; зазор space/8. Общий для Checkbox, Radio, Toggle. */
+.emcd-check__label-row { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-8, 8px); min-width: 0; }
+.emcd-check__badge { flex: none; }
