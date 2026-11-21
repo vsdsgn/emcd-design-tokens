@@ -276,8 +276,8 @@ export interface CardProps {
 }
 
 export interface SectionHeaderProps {
-  /** m — label/lg 16 Medium (секция карточки: «Переводить на Coinhold»); s — label/md 14 Medium (подсекция: «Сколько переводить?»). */
-  size?: 'm' | 's';
+  /** l — heading/lg, раздел страницы на фоне («Площадки», h2); m — label/lg 16 Medium (секция карточки: «Переводить на Coinhold»); s — label/md 14 Medium (подсекция: «Сколько переводить?»). */
+  size?: 'l' | 'm' | 's';
   /** Уровень заголовка: h2–h4 (по умолчанию h3 — секция внутри страницы с h1 / h2). */
   level?: 2 | 3 | 4;
   title: ReactNode;

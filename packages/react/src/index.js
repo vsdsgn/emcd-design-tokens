@@ -281,7 +281,7 @@ export function SectionHeader({ size = 'm', level = 3, title, caption, showCapti
   const withCaption = (showCaption ?? caption != null) && caption != null;
   const tr = trailing ?? children;
   const withTrailing = (showTrailing ?? tr != null) && tr != null;
-  return h('div', { className: cx('emcd-section-header', size === 's' && 'emcd-section-header--s', className), ...rest },
+  return h('div', { className: cx('emcd-section-header', size === 's' && 'emcd-section-header--s', size === 'l' && 'emcd-section-header--l', className), ...rest },
     h('div', { className: 'emcd-section-header__text' },
       h('h' + lv, { className: 'emcd-section-header__title' }, title),
       withCaption && h('p', { className: 'emcd-section-header__caption' }, caption)),

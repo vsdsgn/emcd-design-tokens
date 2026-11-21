@@ -1,4 +1,4 @@
-/* Section header — 🟡 beta (Figma «Section header»: Size M · S; 19.11). Заголовок секции внутри карточки или формы: Title, Caption, слот Trailing.
+/* Section header — 🟡 beta (Figma «Section header»: Size L · M · S; L — 21.11, разделы страницы на фоне). Заголовок секции внутри карточки или формы: Title, Caption, слот Trailing.
    M — label/lg 16 Medium (секция карточки); S — label/md 14 Medium (подсекция). Caption — body/sm text/secondary. Между текстом и Trailing — space/16; внутри Trailing — space/12. */
 .emcd-section-header { display: flex; align-items: center; gap: var(--space-16, 16px); min-width: 0; }
 .emcd-section-header__text { display: flex; flex: 1 1 auto; flex-direction: column; gap: var(--space-4, 4px); min-width: 0; }
@@ -7,3 +7,4 @@
 .emcd-section-header__trailing { display: inline-flex; flex: none; align-items: center; gap: var(--space-12, 12px); margin-inline-start: auto; }
 .emcd-section-header--s .emcd-section-header__text { gap: var(--space-2, 2px); }
 .emcd-section-header--s .emcd-section-header__title { font-size: var(--type-label-md-size, 14px); line-height: var(--type-label-md-line-height, 20px); }
+.emcd-section-header--l .emcd-section-header__title { font: 700 var(--type-heading-lg-size, 24px)/var(--type-heading-lg-line-height, 32px) var(--font-display, var(--font-sans)); letter-spacing: -0.01em; }

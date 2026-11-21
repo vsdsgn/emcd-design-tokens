@@ -2,7 +2,7 @@
 <script setup>
 import { computed, useSlots } from 'vue';
 const props = defineProps({
-  size: { type: String, default: 'm' },          // m — секция карточки | s — подсекция
+  size: { type: String, default: 'm' },          // l — раздел страницы | m — секция карточки | s — подсекция
   level: { type: [Number, String], default: 3 }, // уровень заголовка: 2 | 3 | 4
   title: String,
   caption: String,
@@ -16,7 +16,7 @@ const hasCaption = computed(() => (props.showCaption ?? true) && (props.caption 
 const hasTrailing = computed(() => (props.showTrailing ?? true) && (props.trailing != null || !!slots.trailing || !!slots.default));
 </script>
 <template>
-  <div :class="['emcd-section-header', size === 's' && 'emcd-section-header--s']">
+  <div :class="['emcd-section-header', size === 's' && 'emcd-section-header--s', size === 'l' && 'emcd-section-header--l']">
     <div class="emcd-section-header__text">
       <component :is="tag" class="emcd-section-header__title"><slot name="title">{{ title }}</slot></component>
       <p v-if="hasCaption" class="emcd-section-header__caption"><slot name="caption">{{ caption }}</slot></p>
