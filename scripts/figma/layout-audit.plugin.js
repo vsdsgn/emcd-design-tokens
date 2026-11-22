@@ -33,9 +33,10 @@ for (const f of frames) {
     }
   }
   for (const h of f.findAll((n) => n.name === 'header row' && n.children.some((c) => /header cell/i.test(c.name)))) {
-    const heads = h.children.filter((c) => c.visible);
+    const heads = h.children.filter((c) => c.visible && /header cell/i.test(c.name));
     const row = h.parent.children.find((c) => c.type === 'INSTANCE' && /Table row/.test(c.name) && c.visible); if (!row) continue;
-    const cells = row.children.filter((c) => c.visible && c.type === 'INSTANCE' && !/hit|focus|safe|state/.test(c.name));
+    const cellsRoot = row.findOne((x) => x.type === 'SLOT' && x.name === 'Cells') || row; // Table row 22.11: ячейки в слоте Cells
+    const cells = cellsRoot.children.filter((c) => c.visible && c.type === 'INSTANCE' && !/hit|focus|safe|state/.test(c.name));
     if (cells.length !== heads.length) { iss.push(`TABLE колонок: шапка ${heads.length}, строка ${cells.length}`); continue; }
     heads.forEach((hd, i) => {
       if (Math.abs(hd.width - cells[i].width) > 1) iss.push(`TABLE ширина колонки ${i + 1}: шапка ${Math.round(hd.width)}, ячейка ${Math.round(cells[i].width)}`);
