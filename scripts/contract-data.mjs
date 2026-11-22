@@ -2712,6 +2712,7 @@ export const DATA = [
   },
   {
     name: 'Legend swatch',
+    merged: 'Marker (22.11): Legend swatch → Shape × Color=Series N × Size=L; _Dot → Shape=Dot × Color=тон × Size S/M',
     identity: ['Вложен в Legend item (exposed).'],
     what: 'Маркер серии графика: цветная точка или отрезок линии.',
     use: 'маркер серии в легенде и тултипе графика.',
