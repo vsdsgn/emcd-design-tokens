@@ -51,6 +51,8 @@
 - ~~`space/section` Large 64 → 48~~ — сделано 22.11 (Foundations + репо: Expanded 40, Large 48, XLarge 64).
 
 ## Очередь на Publish Components
+- **Status bar** — дорожка → слот Track: ширина сегмента в экземпляре не менялась (Figma молча игнорирует, как колонки Table row) — доли были неверными. После Publish — доли на Мониторинг · Главная (1 000 / 3 000 / 16 500 / 61) и B2B Analytics (65 / 571 / 12 271).
+- **Legend item** — маркер swatch во всех вариантах был переопределён на `border/accent`: первая серия любой легенды — акцент, а не `data/1`. Исправлено (маркер = серия). **Chart card** — легенда по умолчанию: маркеры серий 1–3.
 - ~~**Table header cell · Select all** и **Bulk action bar**~~ (Publish 22.11, на B2B Users).
 - ~~**Table row → слот Cells**~~ (Publish 22.11, экраны восстановлены): ширина колонки в экземпляре строки не меняется (ни размер, ни min-width — ограничение Figma), Column 7–10 давали только равные колонки → ячейки перенесены в слот `Cells` (любое число колонок, ширина каждой под шапку), Column 7–10 убраны. После Publish + обновления: таблицы на 9 экранах (54 строки) вернуть из копий на странице «🧪 _holder · Table row», B2B Users — ширины колонок под содержимое.
 - ~~**Foundations** — `space/section`~~ (Publish 22.11).
@@ -61,6 +63,7 @@
 - **Section header** — Size L (`type/heading/lg`, раздел страницы на фоне). После Publish — заголовки разделов на Мониторинг · Главная.
 
 ## Журнал
+- 22.11 — H7: WL B2B · Analytics (Web) — Page header «Analytics» + Select compact монет + период Chip + Export to CSV; «Revenue» (Section header L): Chart card Net profit / Users (крупная цифра, Tabs S, Stacked bars, легенда, сумма, Details); «Mining»: Hashrates (Chart metric ×3 + Status bar воркеров) и Coins (Coin stack + Details, Stacked bars). Найдены дефекты системы: Status bar (доли не задать), Legend item (первая серия — акцент) — исправлены, ждут Publish.
 - 22.11 — H7: WL B2C · Workers (App) — на основе майнинга App «Воркеры»: действия «Подключить воркер» + «+», Chip-статусы, Search + Segmented список / группы, таблица с итоговой строкой. Майнинг App «Воркеры»: ячейки разошлись с шапкой (80 / 92 при шапке 86) → ширины под содержимое 80 / 92 / 91 / 80. Аудит App: 12 кадров — 0 (теперь и с проверкой таблиц; `layout-audit.plugin.js` ищет ячейки в слоте Cells).
 - 22.11 — H7: Мониторинг · Устройства · Web — Page header (Владельцы · Добавить устройства) + Tabs M «Активные 12 / Ожидание 12» + «Выгрузить энергоотчёт»; карточка: итог по статусам, фильтры (Chip «Без владельца», Select ×2, период, «Все фильтры»), таблица 11 колонок (Select all, 4 выбраны, аномалии `text/danger`), Bulk action bar «Выбрано 4 из 12». Аудит 0.
 - 22.11 — B2B Users: Select all (Indeterminate) в шапке, Bulk action bar «Selected 2 of 120» по центру над низом; под полосой — отступ её высоты + 24 (правило patterns 6.4; кадр 980 → 1060). Код: зазор чекбокс → подпись в шапке 4, как в Figma. Эталон и сравнение обновлены.

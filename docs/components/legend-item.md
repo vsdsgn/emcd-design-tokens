@@ -97,7 +97,7 @@
 ## 12. Figma projection
 - Набор `Legend item`, вариантов 4 из 6; оси: Selected, State.
 - Борда: «Legend item — борда · шаблон v3», разделов 12.
-- Описание: 1148 знаков, разделы: Status: Level: Элемент легенды графика: State как у legacy . Правила: A11y: Когда использовать: Поиск: Legacy: Матрица:
+- Описание: 1182 знаков, разделы: Status: Level: Элемент легенды графика: State как у legacy . Правила: A11y: Когда использовать: Поиск: Legacy: Матрица:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`LegendItem`), Vue `packages/vue/src/DsLegendItem.vue`, CSS `claude-ds/components/LegendItem/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.

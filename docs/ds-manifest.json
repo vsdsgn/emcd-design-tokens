@@ -6174,7 +6174,7 @@
      "id": "84:613",
      "type": "SET",
      "status": "beta",
-     "descLen": 1148,
+     "descLen": 1182,
      "descHeads": [
       "Status:",
       "Level:",
@@ -11344,7 +11344,7 @@
      "id": "2385:3",
      "type": "COMPONENT",
      "status": "draft",
-     "descLen": 1016,
+     "descLen": 1109,
      "descHeads": [
       "Status:",
       "Level:",
@@ -11424,6 +11424,11 @@
        "type": "BOOLEAN",
        "def": true,
        "bound": 1
+      },
+      {
+       "name": "Track",
+       "type": "SLOT",
+       "bound": 1
       }
      ],
      "nested": {
@@ -11455,7 +11460,7 @@
        "fontSize:type/label/sm/size",
        "lineHeight:type/label/sm/line-height"
       ],
-      "track": [
+      "Track": [
        "gap:space/4"
       ],
       "segment · Danger": [
