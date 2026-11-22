@@ -49,7 +49,7 @@ const ico = () => h('svg', { viewBox: '0 0 24 24', 'aria-hidden': true }, h('pat
 
 // Представительные props: каждое значение каждой оси хотя бы раз + новые свойства 17–19.11.
 const RC = {
-  Button: [
+  Button: [{ label: 'Выгрузить', type: 'secondary', badge: 'Авто' }, { label: 'Выгрузить', badge: 'Авто' }, 
     ...['primary', 'secondary', 'tertiary', 'tertiary-outline', 'text', 'inverted'].map((type) => ({ type, label: 'Вывести' })),
     ...['xs', 's', 'm', 'l', 'xl'].map((size) => ({ size, label: 'Вывести', iconLeft: ico(), iconRight: ico() })),
     { tone: 'danger', label: 'Удалить' }, { type: 'text', tone: 'danger', label: 'Удалить' }, { loading: true, label: 'Вывести' }, { disabled: true, label: 'Вывести' },

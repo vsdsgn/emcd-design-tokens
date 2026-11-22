@@ -54,3 +54,5 @@
 .emcd-btn:disabled::before { opacity: 0 !important; }
 .emcd-btn[aria-busy="true"] { cursor: progress; }
 @media (prefers-reduced-motion: reduce) { .emcd-btn, .emcd-btn::before { transition: none; } .emcd-btn:active { transform: none; } }
+.emcd-btn__badge { flex: none; } /* 22.11: Badge S после подписи (свойство Badge в Figma) */
+.emcd-btn__badge svg { width: 16px; height: 16px; }

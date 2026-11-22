@@ -5,6 +5,10 @@ import type { ReactNode, ButtonHTMLAttributes, InputHTMLAttributes, TextareaHTML
 type StatusTone = 'success' | 'warning' | 'danger' | 'neutral';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+  /** 22.11: состояние действия после подписи (Badge S), напр. «Авто» — включена автовыгрузка. */
+  badge?: ReactNode;
+  /** Иконка бейджа, по умолчанию history. */
+  badgeIcon?: string;
   /** primary — одно главное действие; secondary — вспомогательное в цвет бренда; tertiary — нейтральное; tertiary-outline — с обводкой; text — ссылка-действие; inverted — на тёмной / промо-подложке. */
   type?: 'primary' | 'secondary' | 'tertiary' | 'tertiary-outline' | 'text' | 'inverted';
   /** danger — разрушающее действие (удалить, отключить). */

@@ -26,12 +26,15 @@ const DOT = (tone, k) => h('span', { key: k, className: cx('emcd-dot', tone && t
 
 /** Button — действие. Одна главная (primary) на экран или блок. size: xs 24 (Web) · s 32 · m 40 (Web) · l 48 (App) · xl 56 (только App: главный CTA внизу экрана). Иконки — цвета подписи. */
 const Button = React.forwardRef(function Button(
-  { type = 'primary', tone = 'default', size = 'm', label, children, iconLeft, iconRight, loading = false, disabled, htmlType = 'button', className, ...rest }, ref) {
+  { type = 'primary', tone = 'default', size = 'm', label, children, iconLeft, iconRight, badge, badgeIcon = 'history', loading = false, disabled, htmlType = 'button', className, ...rest }, ref) {
+  // 22.11: badge — состояние действия после подписи («Авто» + history); Primary / Inverted — Neutral Solid, остальные — Accent Subtle
+  const onFill = type === 'primary' || type === 'inverted';
+  const badgeNode = badge ? h(Badge, { size: 's', tone: onFill ? 'neutral' : 'accent', style: onFill ? 'solid' : 'subtle', className: 'emcd-btn__badge', label: badge, icon: badgeIcon ? h(Icon, { name: badgeIcon }) : null }) : null;
   return h('button', {
     ref, type: htmlType, disabled, 'aria-busy': loading || undefined,
     className: cx('emcd-btn', 'emcd-btn--' + BTN_TYPE[type], tone === 'danger' && 'emcd-btn--danger', SIZE_MOD[size] && 'emcd-btn--' + SIZE_MOD[size], className),
     ...rest,
-  }, loading ? SPINNER() : iconLeft, h('span', null, label ?? children), !loading && iconRight);
+  }, loading ? SPINNER() : iconLeft, h('span', null, label ?? children), badgeNode, !loading && iconRight);
 });
 
 /** Icon button — действие иконкой; `label` обязателен (доступное имя и тултип на Web). size: xs 24 · s 32 · m 40 · l 48 (XL снят). */
