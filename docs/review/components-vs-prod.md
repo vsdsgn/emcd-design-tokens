@@ -44,10 +44,35 @@
 - **Дашборд · вывод (DS):** добавлен низ экрана, как в production: Chart card хешрейта (метрики, период Chip M равными долями, легенда, Line + Bars), Status summary, Promo card; экран во всю высоту (1609), код демо — так же. Полоса тикеров (BTC $74 282 +7.10 %) — компонента в DS нет, в парковку.
 - **patterns.md:** п. 0-4 и сценарий «Дашборд → Compact» говорили «Segmented» для периода — приведено к правилу 19.11 (Chip). На Web-экранах цели 3 период уже Chip.
 
+## Мониторинг, WL B2B, WL B2C (production-файлы продуктов, 6–7 экранов каждого)
+
+Мониторинг почти не использует библиотеку: таблицы, карточки, сегменты — свои фреймы. Поэтому кроме экземпляров сняты метрики конструкций (кегли, высоты строк, радиусы карточек).
+
+| Компонент (production) | Продукт | Production | DS 2.0 | Расхождение | Решение |
+|---|---|---|---|---|---|
+| Sidebar item | Мон | 232×36 r10, 14 Medium | Nav item 218×36 r12 | ширина, радиус | шкала DS, один каркас Web (patterns 1.6) |
+| baseButton Small (язык) | Мон | 24 r6, 12 Medium | Button XS 24 r10 | радиус | шкала DS |
+| baseChip md (период 1 час) | Мон | 37 r10, 14 Medium | Chip S 32 r10 | высота | шкала DS; период — Chip |
+| input single select large (подпись на рамке) | Мон | 53 | Select M On border 40 | высота | шкала DS |
+| DateRange.Field | Мон, B2B | 45–56 r12 | Date range field | высота | шкала DS |
+| Search | Мон, B2B | 36 r10 | Search M 40 / S 32 | высота | шкала DS |
+| Button Secondary Small | B2B | 40 r10 | Button Secondary M 40 r12 | радиус | шкала DS |
+| segmented picker item | B2B, App | 36 r8, **14 SemiBold** | Segment 32 / 40, 14 Medium | вес | один вес у контролов — Medium (Button, Chip, Tab, Segment); SemiBold в production только у сегментов и периода — не переносим |
+| Period selector item (Desktop) | B2B | 40 r10, 14 SemiBold | Chip M 40 r12, 14 Medium | вес, радиус | как выше |
+| Selector small | B2B | 120×40 r10 | Select compact 36 r10 | высота 40 / 36 | Web-тулбар — Select M 40 (patterns 1.6); Select compact — шапки App / Compact |
+| Notification (Success) | B2B | 288×72 | Toast | — | Toast |
+| Button S | B2C | 36 r6 | Button S 32, `radius/control` бренда | радиус 6 | Geometria: `radius/md` = 6 — даёт бренд, не компонент |
+| Row (таблица воркеров) | B2C, App | 48, 12 Medium | Table row Compact 48, содержимое — атомы S (12) | — | — |
+| таблицы Мониторинга | Мон | строки 51–56, **12 Medium** ×359 | Table row Compact 48, 14 Medium | кегль | Web — 14 (как Web App); 12 — только Compact (атомы S) |
+
+### Найдено внутри DS (22.11)
+- **Table cell / Table row:** в Figma текст ячеек был `Label/LG` (16), хотя по контракту 19.11 и в коде — `type/label/md` (14). Исправлено: 12 текстов Table cell и 96 — Table row → `Label/MD` (ждёт Publish).
+- **Мониторинг · Главная:** текст в ячейках таблиц — 14 Regular без стиля (46 шт.) → `Label/MD` (14 Medium), как в остальных таблицах.
+
 ## Решения Стефана (22.11)
 - Размеры: **шкала DS остаётся** (32 / 40 / 48 / 56), production переходит на неё; расхождения по высоте — осознанные (в таблице выше — «решить» → «шкала DS»).
 - Select: пересобран без вложенного Input (шеврон, подпись на рамке, свойства).
 
 ## Следующие
-- Мониторинг, WL B2B, WL B2C — те же пары (App — выше).
+- Конструкции: сводка, графики, таблицы, списки — форма и вёрстка (экраны цели 3 уже сверены глазами, docs/review/README.md).
 - Конструкции: сводка, графики, таблицы, списки — форма и вёрстка.

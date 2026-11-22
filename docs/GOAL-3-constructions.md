@@ -51,6 +51,7 @@
 - ~~`space/section` Large 64 → 48~~ — сделано 22.11 (Foundations + репо: Expanded 40, Large 48, XLarge 64).
 
 ## Очередь на Publish Components
+- **Table cell / Table row** (22.11): текст `Label/LG` 16 → `Label/MD` 14 — как контракт 19.11 и код (решение 19.11 не было доведено в Figma).
 - **Chip** (22.11): содержимое по центру основной оси (было MIN) — в Fill-ширине (период на Compact равными долями) подпись по центру, как в коде.
 - ~~**Amount S / M**~~ (Publish 22.11) (22.11, решение «сам, по частоте»): значение и тикер — `font-weight/medium` (в production сумм Medium ×56, SemiBold — акцент, Regular — 0); фиат — Regular. Код уже (`--fw: medium`).
 - ~~**Tab bar item · Action**~~ (Publish 22.11; экраны App переведены в Style=Expressive, как демо) (22.11, Стефан: «у E свой стиль кнопки expressive»): слои `plate · base` (`decor/nav-base`) и `plate · expressive` (`decor/nav-expressive`: `surface/level-2` + градиентная обводка `border/accent` из углов, как в production App). Код уже (`[data-style=expressive]`).
