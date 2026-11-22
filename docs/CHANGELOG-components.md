@@ -8,6 +8,9 @@
 - **Amount:** S / M — значение и тикер Medium (было Regular), фиат Regular — по частоте в production (Web и App: суммы Medium / SemiBold, Regular нет). Figma — ждёт Publish.
 - **Tab bar item · Action:** стиль Expressive — плашка `surface-level-2`, градиентная обводка `border-accent` из углов (production App); Base — как было. Figma — ждёт Publish.
 - **Top bar App:** `addIcon` (минор) — иконка действия справа; дашборд майнинга — `settings` (production), остальные — `plus`.
+- **Chart card · легенда:** две серии на двух осях — по краям (space-between), как в production и коде; контракт дополнен, Figma — экраны майнинга Web / мобильный веб / App.
+- **Chip:** содержимое по центру (Fill-ширина в периоде Compact). Figma — ждёт Publish.
+- **Экраны App (Figma):** Style=Expressive на всех «… · App · DS 2.0» — как демо (`data-style="expressive"`) и production (плашка E).
 - **Экраны:** App «Дашборд · вывод» — во всю высоту: график хешрейта (Chip M период равными долями), Status summary, Promo card; Legend «Реджекты» — серия 4 (как столбики Chart plot и код; было 2 на Web-экранах майнинга).
 
 ## 2026-11-20
