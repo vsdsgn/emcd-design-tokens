@@ -41,7 +41,9 @@ export const IconButton = React.forwardRef(function IconButton(
 });
 
 /** Badge — неинтерактивная метка статуса или свойства. Тона Info нет (Info = цвет бренда → accent). */
-export function Badge({ size = 'm', tone = 'neutral', style = 'subtle', label, children, icon, skeleton = false, className, ...rest }) {
+export function Badge({ size = 'm', tone = 'neutral', style = 'subtle', content = 'text', value, label, children, icon, skeleton = false, className, ...rest }) {
+  // 22.11: Counter слит в Badge — content='number' (Figma Content=Number): XS 16 → разметка Counter S, S 20 → Counter M
+  if (content === 'number') return h(Counter, { size: size === 'xs' ? 's' : 'm', tone, value: value ?? label ?? children, className, ...rest });
   return h('span', {
     className: cx('emcd-badge', size !== 'm' && 'emcd-badge--' + size, tone !== 'neutral' && 'emcd-badge--' + tone, style === 'solid' && 'emcd-badge--solid', skeleton && 'emcd-badge--skeleton', className),
     'aria-hidden': skeleton || undefined, ...rest,
@@ -190,6 +192,7 @@ function rovingKeys(e, selector) {
 }
 
 /** Counter — число у таба, пункта меню, иконки. Не статус. */
+/** @deprecated 22.11 — Badge content='number' (Figma: Badge · Content=Number). Оставлен как реализация числа. */
 export function Counter({ size = 's', tone = 'neutral', value, children, className, ...rest }) {
   return h('span', { className: cx('emcd-counter', size === 'm' && 'emcd-counter--m', tone !== 'neutral' && 'emcd-counter--' + tone, className), ...rest }, value ?? children);
 }

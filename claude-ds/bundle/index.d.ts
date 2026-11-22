@@ -34,8 +34,11 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
 }
 
 export interface BadgeProps {
-  /** s 20 — таблицы; m 24 — карточки; l 32 — крупные заголовки. */
-  size?: 's' | 'm' | 'l';
+  /** s 20 — таблицы; m 24 — карточки; l 32 — крупные заголовки; xs 16 — только content='number'. */
+  size?: 'xs' | 's' | 'm' | 'l';
+  /** 22.11: number — только число (бывший Counter): tone neutral | accent | danger, size xs | s. */
+  content?: 'text' | 'number';
+  value?: ReactNode;
   /** Тона Info нет: Info = цвет бренда → accent. Subtle · Neutral — обводка border-subtle, текст text-secondary. */
   tone?: 'neutral' | 'accent' | 'success' | 'warning' | 'danger';
   /** subtle — по умолчанию; solid — одна главная метка на карточке. */

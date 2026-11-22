@@ -59,7 +59,7 @@ const RC = {
     ...['xs', 's', 'm', 'l'].map((size) => ({ size, label: 'Закрыть', icon: ico() })),
     { tone: 'danger', label: 'Удалить', icon: ico() }, { loading: true, label: 'Обновить' },
   ],
-  Badge: [
+  Badge: [{ content: 'number', size: 'xs', value: 12 }, { content: 'number', size: 's', tone: 'danger', value: 3 }, 
     ...['neutral', 'accent', 'success', 'warning', 'danger'].flatMap((tone) => ['subtle', 'solid'].map((style) => ({ tone, style, label: 'Активен' }))),
     ...['s', 'm', 'l'].map((size) => ({ size, label: 'Beta', icon: ico() })), { skeleton: true, label: 'x' },
   ],
@@ -300,7 +300,7 @@ const vico = () => vh('svg', { viewBox: '0 0 24 24', 'aria-hidden': 'true' }, [v
 const VC = {
   DsButton: [[{ label: 'Вывести' }], ...['xs', 's', 'l', 'xl'].map((size) => [{ size, label: 'x' }, { iconLeft: vico, iconRight: vico }]), [{ type: 'text', tone: 'danger', label: 'x' }], [{ loading: true, label: 'x' }]],
   DsIconButton: [...['xs', 's', 'm', 'l'].map((size) => [{ size, label: 'Закрыть' }, { default: vico }]), [{ type: 'ghost', tone: 'danger', loading: true, label: 'x' }]],
-  DsBadge: [[{ label: 'Активен' }], [{ size: 'l', tone: 'success', variant: 'solid', label: 'x' }, { icon: vico }], [{ size: 's', tone: 'accent' }], [{ skeleton: true, label: 'x' }]],
+  DsBadge: [[{ content: 'number', value: 12 }], [{ label: 'Активен' }], [{ size: 'l', tone: 'success', variant: 'solid', label: 'x' }, { icon: vico }], [{ size: 's', tone: 'accent' }], [{ skeleton: true, label: 'x' }]],
   DsChip: [[{ label: '360 дней' }], [{ selected: true, label: 'Все', metaText: 20 }], [{ statusDot: true, statusTone: 'danger', label: 'Офлайн', metaText: 4 }], [{ removable: true, selected: true, label: 'BTC', statusDot: true }], [{ size: 'm', disabled: true, label: 'x' }], [{ skeleton: true, label: '7 дней', metaText: 3 }]],
   DsCheckbox: [[{ label: 'Согласен' }], [{ status: 'indeterminate', size: 's', label: 'x', description: 'y' }], [{ status: 'on', tone: 'danger', controlPosition: 'end', label: 'x' }]],
   DsRadio: [[{ label: 'Один', name: 'r', value: '1' }], [{ status: true, size: 's', label: 'x', name: 'r', value: '2' }]],
