@@ -17,3 +17,5 @@
 **Код:** React `<Segmented items=[…] />` или `<Segmented><Segment value … /></Segmented>`; без `value` — неуправляемый. Vue — `<DsSegmented v-model … />`, `<DsSegment>`. Ось Items в коде — длина `items`.
 
 Классы: `emcd-segmented [emcd-segmented--{m|l}] [emcd-segmented--block]`; сегмент `emcd-segment [emcd-segment--accent] [emcd-segment--icon-only]` (`aria-checked`, `disabled`), подпись `emcd-segment__label`.
+
+**Ширина (22.11):** сегменты по содержимому с минимумом 64 / 80 / 96 (S / M / L); на всю ширину (`block`) — поровну. Подпись не обрезается в Figma: Segment — подпись Hug.
