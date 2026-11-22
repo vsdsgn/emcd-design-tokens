@@ -23,6 +23,8 @@ export const LIST = [
   'wallet', 'devices', 'card', 'mining-coin', 'exchange', 'coinhold-coins', 'percentage', 'suitcase', 'lock', 'web', 'gift', 'rocket',
   // сайдбар Мониторинга (Главная · Площадки · Сотрудники · Устройства · Сканер · Уведомления)
   'home', 'asic', 'qr-scan',
+  // WL B2B (Users: правка колонок, CSV, копировать ID)
+  'edit', 'file-csv',
 ];
 // Монеты: тикер → файл icons/symbols/coin
 const COIN_FILES = { btc: 'bitcoin-btc', kas: 'kaspa-kas', ltc: 'litecoin-ltc', doge: 'dogecoin-doge', eth: 'ethereum-eth', usdt: 'tether-usdt',

@@ -963,7 +963,7 @@ export interface TableRowProps {
   children?: ReactNode;
   className?: string;
 }
-export interface TableColumn<R = any> { key: string; label: ReactNode; align?: 'start' | 'end'; sortable?: boolean; width?: number | string; render?: (row: R) => ReactNode }
+export interface TableColumn<R = any> { key: string; label: ReactNode; align?: 'start' | 'end'; sortable?: boolean; width?: number | string; render?: (row: R) => ReactNode; /** Свойства Table header cell колонки: selectAll, selectStatus, onSelectAll. */ th?: Partial<TableHeaderCellProps> }
 export interface TableProps<R = any> {
   columns?: TableColumn<R>[];
   rows?: (R & { id?: string | number; selected?: boolean })[];
@@ -1100,6 +1100,8 @@ export interface ChartCardProps {
   /** s — Web; m — Compact (на всю ширину равными долями). */
   periodSize?: 's' | 'm';
   periodLabel?: string;
+  /** Контрол справа в шапке вместо периода (22.11): Select compact единицы «TH/s» (Мониторинг). */
+  trailing?: ReactNode;
   /** Легенда — над графиком, в конце Top (19.11); две серии на двух осях — по краям. */
   legend?: LegendItemProps[];
   /** Bottom — итог за период. */

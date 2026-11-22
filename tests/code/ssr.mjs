@@ -219,6 +219,7 @@ const RC = {
     { type: 'dual-area', index: 1, series: [{ data: [1, 2] }, { data: [3, 1] }] }, { type: 'line', interactive: false, defaultIndex: 0, series: [{ data: [1, 2] }] },
   ],
   ChartCard: [
+    { label: 'Средний хешрейт', metrics: [{ label: 'Средний хешрейт площадок', value: '100', unit: 'TH/s' }], trailing: 'TH/s', legend: [{ label: 'Хешрейт', series: 1 }], showBottom: false },
     { label: 'Хешрейт', metrics: [{ label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true }, { label: 'Реджекты за 1 день', value: '5.05', unit: '%' }],
       periods: [{ value: '1d', label: '1 день' }, { value: '7d', label: '7 дней' }, { value: '30d', label: '30 дней' }], legend: [{ label: 'Хешрейт, TH/s' }, { label: 'Реджекты, %', series: 4 }], sum: 'Итого 24.47 TH/s',
       children: h(R.ChartPlot, { type: 'line-bars', series: [{ data: [1, 2] }, { data: [0.5, 1] }], defaultIndex: 0 }) },

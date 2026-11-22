@@ -184,3 +184,36 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 .demo-app--inner .demo-app__inner-content { overflow: visible; }
 .demo-app__inner-content > * { flex: none; }
 .demo-app__sheet > * { flex: none; }
+
+/* ───────── цель 3 · пилот (patterns 1.6 / 2.2): Мониторинг, B2B, B2C ───────── */
+.demo-pm { padding-top: var(--layout-margin, 40px); }
+.demo-pm__header { margin-bottom: var(--space-24); }
+.demo-pm__body { display: flex; flex-direction: column; gap: var(--space-section, 48px); }
+.demo-pm__section { display: flex; flex-direction: column; gap: var(--layout-gutter, 24px); min-width: 0; }
+.demo-pm__grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--layout-gutter, 24px); }
+.demo-pm__card > * + * { margin-top: var(--space-24); }
+.demo-pm__metrics { display: flex; gap: var(--space-32); }
+.demo-pm__bar { display: flex; flex-direction: column; gap: var(--space-12); }
+.demo-pm__legend { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-16); }
+.demo-pm__table-card > * + * { margin-top: var(--space-16); }
+.demo-pm__filters { display: flex; align-items: center; gap: var(--space-12); }
+.demo-pm__select { width: 320px; flex: none; }
+.demo-pm__search { width: 320px; flex: none; }
+.demo-pm__tools { display: flex; align-items: center; gap: var(--space-12); }
+.demo-pm__val { font: 400 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); color: var(--text-primary); }
+.demo-pm__id { display: flex; align-items: center; gap: var(--space-8); }
+.demo-pm__row-check .emcd-check__text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.demo-pm__badges { display: flex; gap: var(--space-4); }
+.demo-pm__more { display: flex; justify-content: center; }
+.demo-pm__bulk { position: fixed; left: 50%; bottom: var(--space-24); transform: translateX(-50%); }
+.demo-num { font-variant-numeric: tabular-nums; }
+.demo-num__u { color: var(--text-tertiary); }
+.demo-num--danger { color: var(--text-danger); }
+.demo-chips { display: flex; gap: var(--space-12); }
+.demo-app--wl { background: var(--surface-level-0); }
+.demo-app__cards { flex: 1; overflow: auto; display: flex; flex-direction: column; gap: var(--layout-gutter, 16px); padding: var(--layout-margin, 16px); }
+.demo-app--wl { height: auto; min-height: 100vh; overflow: visible; }
+.demo-app--wl .demo-app__cards { overflow: visible; }
+.demo-app--wl .demo-app__tabbar { position: sticky; bottom: 0; }
+.demo-b2c-chart__top { display: flex; flex-direction: column; gap: var(--space-16); }
+.demo-b2c-chart__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); }

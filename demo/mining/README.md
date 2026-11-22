@@ -152,3 +152,12 @@ npm run demo:mining -- mw-workers web-history   # выборочно
 | JKC — буква в круге | символа нет в `icons/symbols/coin` кода (в Figma Symbols есть) | экспортировать символ |
 | Ambient light у Coinhold виден в коде (Expressive), на макете нет | макеты App в Base | так и задумано |
 | Шапка калькулятора на макете — временная (Icon button + текст) | Top bar Level=Inner ждёт Publish | после Publish заменить |
+
+
+## Пилот цели 3 (22.11): Мониторинг, WL B2B, WL B2C
+
+| Экран | Страница | Тема | Сравнение с Figma | Остаток |
+|---|---|---|---|---|
+| Мониторинг · Главная | `mon-main.html` | Dark · Expressive · Web | совпадает: каркас 1.6, сводка (Chart metric + Status bar / Progress), графики (ChartCard `trailing` — Select compact «TH/s»), Section header L, таблицы 8 колонок, аномалии `text/danger` | заливка Area в коде ровная (в Figma — градиент Chart plot) |
+| WL B2B · Users | `b2b-users.html` | Light · Base · Web | совпадает: Sidebar B2B, тулбар, таблица по ширинам Figma; в коде уже есть Select all в шапке и Bulk action bar (в Figma — после Publish) | почта в колонке User — многоточие (ячейке не хватает 6 px) |
+| WL B2C · Statistics | `b2c-statistics.html` | Light · WL Default · iOS | совпадает: карточки на L0 (1.5), Suggest Accent, сводка выплаты, Chart card (период снизу), Status summary, Tab bar WL | главный показатель «71.3 TH/s» — Chart metric (heading/md), в Figma — крупная цифра шапки Chart card |
