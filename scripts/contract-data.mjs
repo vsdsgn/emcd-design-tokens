@@ -1225,7 +1225,7 @@ export const DATA = [
     ],
     never: 'на Web; две плавающие кнопки на экране; Icon с неоднозначной иконкой; подпись длиннее 20 знаков.',
     anatomy: [
-      'Корень: капсула (`radius/chip`), заливка `action/primary/default`, тень Elevation/3 (`shadow/ambient` + `shadow/key`); Icon — квадрат `control/height/xl`, Extended — отступы `space/20`, зазор `space/8`.',
+      'Корень: скругление как у Button по высоте — `radius/control` (22.11, Стефан: не капсула, было `radius/chip`), заливка `action/primary/default`, тень Elevation/3 (`shadow/ambient` + `shadow/key`); Icon — квадрат `control/height/xl`, Extended — отступы `space/20`, зазор `space/8`.',
       '`icon/plus` (`icon/size/md`) + `label` (`type/label/md`, `text/on-accent`) — подпись только у Extended.',
       'Loading=True: Spinner Size=L вместо иконки (дорожка `text/on-accent`, дуга `icon/on-accent`); у Extended подпись остаётся.',
       'Служебные: `state layer`, `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer`.',

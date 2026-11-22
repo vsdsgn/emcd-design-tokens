@@ -1515,13 +1515,13 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 @keyframes emcd-sheet-in { from { transform: translateY(24px); opacity: 0; } }
 
 /* Floating button — 🟡 beta (Figma «🟡 Floating button»: Layout × Size × Type × Loading × State). Плавающая кнопка главного действия Compact; одна на экран.
-   Капсула radius-chip, тень Elevation/3. Icon — круг 56, только Primary. Extended (19.11): Size L 56 (поля 20, зазор 8, label-md) · M 40 (поля 16, зазор 6);
+   Скругление как у Button — radius-control 12 (22.11, Стефан: не капсула), тень Elevation/3. Icon — квадрат 56, только Primary. Extended (19.11): Size L 56 (поля 20, зазор 8, label-md) · M 40 (поля 16, зазор 6);
    Type Primary (action-primary-default, text-on-accent) · Secondary (action-secondary-default, подпись text-primary, иконка icon-primary).
    Позиция (справа снизу над Tab bar и safe area, отступ space-md; в RTL — слева) — у продукта. */
 .emcd-fab { --h: var(--control-height-xl, 56px); --px: var(--space-20, 20px); --gap: var(--space-8, 8px);
   --bg: var(--action-primary-default); --fg: var(--text-on-accent); --ic: var(--icon-on-accent); --layer: var(--state-layer-inverse, var(--text-inverse));
   position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--gap); box-sizing: border-box; flex: none;
-  width: var(--h); height: var(--h); padding: 0; margin: 0; border: 0; border-radius: var(--radius-chip, 999px);
+  width: var(--h); height: var(--h); padding: 0; margin: 0; border: 0; border-radius: var(--radius-control, 12px);
   background: var(--bg); color: var(--fg); box-shadow: 0 2px 6px var(--shadow-key), 0 12px 32px -6px var(--shadow-ambient);
   font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); white-space: nowrap;
   cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent;
