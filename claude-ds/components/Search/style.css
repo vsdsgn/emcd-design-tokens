@@ -5,7 +5,7 @@
   padding: 0 var(--space-4, 4px) 0 var(--space-12, 12px); border-radius: var(--radius-control); background: var(--surface-level-2);
   box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); color: var(--text-primary);
   transition: box-shadow var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
-.emcd-search--s { --h: var(--control-height-sm, 32px); --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); }
+.emcd-search--s { border-radius: var(--radius-sm, 8px); --h: var(--control-height-sm, 32px); --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); }
 .emcd-search::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
   transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
 .emcd-search:hover::before { opacity: var(--state-hover, .06); }

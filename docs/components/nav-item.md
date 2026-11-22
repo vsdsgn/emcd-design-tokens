@@ -23,7 +23,7 @@
 - Не делаем: пункт без иконки; два выбранных пункта; Counter как счётчик количества; развёрнутые и свёрнутые пункты в одном сайдбаре.
 
 ## 3. Anatomy
-- Корень: высота `size/row/compact` (36), радиус `radius/control`, отступы `space/6`, зазор `space/12`; `icon` 24 × 24 (`icon/size/lg`) → `label` (`type/label/lg`, `font-weight/medium`) → `counter` (вложенный Counter, `status/danger/solid`).
+- Корень: высота `size/row/compact` (36), радиус `radius/control-sm` (36 → 10, 22.11), отступы `space/6`, зазор `space/12`; `icon` 24 × 24 (`icon/size/lg`) → `label` (`type/label/lg`, `font-weight/medium`) → `counter` (вложенный Counter, `status/danger/solid`).
 - Collapsed=On: корень `size/row/compact` × `size/row/compact`, подписи нет, `counter` — в правом верхнем углу поверх иконки.
 - Selected=On: плашка `action/secondary/default` (нейтральная, без тинта бренда) + `indicator` слева — `border/accent`, 2 × 20 (`size/tab-indicator/sm` × `icon/size/md`).
 - `accent glow` — свечение за иконкой у Selected (`light/accent/color`, блюр `light/accent/blur`), только в Expressive (`decor/light`).

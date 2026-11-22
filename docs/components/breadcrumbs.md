@@ -20,7 +20,7 @@
 - Не делаем: крошки в App и Compact; ссылка на текущей странице; свой разделитель; больше 4 видимых пунктов; перенос на вторую строку.
 
 ## 3. Anatomy
-- Корень — горизонтальный ряд (`space/8`): экземпляры `Breadcrumb item` (`space/2`, `radius/xs`) и `separator` между ними.
+- Корень — горизонтальный ряд (`space/8`): экземпляры `Breadcrumb item` (`space/2`, `radius/control-xs`) и `separator` между ними.
 - `separator` — «/», `icon/tertiary`, `type/body/md`.
 - Последний `Breadcrumb item` — State=Current: `text/primary`, плотнее остальных.
 - Collapsed: первый пункт · «…» · два последних, между ними `separator`.

@@ -24,7 +24,7 @@
 - Корень — вертикальный стек, зазор `space/12` / `space/8`; ширина образца числом (Column 160, Row 343).
 - `tiles` — плитки, зазор `space/8`: Column — колонкой, Row — рядом поровну.
 - `tile · Отключённые` — Stat card Tone=Danger (`status/danger/subtle`); `tile · Нестабильные` — Warning (`status/warning/subtle`); `tile · Активные` — Neutral (`surface/next`, обводка `border/subtle`, `border/width/default`). У всех `radius/container`, отступы `card/padding` / `space/32` / `space/4` (у Center боковые поля `space/4`).
-- `all link` — Button Text S «Все воркеры» со стрелкой: `radius/xs`, min-width `size/button/min`, зазор `space/4` (Row).
+- `all link` — Button Text S «Все воркеры» со стрелкой: `radius/control-xs`, min-width `size/button/min`, зазор `space/4` (Row).
 - Вложено: `Stat card` ×6, `Button` ×1.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 

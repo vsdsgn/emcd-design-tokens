@@ -22,7 +22,7 @@
 - Корень — ряд, зазор `space/8`, отступы `space/16` / `space/24`, подложка `surface/level-0`; ширина образца 375 числом.
 - `action 1` — Button M (`control/height/md`, `radius/control`, min-width `size/button/min`): Actions=1 — Primary (`action/primary/default`), Actions=2 — Tertiary (`action/secondary/default`).
 - `action 2` — Button Tertiary M (`action/secondary/default`), только Actions=2.
-- `badge` — Badge S (`size/badge-height/sm`, `status/neutral/subtle`, обводка `border/subtle`, `radius/sm`); Badge=On.
+- `badge` — Badge S (`size/badge-height/sm`, `status/neutral/subtle`, обводка `border/subtle`, `radius/xs`); Badge=On.
 - Вложено: `Button` ×3, `Badge` ×2.
 - Служебные слои (вариантов из 2): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 

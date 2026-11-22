@@ -1,6 +1,6 @@
 /* Chip — 🟡 beta (Figma «🟡 Chip»: Size × Selected × State). Радиус — как у контролов, не pill.
    Selected — инверсная белая плашка (19.11); Status dot — точка статуса перед подписью (.emcd-dot, блок Status). */
-.emcd-chip { --h: 32px; --px: 10px; --r: var(--radius-control-sm, 10px); --bg: transparent; --fg: var(--text-primary); --meta: var(--text-secondary);
+.emcd-chip { --h: 32px; --px: 10px; --r: var(--radius-sm, 8px); --bg: transparent; --fg: var(--text-primary); --meta: var(--text-secondary);
   --layer: var(--state-layer, var(--text-primary));
   all: unset; position: relative; display: inline-flex; align-items: center; gap: 6px; box-sizing: border-box; height: var(--h); padding: 0 var(--px); border-radius: var(--r); vertical-align: middle;
   border: 1px solid var(--control-border-default); background: var(--bg); color: var(--fg);

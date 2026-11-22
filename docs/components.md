@@ -24,6 +24,20 @@
 - Зоны нажатия `hit area · web` повторяют размер компонента — их числа следуют за корнем.
 - Если число мешает поведению (элемент не тянется по контейнеру, что-то уходит за край), это todo компонента, а не вопрос токена.
 
+## Скругление — по высоте объекта (решение Стефана 2026-11-22)
+
+Мелкие объекты не «таблетки»: радиус зависит от высоты, вложенный элемент — концентрично (радиус родителя минус отступ).
+
+| Высота | Токен | Значение (EMCD) | Где |
+|---|---|---|---|
+| ≥ 40 | `radius/control` | 12 | Button / Icon button M–XL, Chip M, поля, Segmented M–L, Search M, Tooltip |
+| 36 | `radius/control-sm` | 10 | Select compact, Nav item |
+| 32 | `radius/sm` | 8 | Button / Icon button S, Chip S, Badge L, Search S, Segmented S, Pagination item S |
+| 24–28 | `radius/control-xs` | 6 | Button / Icon button XS, Badge M, Breadcrumb item, Button Text |
+| ≤ 20 | `radius/xs` | 4 | Badge S, Counter, Checkbox |
+
+Исключения: круг (Avatar, Coin, Radio, Step symbol, точки) и капсула (Toggle, Floating button, Page dot) — `radius/full`; вложенный сегмент — концентрично (Segment S 4, M / L 8); поверхности (Card, Modal, Sheet, Menu) — `radius/container` / `radius/surface`. Кольцо фокуса — радиус цели + 2: 4 → `focus-ring-xs`, 6 → `sm`, 8 → `focus-ring-inner`, 10 → `focus-ring-sm`, 12 → `focus-ring`.
+
 ## Свойства или слоты
 
 Компонент не должен становиться «монстром» с десятками свойств и скрытых слоёв. Правило:

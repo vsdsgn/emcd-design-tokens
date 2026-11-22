@@ -20,7 +20,7 @@
 - Не делаем: действия и ссылки внутри; тултип в приложении и на касании.
 
 ## 3. Anatomy
-- Корень: отступы `space/10` / `space/16`, радиус `radius/container`; min-ширина и min-высота `size/tooltip/min` (58), max-ширина `size/tooltip/max` (320).
+- Корень: отступы `space/10` / `space/16`, радиус `radius/control` (22.11, было `radius/container`); min-ширина и min-высота `size/tooltip/min` (58), max-ширина `size/tooltip/max` (320).
 - `overlay surface` — экземпляр `_Overlay surface` (Kind=Tooltip): Neutral — `surface/raised`, Accent — `surface/accent`; обводка `border/default` (`border/width/default`, перенесена с корня 13.11); тени `shadow/key` + `shadow/ambient`; радиус `radius/container`.
 - `text` — свойство Text, `type/label/md`, `font-weight/medium`; Neutral — `text/primary`, Accent — `text/on-accent` (14.11).
 - `_Tooltip arrow` — уголок 26 × 9, остриё в 8 от элемента. Грань с уголком не короче 58 (2 × 16 + 26) — отсюда min-ширина (Top / Bottom) и min-высота (Start / End).

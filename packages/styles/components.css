@@ -35,9 +35,9 @@
 /* Зона нажатия = max(размер, touch-min) */
 .emcd-btn::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
   width: max(100%, var(--touch-min, 24px)); height: max(100%, var(--touch-min, 24px)); }
-.emcd-btn--xs { --h: var(--control-height-xs, 24px); --px: var(--space-4, 4px); --r: var(--radius-control-sm); --fs: var(--type-label-sm-size, 12px); --lh: var(--type-label-sm-line-height, 16px);
+.emcd-btn--xs { --h: var(--control-height-xs, 24px); --px: var(--space-4, 4px); --r: var(--radius-control-xs, 6px); --fs: var(--type-label-sm-size, 12px); --lh: var(--type-label-sm-line-height, 16px);
   --gap: var(--space-2, 2px); min-width: 0; }
-.emcd-btn--s { --h: var(--control-height-sm, 32px); --px: var(--space-6, 6px); --r: var(--radius-control-sm); }
+.emcd-btn--s { --h: var(--control-height-sm, 32px); --px: var(--space-6, 6px); --r: var(--radius-sm, 8px); } /* 22.11: радиус по высоте — 24 → 6, 32 → 8, ≥ 40 → 12 */
 .emcd-btn--l { --h: var(--control-height-lg, 48px); --px: var(--space-12, 12px); --fs: 16px; --lh: 24px; }
 .emcd-btn--xl { --h: var(--control-height-xl, 56px); --px: var(--space-16, 16px); --fs: 16px; --lh: 24px; }
 .emcd-btn--l svg, .emcd-btn--xl svg { width: 24px; height: 24px; }
@@ -52,7 +52,7 @@
 .emcd-btn--inverted { --bg: var(--action-inverse-default); --fg: var(--text-inverse); --layer: var(--state-layer-inverse, var(--text-inverse)); }
 /* Text — без внутренних отступов, текст по краю, как ссылка; Default — брендовый action/primary/default (17.11) */
 .emcd-btn--text { --bg: transparent; --fg: var(--action-primary-default); --fg-hover: var(--text-accent-hover, var(--text-link-hover)); --fg-pressed: var(--text-accent-pressed, var(--text-link-hover));
-  height: auto; padding: 0; --gap: var(--space-4, 4px); --r: var(--radius-xs, 4px); max-width: none; min-width: 0; }
+  height: auto; padding: 0; --gap: var(--space-4, 4px); --r: var(--radius-control-xs, 6px); max-width: none; min-width: 0; }
 .emcd-btn--text.emcd-btn--danger { --fg: var(--text-danger); --fg-hover: var(--text-danger-hover, var(--text-danger)); --fg-pressed: var(--text-danger-pressed, var(--text-danger)); }
 .emcd-btn--text::before { display: none; }
 .emcd-btn--text:hover { color: var(--fg-hover); text-decoration: underline; }
@@ -81,21 +81,21 @@
   .emcd-icon-btn[data-tooltip] { overflow: visible; }
   .emcd-icon-btn[data-tooltip]:hover::after, .emcd-icon-btn[data-tooltip]:focus-visible::after {
     content: attr(data-tooltip); position: absolute; top: auto; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%);
-    width: max-content; max-width: 320px; height: auto; padding: 10px 16px; border-radius: 16px;
+    width: max-content; max-width: 320px; height: auto; padding: 10px 16px; border-radius: var(--radius-control, 12px);
     background: var(--surface-raised); color: var(--text-primary); box-shadow: inset 0 0 0 1px var(--border-default);
     font: 500 14px/20px var(--font-sans); white-space: nowrap; pointer-events: none; z-index: 2; }
 }
 
 /* Badge — 🟡 beta (Figma «🟡 Badge»: Size × Tone × Style). Неинтерактивная метка; радиус не pill. */
 .emcd-badge { --bg: var(--status-neutral-subtle); --fg: var(--text-secondary); --edge: var(--border-subtle);
-  display: inline-flex; align-items: center; gap: 4px; box-sizing: border-box; height: 24px; padding: 0 10px; border-radius: var(--radius-sm, 8px); vertical-align: middle;
+  display: inline-flex; align-items: center; gap: 4px; box-sizing: border-box; height: 24px; padding: 0 10px; border-radius: var(--radius-control-xs, 6px); vertical-align: middle;
   font: 500 12px/16px var(--font-sans); max-width: 160px; white-space: nowrap; background: var(--bg); color: var(--fg); box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--edge); }
 .emcd-badge__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .emcd-badge svg { width: 12px; height: 12px; flex: none; }
 .emcd-badge__dot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: currentColor; }
 /* Size */
-.emcd-badge--s { height: 20px; padding: 0 8px; }
-.emcd-badge--l { height: 32px; padding: 0 12px; gap: 6px; border-radius: var(--radius-control-sm, 10px); font: 500 14px/20px var(--font-sans); }
+.emcd-badge--s { height: 20px; padding: 0 8px; border-radius: var(--radius-xs, 4px); } /* 22.11: радиус по высоте — 20 → 4, 24 → 6, 32 → 8 */
+.emcd-badge--l { height: 32px; padding: 0 12px; gap: 6px; border-radius: var(--radius-sm, 8px); font: 500 14px/20px var(--font-sans); }
 .emcd-badge--l svg { width: 16px; height: 16px; }
 /* Tone × Style=Subtle (по умолчанию). Neutral (17.11, по продукту): обводка border/subtle, текст text/secondary; у остальных тонов обводки нет */
 .emcd-badge:is(.emcd-badge--accent, .emcd-badge--success, .emcd-badge--warning, .emcd-badge--danger, .emcd-badge--solid, .emcd-badge--skeleton) { --edge: transparent; }
@@ -116,7 +116,7 @@
 
 /* Chip — 🟡 beta (Figma «🟡 Chip»: Size × Selected × State). Радиус — как у контролов, не pill.
    Selected — инверсная белая плашка (19.11); Status dot — точка статуса перед подписью (.emcd-dot, блок Status). */
-.emcd-chip { --h: 32px; --px: 10px; --r: var(--radius-control-sm, 10px); --bg: transparent; --fg: var(--text-primary); --meta: var(--text-secondary);
+.emcd-chip { --h: 32px; --px: 10px; --r: var(--radius-sm, 8px); --bg: transparent; --fg: var(--text-primary); --meta: var(--text-secondary);
   --layer: var(--state-layer, var(--text-primary));
   all: unset; position: relative; display: inline-flex; align-items: center; gap: 6px; box-sizing: border-box; height: var(--h); padding: 0 var(--px); border-radius: var(--r); vertical-align: middle;
   border: 1px solid var(--control-border-default); background: var(--bg); color: var(--fg);
@@ -165,7 +165,7 @@
 .emcd-check__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
 .emcd-check__desc { font: 500 12px/16px var(--font-sans); color: var(--text-secondary); }
 .emcd-check input { appearance: none; -webkit-appearance: none; position: relative; flex: none; box-sizing: border-box; width: 20px; height: 20px; margin: calc((var(--lh) - 20px) / 2) 0;
-  border-radius: var(--radius-control-xs, 6px); border: 1px solid var(--border-strong); background-color: var(--control-box);
+  border-radius: var(--radius-xs, 4px); border: 1px solid var(--border-strong); background-color: var(--control-box);
   display: grid; place-content: center; cursor: pointer; outline: none;
   transition: background-color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)), border-color 120ms cubic-bezier(.2,0,0,1), transform 120ms cubic-bezier(.2,0,0,1); }
 /* Hover / Pressed — слой состояний на коробочке 6 % / 10 %; Pressed — масштаб 0.96 */
@@ -322,10 +322,10 @@
 @keyframes emcd-modal-in { from { opacity: 0; transform: scale(0.96); } }
 
 /* Counter — 🟡 beta (Figma «🟡 Counter»: Size × Tone). Число у таба, пункта меню, иконки. Не статус.
-   Квадрат radius/sm (17.11, было капсула); Neutral — как Badge: обводка border/subtle, цифра text/secondary. */
+   Квадрат radius/xs 4 (22.11 радиус по высоте; 17.11 — radius/sm, было капсула); Neutral — как Badge: обводка border/subtle, цифра text/secondary. */
 .emcd-counter { --h: var(--size-counter-height-sm, 16px); --bg: var(--status-neutral-subtle); --fg: var(--text-secondary); --edge: var(--border-subtle);
   display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; flex: none; vertical-align: middle;
-  min-width: var(--h); min-height: var(--h); max-width: var(--size-counter-max, 40px); padding: 0 var(--space-4, 4px); border-radius: var(--radius-sm, 4px);
+  min-width: var(--h); min-height: var(--h); max-width: var(--size-counter-max, 40px); padding: 0 var(--space-4, 4px); border-radius: var(--radius-xs, 4px);
   font: 500 var(--type-label-sm-size, 12px)/var(--h) var(--font-sans); font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   background: var(--bg); color: var(--fg); box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--edge); }
 .emcd-counter--m { --h: var(--size-counter-height-md, 20px); padding: 0 var(--space-6, 6px); }
@@ -580,7 +580,7 @@
 .emcd-tooltip { --bg: var(--surface-raised); --bd: var(--border-default); --fg: var(--text-primary);
   position: relative; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
   min-width: var(--size-tooltip-min, 58px); min-height: var(--size-tooltip-min, 58px); max-width: var(--size-tooltip-max, 320px); width: max-content;
-  padding: var(--space-10, 10px) var(--space-16, 16px); border-radius: var(--radius-container); background: var(--bg); color: var(--fg);
+  padding: var(--space-10, 10px) var(--space-16, 16px); border-radius: var(--radius-control, 12px); background: var(--bg); color: var(--fg);
   box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--bd), 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient);
   font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); text-align: center; white-space: normal; overflow-wrap: anywhere; }
 .emcd-tooltip--top, .emcd-tooltip--bottom { min-height: 0; }
@@ -738,7 +738,7 @@
 /* Segmented + Segment — 🟡 beta (Figma «🟡 Segmented»: Size × Items; «🟡 Segment»: Size × Selected × Tone × State). Size: S 32 · M 40 · L 48 (XL снят 17.11).
    Сегмент не уже S 64 · M 80 · L 96; подпись S — label/sm, M / L — label/md.
    Один из 2–4 вариантов, применяется сразу. Дорожка control-segment-track, выбранный — плашка control-segment; сегменты равной ширины (grid 1fr — по самому длинному). */
-.emcd-segmented { --h: var(--control-height-sm, 32px); --r: var(--radius-control-sm, 10px); --fs: var(--type-label-sm-size, 12px); --lh: var(--type-label-sm-line-height, 16px); --seg: 64px;
+.emcd-segmented { --h: var(--control-height-sm, 32px); --r: var(--radius-sm, 8px); --fs: var(--type-label-sm-size, 12px); --lh: var(--type-label-sm-line-height, 16px); --seg: 64px;
   box-sizing: border-box; display: inline-grid; grid-auto-flow: column; grid-auto-columns: minmax(var(--seg), 1fr); gap: var(--space-2, 2px); height: var(--h); padding: var(--space-4, 4px); min-width: 0; max-width: 100%;
   border-radius: var(--r); background: var(--control-segment-track); vertical-align: middle; }
 .emcd-segmented--block { display: grid; width: 100%; }
@@ -983,7 +983,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
    иконка 24 (icon-tertiary; 19.11 — по экрану Figma, подпись с x 66) → зазор space/12 → подпись type/label/lg Medium (text-primary). Selected — плашка action/secondary/default + полоса border/accent 2 × 20 слева.
    Hover / Pressed — слой state/layer 6 % / 10 %; Collapsed — квадрат 36, подпись в Tooltip, Counter поверх иконки. */
 .emcd-nav-item { position: relative; display: flex; align-items: center; gap: var(--space-12, 12px); box-sizing: border-box; width: 100%; min-width: 0; height: var(--size-row-compact, 36px);
-  padding: 0 var(--space-6, 6px); margin: 0; border: 0; border-radius: var(--radius-control); background: transparent; color: var(--text-primary);
+  padding: 0 var(--space-6, 6px); margin: 0; border: 0; border-radius: var(--radius-control-sm, 10px); background: transparent; color: var(--text-primary);
   font: 500 var(--type-label-lg-size, 16px)/var(--type-label-lg-line-height, 20px) var(--font-sans); text-align: start; text-decoration: none;
   cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
 .emcd-nav-item::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
@@ -1037,7 +1037,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
   padding: 0 var(--space-4, 4px) 0 var(--space-12, 12px); border-radius: var(--radius-control); background: var(--surface-level-2);
   box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); color: var(--text-primary);
   transition: box-shadow var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
-.emcd-search--s { --h: var(--control-height-sm, 32px); --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); }
+.emcd-search--s { border-radius: var(--radius-sm, 8px); --h: var(--control-height-sm, 32px); --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); }
 .emcd-search::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;
   transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
 .emcd-search:hover::before { opacity: var(--state-hover, .06); }

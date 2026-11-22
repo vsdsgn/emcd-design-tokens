@@ -21,7 +21,7 @@
 ## 3. Anatomy
 - Корень — вертикальный стек, зазор `space/8`: Select (подпись, поле с шевроном, подсказка / ошибка; min-width `size/field/min`) → Menu (только Open) → `selected` (только Chips).
 - Menu: строки Multiselect option, отступ `space/8`, зазор `space/4`, `radius/control`, ширина `size/menu/min` … `size/menu/max`; оболочка и обводка — по контракту Menu.
-- `selected` — ряд Chip с переносом, зазор `space/8`; Chip: высота `control/height/sm`, `radius/control-sm`, фон `action/inverse/default` (Disabled — `action/disabled`), max-width `size/chip/max`, крестик удаления.
+- `selected` — ряд Chip с переносом, зазор `space/8`; Chip: высота `control/height/sm`, `radius/sm`, фон `action/inverse/default` (Disabled — `action/disabled`), max-width `size/chip/max`, крестик удаления.
 - Кольцо фокуса, зона нажатия и безопасное поле — у вложенных Select, Multiselect option и Chip.
 - Вложено: `Select` ×12, `Menu` ×2, `Chip` ×18.
 - Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.

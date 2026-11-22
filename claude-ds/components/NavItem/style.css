@@ -2,7 +2,7 @@
    иконка 24 (icon-tertiary; 19.11 — по экрану Figma, подпись с x 66) → зазор space/12 → подпись type/label/lg Medium (text-primary). Selected — плашка action/secondary/default + полоса border/accent 2 × 20 слева.
    Hover / Pressed — слой state/layer 6 % / 10 %; Collapsed — квадрат 36, подпись в Tooltip, Counter поверх иконки. */
 .emcd-nav-item { position: relative; display: flex; align-items: center; gap: var(--space-12, 12px); box-sizing: border-box; width: 100%; min-width: 0; height: var(--size-row-compact, 36px);
-  padding: 0 var(--space-6, 6px); margin: 0; border: 0; border-radius: var(--radius-control); background: transparent; color: var(--text-primary);
+  padding: 0 var(--space-6, 6px); margin: 0; border: 0; border-radius: var(--radius-control-sm, 10px); background: transparent; color: var(--text-primary);
   font: 500 var(--type-label-lg-size, 16px)/var(--type-label-lg-line-height, 20px) var(--font-sans); text-align: start; text-decoration: none;
   cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
 .emcd-nav-item::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--state-layer, var(--text-primary)); opacity: 0; pointer-events: none;

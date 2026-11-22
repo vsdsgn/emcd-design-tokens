@@ -22,7 +22,7 @@
 ## 3. Anatomy
 - Корень — ряд, зазор `space/4`, высота по содержимому: `previous` → номера (вложенные Pagination item) и `ellipsis` «…» (`type/label/md`, `text/secondary`) → `next`.
 - Compact: `previous` → `range` (`type/label/md`, `font-weight/medium`, `text/secondary`, отступ `space/8`, ширина по содержимому) → `next`; высота `control/height/sm` | `control/height/md`.
-- `previous` / `next` — стрелки как Icon button Ghost: `control/height/sm` | `control/height/md`, радиус `radius/control-sm` | `radius/control`.
+- `previous` / `next` — стрелки как Icon button Ghost: `control/height/sm` | `control/height/md`, радиус `radius/sm` | `radius/control`.
 - Pagination item — ширина по содержимому, min = высоте (`control/height/*`), отступы `space/8`.
 - Вложено: `Icon button` ×8, `Pagination item` ×12.
 - Служебные слои (вариантов из 4): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.

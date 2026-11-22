@@ -25,9 +25,9 @@
 /* Зона нажатия = max(размер, touch-min) */
 .emcd-btn::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
   width: max(100%, var(--touch-min, 24px)); height: max(100%, var(--touch-min, 24px)); }
-.emcd-btn--xs { --h: var(--control-height-xs, 24px); --px: var(--space-4, 4px); --r: var(--radius-control-sm); --fs: var(--type-label-sm-size, 12px); --lh: var(--type-label-sm-line-height, 16px);
+.emcd-btn--xs { --h: var(--control-height-xs, 24px); --px: var(--space-4, 4px); --r: var(--radius-control-xs, 6px); --fs: var(--type-label-sm-size, 12px); --lh: var(--type-label-sm-line-height, 16px);
   --gap: var(--space-2, 2px); min-width: 0; }
-.emcd-btn--s { --h: var(--control-height-sm, 32px); --px: var(--space-6, 6px); --r: var(--radius-control-sm); }
+.emcd-btn--s { --h: var(--control-height-sm, 32px); --px: var(--space-6, 6px); --r: var(--radius-sm, 8px); } /* 22.11: радиус по высоте — 24 → 6, 32 → 8, ≥ 40 → 12 */
 .emcd-btn--l { --h: var(--control-height-lg, 48px); --px: var(--space-12, 12px); --fs: 16px; --lh: 24px; }
 .emcd-btn--xl { --h: var(--control-height-xl, 56px); --px: var(--space-16, 16px); --fs: 16px; --lh: 24px; }
 .emcd-btn--l svg, .emcd-btn--xl svg { width: 24px; height: 24px; }
@@ -42,7 +42,7 @@
 .emcd-btn--inverted { --bg: var(--action-inverse-default); --fg: var(--text-inverse); --layer: var(--state-layer-inverse, var(--text-inverse)); }
 /* Text — без внутренних отступов, текст по краю, как ссылка; Default — брендовый action/primary/default (17.11) */
 .emcd-btn--text { --bg: transparent; --fg: var(--action-primary-default); --fg-hover: var(--text-accent-hover, var(--text-link-hover)); --fg-pressed: var(--text-accent-pressed, var(--text-link-hover));
-  height: auto; padding: 0; --gap: var(--space-4, 4px); --r: var(--radius-xs, 4px); max-width: none; min-width: 0; }
+  height: auto; padding: 0; --gap: var(--space-4, 4px); --r: var(--radius-control-xs, 6px); max-width: none; min-width: 0; }
 .emcd-btn--text.emcd-btn--danger { --fg: var(--text-danger); --fg-hover: var(--text-danger-hover, var(--text-danger)); --fg-pressed: var(--text-danger-pressed, var(--text-danger)); }
 .emcd-btn--text::before { display: none; }
 .emcd-btn--text:hover { color: var(--fg-hover); text-decoration: underline; }

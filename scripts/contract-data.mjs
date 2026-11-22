@@ -53,7 +53,7 @@ export const DATA = [
     use: 'количество непрочитанного или элементов в разделе.',
     dont: 'суммы и проценты — текст или Badge; статус — Badge / Status.',
     rule: ['Tone: Neutral — количество в табах и фильтрах; Accent — новое, требует внимания; Danger — ошибки и проблемы (неактивные воркеры).', 'Size: S 16 — в табах M и на иконках; M 20 — в табах L и пунктах меню.', 'Форма (17.11, по продукту): квадрат `radius/sm`, не круг.', 'Neutral (17.11, по продукту): как Badge — обводка `border/subtle`, цифра `text/secondary`.'],
-    anatomy: ['Корень: квадрат со скруглением `radius/sm` (17.11; было капсула `radius/full`), min-width = высота; заливка: Neutral — `status/neutral/subtle`, Accent — `control/checked`, Danger — `status/danger/solid`.', '`value` — число: Neutral — `text/primary`, Accent и Danger — `text/on-accent`.'],
+    anatomy: ['Корень: квадрат со скруглением `radius/xs` (22.11 — радиус по высоте; 17.11 `radius/sm`; было капсула `radius/full`), min-width = высота; заливка: Neutral — `status/neutral/subtle`, Accent — `control/checked`, Danger — `status/danger/solid`.', '`value` — число: Neutral — `text/primary`, Accent и Danger — `text/on-accent`.'],
     group: NONE,
     states: ['Состояний нет.'],
     defaults: { Size: 'S', Tone: 'Neutral' },
@@ -1500,7 +1500,7 @@ export const DATA = [
     anatomy: [
       'Корень — вертикальный стек, зазор `space/8`: Select (подпись, поле с шевроном, подсказка / ошибка; min-width `size/field/min`) → Menu (только Open) → `selected` (только Chips).',
       'Menu: строки Multiselect option, отступ `space/8`, зазор `space/4`, `radius/control`, ширина `size/menu/min` … `size/menu/max`; оболочка и обводка — по контракту Menu.',
-      '`selected` — ряд Chip с переносом, зазор `space/8`; Chip: высота `control/height/sm`, `radius/control-sm`, фон `action/inverse/default` (Disabled — `action/disabled`), max-width `size/chip/max`, крестик удаления.',
+      '`selected` — ряд Chip с переносом, зазор `space/8`; Chip: высота `control/height/sm`, `radius/sm`, фон `action/inverse/default` (Disabled — `action/disabled`), max-width `size/chip/max`, крестик удаления.',
       'Кольцо фокуса, зона нажатия и безопасное поле — у вложенных Select, Multiselect option и Chip.',
     ],
     group: 'Поле ввода: состояние — цветом рамки и сообщения, Hover — слой; Disabled — токены `*/disabled`; Skeleton — загрузка (всё из Select). Строки меню и чипы — по своим контрактам (Multiselect option, Chip)',
@@ -1555,7 +1555,7 @@ export const DATA = [
     ],
     never: 'пункт без иконки; два выбранных пункта; Counter как счётчик количества; развёрнутые и свёрнутые пункты в одном сайдбаре.',
     anatomy: [
-      'Корень: высота `size/row/compact` (36), радиус `radius/control`, отступы `space/6`, зазор `space/12`; `icon` 24 × 24 (`icon/size/lg`) → `label` (`type/label/lg`, `font-weight/medium`) → `counter` (вложенный Counter, `status/danger/solid`).',
+      'Корень: высота `size/row/compact` (36), радиус `radius/control-sm` (36 → 10, 22.11), отступы `space/6`, зазор `space/12`; `icon` 24 × 24 (`icon/size/lg`) → `label` (`type/label/lg`, `font-weight/medium`) → `counter` (вложенный Counter, `status/danger/solid`).',
       'Collapsed=On: корень `size/row/compact` × `size/row/compact`, подписи нет, `counter` — в правом верхнем углу поверх иконки.',
       'Selected=On: плашка `action/secondary/default` (нейтральная, без тинта бренда) + `indicator` слева — `border/accent`, 2 × 20 (`size/tab-indicator/sm` × `icon/size/md`).',
       '`accent glow` — свечение за иконкой у Selected (`light/accent/color`, блюр `light/accent/blur`), только в Expressive (`decor/light`).',
@@ -1623,7 +1623,7 @@ export const DATA = [
     anatomy: [
       'Корень — ряд, зазор `space/4`, высота по содержимому: `previous` → номера (вложенные Pagination item) и `ellipsis` «…» (`type/label/md`, `text/secondary`) → `next`.',
       'Compact: `previous` → `range` (`type/label/md`, `font-weight/medium`, `text/secondary`, отступ `space/8`, ширина по содержимому) → `next`; высота `control/height/sm` | `control/height/md`.',
-      '`previous` / `next` — стрелки как Icon button Ghost: `control/height/sm` | `control/height/md`, радиус `radius/control-sm` | `radius/control`.',
+      '`previous` / `next` — стрелки как Icon button Ghost: `control/height/sm` | `control/height/md`, радиус `radius/sm` | `radius/control`.',
       'Pagination item — ширина по содержимому, min = высоте (`control/height/*`), отступы `space/8`.',
     ],
     group: 'наследует вложенные: номера — Pagination item (плашка), стрелки — Icon button Ghost',
@@ -1803,7 +1803,7 @@ export const DATA = [
       'Корень — ряд, зазор `space/8`, высота `control/height/md` (M) / `control/height/sm` (S), отступы `space/12` в начале и `space/4` в конце; подложка `surface/level-2`, обводка `border/subtle` (Focus — `border/focus`), `border/width/default`, `radius/control`; ширина образца 320 числом.',
       '`icon` — лупа `icon/size/md` (20); в коде цвет `icon/tertiary`.',
       '`text` — `font/family/text`, `font-weight/medium`: M `type/body/md`, S `type/body/sm`; подсказка `text/tertiary`, введённый текст `text/primary`, Disabled `text/disabled`.',
-      '`clear` — Icon button Ghost S: `control/height/sm`, `radius/control-sm`, зазор `space/6`; только в Filled.',
+      '`clear` — Icon button Ghost S: `control/height/sm`, `radius/sm`, зазор `space/6`; только в Filled.',
     ],
     group: 'Поле (как Input): Hover — слой состояния 6 %; Pressed нет; Focus — обводка `border/focus`, с клавиатуры — кольцо; Disabled — `text/disabled`',
     states: [
@@ -2097,7 +2097,7 @@ export const DATA = [
     ],
     never: 'больше 4 сегментов; длинные подписи; сегменты разной ширины; навигация между разделами экрана.',
     anatomy: [
-      'Корень — дорожка `control/segment-track` (отступ `space/4`, зазор `space/2`, `radius/control` / `radius/control-sm`).',
+      'Корень — дорожка `control/segment-track` (отступ `space/4`, зазор `space/2`, `radius/control` / `radius/sm`).',
       '`segment 1` … `segment 4` — экземпляры Segment; выбранный — на подложке `control/segment`; подпись — Fill, по центру, одна строка.',
       'Подпись, иконка и Show label открыты у вложенных Segment; своих свойств у набора нет.',
       'Служебные слои (кольцо фокуса, зоны, безопасное поле) — у Segment.',
@@ -2228,7 +2228,7 @@ export const DATA = [
       'Корень — вертикальный стек, зазор `space/12` / `space/8`; ширина образца числом (Column 160, Row 343).',
       '`tiles` — плитки, зазор `space/8`: Column — колонкой, Row — рядом поровну.',
       '`tile · Отключённые` — Stat card Tone=Danger (`status/danger/subtle`); `tile · Нестабильные` — Warning (`status/warning/subtle`); `tile · Активные` — Neutral (`surface/next`, обводка `border/subtle`, `border/width/default`). У всех `radius/container`, отступы `card/padding` / `space/32` / `space/4` (у Center боковые поля `space/4`).',
-      '`all link` — Button Text S «Все воркеры» со стрелкой: `radius/xs`, min-width `size/button/min`, зазор `space/4` (Row).',
+      '`all link` — Button Text S «Все воркеры» со стрелкой: `radius/control-xs`, min-width `size/button/min`, зазор `space/4` (Row).',
     ],
     group: NONE + '; интерактивны вложенные Stat card (стрелка Link) и Button',
     states: [
@@ -3036,7 +3036,7 @@ export const DATA = [
     ],
     never: 'крошки в App и Compact; ссылка на текущей странице; свой разделитель; больше 4 видимых пунктов; перенос на вторую строку.',
     anatomy: [
-      'Корень — горизонтальный ряд (`space/8`): экземпляры `Breadcrumb item` (`space/2`, `radius/xs`) и `separator` между ними.',
+      'Корень — горизонтальный ряд (`space/8`): экземпляры `Breadcrumb item` (`space/2`, `radius/control-xs`) и `separator` между ними.',
       '`separator` — «/», `icon/tertiary`, `type/body/md`.',
       'Последний `Breadcrumb item` — State=Current: `text/primary`, плотнее остальных.',
       'Collapsed: первый пункт · «…» · два последних, между ними `separator`.',
@@ -3108,7 +3108,7 @@ export const DATA = [
     ],
     never: 'действия и ссылки внутри; тултип в приложении и на касании.',
     anatomy: [
-      'Корень: отступы `space/10` / `space/16`, радиус `radius/container`; min-ширина и min-высота `size/tooltip/min` (58), max-ширина `size/tooltip/max` (320).',
+      'Корень: отступы `space/10` / `space/16`, радиус `radius/control` (22.11, было `radius/container`); min-ширина и min-высота `size/tooltip/min` (58), max-ширина `size/tooltip/max` (320).',
       '`overlay surface` — экземпляр `_Overlay surface` (Kind=Tooltip): Neutral — `surface/raised`, Accent — `surface/accent`; обводка `border/default` (`border/width/default`, перенесена с корня 13.11); тени `shadow/key` + `shadow/ambient`; радиус `radius/container`.',
       '`text` — свойство Text, `type/label/md`, `font-weight/medium`; Neutral — `text/primary`, Accent — `text/on-accent` (14.11).',
       '`_Tooltip arrow` — уголок 26 × 9, остриё в 8 от элемента. Грань с уголком не короче 58 (2 × 16 + 26) — отсюда min-ширина (Top / Bottom) и min-высота (Start / End).',
@@ -3772,7 +3772,7 @@ export const DATA = [
       'Корень — ряд, зазор `space/8`, отступы `space/16` / `space/24`, подложка `surface/level-0`; ширина образца 375 числом.',
       '`action 1` — Button M (`control/height/md`, `radius/control`, min-width `size/button/min`): Actions=1 — Primary (`action/primary/default`), Actions=2 — Tertiary (`action/secondary/default`).',
       '`action 2` — Button Tertiary M (`action/secondary/default`), только Actions=2.',
-      '`badge` — Badge S (`size/badge-height/sm`, `status/neutral/subtle`, обводка `border/subtle`, `radius/sm`); Badge=On.',
+      '`badge` — Badge S (`size/badge-height/sm`, `status/neutral/subtle`, обводка `border/subtle`, `radius/xs`); Badge=On.',
     ],
     group: NONE + '; интерактивны вложенные Button',
     states: ['Оси State нет: Hover / Pressed / Focus / Disabled / Loading — у вложенных Button.'],

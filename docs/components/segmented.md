@@ -23,7 +23,7 @@
 - Не делаем: больше 4 сегментов; длинные подписи; сегменты разной ширины; навигация между разделами экрана.
 
 ## 3. Anatomy
-- Корень — дорожка `control/segment-track` (отступ `space/4`, зазор `space/2`, `radius/control` / `radius/control-sm`).
+- Корень — дорожка `control/segment-track` (отступ `space/4`, зазор `space/2`, `radius/control` / `radius/sm`).
 - `segment 1` … `segment 4` — экземпляры Segment; выбранный — на подложке `control/segment`; подпись — Fill, по центру, одна строка.
 - Подпись, иконка и Show label открыты у вложенных Segment; своих свойств у набора нет.
 - Служебные слои (кольцо фокуса, зоны, безопасное поле) — у Segment.

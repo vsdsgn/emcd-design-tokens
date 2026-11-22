@@ -19,7 +19,7 @@
   - Neutral (17.11, по продукту): как Badge — обводка `border/subtle`, цифра `text/secondary`.
 
 ## 3. Anatomy
-- Корень: квадрат со скруглением `radius/sm` (17.11; было капсула `radius/full`), min-width = высота; заливка: Neutral — `status/neutral/subtle`, Accent — `control/checked`, Danger — `status/danger/solid`.
+- Корень: квадрат со скруглением `radius/xs` (22.11 — радиус по высоте; 17.11 `radius/sm`; было капсула `radius/full`), min-width = высота; заливка: Neutral — `status/neutral/subtle`, Accent — `control/checked`, Danger — `status/danger/solid`.
 - `value` — число: Neutral — `text/primary`, Accent и Danger — `text/on-accent`.
 - Служебные слои (вариантов из 6): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 

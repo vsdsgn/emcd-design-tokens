@@ -23,7 +23,7 @@
 - Корень — ряд, зазор `space/8`, высота `control/height/md` (M) / `control/height/sm` (S), отступы `space/12` в начале и `space/4` в конце; подложка `surface/level-2`, обводка `border/subtle` (Focus — `border/focus`), `border/width/default`, `radius/control`; ширина образца 320 числом.
 - `icon` — лупа `icon/size/md` (20); в коде цвет `icon/tertiary`.
 - `text` — `font/family/text`, `font-weight/medium`: M `type/body/md`, S `type/body/sm`; подсказка `text/tertiary`, введённый текст `text/primary`, Disabled `text/disabled`.
-- `clear` — Icon button Ghost S: `control/height/sm`, `radius/control-sm`, зазор `space/6`; только в Filled.
+- `clear` — Icon button Ghost S: `control/height/sm`, `radius/sm`, зазор `space/6`; только в Filled.
 - Вложено: иконки ×10, `Icon button` ×2.
 - Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 

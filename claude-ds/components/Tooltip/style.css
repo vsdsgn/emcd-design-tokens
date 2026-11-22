@@ -3,7 +3,7 @@
 .emcd-tooltip { --bg: var(--surface-raised); --bd: var(--border-default); --fg: var(--text-primary);
   position: relative; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
   min-width: var(--size-tooltip-min, 58px); min-height: var(--size-tooltip-min, 58px); max-width: var(--size-tooltip-max, 320px); width: max-content;
-  padding: var(--space-10, 10px) var(--space-16, 16px); border-radius: var(--radius-container); background: var(--bg); color: var(--fg);
+  padding: var(--space-10, 10px) var(--space-16, 16px); border-radius: var(--radius-control, 12px); background: var(--bg); color: var(--fg);
   box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--bd), 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient);
   font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); text-align: center; white-space: normal; overflow-wrap: anywhere; }
 .emcd-tooltip--top, .emcd-tooltip--bottom { min-height: 0; }
