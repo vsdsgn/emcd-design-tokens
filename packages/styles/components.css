@@ -453,9 +453,9 @@
 .emcd-bulk-bar__actions { display: inline-flex; align-items: center; gap: var(--space-8, 8px); min-width: 0; }
 
 /* Amount — 🟡 beta (Figma «🟡 Amount»: Size × Sign × Align). Сумма, тикер через неразрывный пробел, фиат второй строкой.
-   S 12 / M 14 — font/family/text с табличными цифрами (моно снято 17.11); L — type/heading/lg (Web 24, Compact 20; 19.11, было heading/xl = 32 на Web) Bold, тикер того же кегля Medium; XL — display Bold. Списание не красное. */
-.emcd-amount { --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); --ff: var(--font-sans); --fw: 400;
-  --tfs: var(--fs); --tlh: var(--lh); --tfw: 400; --ffs: var(--type-body-sm-size, 12px); --flh: var(--type-body-sm-line-height, 16px);
+   S 12 / M 14 — font/family/text Medium (22.11, по production: суммы Medium ×56, Regular — ни одной; фиат — Regular) с табличными цифрами (моно снято 17.11); L — type/heading/lg (Web 24, Compact 20; 19.11, было heading/xl = 32 на Web) Bold, тикер того же кегля Medium; XL — display Bold. Списание не красное. */
+.emcd-amount { --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); --ff: var(--font-sans); --fw: var(--font-weight-medium, 500);
+  --tfs: var(--fs); --tlh: var(--lh); --tfw: var(--font-weight-medium, 500); --ffs: var(--type-body-sm-size, 12px); --flh: var(--type-body-sm-line-height, 16px);
   display: inline-flex; flex-direction: column; gap: var(--space-2, 2px); min-width: 0; vertical-align: middle; }
 .emcd-amount__row { display: inline-flex; align-items: baseline; white-space: nowrap; }
 .emcd-amount__value { font: var(--fw) var(--fs)/var(--lh) var(--ff); font-variant-numeric: tabular-nums; color: var(--text-primary); }
@@ -464,7 +464,7 @@
 .emcd-amount--m { --fs: var(--type-body-md-size, 14px); --lh: var(--type-body-md-line-height, 20px); --ffs: var(--fs); --flh: var(--lh); } /* фиат M — body-md 14, как значение (экран «История» Web 19.11) */
 .emcd-amount--l { --fs: var(--type-heading-lg-size, 24px); --lh: var(--type-heading-lg-line-height, 32px); --fw: 700; --tfw: 500;
   --ffs: var(--type-body-md-size, 14px); --flh: var(--type-body-md-line-height, 20px); }
-.emcd-amount--xl { --fs: var(--type-display-lg-size, 32px); --lh: var(--type-display-lg-line-height, 40px); --ff: var(--font-display, var(--font-sans)); --fw: 700;
+.emcd-amount--xl { --fs: var(--type-display-lg-size, 32px); --lh: var(--type-display-lg-line-height, 40px); --ff: var(--font-display, var(--font-sans)); --fw: 700; --tfw: 400;
   --tfs: var(--type-body-lg-size, 16px); --tlh: var(--type-body-lg-line-height, 24px); --ffs: var(--type-body-md-size, 14px); --flh: var(--type-body-md-line-height, 20px); }
 .emcd-amount--l .emcd-amount__value, .emcd-amount--xl .emcd-amount__value { letter-spacing: -0.01em; }
 .emcd-amount--end { align-items: flex-end; text-align: end; }
@@ -1540,7 +1540,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 
 /* Tab bar item — 🟡 beta (Figma «🟡 Tab bar item»: Type × Selected × State). Пункт нижней навигации Compact (App и мобильный веб — одна схема).
    Item: 72 × 56, иконка 24 + подпись type-overline Medium (зазор space-2); Selected — icon-accent + text-accent, иначе text-secondary; Badge dot — status-danger-solid, без числа.
-   Action (19.11): центральная мультикнопка App — плашка 56 × 40 action-secondary-default, обводка 1 border-accent, radius-control, иконка / логотип без подписи; без Selected.
+   Action (19.11): центральная мультикнопка App — плашка 56 × 40 action-secondary-default, обводка 1 border-accent, radius-control, иконка / логотип без подписи; без Selected. Expressive (22.11) — плашка surface-level-2, градиентная обводка border-accent.
    Pressed — слой state-layer 10 %; Hover нет (касание). Disabled не используется (недоступный раздел скрывается). */
 .emcd-tab-bar-item { position: relative; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2, 2px); box-sizing: border-box;
   width: var(--size-tab-bar-item-width, 72px); min-width: 0; height: var(--control-height-xl, 56px); padding: 0; margin: 0; border: 0; border-radius: var(--radius-control, 12px);
@@ -1566,6 +1566,11 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
   transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
 .emcd-tab-bar-item--action:active .emcd-tab-bar-item__plate::before { opacity: var(--state-pressed, .10); }
 .emcd-tab-bar-item__plate svg { position: relative; width: var(--icon-size-lg, 24px); height: var(--icon-size-lg, 24px); }
+/* Action в стиле Expressive (22.11, по production App): плашка surface-level-2, обводка — градиент border-accent из углов (снизу слева и сверху справа), как у Promo card */
+[data-style="expressive"] .emcd-tab-bar-item__plate { background: var(--surface-level-2); box-shadow: none; }
+[data-style="expressive"] .emcd-tab-bar-item__plate::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: var(--border-width-default, 1px); pointer-events: none;
+  background: linear-gradient(to top right, var(--border-accent) 0%, transparent 25%, transparent 70%, var(--border-accent) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
 @media (prefers-reduced-motion: reduce) { .emcd-tab-bar-item::before, .emcd-tab-bar-item__plate::before { transition: none; } }
 
 /* Tab bar — 🟡 beta (Figma «🟡 Tab bar»: Safe area, слот Items). Нижняя навигация Compact: 3–5 Tab bar item, ровно один Selected; Action — одна, по центру.

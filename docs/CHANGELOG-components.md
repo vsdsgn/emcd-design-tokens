@@ -4,6 +4,12 @@
 
 
 
+## 2026-11-22 — сверка App с production
+- **Amount:** S / M — значение и тикер Medium (было Regular), фиат Regular — по частоте в production (Web и App: суммы Medium / SemiBold, Regular нет). Figma — ждёт Publish.
+- **Tab bar item · Action:** стиль Expressive — плашка `surface-level-2`, градиентная обводка `border-accent` из углов (production App); Base — как было. Figma — ждёт Publish.
+- **Top bar App:** `addIcon` (минор) — иконка действия справа; дашборд майнинга — `settings` (production), остальные — `plus`.
+- **Экраны:** App «Дашборд · вывод» — во всю высоту: график хешрейта (Chip M период равными долями), Status summary, Promo card; Legend «Реджекты» — серия 4 (как столбики Chart plot и код; было 2 на Web-экранах майнинга).
+
 ## 2026-11-20
 - **Tabs:** `fill` (минор) — на Compact вкладки делят ширину поровну, если помещаются; на Web — по содержимому (решение Стефана 20.11; правило в описании Figma, контракте, patterns). Зазор в коде приведён к Figma: M — `space/16` (было 20), S — `space/20` (было 16) — PATCH, вид мобильных табов плотнее.
 - **Publish 20.11:** Top bar Mobile web — знак EMCD по умолчанию; Transaction — Amount Align=End; Tab bar item — знак EMCD в предпочтительных.

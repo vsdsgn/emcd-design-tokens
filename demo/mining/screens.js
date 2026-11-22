@@ -516,10 +516,10 @@
   var APP_TABS = [{ label: 'Главная', icon: 'dots-grid' }, { label: 'Майнинг', icon: 'devices', badgeDot: true }, { label: 'Действия', type: 'action' },
     { label: 'Доход', icon: 'wallet' }, { label: 'P2P', icon: 'history' }];
   function AppShell(props) {
-    return div('demo-app',
+    return div('demo-app' + (props.long ? ' demo-app--long' : ''),
       // статус-бар iOS — часть устройства, не DS: только высота
       h('div', { className: 'demo-app__status', 'aria-hidden': true }),
-      h(E.TopBar, { platform: 'app', account: 'rruuff', coins: props.coins || ['btc', 'eth'], coin: props.coin || 'BTC + 1' }),
+      h(E.TopBar, { platform: 'app', account: 'rruuff', coins: props.coins || ['btc', 'eth'], coin: props.coin || 'BTC + 1', addIcon: props.addIcon, addLabel: props.addLabel }),
       h(E.Card, { level: 1, radius: 'surface', padding: 'm', className: 'demo-app__sheet' + (props.tabs ? ' demo-app__sheet--tabs' : '') }, props.children),
       props.over,
       h(E.TabBar, { className: 'demo-app__tabbar', defaultValue: 'Майнинг', items: APP_TABS }));
@@ -529,14 +529,18 @@
       trailing: h(E.Amount, { size: 'm', align: 'end', value: value, ticker: 'BTC', fiat: fiat }) });
   };
   function AppDashboard() {
-    return h(AppShell, { over: h(E.FloatingButton, { layout: 'extended', size: 'm', type: 'primary', label: 'Калькулятор', icon: 'calculator', className: 'demo-app__fab' }) },
+    return h(AppShell, { long: true, addIcon: 'settings', addLabel: 'Настройки', over: h(E.FloatingButton, { layout: 'extended', size: 'm', type: 'primary', label: 'Калькулятор', icon: 'calculator', className: 'demo-app__fab' }) },
       div('demo-app-coin', text('demo-caption demo-caption--md', 'Монета отображения'),
         h(E.SelectCompact, { label: 'Монета отображения', text: 'BTC', leading: h(E.Coin, { coin: 'btc', size: 's' }) })),
       h(E.Card, { level: 2, padding: 's', border: true }, appRow('Будет выплачено', 'при достижении 0.0001 BTC', '0.00005797', '≈ $3 172.51')),
       h(E.Card, { level: 2, padding: 's', border: false, className: 'demo-app-account' }, appRow('Майнинг-счёт', 'Ваш остаток средств', '21.4492000', '≈ $14 317.42'),
         h(E.Button, { type: 'secondary', size: 'm', label: 'Вывести', className: 'demo-block' })),
       div('demo-app-totals', appRow('Всего выплат', null, '21.4492000', '≈ $14 317.42', true), appRow('Добыто', 'за 04.09', '0.00008291', '≈ $3.17', true),
-        appRow('Прогноз на сегодня', 'на основе данных за 04.09', '0.00005797', '≈ $3.17')));
+        appRow('Прогноз на сегодня', 'на основе данных за 04.09', '0.00005797', '≈ $3.17')),
+      // 22.11 (по production App): ниже — график хешрейта с периодом Chip M, сводка воркеров, промо
+      div('demo-app-sections', chartCard(true),
+        h(E.StatusSummary, { layout: 'row', offline: 9, unstable: 1, active: 40 }),
+        h(E.PromoCard, { size: 'm', title: 'Забусти свой майнинг с нашей прошивкой', actionLabel: 'Подробнее', showMedia: true, showClose: false, showDescription: false })));
   }
   function AppWorkers() {
     var num = function (v, u) { return h(E.Amount, { size: 's', align: 'end', value: v, ticker: u }); };

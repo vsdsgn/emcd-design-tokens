@@ -1402,7 +1402,7 @@ function Sheet({ open = true, title, showGrabber = true, showClose = true, onClo
 }
 
 function TopBar({ platform = 'mobile-web', level = 'root', title, onBack, backLabel = 'Назад', action, logo, account, onAccount, balance, cents, showBalance = true, onBalance, onMenu, menuLabel = 'Меню',
-  accountOptions, accountValue, onAccountChange, coin, coins, coinOptions, coinValue, onCoinChange, onCoin, onAdd, addLabel = 'Подключить', className, ...rest }) {
+  accountOptions, accountValue, onAccountChange, coin, coins, coinOptions, coinValue, onCoinChange, onCoin, onAdd, addLabel = 'Подключить', addIcon = 'plus', className, ...rest }) {
   if (level === 'inner') {
     // Level=Inner (20.11): вложенный экран — «Назад» · заголовок по центру · место под одно действие (держит заголовок по центру)
     return h('header', { className: cx('emcd-top-bar', 'emcd-top-bar--inner', className), 'data-platform-variant': platform, ...rest },
@@ -1419,7 +1419,7 @@ function TopBar({ platform = 'mobile-web', level = 'root', title, onBack, backLa
         coin != null && h(SelectCompact, { label: 'Монета', text: coinOptions ? undefined : coin, options: coinOptions, value: coinValue, onChange: onCoinChange,
           leading: stack.length ? h(CoinStack, { coins: stack, size: 's' }) : undefined, onOpenChange: coinOptions ? undefined : (o) => { if (o && onCoin) onCoin(); },
           open: coinOptions ? undefined : false, className: 'emcd-top-bar__select' }),
-        h(IconButton, { type: 'tertiary', size: 'm', label: addLabel, className: 'emcd-top-bar__add', icon: h(Icon, { name: 'plus' }), onClick: onAdd })));
+        h(IconButton, { type: 'tertiary', size: 'm', label: addLabel, className: 'emcd-top-bar__add', icon: h(Icon, { name: addIcon }), onClick: onAdd })));
   }
   return h('header', { className: cx('emcd-top-bar', className), 'data-platform-variant': platform, ...rest },
     h('span', { className: 'emcd-top-bar__logo' }, logo ?? h(Icon, { name: 'logo-emcd', label: 'EMCD' })),

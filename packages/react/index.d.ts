@@ -1150,6 +1150,8 @@ export interface TopBarProps {
   onAdd?: (e: unknown) => void;
   /** Доступное имя «+» — «Подключить». */
   addLabel?: string;
+  /** Иконка действия App Root (22.11): по умолчанию «plus»; дашборд майнинга — «settings». */
+  addIcon?: string;
   balance?: string;
   /** Копейки — text-tertiary («.78»). */
   cents?: string;

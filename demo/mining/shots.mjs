@@ -18,7 +18,7 @@ const SCREENS = [
   // 19.11: макеты экранов DS (Figma «… · DS 2.0»): мобильные 370 × 800 (кадр 375 в масштабе), «Вывод» — 375 × 1042 (вся высота), Выплаты Web — 1200 × 750
   ['web-payouts', 1440, 900], ['mw-payouts', 375, 812], ['mw-watcher', 375, 812], ['mw-settings-notify', 375, 812], ['mw-settings-withdraw', 375, 812, true],
   // 19.11: App (iOS) — экраны «… · App · DS 2.0» (статус-бар — устройство, в коде только его высота 54)
-  ['app-dashboard', 375, 812], ['app-workers', 375, 812], ['app-history', 375, 812], ['app-payouts', 375, 812],
+  ['app-dashboard', 375, 1609, true], ['app-workers', 375, 812], ['app-history', 375, 812], ['app-payouts', 375, 812],
   ['app-calculator', 375, 812, true], ['app-settings-withdraw', 375, 812], ['app-settings-notify', 375, 812], ['app-watcher', 375, 812], ['app-export', 375, 812], ['app-main-dashboard', 375, 812],
   // 22.11: пилот цели 3 — Мониторинг · Главная (Web 1440, вся высота), WL B2B · Users (Web), WL B2C · Statistics (App 375, вся высота)
   ['mon-main', 1440, 1966, true], ['b2b-users', 1440, 1060], ['b2c-statistics', 375, 1115, true]];

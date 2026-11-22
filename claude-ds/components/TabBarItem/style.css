@@ -1,6 +1,6 @@
 /* Tab bar item — 🟡 beta (Figma «🟡 Tab bar item»: Type × Selected × State). Пункт нижней навигации Compact (App и мобильный веб — одна схема).
    Item: 72 × 56, иконка 24 + подпись type-overline Medium (зазор space-2); Selected — icon-accent + text-accent, иначе text-secondary; Badge dot — status-danger-solid, без числа.
-   Action (19.11): центральная мультикнопка App — плашка 56 × 40 action-secondary-default, обводка 1 border-accent, radius-control, иконка / логотип без подписи; без Selected.
+   Action (19.11): центральная мультикнопка App — плашка 56 × 40 action-secondary-default, обводка 1 border-accent, radius-control, иконка / логотип без подписи; без Selected. Expressive (22.11) — плашка surface-level-2, градиентная обводка border-accent.
    Pressed — слой state-layer 10 %; Hover нет (касание). Disabled не используется (недоступный раздел скрывается). */
 .emcd-tab-bar-item { position: relative; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2, 2px); box-sizing: border-box;
   width: var(--size-tab-bar-item-width, 72px); min-width: 0; height: var(--control-height-xl, 56px); padding: 0; margin: 0; border: 0; border-radius: var(--radius-control, 12px);
@@ -26,4 +26,9 @@
   transition: opacity var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, cubic-bezier(.2,0,0,1)); }
 .emcd-tab-bar-item--action:active .emcd-tab-bar-item__plate::before { opacity: var(--state-pressed, .10); }
 .emcd-tab-bar-item__plate svg { position: relative; width: var(--icon-size-lg, 24px); height: var(--icon-size-lg, 24px); }
+/* Action в стиле Expressive (22.11, по production App): плашка surface-level-2, обводка — градиент border-accent из углов (снизу слева и сверху справа), как у Promo card */
+[data-style="expressive"] .emcd-tab-bar-item__plate { background: var(--surface-level-2); box-shadow: none; }
+[data-style="expressive"] .emcd-tab-bar-item__plate::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: var(--border-width-default, 1px); pointer-events: none;
+  background: linear-gradient(to top right, var(--border-accent) 0%, transparent 25%, transparent 70%, var(--border-accent) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
 @media (prefers-reduced-motion: reduce) { .emcd-tab-bar-item::before, .emcd-tab-bar-item__plate::before { transition: none; } }

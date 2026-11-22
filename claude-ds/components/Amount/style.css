@@ -1,7 +1,7 @@
 /* Amount — 🟡 beta (Figma «🟡 Amount»: Size × Sign × Align). Сумма, тикер через неразрывный пробел, фиат второй строкой.
-   S 12 / M 14 — font/family/text с табличными цифрами (моно снято 17.11); L — type/heading/lg (Web 24, Compact 20; 19.11, было heading/xl = 32 на Web) Bold, тикер того же кегля Medium; XL — display Bold. Списание не красное. */
-.emcd-amount { --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); --ff: var(--font-sans); --fw: 400;
-  --tfs: var(--fs); --tlh: var(--lh); --tfw: 400; --ffs: var(--type-body-sm-size, 12px); --flh: var(--type-body-sm-line-height, 16px);
+   S 12 / M 14 — font/family/text Medium (22.11, по production: суммы Medium ×56, Regular — ни одной; фиат — Regular) с табличными цифрами (моно снято 17.11); L — type/heading/lg (Web 24, Compact 20; 19.11, было heading/xl = 32 на Web) Bold, тикер того же кегля Medium; XL — display Bold. Списание не красное. */
+.emcd-amount { --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); --ff: var(--font-sans); --fw: var(--font-weight-medium, 500);
+  --tfs: var(--fs); --tlh: var(--lh); --tfw: var(--font-weight-medium, 500); --ffs: var(--type-body-sm-size, 12px); --flh: var(--type-body-sm-line-height, 16px);
   display: inline-flex; flex-direction: column; gap: var(--space-2, 2px); min-width: 0; vertical-align: middle; }
 .emcd-amount__row { display: inline-flex; align-items: baseline; white-space: nowrap; }
 .emcd-amount__value { font: var(--fw) var(--fs)/var(--lh) var(--ff); font-variant-numeric: tabular-nums; color: var(--text-primary); }
@@ -10,7 +10,7 @@
 .emcd-amount--m { --fs: var(--type-body-md-size, 14px); --lh: var(--type-body-md-line-height, 20px); --ffs: var(--fs); --flh: var(--lh); } /* фиат M — body-md 14, как значение (экран «История» Web 19.11) */
 .emcd-amount--l { --fs: var(--type-heading-lg-size, 24px); --lh: var(--type-heading-lg-line-height, 32px); --fw: 700; --tfw: 500;
   --ffs: var(--type-body-md-size, 14px); --flh: var(--type-body-md-line-height, 20px); }
-.emcd-amount--xl { --fs: var(--type-display-lg-size, 32px); --lh: var(--type-display-lg-line-height, 40px); --ff: var(--font-display, var(--font-sans)); --fw: 700;
+.emcd-amount--xl { --fs: var(--type-display-lg-size, 32px); --lh: var(--type-display-lg-line-height, 40px); --ff: var(--font-display, var(--font-sans)); --fw: 700; --tfw: 400;
   --tfs: var(--type-body-lg-size, 16px); --tlh: var(--type-body-lg-line-height, 24px); --ffs: var(--type-body-md-size, 14px); --flh: var(--type-body-md-line-height, 20px); }
 .emcd-amount--l .emcd-amount__value, .emcd-amount--xl .emcd-amount__value { letter-spacing: -0.01em; }
 .emcd-amount--end { align-items: flex-end; text-align: end; }

@@ -14,6 +14,7 @@
 - Когда нет: подразделы экрана — Tabs; больше 5 разделов — пятый пункт «Ещё» со списком.
 - Правило выбора варианта:
   - Знак Action (19.11): в Icon · swap — Logo · Network=EMCD, Style=Mono (в предпочтительных значениях свойства; по умолчанию у набора — dots-grid, общий для Item и Action). Цвет — `icon/primary`, на плашке `action/secondary/default`. В коде `type: 'action'` без `icon` — `logo-emcd`.
+  - Action в стиле Expressive (22.11, по production App): слой `plate · base` (`action/secondary/default` + `border/accent`, видимость `decor/nav-base`) и `plate · expressive` (`surface/level-2` + градиентная обводка `border/accent` из углов, видимость `decor/nav-expressive`). В коде — `[data-style="expressive"]`.
   - Type (19.11): Item — раздел; Action — центральная мультикнопка App («E» → шит быстрых действий): плашка 56 × 40 `action/secondary/default` с обводкой `border/accent`, иконка или логотип без подписи; одна на Tab bar, по центру, без Selected
   - Selected=On — текущий раздел (`icon/accent` + `text/accent`); Off — `text/secondary`.
   - Badge dot — в разделе есть то, что требует действия; число не показываем.

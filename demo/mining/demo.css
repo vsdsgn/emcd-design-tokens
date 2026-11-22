@@ -218,3 +218,9 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 .demo-b2c-chart__top { display: flex; flex-direction: column; gap: var(--space-16); }
 .demo-b2c-chart__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); }
 .demo-pm__body:has(.demo-pm__bulk) { padding-bottom: calc(56px + var(--space-24)); } /* patterns 6.4: под Bulk action bar — отступ высотой полосы + space/24 */
+
+/* 22.11: длинный экран App (дашборд майнинга во всю высоту, как макет 1609): лист растёт, Tab bar и кнопка — у низа окна */
+.demo-app--long { height: auto; min-height: 100vh; overflow: visible; }
+.demo-app--long .demo-app__sheet { flex: none; overflow: visible; margin-bottom: 0; padding-bottom: calc(91px + 40px + var(--space-32) + var(--space-16)); }
+.demo-app--long .demo-app__tabbar { position: absolute; left: 0; right: 0; bottom: 0; }
+.demo-app-sections { display: flex; flex-direction: column; gap: var(--space-16); padding-top: var(--space-16); }

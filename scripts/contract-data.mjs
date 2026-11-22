@@ -288,6 +288,7 @@ export const DATA = [
     dont: 'подразделы экрана — Tabs; больше 5 разделов — пятый пункт «Ещё» со списком.',
     rule: [
       'Знак Action (19.11): в Icon · swap — Logo · Network=EMCD, Style=Mono (в предпочтительных значениях свойства; по умолчанию у набора — dots-grid, общий для Item и Action). Цвет — `icon/primary`, на плашке `action/secondary/default`. В коде `type: \'action\'` без `icon` — `logo-emcd`.',
+      'Action в стиле Expressive (22.11, по production App): слой `plate · base` (`action/secondary/default` + `border/accent`, видимость `decor/nav-base`) и `plate · expressive` (`surface/level-2` + градиентная обводка `border/accent` из углов, видимость `decor/nav-expressive`). В коде — `[data-style="expressive"]`.',
       'Type (19.11): Item — раздел; Action — центральная мультикнопка App («E» → шит быстрых действий): плашка 56 × 40 `action/secondary/default` с обводкой `border/accent`, иконка или логотип без подписи; одна на Tab bar, по центру, без Selected','Selected=On — текущий раздел (`icon/accent` + `text/accent`); Off — `text/secondary`.', 'Badge dot — в разделе есть то, что требует действия; число не показываем.', 'Подпись `type/overline` (10) — 17.11, по продукту App (системная норма iOS).'],
     never: 'Disabled (недоступный раздел скрывается); подпись в два слова; число в бейдже.',
     anatomy: ['Корень 72×56 (`size/tab-bar-item/width`, `control/height/xl`): `icon` (замена экземпляра) + `label` (Label/SM) + `badge dot`.', 'Служебные: `state layer`, `focus ring`, зоны, `safe area · outer`.'],
@@ -317,7 +318,7 @@ export const DATA = [
       'Align (17.11): Start — по умолчанию; End — сумма у конца строки (List item, Key-value row, ячейка таблицы Align=End).',
     ],
     never: 'красный цвет для списаний; усечение или перенос суммы; дефис вместо минуса; тикер без неразрывного пробела.',
-    anatomy: ['Корень — вертикальный стек: строка `value` + `ticker`, под ней `fiat` (`text/secondary`).', 'S / M — `font/family/text` с табличными цифрами (17.11: моно — только в осях графиков; было `font/family/mono`); L — `type/heading/lg` (Web 24, Compact 20; 19.11: было `type/heading/xl` — на Web давал 32, в продукте сводка 24), Bold, `font/family/text`, тикер того же кегля Medium (18.11: итоги «Всего начислено», «Сумма всех выплат», сводка дашборда; 17.11 было 20 Medium); XL — `font/family/display`, Bold.'],
+    anatomy: ['Корень — вертикальный стек: строка `value` + `ticker`, под ней `fiat` (`text/secondary`).', 'S / M — `font/family/text` `font-weight/medium` у значения и тикера, фиат — regular (22.11, по production: суммы Medium во всех экранах Web и App), с табличными цифрами (17.11: моно — только в осях графиков; было `font/family/mono`); L — `type/heading/lg` (Web 24, Compact 20; 19.11: было `type/heading/xl` — на Web давал 32, в продукте сводка 24), Bold, `font/family/text`, тикер того же кегля Medium (18.11: итоги «Всего начислено», «Сумма всех выплат», сводка дашборда; 17.11 было 20 Medium); XL — `font/family/display`, Bold.'],
     group: NONE,
     states: ['Своих состояний нет. Загрузка — Skeleton на месте суммы у родителя; скрытый баланс — маска «•••» у родителя.'],
     defaults: { Size: 'S', Sign: 'None' },
