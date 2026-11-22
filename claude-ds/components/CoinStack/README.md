@@ -1,5 +1,7 @@
 # Coin stack
 
+> 22.11: в Figma — Avatar group · Type=Coin (Coin stack слит в Avatar group). В коде — `CoinStack`.
+
 Несколько монет внахлёст: пул из нескольких монет, «KAS + 1», «Litecoin + 6». Первая — главная.
 
 **Оси (как в Figma «🟡 Coin stack»):** Size S · M · L (монеты 24 / 32 / 40, нахлёст `size/overlap` −6 / −8 / −10) × Count 2 · 3 · 4; Show more + More — кружок «+N» (`status/neutral/subtle` поверх `surface/next`, label-sm Medium `text-secondary`).

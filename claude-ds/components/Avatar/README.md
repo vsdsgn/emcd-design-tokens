@@ -1,5 +1,7 @@
 # Avatar
 
+> 22.11: в Figma Avatar включает монеты (Type=Coin) и одну шкалу Size: 2XS 16 · XS 20 · S 24 · M 32 · L 40 · XL 56 (прежние XS 20 · S 32 · M 40 · L 56 → XS · M · L · XL). В коде — `Avatar` (люди) и `Coin` (монеты).
+
 Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото.
 
 **Оси (как в Figma «🟡 Avatar»):** Size XS 20 · S 32 · M 40 · L 56 × Type Text · Icon · Image × State Default · Skeleton; свойства Initials, Status.
