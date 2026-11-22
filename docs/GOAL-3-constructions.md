@@ -51,6 +51,8 @@
 - ~~`space/section` Large 64 → 48~~ — сделано 22.11 (Foundations + репо: Expanded 40, Large 48, XLarge 64).
 
 ## Очередь на Publish Components
+- **Table row → слот Cells** (22.11): ширина колонки в экземпляре строки не меняется (ни размер, ни min-width — ограничение Figma), Column 7–10 давали только равные колонки → ячейки перенесены в слот `Cells` (любое число колонок, ширина каждой под шапку), Column 7–10 убраны. После Publish + обновления: таблицы на 9 экранах (54 строки) вернуть из копий на странице «🧪 _holder · Table row», B2B Users — ширины колонок под содержимое.
+- **Foundations** — `space/section` (Large 48).
 - ~~**Section header L** — повторно~~ (Publish 22.11, на экране): в L восстановлены слот Trailing и привязки Title / Caption (клон варианта их потерял). После Publish — «К площадкам» / «К устройствам» на Мониторинг · Главная.
 - ~~**Icons: `icon/asic`**~~ (Publish 22.11, на экране) (новая, из Sidebar Мониторинга «Устройства», legacy `ic-device` «блоки») — Publish библиотеки Icons. После — иконка пункта «Устройства».
 - **Table row** — Column 7–10 (скрытые колонки, до 10 колонок данных + «⋯»). После Publish — таблицы «Площадки» и «Устройства» на Мониторинг · Главная.
@@ -58,6 +60,7 @@
 - **Section header** — Size L (`type/heading/lg`, раздел страницы на фоне). После Publish — заголовки разделов на Мониторинг · Главная.
 
 ## Журнал
+- 22.11 — WL B2B · Users (Web Migration test, «🧪 Пересборка · WL B2B»; Light, Base): Sidebar (Analytics · Users · Reports · Notifications · Settings, язык EN), Page header «Users», карточка: тулбар (Search · Export to CSV · Icon button правка / фильтр · Select compact «All coins»), таблица 9 колонок (Checkbox + Avatar + ID + копировать · имя + почта · Coin stack · хешрейты · комиссии · Badge статус + VIP), выбранные строки Selected=On, «Load more» Button Secondary. Найдено: равные колонки обрезают ID и имя → Table row на слот Cells (ждёт Publish); у Table header cell нет Checkbox «выбрать все» — пробел для массового выбора.
 - 22.11 — Publish Components + Icons: на Мониторинг · Главная — Section header L со ссылками «К площадкам» / «К устройствам», иконка `asic` у «Устройства». Токен `space/section` изменён (решение Стефана): Expanded 48 → 40, Large 64 → 48, XLarge 80 → 64 — Foundations, `figma/export-3.json`, `tokens/viewport/*`, сборка.
 - 21.11 — Publish Table row / Section header / Status bar. Таблицы Мониторинг · Главная: «Площадки» (7 колонок + «⋯», Column 7–8), «Устройства» (8 колонок, Status, без «⋯»). Иконка «площадка»: в production у «Площадки» — legacy `ic-device` = наша `devices` (поставлена); у «Устройства» — другая иконка «блоки» → новая `icon/asic` (Icons, код, манифест). Борды: у 25 наборов Components варианты шли потоком (auto-layout WRAP) — возвращена сетка. Section header L: клон варианта потерял слот и привязки — исправлено, нужен повторный Publish.
 - 21.11 — H6: **Status bar** (draft) — Figma (страница «🟠 Status bar»), код React / Vue / CSS (`StatusBar`, `DsStatusBar`), SSR, контракт draft; манифест D60 (Table row, Section header, Status bar).
