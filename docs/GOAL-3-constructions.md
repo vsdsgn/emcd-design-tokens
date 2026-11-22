@@ -63,6 +63,7 @@
 - **Section header** — Size L (`type/heading/lg`, раздел страницы на фоне). После Publish — заголовки разделов на Мониторинг · Главная.
 
 ## Журнал
+- 22.11 — H7: WL B2C · Payouts (App) — на основе майнинга App «История · выплаты»: Tabs M поровну, сводка Card L1, список с «В Explorer», Action bar. Аудит B2C — 0.
 - 22.11 — H7: WL B2B · Analytics (Web) — Page header «Analytics» + Select compact монет + период Chip + Export to CSV; «Revenue» (Section header L): Chart card Net profit / Users (крупная цифра, Tabs S, Stacked bars, легенда, сумма, Details); «Mining»: Hashrates (Chart metric ×3 + Status bar воркеров) и Coins (Coin stack + Details, Stacked bars). Найдены дефекты системы: Status bar (доли не задать), Legend item (первая серия — акцент) — исправлены, ждут Publish.
 - 22.11 — H7: WL B2C · Workers (App) — на основе майнинга App «Воркеры»: действия «Подключить воркер» + «+», Chip-статусы, Search + Segmented список / группы, таблица с итоговой строкой. Майнинг App «Воркеры»: ячейки разошлись с шапкой (80 / 92 при шапке 86) → ширины под содержимое 80 / 92 / 91 / 80. Аудит App: 12 кадров — 0 (теперь и с проверкой таблиц; `layout-audit.plugin.js` ищет ячейки в слоте Cells).
 - 22.11 — H7: Мониторинг · Устройства · Web — Page header (Владельцы · Добавить устройства) + Tabs M «Активные 12 / Ожидание 12» + «Выгрузить энергоотчёт»; карточка: итог по статусам, фильтры (Chip «Без владельца», Select ×2, период, «Все фильтры»), таблица 11 колонок (Select all, 4 выбраны, аномалии `text/danger`), Bulk action bar «Выбрано 4 из 12». Аудит 0.
