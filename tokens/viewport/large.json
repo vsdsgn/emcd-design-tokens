@@ -24,7 +24,7 @@
   "space": {
     "section": {
       "$type": "dimension",
-      "$value": "{dimension.64}"
+      "$value": "{dimension.48}"
     }
   },
   "type": {

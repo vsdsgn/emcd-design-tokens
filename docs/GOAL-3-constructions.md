@@ -48,16 +48,17 @@
 - **Load more:** Button Secondary M по центру; Pagination — только отчёты.
 
 ## Очередь решений Стефана
-- `space/section` Large 64 → 48 (все продукты рисуют 48; Expanded 40, XLarge 64).
+- ~~`space/section` Large 64 → 48~~ — сделано 22.11 (Foundations + репо: Expanded 40, Large 48, XLarge 64).
 
 ## Очередь на Publish Components
-- **Section header L** — повторно: в L восстановлены слот Trailing и привязки Title / Caption (клон варианта их потерял). После Publish — «К площадкам» / «К устройствам» на Мониторинг · Главная.
-- **Icons: `icon/asic`** (новая, из Sidebar Мониторинга «Устройства», legacy `ic-device` «блоки») — Publish библиотеки Icons. После — иконка пункта «Устройства».
+- ~~**Section header L** — повторно~~ (Publish 22.11, на экране): в L восстановлены слот Trailing и привязки Title / Caption (клон варианта их потерял). После Publish — «К площадкам» / «К устройствам» на Мониторинг · Главная.
+- ~~**Icons: `icon/asic`**~~ (Publish 22.11, на экране) (новая, из Sidebar Мониторинга «Устройства», legacy `ic-device` «блоки») — Publish библиотеки Icons. После — иконка пункта «Устройства».
 - **Table row** — Column 7–10 (скрытые колонки, до 10 колонок данных + «⋯»). После Publish — таблицы «Площадки» и «Устройства» на Мониторинг · Главная.
 - **Status bar** (новый, draft) — полоса статусов парка: подпись + сегменты Danger → Warning → Success → Neutral + легенда «Status + число». После Publish — заменить сборку на Мониторинг · Главная.
 - **Section header** — Size L (`type/heading/lg`, раздел страницы на фоне). После Publish — заголовки разделов на Мониторинг · Главная.
 
 ## Журнал
+- 22.11 — Publish Components + Icons: на Мониторинг · Главная — Section header L со ссылками «К площадкам» / «К устройствам», иконка `asic` у «Устройства». Токен `space/section` изменён (решение Стефана): Expanded 48 → 40, Large 64 → 48, XLarge 80 → 64 — Foundations, `figma/export-3.json`, `tokens/viewport/*`, сборка.
 - 21.11 — Publish Table row / Section header / Status bar. Таблицы Мониторинг · Главная: «Площадки» (7 колонок + «⋯», Column 7–8), «Устройства» (8 колонок, Status, без «⋯»). Иконка «площадка»: в production у «Площадки» — legacy `ic-device` = наша `devices` (поставлена); у «Устройства» — другая иконка «блоки» → новая `icon/asic` (Icons, код, манифест). Борды: у 25 наборов Components варианты шли потоком (auto-layout WRAP) — возвращена сетка. Section header L: клон варианта потерял слот и привязки — исправлено, нужен повторный Publish.
 - 21.11 — H6: **Status bar** (draft) — Figma (страница «🟠 Status bar»), код React / Vue / CSS (`StatusBar`, `DsStatusBar`), SSR, контракт draft; манифест D60 (Table row, Section header, Status bar).
 - 21.11 — пилот WL B2C · Statistics (App Migration test, страница «🧪 Пересборка · WL B2C»; Light, бренд WL Default, iOS): корневой экран без листа — карточки L1 на L0 (поле и зазор 16), Suggest Card Accent, сводка выплаты (List item + Amount M; «Время начислений» — текст в Trailing), Chart card (текущий хешрейт + 2 Chart metric + легенда + Line + Bars + период Chip), Status summary Row + «Все воркеры», Tab bar WL на 5 пунктов. Правило: лист (Card L1 на всю ширину) — только когда у корневого экрана есть Tabs разделов (App майнинг); без Tabs — карточки на L0 (B2C). Отличия от production по решениям DS: период — Chip, а не кнопки на всю ширину; уведомление Info → Suggest Accent (тона Info в DS нет); сумма к выплате без выделенной плашки.

@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-21: beta 93 наборов, draft 3, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-21: beta 93 наборов, draft 4, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -97,7 +97,7 @@
 - [Radio group](docs/components/radio-group.md): Группа радио: подпись группы, варианты, под ними подсказка или ошибка
 - [Scrollbar](docs/components/scrollbar.md): Полоса прокрутки для своих скролл-контейнеров: выпадающие списки, панели, таблицы. Источник — legacy DS Web «Scrollbar» и сырой «Scroll» 4 px в продуктах
 - [Search](docs/components/search.md): Поле поиска: лупа, текст, крестик «Очистить» (когда введено). Поиск воркеров, монет, операций
-- [Section header](docs/components/section-header.md): Заголовок секции внутри карточки или формы: Title, необязательная Caption, слот Trailing справа
+- [Section header](docs/components/section-header.md): Заголовок раздела страницы (L) или секции внутри карточки / формы (M, S): Title, необязательная Caption, слот Trailing справа
 - [Segment](docs/components/segment.md): Элемент Segmented. Отдельно не используется
 - [Segmented](docs/components/segmented.md): Выбор одного значения из 2–4 взаимоисключающих; результат применяется сразу (период графика, Купить / Продать, вид список / сетка)
 - [Select](docs/components/select.md): Поле выбора одного значения из списка (сеть вывода, кошелёк, монета, валюта). Поле как у Input (размеры, лейбл, helper, ошибка), справа шеврон; по нажатию открывает Menu (на Compact — Sheet)
@@ -143,7 +143,7 @@
 
 ## Компоненты: draft — не брать
 
-- уровень не указан (3): File upload, Side panel, Snack
+- уровень не указан (4): File upload, Side panel, Snack, Status bar
 - шаблоны экранов, не Base (1): Status screen
 
 ## Проверки

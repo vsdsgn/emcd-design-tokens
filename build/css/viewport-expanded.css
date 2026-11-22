@@ -8,7 +8,7 @@
   --layout-breakpoint-min: 840;
   --layout-margin: var(--dimension-32);
   --layout-gutter: var(--dimension-24);
-  --space-section: var(--dimension-48);
+  --space-section: var(--dimension-40);
   --type-display-lg-size: var(--font-size-48);
   --type-display-lg-line-height: var(--line-height-56);
   --type-display-md-size: var(--font-size-40);
