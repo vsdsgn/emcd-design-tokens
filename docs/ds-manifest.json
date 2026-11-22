@@ -14,14 +14,14 @@
    "service": 4,
    "template": 1
   },
-  "variants": 1689,
+  "variants": 1705,
   "incompleteMatrix": 20,
-  "propsNotBoundEverywhere": 21,
+  "propsNotBoundEverywhere": 22,
   "rawMinMax": 1,
-  "withRawValues": 72,
+  "withRawValues": 73,
   "withFocusRing": 21,
-  "withHitArea": 20,
-  "withSafeMargin": 23,
+  "withHitArea": 21,
+  "withSafeMargin": 24,
   "pagesWithoutV3Board": 2,
   "pagesWithFullBoard": 22,
   "baseSets": 11
@@ -9976,7 +9976,7 @@
      "id": "51:1753",
      "type": "SET",
      "status": "beta",
-     "descLen": 1307,
+     "descLen": 1614,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9995,6 +9995,10 @@
        "M",
        "L"
       ],
+      "Label position": [
+       "Above",
+       "On border"
+      ],
       "State": [
        "Default",
        "Hover",
@@ -10006,43 +10010,213 @@
        "Skeleton"
       ]
      },
-     "variants": 16,
-     "full": 16,
+     "variants": 32,
+     "full": 32,
      "props": [
       {
        "name": "Focus ring",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 16
+       "bound": 32
+      },
+      {
+       "name": "Label",
+       "type": "TEXT",
+       "def": "Сеть",
+       "bound": 30
+      },
+      {
+       "name": "Value",
+       "type": "TEXT",
+       "def": "Выберите сеть",
+       "bound": 32
+      },
+      {
+       "name": "Helper",
+       "type": "TEXT",
+       "def": "Выберите сеть",
+       "bound": 32
+      },
+      {
+       "name": "Show label",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 30
+      },
+      {
+       "name": "Show leading",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 32
+      },
+      {
+       "name": "Leading",
+       "type": "SLOT",
+       "bound": 32
       }
      ],
      "nested": {
-      "Input": 16
+      "(icons)": 56,
+      "_Focus ring": 32,
+      "_Hit area": 64,
+      "_Safe margin": 32,
+      "_State layer": 4,
+      "Spinner": 4
      },
      "minmax": [
       "minw=160 size/field/min"
      ],
      "layers": {
-      "ring": 16,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
+      "ring": 32,
+      "hitWeb": 32,
+      "hitApp": 32,
+      "hit": 32,
+      "safe": 32
      },
-     "rawCount": 0,
-     "raw": [],
+     "rawCount": 80,
+     "raw": [
+      "hit area · web:w=320",
+      "hit area · web:h=40",
+      "hit area · web:h=48",
+      "(root):w=320"
+     ],
      "tokens": {
       "(root)": [
        "minw:size/field/min"
       ],
       "field": [
-       "minw:size/field/min"
+       "f:control/surface/default",
+       "f:control/surface/disabled",
+       "f:skeleton/base",
+       "gap:space/12",
+       "h:control/height/lg",
+       "h:control/height/md",
+       "minw:size/field/min",
+       "p:control/padding-x/lg",
+       "p:control/padding-x/md",
+       "p:space/none",
+       "r:radius/control",
+       "r:radius/control-sm",
+       "s:control/border/default",
+       "s:control/border/disabled",
+       "s:control/border/error",
+       "s:control/border/focus",
+       "s:control/border/hover",
+       "sw:border/width/default"
+      ],
+      "Field": [
+       "gap:space/6",
+       "minw:size/field/min",
+       "p:space/8"
+      ],
+      "label": [
+       "f:text/disabled",
+       "f:text/secondary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/md/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/md/line-height"
+      ],
+      "Leading": [
+       "gap:space/4"
+      ],
+      "icon/search": [
+       "h:icon/size/md",
+       "w:icon/size/md"
+      ],
+      "caret": [
+       "f:border/focus"
+      ],
+      "value": [
+       "f:text/disabled",
+       "f:text/primary",
+       "f:text/tertiary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/lg/size",
+       "fontSize:type/label/md/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/lg/line-height",
+       "lineHeight:type/label/md/line-height"
+      ],
+      "Inline": [
+       "gap:space/6"
+      ],
+      "Trailing": [
+       "gap:space/8"
+      ],
+      "icon/chevron-down": [
+       "h:icon/size/md",
+       "w:icon/size/md"
       ],
       "focus ring": [
+       "r:radius/focus-ring",
        "r:radius/focus-ring-inner",
        "r:radius/focus-ring-sm",
        "s:border/focus-ring",
        "sw:border/width/focus-ring"
+      ],
+      "hit area · web": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · overlay": [
+       "f:status/danger/solid"
+      ],
+      "hit area · app": [
+       "visible:touch/is-coarse"
+      ],
+      "helper row": [
+       "gap:space/8",
+       "p:space/4"
+      ],
+      "helper": [
+       "f:text/danger",
+       "f:text/disabled",
+       "f:text/tertiary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/sm/line-height"
+      ],
+      "counter": [
+       "f:text/disabled",
+       "f:text/tertiary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/sm/line-height"
+      ],
+      "safe area · outer": [
+       "s:status/success/solid",
+       "sw:control/safe-margin"
+      ],
+      "state layer": [
+       "f:state/layer",
+       "o:state/hover",
+       "r:radius/control",
+       "r:radius/control-sm"
+      ],
+      "icon/chevron-up": [
+       "h:icon/size/md",
+       "w:icon/size/md"
+      ],
+      "spinner": [
+       "h:icon/size/sm",
+       "w:icon/size/sm"
+      ],
+      "notch label": [
+       "p:space/2"
+      ],
+      "border gap": [
+       "f:control/surface/default",
+       "f:control/surface/disabled"
+      ],
+      "notch text": [
+       "f:text/disabled",
+       "f:text/secondary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/sm/line-height"
       ]
      },
      "statusFirstLine": true

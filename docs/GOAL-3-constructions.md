@@ -51,6 +51,7 @@
 - ~~`space/section` Large 64 → 48~~ — сделано 22.11 (Foundations + репо: Expanded 40, Large 48, XLarge 64).
 
 ## Очередь на Publish Components
+- **Select — пересобран** (решение Стефана 22.11): без вложенного Input (его слот Trailing показывал «USDT» по умолчанию и не правился из Select); ось Label position (Above · On border) — 32 варианта; свойства Label, Value, Helper, Show label, Show leading, слот Leading; шеврон `icon/secondary` (Open — вверх, Disabled — `icon/disabled`, Loading — спиннер). **После Publish и обновления файлов** — на 39 экземплярах (Web 33, App 6) вернуть тексты, подпись и Leading из снимка (`select-snapshot.json` + страницы «🧪 _holder · Select»).
 - **Status bar** — дорожка → слот Track: ширина сегмента в экземпляре не менялась (Figma молча игнорирует, как колонки Table row) — доли были неверными. После Publish — доли на Мониторинг · Главная (1 000 / 3 000 / 16 500 / 61) и B2B Analytics (65 / 571 / 12 271).
 - **Legend item** — маркер swatch во всех вариантах был переопределён на `border/accent`: первая серия любой легенды — акцент, а не `data/1`. Исправлено (маркер = серия). **Chart card** — легенда по умолчанию: маркеры серий 1–3.
 - ~~**Table header cell · Select all** и **Bulk action bar**~~ (Publish 22.11, на B2B Users).
@@ -63,6 +64,7 @@
 - **Section header** — Size L (`type/heading/lg`, раздел страницы на фоне). После Publish — заголовки разделов на Мониторинг · Главная.
 
 ## Журнал
+- 22.11 — Стефан: «расхождений с продом тьма» → сверка компонентов с production (`docs/review/components-vs-prod.md`, страница «🧪 Сверка компонентов с продом»): размеры production крупнее (поля 56, сегменты 56 / 48, чип 44, поиск 36, монета 28). Решение Стефана: **шкала DS остаётся**, production мигрирует; расхождения — осознанные. Select — пересобран (решение Стефана). Найдено: `findAll` не заходит в слоты — обход вручную.
 - 22.11 — H7: WL B2C · Payouts (App) — на основе майнинга App «История · выплаты»: Tabs M поровну, сводка Card L1, список с «В Explorer», Action bar. Аудит B2C — 0.
 - 22.11 — H7: WL B2B · Analytics (Web) — Page header «Analytics» + Select compact монет + период Chip + Export to CSV; «Revenue» (Section header L): Chart card Net profit / Users (крупная цифра, Tabs S, Stacked bars, легенда, сумма, Details); «Mining»: Hashrates (Chart metric ×3 + Status bar воркеров) и Coins (Coin stack + Details, Stacked bars). Найдены дефекты системы: Status bar (доли не задать), Legend item (первая серия — акцент) — исправлены, ждут Publish.
 - 22.11 — H7: WL B2C · Workers (App) — на основе майнинга App «Воркеры»: действия «Подключить воркер» + «+», Chip-статусы, Search + Segmented список / группы, таблица с итоговой строкой. Майнинг App «Воркеры»: ячейки разошлись с шапкой (80 / 92 при шапке 86) → ширины под содержимое 80 / 92 / 91 / 80. Аудит App: 12 кадров — 0 (теперь и с проверкой таблиц; `layout-audit.plugin.js` ищет ячейки в слоте Cells).

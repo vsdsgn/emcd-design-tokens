@@ -2500,11 +2500,11 @@ export const DATA = [
       'State: Default — пусто, плейсхолдер «Выберите …»; Hover — наведение указателя; Open — список открыт; Filled — значение выбрано; Error — ошибка выбора; Disabled — выбор недоступен; Loading — варианты грузятся; Skeleton — форма грузится.',
       'Лейбл: Above — по умолчанию (формы); On border — в разрыве рамки, только в панелях фильтров и калькуляторах (patterns.md 0, п. 12; экраны «История» 19.11) — как Label position у Input. В одной панели одно положение. Плейсхолдер — «Выберите …» (что выбрать).',
       'Ширина Menu = ширине поля; выбранный пункт в Menu — Selected (галочка).',
-      'Монета / сеть / иконка выбранного значения — в слот Leading поля: Show leading у вложенного Input, иконка — Coin или Coin stack.',
+      'Монета / сеть / иконка выбранного значения — в слот Leading (Show leading): Coin или Coin stack.',
     ],
     never: 'Select для 2–4 вариантов; ввод текста в поле Select; множественный выбор в Select; Menu уже или шире поля; лейбл сбоку или внутри поля.',
     anatomy: [
-      'Корень — экземпляр Input (вложен во все 24 варианта): лейбл, поле, helper / ошибка под полем; min-width корня и `field` — `size/field/min`; `field` — Fill по ширине корня (исправлено 2026-11-16: было 320 числом, в экземпляре не растягивалось — пилот «Вывод»).',
+      'Корень — собственная разметка поля (22.11: вложенный Input снят — его слот Trailing показывал «USDT» и не правился из Select): лейбл (Above) или подпись в разрыве рамки (On border), поле, helper / ошибка; оси Size × Label position × State — 32 варианта; свойства Label, Value, Helper, Show label, Show leading, слот Leading; min-width — `size/field/min`.',
       'Справа в поле — шеврон (иконка в слоте Trailing): `icon/chevron-down`, в Open — `icon/chevron-up`; в Loading перед шевроном — спиннер; слева — необязательный слот Leading (Show leading у вложенного Input).',
       'Служебный слой `focus ring` (`border/focus-ring`, `border/width/focus-ring`, радиусы `radius/focus-ring-sm` / `radius/focus-ring-inner`) — свойство Focus ring.',
     ],

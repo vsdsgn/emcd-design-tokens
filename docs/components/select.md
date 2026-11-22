@@ -17,15 +17,15 @@
   - State: Default — пусто, плейсхолдер «Выберите …»; Hover — наведение указателя; Open — список открыт; Filled — значение выбрано; Error — ошибка выбора; Disabled — выбор недоступен; Loading — варианты грузятся; Skeleton — форма грузится.
   - Лейбл: Above — по умолчанию (формы); On border — в разрыве рамки, только в панелях фильтров и калькуляторах (patterns.md 0, п. 12; экраны «История» 19.11) — как Label position у Input. В одной панели одно положение. Плейсхолдер — «Выберите …» (что выбрать).
   - Ширина Menu = ширине поля; выбранный пункт в Menu — Selected (галочка).
-  - Монета / сеть / иконка выбранного значения — в слот Leading поля: Show leading у вложенного Input, иконка — Coin или Coin stack.
+  - Монета / сеть / иконка выбранного значения — в слот Leading (Show leading): Coin или Coin stack.
 - Не делаем: Select для 2–4 вариантов; ввод текста в поле Select; множественный выбор в Select; Menu уже или шире поля; лейбл сбоку или внутри поля.
 
 ## 3. Anatomy
-- Корень — экземпляр Input (вложен во все 24 варианта): лейбл, поле, helper / ошибка под полем; min-width корня и `field` — `size/field/min`; `field` — Fill по ширине корня (исправлено 2026-11-16: было 320 числом, в экземпляре не растягивалось — пилот «Вывод»).
+- Корень — собственная разметка поля (22.11: вложенный Input снят — его слот Trailing показывал «USDT» и не правился из Select): лейбл (Above) или подпись в разрыве рамки (On border), поле, helper / ошибка; оси Size × Label position × State — 32 варианта; свойства Label, Value, Helper, Show label, Show leading, слот Leading; min-width — `size/field/min`.
 - Справа в поле — шеврон (иконка в слоте Trailing): `icon/chevron-down`, в Open — `icon/chevron-up`; в Loading перед шевроном — спиннер; слева — необязательный слот Leading (Show leading у вложенного Input).
 - Служебный слой `focus ring` (`border/focus-ring`, `border/width/focus-ring`, радиусы `radius/focus-ring-sm` / `radius/focus-ring-inner`) — свойство Focus ring.
-- Вложено: `Input` ×16.
-- Служебные слои (вариантов из 16): кольцо фокуса 16 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: иконки ×56, `_Focus ring` ×32, `_Hit area` ×64, `_Safe margin` ×32, `_State layer` ×4, `Spinner` ×4.
+- Служебные слои (вариантов из 32): кольцо фокуса 32 · зона Web 32 · зона касания 32 · безопасное поле 32.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Поле: Hover — обводка `control/border/hover` + слой `state/layer` × `state/hover`; Pressed нет; Focus — обводка `control/border/focus` + кольцо; Disabled — токены `*/disabled`; Skeleton — загрузка (всё из `_Field base` вложенного Input).
@@ -45,15 +45,22 @@
 | Ось | Значения | По умолчанию |
 |---|---|---|
 | Size | M · L | M |
+| Label position | Above · On border | — |
 | State | Default · Hover · Open · Filled · Error · Disabled · Loading · Skeleton | Default |
 
-Матрица полная: 16 вариантов.
+Матрица полная: 32 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Focus ring | булево | выкл | 16 из 16 · служебное |
+| Focus ring | булево | выкл | 32 из 32 · служебное |
+| Label | текст | «Сеть» | 30 из 32 |
+| Value | текст | «Выберите сеть» | 32 из 32 |
+| Helper | текст | «Выберите сеть» | 32 из 32 |
+| Show label | булево | вкл | 30 из 32 |
+| Show leading | булево | выкл | 32 из 32 |
+| Leading | слот | — | 32 из 32 |
 
 - Своё свойство одно — Focus ring. Лейбл, helper, плейсхолдер, значение и Show leading меняются у вложенного Input.
 
@@ -79,24 +86,42 @@
 
 ## 10. Tokens
 - `корень`: мин. ширина `size/field/min`.
-- `field`: мин. ширина `size/field/min`.
-- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-inner`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring`.
+- `field`: заливка / цвет `control/surface/default`, `control/surface/disabled`, `skeleton/base`; интервал `space/12`; высота `control/height/lg`, `control/height/md`; мин. ширина `size/field/min`; отступы `control/padding-x/lg`, `control/padding-x/md`, `space/none`; радиус `radius/control`, `radius/control-sm`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`, `control/border/hover`; толщина обводки `border/width/default`.
+- `Field`: интервал `space/6`; мин. ширина `size/field/min`; отступы `space/8`.
+- `label`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `Leading`: интервал `space/4`.
+- `icon/search`: высота `icon/size/md`; ширина `icon/size/md`.
+- `caret`: заливка / цвет `border/focus`.
+- `value`: заливка / цвет `text/disabled`, `text/primary`, `text/tertiary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`.
+- `Inline`: интервал `space/6`.
+- `Trailing`: интервал `space/8`.
+- `icon/chevron-down`: высота `icon/size/md`; ширина `icon/size/md`.
+- `helper row`: интервал `space/8`; отступы `space/4`.
+- `helper`: заливка / цвет `text/danger`, `text/disabled`, `text/tertiary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
+- `counter`: заливка / цвет `text/disabled`, `text/tertiary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
+- `icon/chevron-up`: высота `icon/size/md`; ширина `icon/size/md`.
+- `spinner`: высота `icon/size/sm`; ширина `icon/size/sm`.
+- `notch label`: отступы `space/2`.
+- `border gap`: заливка / цвет `control/surface/default`, `control/surface/disabled`.
+- `notch text`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
+- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-inner`, `radius/focus-ring-sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`; радиус `radius/control`, `radius/control-sm`.
 - Min / max корня: minWidth 160 size/field/min.
+- Значений без переменной: 80 (напр. `hit area · web:w=320`, `hit area · web:h=40`, `hit area · web:h=48`, `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Select`, вариантов 16 из 16; оси: Size, State.
+- Набор `Select`, вариантов 32 из 32; оси: Size, Label position, State.
 - Борда: «Select — борда · шаблон v3», разделов 12.
-- Описание: 1307 знаков, разделы: Status: Level: Select: Когда использовать: Правила: Состояния: A11y: Поиск: Legacy: Слот слева:
+- Описание: 1614 знаков, разделы: Status: Level: Select: Когда использовать: Правила: Состояния: A11y: Поиск: Legacy: Слот слева:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Select`), Vue `packages/vue/src/DsSelect.vue`, CSS `claude-ds/components/Select/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsSelect>`; Flutter: `DsSelect`.
-- Props: `size`: m | l.
+- Props: `size`: m | l; `labelPosition`: above | on-border; `label`: string или слот; `value`: string или слот; `helper`: string или слот; `showLabel`: boolean = true; `showLeading`: boolean = false; `leading`: string или слот.
 - Состояния (Default, Hover, Open, Filled, Error, Disabled, Loading, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `loading`, `skeleton` — props.
 - React `Select` / Vue `DsSelect`: `labelPosition: 'above' | 'on-border'` (19.11), по умолчанию `above` — формы; `on-border` — панели фильтров и калькуляторы (История Web, «Монета» на мобильном). Класс поля `emcd-field--on-border`, как у Input / Date range field.
 - Остальные props: `size` (`m` | `l`), `label`, `hint`, `error`, `state`, `placeholder`, `options`, `value` / `defaultValue` / `onChange`, `open` / `defaultOpen` / `onOpenChange`, `leading`, `menuSize`.

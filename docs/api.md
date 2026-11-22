@@ -995,6 +995,13 @@ Props нет.
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `size` | m \| l | по правилу контракта | ось Size |
+| `labelPosition` | above \| on-border | по правилу контракта | ось Label position |
+| `label` | string | — | свойство Label |
+| `value` | string | — | свойство Value |
+| `helper` | string | — | свойство Helper |
+| `showLabel` | boolean | true | свойство Show label |
+| `showLeading` | boolean | false | свойство Show leading |
+| `leading` | slot | — | свойство Leading |
 
 Состояния в Figma: Default · Hover · Open · Filled · Error · Disabled · Loading · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error`, `loading`, `skeleton` — boolean props.
 
