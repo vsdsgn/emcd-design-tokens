@@ -21,7 +21,7 @@ const SCREENS = [
   ['app-dashboard', 375, 812], ['app-workers', 375, 812], ['app-history', 375, 812], ['app-payouts', 375, 812],
   ['app-calculator', 375, 812, true], ['app-settings-withdraw', 375, 812], ['app-settings-notify', 375, 812], ['app-watcher', 375, 812], ['app-export', 375, 812], ['app-main-dashboard', 375, 812],
   // 22.11: пилот цели 3 — Мониторинг · Главная (Web 1440, вся высота), WL B2B · Users (Web), WL B2C · Statistics (App 375, вся высота)
-  ['mon-main', 1440, 1966, true], ['b2b-users', 1440, 980], ['b2c-statistics', 375, 1115, true]];
+  ['mon-main', 1440, 1966, true], ['b2b-users', 1440, 1060], ['b2c-statistics', 375, 1115, true]];
 const only = process.argv.slice(2);
 // Блоки, чья высота в загрузке (State=Skeleton) должна совпасть с загруженной: [подпись, селектор] — каждый найденный элемент по порядку
 const LOADING_BLOCKS = {

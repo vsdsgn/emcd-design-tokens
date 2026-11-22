@@ -19,7 +19,7 @@
 .emcd-th--sorted .emcd-th__sort { color: var(--icon-primary, var(--text-primary)); }
 .emcd-th__bone { display: inline-block; width: 64px; height: 12px; border-radius: var(--radius-chip, 999px); background: var(--skeleton-base); vertical-align: middle; }
 @media (prefers-reduced-motion: reduce) { .emcd-th__button::before { transition: none; } }
-.emcd-th__select-row { display: inline-flex; align-items: center; gap: var(--space-8, 8px); }
+.emcd-th__select-row { display: inline-flex; align-items: center; gap: var(--space-4, 4px); } /* как в Figma: зазор шапки space/4 */
 .emcd-th__select { flex: none; }
 /* подпись «Выбрать все» — только для читалки */
 .emcd-th__select .emcd-check__text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

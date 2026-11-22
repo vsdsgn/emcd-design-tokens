@@ -51,7 +51,7 @@
 - ~~`space/section` Large 64 → 48~~ — сделано 22.11 (Foundations + репо: Expanded 40, Large 48, XLarge 64).
 
 ## Очередь на Publish Components
-- **Table header cell · Select all** и **Bulk action bar** (новый, draft). После Publish — на B2B Users: «выбрать все» в шапке, Bulk action bar «Selected 2 of 120».
+- ~~**Table header cell · Select all** и **Bulk action bar**~~ (Publish 22.11, на B2B Users).
 - ~~**Table row → слот Cells**~~ (Publish 22.11, экраны восстановлены): ширина колонки в экземпляре строки не меняется (ни размер, ни min-width — ограничение Figma), Column 7–10 давали только равные колонки → ячейки перенесены в слот `Cells` (любое число колонок, ширина каждой под шапку), Column 7–10 убраны. После Publish + обновления: таблицы на 9 экранах (54 строки) вернуть из копий на странице «🧪 _holder · Table row», B2B Users — ширины колонок под содержимое.
 - ~~**Foundations** — `space/section`~~ (Publish 22.11).
 - ~~**Section header L** — повторно~~ (Publish 22.11, на экране): в L восстановлены слот Trailing и привязки Title / Caption (клон варианта их потерял). После Publish — «К площадкам» / «К устройствам» на Мониторинг · Главная.
@@ -61,6 +61,7 @@
 - **Section header** — Size L (`type/heading/lg`, раздел страницы на фоне). После Publish — заголовки разделов на Мониторинг · Главная.
 
 ## Журнал
+- 22.11 — B2B Users: Select all (Indeterminate) в шапке, Bulk action bar «Selected 2 of 120» по центру над низом; под полосой — отступ её высоты + 24 (правило patterns 6.4; кадр 980 → 1060). Код: зазор чекбокс → подпись в шапке 4, как в Figma. Эталон и сравнение обновлены.
 - 22.11 — H8: демо пилота в коде (`mon-main`, `b2b-users`, `b2c-statistics`) + эталоны Figma; ChartCard `trailing` (контрол справа в шапке вместо периода — React / Vue), Table · колонка `th` (свойства шапки: selectAll); иконки кода + edit, file-csv. Сравнение «макет | код» — совпадают, остаток в README демо.
 - 22.11 — итог пилота: Table header cell · Select all (Figma + код), новый **Bulk action bar** (draft: Figma + React / Vue / CSS + SSR + контракт), манифест D62; patterns 1.6 (один каркас Web для майнинга, Мониторинга, B2B) и 6 (паттерны взаимодействия: состояния, подтверждения, детали и формы, таблица, поиск и фильтры, валидация, обратная связь).
 - 22.11 — после Publish Table row (слот Cells): майнинг Web — содержимое строк пережило обновление; Мониторинг — колонки 6–8 возвращены из копий; B2B Users пересобран на новой строке с ширинами под содержимое (ID 200 · User 200 · Coins 110 · 24h 120 · Current 140 · Pool 80 · Referral 100 · Status 126), пустая колонка «Chart» (у всех «none») убрана — правило: колонка без данных не показывается. История Web — ширины ячеек снова = шапке. Состояния «загрузка» / «нет воркеров» — отступы на токенах. Аудит: Web 27 кадров, App 11 кадров — 0.

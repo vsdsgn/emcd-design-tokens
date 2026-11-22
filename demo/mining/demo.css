@@ -217,3 +217,4 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 .demo-app--wl .demo-app__tabbar { position: sticky; bottom: 0; }
 .demo-b2c-chart__top { display: flex; flex-direction: column; gap: var(--space-16); }
 .demo-b2c-chart__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); }
+.demo-pm__body:has(.demo-pm__bulk) { padding-bottom: calc(56px + var(--space-24)); } /* patterns 6.4: под Bulk action bar — отступ высотой полосы + space/24 */
