@@ -1,6 +1,7 @@
 /* Toast — 🟡 beta (Figma «🟡 Toast»: Layout Card · Informer × Tone). Отклик на действие; исчезает сам.
    Card — Web, справа сверху: overlay surface (тень Elevation/2: r2 y1 + r24 y8 s-4, цвета shadow-key / shadow-ambient), иконка тона, заголовок, описание, кнопки, таймер, крестик.
-   Informer — App, сверху под статус-баром: заливка тона на всю ширину. */
+   Informer — App, сверху под статус-баром: заливка тона на всю ширину.
+   Snack (22.11, слит из набора Snack) — App, у нижнего края: тёмная плашка action-inverse-default 343, одна строка, линейная иконка 20 цвета тона, действие Button Text, без крестика. */
 .emcd-toast { position: relative; box-sizing: border-box; display: flex; align-items: flex-start; gap: var(--space-12, 12px);
   width: 400px; min-width: var(--size-toast-min, 280px); max-width: 100%;
   padding: var(--space-16, 16px) var(--space-48, 48px) var(--space-16, 16px) var(--space-16, 16px); border-radius: var(--radius-control);
@@ -43,3 +44,13 @@
 .emcd-toast-stack { position: fixed; z-index: 60; top: var(--space-16, 16px); right: var(--space-16, 16px); display: flex; flex-direction: column; gap: var(--space-8, 8px); }
 @media (prefers-reduced-motion: no-preference) { .emcd-toast { animation: emcd-toast-in var(--motion-duration-enter, 240ms) var(--motion-easing-enter, cubic-bezier(0,0,0,1)); } }
 @keyframes emcd-toast-in { from { opacity: 0; transform: translateY(-8px); } }
+.emcd-toast--snack { width: 343px; min-width: 0; align-items: center; gap: var(--space-12, 12px); padding: var(--space-12, 12px) var(--space-16, 16px);
+  border-radius: var(--radius-control, 12px); background: var(--action-inverse-default); color: var(--text-inverse); box-shadow: 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient); }
+.emcd-toast--snack .emcd-toast__title { flex: 1; min-width: 0; color: inherit; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.emcd-toast__snack-icon { flex: none; display: inline-flex; width: 20px; height: 20px; color: var(--icon-inverse); }
+.emcd-toast__snack-icon svg { width: 100%; height: 100%; }
+.emcd-toast--snack:not(.emcd-toast--neutral) .emcd-toast__snack-icon { color: var(--status-info-solid); }
+.emcd-toast--snack.emcd-toast--success .emcd-toast__snack-icon { color: var(--status-success-solid); }
+.emcd-toast--snack.emcd-toast--warning .emcd-toast__snack-icon { color: var(--status-warning-solid); }
+.emcd-toast--snack.emcd-toast--danger .emcd-toast__snack-icon { color: var(--status-danger-solid); }
+.emcd-toast__snack-action.emcd-btn { flex: none; }

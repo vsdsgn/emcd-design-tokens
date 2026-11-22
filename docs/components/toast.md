@@ -17,13 +17,15 @@
   - Tone: Success — выполнено; Info — справка о фоновой операции (цвет бренда — Info = Accent, 2026-11-16); Warning — выполнено с оговоркой; Danger — не выполнено; Neutral — без оценки, у Card без иконки (отличие от Info; 2026-11-16). У Card тон несёт иконка, у Informer — заливка полосы (`status/*/solid`, Neutral — `surface/inverse`).
   - Show description, Actions, Icon, Timer — только Card (привязаны в 5 вариантах из 10; Icon — в 4: у Neutral иконки нет). Timer — оставшееся время автоскрытия (Circle timer у крестика).
   - Safe area — только Informer: полоса под статус-баром (`os/safe-area/top`).
+  - Snack (22.11, бывший набор Snack) — App, у нижнего края над Tab bar / Action bar: тёмная плашка 343, одна строка, линейная иконка цвета тона, необязательное действие (Button Text «Отменить»), без крестика и описания. Свойства: Title, Icon, Actions.
   - Close — по умолчанию вкл.
-- Не делаем: Informer на Web; больше 3 Toast одновременно; Toast вместо сообщения, которое должно остаться на странице.
+- Не делаем: Informer и Snack на Web; Snack с крестиком или в две строки; больше 3 Toast одновременно; Toast вместо сообщения, которое должно остаться на странице.
 
 ## 3. Anatomy
 - Корень: зазор `space/12`, отступы `space/12` / `space/16` / `space/20` / `space/48`, радиус `radius/control`, min-ширина `size/toast/min` (280), ширина 400 (Card) / 375 (Informer) числом.
 - `overlay surface` — экземпляр `_Overlay surface` (Kind=Toast): Card — `surface/raised`, обводка `border/subtle`, тени `shadow/key` + `shadow/ambient`; Informer — `status/*/solid` / `surface/inverse` (Neutral).
 - Card: иконка `media/status/*` → `content` (`title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) → `actions` (вложенные Button, `control/height/sm`); `timer` (Circle timer, `icon/size/sm`) и `close` (Icon button, `control/height/sm`).
+- Snack: корень `action/inverse/default`, отступы `space/12` / `space/16`, `radius/control`, тень `shadow/key` + `shadow/ambient`; `icon` 20 (Neutral — `icon/inverse`, остальные — `status/*/solid`) → `title` (`type/label/lg`, `text/inverse`, одна строка) → `action` (Button Text M).
 - Informer: `safe area` (`os/safe-area/top`) → `row`: `title` (`text/on-accent`; Warning — `text/on-warning`; Neutral — `text/inverse`) и `close`.
 - Вложено: `_Overlay surface` ×10, `media/status/info` ×2, `Button` ×10, `Icon button` ×10, `Circle timer` ×5, `media/status/success` ×1, `media/status/warning` ×1, `media/status/danger` ×1.
 - Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 5.
@@ -94,7 +96,7 @@
 - Значений без переменной: 10 (напр. `(root):w=400`, `(root):w=375`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Card — Web; Informer — App (iOS · Android). Высота `safe area` — `os/safe-area/top` (на Web 0).
+- Card — Web; Informer и Snack — App (iOS · Android). Высота `safe area` — `os/safe-area/top` (на Web 0).
 - Пауза автоскрытия по наведению — только с указателем (Web).
 
 ## 12. Figma projection
@@ -116,4 +118,4 @@
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; перепроверка Dark 15.11 пройдена (после принятия в Components `surface/raised` Dark → `neutral/700`): различим на L0–L2; на L3 приподнятая поверхность равна L3 и держится обводкой / тенью — правило, не дефект (Card; Informer — заливка `status/*/solid`); RTL стенд не проверяет; кода нет — parity props пропущена.
 
 ## 15. Migration
-- DS Web Toast (`base notification`) → Layout=Card; App `informer` → Layout=Informer. Snack вынесен в отдельный набор 2026-11-09 и запаркован.
+- DS Web Toast (`base notification`) → Layout=Card; App `informer` → Layout=Informer. Snack вынесен в отдельный набор 2026-11-09, слит обратно как Layout=Snack 2026-11-22 (экземпляры сохранены: варианты перенесены в набор Toast).

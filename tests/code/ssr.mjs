@@ -115,7 +115,7 @@ const RC = {
     { deltaTone: 'danger', deltaValue: '−1%', showFooter: true, footer: h('span', null, 'graph'), ambientLight: true, label: 'x', value: '1' }, { skeleton: true }, { skeleton: true, align: 'center', tone: 'success' }, { skeleton: true, align: 'center', delta: false, link: true }, { skeleton: true, showFooter: true, footer: h('span', null, 'graph') },
   ],
   Tooltip: [{ text: 'Подсказка' }, ...['bottom', 'start', 'end'].map((placement) => ({ placement, tone: 'accent', arrow: 'start', text: 'x' })), { text: 'x', children: h('button', null, 'i') }, { text: 'x', open: true, children: h('button', null, 'i') }],
-  Toast: [{ title: 'Готово', description: 'Описание' }, ...['success', 'warning', 'danger', 'neutral'].map((tone) => ({ tone, title: 'x', actions: true, timer: true, duration: 5000 })), { layout: 'informer', title: 'Нет сети' }],
+  Toast: [{ title: 'Готово', description: 'Описание' }, ...['success', 'warning', 'danger', 'neutral'].map((tone) => ({ tone, title: 'x', actions: true, timer: true, duration: 5000 })), { layout: 'informer', title: 'Нет сети' }, { layout: 'snack', title: 'Вывод создан', actions: true, actionLabel: 'Отменить' }, { layout: 'snack', tone: 'success', title: 'Сохранено' }],
   Suggest: [
     ...['neutral', 'accent', 'success', 'warning', 'danger'].flatMap((tone) => ['card', 'strip'].map((layout) => ({ tone, layout, title: 'Кошелёк', description: 'Теперь отдельный адрес', secondaryAction: true }))),
     { layout: 'strip', leading: ico(), title: 'x', close: false }, { showLeading: false, primaryAction: false, title: 'x' },
@@ -330,7 +330,7 @@ const VC = {
     ...['neutral', 'danger', 'warning', 'success'].flatMap((tone) => ['start', 'center'].map((align) => [{ tone, align, link: true, label: 'Воркеры', value: '12', delta: false }])),
     [{ showFooter: true, ambientLight: true, label: 'x', value: 1 }, { footer: () => 'graph' }], [{ skeleton: true, align: 'center' }], [{ skeleton: true, align: 'center', delta: false }], [{ skeleton: true, showFooter: true }, { footer: () => 'graph' }]],
   DsTooltip: [[{ text: 'Подсказка' }], [{ placement: 'end', tone: 'accent', arrow: 'start', text: 'x' }, { default: () => vh('button', null, 'i') }]],
-  DsToast: [[{ title: 'Готово', description: 'x' }], [{ tone: 'danger', actions: true, timer: true, duration: 5000, title: 'x' }], [{ layout: 'informer', tone: 'neutral', title: 'x' }]],
+  DsToast: [[{ title: 'Готово', description: 'x' }], [{ tone: 'danger', actions: true, timer: true, duration: 5000, title: 'x' }], [{ layout: 'informer', tone: 'neutral', title: 'x' }], [{ layout: 'snack', tone: 'warning', title: 'x', actions: true }]],
   DsSuggest: ['neutral', 'accent', 'success', 'warning', 'danger'].flatMap((tone) => ['card', 'strip'].map((layout) => [{ tone, layout, title: 'Кошелёк', description: 'x', secondaryAction: true }]))
     .concat([[{ layout: 'strip', title: 'x' }, { leading: vico }], [{ showLeading: false, primaryAction: false, close: false, title: 'x' }]]),
   DsTab: ['s', 'm', 'l', 'page'].map((size) => [{ size, label: 'Воркеры', counter: 12 }]).concat([[{ statusDot: true, statusTone: 'warning', selected: true, label: 'Нестабильные', counter: 2 }], [{ skeleton: true, label: 'x' }]]),

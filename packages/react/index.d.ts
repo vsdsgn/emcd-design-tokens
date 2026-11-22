@@ -400,7 +400,7 @@ export interface TooltipProps {
 
 export interface ToastProps {
   /** card — Web (справа сверху); informer — App (полоса под статус-баром). */
-  layout?: 'card' | 'informer';
+  layout?: 'card' | 'informer' | 'snack';
   /** info — фоновая операция (цвет бренда); success; warning — с оговоркой; danger — не выполнено; neutral — без оценки, без иконки. */
   tone?: 'info' | 'success' | 'warning' | 'danger' | 'neutral';
   title?: ReactNode;

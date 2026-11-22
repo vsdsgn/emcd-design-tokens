@@ -372,7 +372,7 @@ export function Tooltip({ placement = 'top', tone = 'neutral', arrow = 'center',
 }
 
 const TOAST_GLYPH = { info: 'M12 11v5M12 7.8h.01', success: 'M8 12.3l2.8 2.8 5.2-5.6', warning: 'M12 7.5v5M12 16.2h.01', danger: 'M9.2 9.2l5.6 5.6M14.8 9.2l-5.6 5.6' };
-/** Toast — отклик на действие, исчезает сам (duration, мс). Card — Web; Informer — App. Без onClose крестик скрывает сам Toast. */
+/** Toast — отклик на действие, исчезает сам (duration, мс). Card — Web; Informer — App сверху; Snack — App снизу (22.11, бывший Snack). Без onClose крестик скрывает сам Toast. */
 export function Toast({ layout = 'card', tone = 'info', title, showTitle = true, description, showDescription = true, actions = false, actionLabel = 'Открыть', onAction,
   close = true, onClose, closeLabel = 'Закрыть уведомление', icon = true, timer = false, duration, safeArea = true, open, className, children, ...rest }) {
   const [shown, setShown] = React.useState(true);
@@ -387,6 +387,14 @@ export function Toast({ layout = 'card', tone = 'info', title, showTitle = true,
   const pause = () => { if (!tm.current) return; clearTimeout(tm.current); tm.current = null; left.current = Math.max(0, left.current - (Date.now() - started.current)); };
   React.useEffect(() => { left.current = duration; if (visible && duration) start(); return () => clearTimeout(tm.current); }, [visible, duration, start]);
   if (!visible) return null;
+  if (layout === 'snack') { // 22.11: Snack слит в Toast — тёмная плашка App у нижнего края, одна строка, линейная иконка, действие без крестика
+    const ico = { info: I.info, neutral: I.info, success: I.checkCircle, warning: I.alertTriangle, danger: I.alertCircle }[tone] || I.info;
+    return h('div', { role: tone === 'danger' ? 'alert' : 'status', 'aria-live': tone === 'danger' ? 'assertive' : 'polite',
+      className: cx('emcd-toast', 'emcd-toast--snack', tone !== 'info' && 'emcd-toast--' + tone, className), onMouseEnter: duration ? pause : undefined, onMouseLeave: duration ? start : undefined, ...rest },
+    icon && h('span', { className: 'emcd-toast__snack-icon', 'aria-hidden': true }, ico()),
+    h('p', { className: 'emcd-toast__title' }, title), children,
+    actions && (actions === true ? h(Button, { type: 'text', size: 'm', label: actionLabel, onClick: onAction, className: 'emcd-toast__snack-action' }) : actions));
+  }
   const card = layout !== 'informer';
   const btns = actions === true ? h(Button, { type: 'secondary', size: 's', label: actionLabel, onClick: onAction }) : actions || null;
   return h('div', { role: tone === 'danger' ? 'alert' : 'status', 'aria-live': tone === 'danger' ? 'assertive' : 'polite',
