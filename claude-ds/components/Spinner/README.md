@@ -1,5 +1,7 @@
 # Spinner
 
+> 22.11: в Figma — Progress circle · Mode=Indeterminate (Spinner, Progress circle и Circle timer слиты); размеры XS 16 · S 20 · M 24. В коде — `Spinner`.
+
 Индикатор загрузки: действие идёт, длительность неизвестна.
 
 **Оси (как в Figma «🟡 Spinner»):** Size S · M · L.
