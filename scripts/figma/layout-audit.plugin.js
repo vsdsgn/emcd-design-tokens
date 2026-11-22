@@ -10,13 +10,15 @@
 await figma.setCurrentPageAsync(await figma.getNodeByIdAsync(ARGS.page));
 const re = new RegExp(ARGS.filter || 'DS 2\\.0$');
 const frames = figma.currentPage.children.filter((n) => n.type === 'FRAME' && re.test(n.name));
+// 22.11: findAll не заходит в содержимое слотов экземпляров (карточки, строки) — свой обход
+const walkAll = (n, f, acc = []) => { if (f(n)) acc.push(n); for (const c of (n.children || [])) walkAll(c, f, acc); return acc; };
 const inInst = (n) => { let p = n.parent; while (p && p.type !== 'PAGE') { if (p.type === 'INSTANCE') return true; p = p.parent; } return false; };
 const own = (n) => !inInst(n) || (n.parent && n.parent.type === 'SLOT');
 const TK = { 'tether-usdt': 'USDT', 'kaspa-kas': 'KAS', 'bitcoin-btc': 'BTC', 'litecoin-ltc': 'LTC', 'dogecoin-doge': 'DOGE', 'ethereum-eth': 'ETH' };
 const out = {};
 for (const f of frames) {
   const iss = [];
-  for (const n of f.findAll((x) => x.visible && (x.type === 'FRAME' || x.type === 'INSTANCE'))) {
+  for (const n of walkAll(f, (x) => x.visible && (x.type === 'FRAME' || x.type === 'INSTANCE'))) {
     const p = n.parent;
     if (!own(n) || !p || !('layoutMode' in p) || p.layoutMode === 'NONE' || n.layoutPositioning === 'ABSOLUTE') continue;
     if (/chips|scroll|track|Slides|carousel|tabs/i.test(p.name) || /chips/i.test(n.name)) continue;
@@ -32,7 +34,7 @@ for (const f of frames) {
       }
     }
   }
-  for (const h of f.findAll((n) => n.name === 'header row' && n.children.some((c) => /header cell/i.test(c.name)))) {
+  for (const h of walkAll(f, (n) => n.name === 'header row' && n.children.some((c) => /header cell/i.test(c.name)))) {
     const heads = h.children.filter((c) => c.visible && /header cell/i.test(c.name));
     const row = h.parent.children.find((c) => c.type === 'INSTANCE' && /Table row/.test(c.name) && c.visible); if (!row) continue;
     const cellsRoot = row.findOne((x) => x.type === 'SLOT' && x.name === 'Cells') || row; // Table row 22.11: ячейки в слоте Cells
@@ -45,15 +47,15 @@ for (const f of frames) {
       if (al && slot && slot.counterAxisAlignItems !== (al === 'End' ? 'MAX' : 'MIN')) iss.push(`TABLE выравнивание колонки ${i + 1}: шапка ${al}, ячейка ${slot.counterAxisAlignItems}`);
     });
   }
-  for (const t of f.findAll((x) => x.type === 'TEXT' && x.visible && x.textAutoResize !== 'WIDTH_AND_HEIGHT')) {
+  for (const t of walkAll(f, (x) => x.type === 'TEXT' && x.visible && x.textAutoResize !== 'WIDTH_AND_HEIGHT')) {
     const fs = typeof t.fontSize === 'number' ? t.fontSize : 14;
     const longest = Math.max(0, ...t.characters.split(/\s+/).map((w) => w.length));
     if (longest * fs * 0.48 > t.width + 2) iss.push(`WORD-BREAK "${t.characters.slice(0, 24)}" w${Math.round(t.width)}`);
   }
-  for (const s of f.findAll((n) => n.type === 'INSTANCE' && /^(Select compact|Select)$/.test(n.name))) {
+  for (const s of walkAll(f, (n) => n.type === 'INSTANCE' && /^(Select compact|Select)$/.test(n.name))) {
     const syms = [];
-    for (const c of s.findAll((x) => x.type === 'INSTANCE' && x.visible)) { const m = await c.getMainComponentAsync(); if (m && /^symbol\/coin\//.test(m.name)) syms.push(m.name.slice(12)); }
-    const txt = s.findAll((x) => x.type === 'TEXT' && x.visible).map((t) => t.characters).join(' ').toUpperCase();
+    for (const c of walkAll(s, (x) => x.type === 'INSTANCE' && x.visible)) { const m = await c.getMainComponentAsync(); if (m && /^symbol\/coin\//.test(m.name)) syms.push(m.name.slice(12)); }
+    const txt = walkAll(s, (x) => x.type === 'TEXT' && x.visible).map((t) => t.characters).join(' ').toUpperCase();
     if (syms.length && !/\+\s?\d/.test(txt) && !syms.some((x) => txt.includes(TK[x] || x.toUpperCase()) || txt.includes(x.split('-')[0].toUpperCase()))) iss.push(`COIN "${txt.slice(0, 20)}" ← ${syms.join(',')}`);
   }
   out[f.name] = iss;
