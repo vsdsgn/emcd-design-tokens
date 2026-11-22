@@ -1,4 +1,4 @@
-# Table row — контракт (2026-11-21)
+# Table row — контракт (2026-11-22)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -27,7 +27,7 @@
 - Слот `Cells` (горизонтальный ряд на всю ширину строки, 22.11) — экземпляры Table cell; по умолчанию шесть ячеек со своим содержимым слота: `cell · Дата` (текст, две строки), `cell · Монета` (Coin с тикером), `cell · Сумма` (Amount, End), `cell · Адрес` (текст), `cell · Статус` (Status), `cell · ⋯` (Icon button, End); у каждой min-width `size/table-cell/min`.
 - `state layer` — `state/layer` × `state/hover` / `state/pressed`.
 - Служебные: `focus ring` (`border/focus-ring`, `border/width/focus-ring`, внутреннее), `hit area · web` / `hit area · app`, `safe area · outer` (`control/safe-margin`).
-- Вложено: `Table cell` ×120, `_Hit area` ×24, `_Safe margin` ×12.
+- Вложено: `Table cell` ×72, `_Hit area` ×24, `_Safe margin` ×12.
 - Служебные слои (вариантов из 12): кольцо фокуса 12 · зона Web 12 · зона касания 12 · безопасное поле 12.
 
 ## 4. States
@@ -56,10 +56,7 @@
 | Focus ring | булево | выкл | 12 из 12 · служебное |
 | Show hit area | булево | выкл | 12 из 12 · служебное |
 | Safe margin | булево | выкл | 12 из 12 · служебное |
-| Column 7 | булево | выкл | 12 из 12 |
-| Column 8 | булево | выкл | 12 из 12 |
-| Column 9 | булево | выкл | 12 из 12 |
-| Column 10 | булево | выкл | 12 из 12 |
+| Cells | слот | — | 12 из 12 |
 
 ## 6. Content / slots
 - Содержимое — у ячеек, по их правилам; ширина колонки фиксирована, текст ячейки не выходит за колонку.
@@ -85,18 +82,14 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `accent/subtle`; высота `size/row/lg`, `size/table/row-sm`; обводка `border/subtle`.
-- `cell · Дата`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Монета`: интервал `space/sm`, `space/xs`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Сумма`: интервал `space/2xs`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Адрес`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · Статус`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/12`.
-- `cell · 7`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · 8`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · 9`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · 10`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
-- `cell · ⋯`: интервал `space/8`; высота `size/row/lg`; мин. ширина `size/table-cell/min`; отступы `space/xs`.
+- `cell · Дата`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Монета`: интервал `space/sm`, `space/xs`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Сумма`: интервал `space/2xs`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Адрес`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/sm`.
+- `cell · Статус`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `cell · ⋯`: интервал `space/8`; мин. ширина `size/table-cell/min`; отступы `space/xs`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`.
-- Значений без переменной: 24 (напр. `hit area · web:w=840`, `hit area · web:h=48`, `hit area · web:h=64`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 36 (напр. `(root):w=840`, `hit area · web:w=840`, `hit area · web:h=48`, `hit area · web:h=64`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Только Web: строка данных в Table; на Compact — List item.
@@ -105,16 +98,16 @@
 ## 12. Figma projection
 - Набор `Table row`, вариантов 12 из 12; оси: Density, Selected, State.
 - Борда: «Table row — борда · шаблон v3», разделов 12.
-- Описание: 1621 знаков, разделы: Status: Level: Строка таблицы: Density: State: Колонки: A11y: Часть Table. Поиск: Legacy: Когда использовать: Правила:
+- Описание: 1698 знаков, разделы: Status: Level: Строка таблицы: Density: State: Колонки: A11y: Часть Table. Поиск: Legacy: Когда использовать: Правила:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`TableRow`), Vue `packages/vue/src/DsTableRow.vue`, CSS `claude-ds/components/TableRow/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTableRow>`; Flutter: `DsTableRow`.
-- Props: `density`: compact | regular; `selected`: boolean; `column7`: boolean = false; `column8`: boolean = false; `column9`: boolean = false; `column10`: boolean = false.
+- Props: `density`: compact | regular; `selected`: boolean; `cells`: string или слот.
 - Состояния (Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

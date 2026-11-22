@@ -19,6 +19,7 @@ export { default as DsSpinner } from './DsSpinner.vue';
 export { default as DsSkeleton } from './DsSkeleton.vue';
 export { default as DsProgress } from './DsProgress.vue';
 export { default as DsStatusBar } from './DsStatusBar.vue';
+export { default as DsBulkActionBar } from './DsBulkActionBar.vue';
 export { default as DsAmount } from './DsAmount.vue';
 export { default as DsCard } from './DsCard.vue';
 export { default as DsSectionHeader } from './DsSectionHeader.vue';

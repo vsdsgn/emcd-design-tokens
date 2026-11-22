@@ -1,4 +1,4 @@
-# Status bar — контракт · draft (2026-11-21)
+# Status bar — контракт · draft (2026-11-22)
 
 Заготовка: собрана автоматически, набор в Figma не менялся и по критерию «Готово» не проверялся. В макеты и код не брать.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -87,7 +87,7 @@
 - Vue: `<DsStatusBar>`; Flutter: `DsStatusBar`.
 - Props: `caption`: string или слот; `showCaption`: boolean = true; `showLegend`: boolean = true; `dangerValue`: string или слот; `showDanger`: boolean = true; `warningValue`: string или слот; `showWarning`: boolean = true; `successValue`: string или слот; `showSuccess`: boolean = true; `neutralValue`: string или слот; `showNeutral`: boolean = true.
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - Плагины `audit`, `variables-check`, `audit-parity` и стенд не прогонялись: набор draft.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - RAW: `segment · Danger:r=4`, `segment · Warning:r=4`, `segment · Success:r=4`, `segment · Neutral:r=4`

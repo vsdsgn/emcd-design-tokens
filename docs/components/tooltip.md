@@ -1,4 +1,4 @@
-# Tooltip — контракт (2026-11-21)
+# Tooltip — контракт (2026-11-22)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -90,7 +90,7 @@
 - Props: `placement`: top | bottom | start | end; `tone`: neutral | accent; `arrow`: center | start | end; `text`: string или слот.
 - Позиционирование — Floating UI: `flip` (fallbackPlacements: bottom, end, start), `shift`, `arrow`; уголок в коде — одна SVG-форма с пузырём.
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - `audit.plugin.js` — 0 после замены на месте 13.11 (OVERLAY и SERVICE 0); после правок 14.11 (Accent `text/on-accent`, обводка `border/default` на `overlay surface`) не перезапускался.
 - `variables-check.plugin.js` — не перезапускался после привязки min / max к `size/tooltip/*` (13.11) и правок 14.11; по манифесту значений без переменной 0.
 - `audit-parity.plugin.js` — 0 (13.11, прогон по страницам компонентов).

@@ -261,6 +261,19 @@ export function StatusBar({ caption, showCaption = true, showLegend = true, segm
       segs.map((x, i) => h('li', { key: i, className: 'emcd-status-bar__item' }, h(Status, { tone: x.tone, label: x.label }), h('span', { className: 'emcd-status-bar__value' }, x.value ?? x.count)))));
 }
 
+/** Bulk action bar — полоса массовых действий над выбранными строками (draft, 22.11): «Выбрано N из M», до двух действий (Button Tertiary M),
+ *  «⋯» (onMore — Menu с остальными, удаление — там), «Снять выбор» (onClear, Esc). count / total — числа; label — свой текст вместо «Выбрано N из M». */
+export function BulkActionBar({ count, total, label, actions = [], onMore, moreLabel = 'Ещё действия', onClear, clearLabel = 'Снять выбор', toolbarLabel = 'Действия с выбранными', className, ...rest }) {
+  const text = label ?? `Выбрано ${count}${total != null ? ' из ' + total : ''}`;
+  return h('div', { role: 'toolbar', 'aria-label': toolbarLabel, className: cx('emcd-bulk-bar', className),
+    onKeyDown: (e) => { if (e.key === 'Escape' && onClear) onClear(e); }, ...rest },
+    h('span', { className: 'emcd-bulk-bar__count', 'aria-live': 'polite' }, text),
+    h('span', { className: 'emcd-bulk-bar__actions' },
+      actions.slice(0, 2).map((a, i) => h(Button, { key: i, type: 'tertiary', size: 'm', label: a.label, iconLeft: a.icon && h(Icon, { name: a.icon, size: 'sm' }), onClick: a.onClick, disabled: a.disabled })),
+      onMore && h(IconButton, { type: 'tertiary', size: 'm', label: moreLabel, icon: h(Icon, { name: 'more-horizontal' }), onClick: onMore })),
+    onClear && h(IconButton, { type: 'ghost', size: 'm', label: clearLabel, icon: h(Icon, { name: 'close' }), onClick: onClear }));
+}
+
 const MINUS = '−';
 /** Amount — сумма + тикер (неразрывный пробел) + фиат второй строкой. Sign: positive «+» и цвет успеха; negative «−» (U+2212), не красный.
  *  tone (19.11): default | success | danger — цвет суммы и тикера без знака (только sign none; итог дохода в Калькуляторе — success); со знаком не применяется.
@@ -1065,7 +1078,7 @@ const SORT_ICON = { none: 'sort', descending: 'sort-line-down', ascending: 'sort
 /** Table header cell — заголовок колонки (`th scope=col`, `aria-sort`). align: start (текст) | end (числа). sortable — кнопка сортировки: None → Descending → Ascending (onSort(sort)).
  *  sort: none | ascending | descending (без sort — неуправляемый от defaultSort). showFilter / showInfo — иконки перед / после подписи. skeleton — полоса. */
 export function TableHeaderCell({ align = 'start', sort, defaultSort = 'none', onSort, sortable = true, label, children, showFilter = false, showInfo = false, infoLabel = 'Пояснение',
-  skeleton = false, width, className, style, ...rest }) {
+  selectAll = false, selectStatus = 'off', onSelectAll, selectLabel = 'Выбрать все', skeleton = false, width, className, style, ...rest }) {
   const [cur, set] = useControllable(sort, defaultSort, onSort);
   const text = label ?? children;
   const inner = [
@@ -1076,8 +1089,10 @@ export function TableHeaderCell({ align = 'start', sort, defaultSort = 'none', o
   return h('th', { scope: 'col', 'aria-sort': sortable && !skeleton ? cur : undefined, style: width != null ? { width, ...style } : style,
     className: cx('emcd-th', align === 'end' && 'emcd-th--end', sortable && cur !== 'none' && 'emcd-th--sorted', skeleton && 'emcd-th--skeleton', className), ...rest },
   skeleton ? h('span', { className: 'emcd-th__bone', 'aria-hidden': true })
-    : sortable ? h('button', { type: 'button', className: 'emcd-th__button', onClick: (e) => set(SORT_NEXT[cur] || 'descending', e) }, ...inner)
-      : h('span', { className: 'emcd-th__content' }, ...inner));
+    : h('span', { className: cx(selectAll && 'emcd-th__select-row') },
+      selectAll && h(Checkbox, { status: selectStatus, onChange: onSelectAll, label: selectLabel, className: 'emcd-th__select' }),
+      sortable ? h('button', { type: 'button', className: 'emcd-th__button', onClick: (e) => set(SORT_NEXT[cur] || 'descending', e) }, ...inner)
+        : h('span', { className: 'emcd-th__content' }, ...inner)));
 }
 
 /** Table cell — ячейка (`td`). align: start | end (числа, суммы, действия). Содержимое — children (атом DS: Coin, Amount, Status, Icon button…) или primary + secondary (две строки текста).
@@ -1517,7 +1532,7 @@ export function TabBar({ items, value, defaultValue, onChange, onAction, safeAre
 }
 
 export const components = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal,
-  Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, StatusBar, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented,
+  Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, StatusBar, BulkActionBar, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented,
   ListItem, Transaction, MenuItem, Menu, Select, PasswordField,
   Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateRangeField, DateCell, Calendar, DateRangePanel, PageIndicator, LegendSwatch, LegendItem, ChartMetric,
   TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar,

@@ -1,4 +1,4 @@
-# Step — контракт (2026-11-21)
+# Step — контракт (2026-11-22)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -89,7 +89,7 @@
 - Props: `label`: string или слот; `description`: string или слот; `showDescription`: boolean = false.
 - Состояния (Default, Current, Success) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 120).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

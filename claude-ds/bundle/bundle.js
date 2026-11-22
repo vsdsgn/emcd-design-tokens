@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Skeleton"},{"name":"Progress"},{"name":"StatusBar"},{"name":"Amount"},{"name":"Card"},{"name":"SectionHeader"},{"name":"PageHeader"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"Sheet"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
+/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Skeleton"},{"name":"Progress"},{"name":"StatusBar"},{"name":"BulkActionBar"},{"name":"Amount"},{"name":"Card"},{"name":"SectionHeader"},{"name":"PageHeader"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"Sheet"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
 /* EMCD DS 2.0 — компоненты React 18. Генерируется scripts/code-build.mjs из packages/react/src/index.js — не править руками. */
 (function () {
 'use strict';
@@ -263,6 +263,19 @@ function StatusBar({ caption, showCaption = true, showLegend = true, segments = 
       segs.filter((x) => Number(x.count) > 0).map((x, i) => h('span', { key: i, className: cx('emcd-status-bar__segment', 'emcd-status-bar__segment--' + x.tone), style: { flexGrow: total ? Number(x.count) / total : 1 } }))),
     showLegend && h('ul', { className: 'emcd-status-bar__legend', 'aria-hidden': true },
       segs.map((x, i) => h('li', { key: i, className: 'emcd-status-bar__item' }, h(Status, { tone: x.tone, label: x.label }), h('span', { className: 'emcd-status-bar__value' }, x.value ?? x.count)))));
+}
+
+/** Bulk action bar — полоса массовых действий над выбранными строками (draft, 22.11): «Выбрано N из M», до двух действий (Button Tertiary M),
+ *  «⋯» (onMore — Menu с остальными, удаление — там), «Снять выбор» (onClear, Esc). count / total — числа; label — свой текст вместо «Выбрано N из M». */
+function BulkActionBar({ count, total, label, actions = [], onMore, moreLabel = 'Ещё действия', onClear, clearLabel = 'Снять выбор', toolbarLabel = 'Действия с выбранными', className, ...rest }) {
+  const text = label ?? `Выбрано ${count}${total != null ? ' из ' + total : ''}`;
+  return h('div', { role: 'toolbar', 'aria-label': toolbarLabel, className: cx('emcd-bulk-bar', className),
+    onKeyDown: (e) => { if (e.key === 'Escape' && onClear) onClear(e); }, ...rest },
+    h('span', { className: 'emcd-bulk-bar__count', 'aria-live': 'polite' }, text),
+    h('span', { className: 'emcd-bulk-bar__actions' },
+      actions.slice(0, 2).map((a, i) => h(Button, { key: i, type: 'tertiary', size: 'm', label: a.label, iconLeft: a.icon && h(Icon, { name: a.icon, size: 'sm' }), onClick: a.onClick, disabled: a.disabled })),
+      onMore && h(IconButton, { type: 'tertiary', size: 'm', label: moreLabel, icon: h(Icon, { name: 'more-horizontal' }), onClick: onMore })),
+    onClear && h(IconButton, { type: 'ghost', size: 'm', label: clearLabel, icon: h(Icon, { name: 'close' }), onClick: onClear }));
 }
 
 const MINUS = '−';
@@ -1069,7 +1082,7 @@ const SORT_ICON = { none: 'sort', descending: 'sort-line-down', ascending: 'sort
 /** Table header cell — заголовок колонки (`th scope=col`, `aria-sort`). align: start (текст) | end (числа). sortable — кнопка сортировки: None → Descending → Ascending (onSort(sort)).
  *  sort: none | ascending | descending (без sort — неуправляемый от defaultSort). showFilter / showInfo — иконки перед / после подписи. skeleton — полоса. */
 function TableHeaderCell({ align = 'start', sort, defaultSort = 'none', onSort, sortable = true, label, children, showFilter = false, showInfo = false, infoLabel = 'Пояснение',
-  skeleton = false, width, className, style, ...rest }) {
+  selectAll = false, selectStatus = 'off', onSelectAll, selectLabel = 'Выбрать все', skeleton = false, width, className, style, ...rest }) {
   const [cur, set] = useControllable(sort, defaultSort, onSort);
   const text = label ?? children;
   const inner = [
@@ -1080,8 +1093,10 @@ function TableHeaderCell({ align = 'start', sort, defaultSort = 'none', onSort, 
   return h('th', { scope: 'col', 'aria-sort': sortable && !skeleton ? cur : undefined, style: width != null ? { width, ...style } : style,
     className: cx('emcd-th', align === 'end' && 'emcd-th--end', sortable && cur !== 'none' && 'emcd-th--sorted', skeleton && 'emcd-th--skeleton', className), ...rest },
   skeleton ? h('span', { className: 'emcd-th__bone', 'aria-hidden': true })
-    : sortable ? h('button', { type: 'button', className: 'emcd-th__button', onClick: (e) => set(SORT_NEXT[cur] || 'descending', e) }, ...inner)
-      : h('span', { className: 'emcd-th__content' }, ...inner));
+    : h('span', { className: cx(selectAll && 'emcd-th__select-row') },
+      selectAll && h(Checkbox, { status: selectStatus, onChange: onSelectAll, label: selectLabel, className: 'emcd-th__select' }),
+      sortable ? h('button', { type: 'button', className: 'emcd-th__button', onClick: (e) => set(SORT_NEXT[cur] || 'descending', e) }, ...inner)
+        : h('span', { className: 'emcd-th__content' }, ...inner)));
 }
 
 /** Table cell — ячейка (`td`). align: start | end (числа, суммы, действия). Содержимое — children (атом DS: Coin, Amount, Status, Icon button…) или primary + secondary (две строки текста).
@@ -1519,5 +1534,5 @@ function TabBar({ items, value, defaultValue, onChange, onAction, safeArea = tru
   return h('nav', { 'aria-label': label, className: cx('emcd-tab-bar', !safeArea && 'emcd-tab-bar--no-safe-area', className), ...rest },
     h('div', { className: 'emcd-tab-bar__items' }, body));
 }
-window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, StatusBar, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, Sheet, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
+window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, StatusBar, BulkActionBar, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, Sheet, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
 })();

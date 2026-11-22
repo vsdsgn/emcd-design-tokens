@@ -1,4 +1,4 @@
-# Select — контракт (2026-11-21)
+# Select — контракт (2026-11-22)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -101,7 +101,7 @@
 - React `Select` / Vue `DsSelect`: `labelPosition: 'above' | 'on-border'` (19.11), по умолчанию `above` — формы; `on-border` — панели фильтров и калькуляторы (История Web, «Монета» на мобильном). Класс поля `emcd-field--on-border`, как у Input / Date range field.
 - Остальные props: `size` (`m` | `l`), `label`, `hint`, `error`, `state`, `placeholder`, `options`, `value` / `defaultValue` / `onChange`, `open` / `defaultOpen` / `onOpenChange`, `leading`, `menuSize`.
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

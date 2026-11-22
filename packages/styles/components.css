@@ -443,6 +443,15 @@
 .emcd-status-bar__item { display: inline-flex; align-items: center; gap: var(--space-4, 4px); }
 .emcd-status-bar__value { font: 400 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-sans); font-variant-numeric: tabular-nums; color: var(--text-primary); }
 
+/* Bulk action bar — 🟠 draft (Figma «🟠 Bulk action bar», 22.11). Поверхность — как у Toast (surface/raised, обводка border/subtle, тень);
+   отступы space/8 · space/16 слева · space/8 справа, зазор space/12, радиус radius/control (как Toast). Web — плавающая по центру над низом окна; Compact — над Tab bar. */
+.emcd-bulk-bar { box-sizing: border-box; display: inline-flex; align-items: center; gap: var(--space-12, 12px); max-width: 100%;
+  padding: var(--space-8, 8px) var(--space-8, 8px) var(--space-8, 8px) var(--space-16, 16px); border-radius: var(--radius-control, 12px);
+  background: var(--surface-raised); color: var(--text-primary);
+  box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle), 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient); }
+.emcd-bulk-bar__count { flex: none; font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.emcd-bulk-bar__actions { display: inline-flex; align-items: center; gap: var(--space-8, 8px); min-width: 0; }
+
 /* Amount — 🟡 beta (Figma «🟡 Amount»: Size × Sign × Align). Сумма, тикер через неразрывный пробел, фиат второй строкой.
    S 12 / M 14 — font/family/text с табличными цифрами (моно снято 17.11); L — type/heading/lg (Web 24, Compact 20; 19.11, было heading/xl = 32 на Web) Bold, тикер того же кегля Medium; XL — display Bold. Списание не красное. */
 .emcd-amount { --fs: var(--type-body-sm-size, 12px); --lh: var(--type-body-sm-line-height, 16px); --ff: var(--font-sans); --fw: 400;
@@ -1178,6 +1187,10 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-th--sorted .emcd-th__sort { color: var(--icon-primary, var(--text-primary)); }
 .emcd-th__bone { display: inline-block; width: 64px; height: 12px; border-radius: var(--radius-chip, 999px); background: var(--skeleton-base); vertical-align: middle; }
 @media (prefers-reduced-motion: reduce) { .emcd-th__button::before { transition: none; } }
+.emcd-th__select-row { display: inline-flex; align-items: center; gap: var(--space-8, 8px); }
+.emcd-th__select { flex: none; }
+/* подпись «Выбрать все» — только для читалки */
+.emcd-th__select .emcd-check__text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Table cell — 🟡 beta (Figma «🟡 Table cell»: Align × State; слот Content). td: поля space/12, зазор space/8, min-width size/table-cell/min 80; высота — по строке (Table row 48 / 64).
    Content по умолчанию — две строки: primary label-md (14, 19.11 — как Amount M) Medium text-primary + secondary text-secondary того же кегля; одна строка, многоточие. Иначе — атом DS (Coin, Amount, Status, Icon button…).

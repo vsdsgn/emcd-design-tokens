@@ -1,4 +1,4 @@
-# Table header cell — контракт (2026-11-21)
+# Table header cell — контракт (2026-11-22)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -13,6 +13,7 @@
 - Когда использовать: заголовок колонки в Table.
 - Когда нет: заголовок блока или карточки — текстовый стиль Heading; вне таблицы не используется.
 - Правило выбора варианта:
+  - Select all (22.11): Checkbox перед подписью — только в первой колонке таблицы с выбором строк; Off / Indeterminate (выбрана часть) / On (все строки страницы); строки выбираются Checkbox первой ячейкой, выбранная — Table row Selected=On; при выборе — Bulk action bar.
   - Sortable (18.11, по продукту): у сортируемой колонки в Sort=None — иконка `icon/sort` (`text/tertiary`) перед подписью; Descending — `icon/sort-line-down`, Ascending — `icon/sort-line-up` (`text/primary`); Sortable = Off — колонка без сортировки, без иконки
   - Align: Start — текст, даты, статусы; End — числа и суммы (заголовок у конца строки, стрелка перед текстом). Start / End — логические стороны, в RTL зеркалятся.
   - Sort: None — колонка не отсортирована или не сортируется (`text/tertiary`); Ascending / Descending — активная сортировка (`text/primary` + стрелка).
@@ -27,7 +28,7 @@
 - Корень: высота `size/table/header`, отступы `space/12`, зазор `space/4`, min-width `size/table-cell/min`, ширина — по колонке.
 - `label` — Align=Start: по содержимому, стрелка сортировки сразу после подписи (16.11, по продукту); Align=End: Fill с выравниванием к концу; `type/label/md/*`, `font-weight/medium`; стрелка сортировки, иконки фильтра и info (Show filter / Show info).
 - Служебные: `state layer` (`state/layer` × `state/hover` / `state/pressed`), `focus ring` (внутри ячейки), зоны `hit area · web` / `· app`, `safe area · outer`; `skeleton` (`skeleton/base`, `radius/chip`).
-- Вложено: иконки ×54.
+- Вложено: `Checkbox` ×20, иконки ×54.
 - Служебные слои (вариантов из 20): кольцо фокуса 20 · зона Web 20 · зона касания 20 · безопасное поле 20.
 
 ## 4. States
@@ -59,6 +60,7 @@
 | Show filter | булево | выкл | 18 из 20 |
 | Show info | булево | выкл | 18 из 20 |
 | Sortable | булево | вкл | 6 из 20 |
+| Select all | булево | выкл | 20 из 20 |
 
 - Label — текст заголовка (по умолчанию «Сумма»); Focus ring, Show hit area, Safe margin — служебные; Show filter, Show info — нет у Skeleton.
 
@@ -81,6 +83,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `space/4`; высота `size/table/header`; мин. ширина `size/table-cell/min`; отступы `space/12`.
+- `select all`: maxw `size/field/max`.
 - `label`: заливка / цвет `text/primary`, `text/tertiary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `skeleton`: заливка / цвет `skeleton/base`; радиус `radius/chip`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`.
@@ -94,16 +97,16 @@
 ## 12. Figma projection
 - Набор `Table header cell`, вариантов 20 из 24; оси: Align, Sort, State.
 - Борда: «Table header cell — борда · шаблон v3», разделов 12.
-- Описание: 1318 знаков, разделы: Status: Level: Правила: Длинный текст: A11y: Часть Table. Поиск: Legacy: Когда использовать: Матрица: Sortable (18.
+- Описание: 1608 знаков, разделы: Status: Level: Правила: Длинный текст: A11y: Часть Table. Поиск: Legacy: Когда использовать: Матрица: Sortable (18. Select all (22.
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`TableHeaderCell`), Vue `packages/vue/src/DsTableHeaderCell.vue`, CSS `claude-ds/components/TableHeaderCell/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsTableHeaderCell>`; Flutter: `DsTableHeaderCell`.
-- Props: `align`: start | end; `sort`: none | ascending | descending; `label`: string или слот; `showFilter`: boolean = false; `showInfo`: boolean = false; `sortable`: boolean = true.
+- Props: `align`: start | end; `sort`: none | ascending | descending; `label`: string или слот; `showFilter`: boolean = false; `showInfo`: boolean = false; `sortable`: boolean = true; `selectAll`: boolean = false.
 - Состояния (Skeleton, Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

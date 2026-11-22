@@ -1,4 +1,4 @@
-# Transaction — контракт (2026-11-21)
+# Transaction — контракт (2026-11-22)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -91,7 +91,7 @@
 - Состояния (Default, Hover, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 - `fiat` — фиат «≈ $…» под суммой, только у `status="completed"` (Status не рендерится, 19.11); у pending / failed — Amount без фиата + Status (`statusLabel` — своё слово).
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

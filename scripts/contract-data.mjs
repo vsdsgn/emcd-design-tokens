@@ -2353,6 +2353,7 @@ export const DATA = [
     use: 'заголовок колонки в Table.',
     dont: 'заголовок блока или карточки — текстовый стиль Heading; вне таблицы не используется.',
     rule: [
+      'Select all (22.11): Checkbox перед подписью — только в первой колонке таблицы с выбором строк; Off / Indeterminate (выбрана часть) / On (все строки страницы); строки выбираются Checkbox первой ячейкой, выбранная — Table row Selected=On; при выборе — Bulk action bar.',
       'Sortable (18.11, по продукту): у сортируемой колонки в Sort=None — иконка `icon/sort` (`text/tertiary`) перед подписью; Descending — `icon/sort-line-down`, Ascending — `icon/sort-line-up` (`text/primary`); Sortable = Off — колонка без сортировки, без иконки',
       'Align: Start — текст, даты, статусы; End — числа и суммы (заголовок у конца строки, стрелка перед текстом). Start / End — логические стороны, в RTL зеркалятся.',
       'Sort: None — колонка не отсортирована или не сортируется (`text/tertiary`); Ascending / Descending — активная сортировка (`text/primary` + стрелка).',

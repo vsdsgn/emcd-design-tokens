@@ -1,4 +1,4 @@
-# Tab bar item — контракт (2026-11-21)
+# Tab bar item — контракт (2026-11-22)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -94,7 +94,7 @@
 - Состояния (Default, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 - `type="action"` — плашка без подписи: `label` уходит в `aria-label` (обязателен), `selected` игнорируется; `badgeDot` добавляет к доступному имени `badgeLabel` («есть уведомления»).
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - `audit.plugin.js` — `raw radius 12 @state layer` — радиус слоя состояния числом.
 - `variables-check.plugin.js` — `maxWidth 72 @label` числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

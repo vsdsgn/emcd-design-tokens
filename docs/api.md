@@ -1,4 +1,4 @@
-# Ожидаемый API компонентов — beta (2026-11-21)
+# Ожидаемый API компонентов — beta (2026-11-22)
 
 Собрано `scripts/agent-docs.mjs` из `docs/ds-manifest.json` — править не здесь, а в Figma (потом манифест) или в `scripts/contract-data.mjs`.
 Это **ожидаемый** API по правилам имён `scripts/parity.mjs`: кода (DSP, Vue `ui-emcd-web`, Flutter) в доступе нет (`docs/dsp-check-2026-11-12.md`). Когда появится манифест кода — `npm run parity` сверит.
@@ -1238,6 +1238,7 @@ Props нет.
 | `showFilter` | boolean | false | свойство Show filter |
 | `showInfo` | boolean | false | свойство Show info |
 | `sortable` | boolean | true | свойство Sortable |
+| `selectAll` | boolean | false | свойство Select all |
 
 Состояния в Figma: Skeleton · Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 
@@ -1251,10 +1252,7 @@ Props нет.
 |---|---|---|---|
 | `density` | compact \| regular | по правилу контракта | ось Density |
 | `selected` | off \| on | по правилу контракта | ось Selected |
-| `column7` | boolean | false | свойство Column 7 |
-| `column8` | boolean | false | свойство Column 8 |
-| `column9` | boolean | false | свойство Column 9 |
-| `column10` | boolean | false | свойство Column 10 |
+| `cells` | slot | — | свойство Cells |
 
 Состояния в Figma: Default · Hover · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа.
 

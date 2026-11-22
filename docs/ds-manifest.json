@@ -1,20 +1,20 @@
 {
- "generated": "2026-11-21",
+ "generated": "2026-11-22",
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
-   "unknown": 100
+   "unknown": 101
   },
   "sets": {
-   "unknown": 102
+   "unknown": 103
   },
   "status": {
    "beta": 93,
-   "draft": 4,
+   "draft": 5,
    "service": 4,
    "template": 1
   },
-  "variants": 1688,
+  "variants": 1689,
   "incompleteMatrix": 20,
   "propsNotBoundEverywhere": 21,
   "rawMinMax": 1,
@@ -22,7 +22,7 @@
   "withFocusRing": 21,
   "withHitArea": 20,
   "withSafeMargin": 23,
-  "pagesWithoutV3Board": 1,
+  "pagesWithoutV3Board": 2,
   "pagesWithFullBoard": 22,
   "baseSets": 11
  },
@@ -1324,6 +1324,136 @@
        "fontSize:type/body/md/size",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Bulk action bar",
+   "pageId": "2398:15",
+   "pageMark": "🟠",
+   "boards": [],
+   "boardMissing": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+   ],
+   "sets": [
+    {
+     "name": "Bulk action bar",
+     "id": "2398:16",
+     "type": "COMPONENT",
+     "status": "draft",
+     "descLen": 918,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Когда использовать:",
+      "Когда нет:",
+      "Правила:",
+      "A11y:"
+     ],
+     "inBoard": false,
+     "axes": {},
+     "variants": 1,
+     "full": 1,
+     "props": [
+      {
+       "name": "Count",
+       "type": "TEXT",
+       "def": "Выбрано 2 из 120",
+       "bound": 1
+      },
+      {
+       "name": "Show action 2",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 1
+      },
+      {
+       "name": "Show more",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 1
+      }
+     ],
+     "nested": {
+      "_Overlay surface": 1,
+      "Button": 2,
+      "Icon button": 2
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 0,
+     "raw": [],
+     "tokens": {
+      "(root)": [
+       "gap:space/12",
+       "p:space/16",
+       "p:space/8",
+       "r:radius/control"
+      ],
+      "overlay surface": [
+       "effects:shadow/ambient",
+       "effects:shadow/key",
+       "f:surface/raised",
+       "r:radius/control"
+      ],
+      "count": [
+       "f:text/primary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/md/size",
+       "lineHeight:type/label/md/line-height"
+      ],
+      "actions": [
+       "gap:space/8"
+      ],
+      "action 1": [
+       "f:action/secondary/default",
+       "gap:space/4",
+       "h:control/height/md",
+       "minw:size/button/min",
+       "p:space/12",
+       "r:radius/control"
+      ],
+      "action 2": [
+       "f:action/secondary/default",
+       "gap:space/4",
+       "h:control/height/md",
+       "minw:size/button/min",
+       "p:space/12",
+       "r:radius/control"
+      ],
+      "more": [
+       "f:action/secondary/default",
+       "gap:space/6",
+       "h:control/height/md",
+       "r:radius/control",
+       "w:control/height/md"
+      ],
+      "close": [
+       "gap:space/6",
+       "h:control/height/md",
+       "r:radius/control",
+       "w:control/height/md"
       ]
      },
      "statusFirstLine": true
@@ -12882,7 +13012,7 @@
      "id": "62:67",
      "type": "SET",
      "status": "beta",
-     "descLen": 1318,
+     "descLen": 1608,
      "descHeads": [
       "Status:",
       "Level:",
@@ -12894,7 +13024,8 @@
       "Legacy:",
       "Когда использовать:",
       "Матрица:",
-      "Sortable (18."
+      "Sortable (18.",
+      "Select all (22."
      ],
      "inBoard": false,
      "axes": {
@@ -12958,9 +13089,16 @@
        "type": "BOOLEAN",
        "def": true,
        "bound": 6
+      },
+      {
+       "name": "Select all",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 20
       }
      ],
      "nested": {
+      "Checkbox": 20,
       "(icons)": 54
      },
      "minmax": [
@@ -12985,6 +13123,9 @@
        "h:size/table/header",
        "minw:size/table-cell/min",
        "p:space/12"
+      ],
+      "select all": [
+       "maxw:size/field/max"
       ],
       "label": [
        "f:text/primary",
@@ -13060,7 +13201,7 @@
      "id": "63:291",
      "type": "SET",
      "status": "beta",
-     "descLen": 1621,
+     "descLen": 1698,
      "descHeads": [
       "Status:",
       "Level:",
@@ -13113,32 +13254,13 @@
        "bound": 12
       },
       {
-       "name": "Column 7",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 12
-      },
-      {
-       "name": "Column 8",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 12
-      },
-      {
-       "name": "Column 9",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 12
-      },
-      {
-       "name": "Column 10",
-       "type": "BOOLEAN",
-       "def": false,
+       "name": "Cells",
+       "type": "SLOT",
        "bound": 12
       }
      ],
      "nested": {
-      "Table cell": 120,
+      "Table cell": 72,
       "_Hit area": 24,
       "_Safe margin": 12
      },
@@ -13150,8 +13272,9 @@
       "hit": 12,
       "safe": 12
      },
-     "rawCount": 24,
+     "rawCount": 36,
      "raw": [
+      "(root):w=840",
       "hit area · web:w=840",
       "hit area · web:h=48",
       "hit area · web:h=64"
@@ -13165,62 +13288,32 @@
       ],
       "cell · Дата": [
        "gap:space/8",
-       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Монета": [
        "gap:space/sm",
        "gap:space/xs",
-       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Сумма": [
        "gap:space/2xs",
-       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Адрес": [
        "gap:space/8",
-       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/sm"
       ],
       "cell · Статус": [
        "gap:space/8",
-       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/12"
       ],
-      "cell · 7": [
-       "gap:space/8",
-       "h:size/row/lg",
-       "minw:size/table-cell/min",
-       "p:space/sm"
-      ],
-      "cell · 8": [
-       "gap:space/8",
-       "h:size/row/lg",
-       "minw:size/table-cell/min",
-       "p:space/sm"
-      ],
-      "cell · 9": [
-       "gap:space/8",
-       "h:size/row/lg",
-       "minw:size/table-cell/min",
-       "p:space/sm"
-      ],
-      "cell · 10": [
-       "gap:space/8",
-       "h:size/row/lg",
-       "minw:size/table-cell/min",
-       "p:space/sm"
-      ],
       "cell · ⋯": [
        "gap:space/8",
-       "h:size/row/lg",
        "minw:size/table-cell/min",
        "p:space/xs"
       ],

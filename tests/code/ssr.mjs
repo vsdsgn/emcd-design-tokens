@@ -90,6 +90,7 @@ const RC = {
   Divider: [{}, { label: true }, { orientation: 'vertical' }, { style: 'dotted' }],
   Spinner: [{}, { size: 'm' }, { size: 'l', label: 'Загружаем' }],
   Skeleton: [{}, { shape: 'title', width: 200 }, { shape: 'circle', width: 24, height: 24 }, { shape: 'rect', height: 80, style: { marginTop: 4 } }],
+  BulkActionBar: [{ count: 2, total: 120, actions: [{ label: 'Перевести в ожидание' }, { label: 'Сменить площадку' }], onMore: () => {}, onClear: () => {} }, { label: 'Выбраны все 120', onClear: () => {} }],
   StatusBar: [{ caption: 'Статусы активных устройств', segments: [{ tone: 'danger', label: 'Сбой', count: 1000, value: '1 000' }, { tone: 'success', label: 'Норма', count: 16500 }, { tone: 'neutral', label: 'Выкл', count: 0, value: '—' }] }, { showCaption: false, showLegend: false, segments: [{ tone: 'danger', label: 'Сбой', count: 1000, value: '1 000' }, { tone: 'success', label: 'Норма', count: 16500 }, { tone: 'neutral', label: 'Выкл', count: 0, value: '—' }] }],
   Progress: [{ label: 'Лимит', value: '6 000 / 10 000 USDT', percent: 60 }, ...['success', 'warning', 'danger'].map((tone) => ({ tone, size: 'm', percent: 90, label: 'x' })), { mode: 'indeterminate', label: 'Загрузка' }],
   Amount: [
@@ -180,7 +181,7 @@ const RC = {
   LegendItem: [{ label: 'Хешрейт, TH/s' }, { label: 'Реджекты, %', series: 4, selected: true, value: '1.2 %', showValue: true }, { label: 'Линия', marker: 'line', series: 5, onClick: () => {} }, { skeleton: true }],
   ChartMetric: [...['default', 'danger', 'warning', 'success'].map((tone) => ({ tone, label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true })), { label: 'Текущий хешрейт', skeleton: true, tone: 'danger', icon: true },
     { label: 'Реджекты за 1 день', value: '5.05', unit: '%' }, { label: 'x', value: '1', showUnit: false, unit: 'TH/s', icon: 'chart-bar' }, { label: 'x', value: '1', icon: ico() }],
-  TableHeaderCell: [...['start', 'end'].flatMap((align) => ['none', 'ascending', 'descending'].map((sort) => ({ align, sort, onSort: () => {}, label: 'Хешрейт' }))),
+  TableHeaderCell: [{ label: 'ID', sortable: false, selectAll: true, selectStatus: 'indeterminate' }, ...['start', 'end'].flatMap((align) => ['none', 'ascending', 'descending'].map((sort) => ({ align, sort, onSort: () => {}, label: 'Хешрейт' }))),
     { label: 'Имя и статус', defaultSort: 'descending' }, { label: 'Тип', sortable: false, showFilter: true, showInfo: true }, { skeleton: true, label: 'x' }, { align: 'end', skeleton: true }],
   TableCell: [{ primary: '12 окт 2025', secondary: '10:37' }, { align: 'end', children: h(R.Amount, { value: '10.45', ticker: 'TH/s', align: 'end' }) }, { skeleton: true }, { align: 'end', skeleton: true }, { disabled: true, primary: 'worker-4' }],
   TableRow: [{ children: h(R.TableCell, { primary: 'worker-1' }) }, { density: 'regular', selected: true, children: h(R.TableCell, { primary: 'x' }) }, { onClick: () => {}, children: h(R.TableCell, { primary: 'x' }) }],
@@ -314,6 +315,7 @@ const VC = {
   DsDivider: [[{}], [{ label: true }], [{ orientation: 'vertical' }], [{ variant: 'dotted' }]],
   DsSpinner: [[{}], [{ size: 'l', label: 'x' }]],
   DsSkeleton: [[{}], [{ shape: 'title', width: 200 }], [{ shape: 'circle', width: 24, height: 24 }], [{ shape: 'rect', height: '80px' }]],
+  DsBulkActionBar: [[{ count: 2, total: 120, actions: [{ label: 'Перевести' }] }]],
   DsStatusBar: [[{ caption: 'Статусы', segments: [{ tone: 'danger', label: 'Сбой', count: 1000, value: '1 000' }, { tone: 'success', label: 'Норма', count: 16500 }, { tone: 'neutral', label: 'Выкл', count: 0, value: '—' }] }]],
   DsProgress: [[{ label: 'Лимит', value: '6 000 / 10 000', percent: 60 }], [{ tone: 'danger', size: 'm', percent: 100 }], [{ mode: 'indeterminate', label: 'x' }]],
   DsAmount: ['s', 'm', 'l', 'xl'].map((size) => [{ size, sign: 'positive', value: '0.1234', ticker: 'BTC', fiat: '≈ $2,731.40' }]).concat([[{ sign: 'negative', align: 'end', value: 5, ticker: 'USDT', showFiat: false }]])
@@ -367,7 +369,7 @@ const VC = {
   DsLegendItem: [[{ label: 'Хешрейт, TH/s' }], [{ label: 'Реджекты, %', series: 4, selected: true, value: '1.2 %', showValue: true }], [{ label: 'x', marker: 'line', series: 6, interactive: true }], [{ skeleton: true }]],
   DsChartMetric: ['default', 'danger', 'warning', 'success'].map((tone) => [{ tone, label: 'Текущий хешрейт', value: '30.15', unit: 'TH/s', icon: true }])
     .concat([[{ label: 'x', value: 1, showUnit: false, icon: 'chart-bar' }], [{ label: 'x', value: 1 }, { icon: vico }], [{ label: 'Текущий хешрейт', skeleton: true, tone: 'danger' }]]),
-  DsTableHeaderCell: ['start', 'end'].flatMap((align) => ['none', 'ascending', 'descending'].map((sort) => [{ align, sort, label: 'Хешрейт' }]))
+  DsTableHeaderCell: [[{ label: 'ID', sortable: false, selectAll: true, selectStatus: 'indeterminate' }], ...['start', 'end'].flatMap((align) => ['none', 'ascending', 'descending'].map((sort) => [{ align, sort, label: 'Хешрейт' }]))]
     .concat([[{ label: 'Тип', sortable: false, showFilter: true, showInfo: true }], [{ skeleton: true }]]),
   DsTableCell: [[{ primary: '12 окт 2025', secondary: '10:37' }], [{ align: 'end' }, { default: () => '10.45 TH/s' }], [{ skeleton: true }], [{ disabled: true, primary: 'x' }]],
   DsTableRow: [[{}, { default: () => vh('td', null, 'x') }], [{ density: 'regular', selected: true, interactive: true }, { default: () => vh('td', null, 'x') }]],

@@ -1,4 +1,4 @@
-# Chart plot — контракт (2026-11-21)
+# Chart plot — контракт (2026-11-22)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -106,7 +106,7 @@
 - Props: `type`: bars | line | area | line-bars | multi-line | dual-area | stacked-bars.
 - Состояния (Default, Hover, Skeleton, Empty, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — размер корня 473 × 140 и прозрачности `area` 0.45 / `bar` 0.35 / `halo` 0.24 — числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

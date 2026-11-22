@@ -1,4 +1,4 @@
-# Toast — контракт (2026-11-21)
+# Toast — контракт (2026-11-22)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -108,7 +108,7 @@
 - Vue: `<DsToast>`; Flutter: `DsToast`.
 - Props: `layout`: card | informer; `tone`: info | success | warning | danger | neutral; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `actions`: boolean = false; `close`: boolean = true; `icon`: boolean = true; `showDescription`: boolean = true; `timer`: boolean = false; `safeArea`: boolean = true.
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - `audit.plugin.js` — 0 после замены на месте 13.11 (OVERLAY и SERVICE 0); после правок 13.11 (ночь: крестик Informer Neutral `icon/inverse`, полоса Informer по высоте, ряд кнопок Card по центру) не перезапускался.
 - `variables-check.plugin.js` — ширина корня 400 / 375 числом.
 - `audit-parity.plugin.js` — 0 (13.11, прогон по страницам компонентов).

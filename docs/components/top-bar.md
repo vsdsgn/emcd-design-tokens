@@ -1,4 +1,4 @@
-# Top bar — контракт (2026-11-21)
+# Top bar — контракт (2026-11-22)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -119,7 +119,7 @@
 - Mobile web: `logo` (по умолчанию знак EMCD, 24), `account`, `balance`, `cents`, `showBalance`, `onMenu`, `menuLabel` (по умолчанию «Меню»).
 - App: `account` + `accountOptions` / `accountValue` / `onAccountChange`; `coin` + `coins` (тикеры Coin stack, по умолчанию `[coin]`) + `coinOptions` / `coinValue` / `onCoinChange`; `onAdd`, `addLabel` (по умолчанию «Подключить»).
 
-## 14. Acceptance (2026-11-21)
+## 14. Acceptance (2026-11-22)
 - `audit.plugin.js` — не прогонялся: перевод в beta 21.11 по репо (код, README, `docs/patterns.md`); плагины — вместе с правкой описания набора в Figma.
 - `variables-check.plugin.js` — не прогонялся (ширина 375 и высота 56 корня — числом, образец).
 - `audit-parity.plugin.js` — не прогонялся: перевод в beta 21.11 по репо.

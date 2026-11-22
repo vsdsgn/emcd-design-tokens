@@ -238,6 +238,24 @@ export interface StatusBarProps {
   /** Порядок выводится сам: Danger → Warning → Success → Neutral. */
   segments: StatusBarSegment[];
 }
+export interface BulkAction { label: string; icon?: string; onClick?: (e: any) => void; disabled?: boolean; }
+export interface BulkActionBarProps {
+  /** Сколько выбрано. */
+  count?: number;
+  /** Всего строк — «Выбрано 2 из 120». */
+  total?: number;
+  /** Свой текст вместо «Выбрано N из M». */
+  label?: string;
+  /** До двух действий (Button Tertiary M); остальные — в Menu по onMore. */
+  actions?: BulkAction[];
+  onMore?: (e: any) => void;
+  moreLabel?: string;
+  /** «Снять выбор» (и Esc). */
+  onClear?: (e: any) => void;
+  clearLabel?: string;
+  toolbarLabel?: string;
+  className?: string;
+}
 export interface ProgressProps {
   /** s — дорожка 4 (строки, карточки); m — 8 (отдельный блок). */
   size?: 's' | 'm';
@@ -625,6 +643,8 @@ export declare function Skeleton(props: SkeletonProps): JSX.Element;
 export declare function Progress(props: ProgressProps): JSX.Element;
 /** Status bar — полоса статусов парка: подпись, сегменты по статусам, легенда «Status + число» (draft). */
 export declare function StatusBar(props: StatusBarProps): JSX.Element;
+/** Bulk action bar — массовые действия над выбранными строками таблицы (draft). */
+export declare function BulkActionBar(props: BulkActionBarProps): JSX.Element;
 export declare function Amount(props: AmountProps): JSX.Element;
 export declare function Card(props: CardProps): JSX.Element;
 /** Section header — заголовок секции внутри карточки или формы (draft). */
@@ -913,6 +933,13 @@ export interface TableHeaderCellProps {
   showFilter?: boolean;
   showInfo?: boolean;
   infoLabel?: string;
+  /** Checkbox «выбрать все» перед подписью — первая колонка таблицы с выбором строк (22.11). */
+  selectAll?: boolean;
+  /** off | on | indeterminate (выбрана часть строк). */
+  selectStatus?: 'off' | 'on' | 'indeterminate';
+  onSelectAll?: (checked: boolean, event: any) => void;
+  /** Доступное имя чекбокса: «Выбрать все». */
+  selectLabel?: string;
   skeleton?: boolean;
   width?: number | string;
   className?: string;
