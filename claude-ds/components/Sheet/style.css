@@ -3,7 +3,7 @@
    Грабер 36 × 4 border/default; шапка — title heading/md Bold display + действия + закрытие (Icon button Ghost M); body — зазор space/12; footer — кнопки L на всю ширину, зазор space/8; снизу safe area. */
 .emcd-sheet-scrim { position: fixed; inset: 0; z-index: 50; display: flex; align-items: flex-end; justify-content: center; background: var(--surface-overlay); }
 .emcd-sheet { box-sizing: border-box; display: flex; flex-direction: column; gap: var(--space-16, 16px); width: 100%; max-width: var(--size-sheet-max, 600px); max-height: 90vh; overflow: auto;
-  padding: var(--space-8, 8px) var(--modal-padding, 16px) calc(var(--modal-padding, 16px) + env(safe-area-inset-bottom, 0px));
+  padding: var(--space-8, 8px) var(--surface-padding-lg, 16px) calc(var(--surface-padding-lg, 16px) + env(safe-area-inset-bottom, 0px));
   border-radius: var(--radius-surface, 20px) var(--radius-surface, 20px) 0 0; background: var(--material-thick-fill, var(--surface-raised, var(--surface-level-1)));
   -webkit-backdrop-filter: blur(var(--material-thick-blur, 24px)); backdrop-filter: blur(var(--material-thick-blur, 24px));
   box-shadow: 0 -2px 6px var(--shadow-key, rgba(0,0,0,.2)), 0 -24px 56px -8px var(--shadow-ambient, rgba(0,0,0,.3)); color: var(--text-primary); }

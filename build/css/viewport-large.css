@@ -7,8 +7,8 @@
   --layout-content-max: 90rem;
   --layout-breakpoint-min: 1200;
   --layout-margin: var(--dimension-40);
-  --layout-gutter: var(--dimension-24);
-  --space-section: var(--dimension-48);
+  --layout-gutter: var(--dimension-16);
+  --space-section: var(--dimension-40);
   --type-display-lg-size: var(--font-size-56);
   --type-display-lg-line-height: var(--line-height-64);
   --type-display-md-size: var(--font-size-48);
@@ -37,4 +37,8 @@
   --type-caption-line-height: var(--line-height-16);
   --type-overline-size: var(--font-size-10);
   --type-overline-line-height: var(--line-height-12);
+  --surface-padding-lg: var(--dimension-24);
+  --surface-padding-md: var(--dimension-16);
+  --surface-padding-sm: var(--dimension-12);
+  --surface-gap: var(--dimension-16);
 }

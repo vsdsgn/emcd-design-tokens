@@ -234,7 +234,7 @@
     },
     "gap": {
       "$type": "dimension",
-      "$value": "{dimension.12}"
+      "$value": "{dimension.8}"
     }
   },
   "modal": {

@@ -304,7 +304,7 @@
   box-shadow: inset 0 0 0 1px var(--border-subtle), 0 2px 6px var(--shadow-key), 0 24px 56px -8px var(--shadow-ambient); }
 .emcd-modal--sm { width: var(--size-modal-sm, 400px); }
 .emcd-modal--lg { width: var(--size-modal-lg, 720px); }
-.emcd-modal__header { display: flex; align-items: flex-start; gap: var(--space-8); padding: var(--space-32) var(--space-32) var(--space-16); }
+.emcd-modal__header { display: flex; align-items: flex-start; gap: var(--space-8); padding: var(--surface-padding-lg, 24px) var(--surface-padding-lg, 24px) var(--space-16); } /* 23.11: было 32 */
 .emcd-modal__heading { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--space-12); }
 .emcd-modal__title { margin: 0; font: 700 28px/36px var(--font-display, var(--font-sans)); letter-spacing: -0.02em; overflow-wrap: anywhere; }
 .emcd-modal__heading .emcd-modal__title { font-size: 24px; line-height: 32px; letter-spacing: -0.01em; } /* Header=Coin — heading/lg */
@@ -312,14 +312,14 @@
 .emcd-modal__coin { width: 32px; height: 32px; flex: none; border-radius: 50%; }
 .emcd-modal__close { margin-left: auto; flex: none; }
 .emcd-modal__divider { height: 1px; margin: 0; border: 0; background: var(--border-subtle); }
-.emcd-modal__body { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-8) var(--space-32); font: 400 16px/24px var(--font-sans); color: var(--text-secondary); }
+.emcd-modal__body { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-8) var(--surface-padding-lg, 24px); font: 400 16px/24px var(--font-sans); color: var(--text-secondary); }
 .emcd-modal__body p { margin: 0; }
 .emcd-modal__divider + .emcd-modal__body { padding-top: var(--space-24); }
-.emcd-modal__footer { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-24) var(--space-32) var(--space-32); }
+.emcd-modal__footer { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-24) var(--surface-padding-lg, 24px) var(--surface-padding-lg, 24px); }
 .emcd-modal__footer .emcd-btn { width: 100%; max-width: none; }
 .emcd-modal__footer--horizontal { flex-direction: row; gap: var(--space-16); }
 .emcd-modal__footer--horizontal .emcd-btn { flex: 1; width: auto; }
-.emcd-modal--no-footer .emcd-modal__body { padding-bottom: var(--space-32); }
+.emcd-modal--no-footer .emcd-modal__body { padding-bottom: var(--surface-padding-lg, 24px); }
 @media (prefers-reduced-motion: no-preference) { .emcd-modal[data-open] { animation: emcd-modal-in 200ms cubic-bezier(0.2, 0, 0, 1); } }
 @keyframes emcd-modal-in { from { opacity: 0; transform: scale(0.96); } }
 
@@ -486,15 +486,15 @@
 
 /* Card — 🟡 beta (Figma «🟡 Card»: Level × Radius × Padding × Border). Подложка без своего содержимого; без тени.
    Обводка — вне раскладки (inset box-shadow): размер content не меняется. */
-.emcd-card { --bg: var(--surface-level-1); position: relative; box-sizing: border-box; display: flex; flex-direction: column; gap: var(--space-12, 12px); min-width: 0;
-  padding: var(--space-12, 12px); border-radius: var(--radius-container); background: var(--bg); color: var(--text-primary); }
+.emcd-card { --bg: var(--surface-level-1); position: relative; box-sizing: border-box; display: flex; flex-direction: column; gap: var(--surface-gap, 12px); min-width: 0;
+  padding: var(--surface-padding-sm, 12px); /* 23.11 шкала отступов: S — surface/padding/sm, M — md, L — lg */ border-radius: var(--radius-container); background: var(--bg); color: var(--text-primary); }
 .emcd-card--level-0 { --bg: var(--surface-level-0); }
 .emcd-card--level-2 { --bg: var(--surface-level-2); }
 .emcd-card--level-3 { --bg: var(--surface-level-3); }
 .emcd-card--radius-surface { border-radius: var(--radius-surface); }
 .emcd-card--radius-inner { border-radius: var(--radius-inner); }
-.emcd-card--padding-m { padding: var(--space-16, 16px); gap: var(--space-16, 16px); }
-.emcd-card--padding-l { padding: var(--space-24, 24px) var(--space-32, 32px); gap: var(--space-16, 16px); }
+.emcd-card--padding-m { padding: var(--surface-padding-md, 16px); gap: var(--surface-gap, 16px); }
+.emcd-card--padding-l { padding: var(--surface-padding-lg, 24px); gap: var(--surface-gap, 16px); }
 .emcd-card--border { box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); }
 /* Ambient light (19.11) — фоновое пятно light/ambient справа сверху, обрезано радиусом карточки (как у Stat card). В стиле Base токен прозрачный (blur 0) — пятна нет.
    Одна герой-карточка на экран. Содержимое не выходит за карточку: всплывающее (Menu, Tooltip) — порталом. */
@@ -545,7 +545,7 @@
    Tone=Neutral — подложка на уровень выше текущей (surface-next) с обводкой; Danger / Warning / Success — status/*-subtle без обводки, значение text/*.
    Align=Center — плитки статусов: всё по центру, поля space/4 по бокам и space/32 снизу. Link — Icon button XS в правом нижнем углу. min-width снят (17.11). */
 .emcd-stat { position: relative; isolation: isolate; box-sizing: border-box; display: flex; flex-direction: column; gap: var(--space-8, 8px);
-  min-width: 0; padding: var(--card-padding, 16px); border-radius: var(--radius-container); overflow: hidden;
+  min-width: 0; padding: var(--surface-padding-md, 16px); border-radius: var(--radius-container); overflow: hidden;
   --bg: var(--surface-next, var(--surface-level-1)); --edge: var(--border-subtle); --value: var(--text-primary);
   background: var(--bg); box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--edge); color: var(--text-primary); }
 .emcd-stat--danger { --bg: var(--status-danger-subtle); --edge: transparent; --value: var(--text-danger); }
@@ -563,7 +563,7 @@
 .emcd-stat__caption { max-width: 160px; font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); color: var(--text-tertiary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .emcd-stat__footer { margin-top: var(--space-4, 4px); min-width: 0; }
 /* Align = Center */
-.emcd-stat--center { align-items: center; text-align: center; padding: var(--card-padding, 16px) var(--space-4, 4px) var(--space-32, 32px); }
+.emcd-stat--center { align-items: center; text-align: center; padding: var(--surface-padding-md, 16px) var(--space-4, 4px) var(--space-32, 32px); }
 .emcd-stat--center :is(.emcd-stat__label-row, .emcd-stat__value-row, .emcd-stat__delta-row) { justify-content: center; max-width: 100%; }
 /* Link — Icon button XS со стрелкой в правом нижнем углу: плитка ведёт в список */
 .emcd-stat__link.emcd-btn { position: absolute; z-index: 1; right: var(--space-12, 12px); bottom: var(--space-12, 12px); }
@@ -621,7 +621,7 @@
    Snack (22.11, слит из набора Snack) — App, у нижнего края: тёмная плашка action-inverse-default 343, одна строка, линейная иконка 20 цвета тона, действие Button Text, без крестика. */
 .emcd-toast { position: relative; box-sizing: border-box; display: flex; align-items: flex-start; gap: var(--space-12, 12px);
   width: 400px; min-width: var(--size-toast-min, 280px); max-width: 100%;
-  padding: var(--space-16, 16px) var(--space-48, 48px) var(--space-16, 16px) var(--space-16, 16px); border-radius: var(--radius-control);
+  padding: var(--surface-padding-md, 16px) var(--space-48, 48px) var(--surface-padding-md, 16px) var(--surface-padding-md, 16px); border-radius: var(--radius-control);
   background: var(--surface-raised); color: var(--text-primary);
   box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle), 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient); }
 .emcd-toast__icon { flex: none; display: inline-flex; width: 24px; height: 24px; }
@@ -676,9 +676,9 @@
    Тона Info нет: Info = цвет бренда → Accent. Основная кнопка: Neutral — Secondary, остальные тона — Primary. */
 .emcd-suggest { --bg: var(--surface-raised); --icon: var(--icon-secondary); --tone-fg: var(--text-primary);
   position: relative; box-sizing: border-box; display: flex; align-items: flex-start; gap: var(--space-16, 16px); width: 480px; max-width: 100%;
-  padding: var(--space-16, 16px) var(--space-48, 48px) var(--space-16, 16px) var(--space-16, 16px); border-radius: var(--radius-surface);
+  padding: var(--surface-padding-md, 16px) var(--space-48, 48px) var(--surface-padding-md, 16px) var(--surface-padding-md, 16px); border-radius: var(--radius-surface);
   background: var(--bg); box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); color: var(--text-primary); }
-.emcd-suggest--no-close { padding-right: var(--space-16, 16px); }
+.emcd-suggest--no-close { padding-right: var(--surface-padding-md, 16px); }
 .emcd-suggest__leading { flex: none; display: inline-flex; color: var(--icon); }
 .emcd-suggest__leading > svg { width: var(--icon-size-md, 20px); height: var(--icon-size-md, 20px); }
 .emcd-suggest__content { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-12, 12px); }
@@ -688,7 +688,7 @@
 .emcd-suggest__actions { display: flex; flex-wrap: wrap; gap: var(--space-8, 8px); }
 .emcd-suggest__close.emcd-btn { position: absolute; top: var(--space-12, 12px); right: var(--space-12, 12px); }
 /* Strip (17.11, по продукту) — плашка radius/inner на всю ширину вверху страницы: без иконки, заголовок label/md цвета тона, центр по вертикали, кнопки и крестик в строку справа */
-.emcd-suggest--strip { width: 100%; align-items: center; padding: var(--space-12, 12px) var(--space-16, 16px); border-radius: var(--radius-inner); }
+.emcd-suggest--strip { width: 100%; align-items: center; padding: var(--surface-padding-sm, 12px) var(--surface-padding-md, 16px); border-radius: var(--radius-inner); }
 .emcd-suggest--strip .emcd-suggest__content { flex-direction: row; align-items: center; flex-wrap: wrap; gap: var(--space-16, 16px); }
 .emcd-suggest--strip .emcd-suggest__text { flex: 1 1 160px; } /* 19.11: в колонке 400 (Калькулятор) и на 375 текст и кнопка в одну строку, заголовок переносится */
 .emcd-suggest--strip .emcd-suggest__title { font-size: var(--type-label-md-size, 14px); line-height: var(--type-label-md-line-height, 20px); color: var(--tone-fg); }
@@ -1113,7 +1113,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 /* Calendar — 🟡 beta (Figma «🟡 Calendar»: Mode Single · Range) + Date cell — 🟡 beta (State × 10). Карточка surface/raised, radius/container, поле space/16, зазор space/12,
    тень Elevation/2 (shadow/ambient + shadow/key); --plain — без подложки (внутри Date range panel — одна поверхность). Шапка: Icon button S «‹ ›» + «Месяц ГГГГ» (display, heading-md Bold);
    дни недели body-sm text-secondary; сетка 6 × 7 Date cell (control/height/md), зазор space/2. RTL: сетка справа налево (direction), стрелки листания отражены. */
-.emcd-calendar { box-sizing: border-box; display: inline-flex; flex-direction: column; gap: var(--space-12, 12px); padding: var(--space-16, 16px); border-radius: var(--radius-container);
+.emcd-calendar { box-sizing: border-box; display: inline-flex; flex-direction: column; gap: var(--space-12, 12px); padding: var(--surface-padding-md, 16px); border-radius: var(--radius-container);
   background: var(--surface-raised); box-shadow: 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient); color: var(--text-primary); }
 .emcd-calendar--plain { padding: 0; border-radius: 0; background: none; box-shadow: none; }
 .emcd-calendar__head { display: flex; align-items: center; gap: var(--space-6, 6px); min-height: var(--control-height-sm, 32px); }
@@ -1149,7 +1149,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 /* Date range panel — 🟡 beta (Figma «🟡 Date range panel»: Presets On · Off, Show reset). Поверхность material/thick (fill + blur), обводка border/subtle, radius/control, поле space/12,
    зазор space/16, тени shadow/ambient + shadow/key. Слева — пресеты (Menu item, listbox), справа — колонка space/12: Calendar Mode=Range без своей подложки + футер (зазор space/8, по концу):
    «Сбросить» (Button Text S, до 140) и «Применить» (Button Primary S, всегда у конца). Presets Off (--compact) — без пресетов, мобильный в Sheet. RTL — flex: пресеты справа, кнопки меняются местами. */
-.emcd-date-panel { box-sizing: border-box; display: flex; align-items: flex-start; gap: var(--space-16, 16px); width: max-content; padding: var(--space-12, 12px); border-radius: var(--radius-control);
+.emcd-date-panel { box-sizing: border-box; display: flex; align-items: flex-start; gap: var(--space-16, 16px); width: max-content; padding: var(--surface-padding-sm, 12px); border-radius: var(--radius-control);
   background: var(--material-thick-fill, var(--surface-raised)); backdrop-filter: blur(var(--material-thick-blur, 0px)); color: var(--text-primary);
   box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle), 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient); }
 .emcd-date-panel__presets { flex: none; display: flex; flex-direction: column; gap: 2px; width: var(--size-menu-min, 160px); border-radius: var(--radius-sm, 8px); outline: none; }
@@ -1251,15 +1251,15 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
    Подложка surface/level-1, обводка border/subtle (Accent — градиент border/accent → border/subtle), обрезка по краю. S — сайдбар: поля 16, radius/container, мин. высота 120, текст label-sm;
    M — мобильный: поля 24, radius/surface, 178, заголовок heading-md Medium, описание body-md; L — дашборд Web: поля 24 / 32, 204. Текст при картинке — фиксированной ширины (124 · 230 · 340), не уже колонки.
    Media — абсолютный фон справа снизу за текстом (inset-inline-end / bottom): свечение (Accent — action/primary/default, Neutral — surface/level-3) и картинка 104 · 172 · 272, выходит за край. Center — бейдж над заголовком, всё по центру. */
-.emcd-promo { --pad: var(--space-16, 16px); --gap: var(--space-8, 8px); --tgap: var(--space-4, 4px); --text-w: 124px; --media: 104px; --min-h: 120px; --glow: var(--surface-level-3);
+.emcd-promo { --pad: var(--surface-padding-md, 16px); --gap: var(--space-8, 8px); --tgap: var(--space-4, 4px); --text-w: 124px; --media: 104px; --min-h: 120px; --glow: var(--surface-level-3);
   --tfs: var(--type-label-sm-size, 12px); --tlh: var(--type-label-sm-line-height, 16px); --tff: var(--font-sans); --dfs: var(--type-label-sm-size, 12px); --dlh: var(--type-label-sm-line-height, 16px);
   position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: var(--space-8, 8px); box-sizing: border-box; min-height: var(--min-h); min-width: 0; overflow: hidden;
   padding: var(--pad); border-radius: var(--radius-container); background: var(--surface-level-1); color: var(--text-primary);
   box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); }
 .emcd-promo--m, .emcd-promo--l { --tgap: var(--space-8, 8px); --tfs: var(--type-heading-md-size, 20px); --tlh: var(--type-heading-md-line-height, 28px); --tff: var(--font-display, var(--font-sans));
   --dfs: var(--type-body-md-size, 14px); --dlh: var(--type-body-md-line-height, 20px); border-radius: var(--radius-surface); }
-.emcd-promo--m { --pad: var(--space-24, 24px); --gap: var(--space-16, 16px); --text-w: 230px; --media: 172px; --min-h: 178px; }
-.emcd-promo--l { --pad: var(--space-24, 24px) var(--space-32, 32px); --gap: var(--space-24, 24px); --text-w: 340px; --media: 272px; --min-h: 204px; }
+.emcd-promo--m { --pad: var(--surface-padding-lg, 24px); --gap: var(--space-16, 16px); --text-w: 230px; --media: 172px; --min-h: 178px; }
+.emcd-promo--l { --pad: var(--surface-padding-lg, 24px); --gap: var(--space-24, 24px); --text-w: 340px; --media: 272px; --min-h: 204px; }
 .emcd-promo--accent { --glow: var(--action-primary-default); box-shadow: none; }
 /* Accent — градиентная обводка 1 px: рамка-маска поверх подложки */
 .emcd-promo--accent::after { content: ""; position: absolute; z-index: 2; inset: 0; border-radius: inherit; padding: var(--border-width-default, 1px); pointer-events: none;
@@ -1420,7 +1420,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
    min-width size/card/min 280. Top — Chart metric × 1–3 (зазор 32) и период — ряд Chip S справа (Compact — Chip M на всю ширину равными долями),
    в конце Top — легенда над графиком (19.11, по продукту: Legend item, зазор 16, перенос; две серии на двух осях — по краям, к своей оси); Content — Chart plot;
    Bottom — только итог за период (body-md, text-secondary, до 200). */
-.emcd-chart-card { display: flex; flex-direction: column; gap: var(--space-16, 16px); box-sizing: border-box; min-width: var(--size-card-min, 280px); padding: var(--space-28, 28px);
+.emcd-chart-card { display: flex; flex-direction: column; gap: var(--surface-gap, 16px); box-sizing: border-box; min-width: var(--size-card-min, 280px); padding: var(--surface-padding-lg, 24px); /* 23.11: было 28 */
   border-radius: var(--radius-container); background: var(--surface-next, var(--surface-level-1)); box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); color: var(--text-primary); }
 .emcd-chart-card__head { display: flex; flex-direction: column; gap: var(--space-16, 16px); min-width: 0; }
 .emcd-chart-card__legend:has(> li:nth-child(2):last-child) { justify-content: space-between; }
@@ -1499,7 +1499,7 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
    Грабер 36 × 4 border/default; шапка — title heading/md Bold display + действия + закрытие (Icon button Ghost M); body — зазор space/12; footer — кнопки L на всю ширину, зазор space/8; снизу safe area. */
 .emcd-sheet-scrim { position: fixed; inset: 0; z-index: 50; display: flex; align-items: flex-end; justify-content: center; background: var(--surface-overlay); }
 .emcd-sheet { box-sizing: border-box; display: flex; flex-direction: column; gap: var(--space-16, 16px); width: 100%; max-width: var(--size-sheet-max, 600px); max-height: 90vh; overflow: auto;
-  padding: var(--space-8, 8px) var(--modal-padding, 16px) calc(var(--modal-padding, 16px) + env(safe-area-inset-bottom, 0px));
+  padding: var(--space-8, 8px) var(--surface-padding-lg, 16px) calc(var(--surface-padding-lg, 16px) + env(safe-area-inset-bottom, 0px));
   border-radius: var(--radius-surface, 20px) var(--radius-surface, 20px) 0 0; background: var(--material-thick-fill, var(--surface-raised, var(--surface-level-1)));
   -webkit-backdrop-filter: blur(var(--material-thick-blur, 24px)); backdrop-filter: blur(var(--material-thick-blur, 24px));
   box-shadow: 0 -2px 6px var(--shadow-key, rgba(0,0,0,.2)), 0 -24px 56px -8px var(--shadow-ambient, rgba(0,0,0,.3)); color: var(--text-primary); }

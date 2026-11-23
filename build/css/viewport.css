@@ -4,8 +4,8 @@
   --layout-content-max: 37.5rem;
   --layout-breakpoint-min: 0;
   --layout-margin: var(--dimension-16);
-  --layout-gutter: var(--dimension-16);
-  --space-section: var(--dimension-32);
+  --layout-gutter: var(--dimension-12);
+  --space-section: var(--dimension-24);
   --type-display-lg-size: var(--font-size-32);
   --type-display-lg-line-height: var(--line-height-40);
   --type-display-md-size: var(--font-size-28);
@@ -34,6 +34,10 @@
   --type-caption-line-height: var(--line-height-16);
   --type-overline-size: var(--font-size-10);
   --type-overline-line-height: var(--line-height-12);
+  --surface-padding-lg: var(--dimension-16);
+  --surface-padding-md: var(--dimension-12);
+  --surface-padding-sm: var(--dimension-8);
+  --surface-gap: var(--dimension-12);
 }
 
 @media (min-width: 37.5em) {
@@ -43,8 +47,8 @@
   --layout-content-max: 52.5rem;
   --layout-breakpoint-min: 600;
   --layout-margin: var(--dimension-24);
-  --layout-gutter: var(--dimension-16);
-  --space-section: var(--dimension-40);
+  --layout-gutter: var(--dimension-12);
+  --space-section: var(--dimension-32);
   --type-display-lg-size: var(--font-size-40);
   --type-display-lg-line-height: var(--line-height-48);
   --type-display-md-size: var(--font-size-32);
@@ -73,6 +77,10 @@
   --type-caption-line-height: var(--line-height-16);
   --type-overline-size: var(--font-size-10);
   --type-overline-line-height: var(--line-height-12);
+  --surface-padding-lg: var(--dimension-16);
+  --surface-padding-md: var(--dimension-12);
+  --surface-padding-sm: var(--dimension-8);
+  --surface-gap: var(--dimension-12);
 }
 }
 
@@ -83,7 +91,7 @@
   --layout-content-max: 75rem;
   --layout-breakpoint-min: 840;
   --layout-margin: var(--dimension-32);
-  --layout-gutter: var(--dimension-24);
+  --layout-gutter: var(--dimension-16);
   --space-section: var(--dimension-40);
   --type-display-lg-size: var(--font-size-48);
   --type-display-lg-line-height: var(--line-height-56);
@@ -113,6 +121,10 @@
   --type-caption-line-height: var(--line-height-16);
   --type-overline-size: var(--font-size-10);
   --type-overline-line-height: var(--line-height-12);
+  --surface-padding-lg: var(--dimension-24);
+  --surface-padding-md: var(--dimension-16);
+  --surface-padding-sm: var(--dimension-12);
+  --surface-gap: var(--dimension-16);
 }
 }
 
@@ -123,8 +135,8 @@
   --layout-content-max: 90rem;
   --layout-breakpoint-min: 1200;
   --layout-margin: var(--dimension-40);
-  --layout-gutter: var(--dimension-24);
-  --space-section: var(--dimension-48);
+  --layout-gutter: var(--dimension-16);
+  --space-section: var(--dimension-40);
   --type-display-lg-size: var(--font-size-56);
   --type-display-lg-line-height: var(--line-height-64);
   --type-display-md-size: var(--font-size-48);
@@ -153,6 +165,10 @@
   --type-caption-line-height: var(--line-height-16);
   --type-overline-size: var(--font-size-10);
   --type-overline-line-height: var(--line-height-12);
+  --surface-padding-lg: var(--dimension-24);
+  --surface-padding-md: var(--dimension-16);
+  --surface-padding-sm: var(--dimension-12);
+  --surface-gap: var(--dimension-16);
 }
 }
 
@@ -163,8 +179,8 @@
   --layout-content-max: 100rem;
   --layout-breakpoint-min: 1600;
   --layout-margin: var(--dimension-48);
-  --layout-gutter: var(--dimension-32);
-  --space-section: var(--dimension-64);
+  --layout-gutter: var(--dimension-16);
+  --space-section: var(--dimension-48);
   --type-display-lg-size: var(--font-size-64);
   --type-display-lg-line-height: var(--line-height-72);
   --type-display-md-size: var(--font-size-56);
@@ -193,5 +209,9 @@
   --type-caption-line-height: var(--line-height-16);
   --type-overline-size: var(--font-size-10);
   --type-overline-line-height: var(--line-height-12);
+  --surface-padding-lg: var(--dimension-24);
+  --surface-padding-md: var(--dimension-16);
+  --surface-padding-sm: var(--dimension-12);
+  --surface-gap: var(--dimension-16);
 }
 }

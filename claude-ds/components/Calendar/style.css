@@ -1,7 +1,7 @@
 /* Calendar — 🟡 beta (Figma «🟡 Calendar»: Mode Single · Range) + Date cell — 🟡 beta (State × 10). Карточка surface/raised, radius/container, поле space/16, зазор space/12,
    тень Elevation/2 (shadow/ambient + shadow/key); --plain — без подложки (внутри Date range panel — одна поверхность). Шапка: Icon button S «‹ ›» + «Месяц ГГГГ» (display, heading-md Bold);
    дни недели body-sm text-secondary; сетка 6 × 7 Date cell (control/height/md), зазор space/2. RTL: сетка справа налево (direction), стрелки листания отражены. */
-.emcd-calendar { box-sizing: border-box; display: inline-flex; flex-direction: column; gap: var(--space-12, 12px); padding: var(--space-16, 16px); border-radius: var(--radius-container);
+.emcd-calendar { box-sizing: border-box; display: inline-flex; flex-direction: column; gap: var(--space-12, 12px); padding: var(--surface-padding-md, 16px); border-radius: var(--radius-container);
   background: var(--surface-raised); box-shadow: 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient); color: var(--text-primary); }
 .emcd-calendar--plain { padding: 0; border-radius: 0; background: none; box-shadow: none; }
 .emcd-calendar__head { display: flex; align-items: center; gap: var(--space-6, 6px); min-height: var(--control-height-sm, 32px); }

@@ -118,7 +118,7 @@
   --nav-header-height: var(--dimension-56);
   --nav-bar-height: var(--dimension-56);
   --card-padding: var(--dimension-16);
-  --card-gap: var(--dimension-12);
+  --card-gap: var(--dimension-8);
   --modal-padding: var(--dimension-16);
   --radius-focus-ring-lg: var(--brand-radius-focus-ring-lg);
   --border-width-default: var(--stroke-1);

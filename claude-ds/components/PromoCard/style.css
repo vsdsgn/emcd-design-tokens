@@ -2,15 +2,15 @@
    Подложка surface/level-1, обводка border/subtle (Accent — градиент border/accent → border/subtle), обрезка по краю. S — сайдбар: поля 16, radius/container, мин. высота 120, текст label-sm;
    M — мобильный: поля 24, radius/surface, 178, заголовок heading-md Medium, описание body-md; L — дашборд Web: поля 24 / 32, 204. Текст при картинке — фиксированной ширины (124 · 230 · 340), не уже колонки.
    Media — абсолютный фон справа снизу за текстом (inset-inline-end / bottom): свечение (Accent — action/primary/default, Neutral — surface/level-3) и картинка 104 · 172 · 272, выходит за край. Center — бейдж над заголовком, всё по центру. */
-.emcd-promo { --pad: var(--space-16, 16px); --gap: var(--space-8, 8px); --tgap: var(--space-4, 4px); --text-w: 124px; --media: 104px; --min-h: 120px; --glow: var(--surface-level-3);
+.emcd-promo { --pad: var(--surface-padding-md, 16px); --gap: var(--space-8, 8px); --tgap: var(--space-4, 4px); --text-w: 124px; --media: 104px; --min-h: 120px; --glow: var(--surface-level-3);
   --tfs: var(--type-label-sm-size, 12px); --tlh: var(--type-label-sm-line-height, 16px); --tff: var(--font-sans); --dfs: var(--type-label-sm-size, 12px); --dlh: var(--type-label-sm-line-height, 16px);
   position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: var(--space-8, 8px); box-sizing: border-box; min-height: var(--min-h); min-width: 0; overflow: hidden;
   padding: var(--pad); border-radius: var(--radius-container); background: var(--surface-level-1); color: var(--text-primary);
   box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--border-subtle); }
 .emcd-promo--m, .emcd-promo--l { --tgap: var(--space-8, 8px); --tfs: var(--type-heading-md-size, 20px); --tlh: var(--type-heading-md-line-height, 28px); --tff: var(--font-display, var(--font-sans));
   --dfs: var(--type-body-md-size, 14px); --dlh: var(--type-body-md-line-height, 20px); border-radius: var(--radius-surface); }
-.emcd-promo--m { --pad: var(--space-24, 24px); --gap: var(--space-16, 16px); --text-w: 230px; --media: 172px; --min-h: 178px; }
-.emcd-promo--l { --pad: var(--space-24, 24px) var(--space-32, 32px); --gap: var(--space-24, 24px); --text-w: 340px; --media: 272px; --min-h: 204px; }
+.emcd-promo--m { --pad: var(--surface-padding-lg, 24px); --gap: var(--space-16, 16px); --text-w: 230px; --media: 172px; --min-h: 178px; }
+.emcd-promo--l { --pad: var(--surface-padding-lg, 24px); --gap: var(--space-24, 24px); --text-w: 340px; --media: 272px; --min-h: 204px; }
 .emcd-promo--accent { --glow: var(--action-primary-default); box-shadow: none; }
 /* Accent — градиентная обводка 1 px: рамка-маска поверх подложки */
 .emcd-promo--accent::after { content: ""; position: absolute; z-index: 2; inset: 0; border-radius: inherit; padding: var(--border-width-default, 1px); pointer-events: none;
