@@ -712,7 +712,7 @@
   }
   var monItems = function (sel) { return MON_ITEMS.map(function (it) { return Object.assign({}, it, { selected: it.label === sel }); }); };
   var MON_ITEMS = [{ label: 'Главная', icon: 'home', href: '#', selected: true }, { label: 'Площадки', icon: 'devices', href: '#' }, { label: 'Сотрудники', icon: 'users', href: '#' },
-    { label: 'Устройства', icon: 'asic', href: '#' }, { label: 'Сканер', icon: 'qr-scan', href: '#' }, { label: 'Уведомления', icon: 'bell-notifications', href: '#' },
+    { label: 'Устройства', icon: 'asic', href: '#' }, { label: 'Сканер', icon: 'qr-scan', href: '#' }, { label: 'Отчёты', icon: 'list', href: '#' }, { label: 'Уведомления', icon: 'bell-notifications', href: '#' },
     { label: 'Нужна помощь', icon: 'question', href: '#' }, { label: 'Спец. условия', icon: 'percentage', href: '#' }];
   var periodChips = function (key) { return div('demo-chips', ['1 час', '24 часа', '7 дней'].map(function (l, i) { return h(E.Chip, { key: key + l, size: 'm', selected: i === 0, label: l }); })); };
   var MON_H = HASH.map(function (v) { return Math.round(v * 6); });
