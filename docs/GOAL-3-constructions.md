@@ -51,6 +51,7 @@
 - ~~`space/section` Large 64 → 48~~ — сделано 22.11 (Foundations + репо: Expanded 40, Large 48, XLarge 64).
 
 ## Очередь на Publish Components
+- **Progress** (23.11): `fill` в слоте `Track` — в экземпляре ширину заливки (долю) раньше нельзя было задать: на всех экранах была 60 % по умолчанию. После Publish — доли на Мониторинг · Главная (мощность 69 / 115) и B2B Watcher link (TTL).
 - **Stat card** (23.11): `value` max-width 180 → 240 — сумма с 8 знаками (`0.00000529`) обрезалась (B2B User profile, «Today's forecast»). Код и контракт — уже.
 - **Аудит 22.11** (`docs/audit-2026-11-22.md`): скругление по высоте (≈1 250 привязок), Segmented без обрезки, List item → Amount, десятичная точка (Amount, Key-value row, Notification, Transaction), Radio card 16, Table row «⋯», Suggest Strip, борды на местах. **После Publish:** экраны с Segmented на всю ширину — сегментам Fill; проверить экраны с List item (сумма стала Amount).
 - ~~**Table cell / Table row**~~ (Publish 22.11) (22.11): текст `Label/LG` 16 → `Label/MD` 14 — как контракт 19.11 и код (решение 19.11 не было доведено в Figma).
@@ -73,6 +74,7 @@
 ## Журнал
 - 22.11 — после Publish: Select на экранах восстановлены (Web 33, App 6: подпись и её положение, значение, Leading из копий); Status bar — доли сегментов (Мониторинг 1 000 / 3 000 / 16 500 / 61, B2B 65 / 571 / 12 271). Найдено: первая серия легенды стала синей (`data/1`), а график — `border/accent` → исправлен Legend swatch (ждёт Publish).
 - 22.11 — Стефан: «расхождений с продом тьма» → сверка компонентов с production (`docs/review/components-vs-prod.md`, страница «🧪 Сверка компонентов с продом»): размеры production крупнее (поля 56, сегменты 56 / 48, чип 44, поиск 36, монета 28). Решение Стефана: **шкала DS остаётся**, production мигрирует; расхождения — осознанные. Select — пересобран (решение Стефана). Найдено: `findAll` не заходит в слоты — обход вручную.
+- 23.11 — H7: WL B2B · Watcher link (Web) — Page header (счётчик в подзаголовке, фильтр + Create), Table: имя · создана · админ · пользователь · TTL (дата + Progress S, «No deadline» — без полосы) · ссылка + копировать · «⋯» (удаление — в Menu); Toast Card Success справа сверху. Sidebar B2B: добавлен Watcher-link (6 кадров). Найдено: Progress — доля в экземпляре не задаётся → fill в слот Track (ждёт Publish).
 - 23.11 — H7: WL B2B · Coins + фильтры (Web) — Breadcrumbs, таблица монет с Amount + фиат, фильтры в Side panel M (вместо Modal), Slider → поля.
 - 23.11 — H7: Мониторинг · Сканер (пусто, Web) — шаги «Как начать» на Card L2 + Section header S + Button (patterns 3.11).
 - 23.11 — H7: Мониторинг · Отчёты (Web) — Tabs видов в шапке, Segmented разреза, фильтры, «Выгрузить CSV», итоговая строка первой. Sidebar Мониторинга: добавлен пункт «Отчёты» (7 кадров + демо). Пробел: у Table row нет варианта «Итог».
