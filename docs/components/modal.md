@@ -14,24 +14,25 @@
 - Когда нет: детали объекта или длинная форма — Side panel / Sheet; сообщение без решения — Toast / Alert; на Compact — Sheet.
 - Правило выбора варианта:
   - Header: Title — заголовок-действие; Coin — действие с монетой (монета 32 + название + описание, legacy coin / coin select); Empty — только крестик, когда заголовок есть в Body.
+  - Size: MD — `size/modal/md` 560, короткая форма; SM — `size/modal/sm` 400, подтверждение (patterns 6.2: вопрос с объектом, одна строка последствий, Footer=Horizontal — Отмена Tertiary + действие Primary / Danger), заголовок Heading/LG (23.11). В коде — `width="sm"`.
   - Footer: Single — одно действие; Stacked — два, главное сверху; Horizontal — два в ряд, отмена слева, главное справа; None — без кнопок (закрытие крестиком, Esc, фоном).
   - Divider — линия под шапкой, когда Body прокручивается или начинается со списка (legacy divider); иначе Off.
   - Show close — On по умолчанию; Off — только на необратимом шаге, где закрытие запрещено.
   - Header description — только у Header=Coin: строка «тикер · сеть»; Off — когда сеть не важна.
-  - Ширина — `size/modal/sm`, `md`, `lg` по содержимому (ресайз экземпляра); одна задача и одно главное действие на окно.
+  - Ширина — ось Size (SM 400 · MD 560, 23.11); `lg` 720 не используем (patterns 6.3: только sm и md); одна задача и одно главное действие на окно.
   - На Compact модалка открывается как Sheet.
-  - Детали объекта: Web — отдельная страница (Side panel — после выхода из парковки); Compact — Sheet; широкий Modal для деталей не используем (решение 2026-11-16).
+  - Детали объекта: Web — отдельная страница (Side panel — после выхода из парковки); Compact — экран Inner с «назад», быстрый просмотр — Sheet (patterns 6.3); широкий Modal для деталей не используем (решение 2026-11-16).
 - Не делаем: модал поверх модала; два главных действия; длинная форма или детали объекта в модалке; закрытие фоном и Esc на необратимом шаге; Header=Empty с Show close = Off.
 
 ## 3. Anatomy
-- Корень — вертикальный стек, `radius/surface` (24), ширина `size/modal/md` (560; `sm` 400 / `lg` 720 — ресайз экземпляра); отступы шапки, Body и Footer slot — `space/32` (верх Body — `space/8`; с Divider после линии 24: линия + `space/16` + `space/8`).
+- Корень — вертикальный стек, `radius/surface` (24), ширина — ось Size: `size/modal/md` 560 · `size/modal/sm` 400; отступы шапки, Body и Footer slot — `space/32` (верх Body — `space/8`; с Divider после линии 24: линия + `space/16` + `space/8`).
 - Поверхность — слой `overlay surface`, экземпляр _Overlay surface (Kind=Modal): `surface/level-1`, обводка `border/subtle` × `border/width/default`, тени `shadow/key` + `shadow/ambient` (Elevation/4).
 - `header` (зазор `space/8`): `title` — Header=Title `font/family/display`, `type/display/md`, bold, `text/primary`; Header=Coin — монета 32 + `title group` (зазор `space/12`) с `type/heading/lg` и `header description` (`type/body/md`, `text/secondary`); `close` — Icon button `control/height/md`.
 - `divider` — рамка с линией `border/subtle` и отступом снизу `space/16` (Divider, 2026-11-15).
 - Слот Body (зазор `space/12`): образец — `type/body/lg`, `text/secondary`.
 - Слот Footer slot (зазор `space/8` / `space/16`): Button L (`control/height/lg` 48) на всю ширину (до 2026-11-17 — XL 56); подпись под кнопками — текстом в слоте.
-- Вложено: `_Overlay surface` ×12, `Icon button` ×12, `Button` ×15, `smbl-bitcoin-btc` ×4.
-- Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `_Overlay surface` ×24, `Icon button` ×24, `Button` ×30, `smbl-bitcoin-btc` ×8.
+- Служебные слои (вариантов из 24): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; интерактивны вложенные Button и Icon button.
@@ -44,21 +45,22 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
+| Size | MD · SM | — |
 | Header | Title · Coin · Empty | Title |
 | Footer | Single · Stacked · Horizontal · None | Single |
 
-Матрица полная: 12 вариантов.
+Матрица полная: 24 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Title | текст | «Уменьшить риск» | 8 из 12 |
-| Divider | булево | выкл | 12 из 12 |
-| Show close | булево | вкл | 12 из 12 |
-| Header description | булево | вкл | 4 из 12 |
-| Body | слот | — | 12 из 12 |
-| Footer slot | слот | — | 9 из 12 |
+| Title | текст | «Уменьшить риск» | 8 из 24 |
+| Divider | булево | выкл | 12 из 24 |
+| Show close | булево | вкл | 12 из 24 |
+| Header description | булево | вкл | 4 из 24 |
+| Body | слот | — | 12 из 24 |
+| Footer slot | слот | — | 9 из 24 |
 
 - Title — текст заголовка (у Header=Title и Coin); Divider — по умолчанию Off; Show close — On; Header description — On (только Header=Coin).
 - Body и Footer slot — слоты: контент модалки и кнопки (у Footer=None слота нет).
@@ -85,17 +87,17 @@
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо и зоны нажатия — у вложенных Button и Icon button.
 
 ## 10. Tokens
-- `корень`: радиус `radius/surface`; ширина `size/modal/md`.
+- `корень`: радиус `radius/surface`; ширина `size/modal/md`, `size/modal/sm`.
 - `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/level-1`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
-- `header`: интервал `space/8`; отступы `space/16`, `space/24`, `space/32`.
+- `header`: интервал `space/8`; отступы `space/16`, `surface/padding/lg`.
 - `title`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/display/md`, `type/heading/lg`.
 - `close`: интервал `space/6`; высота `control/height/md`; радиус `radius/control`; ширина `control/height/md`.
 - `divider`: отступы `space/16`.
 - `line`: заливка / цвет `border/subtle`.
-- `Body`: интервал `space/12`; отступы `space/32`, `space/8`.
+- `Body`: интервал `space/12`; отступы `space/8`, `surface/padding/lg`.
 - `Контент модалки — в слот Body: текст, поля, список.`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/lg`.
-- `Footer slot`: интервал `space/16`, `space/8`; отступы `space/24`, `space/32`.
-- `Button`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/2`; высота `control/height/lg`; мин. ширина `size/button/min`; отступы `space/12`; радиус `radius/control`.
+- `Footer slot`: интервал `space/16`, `space/8`; отступы `space/24`, `surface/padding/lg`.
+- `Button`: заливка / цвет `action/primary/default`, `action/secondary/default`; интервал `space/4`; высота `control/height/lg`; мин. ширина `size/button/min`; отступы `space/12`; радиус `radius/control`.
 - `title group`: интервал `space/12`.
 - `header description`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 
@@ -104,15 +106,15 @@
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Modal`, вариантов 12 из 12; оси: Header, Footer.
+- Набор `Modal`, вариантов 24 из 24; оси: Size, Header, Footer.
 - Борда: «Modal — борда · шаблон v3», разделов 11.
-- Описание: 2072 знаков, разделы: Status: Level: Когда использовать: Header: Footer: Body и Footer — Когда нет: A11y: Поиск: Legacy: Motion: Тень:
+- Описание: 2261 знаков, разделы: Status: Level: Когда использовать: Header: Footer: Body и Footer — Когда нет: A11y: Поиск: Legacy: Motion: Тень:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Modal`), Vue `packages/vue/src/DsModal.vue`, CSS `claude-ds/components/Modal/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsModal>`; Flutter: `DsModal`.
-- Props: `header`: title | coin | empty; `footer`: single | stacked | horizontal | none; `title`: string или слот; `divider`: boolean = false; `showClose`: boolean = true; `headerDescription`: boolean = true; `body`: string или слот; `footerSlot`: string или слот.
+- Props: `size`: md | sm; `header`: title | coin | empty; `footer`: single | stacked | horizontal | none; `title`: string или слот; `divider`: boolean = false; `showClose`: boolean = true; `headerDescription`: boolean = true; `body`: string или слот; `footerSlot`: string или слот.
 
 ## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.

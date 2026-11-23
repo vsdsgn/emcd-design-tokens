@@ -607,6 +607,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
+| `size` | md \| sm | по правилу контракта | ось Size |
 | `header` | title \| coin \| empty | по правилу контракта | ось Header |
 | `footer` | single \| stacked \| horizontal \| none | по правилу контракта | ось Footer |
 | `title` | string | — | свойство Title |

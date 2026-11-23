@@ -14,7 +14,7 @@
    "service": 3,
    "template": 1
   },
-  "variants": 1740,
+  "variants": 1752,
   "incompleteMatrix": 25,
   "propsNotBoundEverywhere": 25,
   "rawMinMax": 1,
@@ -6327,7 +6327,7 @@
      "id": "81:829",
      "type": "SET",
      "status": "beta",
-     "descLen": 2072,
+     "descLen": 2261,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6344,6 +6344,10 @@
      ],
      "inBoard": false,
      "axes": {
+      "Size": [
+       "MD",
+       "SM"
+      ],
       "Header": [
        "Title",
        "Coin",
@@ -6356,8 +6360,8 @@
        "None"
       ]
      },
-     "variants": 12,
-     "full": 12,
+     "variants": 24,
+     "full": 24,
      "props": [
       {
        "name": "Title",
@@ -6395,10 +6399,10 @@
       }
      ],
      "nested": {
-      "_Overlay surface": 12,
-      "Icon button": 12,
-      "Button": 15,
-      "smbl-bitcoin-btc": 4
+      "_Overlay surface": 24,
+      "Icon button": 24,
+      "Button": 30,
+      "smbl-bitcoin-btc": 8
      },
      "minmax": [],
      "layers": {
@@ -6413,7 +6417,8 @@
      "tokens": {
       "(root)": [
        "r:radius/surface",
-       "w:size/modal/md"
+       "w:size/modal/md",
+       "w:size/modal/sm"
       ],
       "overlay surface": [
        "effects:shadow/ambient",
@@ -6426,8 +6431,7 @@
       "header": [
        "gap:space/8",
        "p:space/16",
-       "p:space/24",
-       "p:space/32"
+       "p:surface/padding/lg"
       ],
       "title": [
        "f:text/primary",
@@ -6452,8 +6456,8 @@
       ],
       "Body": [
        "gap:space/12",
-       "p:space/32",
-       "p:space/8"
+       "p:space/8",
+       "p:surface/padding/lg"
       ],
       "Контент модалки — в слот Body: текст, поля, список.": [
        "f:text/secondary",
@@ -6466,12 +6470,12 @@
        "gap:space/16",
        "gap:space/8",
        "p:space/24",
-       "p:space/32"
+       "p:surface/padding/lg"
       ],
       "Button": [
        "f:action/primary/default",
        "f:action/secondary/default",
-       "gap:space/2",
+       "gap:space/4",
        "h:control/height/lg",
        "minw:size/button/min",
        "p:space/12",
