@@ -484,7 +484,7 @@
   function MwSettingsNotify() {
     return h(MwShell, { tab: 'Настройки' },
       SETTINGS_SEG('notify'),
-      h(E.Card, { padding: 'l', className: 'demo-settings-card' },
+      h(E.Card, { padding: 'm', className: 'demo-settings-card' },
         h(E.SectionHeader, { size: 'm', level: 2, title: 'Следи за событиями майнинга' }),
         h(E.Select, { size: 'm', label: 'Аккаунт', hint: 'Уведомления настраиваются для выбранного аккаунта', defaultValue: 'main',
           options: [{ value: 'main', label: 'SergeySiminiv1337' }, { value: 'second', label: 'petrovskii' }] }),
@@ -501,7 +501,7 @@
     return h(MwShell, { tab: 'Настройки' },
       SETTINGS_SEG('out'),
       h(E.Select, { size: 'm', label: 'Монета майнинга', defaultValue: 'btc', options: [{ value: 'btc', label: 'Bitcoin', leading: btc() }, { value: 'ltc', label: 'Litecoin', leading: h(E.Coin, { coin: 'ltc', size: 's' }) }] }),
-      h(E.Card, { padding: 'l', className: 'demo-settings-card' },
+      h(E.Card, { padding: 'm', className: 'demo-settings-card' },
         h(E.SectionHeader, { size: 'm', level: 2, title: 'Куда выводить средства?' }),
         h(E.Toggle, { status: true, label: 'На основной счёт', description: 'Выплачиваем ежедневно с 10:00 до 12:00, без ограничений' }),
         h(E.Select, { size: 'm', label: 'Монета', defaultValue: 'btc', options: [{ value: 'btc', label: 'BTC', leading: btc() }, { value: 'usdt', label: 'USDT' }] }),
