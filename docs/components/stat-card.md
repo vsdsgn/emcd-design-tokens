@@ -28,7 +28,7 @@
 ## 3. Anatomy
 - Корень: Tone=Neutral — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` (`border/width/default`); Danger / Warning / Success — `status/*/subtle` без обводки, значение `text/*`; `radius/container`, отступ `card/padding`, зазор `space/8` (min-width снят 17.11: плитки статусов дашборда 160 в колонке).
 - `label row` (зазор `space/4`): `label` (`type/body/sm`, `text/secondary`) + иконка Info.
-- `value row` (зазор `space/6`): `value` (`type/heading/xl`, `font-weight/bold`, `font/family/display`, `text/primary`; по содержимому, max-width 180) + `unit` (`type/body/md`, `text/secondary`; max-width 64) — единица сразу за числом.
+- `value row` (зазор `space/6`): `value` (`type/heading/xl`, `font-weight/bold`, `font/family/display`, `text/primary`; по содержимому, max-width 240 — вмещает сумму с 8 знаками и тикером) + `unit` (`type/body/md`, `text/secondary`; max-width 64) — единица сразу за числом.
 - `delta row` (зазор `space/6`, max-width 248): Badge S + `delta caption` (`type/body/sm`, `text/tertiary`; max-width 160).
 - Слот `Footer`; `ambient light` — `light/ambient/color` + `light/ambient/blur`.
 - Skeleton — три вложенных Skeleton (`skeleton/base`, `radius/inner`) в строках высотой строки текста.
@@ -69,7 +69,7 @@
 - Label, Value, Unit, Info, Delta, Delta caption, Show footer, Footer привязаны только к Default; Ambient light — к обоим вариантам.
 
 ## 6. Content / slots
-- Длинный текст: Label — до 2 строк, дальше многоточие; Value — одна строка ≤ 180, Unit — ≤ 64, обе с многоточием, единица стоит рядом с числом; Delta caption — одна строка ≤ 160 с многоточием.
+- Длинный текст: Label — до 2 строк, дальше многоточие; Value — одна строка ≤ 240, Unit — ≤ 64, обе с многоточием, единица стоит рядом с числом; Delta caption — одна строка ≤ 160 с многоточием.
 - Языки (стенд): de, ar, hi, th, ja, kk — по высоте не обрезано.
 - RTL: порядок слотов зеркалится (leading ↔ trailing), смысловые стрелки и шевроны отражаются, цифры и латиница — нет. Числа, знак дельты и единицы не зеркалятся.
 - Текст 200 %: карточка растёт по высоте, обрезки нет; число — в одну строку; иконка Info размер не меняет.
@@ -117,7 +117,7 @@
 
 ## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
-- `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 180, unit 64, delta caption 160) и maxWidth 248 у delta row.
+- `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (value 240, unit 64, delta caption 160) и maxWidth 248 у delta row.
 - `audit-parity.plugin.js` — 0 (2026-11-13).
 - `npm run parity` — токены набора есть в репо или ждут Publish (`docs/parity-baseline.json`); сверка props с кодом продукта — по манифесту кода, когда он будет; код в репо проверяет `npm run test:code`.
 - Не проверено: полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; Ambient light в Base не виден — проверять в Expressive; кода нет — parity props пропущена.

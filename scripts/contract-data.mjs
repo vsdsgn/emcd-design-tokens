@@ -1986,7 +1986,7 @@ export const DATA = [
     anatomy: [
       'Корень: Tone=Neutral — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` (`border/width/default`); Danger / Warning / Success — `status/*/subtle` без обводки, значение `text/*`; `radius/container`, отступ `card/padding`, зазор `space/8` (min-width снят 17.11: плитки статусов дашборда 160 в колонке).',
       '`label row` (зазор `space/4`): `label` (`type/body/sm`, `text/secondary`) + иконка Info.',
-      '`value row` (зазор `space/6`): `value` (`type/heading/xl`, `font-weight/bold`, `font/family/display`, `text/primary`; по содержимому, max-width 180) + `unit` (`type/body/md`, `text/secondary`; max-width 64) — единица сразу за числом.',
+      '`value row` (зазор `space/6`): `value` (`type/heading/xl`, `font-weight/bold`, `font/family/display`, `text/primary`; по содержимому, max-width 240 — вмещает сумму с 8 знаками и тикером) + `unit` (`type/body/md`, `text/secondary`; max-width 64) — единица сразу за числом.',
       '`delta row` (зазор `space/6`, max-width 248): Badge S + `delta caption` (`type/body/sm`, `text/tertiary`; max-width 160).',
       'Слот `Footer`; `ambient light` — `light/ambient/color` + `light/ambient/blur`.',
       'Skeleton — три вложенных Skeleton (`skeleton/base`, `radius/inner`) в строках высотой строки текста.',
@@ -1996,7 +1996,7 @@ export const DATA = [
     defaults: { State: 'Default' },
     propsNote: ['Label, Value, Unit, Info, Delta, Delta caption, Show footer, Footer привязаны только к Default; Ambient light — к обоим вариантам.'],
     content: [
-      'Длинный текст: Label — до 2 строк, дальше многоточие; Value — одна строка ≤ 180, Unit — ≤ 64, обе с многоточием, единица стоит рядом с числом; Delta caption — одна строка ≤ 160 с многоточием.',
+      'Длинный текст: Label — до 2 строк, дальше многоточие; Value — одна строка ≤ 240, Unit — ≤ 64, обе с многоточием, единица стоит рядом с числом; Delta caption — одна строка ≤ 160 с многоточием.',
       'Языки (стенд): de, ar, hi, th, ja, kk — по высоте не обрезано.',
       RTL + ' Числа, знак дельты и единицы не зеркалятся.',
       'Текст 200 %: карточка растёт по высоте, обрезки нет; число — в одну строку; иконка Info размер не меняет.',
@@ -2005,7 +2005,7 @@ export const DATA = [
     behavior: ['Смена числа — без анимации счётчика (точность важнее).', 'Skeleton → Default — fade 200 мс; Skeleton показывается, если данные грузятся дольше 1 с.'],
     a11y: ['Карточка — группа с именем Label.', 'Дельта читается словами: «рост на 2,4 % к вчера».'],
     platforms: PLATFORMS.slice(0, 1),
-    accept: { audit: OK, vc: 'только реестр: maxWidth текстового слоя числом (value 180, unit 64, delta caption 160) и maxWidth 248 у delta row', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; Ambient light в Base не виден — проверять в Expressive; кода нет — parity props пропущена' },
+    accept: { audit: OK, vc: 'только реестр: maxWidth текстового слоя числом (value 240, unit 64, delta caption 160) и maxWidth 248 у delta row', ap: '0 (2026-11-13)', not: 'полный крест 72 ячеек — на стенде 2026-11-13 просмотрены 24 (Light / Dark × EMCD / Geometria / WL × Web / iOS / Android на L0 и L1–L3 для EMCD Web), длинный текст, 6 языков, 200 %, булевы свойства; RTL стенд не проверяет; Ambient light в Base не виден — проверять в Expressive; кода нет — parity props пропущена' },
     migration: ['DS Web `stat card` (widget Graph) → Stat card (Label, Value, Unit, Delta, Footer); DS App — нет. Опора — карточки дашборда Mining (Web App / App). Нужен скрин прода.'],
     todo: [],
   },
@@ -2038,7 +2038,7 @@ export const DATA = [
     propsNote: ['Show all link — по умолчанию On; привязано только к Layout=Row (1 из 2).', 'Подписи и числа — у вложенных Stat card.'],
     content: [
       'Подписи фиксированы: «Отключённые», «Нестабильные», «Активные»; значение — число воркеров.',
-      'Длинный текст и языки — по правилам Stat card (Label до 2 строк, Value одна строка ≤ 180); Row на 375 — три плитки без переноса подписи (Center, боковые поля `space/4`).',
+      'Длинный текст и языки — по правилам Stat card (Label до 2 строк, Value одна строка ≤ 240); Row на 375 — три плитки без переноса подписи (Center, боковые поля `space/4`).',
       RTL + ' Порядок плиток зеркалится, числа — нет.',
     ],
     events: [
