@@ -200,7 +200,7 @@ Compact (App, 375, Viewport=Compact) — «Воркеры · Compact (App) · Da
 - **Формы** — поля L (48), подпись на рамке (On border); одно поле в строке; единица — в Trailing поля (`text/tertiary`).
 - **Действия над Tab bar:** одно — Floating button Extended M по центру, на 16 выше Tab bar («Калькулятор», «Выгрузить», «Создать Watcher link»); два равных — ряд Button Tertiary M × 2 («Фильтры» · «Выгрузить»), поле 12 / 16.
 - **Списки в листе:** строки List item M; список-меню (Настройки → Уведомления) — в Card L2 Padding S, справа `chevron-right`.
-- **Карточки сущностей** (Watcher link): Card L1 Padding M, Border; заголовок Label/LG + Icon button Ghost S справа; поля «подпись `text/tertiary` Label/SM → значение Label/MD» через `space/4`, между полями `space/16`.
+- **Карточки сущностей** (Watcher link): Card L1 Padding L (23.11, §2.2; было M), Border; заголовок Label/LG + Icon button Ghost S справа; поля «подпись `text/tertiary` Label/SM → значение Label/MD» через `space/4`, между полями `space/16`.
 - **Сообщение раздела** — Suggest Strip: текст — заголовок (цвет тона), одно действие справа.
 
 ### 1.6 Каркас Web на DS 2.0 — один для всех продуктов (22.11, пилот цели 3)
@@ -255,7 +255,7 @@ Compact (App, 375, Viewport=Compact) — «Воркеры · Compact (App) · Da
 | M | 16 | 12 | `surface/padding/md` | плитки и вложенные: Card M, Stat card, Radio card, Suggest Card, Promo card S, Calendar, Toast Card |
 | S | 12 | 8 | `surface/padding/sm` | плашки и поповеры: Card S, Suggest Strip (верх / низ), Date range panel, Dropdown |
 
-Правило выбора: карточка на фоне страницы — L; карточка внутри карточки / листа и плитка — M; плашка в строку и всплывающее — S. Больше не используются: 28 (Chart card), 32 (Card L, Modal, Promo L по бокам), 20 (Input amount) — сведены к ступеням.
+Правило выбора: карточка на фоне страницы — L (в том числе карточка с таблицей и карточки сущностей списком); карточка внутри карточки / листа и плитка — M; плашка в строку и всплывающее — S. **Исключение — карточка-список** (внутри только List item / Transaction): Padding S — горизонтальный отступ даёт сама строка, иначе он двойной (23.11). Больше не используются: 28 (Chart card), 32 (Card L, Modal, Promo L по бокам), 20 (Input amount) — сведены к ступеням.
 
 Токены (23.11): `layout/gutter` Compact 12 · Medium 12 · Expanded 16 · Large 16 · XLarge 16 (было 16 / 16 / 24 / 24 / 32); `space/section` 24 · 32 · 40 · 40 · 48 (было 32 / 40 / 40 / 48 / 64); `card/gap` 8 (было 12); новые `surface/padding/lg|md|sm`, `surface/gap`.
 

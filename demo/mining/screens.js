@@ -179,14 +179,14 @@
           h(E.DateRangeField, { label: 'Период', className: 'demo-filters__period', panel: { isDateDisabled: function (d) { return d > new Date().toISOString().slice(0, 10); } } }),
           h(E.Button, { type: 'tertiary', size: 'm', label: 'Выгрузить', iconLeft: h(E.Icon, { name: 'file-excel' }), className: 'demo-filters__btn' })),
         div('demo-history',
-          h(E.Card, { padding: 'm', className: 'demo-history__total' },
+          h(E.Card, { padding: 'l', className: 'demo-history__total' },
             h(E.Suggest, { layout: 'strip', tone: 'warning', title: 'Начисления ежедневно с 15:00 до 16:00', primaryAction: false, close: false }),
             div('demo-total', h(E.Amount, { size: 'l', value: '$12 457.89' }), text('demo-caption demo-caption--md', 'Всего начислено')),
             h(E.Divider, null),
             div('demo-group', text('demo-caption demo-caption--md', 'PPS+'), div('emcd-list', coinRow('ltc', '8.9012 LTC', '≈ $78.90'))),
             div('demo-group', text('demo-caption demo-caption--md', 'PPLNS'),
               div('emcd-list', coinRow('doge', '9.0123 DOGE', '≈ $34.56'), coinRow('bel', '123.4567 BEL', '≈ $90.12'), coinRow('lky', '67.8901 LKY', '≈ $89.01'), coinRow('pep', '789.0123 PEP', '≈ $45.67')))),
-          h(E.Card, { padding: 'm', className: 'demo-history__table' },
+          h(E.Card, { padding: 'l', className: 'demo-history__table' },
             h(E.Table, { label: 'Начисления', density: 'regular', columns: cols, rows: HISTORY })))));
   }
 
@@ -199,10 +199,10 @@
         h(E.IconButton, { type: 'tertiary', size: 'l', label: 'Помощь', icon: h(E.Icon, { name: 'question' }) }),
         h(E.IconButton, { type: 'tertiary', size: 'l', label: 'Telegram-бот', icon: h(E.Icon, { name: 'send' }) })),
       h(E.PromoCard, { size: 'm', tone: 'accent', align: 'center', showBadge: true, title: 'Мониторинг', description: 'Следи за площадками, оборудованием и процессами в одном месте', actionLabel: 'Перейти к Мониторингу' }),
-      h(E.Card, { padding: 'm', border: false, className: 'demo-mw-summary' },
+      h(E.Card, { padding: 'l', border: false, className: 'demo-mw-summary' },
         h(E.SelectCompact, { label: 'Монета выплаты', options: KAS_OPTIONS, className: 'demo-mw-summary__coin' }),
         SUMMARY.map(function (s, i) { return div('demo-stat', text('demo-caption demo-caption--md', s.label), h(E.Amount, { key: i, size: 'l', value: s.value, ticker: 'KAS', fiat: s.fiat, skeleton: LOADING })); })),
-      h(E.Card, { padding: 'm', border: false, className: 'demo-mw-facts' },
+      h(E.Card, { padding: 's', border: false, className: 'demo-mw-facts' },
         h(E.ListItem, { size: 'm', showDescription: false, divider: true, leading: h(E.Coin, { coin: 'kas', size: 'l', skeleton: LOADING }), label: 'KAS',
           trailing: div('demo-two demo-two--end', val('demo-two__p', '$0.07', 40), val('demo-delta demo-delta--down', '−3.61 %', 48)) }),
         h(E.ListItem, { size: 'm', showDescription: false, divider: true, label: 'Дневной доход', trailing: div('demo-two demo-two--end', val('demo-two__p', '0.2243 KAS', 80), text('demo-two__s', 'за 1 TH/s')) }),
@@ -211,7 +211,7 @@
           div('demo-two demo-two--end', val('demo-two__p', '61.18 P', 56), val('demo-delta demo-delta--up', '+0.23 %', 48))) }),
         h(E.ListItem, { size: 'm', showDescription: false, label: 'Блоков до пересчёта', trailing: div('demo-two demo-two--end', val('demo-two__p', '248', 32), val('demo-two__s', '~1 д 11 ч 3 м', 88)) })),
       chartCard(true),
-      h(E.Card, { padding: 'm', border: false }, h(E.StatusSummary, { layout: 'row', offline: 9, unstable: 1, active: 40, skeleton: LOADING })),
+      h(E.Card, { padding: 'l', border: false }, h(E.StatusSummary, { layout: 'row', offline: 9, unstable: 1, active: 40, skeleton: LOADING })),
       h(E.PromoCarousel, { slides: [
         h(E.PromoCard, { key: 1, size: 'm', title: 'Забусти свой майнинг с нашей прошивкой', showMedia: true, showClose: false, showDescription: false }),
         h(E.PromoCard, { key: 2, size: 'm', title: 'Coinhold — до 14% годовых', showMedia: true, showClose: false, showDescription: false }),
@@ -228,7 +228,7 @@
       div('demo-mw-row demo-mw-row--labelled', h(E.Select, { size: 'l', labelPosition: 'on-border', label: 'Монета', defaultValue: 'btc', className: 'demo-grow',
         leading: h(E.CoinStack, { coins: ['btc', 'eth'], size: 's' }), options: [{ value: 'btc', label: 'Bitcoin +1' }, { value: 'one', label: 'BTC' }] }),
         h(E.IconButton, { type: 'tertiary', size: 'l', label: 'Выгрузить отчёт', icon: h(E.Icon, { name: 'file-excel' }) })),
-      h(E.Card, { padding: 'm', border: false }, h('dl', { className: 'emcd-kv-list' },
+      h(E.Card, { padding: 'l', border: false }, h('dl', { className: 'emcd-kv-list' },
         h(E.KeyValueRow, { leader: true, label: 'Текущий хешрейт', value: '535.15 TH/s' }),
         h(E.KeyValueRow, { leader: true, label: 'Хешрейт за 24 часа', value: '628.22 TH/s' }),
         h(E.KeyValueRow, { leader: true, label: 'Реджекты за 1 ч', value: '1.16 %' }))),
@@ -251,7 +251,7 @@
     });
     return h(MwShell, { tab: 'История', bar: h(E.ActionBar, { badge: true, actions: [{ label: 'Фильтры', iconLeft: 'tuning' }, { label: 'Выгрузить', iconLeft: 'file-excel' }] }) },
       h(E.Segmented, { size: 'm', block: true, label: 'Вид истории', items: [{ value: 'acc', label: 'Начисления' }, { value: 'pay', label: 'Выплаты' }] }),
-      h(E.Card, { padding: 'm', border: false, className: 'demo-mw-total' },
+      h(E.Card, { padding: 'l', border: false, className: 'demo-mw-total' },
         coinSelect(['ltc', 'eth', 'x'], 'Litecoin + 6', '6', 'l'),
         div('demo-mw-total__row',
           div('demo-stat', h(E.Amount, { size: 'l', value: '≈ $35 534.55' }), text('demo-caption demo-caption--md', 'Сумма всех выплат')),
@@ -337,7 +337,7 @@
 
   function MwCalculator() {
     return h(MwShell, { tab: 'Калькулятор', bar: h(E.ActionBar, { actions: [{ label: 'Начать майнить' }] }) },
-      h(E.Card, { padding: 'm', border: false, className: 'demo-calc__form demo-calc__form--mw' },
+      h(E.Card, { padding: 'l', border: false, className: 'demo-calc__form demo-calc__form--mw' },
         div('demo-calc__fields demo-calc__fields--mw', CALC_FIELDS.map(function (f) { return calcField(f); })),
         div('demo-calc-group', text('demo-caption demo-caption--md', 'Укажи срок'), h(ChipRow, { label: 'Срок', items: CALC_PERIODS, selected: '360 дней', className: 'demo-chip-row--scroll' }))),
       coinholdCard(true),
@@ -365,7 +365,7 @@
           options: [{ value: 'date', label: 'Дате создания' }, { value: 'name', label: 'Названию' }] }),
         h(E.Button, { type: 'primary', size: 'm', label: 'Создать Watcher link' })),
       div('demo-links', LINKS.map(function (l, i) {
-        return h(E.Card, { key: i, padding: 'm', className: 'demo-link' + (l.on ? '' : ' demo-link--off') },
+        return h(E.Card, { key: i, padding: 'l', className: 'demo-link' + (l.on ? '' : ' demo-link--off') },
           div('demo-two', text('demo-link__name', l.name), text('demo-two__s', l.created)),
           div('demo-link__term', text('demo-link__text', l.until), l.pct != null && h(E.Progress, { size: 's', tone: l.tone, percent: l.pct, label: 'Срок ссылки', showLabel: false })),
           div('demo-link__account', text('demo-link__text', l.account), l.main && h(E.Badge, { size: 's', label: 'Основной' })),
@@ -429,14 +429,14 @@
           h(E.DateRangeField, { label: 'Период', className: 'demo-filters__period', panel: { isDateDisabled: function (d) { return d > new Date().toISOString().slice(0, 10); } } }),
           h(E.Button, { type: 'tertiary', size: 'm', label: 'Выгрузить', iconLeft: h(E.Icon, { name: 'file-excel' }), className: 'demo-filters__btn' })),
         div('demo-history',
-          h(E.Card, { padding: 'm', className: 'demo-history__total' },
+          h(E.Card, { padding: 'l', className: 'demo-history__total' },
             h(E.Suggest, { layout: 'strip', tone: 'warning', title: 'Выплаты ежедневно с 15:00 до 16:00', primaryAction: false, close: false }),
             div('demo-total', h(E.Amount, { size: 'l', value: '$12 457.89' }), text('demo-caption demo-caption--md', 'Всего выплачено')),
             h(E.Divider, null),
             div('demo-group', text('demo-caption demo-caption--md', 'На EMCD wallet'), div('emcd-list', coinRow('ltc', '8.9012 LTC', '≈ $78.90'))),
             div('demo-group', text('demo-caption demo-caption--md', 'На внешний кошелёк'),
               div('emcd-list', coinRow('doge', '9.0123 DOGE', '≈ $34.56'), coinRow('bel', '123.4567 BEL', '≈ $90.12'), coinRow('lky', '67.8901 LKY', '≈ $89.01'), coinRow('pep', '789.0123 PEP', '≈ $45.67')))),
-          h(E.Card, { padding: 'm', className: 'demo-history__table' },
+          h(E.Card, { padding: 'l', className: 'demo-history__table' },
             h(E.Table, { label: 'Выплаты', density: 'regular', columns: cols, rows: HISTORY })))));
   }
 
@@ -448,7 +448,7 @@
     });
     return h(MwShell, { tab: 'История', bar: h(E.ActionBar, { badge: true, actions: [{ label: 'Фильтры', iconLeft: 'tuning' }, { label: 'Выгрузить', iconLeft: 'file-excel' }] }) },
       h(E.Segmented, { size: 'm', block: true, label: 'Вид истории', defaultValue: 'pay', items: [{ value: 'acc', label: 'Начисления' }, { value: 'pay', label: 'Выплаты' }] }),
-      h(E.Card, { padding: 'm', border: false, className: 'demo-mw-total' },
+      h(E.Card, { padding: 'l', border: false, className: 'demo-mw-total' },
         coinSelect(['ltc', 'eth', 'x'], 'Litecoin + 6', '6', 'l'),
         div('demo-mw-total__row',
           div('demo-stat', h(E.Amount, { size: 'l', value: '≈ $35 534.55' }), text('demo-caption demo-caption--md', 'Сумма всех выплат')),
@@ -466,7 +466,7 @@
         h(E.PageHeader, { size: 'compact', title: 'Мои Watcher link' }),
         h(E.IconButton, { type: 'secondary', size: 'm', label: 'Фильтр', icon: h(E.Icon, { name: 'tuning' }) })),
       div('demo-links', LINKS.map(function (l, i) {
-        return h(E.Card, { key: i, padding: 'm', className: 'demo-link demo-link--mw' + (l.on ? '' : ' demo-link--off') },
+        return h(E.Card, { key: i, padding: 'l', className: 'demo-link demo-link--mw' + (l.on ? '' : ' demo-link--off') },
           div('demo-link__top',
             div('demo-two demo-grow', text('demo-link__name', l.name), text('demo-two__s', l.created)),
             h(E.IconButton, { type: 'ghost', size: 's', label: 'Скопировать ссылку', icon: h(E.Icon, { name: 'link' }) }),
@@ -484,7 +484,7 @@
   function MwSettingsNotify() {
     return h(MwShell, { tab: 'Настройки' },
       SETTINGS_SEG('notify'),
-      h(E.Card, { padding: 'm', className: 'demo-settings-card' },
+      h(E.Card, { padding: 'l', className: 'demo-settings-card' },
         h(E.SectionHeader, { size: 'm', level: 2, title: 'Следи за событиями майнинга' }),
         h(E.Select, { size: 'm', label: 'Аккаунт', hint: 'Уведомления настраиваются для выбранного аккаунта', defaultValue: 'main',
           options: [{ value: 'main', label: 'SergeySiminiv1337' }, { value: 'second', label: 'petrovskii' }] }),
@@ -501,7 +501,7 @@
     return h(MwShell, { tab: 'Настройки' },
       SETTINGS_SEG('out'),
       h(E.Select, { size: 'm', label: 'Монета майнинга', defaultValue: 'btc', options: [{ value: 'btc', label: 'Bitcoin', leading: btc() }, { value: 'ltc', label: 'Litecoin', leading: h(E.Coin, { coin: 'ltc', size: 's' }) }] }),
-      h(E.Card, { padding: 'm', className: 'demo-settings-card' },
+      h(E.Card, { padding: 'l', className: 'demo-settings-card' },
         h(E.SectionHeader, { size: 'm', level: 2, title: 'Куда выводить средства?' }),
         h(E.Toggle, { status: true, label: 'На основной счёт', description: 'Выплачиваем ежедневно с 10:00 до 12:00, без ограничений' }),
         h(E.Select, { size: 'm', label: 'Монета', defaultValue: 'btc', options: [{ value: 'btc', label: 'BTC', leading: btc() }, { value: 'usdt', label: 'USDT' }] }),
@@ -745,7 +745,7 @@
         div('demo-pm__grid2', monChart('Средний хешрейт площадок', '100', 'TH/s', 'Хешрейт', MON_H, [0, 30, 60, 90, 120], true), monChart('Средняя температура площадок', '71.5', '°C', 'Температура', MON_T, [0, 20, 40, 60, 80]))),
       div('demo-pm__section',
         h(E.SectionHeader, { size: 'l', level: 2, title: 'Площадки', trailing: h(E.Button, { type: 'text', size: 'm', label: 'К площадкам' }) }),
-        h(E.Card, { padding: 'm', className: 'demo-pm__table-card' },
+        h(E.Card, { padding: 'l', className: 'demo-pm__table-card' },
           div('demo-pm__filters', h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Площадка', defaultValue: 'all', options: [{ value: 'all', label: 'Все площадки' }], className: 'demo-pm__select' }), periodChips('s')),
           h(E.Table, { label: 'Площадки', columns: [
             { key: 'n', label: 'Площадка', render: function (o) { return o.r[0]; } }, { key: 'h', label: 'Хешрейт', align: 'end', render: function (o) { return num(o.r[1], 'TH/s'); } },
@@ -755,7 +755,7 @@
             { key: 'a', label: '', align: 'end', width: 80, render: function () { return h(E.IconButton, { type: 'tertiary', size: 's', label: 'Ещё', icon: h(E.Icon, { name: 'more-horizontal' }) }); } }], rows: SITES }))),
       div('demo-pm__section',
         h(E.SectionHeader, { size: 'l', level: 2, title: 'Устройства', trailing: h(E.Button, { type: 'text', size: 'm', label: 'К устройствам' }) }),
-        h(E.Card, { padding: 'm', className: 'demo-pm__table-card' },
+        h(E.Card, { padding: 'l', className: 'demo-pm__table-card' },
           div('demo-pm__filters', h(E.Tabs, { size: 'm', label: 'Статус устройств', defaultValue: 'a', items: [{ value: 'a', label: 'Активные', counter: 55 }, { value: 'w', label: 'Ожидание', counter: 12 }] }),
             div('demo-pm__legend demo-push', text('demo-caption', 'Всего устройств'), text('demo-pm__val', '120'), h(E.Status, { tone: 'danger', label: 'Сбой 2' }), h(E.Status, { tone: 'warning', label: 'Риск 3' }), h(E.Status, { tone: 'success', label: 'Норма —' }), h(E.Status, { tone: 'neutral', label: 'Выкл 12' }))),
           h(E.Table, { label: 'Устройства', columns: [
@@ -770,7 +770,7 @@
     var COINS = ['btc', 'eth', 'ltc', 'usdt'];
     return h(ProductShell, { title: 'Users', language: 'EN', accountLink: 'Profile', items: [{ label: 'Analytics', icon: 'chart-bar', href: '#' }, { label: 'Users', icon: 'users', href: '#', selected: true },
       { label: 'Reports', icon: 'list', href: '#' }, { label: 'Notifications', icon: 'bell-notifications', href: '#' }, { label: 'Watcher-link', icon: 'link', href: '#' }, { label: 'Settings', icon: 'settings', href: '#' }] },
-      h(E.Card, { padding: 'm', className: 'demo-pm__table-card' },
+      h(E.Card, { padding: 'l', className: 'demo-pm__table-card' },
         div('demo-pm__filters', h(E.Search, { size: 'm', placeholder: 'Search by ID, name or email', label: 'Search users', className: 'demo-pm__search' }),
           div('demo-pm__tools demo-push', h(E.Button, { type: 'tertiary', size: 'm', label: 'Export to CSV', iconLeft: h(E.Icon, { name: 'file-csv' }) }),
             h(E.IconButton, { type: 'tertiary', size: 'm', label: 'Edit columns', icon: h(E.Icon, { name: 'edit' }) }), h(E.IconButton, { type: 'tertiary', size: 'm', label: 'Filters', icon: h(E.Icon, { name: 'filter' }) }),
@@ -819,7 +819,7 @@
             div('demo-pm__bar', text('demo-caption', 'Мощность'), h(E.Progress, { size: 'm', percent: 60, showLabel: false, 'aria-label': 'Мощность: 69 из 115 kW' }),
               div('demo-pm__legend', h(E.Status, { tone: 'info', label: 'Используемая' }), h(E.Status, { tone: 'neutral', label: 'Остаток' })))),
           div('demo-pm__tiles', tile('Площадки', '100'), tile('Владельцы', '12'), tile('Операторы', '120'), tile('Техники', '13 000'))),
-        h(E.Card, { padding: 'm', className: 'demo-pm__table-card' },
+        h(E.Card, { padding: 'l', className: 'demo-pm__table-card' },
           div('demo-pm__filters', h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Площадка', defaultValue: 'all', options: [{ value: 'all', label: 'Все площадки' }], className: 'demo-pm__select' }), div('demo-push', periodChips('s'))),
           h(E.Table, { label: 'Площадки', columns: [
             { key: 'n', label: 'Площадка', render: function (o) { return o.r[0]; } }, { key: 'h', label: 'Хешрейт', align: 'end', render: function (o) { return num(o.r[1], 'TH/s'); } },

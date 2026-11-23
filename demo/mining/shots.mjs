@@ -12,16 +12,16 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../.
 const OUT = path.join(ROOT, 'demo/mining/out');
 const SCREENS = [
   ['web-dashboard', 1440, 900], ['web-workers', 1440, 900], ['web-history', 1440, 900],
-  ['mw-dashboard', 375, 812, true], ['mw-workers', 375, 812], ['mw-history', 375, 812],
+  ['mw-dashboard', 375, 1853, true], ['mw-workers', 375, 812], ['mw-history', 375, 812],
   // 19.11: Калькулятор (3.10a), Watcher-link и Настройки (3.9a); макеты Watcher-link и Настроек — 1200 × 750 (кадр 1440 в масштабе) → в сравнении растягиваются до ширины страницы
-  ['web-calculator', 1440, 914], ['mw-calculator', 375, 812, true], ['web-watcher', 1440, 900], ['web-settings', 1440, 900],
+  ['web-calculator', 1440, 914], ['mw-calculator', 375, 1740, true], ['web-watcher', 1440, 916], ['web-settings', 1440, 900],
   // 19.11: макеты экранов DS (Figma «… · DS 2.0»): мобильные 370 × 800 (кадр 375 в масштабе), «Вывод» — 375 × 1042 (вся высота), Выплаты Web — 1200 × 750
-  ['web-payouts', 1440, 900], ['mw-payouts', 375, 812], ['mw-watcher', 375, 812], ['mw-settings-notify', 375, 812], ['mw-settings-withdraw', 375, 812, true],
+  ['web-payouts', 1440, 900], ['mw-payouts', 375, 812], ['mw-watcher', 375, 812], ['mw-settings-notify', 375, 812], ['mw-settings-withdraw', 375, 994, true],
   // 19.11: App (iOS) — экраны «… · App · DS 2.0» (статус-бар — устройство, в коде только его высота 54)
   ['app-dashboard', 375, 1609, true], ['app-workers', 375, 812], ['app-history', 375, 812], ['app-payouts', 375, 812],
   ['app-calculator', 375, 812, true], ['app-settings-withdraw', 375, 812], ['app-settings-notify', 375, 812], ['app-watcher', 375, 812], ['app-export', 375, 812], ['app-main-dashboard', 375, 812],
   // 22.11: пилот цели 3 — Мониторинг · Главная (Web 1440, вся высота), WL B2B · Users (Web), WL B2C · Statistics (App 375, вся высота)
-  ['mon-main', 1440, 1807, true], ['b2b-users', 1440, 1060], ['b2c-statistics', 375, 1115, true],
+  ['mon-main', 1440, 1839, true], ['b2b-users', 1440, 1060], ['b2c-statistics', 375, 1115, true],
   // 23.11: H7 — Мониторинг · Площадки, Детали устройства; WL B2B · User profile · Mining
   ['mon-sites', 1440, 900], ['mon-device', 1440, 900], ['b2b-profile', 1440, 1391, true]];
 const only = process.argv.slice(2);
