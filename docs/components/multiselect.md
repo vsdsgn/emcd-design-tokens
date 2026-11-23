@@ -13,6 +13,7 @@
 - Когда использовать: фильтры, выбор нескольких сетей, монет или воркеров.
 - Когда нет: 2–4 варианта — Checkbox group; один вариант — Select.
 - Правило выбора варианта:
+  - Label position: Above — подпись над полем; On border — на рамке, как у Input / Select: в форме все поля одного вида (23.11, форма «Площадка — редактирование»).
   - Display: Count — мобильные и фильтры (высота поля постоянна, в поле «Выбрано: N»); Chips — формы с редким выбором: чипы под полем, не больше 3 чипов и «+N».
   - State: Default — меню закрыто; Hover — указатель над полем; Open — меню открыто, идёт выбор; Error — выбор не прошёл проверку, сообщение вместо подсказки; Disabled — выбор недоступен; Skeleton — данные грузятся.
   - Меню остаётся открытым при выборе. Мобильные: список в Sheet с кнопкой «Применить».
@@ -23,8 +24,8 @@
 - Menu: строки Multiselect option, отступ `space/8`, зазор `space/4`, `radius/control`, ширина `size/menu/min` … `size/menu/max`; оболочка и обводка — по контракту Menu.
 - `selected` — ряд Chip с переносом, зазор `space/8`; Chip: высота `control/height/sm`, `radius/sm`, фон `action/inverse/default` (Disabled — `action/disabled`), max-width `size/chip/max`, крестик удаления.
 - Кольцо фокуса, зона нажатия и безопасное поле — у вложенных Select, Multiselect option и Chip.
-- Вложено: `Select` ×12, `Menu` ×2, `Chip` ×18.
-- Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Select` ×24, `Menu` ×4, `Chip` ×36.
+- Служебные слои (вариантов из 24): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): Поле ввода: состояние — цветом рамки и сообщения, Hover — слой; Disabled — токены `*/disabled`; Skeleton — загрузка (всё из Select). Строки меню и чипы — по своим контрактам (Multiselect option, Chip).
@@ -39,10 +40,11 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
+| Label position | Above · On border | — |
 | Display | Count · Chips | Count |
 | State | Default · Open · Error · Disabled · Hover · Skeleton | Default |
 
-Матрица полная: 12 вариантов.
+Матрица полная: 24 вариантов.
 
 - Своих свойств у набора нет: подпись, значение, подсказка и ошибка — свойства вложенного Select; подписи пунктов — в Multiselect option; подписи чипов — в Chip.
 
@@ -75,23 +77,23 @@
 - `Select`: мин. ширина `size/field/min`.
 - `Menu`: интервал `space/4`; maxw `size/menu/max`; мин. ширина `size/menu/min`; отступы `space/8`; радиус `radius/control`.
 - `selected`: интервал `space/8`.
-- `Chip`: заливка / цвет `action/disabled`, `action/inverse/default`; интервал `space/6`; высота `control/height/sm`; maxw `size/chip/max`; отступы `control/padding-x/sm`; радиус `radius/control-sm`.
-- Значений без переменной: 12 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- `Chip`: заливка / цвет `action/inverse/default`, `control/segment`; интервал `space/6`; высота `control/height/sm`; maxw `size/chip/max`; отступы `control/padding-x/sm`; радиус `radius/sm`.
+- Значений без переменной: 24 (напр. `(root):w=320`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Multiselect`, вариантов 12 из 12; оси: Display, State.
+- Набор `Multiselect`, вариантов 24 из 24; оси: Label position, Display, State.
 - Борда: «Multiselect — борда · шаблон v3», разделов 11.
-- Описание: 742 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены:
+- Описание: 893 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены: Label position (23.
 
 ## 13. Code projection
 Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsMultiselect>`; Flutter: `DsMultiselect`.
-- Props: `display`: count | chips.
+- Props: `labelPosition`: above | on-border; `display`: count | chips.
 - Состояния (Default, Open, Error, Disabled, Hover, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
 ## 14. Acceptance (2026-11-23)

@@ -14,7 +14,7 @@
    "service": 3,
    "template": 1
   },
-  "variants": 1752,
+  "variants": 1764,
   "incompleteMatrix": 25,
   "propsNotBoundEverywhere": 25,
   "rawMinMax": 1,
@@ -6531,7 +6531,7 @@
      "id": "1516:1052",
      "type": "SET",
      "status": "beta",
-     "descLen": 742,
+     "descLen": 893,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6539,10 +6539,15 @@
       "Правила:",
       "A11y:",
       "Legacy:",
-      "Токены:"
+      "Токены:",
+      "Label position (23."
      ],
      "inBoard": false,
      "axes": {
+      "Label position": [
+       "Above",
+       "On border"
+      ],
       "Display": [
        "Count",
        "Chips"
@@ -6556,13 +6561,13 @@
        "Skeleton"
       ]
      },
-     "variants": 12,
-     "full": 12,
+     "variants": 24,
+     "full": 24,
      "props": [],
      "nested": {
-      "Select": 12,
-      "Menu": 2,
-      "Chip": 18
+      "Select": 24,
+      "Menu": 4,
+      "Chip": 36
      },
      "minmax": [],
      "layers": {
@@ -6572,7 +6577,7 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 12,
+     "rawCount": 24,
      "raw": [
       "(root):w=320"
      ],
@@ -6594,13 +6599,13 @@
        "gap:space/8"
       ],
       "Chip": [
-       "f:action/disabled",
        "f:action/inverse/default",
+       "f:control/segment",
        "gap:space/6",
        "h:control/height/sm",
        "maxw:size/chip/max",
        "p:control/padding-x/sm",
-       "r:radius/control-sm"
+       "r:radius/sm"
       ]
      },
      "statusFirstLine": true

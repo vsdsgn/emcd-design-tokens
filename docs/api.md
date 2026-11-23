@@ -625,6 +625,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
+| `labelPosition` | above \| on-border | по правилу контракта | ось Label position |
 | `display` | count \| chips | по правилу контракта | ось Display |
 
 Состояния в Figma: Default · Open · Error · Disabled · Hover · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error`, `skeleton` — boolean props.

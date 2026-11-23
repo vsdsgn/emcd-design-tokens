@@ -51,7 +51,7 @@
 - ~~`space/section` Large 64 → 48~~ — сделано 22.11 (Foundations + репо: Expanded 40, Large 48, XLarge 64).
 
 ## Очередь на Publish Components
-- **Multiselect — сделать** (пробел, 23.11): ось Label position = Above · On border, как у Input и Select (форма «Площадка — редактирование» — поля разного вида).
+- **Multiselect** (23.11): ось Label position = Above · On border (через вложенный Select), 24 варианта. После Publish — форма «Площадка — редактирование»: Multiselect на On border.
 - **Modal** (23.11): ось Size = MD (560) · SM (400, заголовок Heading/LG) — подтверждения 6.2 (заголовок Display/MD в 400 переносился). После Publish — экран «Мониторинг · Сотрудники · удаление»: модалку на Size=SM.
 - **Slider** (23.11, «верни слайдер для диапазонов» Стефана): из архива → «🟠 Slider» (draft), ось Type = Single · Range (Steps=Continuous, два ползунка), борда v3; код React / Vue / CSS. После Publish — B2B Coins: Pool fee / Referral fee → Slider Range.
 - **Sparkline** (23.11, «нужны все виды графиков»): новый набор «🟠 Sparkline» (draft) — Type = все 7 видов Chart plot, 80 × 24, без осей и сетки; код React / Vue / CSS. После Publish — тренд в таблицах B2B Coins и User profile · Hashrate.
