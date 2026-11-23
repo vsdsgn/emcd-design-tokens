@@ -39,7 +39,7 @@
 - [Action bar](docs/components/action-bar.md): Нижняя панель действий Compact: 1–2 Button M на всю ширину, подложка `surface/level-0`, прилипает к низу экрана
 - [Address](docs/components/address.md): Адрес кошелька или хэш с копированием и QR: подпись, строка с адресом и двумя кнопками, статус «Адрес скопирован»
 - [Amount](docs/components/amount.md): Денежная сумма: число, тикер и необязательный фиатный эквивалент. Единый способ показать сумму в продукте
-- [Avatar](docs/components/avatar.md): Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото
+- [Avatar](docs/components/avatar.md): Круглое медиа: пользователь, субаккаунт, контрагент (инициал, иконка, фото) или монета (Type=Coin, бывший набор Coin, 22.11)
 - [Avatar group](docs/components/avatar-group.md): Несколько аватаров одним блоком внахлёст; лишние сворачиваются в круг «+N»
 - [Badge](docs/components/badge.md): Неинтерактивная метка статуса или свойства («Активен», «Новое», «−5 %», монета). Нажать нельзя
 - [Breadcrumb item](docs/components/breadcrumb-item.md): Пункт хлебных крошек: ссылка на предыдущий уровень; Current — текущая страница, не ссылка
@@ -70,7 +70,7 @@
 - [Key-value row](docs/components/key-value-row.md): Строка «название — значение» в сводке: название в начале строки, значение в конце
 - [Legend item](docs/components/legend-item.md): Элемент легенды графика: маркер серии (Legend swatch) + подпись и необязательное значение
 - [List item](docs/components/list-item.md): Строка списка данных: монета, кошелёк, воркер, транзакция, настройка. Слот Leading слева, тексты по Content, слот Trailing справа
-- [Marker](docs/components/marker.md): Маркер серии графика: цветная точка или отрезок линии
+- [Marker](docs/components/marker.md): Метка — цветная точка или отрезок линии: серия графика (легенда, тултип) или статус (точка у Status, Chip, Tab). 22.11: Legend swatch и _Dot слиты в Marker
 - [Menu](docs/components/menu.md): Меню (Dropdown): всплывающий список действий или вариантов. В слоте Items — Menu item, подписи групп и разделители; сверху — необязательный поиск
 - [Menu item](docs/components/menu-item.md): Пункт меню: слева необязательный слот (иконка, монета, аватар, эмодзи), затем подпись с необязательным описанием, справа необязательный слот (Badge, Counter, значение, шеврон подменю, кнопка). Нажимается вся строка, одно действие на пункт
 - [Modal](docs/components/modal.md): Модальное окно (диалог): короткое действие или подтверждение, прерывающее поток. Шапка, слот Body, кнопки в слоте Footer slot; под окном — затемнение `surface/overlay`
@@ -96,7 +96,7 @@
 - [Segmented](docs/components/segmented.md): Выбор одного значения из 2–4 взаимоисключающих; результат применяется сразу (период графика, Купить / Продать, вид список / сетка)
 - [Select](docs/components/select.md): Поле выбора одного значения из списка (сеть вывода, кошелёк, монета, валюта). Поле как у Input (размеры, лейбл, helper, ошибка), справа шеврон; по нажатию открывает Menu (на Compact — Sheet)
 - [Select compact](docs/components/select-compact.md): Компактный селектор без лейбла: выбор монеты, сети, валюты внутри строки, карточки, шапки виджета («USDT ▾»). По нажатию открывает Menu, на Compact — Sheet
-- [Selection group](docs/components/selection-group.md): Группа чекбоксов: подпись группы, варианты, под ними подсказка или ошибка
+- [Selection group](docs/components/selection-group.md): Группа выбора: подпись группы, варианты (Checkbox, Radio или Toggle), под ними подсказка или ошибка. 22.11: Checkbox group, Radio group и Toggle group слиты
 - [Sheet](docs/components/sheet.md): Шторка на Compact (App и мобильный веб): панель от края до края — грабер, шапка с заголовком и крестиком, слот Body, кнопки L на всю ширину в слоте Footer. Меню действий — тот же Sheet с Menu item L в слоте Body
 - [Skeleton](docs/components/skeleton.md): Кирпичи скелетона: из них собираются Skeleton-состояния всех компонентов с данными (List item, Table row, Stat card, Chart card, Coin, Avatar)
 - [Stat card](docs/components/stat-card.md): Один показатель с подписью: хешрейт, баланс, начислено за 24 ч, активные воркеры. Основа дашборда

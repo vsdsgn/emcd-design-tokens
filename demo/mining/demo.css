@@ -70,7 +70,7 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 /* ───────── мобильный веб ───────── */
 .demo-mw { display: flex; flex-direction: column; min-height: 100vh; width: 100%; }
 .demo-mw__tabs { padding: 0 var(--space-16); }
-.demo-mw__content { flex: 1; display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-16); }
+.demo-mw__content { flex: 1; display: flex; flex-direction: column; gap: var(--layout-gutter); /* 23.11: блоки страницы — layout/gutter */ padding: var(--space-16); }
 .demo-mw .demo-coin-select { width: 100%; }
 .demo-mw-actions, .demo-mw-row { display: flex; gap: var(--space-8); align-items: center; }
 .demo-mw-row > .emcd-select { min-width: 0; }
@@ -101,7 +101,7 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 .demo-forecasts { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-24); }
 .demo-forecast { display: flex; flex-direction: column; gap: var(--space-12); min-width: 0; }
 .demo-forecast__row { display: flex; gap: var(--space-16); align-items: flex-start; }
-.demo-calc__side { display: flex; flex-direction: column; gap: var(--space-16); min-width: 0; }
+.demo-calc__side { display: flex; flex-direction: column; gap: var(--layout-gutter); min-width: 0; }
 .demo-income { gap: var(--space-24); }
 .demo-income__head { display: flex; align-items: center; gap: var(--space-16); }
 .demo-income__total { display: flex; flex-direction: column; gap: var(--space-4); }
@@ -122,7 +122,7 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 /* ───────── Watcher-link (patterns 3.9a) ───────── */
 .demo-menu--watcher { align-items: center; }
 .demo-watcher__select { width: 256px; flex: none; }
-.demo-links { display: flex; flex-direction: column; gap: var(--space-8); }
+.demo-links { display: flex; flex-direction: column; gap: var(--card-gap); } /* 23.11: список одинаковых карточек — card/gap */
 .demo-link { display: grid; grid-template-columns: 228px 140px 120px minmax(0, 1fr) auto; align-items: start; gap: var(--space-24); }
 .demo-link__name { color: var(--text-primary); font: 400 var(--type-body-lg-size, 16px)/var(--type-body-lg-line-height, 24px) var(--font-sans); }
 .demo-link__text { color: var(--text-primary); font: 400 var(--type-body-sm-size)/var(--type-body-sm-line-height) var(--font-sans); }
@@ -155,8 +155,8 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 /* ───────── App (iOS, 19.11) ───────── */
 .demo-app { position: relative; display: flex; flex-direction: column; height: 100vh; overflow: hidden; background: var(--surface-level-0); }
 .demo-app__status { flex: none; height: 54px; }
-.demo-app__sheet { flex: 1; min-height: 0; overflow: hidden; gap: var(--space-8); margin-bottom: -40px; } /* лист уходит под Tab bar, как на макете */
-.demo-app__sheet--tabs { padding-top: var(--space-4); gap: var(--space-16); } /* лист с Tabs сверху: поле space/4 (воздух дают сами Tabs M 48), зазор space/16 — как на макетах */
+.demo-app__sheet { flex: 1; min-height: 0; overflow: hidden; gap: var(--card-gap); /* 23.11: карточки в листе — card/gap 12 */ margin-bottom: -40px; } /* лист уходит под Tab bar, как на макете */
+.demo-app__sheet--tabs { padding-top: var(--space-4); gap: var(--card-gap); } /* лист с Tabs сверху: поле space/4 (воздух дают сами Tabs M 48), зазор card/gap (23.11) */
 .demo-app__tabbar { flex: none; position: relative; z-index: 1; }
 .demo-app__fab { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(91px + var(--space-32)); }
 .demo-app-coin { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
@@ -169,7 +169,7 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 /* App · вложенный экран / шторка (20.11, patterns 1.5) */
 .demo-app--inner .demo-app__inner-content { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-16) var(--space-16) var(--space-24); }
 .demo-app__tabs { margin-inline: calc(-1 * var(--space-16)); padding-inline: var(--space-16); }
-.demo-wl-list { display: flex; flex-direction: column; gap: var(--space-12); }
+.demo-wl-list { display: flex; flex-direction: column; gap: var(--card-gap); }
 .demo-wl-card { gap: var(--space-16); }
 .demo-wl-card__top { display: flex; align-items: flex-start; gap: var(--space-8); }
 .demo-wl-card__name { flex: 1; min-width: 0; font: 500 var(--type-label-lg-size)/var(--type-label-lg-line-height) var(--font-sans); color: var(--text-primary); }
@@ -223,4 +223,4 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 .demo-app--long { height: auto; min-height: 100vh; overflow: visible; }
 .demo-app--long .demo-app__sheet { flex: none; overflow: visible; margin-bottom: 0; padding-bottom: calc(91px + 40px + var(--space-32) + var(--space-16)); }
 .demo-app--long .demo-app__tabbar { position: absolute; left: 0; right: 0; bottom: 0; }
-.demo-app-sections { display: flex; flex-direction: column; gap: var(--space-16); padding-top: var(--space-16); }
+.demo-app-sections { display: flex; flex-direction: column; gap: var(--card-gap); padding-top: var(--space-16); }
