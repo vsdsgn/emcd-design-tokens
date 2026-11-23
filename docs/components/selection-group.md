@@ -1,11 +1,11 @@
-# Checkbox group — контракт (2026-11-22)
+# Selection group — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Checkbox group`. Status: beta. Level: unknown.
-- Figma: Components, страница «Checkbox group» (`1012:2`), набор `631:1256`. Платформы: Web, Mobile web, iOS, Android.
+- Набор: `Selection group`. Status: beta. Level: unknown.
+- Figma: Components, страница «Selection group» (`1012:2`), набор `631:1256`. Платформы: Web, Mobile web, iOS, Android.
 - Страница «Checkbox group», уровень — молекула. Собран из вложенных Checkbox (по 3 в каждом варианте); подписи вариантов, Status, Tone и служебные слои — свойства вложенных Checkbox.
 
 ## 2. Intent
@@ -26,8 +26,8 @@
 - `label` — подпись группы (`type/label/md`); `items` — вложенные Checkbox в колонку или в строку с переносом (max-width `size/field/max`); `helper` — подсказка или ошибка (`type/label/sm`).
 - Зазоры — токены `space/*`: корень `space/8` / `space/12`, `items` — `space/8`…`space/24`. Значения описания (M 8 / 12 / 24, S 6 / 8 / 16) с набором не совпадали — описание исправлено 2026-11-16.
 - Служебных слоёв у набора нет: кольцо фокуса, зоны нажатия и безопасное поле — у вложенных Checkbox.
-- Вложено: `Checkbox` ×36.
-- Служебные слои (вариантов из 12): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Checkbox` ×36, `Radio` ×36, `Toggle` ×12.
+- Служебные слои (вариантов из 28): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет своей: состояния наведения и нажатия — у вложенных Checkbox (Контрол выбора: слой `state/layer` на глифе, выбранное — `control/checked`).
@@ -41,20 +41,21 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
+| Type | Checkbox · Radio · Toggle | — |
 | Direction | Vertical · Horizontal | Vertical |
 | Size | M · S | M |
 | State | Default · Error · Disabled | Default |
 
-Матрица полная: 12 вариантов.
+Матрица: 28 из 36.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Show label | булево | вкл | 12 из 12 |
-| Show helper | булево | вкл | 12 из 12 |
-| Label | текст | «Уведомления» | 12 из 12 |
-| Helper | текст | «Можно выбрать несколько» | 12 из 12 |
+| Show label | булево | вкл | 28 из 28 |
+| Show helper | булево | вкл | 28 из 28 |
+| Label | текст | «Уведомления» | 28 из 28 |
+| Helper | текст | «Можно выбрать несколько» | 28 из 28 |
 
 - Свойства набора: Show label, Show helper, Label, Helper. Подписи вариантов, Status и Tone — у вложенных Checkbox.
 
@@ -84,6 +85,8 @@
 - `items`: gap2 `space/16`, `space/24`; интервал `space/12`, `space/16`, `space/24`, `space/8`; maxw `size/field/max`.
 - `Checkbox`: maxw `size/field/max`.
 - `helper`: заливка / цвет `text/danger`, `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
+- `Radio`: maxw `size/field/max`.
+- `Toggle`: maxw `size/field/max`.
 - Min / max корня: maxWidth 480 size/field/max.
 
 ## 11. Platforms
@@ -91,18 +94,18 @@
 - Hover — только с указателем (Web); на касании Hover нет, Pressed остаётся.
 
 ## 12. Figma projection
-- Набор `Checkbox group`, вариантов 12 из 12; оси: Direction, Size, State.
+- Набор `Selection group`, вариантов 28 из 36; оси: Type, Direction, Size, State.
 - Борда: «Checkbox group — борда · шаблон v3», разделов 11.
-- Описание: 1360 знаков, разделы: Status: Level: Checkbox group: • Direction: • Error — • M: Когда использовать: Правила: A11y: Show label = Off —
+- Описание: 1629 знаков, разделы: Status: Level: Type: Checkbox group: • Direction: • Error — • M: Когда использовать: Правила: A11y: Show label = Off —
 
 ## 13. Code projection
 Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
-- Vue: `<DsCheckboxGroup>`; Flutter: `DsCheckboxGroup`.
-- Props: `direction`: vertical | horizontal; `size`: m | s; `showLabel`: boolean = true; `showHelper`: boolean = true; `label`: string или слот; `helper`: string или слот.
+- Vue: `<DsSelectionGroup>`; Flutter: `DsSelectionGroup`.
+- Props: `type`: checkbox | radio | toggle; `direction`: vertical | horizontal; `size`: m | s; `showLabel`: boolean = true; `showHelper`: boolean = true; `label`: string или слот; `helper`: string или слот.
 - Состояния (Default, Error, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 436, helper 436).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

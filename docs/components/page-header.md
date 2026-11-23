@@ -1,4 +1,4 @@
-# Page header — контракт (2026-11-22)
+# Page header — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -107,7 +107,7 @@
 - `breadcrumbs`, `actions`, `tabs` — слоты; булевы Figma (Breadcrumbs, Show actions, Show tabs) в коде — наличие слота, `showActions` / `showTabs` / `showSubtitle` по умолчанию — есть ли содержимое; крошки оборачиваются в `nav` (`breadcrumbsLabel`, по умолчанию «Хлебные крошки»).
 - `level` — уровень заголовка 1–3 (по умолчанию `h1`). Фильтры и сортировка экрана (Select, Segmented) — не Actions: остаются в меню экрана рядом с шапкой.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина корня числом (1120 / 375).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

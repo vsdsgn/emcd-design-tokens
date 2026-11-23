@@ -1,4 +1,4 @@
-# Toast — контракт (2026-11-22)
+# Toast — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -27,8 +27,8 @@
 - Card: иконка `media/status/*` → `content` (`title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) → `actions` (вложенные Button, `control/height/sm`); `timer` (Circle timer, `icon/size/sm`) и `close` (Icon button, `control/height/sm`).
 - Snack: корень `action/inverse/default`, отступы `space/12` / `space/16`, `radius/control`, тень `shadow/key` + `shadow/ambient`; `icon` 20 (Neutral — `icon/inverse`, остальные — `status/*/solid`) → `title` (`type/label/lg`, `text/inverse`, одна строка) → `action` (Button Text M).
 - Informer: `safe area` (`os/safe-area/top`) → `row`: `title` (`text/on-accent`; Warning — `text/on-warning`; Neutral — `text/inverse`) и `close`.
-- Вложено: `_Overlay surface` ×10, `media/status/info` ×2, `Button` ×10, `Icon button` ×10, `Circle timer` ×5, `media/status/success` ×1, `media/status/warning` ×1, `media/status/danger` ×1.
-- Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 5.
+- Вложено: `_Overlay surface` ×10, `media/status/danger` ×1, `Button` ×15, `Icon button` ×10, `Progress circle` ×5, `media/status/info` ×2, `media/status/success` ×1, `media/status/warning` ×1, иконки ×5.
+- Служебные слои (вариантов из 15): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 5.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет у самого Toast: неинтерактивен; крестик и кнопки — вложенные Icon button / Button со своими состояниями.
@@ -40,24 +40,24 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Layout | Card · Informer | Card |
+| Layout | Card · Informer · Snack | Card |
 | Tone | Info · Success · Warning · Danger · Neutral | Info |
 
-Матрица полная: 10 вариантов.
+Матрица полная: 15 вариантов.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Title | текст | «Вывод создан» | 10 из 10 |
-| Show title | булево | вкл | 5 из 10 |
-| Description | текст | «Средства поступят в течение 30 минут. Статус — в истории выплат.» | 5 из 10 |
-| Actions | булево | выкл | 5 из 10 |
-| Close | булево | вкл | 10 из 10 |
-| Icon | булево | вкл | 4 из 10 |
-| Show description | булево | вкл | 5 из 10 |
-| Timer | булево | выкл | 5 из 10 |
-| Safe area | булево | вкл | 5 из 10 |
+| Title | текст | «Вывод создан» | 15 из 15 |
+| Show title | булево | вкл | 5 из 15 |
+| Description | текст | «Средства поступят в течение 30 минут. Статус — в истории выплат.» | 5 из 15 |
+| Actions | булево | выкл | 10 из 15 |
+| Close | булево | вкл | 10 из 15 |
+| Icon | булево | вкл | 9 из 15 |
+| Show description | булево | вкл | 5 из 15 |
+| Timer | булево | выкл | 5 из 15 |
+| Safe area | булево | вкл | 5 из 15 |
 
 ## 6. Content / slots
 - Title — короткий итог действия («Вывод создан»); Description — что дальше. У Card заголовок и описание переносятся, карточка растёт по высоте.
@@ -81,36 +81,38 @@
 - Тон дублируется текстом и иконкой. Зоны нажатия и кольцо фокуса — у вложенных Button / Icon button.
 
 ## 10. Tokens
-- `корень`: интервал `space/12`; maxw `size/toast/max`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`.
+- `корень`: заливка / цвет `action/inverse/default`; интервал `space/12`; maxw `size/toast/max`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`.
 - `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `status/danger/solid`, `status/info/solid`, `status/success/solid`, `status/warning/solid`, `surface/inverse`, `surface/raised`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `content`: интервал `space/10`; отступы `space/2`.
 - `title`: заливка / цвет `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
 - `actions`: интервал `space/8`; отступы `space/8`.
-- `Button`: заливка / цвет `action/tertiary/default`; интервал `space/2`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/4`, `space/6`; радиус `radius/control-sm`, `radius/xs`; обводка `control/border/default`; толщина обводки `border/width/default`.
-- `close`: интервал `space/6`; высота `control/height/sm`; радиус `radius/control-sm`; ширина `control/height/sm`.
+- `Button`: заливка / цвет `action/tertiary/default`; интервал `space/4`; высота `control/height/sm`; мин. ширина `size/button/min`; отступы `space/6`; радиус `radius/sm`, `radius/xs`; обводка `control/border/default`; толщина обводки `border/width/default`.
+- `close`: интервал `space/6`; высота `control/height/sm`; радиус `radius/sm`; ширина `control/height/sm`.
 - `timer`: высота `icon/size/sm`; ширина `icon/size/sm`.
 - `row`: интервал `space/12`; отступы `space/12`, `space/16`.
+- `icon`: высота `icon/size/md`; ширина `icon/size/md`.
+- `action`: интервал `space/4`; мин. ширина `size/button/min`; радиус `radius/xs`.
 - Служебные слои (общие правила — `service-layers.md`): `safe area`: высота `os/safe-area/top`.
 - Min / max корня: minWidth 280 size/toast/min, maxWidth 400 size/toast/max.
-- Значений без переменной: 10 (напр. `(root):w=400`, `(root):w=375`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 15 (напр. `(root):w=400`, `(root):w=375`, `(root):w=343`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Card — Web; Informer и Snack — App (iOS · Android). Высота `safe area` — `os/safe-area/top` (на Web 0).
 - Пауза автоскрытия по наведению — только с указателем (Web).
 
 ## 12. Figma projection
-- Набор `Toast`, вариантов 10 из 10; оси: Layout, Tone.
+- Набор `Toast`, вариантов 15 из 15; оси: Layout, Tone.
 - Борда: «Toast — борда · шаблон v3», разделов 11.
-- Описание: 1457 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy: Токены: Поверхность —
+- Описание: 1694 знаков, разделы: Status: Level: Layout: Когда использовать: Правила: A11y: Legacy: Токены: Поверхность —
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Toast`), Vue `packages/vue/src/DsToast.vue`, CSS `claude-ds/components/Toast/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsToast>`; Flutter: `DsToast`.
-- Props: `layout`: card | informer; `tone`: info | success | warning | danger | neutral; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `actions`: boolean = false; `close`: boolean = true; `icon`: boolean = true; `showDescription`: boolean = true; `timer`: boolean = false; `safeArea`: boolean = true.
+- Props: `layout`: card | informer | snack; `tone`: info | success | warning | danger | neutral; `title`: string или слот; `showTitle`: boolean = true; `description`: string или слот; `actions`: boolean = false; `close`: boolean = true; `icon`: boolean = true; `showDescription`: boolean = true; `timer`: boolean = false; `safeArea`: boolean = true.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 после замены на месте 13.11 (OVERLAY и SERVICE 0); после правок 13.11 (ночь: крестик Informer Neutral `icon/inverse`, полоса Informer по высоте, ряд кнопок Card по центру) не перезапускался.
 - `variables-check.plugin.js` — ширина корня 400 / 375 числом.
 - `audit-parity.plugin.js` — 0 (13.11, прогон по страницам компонентов).

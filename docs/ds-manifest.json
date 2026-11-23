@@ -1,24 +1,24 @@
 {
- "generated": "2026-11-22",
+ "generated": "2026-11-23",
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
-   "unknown": 101
+   "unknown": 93
   },
   "sets": {
-   "unknown": 103
+   "unknown": 94
   },
   "status": {
-   "beta": 93,
-   "draft": 5,
-   "service": 4,
+   "beta": 86,
+   "draft": 4,
+   "service": 3,
    "template": 1
   },
   "variants": 1705,
-  "incompleteMatrix": 20,
-  "propsNotBoundEverywhere": 22,
+  "incompleteMatrix": 24,
+  "propsNotBoundEverywhere": 24,
   "rawMinMax": 1,
-  "withRawValues": 73,
+  "withRawValues": 71,
   "withFocusRing": 21,
   "withHitArea": 21,
   "withSafeMargin": 24,
@@ -717,10 +717,11 @@
      "id": "108:1270",
      "type": "SET",
      "status": "beta",
-     "descLen": 823,
+     "descLen": 1077,
      "descHeads": [
       "Status:",
       "Level:",
+      "Type:",
       "Правила:",
       "Когда использовать:",
       "A11y:",
@@ -731,22 +732,29 @@
      "axes": {
       "Size": [
        "XS",
-       "S",
        "M",
-       "L"
+       "L",
+       "XL",
+       "2XS",
+       "S"
       ],
       "Type": [
        "Text",
        "Icon",
-       "Image"
+       "Image",
+       "Coin"
+      ],
+      "Network": [
+       "Off",
+       "On"
       ],
       "State": [
        "Default",
        "Skeleton"
       ]
      },
-     "variants": 24,
-     "full": 24,
+     "variants": 42,
+     "full": 96,
      "props": [
       {
        "name": "Initials",
@@ -759,10 +767,24 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 24
+      },
+      {
+       "name": "Coin",
+       "type": "INSTANCE_SWAP",
+       "def": "symbol/coin/bitcoin-btc",
+       "bound": 18
+      },
+      {
+       "name": "Network coin",
+       "type": "INSTANCE_SWAP",
+       "def": "symbol/coin/tether-usdt",
+       "bound": 18
       }
      ],
      "nested": {
-      "(icons)": 8
+      "(icons)": 8,
+      "symbol/coin/bitcoin-btc": 18,
+      "symbol/coin/tether-usdt": 18
      },
      "minmax": [],
      "layers": {
@@ -772,20 +794,25 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 12,
+     "rawCount": 16,
      "raw": [
-      "circle:o=0"
+      "circle:o=0",
+      "network:o=0"
      ],
      "tokens": {
       "(root)": [
        "f:skeleton/base",
+       "h:size/media/2xs",
        "h:size/media/lg",
        "h:size/media/md",
+       "h:size/media/sm",
        "h:size/media/xl",
        "h:size/media/xs",
        "r:radius/full",
+       "w:size/media/2xs",
        "w:size/media/lg",
        "w:size/media/md",
+       "w:size/media/sm",
        "w:size/media/xl",
        "w:size/media/xs"
       ],
@@ -834,6 +861,11 @@
        "fontSize:type/label/sm/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/sm/line-height"
+      ],
+      "network": [
+       "r:radius/full",
+       "s:surface/current",
+       "sw:border/width/strong"
       ]
      },
      "statusFirstLine": true
@@ -875,31 +907,59 @@
      "id": "108:1379",
      "type": "SET",
      "status": "beta",
-     "descLen": 677,
+     "descLen": 874,
      "descHeads": [
       "Status:",
       "Level:",
+      "Type:",
       "Когда использовать:",
       "Правила:",
       "A11y:"
      ],
      "inBoard": false,
      "axes": {
+      "Type": [
+       "Person",
+       "Coin"
+      ],
       "Size": [
        "XS",
-       "S",
-       "M"
+       "M",
+       "L",
+       "S"
+      ],
+      "Count": [
+       "4",
+       "2",
+       "3"
       ],
       "More": [
        "Off",
        "On"
       ]
      },
-     "variants": 6,
-     "full": 6,
-     "props": [],
+     "variants": 15,
+     "full": 48,
+     "props": [
+      {
+       "name": "Show more",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 9
+      },
+      {
+       "name": "More text",
+       "type": "TEXT",
+       "def": "+2",
+       "bound": 9
+      }
+     ],
      "nested": {
-      "Avatar": 24
+      "Avatar": 24,
+      "symbol/coin/bitcoin-btc": 9,
+      "symbol/coin/ethereum-eth": 9,
+      "symbol/coin/litecoin-ltc": 6,
+      "symbol/coin/tether-usdt": 3
      },
      "minmax": [],
      "layers": {
@@ -913,6 +973,7 @@
      "raw": [],
      "tokens": {
       "(root)": [
+       "gap:size/overlap/lg",
        "gap:size/overlap/md",
        "gap:size/overlap/sm",
        "gap:size/overlap/xs"
@@ -932,6 +993,7 @@
        "f:status/neutral/subtle",
        "f:surface/next",
        "r:radius/chip",
+       "r:radius/full",
        "s:surface/current",
        "sw:border/width/focus"
       ],
@@ -941,6 +1003,25 @@
        "fontSize:type/label/sm/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/sm/line-height"
+      ],
+      "coin 1": [
+       "s:surface/current"
+      ],
+      "coin 2": [
+       "s:surface/current"
+      ],
+      "value": [
+       "f:text/secondary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/sm/line-height"
+      ],
+      "coin 3": [
+       "s:surface/current"
+      ],
+      "coin 4": [
+       "s:surface/current"
       ]
      },
      "statusFirstLine": true
@@ -982,10 +1063,11 @@
      "id": "44:255",
      "type": "SET",
      "status": "beta",
-     "descLen": 1706,
+     "descLen": 1959,
      "descHeads": [
       "Status:",
       "Level:",
+      "Content:",
       "Бейдж:",
       "Когда использовать:",
       "Правила тона:",
@@ -994,15 +1076,15 @@
       "Цвета текста:",
       "Иконка:",
       "A11y:",
-      "Поиск:",
-      "Legacy:"
+      "Поиск:"
      ],
      "inBoard": false,
      "axes": {
       "Size": [
        "S",
        "M",
-       "L"
+       "L",
+       "XS"
       ],
       "Tone": [
        "Neutral",
@@ -1018,10 +1100,14 @@
       "State": [
        "Skeleton",
        "Default"
+      ],
+      "Content": [
+       "Text",
+       "Number"
       ]
      },
-     "variants": 33,
-     "full": 60,
+     "variants": 39,
+     "full": 160,
      "props": [
       {
        "name": "Label",
@@ -1040,13 +1126,24 @@
        "type": "INSTANCE_SWAP",
        "def": "icon/plus",
        "bound": 33
+      },
+      {
+       "name": "Value",
+       "type": "TEXT",
+       "def": "12",
+       "bound": 6
       }
      ],
      "nested": {
       "(icons)": 33
      },
      "minmax": [
-      "maxw=160 size/badge/max"
+      "maxw=160 size/badge/max",
+      "minw=16 size/counter-height/sm",
+      "maxw=40 size/counter/max",
+      "minh=16 size/counter-height/sm",
+      "minw=20 size/counter-height/md",
+      "minh=20 size/counter-height/md"
      ],
      "layers": {
       "ring": 0,
@@ -1077,11 +1174,19 @@
        "h:size/badge-height/md",
        "h:size/badge-height/sm",
        "maxw:size/badge/max",
+       "maxw:size/counter/max",
+       "minh:size/counter-height/md",
+       "minh:size/counter-height/sm",
+       "minw:size/counter-height/md",
+       "minw:size/counter-height/sm",
        "p:control/padding-x/md",
        "p:control/padding-x/sm",
+       "p:space/4",
+       "p:space/6",
        "p:space/8",
-       "r:radius/control-sm",
+       "r:radius/control-xs",
        "r:radius/sm",
+       "r:radius/xs",
        "s:border/subtle",
        "sw:border/width/default"
       ],
@@ -1100,6 +1205,14 @@
        "fontSize:type/label/sm/size",
        "fontWeight:font-weight/medium",
        "lineHeight:type/label/md/line-height",
+       "lineHeight:type/label/sm/line-height"
+      ],
+      "value": [
+       "f:text/on-accent",
+       "f:text/secondary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "fontWeight:font-weight/medium",
        "lineHeight:type/label/sm/line-height"
       ]
      },
@@ -1493,10 +1606,11 @@
      "id": "218:16966",
      "type": "SET",
      "status": "beta",
-     "descLen": 4502,
+     "descLen": 4766,
      "descHeads": [
       "Status:",
       "Level:",
+      "Badge (22.",
       "Кнопка действия.",
       "Когда использовать:",
       "Матрица:",
@@ -1505,8 +1619,7 @@
       "• Tertiary —",
       "• Tertiary outline —",
       "• Text —",
-      "• Inverted —",
-      "• Default —"
+      "• Inverted —"
      ],
      "inBoard": false,
      "axes": {
@@ -1592,11 +1705,18 @@
        "type": "BOOLEAN",
        "def": false,
        "bound": 220
+      },
+      {
+       "name": "Badge",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 220
       }
      ],
      "nested": {
-      "Spinner": 220,
-      "(icons)": 440
+      "Progress circle": 220,
+      "(icons)": 440,
+      "Badge": 220
      },
      "minmax": [
       "minw=64 size/button/min"
@@ -1610,18 +1730,18 @@
      },
      "rawCount": 440,
      "raw": [
-      "hit area · web:w=81",
-      "hit area · web:h=40",
+      "hit area · web:w=54",
+      "hit area · web:h=24",
       "hit area · web:w=69",
       "hit area · web:h=32",
+      "hit area · web:w=81",
+      "hit area · web:h=40",
       "hit area · web:w=87",
       "hit area · web:h=48",
       "hit area · web:w=95",
       "hit area · web:h=56",
-      "hit area · web:w=64",
-      "hit area · web:h=24",
-      "hit area · web:w=54",
-      "hit area · web:w=46"
+      "hit area · web:w=46",
+      "hit area · web:w=64"
      ],
      "tokens": {
       "(root)": [
@@ -1646,7 +1766,8 @@
        "p:space/4",
        "p:space/6",
        "r:radius/control",
-       "r:radius/control-sm",
+       "r:radius/control-xs",
+       "r:radius/sm",
        "r:radius/xs",
        "s:control/border/default",
        "s:control/border/error",
@@ -1658,7 +1779,8 @@
        "o:state/hover",
        "o:state/pressed",
        "r:radius/control",
-       "r:radius/control-sm"
+       "r:radius/control-xs",
+       "r:radius/sm"
       ],
       "spinner": [
        "h:icon/size/control",
@@ -1706,6 +1828,15 @@
       "pad R": [
        "w:space/2"
       ],
+      "badge": [
+       "f:accent/subtle",
+       "f:action/inverse/default",
+       "gap:space/4",
+       "h:size/badge-height/sm",
+       "maxw:size/badge/max",
+       "p:space/8",
+       "r:radius/xs"
+      ],
       "icon right": [
        "h:icon/size/control",
        "h:icon/size/inline",
@@ -1728,9 +1859,9 @@
       ],
       "focus ring": [
        "r:radius/focus-ring",
-       "r:radius/focus-ring-lg",
-       "r:radius/focus-ring-sm",
+       "r:radius/focus-ring-inner",
        "r:radius/focus-ring-xs",
+       "r:radius/sm",
        "s:border/focus-ring",
        "sw:border/width/focus-ring"
       ],
@@ -2903,153 +3034,6 @@
   },
   {
    "level": "unknown",
-   "page": "Checkbox group",
-   "pageId": "1012:2",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Checkbox group — борда · шаблон v3",
-     "id": "2207:5068",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05",
-    "07"
-   ],
-   "sets": [
-    {
-     "name": "Checkbox group",
-     "id": "631:1256",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 1360,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Checkbox group:",
-      "• Direction:",
-      "• Error —",
-      "• M:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Show label = Off —"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Direction": [
-       "Vertical",
-       "Horizontal"
-      ],
-      "Size": [
-       "M",
-       "S"
-      ],
-      "State": [
-       "Default",
-       "Error",
-       "Disabled"
-      ]
-     },
-     "variants": 12,
-     "full": 12,
-     "props": [
-      {
-       "name": "Show label",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 12
-      },
-      {
-       "name": "Show helper",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 12
-      },
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Уведомления",
-       "bound": 12
-      },
-      {
-       "name": "Helper",
-       "type": "TEXT",
-       "def": "Можно выбрать несколько",
-       "bound": 12
-      }
-     ],
-     "nested": {
-      "Checkbox": 36
-     },
-     "minmax": [
-      "maxw=480 size/field/max"
-     ],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "gap:space/12",
-       "gap:space/8",
-       "maxw:size/field/max"
-      ],
-      "label": [
-       "f:text/disabled",
-       "f:text/primary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "items": [
-       "gap2:space/16",
-       "gap2:space/24",
-       "gap:space/12",
-       "gap:space/16",
-       "gap:space/24",
-       "gap:space/8",
-       "maxw:size/field/max"
-      ],
-      "Checkbox": [
-       "maxw:size/field/max"
-      ],
-      "helper": [
-       "f:text/danger",
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
    "page": "Chip",
    "pageId": "355:34251",
    "pageMark": "🟡",
@@ -3278,103 +3262,6 @@
        "o:state/pressed",
        "r:radius/control",
        "r:radius/control-sm"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Circle timer",
-   "pageId": "1661:328",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Circle timer — борда · шаблон v3",
-     "id": "2189:1453",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "07 · Примеры в составе",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05"
-   ],
-   "sets": [
-    {
-     "name": "Circle timer",
-     "id": "1661:353",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 708,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Legacy:",
-      "Токены:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Size": [
-       "S",
-       "M"
-      ],
-      "Progress": [
-       "100",
-       "75",
-       "50",
-       "25",
-       "0"
-      ]
-     },
-     "variants": 10,
-     "full": 10,
-     "props": [],
-     "nested": {},
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "h:icon/size/lg",
-       "h:icon/size/sm",
-       "w:icon/size/lg",
-       "w:icon/size/sm"
-      ],
-      "track": [
-       "h:icon/size/lg",
-       "h:icon/size/sm",
-       "s:control/track",
-       "sw:border/width/strong",
-       "w:icon/size/lg",
-       "w:icon/size/sm"
-      ],
-      "progress": [
-       "s:control/checked",
-       "sw:border/width/strong"
       ]
      },
      "statusFirstLine": true
@@ -3663,365 +3550,6 @@
        "f:text/disabled",
        "f:text/secondary",
        "f:text/success",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Coin",
-   "pageId": "1590:21",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Coin — борда · шаблон v3",
-     "id": "2207:13944",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "07 · Примеры в составе",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05"
-   ],
-   "sets": [
-    {
-     "name": "Coin",
-     "id": "1590:103",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 634,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Legacy:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Size": [
-       "XS",
-       "S",
-       "M",
-       "L",
-       "XL"
-      ],
-      "Network": [
-       "Off",
-       "On"
-      ],
-      "State": [
-       "Default",
-       "Skeleton"
-      ]
-     },
-     "variants": 18,
-     "full": 20,
-     "props": [
-      {
-       "name": "Coin",
-       "type": "INSTANCE_SWAP",
-       "def": "symbol/coin/bitcoin-btc",
-       "bound": 18
-      },
-      {
-       "name": "Network coin",
-       "type": "INSTANCE_SWAP",
-       "def": "symbol/coin/tether-usdt",
-       "bound": 18
-      }
-     ],
-     "nested": {
-      "symbol/coin/bitcoin-btc": 18,
-      "symbol/coin/tether-usdt": 18
-     },
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 4,
-     "raw": [
-      "network:o=0"
-     ],
-     "tokens": {
-      "(root)": [
-       "f:skeleton/base",
-       "h:size/media/2xs",
-       "h:size/media/lg",
-       "h:size/media/md",
-       "h:size/media/sm",
-       "h:size/media/xs",
-       "r:radius/full",
-       "w:size/media/2xs",
-       "w:size/media/lg",
-       "w:size/media/md",
-       "w:size/media/sm",
-       "w:size/media/xs"
-      ],
-      "network": [
-       "r:radius/full",
-       "s:surface/current",
-       "sw:border/width/strong"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Coin stack",
-   "pageId": "1590:22",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Coin stack — борда · шаблон v3",
-     "id": "2203:2299",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05",
-    "07"
-   ],
-   "sets": [
-    {
-     "name": "Coin stack",
-     "id": "1590:212",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 496,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Legacy:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Size": [
-       "S",
-       "M",
-       "L"
-      ],
-      "Count": [
-       "2",
-       "3",
-       "4"
-      ]
-     },
-     "variants": 9,
-     "full": 9,
-     "props": [
-      {
-       "name": "Show more",
-       "type": "BOOLEAN",
-       "def": false,
-       "bound": 9
-      },
-      {
-       "name": "More",
-       "type": "TEXT",
-       "def": "+2",
-       "bound": 9
-      }
-     ],
-     "nested": {
-      "symbol/coin/bitcoin-btc": 9,
-      "symbol/coin/ethereum-eth": 9,
-      "symbol/coin/litecoin-ltc": 6,
-      "symbol/coin/tether-usdt": 3
-     },
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "gap:size/overlap/lg",
-       "gap:size/overlap/md",
-       "gap:size/overlap/sm"
-      ],
-      "coin 1": [
-       "s:surface/current"
-      ],
-      "coin 2": [
-       "s:surface/current"
-      ],
-      "more": [
-       "f:status/neutral/subtle",
-       "f:surface/next",
-       "r:radius/full",
-       "s:surface/current"
-      ],
-      "value": [
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
-      ],
-      "coin 3": [
-       "s:surface/current"
-      ],
-      "coin 4": [
-       "s:surface/current"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Counter",
-   "pageId": "2093:1265",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Counter — борда · шаблон v3",
-     "id": "2336:21680",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "07 · Примеры в составе",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05"
-   ],
-   "sets": [
-    {
-     "name": "Counter",
-     "id": "43:16",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 772,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Счётчик:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Поиск:",
-      "Legacy:",
-      "Форма (17."
-     ],
-     "inBoard": false,
-     "axes": {
-      "Size": [
-       "S",
-       "M"
-      ],
-      "Tone": [
-       "Neutral",
-       "Accent",
-       "Danger"
-      ]
-     },
-     "variants": 6,
-     "full": 6,
-     "props": [
-      {
-       "name": "Value",
-       "type": "TEXT",
-       "def": "12",
-       "bound": 6
-      }
-     ],
-     "nested": {},
-     "minmax": [
-      "minw=16 size/counter-height/sm",
-      "maxw=40 size/counter/max",
-      "minh=16 size/counter-height/sm",
-      "minw=20 size/counter-height/md",
-      "minh=20 size/counter-height/md"
-     ],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "f:control/checked",
-       "f:status/danger/solid",
-       "f:status/neutral/subtle",
-       "maxw:size/counter/max",
-       "minh:size/counter-height/md",
-       "minh:size/counter-height/sm",
-       "minw:size/counter-height/md",
-       "minw:size/counter-height/sm",
-       "p:space/4",
-       "p:space/6",
-       "r:radius/sm",
-       "s:border/subtle",
-       "sw:border/width/default"
-      ],
-      "value": [
-       "f:text/on-accent",
-       "f:text/secondary",
        "fontFamily:font/family/text",
        "fontSize:type/label/sm/size",
        "fontWeight:font-weight/medium",
@@ -5123,7 +4651,7 @@
      ],
      "nested": {
       "(icons)": 25,
-      "Spinner": 5
+      "Progress circle": 5
      },
      "minmax": [],
      "layers": {
@@ -5156,7 +4684,7 @@
        "h:control/height/xl",
        "p:space/16",
        "p:space/20",
-       "r:radius/chip",
+       "r:radius/control",
        "w:control/height/xl"
       ],
       "icon/plus": [
@@ -5177,7 +4705,7 @@
        "sw:control/safe-margin"
       ],
       "focus ring": [
-       "r:radius/chip",
+       "r:radius/focus-ring",
        "s:border/focus-ring",
        "sw:border/width/focus-ring"
       ],
@@ -5185,7 +4713,7 @@
        "f:state/layer-inverse",
        "o:state/hover",
        "o:state/pressed",
-       "r:radius/chip"
+       "r:radius/control"
       ],
       "spinner": [
        "h:icon/size/lg",
@@ -6310,107 +5838,6 @@
   },
   {
    "level": "unknown",
-   "page": "Legend swatch",
-   "pageId": "1012:16",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Legend swatch — борда · шаблон v3",
-     "id": "2107:26316",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "07 · Примеры в составе",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05"
-   ],
-   "sets": [
-    {
-     "name": "Legend swatch",
-     "id": "84:595",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 641,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Legacy:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Marker": [
-       "Dot",
-       "Line"
-      ],
-      "Series": [
-       "1",
-       "2",
-       "3",
-       "4",
-       "5",
-       "6",
-       "7",
-       "8"
-      ]
-     },
-     "variants": 16,
-     "full": 16,
-     "props": [],
-     "nested": {},
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "h:size/legend-swatch",
-       "w:size/legend-swatch"
-      ],
-      "marker": [
-       "f:data/1",
-       "f:data/2",
-       "f:data/3",
-       "f:data/4",
-       "f:data/5",
-       "f:data/6",
-       "f:data/7",
-       "f:data/8",
-       "r:radius/chip",
-       "s:data/5",
-       "s:data/6",
-       "s:data/7",
-       "s:data/8",
-       "sw:chart/stroke"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
    "page": "List item",
    "pageId": "367:6",
    "pageMark": "🟡",
@@ -6502,6 +5929,131 @@
        "p:control/padding-x/lg",
        "p:space/12",
        "p:space/16"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Marker",
+   "pageId": "1012:16",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Legend swatch — борда · шаблон v3",
+     "id": "2107:26316",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "07 · Примеры в составе",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05"
+   ],
+   "sets": [
+    {
+     "name": "Marker",
+     "id": "84:595",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 472,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Метка —",
+      "Серия 1 —"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Shape": [
+       "Dot",
+       "Line"
+      ],
+      "Color": [
+       "Series 1",
+       "Series 2",
+       "Series 3",
+       "Series 4",
+       "Series 5",
+       "Series 6",
+       "Series 7",
+       "Series 8",
+       "Success",
+       "Warning",
+       "Danger",
+       "Info",
+       "Neutral"
+      ],
+      "Size": [
+       "L",
+       "S",
+       "M"
+      ]
+     },
+     "variants": 26,
+     "full": 78,
+     "props": [],
+     "nested": {},
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 4,
+     "raw": [
+      "marker:sw=2"
+     ],
+     "tokens": {
+      "(root)": [
+       "h:size/dot/md",
+       "h:size/dot/sm",
+       "h:size/legend-swatch",
+       "w:size/dot/md",
+       "w:size/dot/sm",
+       "w:size/legend-swatch"
+      ],
+      "marker": [
+       "f:border/accent",
+       "f:data/2",
+       "f:data/3",
+       "f:data/4",
+       "f:data/5",
+       "f:data/6",
+       "f:data/7",
+       "f:data/8",
+       "r:radius/chip",
+       "s:data/5",
+       "s:data/6",
+       "s:data/7",
+       "s:data/8"
+      ],
+      "dot": [
+       "f:status/danger/solid",
+       "f:status/info/solid",
+       "f:status/neutral/solid",
+       "f:status/success/solid",
+       "f:status/warning/solid",
+       "h:size/dot/md",
+       "h:size/dot/sm",
+       "w:size/dot/md",
+       "w:size/dot/sm"
       ]
      },
      "statusFirstLine": true
@@ -8418,10 +7970,11 @@
      "id": "56:388",
      "type": "SET",
      "status": "beta",
-     "descLen": 958,
+     "descLen": 1314,
      "descHeads": [
       "Status:",
       "Level:",
+      "Mode:",
       "Круговой прогресс:",
       "S 24 —",
       "A11y:",
@@ -8433,14 +7986,29 @@
      ],
      "inBoard": false,
      "axes": {
+      "Mode": [
+       "Determinate",
+       "Indeterminate",
+       "Timer"
+      ],
       "Size": [
-       "S",
        "M",
-       "L"
+       "L",
+       "XL",
+       "XS",
+       "S"
+      ],
+      "Progress": [
+       "—",
+       "100",
+       "75",
+       "50",
+       "25",
+       "0"
       ]
      },
-     "variants": 3,
-     "full": 3,
+     "variants": 16,
+     "full": 90,
      "props": [
       {
        "name": "Value",
@@ -8458,22 +8026,39 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 0,
-     "raw": [],
+     "rawCount": 3,
+     "raw": [
+      "track:o=0.2"
+     ],
      "tokens": {
       "(root)": [
+       "h:icon/size/control",
+       "h:icon/size/lg",
+       "h:icon/size/sm",
        "h:size/progress-circle/lg",
        "h:size/progress-circle/md",
        "h:size/progress-circle/sm",
+       "w:icon/size/control",
+       "w:icon/size/lg",
+       "w:icon/size/sm",
        "w:size/progress-circle/lg",
        "w:size/progress-circle/md",
        "w:size/progress-circle/sm"
       ],
       "track": [
        "f:control/track",
+       "f:icon/primary",
+       "h:icon/size/control",
+       "h:icon/size/lg",
+       "h:icon/size/sm",
        "h:size/progress-circle/lg",
        "h:size/progress-circle/md",
        "h:size/progress-circle/sm",
+       "s:control/track",
+       "sw:border/width/strong",
+       "w:icon/size/control",
+       "w:icon/size/lg",
+       "w:icon/size/sm",
        "w:size/progress-circle/lg",
        "w:size/progress-circle/md",
        "w:size/progress-circle/sm"
@@ -8495,6 +8080,13 @@
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height"
+      ],
+      "arc": [
+       "f:icon/primary"
+      ],
+      "progress": [
+       "s:control/checked",
+       "sw:border/width/strong"
       ]
      },
      "statusFirstLine": true
@@ -9035,7 +8627,7 @@
        "f:surface/next",
        "gap:space/8",
        "p:space/16",
-       "r:radius/surface",
+       "r:radius/container",
        "s:border/accent",
        "s:border/subtle",
        "s:control/border/disabled",
@@ -9064,7 +8656,7 @@
        "lineHeight:type/label/md/line-height"
       ],
       "focus ring": [
-       "r:radius/focus-ring-surface",
+       "r:radius/focus-ring-lg",
        "s:border/focus-ring",
        "sw:border/width/focus-ring"
       ],
@@ -9085,154 +8677,7 @@
        "f:state/layer",
        "o:state/hover",
        "o:state/pressed",
-       "r:radius/surface"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Radio group",
-   "pageId": "1012:3",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Radio group — борда · шаблон v3",
-     "id": "2207:10113",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05",
-    "07"
-   ],
-   "sets": [
-    {
-     "name": "Radio group",
-     "id": "631:2295",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 1312,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Radio group:",
-      "• Direction:",
-      "• Error —",
-      "• M:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Show label = Off —"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Direction": [
-       "Vertical",
-       "Horizontal"
-      ],
-      "Size": [
-       "M",
-       "S"
-      ],
-      "State": [
-       "Default",
-       "Error",
-       "Disabled"
-      ]
-     },
-     "variants": 12,
-     "full": 12,
-     "props": [
-      {
-       "name": "Show label",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 12
-      },
-      {
-       "name": "Show helper",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 12
-      },
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Частота вывода",
-       "bound": 12
-      },
-      {
-       "name": "Helper",
-       "type": "TEXT",
-       "def": "Выберите один вариант",
-       "bound": 12
-      }
-     ],
-     "nested": {
-      "Radio": 36
-     },
-     "minmax": [
-      "maxw=480 size/field/max"
-     ],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "gap:space/12",
-       "gap:space/8",
-       "maxw:size/field/max"
-      ],
-      "label": [
-       "f:text/disabled",
-       "f:text/primary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "items": [
-       "gap2:space/16",
-       "gap2:space/24",
-       "gap:space/12",
-       "gap:space/16",
-       "gap:space/24",
-       "gap:space/8",
-       "maxw:size/field/max"
-      ],
-      "Radio": [
-       "maxw:size/field/max"
-      ],
-      "helper": [
-       "f:text/danger",
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
+       "r:radius/container"
       ]
      },
      "statusFirstLine": true
@@ -9833,7 +9278,7 @@
      "id": "46:549",
      "type": "SET",
      "status": "beta",
-     "descLen": 1222,
+     "descLen": 1229,
      "descHeads": [
       "Status:",
       "Level:",
@@ -9873,25 +9318,15 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 9,
-     "raw": [
-      "(root):w=138",
-      "(root):w=204",
-      "(root):w=170",
-      "(root):w=252",
-      "(root):w=202",
-      "(root):w=300",
-      "(root):w=270",
-      "(root):w=334",
-      "(root):w=398"
-     ],
+     "rawCount": 0,
+     "raw": [],
      "tokens": {
       "(root)": [
        "f:control/segment-track",
        "gap:space/2",
        "p:space/4",
        "r:radius/control",
-       "r:radius/control-sm"
+       "r:radius/sm"
       ],
       "segment 1": [
        "f:control/segment",
@@ -10393,6 +9828,167 @@
   },
   {
    "level": "unknown",
+   "page": "Selection group",
+   "pageId": "1012:2",
+   "pageMark": "🟡",
+   "boards": [
+    {
+     "name": "Checkbox group — борда · шаблон v3",
+     "id": "2207:5068",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "06 · На поверхностях",
+      "08 · Движение",
+      "09 · Правила",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "12 · Локали и RTL",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "05",
+    "07"
+   ],
+   "sets": [
+    {
+     "name": "Selection group",
+     "id": "631:1256",
+     "type": "SET",
+     "status": "beta",
+     "descLen": 1629,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Type:",
+      "Checkbox group:",
+      "• Direction:",
+      "• Error —",
+      "• M:",
+      "Когда использовать:",
+      "Правила:",
+      "A11y:",
+      "Show label = Off —"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Type": [
+       "Checkbox",
+       "Radio",
+       "Toggle"
+      ],
+      "Direction": [
+       "Vertical",
+       "Horizontal"
+      ],
+      "Size": [
+       "M",
+       "S"
+      ],
+      "State": [
+       "Default",
+       "Error",
+       "Disabled"
+      ]
+     },
+     "variants": 28,
+     "full": 36,
+     "props": [
+      {
+       "name": "Show label",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 28
+      },
+      {
+       "name": "Show helper",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 28
+      },
+      {
+       "name": "Label",
+       "type": "TEXT",
+       "def": "Уведомления",
+       "bound": 28
+      },
+      {
+       "name": "Helper",
+       "type": "TEXT",
+       "def": "Можно выбрать несколько",
+       "bound": 28
+      }
+     ],
+     "nested": {
+      "Checkbox": 36,
+      "Radio": 36,
+      "Toggle": 12
+     },
+     "minmax": [
+      "maxw=480 size/field/max"
+     ],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 0,
+     "raw": [],
+     "tokens": {
+      "(root)": [
+       "gap:space/12",
+       "gap:space/8",
+       "maxw:size/field/max"
+      ],
+      "label": [
+       "f:text/disabled",
+       "f:text/primary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/md/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/md/line-height"
+      ],
+      "items": [
+       "gap2:space/16",
+       "gap2:space/24",
+       "gap:space/12",
+       "gap:space/16",
+       "gap:space/24",
+       "gap:space/8",
+       "maxw:size/field/max"
+      ],
+      "Checkbox": [
+       "maxw:size/field/max"
+      ],
+      "helper": [
+       "f:text/danger",
+       "f:text/disabled",
+       "f:text/secondary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/sm/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/sm/line-height"
+      ],
+      "Radio": [
+       "maxw:size/field/max"
+      ],
+      "Toggle": [
+       "maxw:size/field/max"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
    "page": "Sheet",
    "pageId": "364:3332",
    "pageMark": "🟡",
@@ -10846,229 +10442,6 @@
   },
   {
    "level": "unknown",
-   "page": "Snack",
-   "pageId": "1783:1378",
-   "pageMark": "🟠",
-   "boards": [
-    {
-     "name": "Snack — борда · шаблон v3",
-     "id": "1993:16686",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05",
-    "07",
-    "08"
-   ],
-   "sets": [
-    {
-     "name": "Snack",
-     "id": "1783:1379",
-     "type": "SET",
-     "status": "draft",
-     "descLen": 810,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Когда использовать:",
-      "Правила:",
-      "Длинный текст:",
-      "Свойства:",
-      "A11y:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Tone": [
-       "Neutral",
-       "Info",
-       "Success",
-       "Warning",
-       "Danger"
-      ]
-     },
-     "variants": 5,
-     "full": 5,
-     "props": [
-      {
-       "name": "Icon",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 5
-      },
-      {
-       "name": "Action",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 5
-      },
-      {
-       "name": "Title",
-       "type": "TEXT",
-       "def": "Вывод создан",
-       "bound": 5
-      }
-     ],
-     "nested": {
-      "(icons)": 5,
-      "Button": 5
-     },
-     "minmax": [
-      "minw=280 size/toast/min"
-     ],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 5,
-     "raw": [
-      "(root):w=343"
-     ],
-     "tokens": {
-      "(root)": [
-       "f:action/inverse/default",
-       "gap:space/12",
-       "minw:size/toast/min",
-       "p:space/12",
-       "p:space/16",
-       "r:radius/control"
-      ],
-      "icon": [
-       "h:icon/size/md",
-       "w:icon/size/md"
-      ],
-      "title": [
-       "f:text/inverse",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/lg/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/lg/line-height"
-      ],
-      "action": [
-       "gap:space/2",
-       "minw:size/button/min",
-       "p:space/4",
-       "r:radius/xs"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Spinner",
-   "pageId": "2093:1267",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Spinner — борда · шаблон v3",
-     "id": "2189:832",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "07 · Примеры в составе",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05"
-   ],
-   "sets": [
-    {
-     "name": "Spinner",
-     "id": "4:20",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 932,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Индикатор загрузки.",
-      "Когда использовать:",
-      "Поиск:",
-      "Legacy:",
-      "Motion:",
-      "Правила:",
-      "A11y:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Size": [
-       "S",
-       "M",
-       "L"
-      ]
-     },
-     "variants": 3,
-     "full": 3,
-     "props": [],
-     "nested": {},
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 3,
-     "raw": [
-      "track:o=0.2"
-     ],
-     "tokens": {
-      "(root)": [
-       "h:icon/size/control",
-       "h:icon/size/lg",
-       "h:icon/size/sm",
-       "w:icon/size/control",
-       "w:icon/size/lg",
-       "w:icon/size/sm"
-      ],
-      "track": [
-       "f:icon/primary",
-       "h:icon/size/control",
-       "h:icon/size/lg",
-       "h:icon/size/sm",
-       "w:icon/size/control",
-       "w:icon/size/lg",
-       "w:icon/size/sm"
-      ],
-      "arc": [
-       "f:icon/primary"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
    "page": "Stat card",
    "pageId": "367:1131",
    "pageMark": "🟡",
@@ -11319,29 +10692,11 @@
       "12 · Локали и RTL",
       "— · Не собрано в этой версии"
      ]
-    },
-    {
-     "name": "_Dot — борда · шаблон v3",
-     "id": "2336:30342",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "07 · Примеры в составе",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
     }
    ],
    "boardMissing": [
-    "05"
+    "05",
+    "07"
    ],
    "sets": [
     {
@@ -11392,7 +10747,7 @@
       }
      ],
      "nested": {
-      "_Dot": 10
+      "Marker": 10
      },
      "minmax": [],
      "layers": {
@@ -11421,71 +10776,6 @@
        "fontWeight:font-weight/medium",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height"
-      ]
-     },
-     "statusFirstLine": true
-    },
-    {
-     "name": "_Dot",
-     "id": "720:75926",
-     "type": "SET",
-     "status": "service",
-     "descLen": 644,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Точка тона:",
-      "Когда использовать:",
-      "Правила:",
-      "A11y:",
-      "Поиск:",
-      "Legacy:"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Size": [
-       "S",
-       "M"
-      ],
-      "Tone": [
-       "Success",
-       "Warning",
-       "Danger",
-       "Info",
-       "Neutral"
-      ]
-     },
-     "variants": 10,
-     "full": 10,
-     "props": [],
-     "nested": {},
-     "minmax": [],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "h:size/dot/md",
-       "h:size/dot/sm",
-       "w:size/dot/md",
-       "w:size/dot/sm"
-      ],
-      "dot": [
-       "f:status/danger/solid",
-       "f:status/info/solid",
-       "f:status/neutral/solid",
-       "f:status/success/solid",
-       "f:status/warning/solid",
-       "h:size/dot/md",
-       "h:size/dot/sm",
-       "w:size/dot/md",
-       "w:size/dot/sm"
       ]
      },
      "statusFirstLine": true
@@ -13827,10 +13117,11 @@
      "id": "1576:2",
      "type": "SET",
      "status": "beta",
-     "descLen": 1457,
+     "descLen": 1694,
      "descHeads": [
       "Status:",
       "Level:",
+      "Layout:",
       "Когда использовать:",
       "Правила:",
       "A11y:",
@@ -13842,7 +13133,8 @@
      "axes": {
       "Layout": [
        "Card",
-       "Informer"
+       "Informer",
+       "Snack"
       ],
       "Tone": [
        "Info",
@@ -13852,14 +13144,14 @@
        "Neutral"
       ]
      },
-     "variants": 10,
-     "full": 10,
+     "variants": 15,
+     "full": 15,
      "props": [
       {
        "name": "Title",
        "type": "TEXT",
        "def": "Вывод создан",
-       "bound": 10
+       "bound": 15
       },
       {
        "name": "Show title",
@@ -13877,7 +13169,7 @@
        "name": "Actions",
        "type": "BOOLEAN",
        "def": false,
-       "bound": 5
+       "bound": 10
       },
       {
        "name": "Close",
@@ -13889,7 +13181,7 @@
        "name": "Icon",
        "type": "BOOLEAN",
        "def": true,
-       "bound": 4
+       "bound": 9
       },
       {
        "name": "Show description",
@@ -13912,13 +13204,14 @@
      ],
      "nested": {
       "_Overlay surface": 10,
-      "media/status/info": 2,
-      "Button": 10,
+      "media/status/danger": 1,
+      "Button": 15,
       "Icon button": 10,
-      "Circle timer": 5,
+      "Progress circle": 5,
+      "media/status/info": 2,
       "media/status/success": 1,
       "media/status/warning": 1,
-      "media/status/danger": 1
+      "(icons)": 5
      },
      "minmax": [
       "minw=280 size/toast/min",
@@ -13931,13 +13224,15 @@
       "hit": 0,
       "safe": 5
      },
-     "rawCount": 10,
+     "rawCount": 15,
      "raw": [
       "(root):w=400",
-      "(root):w=375"
+      "(root):w=375",
+      "(root):w=343"
      ],
      "tokens": {
       "(root)": [
+       "f:action/inverse/default",
        "gap:space/12",
        "maxw:size/toast/max",
        "minw:size/toast/min",
@@ -13987,12 +13282,11 @@
       ],
       "Button": [
        "f:action/tertiary/default",
-       "gap:space/2",
+       "gap:space/4",
        "h:control/height/sm",
        "minw:size/button/min",
-       "p:space/4",
        "p:space/6",
-       "r:radius/control-sm",
+       "r:radius/sm",
        "r:radius/xs",
        "s:control/border/default",
        "sw:border/width/default"
@@ -14000,7 +13294,7 @@
       "close": [
        "gap:space/6",
        "h:control/height/sm",
-       "r:radius/control-sm",
+       "r:radius/sm",
        "w:control/height/sm"
       ],
       "timer": [
@@ -14014,6 +13308,15 @@
        "gap:space/12",
        "p:space/12",
        "p:space/16"
+      ],
+      "icon": [
+       "h:icon/size/md",
+       "w:icon/size/md"
+      ],
+      "action": [
+       "gap:space/4",
+       "minw:size/button/min",
+       "r:radius/xs"
       ]
      },
      "statusFirstLine": true
@@ -14115,145 +13418,6 @@
        "gap:space/12",
        "gap:space/8",
        "maxw:size/field/max"
-      ]
-     },
-     "statusFirstLine": true
-    }
-   ]
-  },
-  {
-   "level": "unknown",
-   "page": "Toggle group",
-   "pageId": "1012:4",
-   "pageMark": "🟡",
-   "boards": [
-    {
-     "name": "Toggle group — борда · шаблон v3",
-     "id": "2207:1157",
-     "v3": true,
-     "sections": [
-      "01 · Когда применять",
-      "02 · Превью и анатомия",
-      "03 · Свойства и варианты",
-      "04 · Состояния",
-      "06 · На поверхностях",
-      "08 · Движение",
-      "09 · Правила",
-      "10 · Доступность",
-      "11 · Код и токены",
-      "12 · Локали и RTL",
-      "— · Не собрано в этой версии"
-     ]
-    }
-   ],
-   "boardMissing": [
-    "05",
-    "07"
-   ],
-   "sets": [
-    {
-     "name": "Toggle group",
-     "id": "631:3104",
-     "type": "SET",
-     "status": "beta",
-     "descLen": 1436,
-     "descHeads": [
-      "Status:",
-      "Level:",
-      "Toggle group:",
-      "• Direction:",
-      "• Disabled —",
-      "• M:",
-      "Когда использовать:",
-      "Правила:",
-      "Длинный текст:",
-      "A11y:",
-      "Show label = Off —"
-     ],
-     "inBoard": false,
-     "axes": {
-      "Direction": [
-       "Vertical"
-      ],
-      "Size": [
-       "M",
-       "S"
-      ],
-      "State": [
-       "Default",
-       "Disabled"
-      ]
-     },
-     "variants": 4,
-     "full": 4,
-     "props": [
-      {
-       "name": "Show label",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 4
-      },
-      {
-       "name": "Show helper",
-       "type": "BOOLEAN",
-       "def": true,
-       "bound": 4
-      },
-      {
-       "name": "Label",
-       "type": "TEXT",
-       "def": "Настройки",
-       "bound": 4
-      },
-      {
-       "name": "Helper",
-       "type": "TEXT",
-       "def": "Применяются сразу",
-       "bound": 4
-      }
-     ],
-     "nested": {
-      "Toggle": 12
-     },
-     "minmax": [
-      "maxw=480 size/field/max"
-     ],
-     "layers": {
-      "ring": 0,
-      "hitWeb": 0,
-      "hitApp": 0,
-      "hit": 0,
-      "safe": 0
-     },
-     "rawCount": 0,
-     "raw": [],
-     "tokens": {
-      "(root)": [
-       "gap:space/12",
-       "gap:space/8",
-       "maxw:size/field/max"
-      ],
-      "label": [
-       "f:text/disabled",
-       "f:text/primary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/md/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height"
-      ],
-      "items": [
-       "gap:space/16"
-      ],
-      "Toggle": [
-       "maxw:size/field/max"
-      ],
-      "helper": [
-       "f:text/disabled",
-       "f:text/secondary",
-       "fontFamily:font/family/text",
-       "fontSize:type/label/sm/size",
-       "fontWeight:font-weight/medium",
-       "lineHeight:type/label/sm/line-height"
       ]
      },
      "statusFirstLine": true

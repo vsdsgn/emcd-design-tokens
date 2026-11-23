@@ -1,4 +1,4 @@
-# Radio card — контракт (2026-11-22)
+# Radio card — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -80,12 +80,12 @@
 - Выбор виден не только цветом обводки: точка в радио.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/surface`; обводка `border/accent`, `border/subtle`, `control/border/disabled`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `surface/next`; интервал `space/8`; отступы `space/16`; радиус `radius/container`; обводка `border/accent`, `border/subtle`, `control/border/disabled`; толщина обводки `border/width/default`.
 - `header`: интервал `space/12`.
 - `radio`: maxw `size/field/max`.
 - `label`: заливка / цвет `text/disabled`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `details`: заливка / цвет `text/disabled`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-surface`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/surface`.
+- Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring-lg`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `state layer`: заливка / цвет `state/layer`; прозрачность `state/hover`, `state/pressed`; радиус `radius/container`.
 - Значений без переменной: 24 (напр. `(root):w=400`, `hit area · web:w=400`, `hit area · web:h=126`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -104,7 +104,7 @@
 - Props: `status`: boolean; `label`: string или слот; `details`: string или слот; `showDetails`: boolean = true.
 - Состояния (Default, Hover, Disabled, Pressed) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

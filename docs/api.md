@@ -1,4 +1,4 @@
-# Ожидаемый API компонентов — beta (2026-11-22)
+# Ожидаемый API компонентов — beta (2026-11-23)
 
 Собрано `scripts/agent-docs.mjs` из `docs/ds-manifest.json` — править не здесь, а в Figma (потом манифест) или в `scripts/contract-data.mjs`.
 Это **ожидаемый** API по правилам имён `scripts/parity.mjs`: кода (DSP, Vue `ui-emcd-web`, Flutter) в доступе нет (`docs/dsp-check-2026-11-12.md`). Когда появится манифест кода — `npm run parity` сверит.
@@ -74,12 +74,15 @@
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | xs \| s \| m \| l | по правилу контракта | ось Size |
-| `type` | text \| icon \| image | по правилу контракта | ось Type |
+| `size` | xs \| m \| l \| xl \| 2xs \| s | по правилу контракта | ось Size |
+| `type` | text \| icon \| image \| coin | по правилу контракта | ось Type |
+| `network` | off \| on | по правилу контракта | ось Network |
 | `initials` | string | — | свойство Initials |
 | `status` | boolean | false | свойство Status |
 
 Состояния в Figma: Default · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
+
+Иконки (Coin, Network coin) в коде — слот или имя иконки, а не boolean + swap.
 
 ## Avatar group
 
@@ -89,8 +92,12 @@
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | xs \| s \| m | по правилу контракта | ось Size |
+| `type` | person \| coin | по правилу контракта | ось Type |
+| `size` | xs \| m \| l \| s | по правилу контракта | ось Size |
+| `count` | 4 \| 2 \| 3 | по правилу контракта | ось Count |
 | `more` | off \| on | по правилу контракта | ось More |
+| `showMore` | boolean | false | свойство Show more |
+| `moreText` | string | — | свойство More text |
 
 ## Badge
 
@@ -100,11 +107,13 @@
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | s \| m \| l | по правилу контракта | ось Size |
+| `size` | s \| m \| l \| xs | по правилу контракта | ось Size |
 | `tone` | neutral \| accent \| success \| warning \| danger | по правилу контракта | ось Tone |
 | `style` | subtle \| solid | по правилу контракта | ось Style |
+| `content` | text \| number | по правилу контракта | ось Content |
 | `label` | string | — | свойство Label |
 | `icon` | boolean | false | свойство Icon |
+| `value` | string | — | свойство Value |
 
 Состояния в Figma: Skeleton · Default — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 
@@ -147,6 +156,7 @@
 | `iconLeft` | boolean | false | свойство Icon left |
 | `iconRight` | boolean | false | свойство Icon right |
 | `loading` | boolean | false | свойство Loading |
+| `badge` | boolean | false | свойство Badge |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
@@ -261,23 +271,6 @@
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
-## Checkbox group
-
-уровень не указан · beta · Vue `<DsCheckboxGroup>` · Flutter `DsCheckboxGroup` · контракт `docs/components/checkbox-group.md`
-
-Группа чекбоксов: подпись группы, варианты, под ними подсказка или ошибка.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `direction` | vertical \| horizontal | по правилу контракта | ось Direction |
-| `size` | m \| s | по правилу контракта | ось Size |
-| `showLabel` | boolean | true | свойство Show label |
-| `showHelper` | boolean | true | свойство Show helper |
-| `label` | string | — | свойство Label |
-| `helper` | string | — | свойство Helper |
-
-Состояния в Figma: Default · Error · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
-
 ## Chip
 
 уровень не указан · beta · Vue `<DsChip>` · Flutter `DsChip` · контракт `docs/components/chip.md`
@@ -299,17 +292,6 @@
 Состояния в Figma: Default · Hover · Pressed · Disabled · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `skeleton` — boolean props.
 
 Иконки (Icon, Trailing icon) в коде — слот или имя иконки, а не boolean + swap.
-
-## Circle timer
-
-уровень не указан · beta · Vue `<DsCircleTimer>` · Flutter `DsCircleTimer` · контракт `docs/components/circle-timer.md`
-
-Круглый таймер обратного отсчёта: кольцо-прогресс, убывает по часовой стрелке. Показывает, сколько осталось до автоскрытия Toast или до повторной отправки кода.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `size` | s \| m | по правилу контракта | ось Size |
-| `progress` | 100 \| 75 \| 50 \| 25 \| 0 | по правилу контракта | ось Progress |
 
 ## Code cell
 
@@ -337,46 +319,6 @@
 | `showMessage` | boolean | true | свойство Show message |
 
 Состояния в Figma: Default · Error · Success · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
-
-## Coin
-
-уровень не указан · beta · Vue `<DsCoin>` · Flutter `DsCoin` · контракт `docs/components/coin.md`
-
-Монета из библиотеки Symbols (`symbol/coin/*`) нужного размера, при необходимости с маленькой монетой сети в правом нижнем углу (USDT TRC-20, USDT ERC-20).
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `size` | xs \| s \| m \| l \| xl | по правилу контракта | ось Size |
-| `network` | off \| on | по правилу контракта | ось Network |
-
-Состояния в Figma: Default · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
-
-Иконки (Coin, Network coin) в коде — слот или имя иконки, а не boolean + swap.
-
-## Coin stack
-
-уровень не указан · beta · Vue `<DsCoinStack>` · Flutter `DsCoinStack` · контракт `docs/components/coin-stack.md`
-
-Несколько монет внахлёст (стопка): пул из нескольких монет, пара для обмена, «Kaspa+1».
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `size` | s \| m \| l | по правилу контракта | ось Size |
-| `count` | 2 \| 3 \| 4 | по правилу контракта | ось Count |
-| `showMore` | boolean | false | свойство Show more |
-| `more` | string | — | свойство More |
-
-## Counter
-
-уровень не указан · beta · Vue `<DsCounter>` · Flutter `DsCounter` · контракт `docs/components/counter.md`
-
-Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `size` | s \| m | по правилу контракта | ось Size |
-| `tone` | neutral \| accent \| danger | по правилу контракта | ось Tone |
-| `value` | string | — | свойство Value |
 
 ## Date cell
 
@@ -585,17 +527,6 @@ Props нет.
 
 Состояния в Figma: Default · Hover · Skeleton — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `skeleton` — boolean props.
 
-## Legend swatch
-
-уровень не указан · beta · Vue `<DsLegendSwatch>` · Flutter `DsLegendSwatch` · контракт `docs/components/legend-swatch.md`
-
-Маркер серии графика: цветная точка или отрезок линии.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `marker` | dot \| line | по правилу контракта | ось Marker |
-| `series` | 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7 \| 8 | по правилу контракта | ось Series |
-
 ## List item
 
 уровень не указан · beta · Vue `<DsListItem>` · Flutter `DsListItem` · контракт `docs/components/list-item.md`
@@ -619,6 +550,18 @@ Props нет.
 | `divider` | boolean | false | свойство Divider (слой `_List row`, база `_List row`) |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
+
+## Marker
+
+уровень не указан · beta · Vue `<DsMarker>` · Flutter `DsMarker` · контракт `docs/components/marker.md`
+
+Маркер серии графика: цветная точка или отрезок линии.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `shape` | dot \| line | по правилу контракта | ось Shape |
+| `color` | series-1 \| series-2 \| series-3 \| series-4 \| series-5 \| series-6 \| series-7 \| series-8 \| success \| warning \| danger \| info \| neutral | по правилу контракта | ось Color |
+| `size` | l \| s \| m | по правилу контракта | ось Size |
 
 ## Menu
 
@@ -833,7 +776,9 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `size` | s \| m \| l | по правилу контракта | ось Size |
+| `mode` | determinate \| indeterminate \| timer | по правилу контракта | ось Mode |
+| `size` | m \| l \| xl \| xs \| s | по правилу контракта | ось Size |
+| `progress` |  \| 100 \| 75 \| 50 \| 25 \| 0 | по правилу контракта | ось Progress |
 | `value` | string | — | свойство Value |
 
 ## Promo card
@@ -898,23 +843,6 @@ Props нет.
 | `showDetails` | boolean | true | свойство Show details |
 
 Состояния в Figma: Default · Hover · Disabled · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
-
-## Radio group
-
-уровень не указан · beta · Vue `<DsRadioGroup>` · Flutter `DsRadioGroup` · контракт `docs/components/radio-group.md`
-
-Группа радио: подпись группы, варианты, под ними подсказка или ошибка.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `direction` | vertical \| horizontal | по правилу контракта | ось Direction |
-| `size` | m \| s | по правилу контракта | ось Size |
-| `showLabel` | boolean | true | свойство Show label |
-| `showHelper` | boolean | true | свойство Show helper |
-| `label` | string | — | свойство Label |
-| `helper` | string | — | свойство Helper |
-
-Состояния в Figma: Default · Error · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
 
 ## Scrollbar
 
@@ -1019,6 +947,24 @@ Props нет.
 
 Состояния в Figma: Default · Hover · Open · Disabled · Pressed — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
+## Selection group
+
+уровень не указан · beta · Vue `<DsSelectionGroup>` · Flutter `DsSelectionGroup` · контракт `docs/components/selection-group.md`
+
+Группа чекбоксов: подпись группы, варианты, под ними подсказка или ошибка.
+
+| Prop | Тип / значения | По умолчанию | В Figma |
+|---|---|---|---|
+| `type` | checkbox \| radio \| toggle | по правилу контракта | ось Type |
+| `direction` | vertical \| horizontal | по правилу контракта | ось Direction |
+| `size` | m \| s | по правилу контракта | ось Size |
+| `showLabel` | boolean | true | свойство Show label |
+| `showHelper` | boolean | true | свойство Show helper |
+| `label` | string | — | свойство Label |
+| `helper` | string | — | свойство Helper |
+
+Состояния в Figma: Default · Error · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled`, `error` — boolean props.
+
 ## Sheet
 
 уровень не указан · beta · Vue `<DsSheet>` · Flutter `DsSheet` · контракт `docs/components/sheet.md`
@@ -1045,16 +991,6 @@ Props нет.
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
 | `shape` | text \| title \| circle \| rect | по правилу контракта | ось Shape |
-
-## Spinner
-
-уровень не указан · beta · Vue `<DsSpinner>` · Flutter `DsSpinner` · контракт `docs/components/spinner.md`
-
-Индикатор загрузки: действие идёт, длительность неизвестна.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `size` | s \| m \| l | по правилу контракта | ось Size |
 
 ## Stat card
 
@@ -1311,7 +1247,7 @@ Props нет.
 
 | Prop | Тип / значения | По умолчанию | В Figma |
 |---|---|---|---|
-| `layout` | card \| informer | по правилу контракта | ось Layout |
+| `layout` | card \| informer \| snack | по правилу контракта | ось Layout |
 | `tone` | info \| success \| warning \| danger \| neutral | по правилу контракта | ось Tone |
 | `title` | string | — | свойство Title |
 | `showTitle` | boolean | true | свойство Show title |
@@ -1340,23 +1276,6 @@ Props нет.
 | `showDescription` | boolean | false | свойство Show description (слой `_Selection control`, база `_Selection control`) |
 
 Состояния в Figma: Default · Hover · Pressed · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
-
-## Toggle group
-
-уровень не указан · beta · Vue `<DsToggleGroup>` · Flutter `DsToggleGroup` · контракт `docs/components/toggle-group.md`
-
-Группа переключателей: подпись группы, варианты, под ними подсказка.
-
-| Prop | Тип / значения | По умолчанию | В Figma |
-|---|---|---|---|
-| `direction` | vertical | по правилу контракта | ось Direction |
-| `size` | m \| s | по правилу контракта | ось Size |
-| `showLabel` | boolean | true | свойство Show label |
-| `showHelper` | boolean | true | свойство Show helper |
-| `label` | string | — | свойство Label |
-| `helper` | string | — | свойство Helper |
-
-Состояния в Figma: Default · Disabled — ось State в код не идёт: Hover / Pressed / Focus даёт платформа; `disabled` — boolean props.
 
 ## Tooltip
 

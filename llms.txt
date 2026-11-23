@@ -1,6 +1,6 @@
 # EMCD Design System 2.0
 
-> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-22: beta 93 наборов, draft 5, stable 0.
+> Дизайн-система EMCD: токены (Figma Foundations → W3C DTCG → CSS и Flutter-JSON) и компоненты (Figma Components) для Mining web app, мобильного приложения на Flutter, сайта, white-label и Geometria. Оси: Brand × Theme × Platform × Viewport × Style, уровни поверхностей L0–L3. Язык документации — русский. Состояние на 2026-11-23: beta 86 наборов, draft 4, stable 0.
 
 Правда — репо и Figma. Ключи файлов Figma и ссылки на артефакты лежат в закрытом `docs/private/LINKS.md` и в git не попадают.
 Собрано `scripts/agent-docs.mjs` — править там, не здесь.
@@ -53,14 +53,9 @@
 - [Chart plot](docs/components/chart-plot.md): Область графика: серии данных, сетка и состояния. В коде — библиотека графиков с теми же токенами (`data/1…8`, `border/subtle` для сетки, `text/tertiary` для подписей)
 - [Chart tooltip](docs/components/chart-tooltip.md): Тултип точки графика: дата и время, под ними строки «маркер серии — название — значение»
 - [Checkbox](docs/components/checkbox.md): Множественный выбор, согласие с условиями, выбор строк таблицы. Основа — legacy `baseCheckbox` (коробочка 20, r 6, подпись через 12)
-- [Checkbox group](docs/components/checkbox-group.md): Группа чекбоксов: подпись группы, варианты, под ними подсказка или ошибка
 - [Chip](docs/components/chip.md): Фильтр или выбор варианта из набора, который видно целиком (сроки «90 / 180 / 360 дней», монеты, статусы в фильтре)
-- [Circle timer](docs/components/circle-timer.md): Круглый таймер обратного отсчёта: кольцо-прогресс, убывает по часовой стрелке. Показывает, сколько осталось до автоскрытия Toast или до повторной отправки кода
 - [Code cell](docs/components/code-cell.md): Ячейка кода: одна цифра кода подтверждения
 - [Code input](docs/components/code-input.md): Ввод одноразового кода: ряд из 4 или 6 ячеек Code cell и строка сообщения под ним. Подтверждение — автоматически, когда введена последняя цифра
-- [Coin](docs/components/coin.md): Монета из библиотеки Symbols (`symbol/coin/*`) нужного размера, при необходимости с маленькой монетой сети в правом нижнем углу (USDT TRC-20, USDT ERC-20)
-- [Coin stack](docs/components/coin-stack.md): Несколько монет внахлёст (стопка): пул из нескольких монет, пара для обмена, «Kaspa+1»
-- [Counter](docs/components/counter.md): Число рядом с табом, пунктом меню или иконкой (уведомления). Не статус
 - [Date cell](docs/components/date-cell.md): Ячейка одного дня в сетке Calendar: число и одно смысловое состояние (сегодня, выбран, край или середина диапазона, соседний месяц, недоступен)
 - [Date range field](docs/components/date-range-field.md): Поле выбора диапазона дат: подпись на рамке, значение «ДД.ММ.ГГ → ДД.ММ.ГГ», справа иконка календаря. По нажатию открывает панель с календарём (Calendar, Mode=Range) и пресетами периодов
 - [Date range panel](docs/components/date-range-panel.md): Панель выбора периода: слева пресеты («Сегодня», «7 дней», «30 дней», «Квартал», «Год», «Свой период»), справа календарь с диапазоном, внизу «Сбросить» и «Применить»
@@ -74,8 +69,8 @@
 - [Input amount](docs/components/input-amount.md): Поле суммы для пополнения, вывода, обмена и депозита: подпись с иконкой info, баланс и «Макс», сумма крупно, описание лимитов, выбор монеты (Select compact). Ошибка — рамка `control/border/error` и сообщение снизу
 - [Key-value row](docs/components/key-value-row.md): Строка «название — значение» в сводке: название в начале строки, значение в конце
 - [Legend item](docs/components/legend-item.md): Элемент легенды графика: маркер серии (Legend swatch) + подпись и необязательное значение
-- [Legend swatch](docs/components/legend-swatch.md): Маркер серии графика: цветная точка или отрезок линии
 - [List item](docs/components/list-item.md): Строка списка данных: монета, кошелёк, воркер, транзакция, настройка. Слот Leading слева, тексты по Content, слот Trailing справа
+- [Marker](docs/components/marker.md): Маркер серии графика: цветная точка или отрезок линии
 - [Menu](docs/components/menu.md): Меню (Dropdown): всплывающий список действий или вариантов. В слоте Items — Menu item, подписи групп и разделители; сверху — необязательный поиск
 - [Menu item](docs/components/menu-item.md): Пункт меню: слева необязательный слот (иконка, монета, аватар, эмодзи), затем подпись с необязательным описанием, справа необязательный слот (Badge, Counter, значение, шеврон подменю, кнопка). Нажимается вся строка, одно действие на пункт
 - [Modal](docs/components/modal.md): Модальное окно (диалог): короткое действие или подтверждение, прерывающее поток. Шапка, слот Body, кнопки в слоте Footer slot; под окном — затемнение `surface/overlay`
@@ -94,7 +89,6 @@
 - [Promo carousel](docs/components/promo-carousel.md): Промо-карусель Compact: слот Slides — 2–5 Promo card M шириной 311 (следующая подглядывает), под ней Page indicator
 - [Radio](docs/components/radio.md): Один вариант из нескольких (2–5). Основа — legacy `baseRadio` (круг 20, точка 8, подпись через 12)
 - [Radio card](docs/components/radio-card.md): Выбираемая карточка: радио, подпись и необязательные детали, которые раскрываются у выбранной. Нажимается вся карточка
-- [Radio group](docs/components/radio-group.md): Группа радио: подпись группы, варианты, под ними подсказка или ошибка
 - [Scrollbar](docs/components/scrollbar.md): Полоса прокрутки для своих скролл-контейнеров: выпадающие списки, панели, таблицы. Источник — legacy DS Web «Scrollbar» и сырой «Scroll» 4 px в продуктах
 - [Search](docs/components/search.md): Поле поиска: лупа, текст, крестик «Очистить» (когда введено). Поиск воркеров, монет, операций
 - [Section header](docs/components/section-header.md): Заголовок раздела страницы (L) или секции внутри карточки / формы (M, S): Title, необязательная Caption, слот Trailing справа
@@ -102,9 +96,9 @@
 - [Segmented](docs/components/segmented.md): Выбор одного значения из 2–4 взаимоисключающих; результат применяется сразу (период графика, Купить / Продать, вид список / сетка)
 - [Select](docs/components/select.md): Поле выбора одного значения из списка (сеть вывода, кошелёк, монета, валюта). Поле как у Input (размеры, лейбл, helper, ошибка), справа шеврон; по нажатию открывает Menu (на Compact — Sheet)
 - [Select compact](docs/components/select-compact.md): Компактный селектор без лейбла: выбор монеты, сети, валюты внутри строки, карточки, шапки виджета («USDT ▾»). По нажатию открывает Menu, на Compact — Sheet
+- [Selection group](docs/components/selection-group.md): Группа чекбоксов: подпись группы, варианты, под ними подсказка или ошибка
 - [Sheet](docs/components/sheet.md): Шторка на Compact (App и мобильный веб): панель от края до края — грабер, шапка с заголовком и крестиком, слот Body, кнопки L на всю ширину в слоте Footer. Меню действий — тот же Sheet с Menu item L в слоте Body
 - [Skeleton](docs/components/skeleton.md): Кирпичи скелетона: из них собираются Skeleton-состояния всех компонентов с данными (List item, Table row, Stat card, Chart card, Coin, Avatar)
-- [Spinner](docs/components/spinner.md): Индикатор загрузки: действие идёт, длительность неизвестна
 - [Stat card](docs/components/stat-card.md): Один показатель с подписью: хешрейт, баланс, начислено за 24 ч, активные воркеры. Основа дашборда
 - [Status](docs/components/status.md): Точка + подпись: состояние объекта (воркер, устройство, сервис, выплата) в строке таблицы, списке, шапке
 - [Status summary](docs/components/status-summary.md): Сводка воркеров по статусам: три плитки Stat card Align=Center — Отключённые · Нестабильные · Активные; плитка ведёт в «Воркеры» с фильтром
@@ -123,7 +117,6 @@
 - [Textarea](docs/components/textarea.md): Многострочное поле: комментарий, описание, обращение в поддержку. Надстройка над `_Field base` (Lines=Multi)
 - [Toast](docs/components/toast.md): Краткое всплывающее сообщение поверх страницы — отклик на действие («Настройки сохранены», «Вывод создан»). Исчезает само
 - [Toggle](docs/components/toggle.md): Переключатель: мгновенно включает настройку, без «Сохранить». Основа — legacy `baseToggle` (дорожка 48×28 / 40×24, ползунок 20 / 16)
-- [Toggle group](docs/components/toggle-group.md): Группа переключателей: подпись группы, варианты, под ними подсказка
 - [Tooltip](docs/components/tooltip.md): Короткая подсказка к элементу на Web: что делает иконка, что значит термин, почему контрол неактивен, полный текст обрезанного значения. Без действий внутри. Форма — legacy `base tooltip`
 - [Tooltip tour](docs/components/tooltip-tour.md): Подсказка онбординга с шагами: номер шага, заголовок, пояснение и кнопки «Пропустить» и «Далее», стрелка на элемент. Для обучающих туров по экрану
 - [Top bar](docs/components/top-bar.md): Верхняя панель экранов Compact: на корневом экране — аккаунт и контекст раздела, на вложенном — «Назад» и заголовок по центру. Высота 56, подложка `surface/level-0`
@@ -137,13 +130,12 @@
 - [selection-control](docs/components/selection-control.md)
 - [service-layers](docs/components/service-layers.md)
 - [_Page dot](docs/components/page-dot.md): служебный, только внутри родителя
-- [_Dot](docs/components/dot.md): служебный, только внутри родителя
 - [_Step segment](docs/components/step-segment.md): служебный, только внутри родителя
 - [_Tooltip arrow](docs/components/tooltip-arrow.md): служебный, только внутри родителя
 
 ## Компоненты: draft — не брать
 
-- уровень не указан (5): Bulk action bar, File upload, Side panel, Snack, Status bar
+- уровень не указан (4): Bulk action bar, File upload, Side panel, Status bar
 - шаблоны экранов, не Base (1): Status screen
 
 ## Проверки

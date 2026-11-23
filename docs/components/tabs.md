@@ -1,4 +1,4 @@
-# Tabs — контракт (2026-11-22)
+# Tabs — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -97,7 +97,7 @@
 - Vue: `<DsTabs>`; Flutter: `DsTabs`.
 - Props: `size`: m | l | page | s; `tab3`: boolean = true; `tab4`: boolean = true; `tab5`: boolean = false; `tab6`: boolean = false.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

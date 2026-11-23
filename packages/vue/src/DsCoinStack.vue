@@ -1,4 +1,4 @@
-<!-- Coin stack — монеты внахлёст. coins — тикеры по значимости; size: s (24) · m (32) · l (40); count — сколько показать (2–4); showMore + more — «+N». Контракт: docs/components/coin-stack.md -->
+<!-- Coin stack — монеты внахлёст. coins — тикеры по значимости; size: s (24) · m (32) · l (40); count — сколько показать (2–4); showMore + more — «+N». Контракт: docs/components/avatar-group.md (Type=Coin, 22.11) -->
 <script setup>
 import { computed } from 'vue';
 import DsCoin from './DsCoin.vue';

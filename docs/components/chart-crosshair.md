@@ -1,4 +1,4 @@
-# Chart crosshair — контракт (2026-11-22)
+# Chart crosshair — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -70,7 +70,7 @@
 - Vue: `<DsChartCrosshair>`; Flutter: `DsChartCrosshair`.
 - Props: `target`: line | bar.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

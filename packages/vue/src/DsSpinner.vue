@@ -1,4 +1,4 @@
-<!-- Spinner — неизвестная длительность; цвет от родителя. Контракт: docs/components/spinner.md -->
+<!-- Spinner — неизвестная длительность; цвет от родителя. Контракт: docs/components/progress-circle.md (Mode=Indeterminate, 22.11) -->
 <script setup>
 defineProps({
   size: { type: String, default: 's' }, // s | m | l

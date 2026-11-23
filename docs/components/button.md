@@ -1,4 +1,4 @@
-# Button — контракт (2026-11-22)
+# Button — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -27,7 +27,7 @@
 - Корень: подложка, радиус `radius/control` (12; 16.11 по продукту Web App, было `radius/container` 16), отступы, min-width 64.
 - `icon left`, `label`, `icon right`; `Spinner` (Loading) — вместо содержимого, ширина не меняется; цвет спиннера — по тону кнопки (дорожка и дуга; у Danger — `text/danger` / `icon/danger`), Disabled — дуга `icon/disabled`.
 - Служебные: `state layer`, `focus ring`, зоны `hit area · web` / `· app`, `safe area · outer`.
-- Вложено: `Spinner` ×220, иконки ×440.
+- Вложено: `Progress circle` ×220, иконки ×440, `Badge` ×220.
 - Служебные слои (вариантов из 220): кольцо фокуса 220 · зона Web 220 · зона касания 220 · безопасное поле 220.
 
 ## 4. States
@@ -61,6 +61,7 @@
 | Loading | булево | выкл | 220 из 220 |
 | Show hit area | булево | выкл | 220 из 220 · служебное |
 | Safe margin | булево | выкл | 220 из 220 · служебное |
+| Badge | булево | выкл | 220 из 220 |
 
 ## 6. Content / slots
 - Подпись — одна строка, глагол действия. Длинная — усечение; ширина кнопки растёт до контейнера, min 64.
@@ -83,16 +84,17 @@
 - Контраст: белый текст на заливке ≥ 4.5:1; цветной текст (Text, Secondary) ≥ 4.5:1 на L0; Primary на L3 в тёмной теме < 3:1 — не ставить.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/accent/default`, `action/danger-subtle/default`, `action/danger/default`, `action/disabled`, `action/inverse/default`, `action/primary/default`, `action/secondary/default`, `action/tertiary/default`; интервал `space/2`, `space/4`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`, `control/height/xs`; мин. ширина `size/button/min`; отступы `space/12`, `space/16`, `space/4`, `space/6`; радиус `radius/control`, `radius/control-sm`, `radius/xs`; обводка `control/border/default`, `control/border/error`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `action/accent/default`, `action/danger-subtle/default`, `action/danger/default`, `action/disabled`, `action/inverse/default`, `action/primary/default`, `action/secondary/default`, `action/tertiary/default`; интервал `space/2`, `space/4`; высота `control/height/lg`, `control/height/md`, `control/height/sm`, `control/height/xl`, `control/height/xs`; мин. ширина `size/button/min`; отступы `space/12`, `space/16`, `space/4`, `space/6`; радиус `radius/control`, `radius/control-xs`, `radius/sm`, `radius/xs`; обводка `control/border/default`, `control/border/error`; толщина обводки `border/width/default`.
 - `spinner`: высота `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`.
 - `icon left`: высота `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`.
 - `pad L`: ширина `space/2`.
 - `label`: заливка / цвет `action/primary/default`, `fixed/light`, `text/accent`, `text/accent-hover`, `text/accent-pressed`, `text/danger`, `text/disabled`, `text/inverse`, `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`, `type/label/md`, `type/label/sm`.
 - `pad R`: ширина `space/2`.
+- `badge`: заливка / цвет `accent/subtle`, `action/inverse/default`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/8`; радиус `radius/xs`.
 - `icon right`: высота `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`; ширина `icon/size/control`, `icon/size/inline`, `icon/size/lg`, `icon/size/sm`.
-- Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-sm` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid`; толщина обводки `border/width/default` · `hit area · app`: видимость `touch/is-coarse` · `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-lg`, `radius/focus-ring-sm`, `radius/focus-ring-xs`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `safe area · content`: заливка / цвет `status/success/solid` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
+- Служебные слои (общие правила — `service-layers.md`): `state layer`: заливка / цвет `state/layer`, `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`, `radius/control-xs`, `radius/sm` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid`; толщина обводки `border/width/default` · `hit area · app`: видимость `touch/is-coarse` · `focus ring`: радиус `radius/focus-ring`, `radius/focus-ring-inner`, `radius/focus-ring-xs`, `radius/sm`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `safe area · content`: заливка / цвет `status/success/solid` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
 - Min / max корня: minWidth 64 size/button/min.
-- Значений без переменной: 440 (напр. `hit area · web:w=81`, `hit area · web:h=40`, `hit area · web:w=69`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 440 (напр. `hit area · web:w=54`, `hit area · web:h=24`, `hit area · web:w=69`, `hit area · web:h=32`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -102,18 +104,18 @@
 ## 12. Figma projection
 - Набор `Button`, вариантов 220 из 240; оси: Type, Tone, Size, State.
 - Борда: «Button — борда · шаблон v3», разделов 12.
-- Описание: 4502 знаков, разделы: Status: Level: Кнопка действия. Когда использовать: Матрица: • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted — • Default —
+- Описание: 4766 знаков, разделы: Status: Level: Badge (22. Кнопка действия. Когда использовать: Матрица: • Primary — • Secondary — • Tertiary — • Tertiary outline — • Text — • Inverted —
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Button`), Vue `packages/vue/src/DsButton.vue`, CSS `claude-ds/components/Button/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsButton>`; Flutter: `DsButton`.
-- Props: `type`: primary | inverted | tertiary | tertiary-outline | text | secondary; `tone`: default | danger; `size`: s | m | l | xl | xs; `label`: string или слот; `iconLeft`: boolean = false; `iconRight`: boolean = false; `loading`: boolean = false.
+- Props: `type`: primary | inverted | tertiary | tertiary-outline | text | secondary; `tone`: default | danger; `size`: s | m | l | xl | xs; `label`: string или слот; `iconLeft`: boolean = false; `iconRight`: boolean = false; `loading`: boolean = false; `badge`: boolean = false.
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled`, `loading` — props.
 - `iconLeft` / `iconRight` в коде — слоты, а не boolean + swap.
 - Tone=Danger есть у Primary, Secondary, Tertiary, Tertiary outline, Text; сочетание Inverted + Danger отсекать типами.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний (min-width — `size/button/min` во всех вариантах).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

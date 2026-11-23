@@ -1,4 +1,4 @@
-# Badge — контракт (2026-11-22)
+# Badge — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -23,7 +23,7 @@
 - Корень: подложка (тон × стиль), радиус, отступы.
 - `label` — текст; `icon` — смысловая иконка слева (Icon + Icon · swap). Свойства Focus ring, `Close · deprecated`, `Chevron · deprecated` удалены 14.11: бейдж неинтерактивный, интерактив — Chip.
 - Вложено: иконки ×33.
-- Служебные слои (вариантов из 33): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Служебные слои (вариантов из 39): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; Skeleton — загрузка.
@@ -35,20 +35,22 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | S · M · L | S |
+| Size | S · M · L · XS | S |
 | Tone | Neutral · Accent · Success · Warning · Danger | Neutral |
 | Style | Subtle · Solid | Subtle |
 | State | Skeleton · Default | Default |
+| Content | Text · Number | — |
 
-Матрица: 33 из 60.
+Матрица: 39 из 160.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Label | текст | «Активен» | 33 из 33 |
-| Icon | булево | выкл | 33 из 33 |
-| Icon · swap | замена экземпляра | `icon/plus` | 33 из 33 |
+| Label | текст | «Активен» | 33 из 39 |
+| Icon | булево | выкл | 33 из 39 |
+| Icon · swap | замена экземпляра | `icon/plus` | 33 из 39 |
+| Value | текст | «12» | 6 из 39 |
 
 ## 6. Content / slots
 - Длинный текст: одна строка, усечение многоточием по max-width 160 (подпись 112); полный текст — в `title` / тултипе.
@@ -67,26 +69,27 @@
 - Фокуса нет: бейдж не в порядке Tab.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/neutral/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; maxw `size/badge/max`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/8`; радиус `radius/control-sm`, `radius/sm`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `accent/subtle`, `action/inverse/default`, `control/checked`, `skeleton/base`, `status/danger/solid`, `status/danger/subtle`, `status/neutral/subtle`, `status/success/solid`, `status/success/subtle`, `status/warning/solid`, `status/warning/subtle`; интервал `space/4`, `space/6`, `space/8`; высота `size/badge-height/lg`, `size/badge-height/md`, `size/badge-height/sm`; maxw `size/badge/max`, `size/counter/max`; minh `size/counter-height/md`, `size/counter-height/sm`; мин. ширина `size/counter-height/md`, `size/counter-height/sm`; отступы `control/padding-x/md`, `control/padding-x/sm`, `space/4`, `space/6`, `space/8`; радиус `radius/control-xs`, `radius/sm`, `radius/xs`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `label`: заливка / цвет `accent/on-subtle`, `status/danger/on-subtle`, `status/success/on-subtle`, `status/warning/on-subtle`, `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`, `type/label/sm`.
-- Min / max корня: maxWidth 160 size/badge/max.
+- `value`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
+- Min / max корня: maxWidth 160 size/badge/max, minWidth 16 size/counter-height/sm, maxWidth 40 size/counter/max, minHeight 16 size/counter-height/sm, minWidth 20 size/counter-height/md, minHeight 20 size/counter-height/md.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Badge`, вариантов 33 из 60; оси: Size, Tone, Style, State.
+- Набор `Badge`, вариантов 39 из 160; оси: Size, Tone, Style, State, Content.
 - Борда: «Badge — борда · шаблон v3», разделов 12.
-- Описание: 1706 знаков, разделы: Status: Level: Бейдж: Когда использовать: Правила тона: Правила стиля: Размер: Цвета текста: Иконка: A11y: Поиск: Legacy:
+- Описание: 1959 знаков, разделы: Status: Level: Content: Бейдж: Когда использовать: Правила тона: Правила стиля: Размер: Цвета текста: Иконка: A11y: Поиск:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Badge`), Vue `packages/vue/src/DsBadge.vue`, CSS `claude-ds/components/Badge/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsBadge>`; Flutter: `DsBadge`.
-- Props: `size`: s | m | l; `tone`: neutral | accent | success | warning | danger; `style`: subtle | solid; `label`: string или слот; `icon`: boolean = false.
+- Props: `size`: s | m | l | xs; `tone`: neutral | accent | success | warning | danger; `style`: subtle | solid; `content`: text | number; `label`: string или слот; `icon`: boolean = false; `value`: string или слот.
 - Состояния (Skeleton, Default) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — `maxWidth 112 @label` числом (корень — `size/badge/max`).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

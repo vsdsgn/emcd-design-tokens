@@ -1,4 +1,4 @@
-# Bulk action bar — контракт · draft (2026-11-22)
+# Bulk action bar — контракт · draft (2026-11-23)
 
 Заготовка: собрана автоматически. Набор заменён на месте (2026-11-13): фон, радиус и тень — слой `overlay surface`, нераскрытый экземпляр базы `_Overlay surface`; свойства набора не менялись. Поверхность, токены и приёмка базы — `docs/components/overlay-surface.md`. Status остаётся draft до ручного чеклиста и «ок» Стефана.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json`, `scripts/contract-draft-data.txt` (выжимка описания набора в Figma) и `scripts/draft-findings.mjs` — править там, не здесь.
@@ -69,7 +69,7 @@
 - Vue: `<DsBulkActionBar>`; Flutter: `DsBulkActionBar`.
 - Props: `count`: string или слот; `showAction2`: boolean = true; `showMore`: boolean = true.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - Плагины `audit`, `variables-check`, `audit-parity` прогнаны после замены (2026-11-13): `audit` 0, OVERLAY и SERVICE 0; остаток (числа min / max и др.) — в замечаниях ниже и в `docs/components/overlay-surface.md`, раздел 14. Стенд — на пилоте базы.
 - Замечания по манифесту (`npm run draft-audit`) — что мешает перевести в beta:
   - BOARD: нет борды v3

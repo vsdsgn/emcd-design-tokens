@@ -1,11 +1,11 @@
-# Legend swatch — контракт (2026-11-22)
+# Marker — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
 
 ## 1. Identity
-- Набор: `Legend swatch`. Status: beta. Level: unknown.
-- Figma: Components, страница «Legend swatch» (`1012:16`), набор `84:595`. Платформы: Web, Mobile web, iOS, Android.
+- Набор: `Marker`. Status: beta. Level: unknown.
+- Figma: Components, страница «Marker» (`1012:16`), набор `84:595`. Платформы: Web, Mobile web, iOS, Android.
 - Вложен в Legend item (exposed).
 
 ## 2. Intent
@@ -20,7 +20,7 @@
 
 ## 3. Anatomy
 - Корень `size/legend-swatch` (12 × 12); `marker` — точка или отрезок, цвет `data/1`…`data/8`, `radius/chip`; у Line — линия толщиной `chart/stroke`, Series 5–8 пунктиром.
-- Служебные слои (вариантов из 16): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Служебные слои (вариантов из 26): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
@@ -31,10 +31,11 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Marker | Dot · Line | Dot |
-| Series | 1 · 2 · 3 · 4 · 5 · 6 · 7 · 8 | 1 |
+| Shape | Dot · Line | — |
+| Color | Series 1 · Series 2 · Series 3 · Series 4 · Series 5 · Series 6 · Series 7 · Series 8 · Success · Warning · Danger · Info · Neutral | — |
+| Size | L · S · M | — |
 
-Матрица полная: 16 вариантов.
+Матрица: 26 из 78.
 
 ## 6. Content / slots
 - Текста нет; название серии — в Legend item.
@@ -53,24 +54,26 @@
 - Серии различаются не только цветом: у линий разный штрих начиная с 5-й серии (WCAG 1.4.1).
 
 ## 10. Tokens
-- `корень`: высота `size/legend-swatch`; ширина `size/legend-swatch`.
-- `marker`: заливка / цвет `data/1`, `data/2`, `data/3`, `data/4`, `data/5`, `data/6`, `data/7`, `data/8`; радиус `radius/chip`; обводка `data/5`, `data/6`, `data/7`, `data/8`; толщина обводки `chart/stroke`.
+- `корень`: высота `size/dot/md`, `size/dot/sm`, `size/legend-swatch`; ширина `size/dot/md`, `size/dot/sm`, `size/legend-swatch`.
+- `marker`: заливка / цвет `border/accent`, `data/2`, `data/3`, `data/4`, `data/5`, `data/6`, `data/7`, `data/8`; радиус `radius/chip`; обводка `data/5`, `data/6`, `data/7`, `data/8`.
+- `dot`: заливка / цвет `status/danger/solid`, `status/info/solid`, `status/neutral/solid`, `status/success/solid`, `status/warning/solid`; высота `size/dot/md`, `size/dot/sm`; ширина `size/dot/md`, `size/dot/sm`.
+- Значений без переменной: 4 (напр. `marker:sw=2`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Цвета `data/*` зависят только от темы; от бренда и режима Platform не зависят.
 
 ## 12. Figma projection
-- Набор `Legend swatch`, вариантов 16 из 16; оси: Marker, Series.
+- Набор `Marker`, вариантов 26 из 78; оси: Shape, Color, Size.
 - Борда: «Legend swatch — борда · шаблон v3», разделов 12.
-- Описание: 641 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: Legacy:
+- Описание: 472 знаков, разделы: Status: Level: Метка — Серия 1 —
 
 ## 13. Code projection
-Код в репо: React `packages/react/src/index.js` (`LegendSwatch`), Vue `packages/vue/src/DsLegendSwatch.vue`, CSS `claude-ds/components/LegendSwatch/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
+Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
-- Vue: `<DsLegendSwatch>`; Flutter: `DsLegendSwatch`.
-- Props: `marker`: dot | line; `series`: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8.
+- Vue: `<DsMarker>`; Flutter: `DsMarker`.
+- Props: `shape`: dot | line; `color`: series-1 | series-2 | series-3 | series-4 | series-5 | series-6 | series-7 | series-8 | success | warning | danger | info | neutral; `size`: l | s | m.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

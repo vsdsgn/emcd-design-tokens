@@ -1,4 +1,4 @@
-# Progress circle — контракт (2026-11-22)
+# Progress circle — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -23,7 +23,7 @@
 - Корень, `track` и `fill` — `size/progress-circle/sm` / `md` / `lg` по Size.
 - `track` — кольцо `control/track`; `fill` — дуга `control/checked`, угол меняется в Arc (Ellipse → Arc, End).
 - `value` — процент в центре (`text/primary`, `font/family/text` (табличные цифры; моно снято 17.11); M — `type/body/sm`, L — `type/body/md`); у S нет.
-- Служебные слои (вариантов из 3): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Служебные слои (вариантов из 16): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
@@ -34,15 +34,17 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | S · M · L | S |
+| Mode | Determinate · Indeterminate · Timer | — |
+| Size | M · L · XL · XS · S | S |
+| Progress | — · 100 · 75 · 50 · 25 · 0 | — |
 
-Матрица полная: 3 вариантов.
+Матрица: 16 из 90.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Value | текст | «60%» | 2 из 3 |
+| Value | текст | «60%» | 2 из 16 |
 
 - Value привязано у M и L; у S текста нет.
 
@@ -62,26 +64,29 @@
 - S без подписи: значение текстом даёт соседняя строка.
 
 ## 10. Tokens
-- `корень`: высота `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; ширина `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
-- `track`: заливка / цвет `control/track`; высота `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; ширина `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
+- `корень`: высота `icon/size/control`, `icon/size/lg`, `icon/size/sm`, `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; ширина `icon/size/control`, `icon/size/lg`, `icon/size/sm`, `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
+- `track`: заливка / цвет `control/track`, `icon/primary`; высота `icon/size/control`, `icon/size/lg`, `icon/size/sm`, `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; обводка `control/track`; толщина обводки `border/width/strong`; ширина `icon/size/control`, `icon/size/lg`, `icon/size/sm`, `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
 - `fill`: заливка / цвет `control/checked`; высота `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`; ширина `size/progress-circle/lg`, `size/progress-circle/md`, `size/progress-circle/sm`.
 - `value`: заливка / цвет `text/primary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`, `type/body/sm`.
+- `arc`: заливка / цвет `icon/primary`.
+- `progress`: обводка `control/checked`; толщина обводки `border/width/strong`.
+- Значений без переменной: 3 (напр. `track:o=0.2`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Progress circle`, вариантов 3 из 3; оси: Size.
+- Набор `Progress circle`, вариантов 16 из 90; оси: Mode, Size, Progress.
 - Борда: «Progress circle — борда · шаблон v3», разделов 11.
-- Описание: 958 знаков, разделы: Status: Level: Круговой прогресс: S 24 — A11y: Поиск: Legacy: Motion: Когда использовать: Правила:
+- Описание: 1314 знаков, разделы: Status: Level: Mode: Круговой прогресс: S 24 — A11y: Поиск: Legacy: Motion: Когда использовать: Правила:
 
 ## 13. Code projection
 Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
 
 - Vue: `<DsProgressCircle>`; Flutter: `DsProgressCircle`.
-- Props: `size`: s | m | l; `value`: string или слот.
+- Props: `mode`: determinate | indeterminate | timer; `size`: m | l | xl | xs | s; `progress`:  | 100 | 75 | 50 | 25 | 0; `value`: string или слот.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,4 +1,4 @@
-# Floating button — контракт (2026-11-22)
+# Floating button — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -25,7 +25,7 @@
 - `icon/plus` (`icon/size/md`) + `label` (`type/label/md`, `text/on-accent`) — подпись только у Extended.
 - Loading=True: Spinner Size=L вместо иконки (дорожка `text/on-accent`, дуга `icon/on-accent`); у Extended подпись остаётся.
 - Служебные: `state layer`, `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer`.
-- Вложено: иконки ×25, `Spinner` ×5.
+- Вложено: иконки ×25, `Progress circle` ×5.
 - Служебные слои (вариантов из 25): кольцо фокуса 25 · зона Web 25 · зона касания 25 · безопасное поле 25.
 
 ## 4. States
@@ -84,11 +84,11 @@
 - Disabled — `aria-disabled`; Loading — `aria-busy`.
 
 ## 10. Tokens
-- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/disabled`, `action/primary/default`, `action/secondary/default`; интервал `space/6`, `space/8`; высота `control/height/md`, `control/height/xl`; отступы `space/16`, `space/20`; радиус `radius/chip`; ширина `control/height/xl`.
+- `корень`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/disabled`, `action/primary/default`, `action/secondary/default`; интервал `space/6`, `space/8`; высота `control/height/md`, `control/height/xl`; отступы `space/16`, `space/20`; радиус `radius/control`; ширина `control/height/xl`.
 - `icon/plus`: высота `icon/size/md`; ширина `icon/size/md`.
 - `spinner`: высота `icon/size/lg`; ширина `icon/size/lg`.
 - `label`: заливка / цвет `text/disabled`, `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
-- Служебные слои (общие правила — `service-layers.md`): `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `focus ring`: радиус `radius/chip`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `state layer`: заливка / цвет `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/chip`.
+- Служебные слои (общие правила — `service-layers.md`): `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin` · `focus ring`: радиус `radius/focus-ring`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `state layer`: заливка / цвет `state/layer-inverse`; прозрачность `state/hover`, `state/pressed`; радиус `radius/control`.
 - Значений без переменной: 50 (напр. `hit area · web:w=56`, `hit area · web:h=56`, `hit area · web:w=183`, `hit area · web:w=187`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
@@ -110,7 +110,7 @@
 - `layout`: icon | extended; `size` (l | m) и `type` (primary | secondary) действуют только при `layout="extended"` — Icon всегда L 56 Primary.
 - `label` обязателен: подпись Extended или `aria-label` Icon; `icon` — имя иконки DS (по умолчанию `plus`) или узел; позиция справа снизу — у продукта.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

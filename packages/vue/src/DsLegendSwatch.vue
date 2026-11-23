@@ -1,4 +1,4 @@
-<!-- Legend swatch — маркер серии: dot (столбцы, области) · line (линии; серии 5–8 пунктиром). series 1 — border/accent (основная), 2–8 — data/2…8. Декоративен. Контракт: docs/components/legend-swatch.md -->
+<!-- Legend swatch — маркер серии: dot (столбцы, области) · line (линии; серии 5–8 пунктиром). series 1 — border/accent (основная), 2–8 — data/2…8. Декоративен. Контракт: docs/components/marker.md (22.11) -->
 <script setup>
 import { computed } from 'vue';
 const props = defineProps({

@@ -1,4 +1,4 @@
-# Input — контракт (2026-11-22)
+# Input — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -108,7 +108,7 @@
 - Vue `Input` (DSP) — сверка не сделана, код недоступен.
 - Свойства базы (слой `Field`) — props: `label`, `showLabel`, `value` (v-model), `helper`, `showHelper`, `counter`, `showCounter`, слоты `leading` / `inline` / `trailing`; `readonly`, `disabled`, `loading`, `skeleton`.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 (2026-11-13).
 - `variables-check.plugin.js` — 0 у набора (2026-11-13; у `Input addon / Clear` — толщина глифа 1.5 числом; набор удалён 2026-11-15, очистка — Icon button Ghost S).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

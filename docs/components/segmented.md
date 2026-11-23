@@ -1,4 +1,4 @@
-# Segmented — контракт (2026-11-22)
+# Segmented — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -69,12 +69,11 @@
 - Сегменты только с иконками — `aria-label` у каждого.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `control/segment-track`; интервал `space/2`; отступы `space/4`; радиус `radius/control`, `radius/control-sm`.
+- `корень`: заливка / цвет `control/segment-track`; интервал `space/2`; отступы `space/4`; радиус `radius/control`, `radius/sm`.
 - `segment 1`: заливка / цвет `control/segment`; интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `segment 2`: интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `segment 3`: интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `segment 4`: интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
-- Значений без переменной: 9 (напр. `(root):w=138`, `(root):w=204`, `(root):w=170`, `(root):w=252`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -83,7 +82,7 @@
 ## 12. Figma projection
 - Набор `Segmented`, вариантов 9 из 9; оси: Size, Items.
 - Борда: «Segmented — борда · шаблон v3», разделов 11.
-- Описание: 1222 знаков, разделы: Status: Level: Segmented: Когда использовать: Правила: Длинный текст: Уровни: A11y: Поиск: Legacy:
+- Описание: 1229 знаков, разделы: Status: Level: Segmented: Когда использовать: Правила: Длинный текст: Уровни: A11y: Поиск: Legacy:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Segmented`), Vue `packages/vue/src/DsSegmented.vue`, CSS `claude-ds/components/Segmented/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
@@ -91,7 +90,7 @@
 - Vue: `<DsSegmented>`; Flutter: `DsSegmented`.
 - Props: `size`: s | m | l; `items`: 2 | 3 | 4.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (вложенный Segment, label).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

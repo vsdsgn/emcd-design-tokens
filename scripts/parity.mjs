@@ -67,8 +67,10 @@ for (const name of pending) {
 const pascal = (s) => s.replace(/[^\p{L}\p{N}]+/gu, ' ').trim().split(' ').map((w) => w[0].toUpperCase() + w.slice(1)).join('');
 const byPascal = new Map(sets.map((s) => [pascal(s.name), s]));
 const status = read('claude-ds/status.json').components;
+// 22.11: наборы слиты в Figma, в коде компоненты остались (реализация вариантов общего набора)
+const MERGED = { Coin: 'Avatar', CoinStack: 'AvatarGroup', Counter: 'Badge', LegendSwatch: 'Marker', Spinner: 'ProgressCircle' };
 for (const [name, st] of Object.entries(status)) {
-  const s = byPascal.get(name);
+  const s = byPascal.get(MERGED[name] || name);
   if (!s) { errors.push(`STATUS ${name}: в claude-ds/status.json есть, набора в Figma нет`); continue; }
   if (s.status === 'service') { errors.push(`STATUS ${name}: служебный набор (service) — убрать из claude-ds/status.json`); continue; }
   const want = s.status === 'template' ? 'draft' : s.status;

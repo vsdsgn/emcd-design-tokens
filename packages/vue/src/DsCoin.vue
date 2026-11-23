@@ -1,4 +1,4 @@
-<!-- Coin — монета из Symbols. coin — тикер (btc, kas, ltc, doge) или имя файла; нет в Symbols — нейтральный круг с буквой. size: xs 16 · s 20 · m 24 · l 32 · xl 40; network + networkCoin — монета сети (не у XS). Контракт: docs/components/coin.md -->
+<!-- Coin — монета из Symbols. coin — тикер (btc, kas, ltc, doge) или имя файла; нет в Symbols — нейтральный круг с буквой. size: xs 16 · s 20 · m 24 · l 32 · xl 40; network + networkCoin — монета сети (не у XS). Контракт: docs/components/avatar.md (Type=Coin, 22.11) -->
 <script setup>
 import { computed } from 'vue';
 import { COINS } from './icons.js';

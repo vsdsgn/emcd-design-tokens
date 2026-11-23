@@ -1,4 +1,4 @@
-# Step progress — контракт (2026-11-22)
+# Step progress — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -69,7 +69,7 @@
 - Vue: `<DsStepProgress>`; Flutter: `DsStepProgress`.
 - Props: `count`: 3 | 4 | 5 | 6 | 7; `step`: 1 | 2 | 3 | 4 | 5 | 6 | 7.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

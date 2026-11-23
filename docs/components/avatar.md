@@ -1,4 +1,4 @@
-# Avatar — контракт (2026-11-22)
+# Avatar — контракт (2026-11-23)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -20,8 +20,8 @@
 ## 3. Anatomy
 - `circle` (обрезает содержимое, `radius/full`; фон `status/neutral/subtle`, у Icon — `accent/subtle`) → `initials` | `icon` (`icon/size/md`) | `image (заменить)` + `placeholder`.
 - `status` — точка с обводкой `surface/current` (`border/width/strong`): на любой поверхности L0–L3 обводка совпадает с фоном.
-- Вложено: иконки ×8.
-- Служебные слои (вариантов из 24): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: иконки ×8, `symbol/coin/bitcoin-btc` ×18, `symbol/coin/tether-usdt` ×18.
+- Служебные слои (вариантов из 42): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; Skeleton — загрузка.
@@ -33,18 +33,21 @@
 
 | Ось | Значения | По умолчанию |
 |---|---|---|
-| Size | XS · S · M · L | XS |
-| Type | Text · Icon · Image | Text |
+| Size | XS · M · L · XL · 2XS · S | XS |
+| Type | Text · Icon · Image · Coin | Text |
+| Network | Off · On | — |
 | State | Default · Skeleton | Default |
 
-Матрица полная: 24 вариантов.
+Матрица: 42 из 96.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Initials | текст | «E» | 8 из 24 |
-| Status | булево | выкл | 24 из 24 |
+| Initials | текст | «E» | 8 из 42 |
+| Status | булево | выкл | 24 из 42 |
+| Coin | замена экземпляра | `symbol/coin/bitcoin-btc` | 18 из 42 |
+| Network coin | замена экземпляра | `symbol/coin/tether-usdt` | 18 из 42 |
 
 ## 6. Content / slots
 - Initials — 1 буква; длиннее — обрезается кругом (проверено на стенде), поэтому усечение делает код до передачи.
@@ -64,31 +67,32 @@
 - Status — в доступном имени («в сети»), не только цветом.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `skeleton/base`; высота `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`; радиус `radius/full`; ширина `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`.
+- `корень`: заливка / цвет `skeleton/base`; высота `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xl`, `size/media/xs`; радиус `radius/full`; ширина `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xl`, `size/media/xs`.
 - `circle`: заливка / цвет `accent/subtle`, `status/neutral/subtle`; высота `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`; радиус `radius/full`; ширина `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`.
 - `initials`: заливка / цвет `accent/on-subtle`, `text/secondary`; типографика `font-weight/bold`, `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/sm`, `type/label/md`, `type/label/sm`.
 - `status`: заливка / цвет `status/success/solid`; обводка `surface/current`; толщина обводки `border/width/strong`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `image (заменить)`: заливка / цвет `accent/subtle`.
 - `placeholder`: заливка / цвет `text/accent`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
-- Значений без переменной: 12 (напр. `circle:o=0`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- `network`: радиус `radius/full`; обводка `surface/current`; толщина обводки `border/width/strong`.
+- Значений без переменной: 16 (напр. `circle:o=0`, `network:o=0`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Avatar`, вариантов 24 из 24; оси: Size, Type, State.
+- Набор `Avatar`, вариантов 42 из 96; оси: Size, Type, Network, State.
 - Борда: «Avatar — борда · шаблон v3», разделов 12.
-- Описание: 823 знаков, разделы: Status: Level: Правила: Когда использовать: A11y: Поиск: Legacy:
+- Описание: 1077 знаков, разделы: Status: Level: Type: Правила: Когда использовать: A11y: Поиск: Legacy:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Avatar`), Vue `packages/vue/src/DsAvatar.vue`, CSS `claude-ds/components/Avatar/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsAvatar>`; Flutter: `DsAvatar`.
-- Props: `size`: xs | s | m | l; `type`: text | icon | image; `initials`: string или слот; `status`: boolean = false.
+- Props: `size`: xs | m | l | xl | 2xs | s; `type`: text | icon | image | coin; `network`: boolean; `initials`: string или слот; `status`: boolean = false.
 - Состояния (Default, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-22)
+## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний сверх реестра.
 - `variables-check.plugin.js` — нет: корень — `size/media/xs` / `md` / `lg` / `xl` (привязано 2026-11-16).
 - `audit-parity.plugin.js` — 0 (2026-11-13).
