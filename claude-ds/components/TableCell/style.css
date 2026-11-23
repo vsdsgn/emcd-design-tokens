@@ -1,7 +1,8 @@
 /* Table cell — 🟡 beta (Figma «🟡 Table cell»: Align × State; слот Content). td: поля space/12, зазор space/8, min-width size/table-cell/min 80; высота — по строке (Table row 48 / 64).
    Content по умолчанию — две строки: primary label-md (14, 19.11 — как Amount M) Medium text-primary + secondary text-secondary того же кегля; одна строка, многоточие. Иначе — атом DS (Coin, Amount, Status, Icon button…).
    Skeleton — одна полоса со стороны Align; Disabled — текст text-disabled. */
-.emcd-td { box-sizing: border-box; min-width: var(--size-table-cell-min, 80px); max-width: 0; padding: 0 var(--space-12, 12px); vertical-align: middle; text-align: start; color: var(--text-primary); }
+.emcd-td { box-sizing: border-box; min-width: var(--size-table-cell-min, 80px); max-width: 0; padding: 0 var(--space-12, 12px); vertical-align: middle; text-align: start; color: var(--text-primary);
+  font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); font-variant-numeric: tabular-nums; } /* простой текст в ячейке — Label/MD, как у __primary (23.11: строка наследовала 16 от страницы) */
 .emcd-td--end { text-align: end; }
 .emcd-td--skeleton { pointer-events: none; }
 .emcd-td__content { display: flex; flex-direction: column; justify-content: center; gap: 0; min-width: 0; }

@@ -334,6 +334,23 @@ export interface SectionHeaderProps {
   className?: string;
 }
 
+export interface BreadcrumbItem {
+  label: ReactNode;
+  href?: string;
+  onClick?: (e: unknown) => void;
+  disabled?: boolean;
+}
+export interface BreadcrumbsProps {
+  /** Пункты пути; последний — текущая страница (не ссылка, aria-current="page"). */
+  items: BreadcrumbItem[];
+  /** Свернуть: первый · «…» (Menu со скрытыми) · два последних. По умолчанию — при больше 4 пунктов. */
+  collapsed?: boolean;
+  /** aria-label навигации (по умолчанию «Хлебные крошки»). */
+  label?: string;
+  /** Доступное имя кнопки «…». */
+  moreLabel?: string;
+  className?: string;
+}
 export interface PageHeaderProps {
   /** large — Web (Large+): Heading/XL, действия справа; compact — под Top bar на корневых экранах App / мобильного веба: Heading/LG, действия рядом под заголовком (переносятся). */
   size?: 'large' | 'compact';
@@ -344,8 +361,8 @@ export interface PageHeaderProps {
   subtitle?: ReactNode;
   /** По умолчанию — есть ли subtitle. */
   showSubtitle?: boolean;
-  /** Слот Breadcrumbs — только на вложенных страницах Web (2+ уровня); оборачивается в nav с aria-label. Нет слота — крошек нет (Figma Breadcrumbs = Off). */
-  breadcrumbs?: ReactNode;
+  /** Breadcrumbs — только на вложенных страницах Web (2+ уровня): массив пунктов → компонент Breadcrumbs; узел — оборачивается в nav с aria-label. Нет — крошек нет (Figma Breadcrumbs = Off). */
+  breadcrumbs?: BreadcrumbItem[] | ReactNode;
   /** aria-label навигации крошек (по умолчанию «Хлебные крошки»). */
   breadcrumbsLabel?: string;
   /** Слот Actions — до двух Button M (Secondary + Primary). Large — справа от текста; Compact — ряд под заголовком с переносом. */
@@ -657,6 +674,7 @@ export declare function Card(props: CardProps): JSX.Element;
 /** Section header — заголовок секции внутри карточки или формы (draft). */
 export declare function SectionHeader(props: SectionHeaderProps): JSX.Element;
 /** Page header — шапка страницы: заголовок h1, подзаголовок, крошки, действия, табы (beta). */
+export declare function Breadcrumbs(props: BreadcrumbsProps): JSX.Element;
 export declare function PageHeader(props: PageHeaderProps): JSX.Element;
 export declare function StatCard(props: StatCardProps): JSX.Element;
 export declare function Tooltip(props: TooltipProps): JSX.Element;

@@ -326,11 +326,35 @@ export function SectionHeader({ size = 'm', level = 3, title, caption, showCapti
  *  compact — под Top bar на корневых экранах App / мобильного веба, Heading/LG, действия рядом под заголовком с переносом.
  *  title — заголовок `level` (по умолчанию h1); subtitle — сводка одной строкой (showSubtitle); breadcrumbs — слот, только на вложенных страницах Web
  *  (оборачивается в nav «Хлебные крошки»); actions — слот (showActions); tabs — слот Tabs того же размера, последним (showTabs). Контракт: docs/components/page-header.md */
+/** Breadcrumbs — путь к текущей странице (Web, над заголовком Page header). items: [{ label, href, onClick, disabled }] — последний = текущая страница (не ссылка, aria-current).
+ *  Больше 4 уровней (или collapsed) — первый · «…» · два последних; «…» — кнопка, открывает Menu со скрытыми уровнями (Esc — закрыть). Разделитель «/» — CSS, скрыт от читалки. */
+export function Breadcrumbs({ items = [], collapsed, label = 'Хлебные крошки', moreLabel = 'Показать скрытые уровни', className, ...rest }) {
+  const [open, setOpen] = React.useState(false);
+  const id = useId();
+  const fold = (collapsed ?? items.length > 4) && items.length > 3;
+  const hidden = fold ? items.slice(1, -2) : [];
+  const shown = fold ? [items[0], null, ...items.slice(-2)] : items;
+  const go = (it) => (e) => { setOpen(false); if (it.onClick) it.onClick(e); else if (it.href && typeof window !== 'undefined') window.location.assign(it.href); };
+  const last = items.length - 1;
+  return h('nav', { className: cx('emcd-breadcrumbs', className), 'aria-label': label, ...rest },
+    h('ol', { className: 'emcd-breadcrumbs__list' }, shown.map((it, i) => {
+      if (it === null) return h('li', { key: 'more' }, h('button', { type: 'button', className: 'emcd-breadcrumbs__item', 'aria-label': moreLabel, 'aria-haspopup': 'menu', 'aria-expanded': open, 'aria-controls': open ? id : undefined,
+        onClick: () => setOpen(!open), onKeyDown: (e) => { if (e.key === 'Escape') setOpen(false); } }, '…'));
+      const isCur = items.indexOf(it) === last;
+      return h('li', { key: i },
+        isCur ? h('span', { className: 'emcd-breadcrumbs__item emcd-breadcrumbs__item--current', 'aria-current': 'page', title: typeof it.label === 'string' ? it.label : undefined }, it.label)
+          : h('a', { className: 'emcd-breadcrumbs__item', href: it.disabled ? undefined : it.href, 'aria-disabled': it.disabled || undefined, onClick: it.onClick, title: typeof it.label === 'string' ? it.label : undefined }, it.label));
+    })),
+    open && hidden.length > 0 && h(Menu, { id, label: moreLabel, className: 'emcd-breadcrumbs__menu', onKeyDown: (e) => { if (e.key === 'Escape') setOpen(false); },
+      items: hidden.map((it, i) => ({ value: i, label: it.label, disabled: it.disabled, onClick: go(it) })) }));
+}
+
 export function PageHeader({ size = 'large', level = 1, title, subtitle, showSubtitle, breadcrumbs, breadcrumbsLabel = 'Хлебные крошки', actions, showActions, tabs, showTabs, className, ...rest }) {
   const lv = [1, 2, 3].includes(Number(level)) ? Number(level) : 1;
   const on = (show, v) => (show ?? true) && v != null && v !== false;
   return h('header', { className: cx('emcd-page-header', size === 'compact' && 'emcd-page-header--compact', className), ...rest },
-    breadcrumbs != null && breadcrumbs !== false && h('nav', { className: 'emcd-page-header__breadcrumbs', 'aria-label': breadcrumbsLabel }, breadcrumbs),
+    Array.isArray(breadcrumbs) ? h(Breadcrumbs, { items: breadcrumbs, label: breadcrumbsLabel, className: 'emcd-page-header__breadcrumbs' })
+      : breadcrumbs != null && breadcrumbs !== false && h('nav', { className: 'emcd-page-header__breadcrumbs', 'aria-label': breadcrumbsLabel }, breadcrumbs),
     h('div', { className: 'emcd-page-header__row' },
       h('div', { className: 'emcd-page-header__text' },
         h('h' + lv, { className: 'emcd-page-header__title' }, title),

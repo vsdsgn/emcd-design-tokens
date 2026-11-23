@@ -1,0 +1,17 @@
+/* Breadcrumbs — 🟡 beta (Figma «Breadcrumbs»: Items 2 · 3 · 4 · Collapsed; пункт — «Breadcrumb item»). Путь к текущей странице на Web, над заголовком Page header.
+   Ряд space/8; разделитель «/» — псевдоэлемент (icon/tertiary, Body/MD), скрыт от читалки. Пункт: Body/MD text/secondary → hover text/primary (120 мс); текущий — Label/MD text/primary, не ссылка.
+   Пункт — одна строка ≤ 200 с многоточием; ряд не переносится — длинный путь сворачивается (первый · «…» · два последних), «…» открывает Menu со скрытыми уровнями. */
+.emcd-breadcrumbs { position: relative; min-width: 0; }
+.emcd-breadcrumbs__list { display: flex; align-items: center; gap: var(--space-8, 8px); margin: 0; padding: 0; list-style: none; min-width: 0; white-space: nowrap; }
+.emcd-breadcrumbs__list > li { display: flex; align-items: center; gap: var(--space-8, 8px); min-width: 0; }
+.emcd-breadcrumbs__list > li + li::before { content: "/"; flex: none; font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); color: var(--icon-tertiary); speak: never; }
+.emcd-breadcrumbs__item { display: inline-block; max-width: 200px; padding: var(--space-2, 2px); margin: calc(-1 * var(--space-2, 2px)); border: 0; border-radius: var(--radius-xs, 4px); background: none;
+  font: 400 var(--type-body-md-size, 14px)/var(--type-body-md-line-height, 20px) var(--font-sans); color: var(--text-secondary); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: pointer;
+  transition: color var(--motion-duration-feedback, 120ms) var(--motion-easing-standard, ease); }
+@media (hover: hover) { .emcd-breadcrumbs__item:hover { color: var(--text-primary); } }
+.emcd-breadcrumbs__item:active { color: var(--text-primary); }
+.emcd-breadcrumbs__item:focus-visible { outline: none; box-shadow: 0 0 0 var(--border-width-focus-ring, 2px) var(--border-focus-ring); }
+.emcd-breadcrumbs__item[aria-disabled="true"] { color: var(--text-disabled); pointer-events: none; }
+.emcd-breadcrumbs__item--current { font-family: var(--font-sans); font-weight: var(--font-weight-medium, 500); line-height: var(--type-label-md-line-height, 20px); color: var(--text-primary); cursor: default; }
+.emcd-breadcrumbs__menu { position: absolute; z-index: 40; top: calc(100% + var(--space-4, 4px)); left: 0; }
+@media (prefers-reduced-motion: reduce) { .emcd-breadcrumbs__item { transition: none; } }

@@ -707,9 +707,10 @@
       h(E.Sidebar, { className: 'demo-web__sidebar', logo: text('demo-logo', 'EMCD'), language: props.language || 'RU', onCollapsedChange: function () {},
         items: props.items, promo: false, footer: props.footer, account: { name: 'Alexandrewang', link: props.accountLink || 'Профиль' } }),
       h('main', { className: 'demo-web__main demo-pm' },
-        h(E.PageHeader, { size: 'large', title: props.title, actions: props.actions, showActions: !!props.actions, className: 'demo-pm__header' }),
+        h(E.PageHeader, { size: 'large', title: props.title, subtitle: props.subtitle, breadcrumbs: props.breadcrumbs, actions: props.actions, showActions: !!props.actions, tabs: props.tabs, className: 'demo-pm__header' }),
         div('demo-pm__body', props.children)));
   }
+  var monItems = function (sel) { return MON_ITEMS.map(function (it) { return Object.assign({}, it, { selected: it.label === sel }); }); };
   var MON_ITEMS = [{ label: 'Главная', icon: 'home', href: '#', selected: true }, { label: 'Площадки', icon: 'devices', href: '#' }, { label: 'Сотрудники', icon: 'users', href: '#' },
     { label: 'Устройства', icon: 'asic', href: '#' }, { label: 'Сканер', icon: 'qr-scan', href: '#' }, { label: 'Уведомления', icon: 'bell-notifications', href: '#' },
     { label: 'Нужна помощь', icon: 'question', href: '#' }, { label: 'Спец. условия', icon: 'percentage', href: '#' }];
@@ -802,11 +803,88 @@
       h(E.TabBar, { className: 'demo-app__tabbar', defaultValue: 'Статистика', items: [{ label: 'Статистика', icon: 'home' }, { label: 'Воркеры', icon: 'devices' }, { label: 'История', icon: 'history' }, { label: 'Watcher link', icon: 'link' }, { label: 'Профиль', icon: 'user' }] }));
   }
 
+  // ───────── Цель 3 · H7 / H8 (23.11): Мониторинг · Площадки, Детали устройства; WL B2B · User profile ─────────
+  var monFoot = function () { return h(E.Button, { type: 'tertiary', size: 'm', label: 'Расширить подписку', className: 'demo-block' }); };
+  var more = function () { return h(E.IconButton, { type: 'tertiary', size: 's', label: 'Ещё', icon: h(E.Icon, { name: 'more-horizontal' }) }); };
+  function MonSites() {
+    var SITES = [['Кодинск', '50', '60 из 120', '84', '210', '12', 'Danila Arakelov'], ['Сосноборск', '60', '80 из 80', '65', '120', '8', 'Alex Lesly'], ['Кийск', '80', '60 из 80', '70', '12', '6', 'Anthony White'],
+      ['Альметьевск', '100', '70 из 80', '80', '32', '4', 'Semen Slepakov'], ['Кривийск', '40', '60 из 80', '84', '100', '11', 'Tatiana Vlasova']].map(function (r, i) { return { id: i, r: r }; });
+    var tile = function (l, v) { return h(E.StatCard, { key: l, label: l, value: v, info: false, delta: false }); };
+    return h(ProductShell, { title: 'Площадки', items: monItems('Площадки'), actions: h(E.Button, { type: 'primary', size: 'm', label: 'Добавить площадку' }), footer: monFoot() },
+      div('demo-pm__section',
+        div('demo-pm__grid3',
+          h(E.Card, { padding: 'l', className: 'demo-pm__card' }, div('demo-pm__metrics', h(E.ChartMetric, { label: 'Всего устройств', value: '32 561', showUnit: false }), h(E.ChartMetric, { label: 'Активные', value: '20 561', showUnit: false }), h(E.ChartMetric, { label: 'Ожидание', value: '10 000', showUnit: false })),
+            h(E.StatusBar, { caption: 'Статусы активных устройств', segments: [{ tone: 'danger', label: 'Сбой', count: 1000, value: '1 000' }, { tone: 'warning', label: 'Риск', count: 3000, value: '3 000' }, { tone: 'success', label: 'Норма', count: 16500, value: '16 500' }, { tone: 'neutral', label: 'Выкл', count: 61 }] })),
+          h(E.Card, { padding: 'l', className: 'demo-pm__card' }, div('demo-pm__metrics', h(E.ChartMetric, { label: 'Общая', value: '115', unit: 'kW' }), h(E.ChartMetric, { label: 'Используемая', value: '69', unit: 'kW' }), h(E.ChartMetric, { label: 'Остаток', value: '46', unit: 'kW' })),
+            div('demo-pm__bar', text('demo-caption', 'Мощность'), h(E.Progress, { size: 'm', percent: 60, showLabel: false, 'aria-label': 'Мощность: 69 из 115 kW' }),
+              div('demo-pm__legend', h(E.Status, { tone: 'info', label: 'Используемая' }), h(E.Status, { tone: 'neutral', label: 'Остаток' })))),
+          div('demo-pm__tiles', tile('Площадки', '100'), tile('Владельцы', '12'), tile('Операторы', '120'), tile('Техники', '13 000'))),
+        h(E.Card, { padding: 'm', className: 'demo-pm__table-card' },
+          div('demo-pm__filters', h(E.Select, { size: 'm', labelPosition: 'on-border', label: 'Площадка', defaultValue: 'all', options: [{ value: 'all', label: 'Все площадки' }], className: 'demo-pm__select' }), div('demo-push', periodChips('s'))),
+          h(E.Table, { label: 'Площадки', columns: [
+            { key: 'n', label: 'Площадка', render: function (o) { return o.r[0]; } }, { key: 'h', label: 'Хешрейт', align: 'end', render: function (o) { return num(o.r[1], 'TH/s'); } },
+            { key: 'p', label: 'Мощность', align: 'end', render: function (o) { return num(o.r[2], 'kW'); } }, { key: 't', label: 'Градус', align: 'end', render: function (o) { return num(o.r[3], '°C'); } },
+            { key: 'd', label: 'Устройства', align: 'end', render: function (o) { return o.r[4]; } }, { key: 'o', label: 'Владельцы', align: 'end', render: function (o) { return o.r[5]; } },
+            { key: 'op', label: 'Оператор', render: function (o) { return o.r[6]; } }, { key: 'a', label: '', align: 'end', width: 80, render: more }], rows: SITES }))));
+  }
+  function MonDevice() {
+    var kv = function (rows) { return h(E.Card, { level: 2, padding: 'm', radius: 'inner', border: false, className: 'demo-pm__kv' }, rows.map(function (r) { return h(E.KeyValueRow, { key: r[0], leader: true, label: r[0], value: r[1] }); })); };
+    return h(ProductShell, { title: 'Bitmain Antminer Z15 Pro 840', subtitle: 'Площадка Кодинск · Worker02 · Серийный номер S19XP1234567 · Владелец Danila Arakelov', items: monItems('Устройства'), footer: monFoot(),
+      breadcrumbs: [{ label: 'Устройства', href: '#' }, { label: 'Активные', href: '#' }, { label: 'Bitmain Antminer Z15 Pro 840' }],
+      actions: [h(E.Badge, { key: 'b', size: 'm', tone: 'danger', label: 'Сбой' }), h(E.IconButton, { key: 'm', type: 'tertiary', size: 'm', label: 'Действия с устройством', icon: h(E.Icon, { name: 'more-horizontal' }) })],
+      tabs: h(E.Tabs, { size: 'm', label: 'Разделы устройства', defaultValue: 'm', items: [{ value: 'm', label: 'Метрики' }, { value: 'p', label: 'Пулы' }, { value: 'e', label: 'События' }] }) },
+      div('demo-pm__section',
+        div('demo-fit', h(E.Tabs, { size: 's', label: 'Метрики', defaultValue: 'all', items: ['Все метрики', 'Хешрейт', 'Платы', 'Кулеры', 'Мощность', 'Напряжение'].map(function (l, i) { return { value: i ? l : 'all', label: l }; }) })),
+        h(E.Card, { padding: 'l', className: 'demo-pm__card demo-pm__card--gap' },
+          h(E.SectionHeader, { size: 'm', level: 2, title: 'Ключевые метрики', trailing: periodChips('k') }),
+          div('demo-pm__grid2 demo-pm__grid2--inner',
+            kv([['Хешрейт', '48 TH/s'], ['Мощность', '1 kW'], ['Градус', '92 °C'], ['Количество плат', '321'], ['Пинг', '500 мс']]),
+            kv([['Аптайм', '2 ч 15 мин'], ['Перезапуски', '8 раз'], ['Сеть', 'Работает'], ['Режим', 'Турбо']])))));
+  }
+  var B2B_ITEMS = function (sel) { return [{ label: 'Analytics', icon: 'chart-bar' }, { label: 'Users', icon: 'users' }, { label: 'Reports', icon: 'list' }, { label: 'Notifications', icon: 'bell-notifications' }, { label: 'Settings', icon: 'settings' }]
+    .map(function (it) { return Object.assign({ href: '#', selected: it.label === sel }, it); }); };
+  function B2bProfile() {
+    var coin = function (c, name, sub) { return div('demo-pm__id', h(E.Coin, { coin: c, size: 's' }), sub ? div('demo-two', text('demo-two__p', name), text('demo-two__s', sub)) : text('demo-pm__val', name)); };
+    var HR = [['btc', 'BTC', '+ FB', '7 828', 'TH/s', '7 244', 'TH/s', '0.1%'], ['ltc', 'LTC', '+ DOGE, BEL', '273', 'GH/s', '260', 'GH/s', '0.49%'], ['kas', 'KAS', null, '1 120', 'GH/s', '1 084', 'GH/s', '0.32%'], ['dash', 'DASH', null, '260', 'GH/s', '203', 'GH/s', '0.19%']].map(function (r, i) { return { id: i, r: r }; });
+    var INC = [['15.02.2025, 12:01', '0.00012529', '1 169.19'], ['14.02.2025, 12:01', '0.00012874', '1 182.40'], ['13.02.2025, 12:01', '0.00012311', '1 151.07'], ['12.02.2025, 12:01', '0.00012692', '1 174.55'], ['11.02.2025, 12:01', '0.00012403', '1 160.82']].map(function (r, i) { return { id: i, r: r }; });
+    var periods = div('demo-chips', ['1 day', '7 days', '30 days'].map(function (l, i) { return h(E.Chip, { key: l, size: 'm', selected: i === 0, label: l }); }));
+    return h(ProductShell, { title: 'Alexandrewang', subtitle: 'alexandrewang@mail.com · VIP · since 12.03.2024', language: 'EN', accountLink: 'Profile', items: B2B_ITEMS('Users'),
+      breadcrumbs: [{ label: 'Users', href: '#' }, { label: 'Alexandrewang' }],
+      actions: h(E.Button, { type: 'tertiary', size: 'm', label: 'Export to CSV', iconLeft: h(E.Icon, { name: 'file-csv' }) }),
+      tabs: h(E.Tabs, { size: 'm', label: 'User sections', defaultValue: 'Mining', items: ['General', 'Mining', 'Actions', 'Sessions', 'Fee'].map(function (l) { return { value: l, label: l }; }) }) },
+      div('demo-pm__section',
+        div('demo-pm__profile-tiles',
+          h(E.StatCard, { label: 'Workers', value: '12 907', info: false, delta: false, showFooter: true, footer: h(E.StatusBar, { showCaption: false, segments: [{ tone: 'danger', label: 'Disconnected', count: 65, value: '65' }, { tone: 'warning', label: 'Unstable', count: 571, value: '571' }, { tone: 'success', label: 'Active', count: 12271, value: '12 271' }] }) }),
+          h(E.StatCard, { label: 'Avg. hashrate', value: '9 552', unit: 'TH/s', info: false, delta: false }),
+          h(E.StatCard, { label: 'Avg. reject', value: '5', unit: '%', info: false, delta: false }),
+          h(E.StatCard, { label: "Today's forecast", value: '0.00000529', unit: 'BTC', info: false, delta: true, deltaValue: '+3%', deltaCaption: 'vs yesterday', showFooter: true, footer: h(E.KeyValueRow, { label: 'To be paid', value: '0.00000529 BTC' }) })),
+        div('demo-pm__grid2',
+          h(E.ChartCard, { label: 'Hashrate and reject rate', className: 'demo-pm__chart',
+            top: div('demo-pm__filters', h(E.SelectCompact, { label: 'Coin', text: 'BTC', showLeading: false, options: [{ value: 'btc', label: 'BTC' }] }), div('demo-push', periods)),
+            bottom: h('ul', { className: 'emcd-legend' }, h('li', null, h(E.LegendItem, { label: 'Avg. hashrate', series: 1 })), h('li', null, h(E.LegendItem, { label: 'Reject rate', series: 4 }))) },
+            h(E.ChartPlot, { type: 'line-bars', labels: HOURS, xTicks: 5, series: [{ name: 'Avg. hashrate', data: HASH, unit: 'TH/s' }, { name: 'Reject rate', data: REJ }], format: fmt, height: 220, label: 'Hashrate and reject rate, 1 day' })),
+          h(E.Card, { padding: 'l', className: 'demo-pm__card demo-pm__card--gap' },
+            h(E.SectionHeader, { size: 'm', level: 2, title: 'Hashrate by coin' }),
+            h(E.Table, { label: 'Hashrate by coin', density: 'regular', rows: HR, columns: [
+              { key: 'c', label: 'Coin', width: 168, sortable: true, render: function (o) { return coin(o.r[0], o.r[1], o.r[2]); } },
+              { key: 'p', label: 'Platform', align: 'end', width: 110, render: function (o) { return num(o.r[3], o.r[4]); } },
+              { key: 'd', label: '24h', align: 'end', width: 110, render: function (o) { return num(o.r[5], o.r[6]); } },
+              { key: 'r', label: 'Reject rate', align: 'end', render: function (o) { return o.r[7]; } }] }))),
+        h(E.Card, { padding: 'l', className: 'demo-pm__table-card' },
+          div('demo-pm__filters', h(E.Tabs, { size: 's', label: 'Records', defaultValue: 'Income', items: ['Income', 'Payouts', 'Workers'].map(function (l) { return { value: l, label: l }; }) }),
+            div('demo-push', h(E.SelectCompact, { label: 'Coin', text: 'BTC', showLeading: false, options: [{ value: 'btc', label: 'BTC' }] }))),
+          h(E.Table, { label: 'Income', density: 'regular', rows: INC, columns: [
+            { key: 'd', label: 'Date', width: 300, sortable: true, render: function (o) { return o.r[0]; } },
+            { key: 'a', label: 'Amount', align: 'end', render: function (o) { return h(E.Amount, { size: 'm', sign: 'positive', align: 'end', value: o.r[1], ticker: 'BTC', showFiat: false }); } },
+            { key: 'h', label: 'Hashrate sum', align: 'end', render: function (o) { return num(o.r[2], 'GH/s'); } }] }),
+          div('demo-pm__more', h(E.Button, { type: 'secondary', size: 'm', label: 'Load more' })))));
+  }
+
   var SCREENS = { 'web-dashboard': WebDashboard, 'web-workers': WebWorkers, 'web-history': WebHistory, 'mw-dashboard': MwDashboard, 'mw-workers': MwWorkers, 'mw-history': MwHistory,
     'web-calculator': WebCalculator, 'mw-calculator': MwCalculator, 'web-watcher': WebWatcher, 'web-settings': WebSettings,
     'web-payouts': WebPayouts, 'mw-payouts': MwPayouts, 'mw-watcher': MwWatcher, 'mw-settings-notify': MwSettingsNotify, 'mw-settings-withdraw': MwSettingsWithdraw,
     'app-dashboard': AppDashboard, 'app-workers': AppWorkers, 'app-history': AppHistory, 'app-payouts': AppPayouts,
     'app-calculator': AppCalculator, 'app-settings-withdraw': AppSettingsWithdraw, 'app-settings-notify': AppSettingsNotify, 'app-watcher': AppWatcher, 'app-export': AppExport, 'app-main-dashboard': AppMainDashboard,
-    'mon-main': MonMain, 'b2b-users': B2bUsers, 'b2c-statistics': B2cStatistics };
+    'mon-main': MonMain, 'b2b-users': B2bUsers, 'b2c-statistics': B2cStatistics, 'mon-sites': MonSites, 'mon-device': MonDevice, 'b2b-profile': B2bProfile };
   ReactDOM.createRoot(document.getElementById('root')).render(h(SCREENS[screen] || WebDashboard));
 })();

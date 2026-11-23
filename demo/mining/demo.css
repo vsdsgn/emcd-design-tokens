@@ -187,10 +187,18 @@ html, body { margin: 0; background: var(--bg-base, var(--surface-level-0)); colo
 
 /* ───────── цель 3 · пилот (patterns 1.6 / 2.2): Мониторинг, B2B, B2C ───────── */
 .demo-pm { padding-top: var(--layout-margin, 40px); }
-.demo-pm__header { margin-bottom: var(--space-24); }
+.demo-pm__header { margin-bottom: var(--layout-gutter, 16px); } /* шкала 2.2, правило 8: шапка → первый блок */
 .demo-pm__body { display: flex; flex-direction: column; gap: var(--space-section, 48px); }
 .demo-pm__section { display: flex; flex-direction: column; gap: var(--layout-gutter, 24px); min-width: 0; }
-.demo-pm__grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--layout-gutter, 24px); }
+.demo-pm__grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--layout-gutter, 16px); align-items: start; }
+.demo-pm__grid2--inner { gap: var(--card-gap, 8px); }
+.demo-pm__grid3 { display: grid; grid-template-columns: 1fr 1fr 324px; gap: var(--layout-gutter, 16px); align-items: stretch; }
+.demo-pm__tiles { display: grid; grid-template-columns: 1fr 1fr; gap: var(--card-gap, 8px); }
+.demo-pm__card--gap { display: flex; flex-direction: column; gap: var(--surface-gap, 16px); }
+.demo-pm__card--gap > * + * { margin-top: 0; }
+.demo-pm__kv { display: flex; flex-direction: column; } /* Key-value row со своей высотой — без зазора (как List item) */
+.demo-fit { align-self: flex-start; }
+.demo-pm__profile-tiles { display: grid; grid-template-columns: 300px 220px 180px 1fr; gap: var(--layout-gutter, 16px); align-items: stretch; }
 .demo-pm__card > * + * { margin-top: var(--space-24); }
 .demo-pm__metrics { display: flex; gap: var(--space-32); }
 .demo-pm__bar { display: flex; flex-direction: column; gap: var(--space-12); }
