@@ -22,7 +22,7 @@
 - Не делаем: два графика в одной карточке; легенда сверху или сбоку от графика; своё состояние загрузки у карточки вместо Chart plot Skeleton.
 
 ## 3. Anatomy
-- Корень — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` × `border/width/default`, `radius/container`, отступ `space/28`, зазор `space/16`; ширина 580 числом, min-width `size/card/min` (280).
+- Корень — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` × `border/width/default`, `radius/container`, отступ `surface/padding/lg` (Web 24 / мобильный 16; 23.11, было 28), зазор `surface/gap`; ширина 580 числом, min-width `size/card/min` (280).
 - Слот Top (зазор `space/16`): `stat` (`space/4`) — `label` (`type/label/md`, `text/primary`), `value` (`font/family/display`, `type/display/md`, bold, `text/primary`), `caption` (`type/body/md`, `text/secondary`); Tabs (зазор `space/20`, линия `border/subtle`).
 - Слот Content (зазор `space/8`): Chart plot + подписи оси (max-width `size/chart-axis-label/max`, `type/body/sm`, `text/tertiary`).
 - Слот Bottom (зазор `space/16`): `legend` — Legend item × 3 (зазор `space/6`, max-width `size/legend-item/max`) + `sum` (`type/body/md`, `text/secondary`).

@@ -2446,7 +2446,7 @@ export const DATA = [
     ],
     never: 'тень; Level ради украшения, а не по вложенности; разные Padding в одной группе карточек; Level 0 на L0 без обводки.',
     anatomy: [
-      'Корень: заливка `surface/level-0…3` (по Level), радиус `radius/surface` | `radius/container` | `radius/inner`, отступ `space/12` | `space/16` | `space/24`; обводка `border/subtle` (`border/width/default`) при Border = On — вне раскладки: размер и положение `Content` не меняются.',
+      'Корень: заливка `surface/level-0…3` (по Level), радиус `radius/surface` | `radius/container` | `radius/inner`, отступ по ступени шкалы (23.11): S — `surface/padding/sm`, M — `surface/padding/md`, L — `surface/padding/lg` (Web 12 / 16 / 24, мобильный 8 / 12 / 16, симметрично); обводка `border/subtle` (`border/width/default`) при Border = On — вне раскладки: размер и положение `Content` не меняются.',
       'Слот `Content` (SLOT): вертикальный стек, Fill по ширине, высота по содержимому; пустой — заглушка Figma. Содержимое — любые компоненты DS.',
     ],
     group: NONE,
@@ -3285,7 +3285,7 @@ export const DATA = [
     ],
     never: 'два графика в одной карточке; легенда сверху или сбоку от графика; своё состояние загрузки у карточки вместо Chart plot Skeleton.',
     anatomy: [
-      'Корень — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` × `border/width/default`, `radius/container`, отступ `space/28`, зазор `space/16`; ширина 580 числом, min-width `size/card/min` (280).',
+      'Корень — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` × `border/width/default`, `radius/container`, отступ `surface/padding/lg` (Web 24 / мобильный 16; 23.11, было 28), зазор `surface/gap`; ширина 580 числом, min-width `size/card/min` (280).',
       'Слот Top (зазор `space/16`): `stat` (`space/4`) — `label` (`type/label/md`, `text/primary`), `value` (`font/family/display`, `type/display/md`, bold, `text/primary`), `caption` (`type/body/md`, `text/secondary`); Tabs (зазор `space/20`, линия `border/subtle`).',
       'Слот Content (зазор `space/8`): Chart plot + подписи оси (max-width `size/chart-axis-label/max`, `type/body/sm`, `text/tertiary`).',
       'Слот Bottom (зазор `space/16`): `legend` — Legend item × 3 (зазор `space/6`, max-width `size/legend-item/max`) + `sum` (`type/body/md`, `text/secondary`).',

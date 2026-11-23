@@ -22,7 +22,7 @@
 - Не делаем: тень; Level ради украшения, а не по вложенности; разные Padding в одной группе карточек; Level 0 на L0 без обводки.
 
 ## 3. Anatomy
-- Корень: заливка `surface/level-0…3` (по Level), радиус `radius/surface` | `radius/container` | `radius/inner`, отступ `space/12` | `space/16` | `space/24`; обводка `border/subtle` (`border/width/default`) при Border = On — вне раскладки: размер и положение `Content` не меняются.
+- Корень: заливка `surface/level-0…3` (по Level), радиус `radius/surface` | `radius/container` | `radius/inner`, отступ по ступени шкалы (23.11): S — `surface/padding/sm`, M — `surface/padding/md`, L — `surface/padding/lg` (Web 12 / 16 / 24, мобильный 8 / 12 / 16, симметрично); обводка `border/subtle` (`border/width/default`) при Border = On — вне раскладки: размер и положение `Content` не меняются.
 - Слот `Content` (SLOT): вертикальный стек, Fill по ширине, высота по содержимому; пустой — заглушка Figma. Содержимое — любые компоненты DS.
 - Служебные слои (вариантов из 72): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
