@@ -51,6 +51,7 @@
 - ~~`space/section` Large 64 → 48~~ — сделано 22.11 (Foundations + репо: Expanded 40, Large 48, XLarge 64).
 
 ## Очередь на Publish Components
+- **Multiselect — сделать** (пробел, 23.11): ось Label position = Above · On border, как у Input и Select (форма «Площадка — редактирование» — поля разного вида).
 - **Modal** (23.11): ось Size = MD (560) · SM (400, заголовок Heading/LG) — подтверждения 6.2 (заголовок Display/MD в 400 переносился). После Publish — экран «Мониторинг · Сотрудники · удаление»: модалку на Size=SM.
 - **Slider** (23.11, «верни слайдер для диапазонов» Стефана): из архива → «🟠 Slider» (draft), ось Type = Single · Range (Steps=Continuous, два ползунка), борда v3; код React / Vue / CSS. После Publish — B2B Coins: Pool fee / Referral fee → Slider Range.
 - **Sparkline** (23.11, «нужны все виды графиков»): новый набор «🟠 Sparkline» (draft) — Type = все 7 видов Chart plot, 80 × 24, без осей и сетки; код React / Vue / CSS. После Publish — тренд в таблицах B2B Coins и User profile · Hashrate.
@@ -77,6 +78,7 @@
 ## Журнал
 - 22.11 — после Publish: Select на экранах восстановлены (Web 33, App 6: подпись и её положение, значение, Leading из копий); Status bar — доли сегментов (Мониторинг 1 000 / 3 000 / 16 500 / 61, B2B 65 / 571 / 12 271). Найдено: первая серия легенды стала синей (`data/1`), а график — `border/accent` → исправлен Legend swatch (ждёт Publish).
 - 22.11 — Стефан: «расхождений с продом тьма» → сверка компонентов с production (`docs/review/components-vs-prod.md`, страница «🧪 Сверка компонентов с продом»): размеры production крупнее (поля 56, сегменты 56 / 48, чип 44, поиск 36, монета 28). Решение Стефана: **шкала DS остаётся**, production мигрирует; расхождения — осознанные. Select — пересобран (решение Стефана). Найдено: `findAll` не заходит в слоты — обход вручную.
+- 23.11 — H7: Мониторинг · Площадки · редактирование — Side panel M вместо Modal 500, удаление в «⋯», Сохранить Disabled до изменений. Пробел: Multiselect без подписи на рамке.
 - 23.11 — H7: Мониторинг · Сотрудники и Устройства · мобильный веб — списки List item в Card S, «⋯» / Status справа, «Фильтры» — Floating button. Publish Slider / Sparkline / Modal SM ещё не дошёл до файла экранов — встанут после.
 - 23.11 — H7: Мониторинг · Сотрудники · удаление (подтверждение 6.2): Modal 400, вопрос с объектом, строка последствий, Отмена (Tertiary) + Удалить (Danger); в production — одна кнопка Danger-ghost без отмены. Сотрудники: добавлена 5-я вкладка ролей «Владельцы». Modal — ось Size (SM); patterns 6.2 — отмена Tertiary, как в компоненте; patterns 4.3 / GOAL — детали объекта на Compact: экран Inner (6.3).
 - 23.11 — после Publish: доли Progress на экранах; UID пользователя (Address Short с копированием) в шапке B2B Settings и User profile (ответ Стефана: «это uid юзера»); Slider возвращён с Range; новый Sparkline (все виды Chart plot); манифест D68–D69, контракты draft, борды v3.
