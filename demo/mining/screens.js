@@ -769,7 +769,7 @@
       ['Inactive', 2, 4, false, false], ['Inactive', 0, 2, false, false], ['Inactive', 0, 2, false, false], ['Inactive', 0, 4, false, false]].map(function (r, i) { return { id: i, r: r, selected: r[4] }; });
     var COINS = ['btc', 'eth', 'ltc', 'usdt'];
     return h(ProductShell, { title: 'Users', language: 'EN', accountLink: 'Profile', items: [{ label: 'Analytics', icon: 'chart-bar', href: '#' }, { label: 'Users', icon: 'users', href: '#', selected: true },
-      { label: 'Reports', icon: 'list', href: '#' }, { label: 'Notifications', icon: 'bell-notifications', href: '#' }, { label: 'Settings', icon: 'settings', href: '#' }] },
+      { label: 'Reports', icon: 'list', href: '#' }, { label: 'Notifications', icon: 'bell-notifications', href: '#' }, { label: 'Watcher-link', icon: 'link', href: '#' }, { label: 'Settings', icon: 'settings', href: '#' }] },
       h(E.Card, { padding: 'm', className: 'demo-pm__table-card' },
         div('demo-pm__filters', h(E.Search, { size: 'm', placeholder: 'Search by ID, name or email', label: 'Search users', className: 'demo-pm__search' }),
           div('demo-pm__tools demo-push', h(E.Button, { type: 'tertiary', size: 'm', label: 'Export to CSV', iconLeft: h(E.Icon, { name: 'file-csv' }) }),
@@ -841,7 +841,7 @@
             kv([['Хешрейт', '48 TH/s'], ['Мощность', '1 kW'], ['Градус', '92 °C'], ['Количество плат', '321'], ['Пинг', '500 мс']]),
             kv([['Аптайм', '2 ч 15 мин'], ['Перезапуски', '8 раз'], ['Сеть', 'Работает'], ['Режим', 'Турбо']])))));
   }
-  var B2B_ITEMS = function (sel) { return [{ label: 'Analytics', icon: 'chart-bar' }, { label: 'Users', icon: 'users' }, { label: 'Reports', icon: 'list' }, { label: 'Notifications', icon: 'bell-notifications' }, { label: 'Settings', icon: 'settings' }]
+  var B2B_ITEMS = function (sel) { return [{ label: 'Analytics', icon: 'chart-bar' }, { label: 'Users', icon: 'users' }, { label: 'Reports', icon: 'list' }, { label: 'Notifications', icon: 'bell-notifications' }, { label: 'Watcher-link', icon: 'link' }, { label: 'Settings', icon: 'settings' }]
     .map(function (it) { return Object.assign({ href: '#', selected: it.label === sel }, it); }); };
   function B2bProfile() {
     var coin = function (c, name, sub) { return div('demo-pm__id', h(E.Coin, { coin: c, size: 's' }), sub ? div('demo-two', text('demo-two__p', name), text('demo-two__s', sub)) : text('demo-pm__val', name)); };
