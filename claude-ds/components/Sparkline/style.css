@@ -1,0 +1,7 @@
+/* Sparkline — 🟠 draft (Figma «🟠 Sparkline»: Type = все виды Chart plot). Мини-график тренда без осей, сетки и подсказки: строка таблицы, плитка, List item.
+   80 × 24 по умолчанию, растягивается по ширине контейнера; линия — chart/stroke, как у Chart plot; цвета серий — как у Chart plot (серия 1 — border/accent, далее data/2…8, вторая ось — data/4). */
+.emcd-sparkline { display: inline-block; width: var(--sparkline-w, 80px); min-width: 0; vertical-align: middle; }
+.emcd-sparkline .emcd-chart-plot { grid-template-columns: minmax(0, 1fr); grid-template-rows: var(--emcd-chart-h); gap: 0; }
+.emcd-sparkline .emcd-chart-plot__area-box { grid-column: 1; }
+.emcd-sparkline :is(.emcd-chart-plot__axis, .emcd-chart-plot__x-row, .emcd-chart-plot__grid) { display: none; }
+.emcd-sparkline--fill { display: block; width: 100%; }

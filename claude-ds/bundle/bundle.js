@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Skeleton"},{"name":"Progress"},{"name":"StatusBar"},{"name":"BulkActionBar"},{"name":"Amount"},{"name":"Card"},{"name":"SectionHeader"},{"name":"Breadcrumbs"},{"name":"PageHeader"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"Sheet"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
+/* @ds-bundle: {"format":4,"namespace":"EMCD","components":[{"name":"Button"},{"name":"IconButton"},{"name":"Badge"},{"name":"Chip"},{"name":"Checkbox"},{"name":"Radio"},{"name":"RadioGroup"},{"name":"Toggle"},{"name":"Input"},{"name":"Textarea"},{"name":"Modal"},{"name":"Counter"},{"name":"Status"},{"name":"Avatar"},{"name":"Divider"},{"name":"Spinner"},{"name":"Skeleton"},{"name":"Progress"},{"name":"StatusBar"},{"name":"BulkActionBar"},{"name":"Amount"},{"name":"Card"},{"name":"SectionHeader"},{"name":"Slider"},{"name":"Breadcrumbs"},{"name":"PageHeader"},{"name":"StatCard"},{"name":"Tooltip"},{"name":"Toast"},{"name":"Suggest"},{"name":"Tab"},{"name":"Tabs"},{"name":"Segment"},{"name":"Segmented"},{"name":"ListItem"},{"name":"Transaction"},{"name":"MenuItem"},{"name":"Menu"},{"name":"Select"},{"name":"PasswordField"},{"name":"Icon"},{"name":"Coin"},{"name":"CoinStack"},{"name":"NavItem"},{"name":"KeyValueRow"},{"name":"Search"},{"name":"SelectCompact"},{"name":"DateCell"},{"name":"Calendar"},{"name":"DateRangePanel"},{"name":"DateRangeField"},{"name":"PageIndicator"},{"name":"LegendSwatch"},{"name":"LegendItem"},{"name":"ChartMetric"},{"name":"TableHeaderCell"},{"name":"TableCell"},{"name":"TableRow"},{"name":"Table"},{"name":"PromoCard"},{"name":"Sidebar"},{"name":"ChartCrosshair"},{"name":"ChartTooltip"},{"name":"Sparkline"},{"name":"ChartPlot"},{"name":"ChartCard"},{"name":"Sheet"},{"name":"TopBar"},{"name":"StatusSummary"},{"name":"PromoCarousel"},{"name":"ActionBar"},{"name":"FloatingButton"},{"name":"TabBarItem"},{"name":"TabBar"}]} */
 /* EMCD DS 2.0 — компоненты React 18. Генерируется scripts/code-build.mjs из packages/react/src/index.js — не править руками. */
 (function () {
 'use strict';
@@ -332,6 +332,32 @@ function SectionHeader({ size = 'm', level = 3, title, caption, showCaption, tra
  *  (оборачивается в nav «Хлебные крошки»); actions — слот (showActions); tabs — слот Tabs того же размера, последним (showTabs). Контракт: docs/components/page-header.md */
 /** Breadcrumbs — путь к текущей странице (Web, над заголовком Page header). items: [{ label, href, onClick, disabled }] — последний = текущая страница (не ссылка, aria-current).
  *  Больше 4 уровней (или collapsed) — первый · «…» · два последних; «…» — кнопка, открывает Menu со скрытыми уровнями (Esc — закрыть). Разделитель «/» — CSS, скрыт от читалки. */
+/** Slider — 🟠 draft. type: single — значение (steps — число шагов 3 / 5 / 10, точки на треке; labels — подписи шагов) | range — диапазон [от, до] на непрерывной шкале.
+ *  value / defaultValue — число (single) или [a, b] (range); onChange(next). format(v) — подпись значения; valueText — своя строка вместо format. Нативные input[type=range]. */
+function Slider({ type = 'single', label, showLabel = true, info, value, defaultValue, onChange, min = 0, max = 100, step, steps, labels = false, format, valueText,
+  description, disabled = false, startLabel = 'От', endLabel = 'До', className, ...rest }) {
+  const range = type === 'range';
+  const st = step ?? (steps ? (max - min) / (steps - 1) : 1);
+  const init = defaultValue ?? (range ? [min, max] : min);
+  const [cur, setCur] = useControllable(value, init, onChange);
+  const fmt = format || ((v) => String(v));
+  const pct = (v) => ((Number(v) - min) / (max - min || 1)) * 100;
+  const [a, b] = range ? cur : [min, cur];
+  const id = useId();
+  const set = (i) => (e) => { const v = Number(e.target.value); if (!range) return setCur(v); const n = [...cur]; n[i] = i === 0 ? Math.min(v, n[1]) : Math.max(v, n[0]); setCur(n); };
+  const shown = valueText ?? (range ? fmt(a) + ' – ' + fmt(b) : fmt(cur));
+  const marks = steps ? Array.from({ length: steps }, (_, i) => min + i * (max - min) / (steps - 1)) : [];
+  const input = (v, i, aria) => h('input', { key: i, type: 'range', className: 'emcd-slider__input', min, max, step: st, value: v, disabled, onChange: set(i),
+    'aria-label': aria, 'aria-labelledby': aria ? undefined : (showLabel && label ? id : undefined), 'aria-valuetext': fmt(v) });
+  return h('div', { className: cx('emcd-slider', range && 'emcd-slider--range', disabled && 'emcd-slider--disabled', className), style: { '--a': pct(a) / 100, '--b': pct(b) / 100 }, ...rest },
+    (showLabel && label != null) && h('div', { className: 'emcd-slider__head' }, h('span', { id, className: 'emcd-slider__label' }, label, info), h('span', { className: 'emcd-slider__value', 'aria-hidden': true }, shown)),
+    h('div', { className: 'emcd-slider__track' }, h('span', { className: 'emcd-slider__fill', 'aria-hidden': true }),
+      !range && marks.map((m, i) => h('span', { key: i, className: cx('emcd-slider__dot', m <= cur && 'emcd-slider__dot--on'), style: { left: 'calc(' + pct(m) + '% + ' + (9 - 18 * pct(m) / 100) + 'px)' }, 'aria-hidden': true })),
+      range ? [input(a, 0, (label ? label + ': ' : '') + startLabel), input(b, 1, (label ? label + ': ' : '') + endLabel)] : input(cur, 0)),
+    labels && marks.length > 0 && h('div', { className: 'emcd-slider__marks', 'aria-hidden': true }, marks.map((m, i) => h('span', { key: i }, fmt(m)))),
+    description != null && h('p', { className: 'emcd-slider__desc' }, description));
+}
+
 function Breadcrumbs({ items = [], collapsed, label = 'Хлебные крошки', moreLabel = 'Показать скрытые уровни', className, ...rest }) {
   const [open, setOpen] = React.useState(false);
   const id = useId();
@@ -1283,6 +1309,16 @@ const chartValue = (s, i, v, valueFormat) => (v == null || v === '' ? '—' : s.
  *  Hover (interactive, по умолчанию вкл.): указатель / касание → ближайшая точка: Chart crosshair (линии — точки серий, столбцы — полоса) + Chart tooltip (dates / times — шапка, иначе labels;
  *  значение — series.format(v) | valueFormat(v, i) | «v unit»). Клавиатура: график в фокусе, ← / → — по точкам, Home / End — края, Enter — закрепить, Esc — скрыть; aria-live озвучивает точку.
  *  index / defaultIndex / onIndexChange(k | null) — выбранная точка (управляемо). Тултип: справа от перекрестия, у края — слева или прижат к границе. */
+/** Sparkline — 🟠 draft: мини-график тренда без осей, сетки и подсказки (строка таблицы, плитка, List item). type — любой вид Chart plot.
+ *  data — одна серия (число[]) или series: [{ data }]; width — 80 по умолчанию ('fill' — на ширину контейнера); label — смысл для читалки, без него — aria-hidden. */
+function Sparkline({ type = 'line', data, series, width = 80, height = 24, label, className, style, ...rest }) {
+  const ss = series || [{ data: data || [] }];
+  const fill = width === 'fill';
+  return h('span', { className: cx('emcd-sparkline', fill && 'emcd-sparkline--fill', className), style: { ...(fill ? {} : { '--sparkline-w': width + 'px' }), ...style },
+    role: label ? 'img' : undefined, 'aria-label': label, 'aria-hidden': label ? undefined : true, ...rest },
+  h(ChartPlot, { type, series: ss, height, interactive: false, xTicks: 0 }));
+}
+
 function ChartPlot({ type = 'bars', series = [], labels = [], xTicks = 6, yLeft, yRight, format, height = 200, state = 'default', emptyText = 'Нет данных за период', label,
   interactive = true, index, defaultIndex = null, onIndexChange, dates, times, valueFormat, className, style, ...rest }) {
   const W = 1000; const H = Number(height) || 200;
@@ -1575,5 +1611,5 @@ function TabBar({ items, value, defaultValue, onChange, onAction, safeArea = tru
   return h('nav', { 'aria-label': label, className: cx('emcd-tab-bar', !safeArea && 'emcd-tab-bar--no-safe-area', className), ...rest },
     h('div', { className: 'emcd-tab-bar__items' }, body));
 }
-window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, StatusBar, BulkActionBar, Amount, Card, SectionHeader, Breadcrumbs, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, Sheet, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
+window.EMCD = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal, Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, StatusBar, BulkActionBar, Amount, Card, SectionHeader, Slider, Breadcrumbs, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented, ListItem, Transaction, MenuItem, Menu, Select, PasswordField, Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateCell, Calendar, DateRangePanel, DateRangeField, PageIndicator, LegendSwatch, LegendItem, ChartMetric, TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, Sparkline, ChartPlot, ChartCard, Sheet, TopBar, StatusSummary, PromoCarousel, ActionBar, FloatingButton, TabBarItem, TabBar };
 })();

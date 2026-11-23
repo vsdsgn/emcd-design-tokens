@@ -3,26 +3,26 @@
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
-   "unknown": 93
+   "unknown": 95
   },
   "sets": {
-   "unknown": 94
+   "unknown": 96
   },
   "status": {
    "beta": 86,
-   "draft": 4,
+   "draft": 6,
    "service": 3,
    "template": 1
   },
-  "variants": 1705,
-  "incompleteMatrix": 24,
-  "propsNotBoundEverywhere": 24,
+  "variants": 1740,
+  "incompleteMatrix": 25,
+  "propsNotBoundEverywhere": 25,
   "rawMinMax": 1,
-  "withRawValues": 71,
-  "withFocusRing": 21,
-  "withHitArea": 21,
+  "withRawValues": 73,
+  "withFocusRing": 22,
+  "withHitArea": 22,
   "withSafeMargin": 24,
-  "pagesWithoutV3Board": 2,
+  "pagesWithoutV3Board": 3,
   "pagesWithFullBoard": 22,
   "baseSets": 11
  },
@@ -7830,7 +7830,7 @@
      "id": "56:376",
      "type": "SET",
      "status": "beta",
-     "descLen": 922,
+     "descLen": 1012,
      "descHeads": [
       "Status:",
       "Level:",
@@ -7878,6 +7878,11 @@
        "name": "Show label",
        "type": "BOOLEAN",
        "def": true,
+       "bound": 8
+      },
+      {
+       "name": "Track",
+       "type": "SLOT",
        "bound": 8
       }
      ],
@@ -10442,6 +10447,356 @@
   },
   {
    "level": "unknown",
+   "page": "Slider",
+   "pageId": "367:192",
+   "pageMark": "🟠",
+   "boards": [
+    {
+     "name": "Slider — борда · шаблон v3",
+     "id": "2480:936",
+     "v3": true,
+     "sections": [
+      "01 · Когда применять",
+      "02 · Превью и анатомия",
+      "03 · Свойства и варианты",
+      "04 · Состояния",
+      "05 · Зоны",
+      "06 · На поверхностях",
+      "10 · Доступность",
+      "11 · Код и токены",
+      "— · Не собрано в этой версии"
+     ]
+    }
+   ],
+   "boardMissing": [
+    "07",
+    "08",
+    "09",
+    "12"
+   ],
+   "sets": [
+    {
+     "name": "Slider",
+     "id": "107:1423",
+     "type": "SET",
+     "status": "draft",
+     "descLen": 1162,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Слайдер:",
+      "Движение:",
+      "A11y:",
+      "Когда использовать:",
+      "Хаптик:",
+      "Поиск:",
+      "Legacy:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Type": [
+       "Single",
+       "Range"
+      ],
+      "Steps": [
+       "3",
+       "5",
+       "10",
+       "Continuous"
+      ],
+      "Labels": [
+       "On",
+       "Off"
+      ],
+      "State": [
+       "Default",
+       "Disabled",
+       "Hover",
+       "Pressed"
+      ]
+     },
+     "variants": 28,
+     "full": 64,
+     "props": [
+      {
+       "name": "Label",
+       "type": "TEXT",
+       "def": "Плечо",
+       "bound": 6
+      },
+      {
+       "name": "Value",
+       "type": "TEXT",
+       "def": "x3",
+       "bound": 6
+      },
+      {
+       "name": "Description",
+       "type": "TEXT",
+       "def": "Чем выше плечо, тем выше риск ликвидации",
+       "bound": 6
+      },
+      {
+       "name": "Show label",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 6
+      },
+      {
+       "name": "Show description",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 6
+      },
+      {
+       "name": "Info icon",
+       "type": "BOOLEAN",
+       "def": true,
+       "bound": 6
+      },
+      {
+       "name": "Focus ring",
+       "type": "BOOLEAN",
+       "def": false,
+       "bound": 6
+      }
+     ],
+     "nested": {
+      "(icons)": 28
+     },
+     "minmax": [],
+     "layers": {
+      "ring": 28,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 28,
+      "safe": 0
+     },
+     "rawCount": 170,
+     "raw": [
+      "(root):w=343",
+      "track:h=18",
+      "thumb:sw=3",
+      "thumb:w=18",
+      "thumb:h=18",
+      "hit area · fine:w=24",
+      "hit area · fine:h=24",
+      "thumb · start:sw=3",
+      "thumb · end:sw=3"
+     ],
+     "tokens": {
+      "(root)": [
+       "gap:space/16"
+      ],
+      "label row": [
+       "gap:space/8"
+      ],
+      "label": [
+       "gap:space/4"
+      ],
+      "label text": [
+       "f:text/disabled",
+       "f:text/secondary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/md/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/md/line-height"
+      ],
+      "value": [
+       "f:text/disabled",
+       "f:text/primary",
+       "fontFamily:font/family/text",
+       "fontSize:type/label/md/size",
+       "fontWeight:font-weight/medium",
+       "lineHeight:type/label/md/line-height"
+      ],
+      "bg": [
+       "f:control/track",
+       "f:control/track-disabled",
+       "r:radius/chip"
+      ],
+      "fill": [
+       "f:control/checked",
+       "f:control/knob-disabled",
+       "r:radius/chip"
+      ],
+      "step": [
+       "f:control/knob-disabled",
+       "f:icon/on-accent",
+       "f:icon/tertiary"
+      ],
+      "thumb": [
+       "f:control/knob",
+       "f:control/knob-disabled",
+       "s:control/checked"
+      ],
+      "step label": [
+       "f:text/disabled",
+       "f:text/tertiary",
+       "fontFamily:font/family/text",
+       "fontSize:type/body/sm/size",
+       "fontWeight:font-weight/regular",
+       "lineHeight:type/body/sm/line-height"
+      ],
+      "description": [
+       "f:text/disabled",
+       "f:text/secondary",
+       "fontFamily:font/family/text",
+       "fontSize:type/body/sm/size",
+       "fontWeight:font-weight/regular",
+       "lineHeight:type/body/sm/line-height"
+      ],
+      "focus ring": [
+       "r:radius/chip",
+       "s:border/focus-ring",
+       "sw:border/width/focus-ring"
+      ],
+      "hit area · fine": [
+       "visible:touch/is-fine"
+      ],
+      "hit area · coarse": [
+       "visible:touch/is-coarse"
+      ],
+      "state layer": [
+       "f:state/layer",
+       "o:state/hover",
+       "o:state/pressed"
+      ],
+      "thumb · start": [
+       "f:control/knob",
+       "f:control/knob-disabled",
+       "s:control/checked"
+      ],
+      "thumb · end": [
+       "f:control/knob",
+       "f:control/knob-disabled",
+       "s:control/checked"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
+   "page": "Sparkline",
+   "pageId": "2480:2976",
+   "pageMark": "🟠",
+   "boards": [],
+   "boardMissing": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+   ],
+   "sets": [
+    {
+     "name": "Sparkline",
+     "id": "2480:3080",
+     "type": "SET",
+     "status": "draft",
+     "descLen": 815,
+     "descHeads": [
+      "Status:",
+      "Level:",
+      "Sparkline:",
+      "Размер:",
+      "Когда использовать:",
+      "A11y:",
+      "Поиск:"
+     ],
+     "inBoard": false,
+     "axes": {
+      "Type": [
+       "Bars",
+       "Line",
+       "Area",
+       "Line + Bars",
+       "Multi-line",
+       "Dual area",
+       "Stacked bars"
+      ]
+     },
+     "variants": 7,
+     "full": 7,
+     "props": [],
+     "nested": {},
+     "minmax": [],
+     "layers": {
+      "ring": 0,
+      "hitWeb": 0,
+      "hitApp": 0,
+      "hit": 0,
+      "safe": 0
+     },
+     "rawCount": 17,
+     "raw": [
+      "(root):w=80",
+      "(root):h=24",
+      "area:o=0.45"
+     ],
+     "tokens": {
+      "bar": [
+       "f:border/accent",
+       "f:data/4",
+       "r:radius/2xs"
+      ],
+      "line": [
+       "s:border/accent",
+       "sw:chart/stroke"
+      ],
+      "area": [
+       "f:border/accent",
+       "f:data/4"
+      ],
+      "line 1": [
+       "s:border/accent",
+       "sw:chart/stroke"
+      ],
+      "line 2": [
+       "s:data/2",
+       "s:data/4",
+       "sw:chart/stroke"
+      ],
+      "line 3": [
+       "s:data/3",
+       "sw:chart/stroke"
+      ],
+      "line 4": [
+       "s:data/4",
+       "sw:chart/stroke"
+      ],
+      "segment 1": [
+       "f:border/accent",
+       "r:radius/2xs"
+      ],
+      "segment 2": [
+       "f:data/2",
+       "r:radius/2xs"
+      ],
+      "segment 3": [
+       "f:data/3",
+       "r:radius/2xs"
+      ],
+      "segment 4": [
+       "f:data/4",
+       "r:radius/2xs"
+      ]
+     },
+     "statusFirstLine": true
+    }
+   ]
+  },
+  {
+   "level": "unknown",
    "page": "Stat card",
    "pageId": "367:1131",
    "pageMark": "🟡",
@@ -10593,9 +10948,9 @@
        "f:status/warning/subtle",
        "f:surface/next",
        "gap:space/8",
-       "p:card/padding",
        "p:space/32",
        "p:space/4",
+       "p:surface/padding/md",
        "r:radius/container",
        "s:border/subtle",
        "sw:border/width/default"
@@ -10643,7 +10998,7 @@
        "h:size/badge-height/sm",
        "maxw:size/badge/max",
        "p:space/xs",
-       "r:radius/sm"
+       "r:radius/xs"
       ],
       "delta caption": [
        "f:text/tertiary",
@@ -10657,7 +11012,7 @@
        "f:action/secondary/default",
        "gap:space/6",
        "h:control/height/xs",
-       "r:radius/control-sm",
+       "r:radius/control-xs",
        "w:control/height/xs"
       ],
       "Skeleton": [

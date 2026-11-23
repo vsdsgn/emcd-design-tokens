@@ -334,6 +334,48 @@ export interface SectionHeaderProps {
   className?: string;
 }
 
+export interface SparklineProps {
+  /** Любой вид Chart plot. */
+  type?: 'bars' | 'line' | 'area' | 'line-bars' | 'multi-line' | 'dual-area' | 'stacked-bars';
+  /** Одна серия. */
+  data?: number[];
+  /** Несколько серий (Multi-line, Dual area, Line + Bars, Stacked bars). */
+  series?: { data: number[]; name?: string }[];
+  /** 80 по умолчанию; 'fill' — на ширину контейнера. */
+  width?: number | 'fill';
+  height?: number;
+  /** Смысл для читалки (role=img); без него график скрыт от читалки. */
+  label?: string;
+  className?: string;
+  style?: Record<string, string | number>;
+}
+export interface SliderProps {
+  /** single — значение из шкалы шагов; range — диапазон [от, до] на непрерывной шкале (фильтры). */
+  type?: 'single' | 'range';
+  label?: ReactNode;
+  showLabel?: boolean;
+  /** Иконка-подсказка рядом с подписью (Icon button / Tooltip). */
+  info?: ReactNode;
+  value?: number | [number, number];
+  defaultValue?: number | [number, number];
+  onChange?: (next: number | [number, number]) => void;
+  min?: number;
+  max?: number;
+  step?: number;
+  /** Число шагов 3 / 5 / 10 — точки на треке (single). */
+  steps?: 3 | 5 | 10;
+  /** Подписи шагов под треком. */
+  labels?: boolean;
+  /** Подпись значения (и aria-valuetext). */
+  format?: (v: number) => string;
+  valueText?: ReactNode;
+  description?: ReactNode;
+  disabled?: boolean;
+  /** Доступные имена ползунков Range («От» / «До»). */
+  startLabel?: string;
+  endLabel?: string;
+  className?: string;
+}
 export interface BreadcrumbItem {
   label: ReactNode;
   href?: string;
@@ -675,6 +717,8 @@ export declare function Card(props: CardProps): JSX.Element;
 export declare function SectionHeader(props: SectionHeaderProps): JSX.Element;
 /** Page header — шапка страницы: заголовок h1, подзаголовок, крошки, действия, табы (beta). */
 export declare function Breadcrumbs(props: BreadcrumbsProps): JSX.Element;
+export declare function Slider(props: SliderProps): JSX.Element;
+export declare function Sparkline(props: SparklineProps): JSX.Element;
 export declare function PageHeader(props: PageHeaderProps): JSX.Element;
 export declare function StatCard(props: StatCardProps): JSX.Element;
 export declare function Tooltip(props: TooltipProps): JSX.Element;

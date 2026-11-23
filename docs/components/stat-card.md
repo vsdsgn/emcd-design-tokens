@@ -86,7 +86,7 @@
 - Дельта читается словами: «рост на 2,4 % к вчера».
 
 ## 10. Tokens
-- `корень`: заливка / цвет `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/next`; интервал `space/8`; отступы `card/padding`, `space/32`, `space/4`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `status/danger/subtle`, `status/success/subtle`, `status/warning/subtle`, `surface/next`; интервал `space/8`; отступы `space/32`, `space/4`, `surface/padding/md`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `ambient light`: эффект `light/ambient/blur`; заливка / цвет `light/ambient/color`.
 - `label row`: интервал `space/4`.
 - `label`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
@@ -94,9 +94,9 @@
 - `value`: заливка / цвет `text/danger`, `text/primary`, `text/success`, `text/warning`; типографика `font-weight/bold`, `font/family/display`, `type/heading/xl`.
 - `unit`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - `delta row`: интервал `space/6`.
-- `Badge`: заливка / цвет `status/success/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/xs`; радиус `radius/sm`.
+- `Badge`: заливка / цвет `status/success/subtle`; интервал `space/4`; высота `size/badge-height/sm`; maxw `size/badge/max`; отступы `space/xs`; радиус `radius/xs`.
 - `delta caption`: заливка / цвет `text/tertiary`; типографика `font-weight/regular`, `font/family/text`, `type/body/sm`.
-- `link`: заливка / цвет `action/danger-subtle/default`, `action/secondary/default`; интервал `space/6`; высота `control/height/xs`; радиус `radius/control-sm`; ширина `control/height/xs`.
+- `link`: заливка / цвет `action/danger-subtle/default`, `action/secondary/default`; интервал `space/6`; высота `control/height/xs`; радиус `radius/control-xs`; ширина `control/height/xs`.
 - `Skeleton`: заливка / цвет `skeleton/base`; радиус `radius/inner`.
 - Значений без переменной: 10 (напр. `(root):w=280`) — размеры слоёв зон и то, что перечислено в разделе 14.
 

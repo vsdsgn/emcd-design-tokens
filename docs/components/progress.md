@@ -46,6 +46,7 @@
 | Label | текст | «Лимит вывода» | 8 из 10 |
 | Value | текст | «6 000 / 10 000 USDT» | 8 из 10 |
 | Show label | булево | вкл | 8 из 10 |
+| Track | слот | — | 8 из 10 |
 
 ## 6. Content / slots
 - Label — что измеряем («Лимит вывода»); Value — «сколько из скольких» с единицей («6 000 / 10 000 USDT»).
@@ -81,13 +82,13 @@
 ## 12. Figma projection
 - Набор `Progress`, вариантов 10 из 16; оси: Size, Tone, Mode.
 - Борда: «Progress — борда · шаблон v3», разделов 11.
-- Описание: 922 знаков, разделы: Status: Level: Progress: Когда использовать: Правила: A11y: Поиск: Legacy: Motion:
+- Описание: 1012 знаков, разделы: Status: Level: Progress: Когда использовать: Правила: A11y: Поиск: Legacy: Motion:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Progress`), Vue `packages/vue/src/DsProgress.vue`, CSS `claude-ds/components/Progress/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsProgress>`; Flutter: `DsProgress`.
-- Props: `size`: s | m; `tone`: accent | success | warning | danger; `mode`: determinate | indeterminate; `label`: string или слот; `value`: string или слот; `showLabel`: boolean = true.
+- Props: `size`: s | m; `tone`: accent | success | warning | danger; `mode`: determinate | indeterminate; `label`: string или слот; `value`: string или слот; `showLabel`: boolean = true; `track`: string или слот.
 
 ## 14. Acceptance (2026-11-23)
 - `audit.plugin.js` — 0 замечаний.

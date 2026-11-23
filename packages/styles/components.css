@@ -801,6 +801,39 @@
 .emcd-segment--icon-only { padding: 0 var(--space-8, 8px); }
 @media (prefers-reduced-motion: reduce) { .emcd-segment, .emcd-segment::before { transition: none; } }
 
+/* Slider — 🟠 draft (Figma «🟠 Slider»: Type Single · Range × Steps 3 · 5 · 10 · Continuous × Labels × State). Вернули 23.11 (B2B Coins: фильтр комиссий «от–до»).
+   Строка «подпись — значение» (Label/MD: text/secondary · text/primary), трек control/track 18 (radius/chip), заливка control/checked, ползунок control/knob 18 с обводкой control/checked,
+   точки шагов 4 (на заливке icon/on-accent, дальше icon/tertiary), подписи шагов Body/SM, описание Body/SM text/secondary. Range — два ползунка, заливка между ними.
+   В коде — нативные input[type=range] (клавиатура, aria-valuenow / valuetext из коробки); Range — два input поверх одного трека. */
+.emcd-slider { --t: 18px; --a: 0; --b: 0.5; /* доли 0…1: центр ползунка = доля × (ширина − t) + t/2 */
+  display: flex; flex-direction: column; gap: var(--space-16, 16px); width: 100%; min-width: 0; font-family: var(--font-sans); }
+.emcd-slider__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-8, 8px); min-width: 0;
+  font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); }
+.emcd-slider__label { display: inline-flex; align-items: center; gap: var(--space-4, 4px); min-width: 0; color: var(--text-secondary); }
+.emcd-slider__value { flex: none; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.emcd-slider__track { position: relative; height: var(--t); border-radius: var(--radius-chip, 9999px); background: var(--control-track); }
+.emcd-slider__fill { position: absolute; top: 0; bottom: 0; left: 0; width: calc(var(--b) * (100% - var(--t)) + var(--t)); border-radius: var(--radius-chip, 9999px); background: var(--control-checked); }
+.emcd-slider__dot { position: absolute; top: 50%; width: 4px; height: 4px; margin: -2px 0 0 -2px; border-radius: 50%; background: var(--icon-tertiary); pointer-events: none; }
+.emcd-slider__dot--on { background: var(--icon-on-accent); }
+.emcd-slider__input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; background: none; appearance: none; -webkit-appearance: none; pointer-events: none; outline: none; }
+.emcd-slider__input::-webkit-slider-runnable-track { height: var(--t); background: none; border: 0; }
+.emcd-slider__input::-moz-range-track { height: var(--t); background: none; border: 0; }
+.emcd-slider__input::-webkit-slider-thumb { -webkit-appearance: none; width: var(--t); height: var(--t); border: 2px solid var(--control-checked); border-radius: 50%; background: var(--control-knob); box-sizing: border-box; pointer-events: auto; cursor: grab; }
+.emcd-slider__input::-moz-range-thumb { width: var(--t); height: var(--t); border: 2px solid var(--control-checked); border-radius: 50%; background: var(--control-knob); box-sizing: border-box; pointer-events: auto; cursor: grab; }
+.emcd-slider__input:active::-webkit-slider-thumb { cursor: grabbing; }
+.emcd-slider__input:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 2px var(--surface-level-1, transparent), 0 0 0 4px var(--border-focus-ring); }
+.emcd-slider__input:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 2px var(--surface-level-1, transparent), 0 0 0 4px var(--border-focus-ring); }
+@media (hover: hover) { .emcd-slider:not(.emcd-slider--disabled) .emcd-slider__track:hover { background: var(--control-track-hover); } }
+.emcd-slider__marks { display: flex; justify-content: space-between; margin-top: calc(-1 * var(--space-8, 8px)); font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
+.emcd-slider__desc { margin: 0; font: 400 var(--type-body-sm-size, 12px)/var(--type-body-sm-line-height, 16px) var(--font-sans); color: var(--text-secondary); }
+.emcd-slider--disabled .emcd-slider__track { background: var(--control-track-disabled); }
+.emcd-slider--disabled .emcd-slider__fill { background: var(--control-knob-disabled); }
+.emcd-slider--disabled .emcd-slider__input::-webkit-slider-thumb { border-color: var(--control-knob-disabled); cursor: not-allowed; }
+.emcd-slider--disabled .emcd-slider__input::-moz-range-thumb { border-color: var(--control-knob-disabled); cursor: not-allowed; }
+.emcd-slider--disabled :is(.emcd-slider__label, .emcd-slider__value, .emcd-slider__desc) { color: var(--text-disabled); }
+.emcd-slider--range .emcd-slider__input { z-index: 1; }
+.emcd-slider--range .emcd-slider__fill { left: calc(var(--a) * (100% - var(--t)) + var(--t) / 2); width: calc((var(--b) - var(--a)) * (100% - var(--t))); } /* Range: два ползунка поверх одного трека; второй input — выше, ползунки ловят указатель (pointer-events), трек — нет */
+
 /* List item — 🟡 beta (Figma «🟡 List item»: Size × Content × State; база _List row, Type=List).
    Слот Leading → тексты по Content → слот Trailing. Hover / Pressed — только у строки, которая открывает детали. */
 .emcd-list-item { --py: var(--space-16, 16px); --px: var(--space-16, 16px); --mh: 76px;
@@ -1434,6 +1467,14 @@ button.emcd-page-dot:focus-visible { box-shadow: 0 0 0 var(--border-width-focus-
 .emcd-chart-plot--interactive .emcd-chart-plot__area-box { touch-action: pan-y; }
 .emcd-chart-plot__tooltip { position: absolute; top: 0; left: 0; z-index: 2; visibility: hidden; }
 .emcd-chart-plot__live { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Sparkline — 🟠 draft (Figma «🟠 Sparkline»: Type = все виды Chart plot). Мини-график тренда без осей, сетки и подсказки: строка таблицы, плитка, List item.
+   80 × 24 по умолчанию, растягивается по ширине контейнера; линия — chart/stroke, как у Chart plot; цвета серий — как у Chart plot (серия 1 — border/accent, далее data/2…8, вторая ось — data/4). */
+.emcd-sparkline { display: inline-block; width: var(--sparkline-w, 80px); min-width: 0; vertical-align: middle; }
+.emcd-sparkline .emcd-chart-plot { grid-template-columns: minmax(0, 1fr); grid-template-rows: var(--emcd-chart-h); gap: 0; }
+.emcd-sparkline .emcd-chart-plot__area-box { grid-column: 1; }
+.emcd-sparkline :is(.emcd-chart-plot__axis, .emcd-chart-plot__x-row, .emcd-chart-plot__grid) { display: none; }
+.emcd-sparkline--fill { display: block; width: 100%; }
 
 /* Chart card — 🟡 beta (Figma «🟡 Chart card»: Show bottom; слоты Top, Content, Bottom). Подложка surface/next (на уровень выше), обводка border/subtle, radius/container, поля space/28, зазор space/16;
    min-width size/card/min 280. Top — Chart metric × 1–3 (зазор 32) и период — ряд Chip S справа (Compact — Chip M на всю ширину равными долями),

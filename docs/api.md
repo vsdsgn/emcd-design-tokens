@@ -767,6 +767,7 @@ Props нет.
 | `label` | string | — | свойство Label |
 | `value` | string | — | свойство Value |
 | `showLabel` | boolean | true | свойство Show label |
+| `track` | slot | — | свойство Track |
 
 ## Progress circle
 
