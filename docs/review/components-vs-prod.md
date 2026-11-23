@@ -76,3 +76,48 @@
 ## Следующие
 - Конструкции: сводка, графики, таблицы, списки — форма и вёрстка (экраны цели 3 уже сверены глазами, docs/review/README.md).
 - Конструкции: сводка, графики, таблицы, списки — форма и вёрстка.
+
+## Общая сверка 23.11 (по просьбе Стефана: «все компоненты прода vs DS 2.0 по номерам»)
+
+Доска Figma: Web Migration test → страница «🧪 Сверка компонентов · прод ↔ DS 2.0» → «Сверка · все компоненты». 42 строки: номер · компонент · какой production-компонент взят · экземпляр из production Web App (копия файла) · тот же компонент DS 2.0 (Dark · Expressive). Комментарии — по номеру строки.
+
+| № | Компонент DS 2.0 | Production |
+|---|---|---|
+| 01 | Button | baseButton |
+| 02 | Icon button | baseButton без текста |
+| 03 | Badge | base badge / neutral --1.5 |
+| 04 | Badge · Number | Counter badge |
+| 05 | Status | base badge status |
+| 06 | Chip | baseChip / base --1.5 |
+| 07 | Chip · период | Period selector item |
+| 08 | Tabs (Web) | base tab item |
+| 09 | Tabs (моб. веб) | #Submenu tab |
+| 10 | Segmented | base segmented picker group / text |
+| 11 | Checkbox | baseCheckbox |
+| 12 | Radio | baseRadio |
+| 13 | Toggle | baseToggle |
+| 14 | Input | baseInput |
+| 15 | Select | Selector + Input |
+| 16 | Select compact | Selector small |
+| 17 | Search | Search |
+| 18 | Date range field | DateRange.Field |
+| 19 | Menu item | Dropdown item |
+| 20 | Menu | Dropdown |
+| 21 | Tooltip | base tooltip / neutral --1.5 |
+| 22 | Toast | base notification |
+| 23 | Modal (шапка) | base modal header / title |
+| 24 | Avatar | base avatar / single |
+| 25 | Avatar group · монеты | avatar group line |
+| 26 | Accordion | Accordion |
+| 27 | Nav item | Sidebar item |
+| 28 | Sidebar | sidebar / default |
+| 29 | Empty state | empty state |
+| 30 | Progress circle | baseCircleLoader (видимого экземпляра нет) |
+| 31 | Suggest | baseCard / banner |
+| 32 | Divider | base divider layout (видимого экземпляра нет) |
+| 33 | Tab bar (App) | tabbar |
+| 34 | Top bar (моб. веб) | Navbar mobile |
+| 35 | List item | List / Coinhold list item |
+| 36 | Floating button | button float / inside |
+| 37 | Status screen | status-screen |
+| 38–42 | Table header cell, Stat card, Amount, Progress, Breadcrumbs | компонента в production нет (в макетах — текстом / вёрсткой) |
