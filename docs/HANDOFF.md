@@ -53,7 +53,8 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 ## 22.11 — новый аудит компонентов (текущий этап)
 - Стефан: «назад на аудит компонентов и бордов; законченные атомы … конструкции и правила, затем экраны». Документ — `docs/audit-2026-11-22.md`, скрипт `scripts/figma/audit-v2.plugin.js`, обзорная страница Components «🔍 Аудит 22.11».
 - Сделано: скругление по высоте (решение Стефана), дефекты по обзору (List item → Amount, десятичная точка, Segmented, Table row «⋯», Suggest Strip, Radio card), борды на местах, **6 слияний** (Toast+Snack, Badge+Counter, Selection group, Marker, Progress circle, Avatar+Coin / Avatar group+Coin stack).
-- Ждёт Publish Components. После: экраны Migration test (Segmented на всю ширину, суммы List item, группы выбора — подписи), прогон MANIFEST + `npm run all`, перегенерация бордов слитых наборов.
+- 23.11 после Publish: экраны проверены (Segmented на всю ширину вернуты, числа и суммы на месте), манифест D65–D67, контракты и борды слитых наборов пересобраны, parity 0. Светлая тема перевёрнута (Foundations), Floating button — radius/control, Button · Badge («Авто»), кейс автовыгрузки (Web модалка, App лист).
+- Ждёт Publish Components (Selection group — имена Type, Toast без Action, Badge-описание).
 - Дальше: Menu, Modal, Sidebar, Sheet, Side panel, Tab bar; тёмная тема; правила отступов и построения экранов (patterns 2.2).
 
 ## 15.11, вечер — после Publish и принятия обновлений (Стефан)
