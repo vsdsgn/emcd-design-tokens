@@ -19,6 +19,8 @@ const BOARD_SETS = {
   // Служебные наборы переименованы 2026-11-15 (Dot → _Dot и др.); борды — под старыми именами
   Dot: () => ['_Dot'], 'Page dot': () => ['_Page dot'], 'Step segment': () => ['_Step segment'],
   Tooltip: () => ['Tooltip'],
+  // 22.11: слияния — борды под старыми именами
+  'Legend swatch': () => ['Marker'], 'Checkbox group': () => ['Selection group'],
 };
 
 function parse(name) {
