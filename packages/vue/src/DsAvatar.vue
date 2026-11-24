@@ -2,7 +2,7 @@
 <script setup>
 import { computed } from 'vue';
 const props = defineProps({
-  size: { type: String, default: 'xs' }, // xs 20 | s 32 | m 40 | l 56
+  size: { type: String, default: 'xs' }, // 2xs 16 | xs 20 | s 24 | m 32 | l 40 | xl 56 (24.11)
   type: String,                          // text | icon | image; по умолчанию — по данным
   initials: String,
   name: String,                          // доступное имя; первая буква — инициал

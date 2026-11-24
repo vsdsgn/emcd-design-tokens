@@ -332,7 +332,7 @@ export const DATA = [
     ],
     never: 'две и более буквы в инициалах; цвет фона как носитель смысла; квадратная форма; нажатие без обёртки-кнопки.',
     anatomy: [
-      '`circle` (обрезает содержимое, `radius/full`; фон `status/neutral/subtle`, у Icon — `accent/subtle`) → `initials` | `icon` (`icon/size/md`) | `image (заменить)` + `placeholder`.',
+      '`circle` (обрезает содержимое, `radius/full`; фон `status/neutral/subtle`, у Icon — `accent/subtle`) → `initials` (`text/tertiary`, как legacy — 24.11; было `accent/on-subtle`) | `icon` (`icon/size/md`) | `image (заменить)` + `placeholder`. Type=Text — все 6 размеров (2XS и S добавлены 24.11 по production).',
       '`status` — точка с обводкой `surface/current` (`border/width/strong`): на любой поверхности L0–L3 обводка совпадает с фоном.',
     ],
     group: NONE + '; Skeleton — загрузка',

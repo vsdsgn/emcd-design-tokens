@@ -4,7 +4,7 @@
 
 Круглое изображение пользователя, субаккаунта или контрагента: инициал, иконка или фото.
 
-**Оси (как в Figma «🟡 Avatar»):** Size XS 20 · S 32 · M 40 · L 56 × Type Text · Icon · Image × State Default · Skeleton; свойства Initials, Status.
+**Оси (как в Figma «🟡 Avatar»):** Size 2XS 16 · XS 20 · S 24 · M 32 · L 40 · XL 56 × Type Text · Icon · Image × State Default · Skeleton; свойства Initials, Status. Инициал — `text/tertiary` (как legacy, 24.11); у Text есть все 6 размеров (2XS и S добавлены 24.11 по production: буквенный аватар 16 и 24 в таблицах).
 
 **Когда какой:** Image — есть фото; Text — фото нет, известно имя (одна заглавная буква); Icon — нет ни фото, ни имени. XS — строки таблиц и чипы; S — списки и шапка; M — карточки; L — профиль. Status — точка «в сети» (`status-success-solid`), только где присутствие имеет смысл (чат поддержки, команда).
 
