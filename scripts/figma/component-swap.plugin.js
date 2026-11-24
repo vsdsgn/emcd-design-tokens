@@ -47,7 +47,7 @@ for(const inst of cands){ const mc=await inst.getMainComponentAsync(); if(!mc) c
   if(kind==='Badge'){ const tone={neutral:'Neutral',brand:'Accent',danger:'Danger',success:'Success',warning:'Warning'}[(sname.match(/\/ (\w+)/)||[])[1]]||'Neutral'; want={Size:{sm:'S',md:'M',lg:'L'}[vp.size]||sz(h,[['XS',16],['S',20],['M',24],['L',32]]),Tone:tone,Style:vp.style==='filled'?'Solid':'Subtle',State:'Default',Content:'Text'}; after=[['Label',label]]; }
   const s=await set(kind); const v=variant(s,want); if(!v){ stats.errors.push(kind+' нет варианта '+JSON.stringify(want)); continue; }
   if(ARGS.dry){ stats.swapped[kind]=(stats.swapped[kind]||0)+1; continue; }
-  const keepW=inst.layoutSizingHorizontal; inst.swapComponent(v); inst.resetOverrides(); // переопределения legacy-корня (заливки, обводки) не переносим
+  const keepW=inst.layoutSizingHorizontal, oldW=inst.width; inst.swapComponent(v); inst.resetOverrides(); // переопределения legacy-корня (заливки, обводки) не переносим
   const props={}; for(const [b,val] of after){ const k=propKey(inst,b); if(k) props[k]=val; } if(Object.keys(props).length) inst.setProperties(props);
   if(kind==='MenuItem'&&mi){ const row=inst.exposedInstances.find(e=>e.name==='_List row'); if(row){ const rp={}; const k=b=>Object.keys(row.componentProperties).find(x=>x.split('#')[0]===b);
     rp[k('Label')]=mi.label; if(mi.desc){ rp[k('Description')]=mi.desc; rp[k('Show description')]=true; } else rp[k('Show description')]=false;
@@ -57,6 +57,8 @@ for(const inst of cands){ const mc=await inst.getMainComponentAsync(); if(!mc) c
   if(seg){ const segs=inst.findAll(x=>x.type==='INSTANCE'&&/^segment \d/.test(x.name)).sort((a,b)=>a.name.localeCompare(b.name)); segs.forEach((n,i)=>{ const d=seg[i]; if(!d) return; const p={}; const lk=Object.keys(n.componentProperties).find(x=>x.split('#')[0]==='Label'); if(lk) p[lk]=d.label; p['Selected']=d.on?'On':'Off'; try{ n.setProperties(p); }catch(e){ stats.errors.push('segment: '+String(e).slice(0,80)); } }); }
   if(nested){ for(const [nm,pp] of Object.entries(nested)){ const ni=inst.exposedInstances.find(e=>e.name===nm)||inst.findOne(x=>x.type==='INSTANCE'&&x.name===nm); if(!ni) continue; const p={}; for(const [b,val] of Object.entries(pp)){ const k=Object.keys(ni.componentProperties).find(x=>x.split('#')[0]===b); if(k&&val!==''&&val!==undefined) p[k]=val; } if(Object.keys(p).length) ni.setProperties(p); } }
   if(keepW==='FILL'){ try{ inst.layoutSizingHorizontal='FILL'; }catch(e){} }
+  // 24.11: legacy-кнопка шириной по контейнеру в родителе без auto layout (CTA «Начать майнить») после замены сжималась по подписи — возвращаем прежнюю ширину
+  else if(oldW-inst.width>12&&kind!=='Avatar'&&kind!=='Badge'&&kind!=='BadgeApp'){ try{ inst.resize(oldW,inst.height); }catch(e){} }
   stats.swapped[kind]=(stats.swapped[kind]||0)+1;
  }catch(e){ stats.errors.push(kind+': '+String(e).slice(0,100)); } }
 return stats;
