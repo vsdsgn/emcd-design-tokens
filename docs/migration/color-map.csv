@@ -19,7 +19,7 @@ Web·App,Brand,заливка,,#8f42ff,action/primary/default,Split,,
 Web·App,Brand,отмеченный контрол,,#8f42ff,control/checked,Split,,
 Web·App,Brand,текст / иконка,,#8f42ff,text/accent,Split,D-contrast,
 Web·App,Brand fill hover,,,#6724b1,action/primary/default+layer@6,Deprecate,D-state,action/primary/hover — кандидат deprecated
-Web·App,Brand hover,,,#ac63fc,text/accent,Merge,,
+Web·App,Brand hover,,,#ac63fc,text/accent,Merge,D-step,
 Web·App,Brand light,,,#c18afd,text/link-hover,Keep,,
 Web·App,Brand disable,,,#2c0754,action/disabled,Split,D-disabled,2026-10-16: в бейджах DS App (Default tinted Badge RTL / primary) → accent/subtle
 Web·App,Error / Red [Main],,,#e53935,status/danger/solid,Keep,,
@@ -52,16 +52,16 @@ Core,Alias · Background/Shade color default,,,#232323,surface/level-3,Merge,D-l
 Core,Alias · Divider/Color default,,,#232323,border/subtle,Merge,D-alpha,
 Core,Alias · Monochrome/Color default,,,#fafafa,icon/primary,Merge,,
 Core,Alias · Monochrome/Color disable,заливка disabled,,#232323,action/disabled,Merge,D-disabled,
-Core,Alias · Text/Color disable,,,,text/disabled,Merge,,значение не снято
-Core,Alias · Text/Color primary default,,,,text/primary,Merge,,значение не снято
-Core,Alias · Text/Color primary invert default,,,,text/inverse,Merge,,значение не снято
-Core,Alias · Background/Shade color hover,,,,state/layer@6,Merge,D-state,значение не снято
-Core,Alias · Text/Color secondary default,,,,text/secondary,Merge,,значение не снято
-Core,Alias · Brand/Color default,,,,action/primary/default,Merge,,значение не снято
-Core,Alias · Brand/Color disable,,,,action/disabled,Merge,D-disabled,значение не снято
-Core,Alias · Success/Color default,,,,status/success/solid,Merge,,значение не снято
+Core,Alias · Text/Color disable,,,#4d4d4d,text/disabled,Merge,D-disabled,"значение снято 24.11 (App Migration test, Alias color → Dark/300)"
+Core,Alias · Text/Color primary default,,,#fafafa,text/primary,Merge,,"значение снято 24.11 (App Migration test, Alias color → Light/50)"
+Core,Alias · Text/Color primary invert default,,,#0a0a0a,text/inverse,Merge,,"значение снято 24.11 (App Migration test, Alias color → Dark/650)"
+Core,Alias · Background/Shade color hover,,,,state/layer@6,Merge,D-state,значение не снято: в App Migration test не используется (24.11) — цель по имени
+Core,Alias · Text/Color secondary default,,,#7a7a7a,text/tertiary,Merge,D-alpha-text,"значение снято 24.11 (App Migration test, Alias color → Light/650); по значению — tertiary, не secondary"
+Core,Alias · Brand/Color default,,,#8f42ff,action/primary/default,Merge,,"значение снято 24.11 (App Migration test, Alias color → Violet/300)"
+Core,Alias · Brand/Color disable,,,,action/disabled,Merge,D-disabled,значение не снято: в App Migration test не используется (24.11) — цель по имени
+Core,Alias · Success/Color default,,,#4db051,status/success/solid,Merge,,"значение снято 24.11 (App Migration test, Alias color → Green/300)"
 Core,Alias · Background/Color accent,"фон экрана, навбар",,#111111,surface/level-0,Split,D-levels,экраны 2026-10-14: App Demo (P2P) — фон экрана и навбар
-Core,Alias · Background/Color accent,шторка (моб. веб),,#111111,surface/raised,Split,,экраны 2026-10-14: Web App Reg + Auth — bottom sheet
+Core,Alias · Background/Color accent,шторка (моб. веб),,#111111,surface/raised,Split,D-step,экраны 2026-10-14: Web App Reg + Auth — bottom sheet
 Core,Alias · Background/Color accent,трек Toggle выкл.,,#111111,control/track,Split,Компонент Toggle 2.0,экраны 2026-10-14: App Demo — Toggle
 Core,Alias · Background/Color focus,карточка на фоне экрана,,#1a1a1a,surface/level-1,Split,D-levels,"экраны 2026-10-14: App Главная / CH Wallet / Настройки, Web App Demo ASIC; обводка монет в стопке = цвет карточки"
 Core,Alias · Background/Color focus,кнопка Secondary,,#1a1a1a,action/secondary/default,Split,,экраны 2026-10-14: App Demo «Сохранить черновик» — по компоненту Button
@@ -69,12 +69,12 @@ Core,Alias · Background/Color focus,тултип,,#1a1a1a,surface/raised,Split,
 Core,Basic color · Neutral/* напрямую,сырые примитивы на экранах,,,по роли слоя,Rebind,,этап 2 — перепривязка по роли
 Core,Basic color · Green / Red / Amber/* напрямую,бейджи / транзакции,,,status/*/subtle | solid,Rebind,,этап 2
 Core,Basic color · Yellow/500,,,#ebff00,highlight/solid,Rebind,,
-Core,Alias · Inactive/Color default,,,,action/disabled,Merge,D-disabled,значение не снято
+Core,Alias · Inactive/Color default,,,,action/disabled,Merge,D-disabled,значение не снято: в App Migration test не используется (24.11) — цель по имени
 WL B2B,WL B2B · pallete/gray/0,текст,#1a1a1a,,text/primary,Merge,,локальная палитра WL (Day)
-WL B2B,WL B2B · pallete/gray/50,,#242424,,text/primary,Merge,,
-WL B2B,WL B2B · pallete/gray/300,вторичный текст / плейсхолдер,#999999,,text/tertiary,Merge,D-alpha-text,роль подтвердить на экранах
-WL B2B,WL B2B · pallete/gray/400,,#b4b4b4,,text/disabled,Merge,D-disabled,роль подтвердить (disabled или иконки)
-WL B2B,WL B2B · pallete/gray/500,,#cbcbcb,,control/border/hover,Merge,D-alpha,роль подтвердить
+WL B2B,WL B2B · pallete/gray/50,,#242424,,text/primary,Merge,D-step,
+WL B2B,WL B2B · pallete/gray/300,вторичный текст / плейсхолдер,#999999,,text/tertiary,Merge,D-alpha-text,"роль подтверждена 24.11: текст ×1129 (подписи полей, подсказки, UID) → text/tertiary"
+WL B2B,WL B2B · pallete/gray/400,,#b4b4b4,,text/disabled,Merge,D-disabled,роль подтверждена 24.11: текст ×840 (нулевые значения в таблицах) → text/disabled; заливки ×68 → icon/disabled
+WL B2B,WL B2B · pallete/gray/500,,#cbcbcb,,control/border/hover,Merge,D-alpha,24.11: на 12 страницах WL B2B не найдено — цель по значению (control/border/hover)
 WL B2B,WL B2B · pallete/gray/600,обводка,#dedede,,border/default,Merge,D-alpha,
 WL B2B,WL B2B · pallete/gray/700,,#ececec,,surface/level-2,Merge,D-levels,
 WL B2B,WL B2B · pallete/gray/800,фон,#f7f7f7,,surface/level-1,Merge,D-levels,
@@ -93,7 +93,7 @@ Geo,Geo · C/Input/Placeholder,,#a2a2a2,,text/tertiary,Merge,D-alpha-text,
 Geo,Geo · S/Text/Link,,#1470ff,#1470ff,text/link,Merge,D-contrast,
 Geo,Geo · S/Border/Primary,,#ececec,#1f1f1f,border/subtle,Merge,D-alpha,
 Geo,Geo · S/Border/Secondary,,#c4c4c4,#282828,border/default,Merge,D-alpha,
-Geo,Geo · S/Border/Link,,#1470ff,#1470ff,border/accent,Merge,,
+Geo,Geo · S/Border/Link,,#1470ff,#1470ff,border/accent,Merge,D-step,
 Geo,Geo · S/Background/Primary,,#ffffff,#181818,surface/level-0,Merge,D-levels,
 Geo,Geo · S/Background/Secondary,,#fafafa,#1f1f1f,surface/level-1,Merge,D-levels,
 Geo,Geo · S/Background/Tertiary,,#ececec,#282828,surface/level-2,Merge,D-levels,
@@ -109,7 +109,7 @@ Geo,Geo · C/Button/Tertiary/Icon,,#5a5a5a,,icon/secondary,Merge,D-alpha-text,
 Geo,Geo · S/Icon/Tertiary,,#5a5a5a,#a2a2a2,icon/secondary,Merge,D-alpha-text,
 Geo,Geo · S/Icon/Quantertiary,,#a2a2a2,#a2a2a2,icon/tertiary,Merge,D-alpha-text,
 Geo,Geo · S/Icon/Quinary,,#1470ff,#1470ff,icon/accent,Merge,D-contrast,
-Geo,Geo · C/Logo/Fill,,#181818,,icon/primary,Merge,,логотип — контент; проверить
+Geo,Geo · C/Logo/Fill,,#181818,,icon/primary,Merge,,"монохромный логотип → icon/primary (как Logo · Style=Mono в Icons), 24.11"
 Geo,Geo · S/Status/Success,,#009945,#009945,status/success/solid,Merge,,статусы системные — у Geo был брендовый зелёный
 Geo,Geo · S/Status/Danger,,#ff5f6e,#ff5f6e,status/danger/solid,Merge,,статусы системные
 Geo,Geo · C/Modal/Overlay,,#00000080,,surface/overlay,Merge,,
@@ -128,12 +128,12 @@ Geo App,Geo App · Pallete/Color 1 [Text],,#181818,,text/primary,Merge,,
 Geo App,Geo App · Pallete/Color 2 [Text],,#c4c4c4,,text/disabled,Merge,D-disabled,
 Geo App,Geo App · Pallete/Color 3 [Text],,#858690,,text/tertiary,Merge,D-alpha-text,⚠ у Geo Color 3 светлее Color 4 — обратный порядок EMCD; мапим по значению
 Geo App,Geo App · Pallete/Color 4 [Text],,#5a5a5a,,text/secondary,Merge,D-alpha-text,⚠ то же: Color 4 = вторичный
-Geo App,Geo App · Pallete/Color 5 [Text],,#282828,,text/primary,Merge,,⚠ у EMCD Color 5 = disabled; одно имя — разные роли
+Geo App,Geo App · Pallete/Color 5 [Text],,#282828,,text/primary,Merge,D-step,⚠ у EMCD Color 5 = disabled; одно имя — разные роли
 Geo App,Geo App · Pallete/Brand,,#1470ff,,action/primary/default,Merge,D-contrast,Geo accent/solid = 600
 Geo App,Geo App · Pallete/Brand fill hover,,#65a6ff,,action/primary/default+layer@6,Deprecate,D-state,
 Geo App,Geo App · Pallete/Brand hover,,#3a8dff,,text/accent,Merge,D-contrast,
 Geo App,Geo App · Pallete/Brand disable,,#0c4399,,action/disabled,Merge,D-disabled,
-Geo App,Geo App · Pallete/Brand light,,#bcd9ff,,accent/subtle,Merge,,
+Geo App,Geo App · Pallete/Brand light,,#bcd9ff,,accent/subtle,Merge,D-step,
 Geo App,Geo App · Pallete/Red [Main],,#ff5f6e,,status/danger/solid,Merge,,статусы системные
 Geo App,Geo App · Pallete/Orange [Main],,#f59e0b,,status/warning/solid,Merge,,
 Geo App,Geo App · Pallete/Orange [secondary text],,#976207,,text/warning,Merge,D-contrast,
@@ -142,7 +142,7 @@ Geo App,Geo App · Pallete/Green [Hover],,#00cc5c,,action/success/default+layer@
 Geo App,Geo App · Pallete/Green [Secondary text],,#009945,,text/success,Merge,D-contrast,
 Geo App,Geo App · Pallete/accent base,"текстовая кнопка, каретка",#1470ff,,text/accent,Split,D-contrast,"экраны 2026-10-14: у Geo «accent» = бренд; Button Main, каретка поля"
 Geo App,Geo App · Pallete/accent base,иконка,#1470ff,,icon/accent,Split,D-contrast,экраны 2026-10-14: ic-device
-Geo App,Geo App · Pallete/accent soft,,#bcd9ff,,accent/subtle,Merge,,
+Geo App,Geo App · Pallete/accent soft,,#bcd9ff,,accent/subtle,Merge,D-step,
 Geo App,Geo App · Pallete/accent bold,,#105acc,,action/primary/default,Merge,,
 Product,Monitoring · pallete/violet/200,,,#8e42ff,action/primary/default,Deprecate,,локальный дубль Brand
 Product,Monitoring · pallete/red/200,,,#e53733,status/danger/solid,Deprecate,,локальный дубль
@@ -152,7 +152,7 @@ Product,Monitoring · Collection 1/Color 1 [Text],,,#fafafa,text/primary,Depreca
 Product,Monitoring · Variables/Theme/* (внешний UI-кит),text-primary / action-selected / text-secondary / primary-main …,,,по роли слоя,Rebind,,стороннего кита — перепривязать на этапе 2
 Product,Web App · Text Color 3,,,,text/secondary,Deprecate,,локальный дубль
 Product,Color · border (Web App / Monitoring),"обводка плашек, карточек, навбара",,#d0d0d012,border/subtle,Split,D-alpha,"= theme · surface/base (#d0d0d0 7 %); библиотека-источник не опубликована; экраны 2026-10-14: Web App История 2025 — навбар и карточки; 2026-10-16 Monitoring 187/255 проверено (площадка, отчёты, детали устройства, устройства) — все обводки карточек r12"
-Product,Color · border (Web App / Monitoring),граница контрола,,#d0d0d012,border/strong,Split,WCAG 1.4.11,"как theme · surface/base; в Monitoring контролов с этой обводкой не найдено (2026-10-16) — только Web App / Firmware / сайт, сверить на тест-стенде"
+Product,Color · border (Web App / Monitoring),граница контрола,,#d0d0d012,border/strong,Split,WCAG 1.4.11,"24.11, Web App (37 страниц): обводка полей (baseInput 771, Selector 55, DateRange 44, Period 135) → control/border/default; checkbox / radio (20) → border/strong"
 Site,text/neutral/base,,#000000,#f5f5f5,text/primary,Keep,,
 Site,text/neutral/nbold-1,,#7a7a7a,#b9b9b9,text/secondary,Keep,D-alpha-text,
 Site,text/neutral/nbold-2,,#a3a3a3,#a3a3a3,text/tertiary,Keep,D-alpha-text,
@@ -177,6 +177,6 @@ Site,background/neutral/bold-2,,#e0e0e0,#232323,surface/level-3,Keep,D-levels,
 Site,background/neutral/bold-3,,#0a0a0a,#ffffff,bg/inverse,Keep,,
 Site,background/brand/basic,,#8f42ff,#8f42ff,action/primary/default,Keep,,
 Site,background/brand/bold-1,hover заливки,#7f30d6,#ac63fc,action/primary/default+layer@6,Deprecate,D-state,
-Site,background/brand/nbasic-1,,#f5ecff,#380d66,accent/subtle,Keep,,
+Site,background/brand/nbasic-1,,#f5ecff,#380d66,accent/subtle,Keep,D-step,
 Site,text/brand/base,,#8f42ff,#8f42ff,text/accent,Keep,D-contrast,
 Site,text/brand/bold-1,,#7f30d6,#ac63fc,text/accent,Merge,D-contrast,

@@ -14,7 +14,7 @@
 - Правило выбора варианта:
   - Tone (19.11): Default | Success | Danger — цвет суммы без знака (только Sign=None): итог дохода в Калькуляторе — Success. Знак и цвет вместе — Sign=Positive / Negative
   - State (19.11): Default | Skeleton — плашка вместо суммы той же высоты (строка значения + фиат, если включён); в загрузке Sign=None
-  - Size: S — строки списков и таблиц на Compact (12); M — карточки и таблицы Web (14, как значения соседних ячеек — 19.11); L — заголовок блока; XL — главный баланс экрана (один на экран); 24.11 — `type/display/sm` 32 на всех ширинах (было `type/display/lg` — 56 на 1440 при 28 в production; Figma — после Publish Foundations).
+  - Size: S — строки списков и таблиц на Compact (12); M — карточки и таблицы Web (14, как значения соседних ячеек — 19.11); L — заголовок блока; XL — главный баланс экрана (один на экран); 24.11 — `type/display/sm` 32 на всех ширинах (было `type/display/lg` — 56 на 1440 при 28 в production).
   - Sign: None — остаток и цена; Positive — поступление (`text/success`, знак «+»); Negative — списание (`text/primary`, знак «−» U+2212).
   - Show fiat — эквивалент второй строкой; выключается в плотных таблицах, где фиат — отдельная колонка.
   - Align (17.11): Start — по умолчанию; End — сумма у конца строки (List item, Key-value row, ячейка таблицы Align=End).
@@ -47,9 +47,9 @@
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Value | текст | «0,12345678» | 48 из 48 |
+| Value | текст | «0.12345678» | 48 из 48 |
 | Ticker | текст | «BTC» | 48 из 48 |
-| Fiat | текст | «≈ 2 731,40 $» | 48 из 48 |
+| Fiat | текст | «≈ $2 731.40» | 48 из 48 |
 | Show fiat | булево | вкл | 48 из 48 |
 
 ## 6. Content / slots
@@ -71,10 +71,10 @@
 ## 10. Tokens
 - `корень`: интервал `space/2`.
 - `row`: интервал `space/4`, `space/6`, `space/8`.
-- `value`: заливка / цвет `text/danger`, `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/lg`.
+- `value`: заливка / цвет `text/danger`, `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/medium`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/sm`, `type/heading/lg`.
 - `ticker`: заливка / цвет `text/danger`, `text/secondary`, `text/success`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/lg`, `type/body/md`, `type/body/sm`, `type/heading/lg`.
 - `fiat`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`, `type/body/sm`.
-- `sign`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/lg`, `type/heading/lg`.
+- `sign`: заливка / цвет `text/primary`, `text/success`; типографика `font-weight/bold`, `font-weight/regular`, `font/family/display`, `font/family/text`, `type/body/md`, `type/body/sm`, `type/display/sm`, `type/heading/lg`.
 - `skeleton · value`: заливка / цвет `skeleton/base`; радиус `radius/container`, `radius/inner`.
 - `skeleton · fiat`: заливка / цвет `skeleton/base`; радиус `radius/container`, `radius/inner`.
 

@@ -14,7 +14,7 @@ GL = json.load(open(R/'build/json/geometria.light.ios.json')); GD = json.load(op
 camel = lambda t: re.sub(r'[/-](\w)', lambda m: m.group(1).upper(), t)
 DEC = {'D-levels': 'Уровни L0–L3 (05–06.10)', 'D-state': 'Слой состояний 6/10 % (06.10)', 'D-disabled': 'Disabled 8 / 40 % (06.10)',
        'D-alpha-text': 'Текст альфой 72/56/40 (05.10)', 'D-alpha': 'Обводки и плашки альфой (05.10)', 'D-contrast': 'Цветной текст ≥ 4.5 (06.10)',
-       'D-status-subtle': 'status/*/subtle альфой (05.10)'}
+       'D-status-subtle': 'status/*/subtle альфой (05.10)', 'D-step': 'Ближайшая системная ступень (24.11)'}
 # chains from Figma export (Theme Light/Dark, Brand = EMCD)
 ex = {c['c']: c for f in sorted((R/'figma').glob('export-*.json')) for c in json.load(open(f))}
 idx = {k: {r[0]: r[2] for r in c['v']} for k, c in ex.items()}

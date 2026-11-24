@@ -24,7 +24,7 @@ function byValue(n,prop,c,a){ const L=lum(c);
 function pick(lg,n,prop,paint){ const nm=lg.name, opts=MAP[nm];
   if(nm==='Color 3 [Back]') return anc(n,/menu|dropdown|popover|tooltip|options|list ?box|select ?list/i)?'surface/raised':'surface/level-2';
   if(nm==='Brand'){ if(prop==='strokes') return 'border/accent'; if(n.type==='TEXT') return 'text/accent'; if(isIcon(n)) return 'icon/accent'; if(anc(n,/checkbox|radio|toggle|switch/i)) return 'control/checked'; return 'action/primary/default'; }
-  if(nm==='surface/base'){ if(prop==='fills') return 'surface/level-2'; return anc(n,/checkbox|radio/i)?'border/strong':'border/subtle'; }
+  if(nm==='surface/base'){ if(prop==='fills') return 'surface/level-2'; if(anc(n,/checkbox|radio/i)) return 'border/strong'; if(anc(n,/input|select|field|daterange|period|multiselect/i)) return 'control/border/default'; return 'border/subtle'; }
   if(nm==='Background/Color accent') return anc(n,/toggle|switch/i)?'control/track':anc(n,/sheet|шторк/i)?'surface/raised':'surface/level-0';
   if(nm==='Background/Color focus') return anc(n,/button|btn/i)?'action/secondary/default':anc(n,/tooltip/i)?'surface/raised':'surface/level-1';
   if(opts) return opts[0][1];

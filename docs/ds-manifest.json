@@ -565,7 +565,7 @@
       {
        "name": "Value",
        "type": "TEXT",
-       "def": "0,12345678",
+       "def": "0.12345678",
        "bound": 48
       },
       {
@@ -577,7 +577,7 @@
       {
        "name": "Fiat",
        "type": "TEXT",
-       "def": "≈ 2 731,40 $",
+       "def": "≈ $2 731.40",
        "bound": 48
       },
       {
@@ -617,13 +617,14 @@
        "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
-       "fontSize:type/display/lg/size",
+       "fontSize:type/display/sm/size",
        "fontSize:type/heading/lg/size",
        "fontWeight:font-weight/bold",
+       "fontWeight:font-weight/medium",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height",
-       "lineHeight:type/display/lg/line-height",
+       "lineHeight:type/display/sm/line-height",
        "lineHeight:type/heading/lg/line-height"
       ],
       "ticker": [
@@ -658,13 +659,13 @@
        "fontFamily:font/family/text",
        "fontSize:type/body/md/size",
        "fontSize:type/body/sm/size",
-       "fontSize:type/display/lg/size",
+       "fontSize:type/display/sm/size",
        "fontSize:type/heading/lg/size",
        "fontWeight:font-weight/bold",
        "fontWeight:font-weight/regular",
        "lineHeight:type/body/md/line-height",
        "lineHeight:type/body/sm/line-height",
-       "lineHeight:type/display/lg/line-height",
+       "lineHeight:type/display/sm/line-height",
        "lineHeight:type/heading/lg/line-height"
       ],
       "skeleton · value": [
