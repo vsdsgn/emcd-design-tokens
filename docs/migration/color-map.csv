@@ -21,7 +21,7 @@ Web·App,Brand,текст / иконка,,#8f42ff,text/accent,Split,D-contrast,
 Web·App,Brand fill hover,,,#6724b1,action/primary/default+layer@6,Deprecate,D-state,action/primary/hover — кандидат deprecated
 Web·App,Brand hover,,,#ac63fc,text/accent,Merge,,
 Web·App,Brand light,,,#c18afd,text/link-hover,Keep,,
-Web·App,Brand disable,,,#2c0754,action/disabled,Split,D-disabled,"2026-10-16: в бейджах DS App (Default tinted Badge RTL / primary) → accent/subtle"
+Web·App,Brand disable,,,#2c0754,action/disabled,Split,D-disabled,2026-10-16: в бейджах DS App (Default tinted Badge RTL / primary) → accent/subtle
 Web·App,Error / Red [Main],,,#e53935,status/danger/solid,Keep,,
 Web·App,Error hover / Red [Hover],кнопка danger,,#be2f2b,action/danger/default,Keep,D-contrast,белый текст ≥ 4.5
 Web·App,Error disabled / Red [Disabled],,,#972421,action/disabled,Merge,D-disabled,есть в App (6) и Monitoring (4)
@@ -46,7 +46,7 @@ Web·App,theme · surface/base,обводка плашек и карточек,,
 Web·App,theme · surface/base,граница контрола (checkbox / radio),,#d0d0d012,border/strong,Split,WCAG 1.4.11,граница — единственный признак контрола → ≥ 3:1
 Web·App,theme · divider/base,,,#d0d0d012,border/subtle,Keep,D-alpha,
 Web·App,Main [Primary],сайт,,,action/primary/default,Merge,,значение уточнить (Website)
-App,Back [Primary] 2,Pressed бейджа brand,,#380d66,,Deprecate,D-state,"2026-10-16: 18/18 — Pressed tinted Badge RTL / primary (DS App); Pressed везде слоем state/layer"
+App,Back [Primary] 2,Pressed бейджа brand,,#380d66,,Deprecate,D-state,2026-10-16: 18/18 — Pressed tinted Badge RTL / primary (DS App); Pressed везде слоем state/layer
 Core,Alias · Background/Color default,,,#0a0a0a,surface/level-0,Merge,,
 Core,Alias · Background/Shade color default,,,#232323,surface/level-3,Merge,D-levels,
 Core,Alias · Divider/Color default,,,#232323,border/subtle,Merge,D-alpha,
@@ -151,8 +151,8 @@ Product,Monitoring · pallete/green/300,,,#45a148,status/success/solid,Deprecate
 Product,Monitoring · Collection 1/Color 1 [Text],,,#fafafa,text/primary,Deprecate,,локальный дубль
 Product,Monitoring · Variables/Theme/* (внешний UI-кит),text-primary / action-selected / text-secondary / primary-main …,,,по роли слоя,Rebind,,стороннего кита — перепривязать на этапе 2
 Product,Web App · Text Color 3,,,,text/secondary,Deprecate,,локальный дубль
-Product,Color · border (Web App / Monitoring),"обводка плашек, карточек, навбара",,#d0d0d012,border/subtle,Split,D-alpha,= theme · surface/base (#d0d0d0 7 %); библиотека-источник не опубликована; экраны 2026-10-14: Web App История 2025 — навбар и карточки; 2026-10-16 Monitoring 187/255 проверено (площадка, отчёты, детали устройства, устройства) — все обводки карточек r12
-Product,Color · border (Web App / Monitoring),граница контрола,,#d0d0d012,border/strong,Split,WCAG 1.4.11,как theme · surface/base; в Monitoring контролов с этой обводкой не найдено (2026-10-16) — только Web App / Firmware / сайт, сверить на тест-стенде
+Product,Color · border (Web App / Monitoring),"обводка плашек, карточек, навбара",,#d0d0d012,border/subtle,Split,D-alpha,"= theme · surface/base (#d0d0d0 7 %); библиотека-источник не опубликована; экраны 2026-10-14: Web App История 2025 — навбар и карточки; 2026-10-16 Monitoring 187/255 проверено (площадка, отчёты, детали устройства, устройства) — все обводки карточек r12"
+Product,Color · border (Web App / Monitoring),граница контрола,,#d0d0d012,border/strong,Split,WCAG 1.4.11,"как theme · surface/base; в Monitoring контролов с этой обводкой не найдено (2026-10-16) — только Web App / Firmware / сайт, сверить на тест-стенде"
 Site,text/neutral/base,,#000000,#f5f5f5,text/primary,Keep,,
 Site,text/neutral/nbold-1,,#7a7a7a,#b9b9b9,text/secondary,Keep,D-alpha-text,
 Site,text/neutral/nbold-2,,#a3a3a3,#a3a3a3,text/tertiary,Keep,D-alpha-text,
