@@ -10,6 +10,8 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+- **Foundations (MINOR):** `type/display/sm/size|line-height` 32/40 на всех ширинах + текстовый стиль Display/SM — крупные числа в компонентах. **Tooltip** — текст Label/LG 16 `text/secondary` (как production). **Code cell L** — цифра Heading/XL. **Amount XL** (код) — Display/SM.
+
 - **Modal** — заголовок Size=MD: Heading/XL вместо Display/MD (на десктопе было 48, в production 28). **Chart card** — значение Heading/XL. Превью кода — суммы с десятичной точкой. Скрипт миграции цветов `scripts/figma/color-swap.plugin.js`.
 
 - Components + Code (2026-11-23, MINOR): `Slider` возвращён из архива (draft) с Type=Range — диапазон «от–до», два ползунка; новый `Sparkline` (draft) — мини-график всех видов Chart plot; Progress — fill в слоте Track (доля задаётся в экземпляре). Code: `Slider`, `Sparkline` (React / Vue / CSS).

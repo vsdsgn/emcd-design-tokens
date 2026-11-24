@@ -19,7 +19,7 @@
 
 ## 3. Anatomy
 - Корень: подложка `control/surface/default`, рамка `control/border/default` (`border/width/default`), `radius/control`; высота `size/code-cell/lg` | `size/code-cell/md`.
-- `digit` — цифра (`font/family/display`, `font-weight/bold`; L — `type/display/md`, M — `type/heading/lg`); `caret` — каретка `border/focus` (только Focus).
+- `digit` — цифра (`font/family/display`, `font-weight/bold`; L — `type/heading/xl` (24.11, было `type/display/md` — 48 на Large; Display — только промо и герой-заголовки), M — `type/heading/lg`); `caret` — каретка `border/focus` (только Focus).
 - Служебные: `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer` (свойства Focus ring, Show hit area, Safe margin).
 - Вложено: `_Hit area` ×24, `_Safe margin` ×12.
 - Служебные слои (вариантов из 12): кольцо фокуса 12 · зона Web 12 · зона касания 12 · безопасное поле 12.
@@ -70,7 +70,7 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `control/surface/default`, `control/surface/disabled`; высота `size/code-cell/lg`, `size/code-cell/md`; радиус `radius/control`; обводка `control/border/default`, `control/border/disabled`, `control/border/error`, `control/border/focus`, `status/success/solid`; толщина обводки `border/width/default`, `border/width/focus`.
-- `digit`: заливка / цвет `text/disabled`, `text/primary`, `text/tertiary`; типографика `font-weight/bold`, `font/family/display`, `type/display/md`, `type/heading/lg`.
+- `digit`: заливка / цвет `text/disabled`, `text/primary`, `text/tertiary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`, `type/heading/xl`.
 - `caret`: заливка / цвет `border/focus`.
 - Служебные слои (общие правила — `service-layers.md`): `focus ring`: радиус `radius/focus-ring`; обводка `border/focus-ring`; толщина обводки `border/width/focus-ring` · `hit area · web`: видимость `touch/is-fine` · `hit area · overlay`: заливка / цвет `status/danger/solid` · `hit area · app`: видимость `touch/is-coarse` · `safe area · outer`: обводка `status/success/solid`; толщина обводки `control/safe-margin`.
 - Значений без переменной: 36 (напр. `(root):w=64`, `hit area · web:w=64`, `hit area · web:h=68`, `(root):w=48`) — размеры слоёв зон и то, что перечислено в разделе 14.

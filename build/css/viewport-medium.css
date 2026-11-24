@@ -13,6 +13,8 @@
   --type-display-lg-line-height: var(--line-height-48);
   --type-display-md-size: var(--font-size-32);
   --type-display-md-line-height: var(--line-height-40);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-28);
   --type-heading-xl-line-height: var(--line-height-36);
   --type-heading-lg-size: var(--font-size-24);

@@ -294,7 +294,7 @@ export const DATA = [
     rule: [
       'Tone (19.11): Default | Success | Danger — цвет суммы без знака (только Sign=None): итог дохода в Калькуляторе — Success. Знак и цвет вместе — Sign=Positive / Negative',
       'State (19.11): Default | Skeleton — плашка вместо суммы той же высоты (строка значения + фиат, если включён); в загрузке Sign=None',
-      'Size: S — строки списков и таблиц на Compact (12); M — карточки и таблицы Web (14, как значения соседних ячеек — 19.11); L — заголовок блока; XL — главный баланс экрана (один на экран).',
+      'Size: S — строки списков и таблиц на Compact (12); M — карточки и таблицы Web (14, как значения соседних ячеек — 19.11); L — заголовок блока; XL — главный баланс экрана (один на экран); 24.11 — `type/display/sm` 32 на всех ширинах (было `type/display/lg` — 56 на 1440 при 28 в production; Figma — после Publish Foundations).',
       'Sign: None — остаток и цена; Positive — поступление (`text/success`, знак «+»); Negative — списание (`text/primary`, знак «−» U+2212).',
       'Show fiat — эквивалент второй строкой; выключается в плотных таблицах, где фиат — отдельная колонка.',
       'Align (17.11): Start — по умолчанию; End — сумма у конца строки (List item, Key-value row, ячейка таблицы Align=End).',
@@ -365,7 +365,7 @@ export const DATA = [
     ],
     anatomy: [
       'Корень: подложка `control/surface/default`, рамка `control/border/default` (`border/width/default`), `radius/control`; высота `size/code-cell/lg` | `size/code-cell/md`.',
-      '`digit` — цифра (`font/family/display`, `font-weight/bold`; L — `type/display/md`, M — `type/heading/lg`); `caret` — каретка `border/focus` (только Focus).',
+      '`digit` — цифра (`font/family/display`, `font-weight/bold`; L — `type/heading/xl` (24.11, было `type/display/md` — 48 на Large; Display — только промо и герой-заголовки), M — `type/heading/lg`); `caret` — каретка `border/focus` (только Focus).',
       'Служебные: `focus ring`, `hit area · web` / `hit area · app`, `safe area · outer` (свойства Focus ring, Show hit area, Safe margin).',
     ],
     group: 'Поле: состояние — цветом рамки (`control/border/*`), слоя `state/layer` нет; Disabled — токены `*/disabled`',
@@ -2866,7 +2866,7 @@ export const DATA = [
     anatomy: [
       'Корень: отступы `space/10` / `space/16`, радиус `radius/control` (22.11, было `radius/container`); min-ширина и min-высота `size/tooltip/min` (58), max-ширина `size/tooltip/max` (320).',
       '`overlay surface` — экземпляр `_Overlay surface` (Kind=Tooltip): Neutral — `surface/raised`, Accent — `surface/accent`; обводка `border/default` (`border/width/default`, перенесена с корня 13.11); тени `shadow/key` + `shadow/ambient`; радиус `radius/container`.',
-      '`text` — свойство Text, `type/label/md`, `font-weight/medium`; Neutral — `text/primary`, Accent — `text/on-accent` (14.11).',
+      '`text` — свойство Text, `type/label/lg` (16, 24.11 — как production; было `type/label/md`), `font-weight/medium`; Neutral — `text/secondary` (24.11), Accent — `text/on-accent`.',
       '`_Tooltip arrow` — уголок 26 × 9, остриё в 8 от элемента. Грань с уголком не короче 58 (2 × 16 + 26) — отсюда min-ширина (Top / Bottom) и min-высота (Start / End).',
     ],
     group: NONE + '; показ и скрытие — по наведению / фокусу на триггере',

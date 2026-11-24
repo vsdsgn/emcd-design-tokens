@@ -3396,11 +3396,11 @@
        "f:text/primary",
        "f:text/tertiary",
        "fontFamily:font/family/display",
-       "fontSize:type/display/md/size",
        "fontSize:type/heading/lg/size",
+       "fontSize:type/heading/xl/size",
        "fontWeight:font-weight/bold",
-       "lineHeight:type/display/md/line-height",
-       "lineHeight:type/heading/lg/line-height"
+       "lineHeight:type/heading/lg/line-height",
+       "lineHeight:type/heading/xl/line-height"
       ],
       "focus ring": [
        "r:radius/focus-ring",
@@ -13876,7 +13876,7 @@
      "id": "317:33734",
      "type": "SET",
      "status": "beta",
-     "descLen": 4197,
+     "descLen": 4247,
      "descHeads": [
       "Status:",
       "Level:",
@@ -13944,7 +13944,7 @@
        "minw:size/tooltip/min",
        "p:space/10",
        "p:space/16",
-       "r:radius/container"
+       "r:radius/control"
       ],
       "overlay surface": [
        "effects:shadow/ambient",
@@ -13957,11 +13957,11 @@
       ],
       "text": [
        "f:text/on-accent",
-       "f:text/primary",
+       "f:text/secondary",
        "fontFamily:font/family/text",
-       "fontSize:type/label/md/size",
+       "fontSize:type/label/lg/size",
        "fontWeight:font-weight/medium",
-       "lineHeight:type/label/md/line-height"
+       "lineHeight:type/label/lg/line-height"
       ]
      },
      "statusFirstLine": true

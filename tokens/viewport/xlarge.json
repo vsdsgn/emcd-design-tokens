@@ -48,6 +48,16 @@
           "$type": "dimension",
           "$value": "{line-height.64}"
         }
+      },
+      "sm": {
+        "size": {
+          "$type": "dimension",
+          "$value": "{font-size.32}"
+        },
+        "line-height": {
+          "$type": "dimension",
+          "$value": "{line-height.40}"
+        }
       }
     },
     "heading": {

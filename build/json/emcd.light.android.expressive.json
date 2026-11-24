@@ -418,6 +418,8 @@
   "typeDisplayLgLineHeight": 40,
   "typeDisplayMdSize": 28,
   "typeDisplayMdLineHeight": 36,
+  "typeDisplaySmSize": 32,
+  "typeDisplaySmLineHeight": 40,
   "typeHeadingXlSize": 24,
   "typeHeadingXlLineHeight": 32,
   "typeHeadingLgSize": 20,

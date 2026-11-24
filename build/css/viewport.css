@@ -10,6 +10,8 @@
   --type-display-lg-line-height: var(--line-height-40);
   --type-display-md-size: var(--font-size-28);
   --type-display-md-line-height: var(--line-height-36);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-24);
   --type-heading-xl-line-height: var(--line-height-32);
   --type-heading-lg-size: var(--font-size-20);
@@ -53,6 +55,8 @@
   --type-display-lg-line-height: var(--line-height-48);
   --type-display-md-size: var(--font-size-32);
   --type-display-md-line-height: var(--line-height-40);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-28);
   --type-heading-xl-line-height: var(--line-height-36);
   --type-heading-lg-size: var(--font-size-24);
@@ -97,6 +101,8 @@
   --type-display-lg-line-height: var(--line-height-56);
   --type-display-md-size: var(--font-size-40);
   --type-display-md-line-height: var(--line-height-48);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-32);
   --type-heading-xl-line-height: var(--line-height-40);
   --type-heading-lg-size: var(--font-size-24);
@@ -141,6 +147,8 @@
   --type-display-lg-line-height: var(--line-height-64);
   --type-display-md-size: var(--font-size-48);
   --type-display-md-line-height: var(--line-height-56);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-32);
   --type-heading-xl-line-height: var(--line-height-40);
   --type-heading-lg-size: var(--font-size-24);
@@ -185,6 +193,8 @@
   --type-display-lg-line-height: var(--line-height-72);
   --type-display-md-size: var(--font-size-56);
   --type-display-md-line-height: var(--line-height-64);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-36);
   --type-heading-xl-line-height: var(--line-height-44);
   --type-heading-lg-size: var(--font-size-28);

@@ -1,11 +1,11 @@
 /* Tooltip — 🟡 beta (Figma «🟡 Tooltip»: Placement × Tone × Arrow). Только Web и указатель; без действий внутри.
    Пузырь — overlay surface (surface-raised, обводка border-default, тени); уголок 26 × 9 — одна SVG-форма с пузырём, остриё в 8 от элемента. */
-.emcd-tooltip { --bg: var(--surface-raised); --bd: var(--border-default); --fg: var(--text-primary);
+.emcd-tooltip { --bg: var(--surface-raised); --bd: var(--border-default); --fg: var(--text-secondary); /* 24.11: как production — 16, text/secondary */
   position: relative; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
   min-width: var(--size-tooltip-min, 58px); min-height: var(--size-tooltip-min, 58px); max-width: var(--size-tooltip-max, 320px); width: max-content;
   padding: var(--space-10, 10px) var(--space-16, 16px); border-radius: var(--radius-control, 12px); background: var(--bg); color: var(--fg);
   box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--bd), 0 1px 2px var(--shadow-key), 0 8px 24px -4px var(--shadow-ambient);
-  font: 500 var(--type-label-md-size, 14px)/var(--type-label-md-line-height, 20px) var(--font-sans); text-align: center; white-space: normal; overflow-wrap: anywhere; }
+  font: 500 var(--type-label-lg-size, 16px)/var(--type-label-lg-line-height, 24px) var(--font-sans); text-align: center; white-space: normal; overflow-wrap: anywhere; }
 .emcd-tooltip--top, .emcd-tooltip--bottom { min-height: 0; }
 .emcd-tooltip--start, .emcd-tooltip--end { min-width: 0; }
 .emcd-tooltip--accent { --bg: var(--surface-accent); --bd: transparent; --fg: var(--text-on-accent); }

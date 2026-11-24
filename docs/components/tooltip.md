@@ -22,7 +22,7 @@
 ## 3. Anatomy
 - Корень: отступы `space/10` / `space/16`, радиус `radius/control` (22.11, было `radius/container`); min-ширина и min-высота `size/tooltip/min` (58), max-ширина `size/tooltip/max` (320).
 - `overlay surface` — экземпляр `_Overlay surface` (Kind=Tooltip): Neutral — `surface/raised`, Accent — `surface/accent`; обводка `border/default` (`border/width/default`, перенесена с корня 13.11); тени `shadow/key` + `shadow/ambient`; радиус `radius/container`.
-- `text` — свойство Text, `type/label/md`, `font-weight/medium`; Neutral — `text/primary`, Accent — `text/on-accent` (14.11).
+- `text` — свойство Text, `type/label/lg` (16, 24.11 — как production; было `type/label/md`), `font-weight/medium`; Neutral — `text/secondary` (24.11), Accent — `text/on-accent`.
 - `_Tooltip arrow` — уголок 26 × 9, остриё в 8 от элемента. Грань с уголком не короче 58 (2 × 16 + 26) — отсюда min-ширина (Top / Bottom) и min-высота (Start / End).
 - Вложено: `_Overlay surface` ×24, `_Tooltip arrow` ×24.
 - Служебные слои (вариантов из 24): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
@@ -69,9 +69,9 @@
 - Появляется по фокусу с клавиатуры, Esc скрывает.
 
 ## 10. Tokens
-- `корень`: maxw `size/tooltip/max`; minh `size/tooltip/min`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/container`.
+- `корень`: maxw `size/tooltip/max`; minh `size/tooltip/min`; мин. ширина `size/tooltip/min`; отступы `space/10`, `space/16`; радиус `radius/control`.
 - `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/accent`, `surface/raised`; радиус `radius/container`; обводка `border/default`; толщина обводки `border/width/default`.
-- `text`: заливка / цвет `text/on-accent`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
+- `text`: заливка / цвет `text/on-accent`, `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - Min / max корня: minWidth 58 size/tooltip/min, maxWidth 320 size/tooltip/max, minHeight 58 size/tooltip/min.
 
 ## 11. Platforms
@@ -81,7 +81,7 @@
 ## 12. Figma projection
 - Набор `Tooltip`, вариантов 24 из 24; оси: Placement, Tone, Arrow.
 - Борда: «Tooltip — борда · шаблон v3», разделов 11.
-- Описание: 4197 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: • Пояснение термина: • Приложение и касание — • Ошибки формы — • Пузырь: • Neutral — • Placement — • Arrow —
+- Описание: 4247 знаков, разделы: Status: Level: Когда использовать: Правила: A11y: • Пояснение термина: • Приложение и касание — • Ошибки формы — • Пузырь: • Neutral — • Placement — • Arrow —
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Tooltip`), Vue `packages/vue/src/DsTooltip.vue`, CSS `claude-ds/components/Tooltip/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.

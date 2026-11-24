@@ -267,3 +267,7 @@ A11y: контейнер `aria-busy="true"`, для читалки — `role="st
 - Отдельных цветов `*-hover` / `*-pressed` не заводим; legacy-цвета нажатия → Deprecate (D-state), напр. `Back [Primary] 2`.
 - Найдено 16.10 — отступления, чинить при пересборке: Button · Text (`text/accent-hover/pressed`, `text/danger-hover/pressed`), Input / Textarea / Input amount (`control/border/hover`), Select compact (`action/secondary/pressed`), Segment (`control/segment-hover`), Chip (`action/inverse/hover`), Avatar group (`action/secondary/hover`), Scrollbar (`action/tertiary/hover`), Chart crosshair (`surface/hover`). После — токены `*-hover` / `*-pressed` в Theme и Brand (23 шт.) → deprecated.
 - Поля (Input, File upload): Hover тоже слоем, обводка остаётся `control/border/default` — на борде обводок v2 это вопрос № 4 File upload.
+
+
+## Display в компонентах (24.11, Стефан)
+Display LG / MD растут по Viewport (на 1440 — 56 / 48) — только промо и герой-заголовки страниц. В компонентах — Heading/XL (заголовок модалки, значение Chart card, цифра Code cell L) или Display/SM — 32 на всех ширинах (главный баланс, Amount XL).

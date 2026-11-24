@@ -1858,6 +1858,8 @@ html { font-size: 100%; }
   --type-display-lg-line-height: var(--line-height-40);
   --type-display-md-size: var(--font-size-28);
   --type-display-md-line-height: var(--line-height-36);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-24);
   --type-heading-xl-line-height: var(--line-height-32);
   --type-heading-lg-size: var(--font-size-20);
@@ -1901,6 +1903,8 @@ html { font-size: 100%; }
   --type-display-lg-line-height: var(--line-height-48);
   --type-display-md-size: var(--font-size-32);
   --type-display-md-line-height: var(--line-height-40);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-28);
   --type-heading-xl-line-height: var(--line-height-36);
   --type-heading-lg-size: var(--font-size-24);
@@ -1945,6 +1949,8 @@ html { font-size: 100%; }
   --type-display-lg-line-height: var(--line-height-56);
   --type-display-md-size: var(--font-size-40);
   --type-display-md-line-height: var(--line-height-48);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-32);
   --type-heading-xl-line-height: var(--line-height-40);
   --type-heading-lg-size: var(--font-size-24);
@@ -1989,6 +1995,8 @@ html { font-size: 100%; }
   --type-display-lg-line-height: var(--line-height-64);
   --type-display-md-size: var(--font-size-48);
   --type-display-md-line-height: var(--line-height-56);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-32);
   --type-heading-xl-line-height: var(--line-height-40);
   --type-heading-lg-size: var(--font-size-24);
@@ -2033,6 +2041,8 @@ html { font-size: 100%; }
   --type-display-lg-line-height: var(--line-height-72);
   --type-display-md-size: var(--font-size-56);
   --type-display-md-line-height: var(--line-height-64);
+  --type-display-sm-size: var(--font-size-32);
+  --type-display-sm-line-height: var(--line-height-40);
   --type-heading-xl-size: var(--font-size-36);
   --type-heading-xl-line-height: var(--line-height-44);
   --type-heading-lg-size: var(--font-size-28);
@@ -2071,6 +2081,8 @@ html { font-size: 100%; }
   --type-display-lg-line-height: clamp(2.5rem, 1.9194rem + 2.5806vw, 4.5rem);
   --type-display-md-size: clamp(1.75rem, 1.2419rem + 2.2581vw, 3.5rem);
   --type-display-md-line-height: clamp(2.25rem, 1.7419rem + 2.2581vw, 4rem);
+  --type-display-sm-size: 2rem;
+  --type-display-sm-line-height: 2.5rem;
   --type-heading-xl-size: clamp(1.5rem, 1.2823rem + 0.9677vw, 2.25rem);
   --type-heading-xl-line-height: clamp(2rem, 1.7823rem + 0.9677vw, 2.75rem);
   --type-heading-lg-size: clamp(1.25rem, 1.1048rem + 0.6452vw, 1.75rem);
