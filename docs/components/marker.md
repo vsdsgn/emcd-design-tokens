@@ -1,4 +1,4 @@
-# Marker — контракт (2026-11-23)
+# Marker — контракт (2026-11-24)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -75,7 +75,7 @@
 - Vue: `<DsMarker>`; Flutter: `DsMarker`.
 - Props: `shape`: dot | line; `color`: series-1 | series-2 | series-3 | series-4 | series-5 | series-6 | series-7 | series-8 | success | warning | danger | info | neutral; `size`: l | s | m.
 
-## 14. Acceptance (2026-11-23)
+## 14. Acceptance (2026-11-24)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

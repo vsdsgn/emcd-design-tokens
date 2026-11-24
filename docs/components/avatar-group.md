@@ -1,4 +1,4 @@
-# Avatar group — контракт (2026-11-23)
+# Avatar group — контракт (2026-11-24)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -90,7 +90,7 @@
 - Vue: `<DsAvatarGroup>`; Flutter: `DsAvatarGroup`.
 - Props: `type`: person | coin; `size`: xs | m | l | s; `count`: 4 | 2 | 3; `more`: boolean; `showMore`: boolean = false; `moreText`: string или слот.
 
-## 14. Acceptance (2026-11-23)
+## 14. Acceptance (2026-11-24)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: отрицательный зазор −4 / −6 / −8 (нахлёст аватаров).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

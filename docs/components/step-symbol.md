@@ -1,4 +1,4 @@
-# Step symbol — контракт (2026-11-23)
+# Step symbol — контракт (2026-11-24)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -83,7 +83,7 @@
 - Props: `type`: numbered | icon | bullet; `number`: string или слот.
 - Состояния (Default, Current, Success) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 
-## 14. Acceptance (2026-11-23)
+## 14. Acceptance (2026-11-24)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

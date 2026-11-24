@@ -1,4 +1,4 @@
-# Chart card — контракт (2026-11-23)
+# Chart card — контракт (2026-11-24)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -23,7 +23,7 @@
 
 ## 3. Anatomy
 - Корень — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` × `border/width/default`, `radius/container`, отступ `surface/padding/lg` (Web 24 / мобильный 16; 23.11, было 28), зазор `surface/gap`; ширина 580 числом, min-width `size/card/min` (280).
-- Слот Top (зазор `space/16`): `stat` (`space/4`) — `label` (`type/label/md`, `text/primary`), `value` (`font/family/display`, `type/display/md`, bold, `text/primary`), `caption` (`type/body/md`, `text/secondary`); Tabs (зазор `space/20`, линия `border/subtle`).
+- Слот Top (зазор `space/16`): `stat` (`space/4`) — `label` (`type/label/md`, `text/primary`), `value` (`font/family/display`, `type/heading/xl` — 24 Compact · 32 Large; 24.11, было `type/display/md` — 48 на Large при 24–30 в production; bold, `text/primary`), `caption` (`type/body/md`, `text/secondary`); Tabs (зазор `space/20`, линия `border/subtle`).
 - Слот Content (зазор `space/8`): Chart plot + подписи оси (max-width `size/chart-axis-label/max`, `type/body/sm`, `text/tertiary`).
 - Слот Bottom (зазор `space/16`): `legend` — Legend item × 3 (зазор `space/6`, max-width `size/legend-item/max`) + `sum` (`type/body/md`, `text/secondary`).
 - Служебных слоёв нет.
@@ -70,11 +70,11 @@
 - Кольцо фокуса — только при навигации с клавиатуры, появляется сразу, без анимации (`service-layers.md`). Кольцо и зоны нажатия — у вложенных Tabs и Chart plot.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `surface/next`; интервал `space/16`; мин. ширина `size/card/min`; отступы `space/28`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `surface/next`; интервал `surface/gap`; мин. ширина `size/card/min`; отступы `surface/padding/lg`; радиус `radius/container`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `Top`: интервал `space/16`.
 - `stat`: интервал `space/4`.
 - `label`: заливка / цвет `text/primary`, `text/tertiary`; типографика `font-weight/medium`, `font-weight/regular`, `font/family/text`, `type/body/sm`, `type/label/md`.
-- `value`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/display/md`.
+- `value`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/xl`.
 - `caption`: заливка / цвет `text/secondary`; типографика `font-weight/regular`, `font/family/text`, `type/body/md`.
 - `Tabs`: интервал `space/20`; обводка `border/subtle`.
 - `Content`: интервал `space/8`.
@@ -94,7 +94,7 @@
 ## 12. Figma projection
 - Компонент `Chart card`; оси: нет.
 - Борда: «Chart card — борда · шаблон v3», разделов 12.
-- Описание: 1132 знаков, разделы: Status: Level: Виджет графика: Состояния графика — Когда использовать: A11y: Поиск: Legacy: Правила:
+- Описание: 1186 знаков, разделы: Status: Level: Виджет графика: Состояния графика — Когда использовать: A11y: Поиск: Legacy: Правила:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`ChartCard`), Vue `packages/vue/src/DsChartCard.vue`, CSS `claude-ds/components/ChartCard/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
@@ -102,7 +102,7 @@
 - Vue: `<DsChartCard>`; Flutter: `DsChartCard`.
 - Props: `showBottom`: boolean = true; `top`: string или слот; `content`: string или слот; `bottom`: string или слот.
 
-## 14. Acceptance (2026-11-23)
+## 14. Acceptance (2026-11-24)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина корня 580 числом.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

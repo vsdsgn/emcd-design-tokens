@@ -8,7 +8,7 @@
 .emcd-modal--lg { width: var(--size-modal-lg, 720px); }
 .emcd-modal__header { display: flex; align-items: flex-start; gap: var(--space-8); padding: var(--surface-padding-lg, 24px) var(--surface-padding-lg, 24px) var(--space-16); } /* 23.11: было 32 */
 .emcd-modal__heading { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--space-12); }
-.emcd-modal__title { margin: 0; font: 700 28px/36px var(--font-display, var(--font-sans)); letter-spacing: -0.02em; overflow-wrap: anywhere; }
+.emcd-modal__title { margin: 0; font: 700 var(--type-heading-xl-size, 28px)/var(--type-heading-xl-line-height, 36px) var(--font-display, var(--font-sans)); letter-spacing: -0.02em; overflow-wrap: anywhere; }
 .emcd-modal__heading .emcd-modal__title { font-size: 24px; line-height: 32px; letter-spacing: -0.01em; } /* Header=Coin — heading/lg */
 .emcd-modal--sm .emcd-modal__title { font-size: var(--type-heading-lg-size, 24px); line-height: var(--type-heading-lg-line-height, 32px); letter-spacing: -0.01em; } /* Size=SM (23.11): подтверждение 400 — Heading/LG */
 .emcd-modal__desc { margin: 2px 0 0; font: 400 14px/20px var(--font-sans); color: var(--text-secondary); }

@@ -1,4 +1,4 @@
-# Legend item — контракт (2026-11-23)
+# Legend item — контракт (2026-11-24)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -106,7 +106,7 @@
 - Props: `selected`: boolean; `label`: string или слот; `value`: string или слот; `showValue`: boolean = false.
 - Состояния (Default, Hover, Skeleton) — не props: Hover / Pressed / Focus из платформы; `disabled`, `skeleton` — props.
 
-## 14. Acceptance (2026-11-23)
+## 14. Acceptance (2026-11-24)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (label 148).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23",
+ "generated": "2026-11-24",
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
@@ -2208,7 +2208,7 @@
      "id": "99:802",
      "type": "COMPONENT",
      "status": "beta",
-     "descLen": 1132,
+     "descLen": 1186,
      "descHeads": [
       "Status:",
       "Level:",
@@ -2269,9 +2269,9 @@
      "tokens": {
       "(root)": [
        "f:surface/next",
-       "gap:space/16",
+       "gap:surface/gap",
        "minw:size/card/min",
-       "p:space/28",
+       "p:surface/padding/lg",
        "r:radius/container",
        "s:border/subtle",
        "sw:border/width/default"
@@ -2296,9 +2296,9 @@
       "value": [
        "f:text/primary",
        "fontFamily:font/family/display",
-       "fontSize:type/display/md/size",
+       "fontSize:type/heading/xl/size",
        "fontWeight:font-weight/bold",
-       "lineHeight:type/display/md/line-height"
+       "lineHeight:type/heading/xl/line-height"
       ],
       "caption": [
        "f:text/secondary",
@@ -6300,13 +6300,14 @@
    "boards": [
     {
      "name": "Modal — борда · шаблон v3",
-     "id": "2277:37484",
+     "id": "2485:3395",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
+      "05 · Зоны",
       "06 · На поверхностях",
       "08 · Движение",
       "09 · Правила",
@@ -6318,7 +6319,6 @@
     }
    ],
    "boardMissing": [
-    "05",
     "07"
    ],
    "sets": [
@@ -6327,7 +6327,7 @@
      "id": "81:829",
      "type": "SET",
      "status": "beta",
-     "descLen": 2261,
+     "descLen": 2266,
      "descHeads": [
       "Status:",
       "Level:",
@@ -6436,11 +6436,11 @@
       "title": [
        "f:text/primary",
        "fontFamily:font/family/display",
-       "fontSize:type/display/md/size",
        "fontSize:type/heading/lg/size",
+       "fontSize:type/heading/xl/size",
        "fontWeight:font-weight/bold",
-       "lineHeight:type/display/md/line-height",
-       "lineHeight:type/heading/lg/line-height"
+       "lineHeight:type/heading/lg/line-height",
+       "lineHeight:type/heading/xl/line-height"
       ],
       "close": [
        "gap:space/6",

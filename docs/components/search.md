@@ -1,4 +1,4 @@
-# Search — контракт (2026-11-23)
+# Search — контракт (2026-11-24)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -95,7 +95,7 @@
 - Состояния (Default, Hover, Focus, Filled, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 - `text` / `placeholder` — подсказка (по умолчанию «Поиск»); `label` — доступное имя (по умолчанию — подсказка); `clearLabel` — по умолчанию «Очистить»; `disabled`.
 
-## 14. Acceptance (2026-11-23)
+## 14. Acceptance (2026-11-24)
 - `audit.plugin.js` — не прогонялся: перевод в beta 20.11 по репо (код, README, `docs/patterns.md`); плагины — вместе с правкой описания набора в Figma.
 - `variables-check.plugin.js` — не прогонялся: перевод в beta 20.11 по репо (код, README, `docs/patterns.md`); плагины — вместе с правкой описания набора в Figma.
 - `audit-parity.plugin.js` — не прогонялся: перевод в beta 20.11 по репо (код, README, `docs/patterns.md`); плагины — вместе с правкой описания набора в Figma.

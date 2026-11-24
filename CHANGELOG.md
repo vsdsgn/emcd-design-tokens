@@ -10,6 +10,8 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+- **Modal** — заголовок Size=MD: Heading/XL вместо Display/MD (на десктопе было 48, в production 28). **Chart card** — значение Heading/XL. Превью кода — суммы с десятичной точкой. Скрипт миграции цветов `scripts/figma/color-swap.plugin.js`.
+
 - Components + Code (2026-11-23, MINOR): `Slider` возвращён из архива (draft) с Type=Range — диапазон «от–до», два ползунка; новый `Sparkline` (draft) — мини-график всех видов Chart plot; Progress — fill в слоте Track (доля задаётся в экземпляре). Code: `Slider`, `Sparkline` (React / Vue / CSS).
 - Code (2026-11-23, MINOR): новый компонент `Breadcrumbs` (React / Vue / CSS; PageHeader принимает массив пунктов, длинный путь сворачивается с Menu). PATCH: `.emcd-td` — Label/MD для простого текста в ячейке (наследовал 16 px). Components (ждёт Publish): Stat card `value` max-width 180 → 240.
 - Foundations (2026-11-23, решение Стефана «плотнее»): шкала отступов — `layout/gutter` Web 16 / Compact 12 (было 24 / 16), `space/section` 40 / 24 (было 48 / 32), `card/gap` 8 (было 12); новые (MINOR) `surface/padding/lg|md|sm` (24 · 16 · 12 Web / 16 · 12 · 8 Compact) и `surface/gap` (16 / 12). Код: Card, Chart card (28 → 24), Modal (32 → 24), Sheet, Stat card, Suggest, Promo card, Toast, Calendar, Date range panel — на новых токенах.

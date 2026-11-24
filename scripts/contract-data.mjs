@@ -1223,7 +1223,7 @@ export const DATA = [
     states: ['Состояний нет. Загрузка — Skeleton на месте значения у родителя.'],
     defaults: { Emphasis: 'Default', Leader: 'Off' },
     content: [
-      'Key — название параметра; Value — значение в формате локали с единицей («0,00050000 BTC»).',
+      'Key — название параметра; Value — значение с единицей («0.00050000 BTC»; десятичная точка во всех локалях, решение 17.11).',
       'Длинный текст: название — до двух строк, дальше многоточие; значение — одна строка до 200, дальше многоточие. Название не сжимается в столбец: значение уступает ширину.',
       'Языки (de, ar, hi, th, ja, kk): название в 1–2 строки, обрезки по высоте нет.',
       'RTL: название и значение меняются местами (порядок зеркалит контейнер); числа и тикеры не зеркалятся.',
@@ -3287,7 +3287,7 @@ export const DATA = [
     never: 'два графика в одной карточке; легенда сверху или сбоку от графика; своё состояние загрузки у карточки вместо Chart plot Skeleton.',
     anatomy: [
       'Корень — `surface/next` (на уровень выше подложки, 15.11), обводка `border/subtle` × `border/width/default`, `radius/container`, отступ `surface/padding/lg` (Web 24 / мобильный 16; 23.11, было 28), зазор `surface/gap`; ширина 580 числом, min-width `size/card/min` (280).',
-      'Слот Top (зазор `space/16`): `stat` (`space/4`) — `label` (`type/label/md`, `text/primary`), `value` (`font/family/display`, `type/display/md`, bold, `text/primary`), `caption` (`type/body/md`, `text/secondary`); Tabs (зазор `space/20`, линия `border/subtle`).',
+      'Слот Top (зазор `space/16`): `stat` (`space/4`) — `label` (`type/label/md`, `text/primary`), `value` (`font/family/display`, `type/heading/xl` — 24 Compact · 32 Large; 24.11, было `type/display/md` — 48 на Large при 24–30 в production; bold, `text/primary`), `caption` (`type/body/md`, `text/secondary`); Tabs (зазор `space/20`, линия `border/subtle`).',
       'Слот Content (зазор `space/8`): Chart plot + подписи оси (max-width `size/chart-axis-label/max`, `type/body/sm`, `text/tertiary`).',
       'Слот Bottom (зазор `space/16`): `legend` — Legend item × 3 (зазор `space/6`, max-width `size/legend-item/max`) + `sum` (`type/body/md`, `text/secondary`).',
       'Служебных слоёв нет.',
@@ -3656,7 +3656,7 @@ export const DATA = [
     anatomy: [
       'Корень — вертикальный стек, `radius/surface` (24), ширина — ось Size: `size/modal/md` 560 · `size/modal/sm` 400; отступы шапки, Body и Footer slot — `space/32` (верх Body — `space/8`; с Divider после линии 24: линия + `space/16` + `space/8`).',
       'Поверхность — слой `overlay surface`, экземпляр _Overlay surface (Kind=Modal): `surface/level-1`, обводка `border/subtle` × `border/width/default`, тени `shadow/key` + `shadow/ambient` (Elevation/4).',
-      '`header` (зазор `space/8`): `title` — Header=Title `font/family/display`, `type/display/md`, bold, `text/primary`; Header=Coin — монета 32 + `title group` (зазор `space/12`) с `type/heading/lg` и `header description` (`type/body/md`, `text/secondary`); `close` — Icon button `control/height/md`.',
+      '`header` (зазор `space/8`): `title` — Header=Title `font/family/display`, `type/heading/xl` (24 Compact · 32 Large; до 24.11 — `type/display/md`, на Large 48 при 28 в production), bold, `text/primary`; Header=Coin — монета 32 + `title group` (зазор `space/12`) с `type/heading/lg` и `header description` (`type/body/md`, `text/secondary`); `close` — Icon button `control/height/md`.',
       '`divider` — рамка с линией `border/subtle` и отступом снизу `space/16` (Divider, 2026-11-15).',
       'Слот Body (зазор `space/12`): образец — `type/body/lg`, `text/secondary`.',
       'Слот Footer slot (зазор `space/8` / `space/16`): Button L (`control/height/lg` 48) на всю ширину (до 2026-11-17 — XL 56); подпись под кнопками — текстом в слоте.',

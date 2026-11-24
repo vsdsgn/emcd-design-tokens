@@ -1,4 +1,4 @@
-# Modal — контракт (2026-11-23)
+# Modal — контракт (2026-11-24)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -27,7 +27,7 @@
 ## 3. Anatomy
 - Корень — вертикальный стек, `radius/surface` (24), ширина — ось Size: `size/modal/md` 560 · `size/modal/sm` 400; отступы шапки, Body и Footer slot — `space/32` (верх Body — `space/8`; с Divider после линии 24: линия + `space/16` + `space/8`).
 - Поверхность — слой `overlay surface`, экземпляр _Overlay surface (Kind=Modal): `surface/level-1`, обводка `border/subtle` × `border/width/default`, тени `shadow/key` + `shadow/ambient` (Elevation/4).
-- `header` (зазор `space/8`): `title` — Header=Title `font/family/display`, `type/display/md`, bold, `text/primary`; Header=Coin — монета 32 + `title group` (зазор `space/12`) с `type/heading/lg` и `header description` (`type/body/md`, `text/secondary`); `close` — Icon button `control/height/md`.
+- `header` (зазор `space/8`): `title` — Header=Title `font/family/display`, `type/heading/xl` (24 Compact · 32 Large; до 24.11 — `type/display/md`, на Large 48 при 28 в production), bold, `text/primary`; Header=Coin — монета 32 + `title group` (зазор `space/12`) с `type/heading/lg` и `header description` (`type/body/md`, `text/secondary`); `close` — Icon button `control/height/md`.
 - `divider` — рамка с линией `border/subtle` и отступом снизу `space/16` (Divider, 2026-11-15).
 - Слот Body (зазор `space/12`): образец — `type/body/lg`, `text/secondary`.
 - Слот Footer slot (зазор `space/8` / `space/16`): Button L (`control/height/lg` 48) на всю ширину (до 2026-11-17 — XL 56); подпись под кнопками — текстом в слоте.
@@ -90,7 +90,7 @@
 - `корень`: радиус `radius/surface`; ширина `size/modal/md`, `size/modal/sm`.
 - `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `surface/level-1`; радиус `radius/surface`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `header`: интервал `space/8`; отступы `space/16`, `surface/padding/lg`.
-- `title`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/display/md`, `type/heading/lg`.
+- `title`: заливка / цвет `text/primary`; типографика `font-weight/bold`, `font/family/display`, `type/heading/lg`, `type/heading/xl`.
 - `close`: интервал `space/6`; высота `control/height/md`; радиус `radius/control`; ширина `control/height/md`.
 - `divider`: отступы `space/16`.
 - `line`: заливка / цвет `border/subtle`.
@@ -107,8 +107,8 @@
 
 ## 12. Figma projection
 - Набор `Modal`, вариантов 24 из 24; оси: Size, Header, Footer.
-- Борда: «Modal — борда · шаблон v3», разделов 11.
-- Описание: 2261 знаков, разделы: Status: Level: Когда использовать: Header: Footer: Body и Footer — Когда нет: A11y: Поиск: Legacy: Motion: Тень:
+- Борда: «Modal — борда · шаблон v3», разделов 12.
+- Описание: 2266 знаков, разделы: Status: Level: Когда использовать: Header: Footer: Body и Footer — Когда нет: A11y: Поиск: Legacy: Motion: Тень:
 
 ## 13. Code projection
 Код в репо: React `packages/react/src/index.js` (`Modal`), Vue `packages/vue/src/DsModal.vue`, CSS `claude-ds/components/Modal/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
@@ -116,7 +116,7 @@
 - Vue: `<DsModal>`; Flutter: `DsModal`.
 - Props: `size`: md | sm; `header`: title | coin | empty; `footer`: single | stacked | horizontal | none; `title`: string или слот; `divider`: boolean = false; `showClose`: boolean = true; `headerDescription`: boolean = true; `body`: string или слот; `footerSlot`: string или слот.
 
-## 14. Acceptance (2026-11-23)
+## 14. Acceptance (2026-11-24)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

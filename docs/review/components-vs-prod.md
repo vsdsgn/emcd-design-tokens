@@ -121,3 +121,15 @@
 | 36 | Floating button | button float / inside |
 | 37 | Status screen | status-screen |
 | 38–42 | Table header cell, Stat card, Amount, Progress, Breadcrumbs | компонента в production нет (в макетах — текстом / вёрсткой) |
+
+## Сверка 24.11 — «как оригинал + системные улучшения» (принцип шага 1)
+Доска «Сверка · все компоненты» (Web Migration): правая колонка переведена в Style=Base и на ближайшие к production варианты — 01 Button и 02 Icon button → Tertiary L (legacy Secondary base = Tertiary по таблице переноса), 04 Badge Number → Danger Solid, 08 Tabs → M, 10 Segmented / 14 Input / 15 Select → L, 26 Accordion → M, 29 Empty state → Vertical, 31 Suggest → Neutral; 37 — число с точкой.
+
+Отличия от production, которые **не** объясняются системой (исправлено):
+- **Modal MD, заголовок:** `type/display/md` растёт по Viewport — на 1440 было 48 при 28 в production и в коде → Heading/XL (24 Compact · 32 Large). Figma, код (`--type-heading-xl-*`), контракт.
+- **Chart card, значение:** то же, 48 при 24–30 в production → Heading/XL.
+- **Превью кода:** суммы с запятой в 6 превью (Amount, Transaction, Input, Progress, Toggle, Modal) → точка (решение 17.11).
+
+Системные отличия (оставлены): высоты по шкале (поля 56 → L 48, XL снят 17.11), скругление по высоте (22.11), уровни L0–L3 и альфа-текст, Avatar 28 → шкала 24 / 32 (слияние с Coin 22.11), Accordion — круглый шеврон 24 (как legacy baseAccordion).
+
+На решение Стефану — см. OPEN-QUESTIONS «Сверка 24.11».
