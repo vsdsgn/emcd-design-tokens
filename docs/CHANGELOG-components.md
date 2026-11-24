@@ -3,6 +3,10 @@
 Формат: дата · что · где. Пишется после каждой группы правок.
 
 
+## 2026-11-24 — борды v3 по эталону Checkbox
+- **Борды (87 из 92):** вместо полной матрицы набора — срез, как на ручной борде Checkbox. 02 — превью по оси облика + таблица «Размеры» (высота, ширина); 03 — «Раскладка и содержимое»: каждая ось раскладки отдельно (Label position, Header, Footer, Align…); 04 — состояния: строки — оси облика (Type, Tone, Style, Selected, Status…), столбцы — State, Size = M, прочее — по умолчанию; состояние, которое есть у одной строки (Skeleton у Badge), — строкой под матрицей; 06 — представители по оси облика; 07 — не больше двух самых компактных примеров; 05 «Зоны» убраны у широких и высоких надстроек (Sidebar, Modal, Chart card, Page header, Status summary) — зоны у вложенных баз. Button 15 262 → 9 719 px, Card 16 032 → 6 848, Icon button 24 592 → 10 569. Ручные борды (Checkbox, Radio, File upload, Side panel, Status screen) не тронуты.
+- **Инструменты:** `scripts/figma/board-v3.plugin.js` — те же правила для новой сборки; `scripts/figma/board-v3-patch.plugin.js` — пересборка визуальных разделов на месте без данных контракта.
+- **Найдено:** у Button, Icon button, Avatar, Avatar group вариант по умолчанию — XS (левый верхний в сетке): новый экземпляр из библиотеки ставится XS. См. OPEN-QUESTIONS.
 
 ## 2026-11-22 — сверка App с production
 - **Amount:** S / M — значение и тикер Medium (было Regular), фиат Regular — по частоте в production (Web и App: суммы Medium / SemiBold, Regular нет). Figma — ждёт Publish.

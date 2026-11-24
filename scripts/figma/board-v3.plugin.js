@@ -57,21 +57,34 @@ const TYPE = { VARIANT: 'вариант', BOOLEAN: 'булево', TEXT: 'тек
 const live = async id => { const s = await figma.getNodeByIdAsync(id); if (!s) throw new Error('нет набора ' + id);
   const variants = s.type === 'COMPONENT_SET' ? s.children.filter(x => x.type === 'COMPONENT') : [s]; const defs = s.componentPropertyDefinitions || {};
   const axes = Object.keys(defs).filter(k => defs[k].type === 'VARIANT').map(k => ({ name: k, options: defs[k].variantOptions }));
-  const P = new Map(variants.map(v => [v, s.type === 'COMPONENT_SET' ? vprops(v) : {}])); const def = (s.type === 'COMPONENT_SET' && s.defaultVariant) || variants[0];
+  const P = new Map(variants.map(v => [v, s.type === 'COMPONENT_SET' ? vprops(v) : {}])); const dv = Object.fromEntries(axes.map(a => [a.name, defs[a.name].defaultValue])); if (dv.Size && defs.Size.variantOptions.includes('M')) dv.Size = 'M'; /* срез борды — типовой размер M, даже если набор по умолчанию отдаёт XS */ const def = variants.find(v => axes.every(a => P.get(v)[a.name] === dv[a.name])) || (s.type === 'COMPONENT_SET' && s.defaultVariant) || variants[0];
   return { s, variants, defs, axes, P, def, key: n => Object.keys(defs).find(k => k.split('#')[0] === n) }; };
-// Матрица вариантов: столбцы — State (или последняя ось), строки — сочетания остальных осей. Не помещается по ширине — ячейки с подписью и переносом.
-const matrix = (L, W) => { const { variants, axes, P } = L; const box = F('VERTICAL', 20);
-  if (!axes.length) return add(box, inst(variants[0], W));
-  const colAx = axes.find(a => a.name === 'State') || axes[axes.length - 1]; const rowAxes = axes.filter(a => a !== colAx);
-  const rk = v => rowAxes.map(a => P.get(v)[a.name]).join(' · '); const ord = v => rowAxes.reduce((n, a) => n * 64 + a.options.indexOf(P.get(v)[a.name]), 0); const rowKeys = [...new Set([...variants].sort((a, b) => ord(a) - ord(b)).map(rk))];
-  const find = (k, c) => variants.find(v => rk(v) === k && P.get(v)[colAx.name] === c);
-  const cw = Math.max(80, Math.ceil(Math.max(...variants.map(v => v.width)))); const LAB = rowAxes.length ? 200 : 0; const n = colAx.options.length;
+// Оси набора по роли (эталон — борда Checkbox, 25.11): State — столбцы матрицы состояний; Size — блок «Размеры»;
+// оси облика (LOOK) — строки матрицы; остальные (раскладка, содержимое) — блок «Раскладка и содержимое», по одной строке на ось.
+// На борде не вся матрица набора, а срез: прочие оси — как у варианта по умолчанию. Полная матрица — в самом наборе.
+const LOOK = ['Type', 'Tone', 'Style', 'Selected', 'Status', 'Open', 'Emphasis', 'Sign', 'Mode', 'Color', 'Shape', 'Level', 'Collapsed'];
+const roles = L => { const st = L.axes.find(a => a.name === 'State'); const size = L.axes.find(a => a.name === 'Size'); const look = L.axes.filter(a => LOOK.includes(a.name)); const other = L.axes.filter(a => a !== st && a !== size && !look.includes(a)); return { st, size, look, other }; };
+// Вариант: оси из want — обязательно, остальные — как можно ближе к варианту по умолчанию.
+const pickV = (L, want) => { const dp = L.P.get(L.def); let best = null, bs = -1; for (const v of L.variants) { const p = L.P.get(v); if (Object.entries(want).some(([a, b]) => p[a] !== b)) continue; const sc = L.axes.filter(a => p[a.name] === dp[a.name]).length; if (sc > bs) { best = v; bs = sc; } } return best; };
+// Матрица вариантов (срез): столбцы — State (без него — ось облика с наибольшим числом значений), строки — сочетания остальных осей облика. Не помещается по ширине — ячейки с подписью и переносом.
+const matrix = (L, W) => { const { axes, P } = L; const box = F('VERTICAL', 20);
+  if (!axes.length) return add(box, inst(L.variants[0], W));
+  const R = roles(L); const colAx = R.st || [...R.look].sort((a, b) => b.options.length - a.options.length)[0] || axes[axes.length - 1]; const rowAxes = R.look.filter(a => a !== colAx);
+  const combos = rowAxes.reduce((acc, a) => acc.flatMap(c => a.options.map(o => ({ ...c, [a.name]: o }))), [{}]);
+  const cell = new Map(); for (const c of combos) for (const o of colAx.options) { const v = pickV(L, { ...c, [colAx.name]: o }); if (v) cell.set(JSON.stringify(c) + '|' + o, v); }
+  const keyOfC = c => rowAxes.map(a => c[a.name]).join(' · '); const liveC = combos.filter(c => colAx.options.some(o => cell.has(JSON.stringify(c) + '|' + o)));
+  const rowKeys = liveC.map(keyOfC); const byKey = new Map(liveC.map(c => [keyOfC(c), c])); const variants = [...cell.values()];
+  const find = (k, c) => cell.get(JSON.stringify(byKey.get(k)) + '|' + c);
+  // Столбцы: Default первым; состояние, которое есть только у одной строки (Skeleton у Badge), — не столбец с прочерками, а строка под матрицей.
+  let cols = [...colAx.options]; if (R.st) cols.sort((a, b) => (b === 'Default') - (a === 'Default')); const cnt = o => liveC.filter(c => cell.has(JSON.stringify(c) + '|' + o)).length; const extra = liveC.length >= 3 ? cols.filter(o => cnt(o) <= 1) : []; cols = cols.filter(o => !extra.includes(o));
+  const cw = Math.max(80, Math.ceil(Math.max(...variants.map(v => v.width)))); const LAB = rowAxes.length ? 200 : 0; const n = cols.length;
   if (LAB + n * cw + (n - 1 + (LAB ? 1 : 0)) * 24 <= W) {
-    const h = F('HORIZONTAL', 24); add(box, h); if (LAB) add(h, gapW(LAB)); for (const c of colAx.options) add(h, T(c, 12, 'Semi Bold', V['text/secondary'], cw));
+    const h = F('HORIZONTAL', 24); add(box, h); if (LAB) add(h, gapW(LAB)); for (const c of cols) add(h, T(c, 12, 'Semi Bold', V['text/secondary'], cw));
     for (const k of rowKeys) { const r = F('HORIZONTAL', 24); r.counterAxisAlignItems = 'CENTER'; add(box, r); if (LAB) add(r, T(k, 12, 'Medium', V['text/secondary'], LAB));
-      let pt = 0, pb = 0; for (const c of colAx.options) { const v = find(k, c); const i = v ? inst(v) : cap('—'); add(r, add(fixW(F('VERTICAL', 0), cw), i)); const rb = v && i.absoluteRenderBounds, y = i.absoluteTransform[1][2]; if (rb) { pt = Math.max(pt, Math.ceil(y - rb.y)); pb = Math.max(pb, Math.ceil(rb.y + rb.height - y - i.height)); } } r.paddingTop = pt; r.paddingBottom = pb; }
+      let pt = 0, pb = 0; for (const c of cols) { const v = find(k, c); const i = v ? inst(v) : cap('—'); add(r, add(fixW(F('VERTICAL', 0), cw), i)); const rb = v && i.absoluteRenderBounds, y = i.absoluteTransform[1][2]; if (rb) { pt = Math.max(pt, Math.ceil(y - rb.y)); pb = Math.max(pb, Math.ceil(rb.y + rb.height - y - i.height)); } } r.paddingTop = pt; r.paddingBottom = pb; }
   } else for (const k of rowKeys) { const g = F('VERTICAL', 12); add(box, g); if (k) add(g, T(k, 13, 'Semi Bold', V['text/primary'])); const w = wrap(W, 24); add(g, w);
-    for (const c of colAx.options) { const v = find(k, c); if (v) add(w, add(F('VERTICAL', 8), cap(c, 11), inst(v, W))); } }
+    for (const c of cols) { const v = find(k, c); if (v) add(w, add(F('VERTICAL', 8), cap(c, 11), inst(v, W))); } }
+  if (extra.length) { const w = wrap(W, 24); add(box, w); add(w, T('Только у одного варианта:', 12, 'Medium', V['text/secondary'])); for (const o of extra) for (const c of liveC) { const v = cell.get(JSON.stringify(c) + '|' + o); if (v) add(w, add(F('VERTICAL', 8), cap(o + (keyOfC(c) ? ' · ' + keyOfC(c) : ''), 11), inst(v, W))); } }
   return box; };
 
 let newId = null;
@@ -90,42 +103,56 @@ try {
     if (S.use.length) bullets(block(r, 'Когда использовать'), S.use); if (S.dont.length) bullets(block(r, 'Когда не использовать'), S.dont); if (S.rule.length) bullets(block(r, 'Правило выбора варианта'), S.rule);
   } else skip('01 · Когда применять');
   // 02
-  { const r = sec('02', 'Превью и анатомия', 'Вариант по умолчанию и состав компонента.'); const st = stage(BASE, RW); st.counterAxisAlignItems = 'CENTER'; add(r, st); const pv = F('HORIZONTAL', 32); pv.counterAxisAlignItems = 'CENTER'; add(st, pv); const pax = axes.find(x => x.name !== 'State');
-    const pvs = def.width > 160 || !pax ? [def] : pax.options.map(o => variants.find(x => L.P.get(x)[pax.name] === o && axes.every(q => q === pax || L.P.get(x)[q.name] === L.P.get(def)[q.name]))).filter(Boolean).slice(0, 8); for (const v of pvs) add(pv, inst(v, RW - 96));
+  { const r = sec('02', 'Превью и анатомия', 'Вариант по умолчанию и состав компонента.'); const st = stage(BASE, RW); st.counterAxisAlignItems = 'CENTER'; add(r, st); const pv = F('HORIZONTAL', 32); pv.counterAxisAlignItems = 'CENTER'; add(st, pv); const R = roles(L); const pax = R.look[0];
+    const pvs = def.width > 160 || !pax ? [def] : [...new Set(pax.options.map(o => pickV(L, { [pax.name]: o })).filter(Boolean))].slice(0, 8); for (const v of pvs) add(pv, inst(v, RW - 96));
     if (S.anatomy.length) { const b = block(r, 'Анатомия'); const w = wrap(RW, 12); add(b, w);
       S.anatomy.forEach((a, i) => { const c = F('HORIZONTAL', 12, 16); c.fills = solid(SOFT); c.cornerRadius = 12; const d = F('HORIZONTAL', 0); d.resize(28, 28); d.primaryAxisSizingMode = 'FIXED'; d.counterAxisSizingMode = 'FIXED'; d.primaryAxisAlignItems = 'CENTER'; d.counterAxisAlignItems = 'CENTER'; d.fills = solid(INK); d.cornerRadius = 14;
         add(w, add(c, add(d, T(String(i + 1), 12, 'Semi Bold', '#ffffff')), T(a, 13, 'Regular', INK, S.anatomy.length > 1 ? 754 : 1596))); });
-      if (S.nested) add(b, T('Вложено: ' + S.nested, 13, 'Regular', GREY, RW)); } else skip('02 · Анатомия'); }
+      if (S.nested) add(b, T('Вложено: ' + S.nested, 13, 'Regular', GREY, RW)); } else skip('02 · Анатомия');
+    if (R.size) { const rows = R.size.options.map(o => [o, pickV(L, { Size: o })]).filter(x => x[1]).sort((a, b) => a[1].height - b[1].height || a[1].width - b[1].width);
+      const b = block(r, 'Размеры'); const st = stage(BASE, RW, 32); st.itemSpacing = 0; add(b, st); const hd = F('HORIZONTAL', 0); hd.paddingBottom = 8; add(st, hd); for (const [n, w] of [['Size', 160], ['Пример', 1000], ['Высота', 160], ['Ширина', 160]]) add(hd, fixW(add(F('VERTICAL', 0), cap(n)), w));
+      for (const [o, v] of rows) { const rw = F('HORIZONTAL', 0, 12, 0); rw.counterAxisAlignItems = 'CENTER'; add(st, rw); add(rw, fixW(add(F('VERTICAL', 0), T(o, 14, 'Semi Bold', V['text/primary'])), 160), fixW(add(F('VERTICAL', 0), inst(v, 960)), 1000));
+        for (const x of [v.height, v.width]) add(rw, fixW(add(F('VERTICAL', 0), T(Math.round(x) + ' px', 14, 'Regular', V['text/primary'])), 160)); } } }
   // 03
   { const r = sec('03', 'Свойства и варианты', 'Оси и свойства набора в Figma. Служебные свойства в код не переносятся.'); const rows = [];
     for (const k of Object.keys(defs)) { const d = defs[k]; const name = k.split('#')[0]; let vals = '', dv = String(d.defaultValue);
       if (d.type === 'VARIANT') vals = d.variantOptions.join(' · '); else if (d.type === 'BOOLEAN') { vals = 'On · Off'; dv = d.defaultValue ? 'On' : 'Off'; }
       else if (d.type === 'INSTANCE_SWAP') { const n = await figma.getNodeByIdAsync(d.defaultValue); dv = n ? (n.parent && n.parent.type === 'COMPONENT_SET' ? n.parent.name + ' · ' + n.name : n.name) : '—'; vals = 'любой экземпляр'; } else if (d.type === 'SLOT') { vals = 'любое содержимое' + (d.preferredValues && d.preferredValues.length ? ' (предпочтительно: ' + d.preferredValues.length + ')' : ''); dv = '—'; } else vals = 'строка';
       rows.push([name, (TYPE[d.type] || d.type) + (SERVICE.includes(name) ? ' · служебное' : ''), vals, dv]); }
-    if (rows.length) table(r, [['Свойство', 300], ['Тип', 260], ['Значения', 760], ['По умолчанию', 360]], rows); else add(r, T('У компонента нет осей и свойств: один вариант.', 15, 'Regular', INK, RW)); }
+    if (rows.length) table(r, [['Свойство', 300], ['Тип', 260], ['Значения', 760], ['По умолчанию', 360]], rows); else add(r, T('У компонента нет осей и свойств: один вариант.', 15, 'Regular', INK, RW));
+    const R = roles(L); const lay = R.other.filter(a => a.options.length > 1);
+    if (lay.length) { const b = block(r, 'Раскладка и содержимое'); add(b, T('Каждая ось отдельно, остальное — как у варианта по умолчанию.', 13, 'Regular', GREY, RW));
+      for (const a of lay) { const vs = a.options.map(o => [o, pickV(L, { [a.name]: o })]).filter(x => x[1]); const wide = Math.max(...vs.map(x => x[1].width)) > 520; const cw = wide ? RW - 96 : Math.min(520, (RW - 96 - (vs.length - 1) * 24) / Math.min(vs.length, 3));
+        const st = stage(BASE, RW, 32); add(b, st); add(st, T(a.name, 13, 'Semi Bold', V['text/primary'])); const w = wrap(RW - 64, 24); w.counterAxisAlignItems = 'MAX'; add(st, w);
+        for (const [o, v] of vs) add(w, add(F('VERTICAL', 8), cap(o, 11), inst(v, cw))); } } }
   // 04
-  { const r = sec('04', 'Состояния', 'Все варианты набора в светлой и тёмной теме.'); if (S.states.length) bullets(r, S.states);
-    for (const [t, name] of [['Light', 'Светлая тема'], ['Dark', 'Тёмная тема']]) { const b = block(r, name + ' · ' + variants.length + ' ' + (variants.length % 10 === 1 && variants.length % 100 !== 11 ? 'вариант' : [2, 3, 4].includes(variants.length % 10) && ![12, 13, 14].includes(variants.length % 100) ? 'варианта' : 'вариантов')); const st = stage({ ...BASE, Theme: t }, RW); add(b, st); add(st, matrix(L, RW - 96)); } }
+  { const R = roles(L); const fixed = [R.size, ...R.other].filter(Boolean).map(a => a.name + ' = ' + L.P.get(def)[a.name]);
+    if (!R.st && !R.look.length) { if (S.states.length) bullets(sec('04', 'Состояния', 'Оси State и осей облика у набора нет.'), S.states); else skip('04 · Состояния', 'нет оси State и осей облика: варианты — в 03 «Раскладка и содержимое»'); } else {
+    const r = sec('04', R.st ? 'Состояния' : 'Варианты облика', (R.st ? 'Одна логика состояний' : 'Оси облика') + ' в светлой и тёмной теме.' + (fixed.length ? ' Срез: ' + fixed.join(', ') + '. Полная матрица — в наборе.' : '')); if (S.states.length) bullets(r, S.states);
+    for (const [t, name] of [['Light', 'Светлая тема'], ['Dark', 'Тёмная тема']]) { const b = block(r, name); const st = stage({ ...BASE, Theme: t }, RW); add(b, st); add(st, matrix(L, RW - 96)); } } }
   // 05
   { let have = SERVICE.filter(n => L.key(n) && defs[L.key(n)].type === 'BOOLEAN'); let nestedName = null;
     const svcIn = x => { try { return SERVICE.filter(n => Object.keys(x.componentProperties).some(k => k.split('#')[0] === n)); } catch (e) { return []; } };
     if (!have.length) { const probe = def.createInstance(); const nx = probe.findAll(x => x.type === 'INSTANCE').find(x => svcIn(x).length); if (nx) { nestedName = nx.name; have = svcIn(nx); } probe.remove(); }
     const target = i => nestedName ? i.findAll(x => x.type === 'INSTANCE' && x.name === nestedName)[0] : i;
     const keyOf = (x, n) => Object.keys(x.componentProperties).find(k => k.split('#')[0] === n);
-    if (have.length) { const r = sec('05', 'Зоны', 'Служебные слои: зона нажатия, кольцо фокуса, безопасное поле. Включаются свойствами, в макетах выключены.' + (nestedName ? ' У надстройки — свойства вложенной базы «' + nestedName + '».' : '')); const w = wrap(RW, 16); add(r, w);
+    if (have.length && nestedName && (def.width > 420 || def.height > 200)) skip('05 · Зоны', 'служебные слои — у вложенных компонентов (' + nestedName + '), см. их борды');
+    else if (have.length) { const r = sec('05', 'Зоны', 'Служебные слои: зона нажатия, кольцо фокуса, безопасное поле. Включаются свойствами, в макетах выключены.' + (nestedName ? ' У надстройки — свойства вложенной базы «' + nestedName + '».' : '')); const w = wrap(RW, 16); add(r, w);
       const cells = []; for (const n of have) if (n === 'Show hit area') cells.push([n, 'Web', 'Зона нажатия · указатель (Web)'], [n, 'iOS', 'Зона нажатия · касание (iOS)']); else cells.push([n, 'Web', n === 'Focus ring' ? 'Кольцо фокуса' : 'Безопасное поле']);
       const cw = def.width <= 420 ? 548 : RW;
       for (const [n, pf, label] of cells) { const st = stage({ ...BASE, Platform: pf }, cw, 32); st.counterAxisAlignItems = 'CENTER'; st.clipsContent = false; add(w, st); const lab = cap(label); add(st, lab); lab.layoutAlign = 'STRETCH'; const i = inst(def, cw - 64); add(st, i); try { const tg = target(i); tg.setProperties({ [keyOf(tg, n)]: true }); } catch (e) { errors.push('05 ' + n + ': ' + String(e.message || e).slice(0, 80)); } }
     } else skip('05 · Зоны', 'у набора нет служебных свойств Focus ring / Show hit area / Safe margin'); }
   // 06
   { const r = sec('06', 'На поверхностях', 'Компонент на уровнях L0–L3 в обеих темах: фон — `surface/current`.');
-    const reps = [def]; const ax = axes.find(a => a.name !== 'State'); if (ax) for (const o of ax.options) { if (reps.length >= 3) break; const v = variants.find(x => x !== def && L.P.get(x)[ax.name] === o && axes.every(a => a === ax || L.P.get(x)[a.name] === L.P.get(def)[a.name])); if (v) reps.push(v); }
+    const reps = [def]; const ax = roles(L).look[0]; if (ax) for (const o of ax.options) { if (reps.length >= 3) break; const v = pickV(L, { [ax.name]: o }); if (v && !reps.includes(v)) reps.push(v); }
     const mw = Math.max(...reps.map(v => v.width)); const cols = mw <= 344 ? 4 : mw <= 768 ? 2 : 1; const cw = (RW - (cols - 1) * 16) / cols;
     for (const [t, name] of [['Light', 'Светлая тема'], ['Dark', 'Тёмная тема']]) { const b = block(r, name); const w = wrap(RW, 16); add(b, w);
       for (const l of ['L0', 'L1', 'L2', 'L3']) { const st = stage({ ...BASE, Theme: t, 'Surface context': l }, cw, 24); st.itemSpacing = 16; add(w, st); add(st, cap(l)); for (const v of reps) add(st, inst(v, cw - 48)); } } }
   // 07
   if ((D.usedIn || []).length) { const r = sec('07', 'Примеры в составе', 'Где компонент вложен в другие компоненты Base: вариант по умолчанию родителя.');
-    for (const u of D.usedIn) { const ps = await figma.getNodeByIdAsync(u.id); if (!ps) { errors.push('07 нет ' + u.name); continue; } const pd = ps.type === 'COMPONENT_SET' ? (ps.defaultVariant || ps.children[0]) : ps;
+    const us = []; for (const u of D.usedIn) { const ps = await figma.getNodeByIdAsync(u.id); if (!ps) { errors.push('07 нет ' + u.name); continue; } const pd = ps.type === 'COMPONENT_SET' ? (ps.defaultVariant || ps.children[0]) : ps; us.push([u, pd]); }
+    us.sort((a, b) => a[1].width * a[1].height - b[1].width * b[1].height);
+    for (const [u, pd] of us.slice(0, 2)) {
       const b = block(r, 'Внутри ' + u.name); const st = stage(BASE, RW); st.counterAxisAlignItems = 'CENTER'; add(b, st); const pi = inst(pd, RW - 96); add(st, pi); const on = {};
       for (const x of pd.findAll(q => q.type === 'INSTANCE')) { const mc = await x.getMainComponentAsync(); if (!mc || !(mc.id === S.id || (mc.parent && mc.parent.id === S.id))) continue; for (let y = x; y && y !== pd; y = y.parent) { const ref = y.componentPropertyReferences; if (ref && ref.visible) on[ref.visible] = true; } }
       try { if (Object.keys(on).length) pi.setProperties(on); } catch (e) { errors.push('07 ' + u.name + ': ' + String(e.message || e).slice(0, 80)); } }
