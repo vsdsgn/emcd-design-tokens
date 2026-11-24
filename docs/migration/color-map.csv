@@ -110,8 +110,8 @@ Geo,Geo · S/Icon/Tertiary,,#5a5a5a,#a2a2a2,icon/secondary,Merge,D-alpha-text,
 Geo,Geo · S/Icon/Quantertiary,,#a2a2a2,#a2a2a2,icon/tertiary,Merge,D-alpha-text,
 Geo,Geo · S/Icon/Quinary,,#1470ff,#1470ff,icon/accent,Merge,D-contrast,
 Geo,Geo · C/Logo/Fill,,#181818,,icon/primary,Merge,,"монохромный логотип → icon/primary (как Logo · Style=Mono в Icons), 24.11"
-Geo,Geo · S/Status/Success,,#009945,#009945,status/success/solid,Merge,,статусы системные — у Geo был брендовый зелёный
-Geo,Geo · S/Status/Danger,,#ff5f6e,#ff5f6e,status/danger/solid,Merge,,статусы системные
+Geo,Geo · S/Status/Success,,#009945,#009945,status/success/solid,Merge,D-step,статусы системные — у Geo был брендовый зелёный; 24.11: статусы системные — значения EMCD для всех брендов
+Geo,Geo · S/Status/Danger,,#ff5f6e,#ff5f6e,status/danger/solid,Merge,D-step,статусы системные; 24.11: статусы системные — значения EMCD для всех брендов
 Geo,Geo · C/Modal/Overlay,,#00000080,,surface/overlay,Merge,,
 Geo,Geo · Pallete/Semantic/* (копия legacy Color),,,,как строки Geo App,Deprecate,,локальная копия — значения Geo (светлые); мапится как строки Geo App
 Geo,Geo · Variable collection/* (Black / Green / Bright white / Electric Blue),,,,по роли слоя,Rebind,,этап 2
@@ -134,10 +134,10 @@ Geo App,Geo App · Pallete/Brand fill hover,,#65a6ff,,action/primary/default+lay
 Geo App,Geo App · Pallete/Brand hover,,#3a8dff,,text/accent,Merge,D-contrast,
 Geo App,Geo App · Pallete/Brand disable,,#0c4399,,action/disabled,Merge,D-disabled,
 Geo App,Geo App · Pallete/Brand light,,#bcd9ff,,accent/subtle,Merge,D-step,
-Geo App,Geo App · Pallete/Red [Main],,#ff5f6e,,status/danger/solid,Merge,,статусы системные
+Geo App,Geo App · Pallete/Red [Main],,#ff5f6e,,status/danger/solid,Merge,D-step,статусы системные; 24.11: статусы системные — значения EMCD для всех брендов
 Geo App,Geo App · Pallete/Orange [Main],,#f59e0b,,status/warning/solid,Merge,,
 Geo App,Geo App · Pallete/Orange [secondary text],,#976207,,text/warning,Merge,D-contrast,
-Geo App,Geo App · Pallete/Green [Main],,#63f282,,status/success/solid,Merge,,статусы системные — у Geo был брендовый зелёный
+Geo App,Geo App · Pallete/Green [Main],,#63f282,,status/success/solid,Merge,D-step,статусы системные — у Geo был брендовый зелёный; 24.11: статусы системные — значения EMCD для всех брендов
 Geo App,Geo App · Pallete/Green [Hover],,#00cc5c,,action/success/default+layer@6,Deprecate,D-state,
 Geo App,Geo App · Pallete/Green [Secondary text],,#009945,,text/success,Merge,D-contrast,
 Geo App,Geo App · Pallete/accent base,"текстовая кнопка, каретка",#1470ff,,text/accent,Split,D-contrast,"экраны 2026-10-14: у Geo «accent» = бренд; Button Main, каретка поля"

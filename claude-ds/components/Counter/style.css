@@ -7,4 +7,4 @@
   background: var(--bg); color: var(--fg); box-shadow: inset 0 0 0 var(--border-width-default, 1px) var(--edge); }
 .emcd-counter--m { --h: var(--size-counter-height-md, 20px); padding: 0 var(--space-6, 6px); }
 .emcd-counter--accent { --bg: var(--control-checked); --fg: var(--text-on-accent); --edge: transparent; }
-.emcd-counter--danger { --bg: var(--status-danger-solid); --fg: var(--text-on-accent); --edge: transparent; }
+.emcd-counter--danger { --bg: var(--action-danger-default); --fg: var(--text-on-accent); --edge: transparent; }

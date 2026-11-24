@@ -10,6 +10,8 @@ One version covers all libraries released together. In the Figma *Publish* dialo
 
 ## [Unreleased]
 
+- **Foundations (PATCH, 24.11, «Б»):** `status/success/solid` → green/500 #43a047, `status/danger/solid` → red/500 #e53935 (обе темы, как production); `action/success/default` → green/650. **Components:** Badge Solid Success / Danger, Toast Informer Success / Danger — фон `action/success|danger/default` (белый текст ≥ 4.5).
+
 - **Foundations (MINOR):** `type/display/sm/size|line-height` 32/40 на всех ширинах + текстовый стиль Display/SM — крупные числа в компонентах. **Tooltip** — текст Label/LG 16 `text/secondary` (как production). **Code cell L** — цифра Heading/XL. **Amount XL** (код) — Display/SM.
 
 - **Modal** — заголовок Size=MD: Heading/XL вместо Display/MD (на десктопе было 48, в production 28). **Chart card** — значение Heading/XL. Превью кода — суммы с десятичной точкой. Скрипт миграции цветов `scripts/figma/color-swap.plugin.js`.

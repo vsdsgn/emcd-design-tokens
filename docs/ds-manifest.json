@@ -1040,7 +1040,7 @@
    "boards": [
     {
      "name": "Badge — борда · шаблон v3",
-     "id": "2336:12137",
+     "id": "2449:5907",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -1161,13 +1161,13 @@
      "tokens": {
       "(root)": [
        "f:accent/subtle",
+       "f:action/danger/default",
        "f:action/inverse/default",
+       "f:action/success/default",
        "f:control/checked",
        "f:skeleton/base",
-       "f:status/danger/solid",
        "f:status/danger/subtle",
        "f:status/neutral/subtle",
-       "f:status/success/solid",
        "f:status/success/subtle",
        "f:status/warning/solid",
        "f:status/warning/subtle",
@@ -13458,13 +13458,14 @@
    "boards": [
     {
      "name": "Toast — борда · шаблон v3",
-     "id": "2203:20850",
+     "id": "2449:2144",
      "v3": true,
      "sections": [
       "01 · Когда применять",
       "02 · Превью и анатомия",
       "03 · Свойства и варианты",
       "04 · Состояния",
+      "05 · Зоны",
       "06 · На поверхностях",
       "08 · Движение",
       "09 · Правила",
@@ -13476,7 +13477,6 @@
     }
    ],
    "boardMissing": [
-    "05",
     "07"
    ],
    "sets": [
@@ -13606,16 +13606,16 @@
        "minw:size/toast/min",
        "p:space/12",
        "p:space/16",
-       "p:space/20",
        "p:space/48",
+       "p:surface/padding/md",
        "r:radius/control"
       ],
       "overlay surface": [
        "effects:shadow/ambient",
        "effects:shadow/key",
-       "f:status/danger/solid",
+       "f:action/danger/default",
+       "f:action/success/default",
        "f:status/info/solid",
-       "f:status/success/solid",
        "f:status/warning/solid",
        "f:surface/inverse",
        "f:surface/raised",

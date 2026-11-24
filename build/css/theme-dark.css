@@ -58,7 +58,7 @@
   --action-danger-hover: var(--color-red-700);
   --action-danger-pressed: var(--color-red-800);
   --action-disabled: var(--color-alpha-white-8);
-  --action-success-default: var(--color-green-500);
+  --action-success-default: var(--color-green-650);
   --action-success-hover: var(--color-green-600);
   --action-inverse-default: var(--color-neutral-50);
   --action-inverse-hover: var(--color-neutral-200);
@@ -66,11 +66,11 @@
   --action-danger-subtle-default: var(--color-alpha-red-24);
   --action-danger-subtle-hover: var(--color-alpha-red-32);
   --action-danger-subtle-pressed: var(--color-alpha-red-40);
-  --status-danger-solid: var(--color-red-550);
+  --status-danger-solid: var(--color-red-500);
   --status-danger-subtle: var(--color-red-900);
   --status-danger-border: var(--color-alpha-red-48);
   --status-danger-on-subtle: var(--color-red-200);
-  --status-success-solid: var(--color-green-650);
+  --status-success-solid: var(--color-green-500);
   --status-success-subtle: var(--color-green-900);
   --status-success-border: var(--color-alpha-green-32);
   --status-success-on-subtle: var(--color-green-200);

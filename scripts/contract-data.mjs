@@ -41,7 +41,7 @@ export const DATA = [
     content: [LONG('160 (подпись 112)'), 'Иконка — только смысловая: галочка, часы, монета.', RTL],
     events: ['Нет. Удаляемый, раскрывающийся или нажимаемый — Chip, не Badge.'],
     behavior: ['Статичен. Skeleton — блик `Skeleton` (pulse при «Уменьшить движение»).'],
-    a11y: ['Текст читается как часть строки; цвет не единственный носитель смысла — текст есть всегда.', 'Контраст текста: Subtle — `status/*/on-subtle`, `accent/on-subtle` (≥ 5.7:1); Solid — `text/on-accent`, у Warning — `text/on-warning`.', 'Фокуса нет: бейдж не в порядке Tab.'],
+    a11y: ['Текст читается как часть строки; цвет не единственный носитель смысла — текст есть всегда.', 'Контраст текста: Subtle — `status/*/on-subtle`, `accent/on-subtle` (≥ 5.7:1); Solid — `text/on-accent` на `action/success|danger/default` (24.11: `status/*/solid` вернули к production #43a047 / #e53935 — для точек и иконок, белый текст на них < 4.5), у Warning — `text/on-warning`.', 'Фокуса нет: бейдж не в порядке Tab.'],
     platforms: PLATFORMS.slice(0, 1),
     accept: { audit: OK, vc: '`maxWidth 112 @label` числом (корень — `size/badge/max`)', ap: '0 (2026-11-13)' },
     migration: ['DS Web `base badge / {neutral|brand|danger|success|warning} --1.5` → Tone Neutral | Accent | Danger | Success | Warning. MAJOR 2026-11-16: тон Info удалён (Info = цвет бренда) — экземпляры Info → Accent.', 'size lg | md | sm → Size L | M | S; style tinted | filled → Style Subtle | Solid; state skeleton → State=Skeleton.', 'var `text eraseble` → Chip с Remove; `next` → Chip с Trailing icon; `text counter` → Counter; `coin` → Icon + Icon · swap (монеты — в Symbols).'],
@@ -2917,7 +2917,7 @@ export const DATA = [
     never: 'Informer и Snack на Web; Snack с крестиком или в две строки; больше 3 Toast одновременно; Toast вместо сообщения, которое должно остаться на странице.',
     anatomy: [
       'Корень: зазор `space/12`, отступы `space/12` / `space/16` / `space/20` / `space/48`, радиус `radius/control`, min-ширина `size/toast/min` (280), ширина 400 (Card) / 375 (Informer) числом.',
-      '`overlay surface` — экземпляр `_Overlay surface` (Kind=Toast): Card — `surface/raised`, обводка `border/subtle`, тени `shadow/key` + `shadow/ambient`; Informer — `status/*/solid` / `surface/inverse` (Neutral).',
+      '`overlay surface` — экземпляр `_Overlay surface` (Kind=Toast): Card — `surface/raised`, обводка `border/subtle`, тени `shadow/key` + `shadow/ambient`; Informer — Success / Danger `action/success|danger/default` (белый текст ≥ 4.5, 24.11), Info / Warning `status/*/solid`, Neutral `surface/inverse`.',
       'Card: иконка `media/status/*` → `content` (`title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) → `actions` (вложенные Button, `control/height/sm`); `timer` (Circle timer, `icon/size/sm`) и `close` (Icon button, `control/height/sm`).',
       'Snack: корень `action/inverse/default`, отступы `space/12` / `space/16`, `radius/control`, тень `shadow/key` + `shadow/ambient`; `icon` 20 (Neutral — `icon/inverse`, остальные — `status/*/solid`) → `title` (`type/label/lg`, `text/inverse`, одна строка) → `action` (Button Text M).',
       'Informer: `safe area` (`os/safe-area/top`) → `row`: `title` (`text/on-accent`; Warning — `text/on-warning`; Neutral — `text/inverse`) и `close`.',

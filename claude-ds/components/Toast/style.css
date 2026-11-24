@@ -36,9 +36,9 @@
 .emcd-toast--informer .emcd-toast__title { color: inherit; }
 .emcd-toast--informer .emcd-toast__tools { top: auto; bottom: 6px; right: 8px; }
 .emcd-toast--informer .emcd-toast__close.emcd-btn { --fg: currentColor; --layer: currentColor; }
-.emcd-toast--informer.emcd-toast--success { --bg: var(--status-success-solid); }
+.emcd-toast--informer.emcd-toast--success { --bg: var(--action-success-default); }
 .emcd-toast--informer.emcd-toast--warning { --bg: var(--status-warning-solid); --fg: var(--text-on-warning); }
-.emcd-toast--informer.emcd-toast--danger { --bg: var(--status-danger-solid); }
+.emcd-toast--informer.emcd-toast--danger { --bg: var(--action-danger-default); }
 .emcd-toast--informer.emcd-toast--neutral { --bg: var(--surface-inverse); --fg: var(--text-inverse); }
 /* Стек Toast на Web — справа сверху, не больше 3 */
 .emcd-toast-stack { position: fixed; z-index: 60; top: var(--space-16, 16px); right: var(--space-16, 16px); display: flex; flex-direction: column; gap: var(--space-8, 8px); }

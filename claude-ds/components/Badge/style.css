@@ -18,9 +18,9 @@
 /* Tone × Style=Solid — одна главная метка на карточке или экране */
 .emcd-badge--solid { --bg: var(--action-inverse-default); --fg: var(--text-inverse); }
 .emcd-badge--solid.emcd-badge--accent { --bg: var(--control-checked); --fg: var(--text-on-accent); }
-.emcd-badge--solid.emcd-badge--success { --bg: var(--status-success-solid); --fg: var(--text-on-accent); }
+.emcd-badge--solid.emcd-badge--success { --bg: var(--action-success-default); /* 24.11: белый текст ≥ 4.5; status/*/solid — как production, для точек */ --fg: var(--text-on-accent); }
 .emcd-badge--solid.emcd-badge--warning { --bg: var(--status-warning-solid); --fg: var(--text-on-warning); }
-.emcd-badge--solid.emcd-badge--danger { --bg: var(--status-danger-solid); --fg: var(--text-on-accent); }
+.emcd-badge--solid.emcd-badge--danger { --bg: var(--action-danger-default); --fg: var(--text-on-accent); }
 /* Close / Chevron — только у интерактивного бейджа; Close — отдельная кнопка с aria-label */
 /* Skeleton */
 .emcd-badge--skeleton { --bg: var(--skeleton-base); color: transparent; min-width: 56px; }

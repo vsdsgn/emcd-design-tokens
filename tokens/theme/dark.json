@@ -343,7 +343,7 @@
     "success": {
       "default": {
         "$type": "color",
-        "$value": "{color.green.500}"
+        "$value": "{color.green.650}"
       },
       "hover": {
         "$type": "color",
@@ -421,7 +421,7 @@
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "{color.red.550}"
+        "$value": "{color.red.500}"
       },
       "subtle": {
         "$type": "color",
@@ -439,7 +439,7 @@
     "success": {
       "solid": {
         "$type": "color",
-        "$value": "{color.green.650}"
+        "$value": "{color.green.500}"
       },
       "subtle": {
         "$type": "color",

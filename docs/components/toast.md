@@ -23,7 +23,7 @@
 
 ## 3. Anatomy
 - Корень: зазор `space/12`, отступы `space/12` / `space/16` / `space/20` / `space/48`, радиус `radius/control`, min-ширина `size/toast/min` (280), ширина 400 (Card) / 375 (Informer) числом.
-- `overlay surface` — экземпляр `_Overlay surface` (Kind=Toast): Card — `surface/raised`, обводка `border/subtle`, тени `shadow/key` + `shadow/ambient`; Informer — `status/*/solid` / `surface/inverse` (Neutral).
+- `overlay surface` — экземпляр `_Overlay surface` (Kind=Toast): Card — `surface/raised`, обводка `border/subtle`, тени `shadow/key` + `shadow/ambient`; Informer — Success / Danger `action/success|danger/default` (белый текст ≥ 4.5, 24.11), Info / Warning `status/*/solid`, Neutral `surface/inverse`.
 - Card: иконка `media/status/*` → `content` (`title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) → `actions` (вложенные Button, `control/height/sm`); `timer` (Circle timer, `icon/size/sm`) и `close` (Icon button, `control/height/sm`).
 - Snack: корень `action/inverse/default`, отступы `space/12` / `space/16`, `radius/control`, тень `shadow/key` + `shadow/ambient`; `icon` 20 (Neutral — `icon/inverse`, остальные — `status/*/solid`) → `title` (`type/label/lg`, `text/inverse`, одна строка) → `action` (Button Text M).
 - Informer: `safe area` (`os/safe-area/top`) → `row`: `title` (`text/on-accent`; Warning — `text/on-warning`; Neutral — `text/inverse`) и `close`.
@@ -81,8 +81,8 @@
 - Тон дублируется текстом и иконкой. Зоны нажатия и кольцо фокуса — у вложенных Button / Icon button.
 
 ## 10. Tokens
-- `корень`: заливка / цвет `action/inverse/default`; интервал `space/12`; maxw `size/toast/max`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`, `space/20`, `space/48`; радиус `radius/control`.
-- `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `status/danger/solid`, `status/info/solid`, `status/success/solid`, `status/warning/solid`, `surface/inverse`, `surface/raised`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
+- `корень`: заливка / цвет `action/inverse/default`; интервал `space/12`; maxw `size/toast/max`; мин. ширина `size/toast/min`; отступы `space/12`, `space/16`, `space/48`, `surface/padding/md`; радиус `radius/control`.
+- `overlay surface`: эффект `shadow/ambient`, `shadow/key`; заливка / цвет `action/danger/default`, `action/success/default`, `status/info/solid`, `status/warning/solid`, `surface/inverse`, `surface/raised`; радиус `radius/control`; обводка `border/subtle`; толщина обводки `border/width/default`.
 - `content`: интервал `space/10`; отступы `space/2`.
 - `title`: заливка / цвет `text/inverse`, `text/on-accent`, `text/on-warning`, `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/lg`.
 - `description`: заливка / цвет `text/secondary`; типографика `font-weight/medium`, `font/family/text`, `type/label/md`.
@@ -103,7 +103,7 @@
 
 ## 12. Figma projection
 - Набор `Toast`, вариантов 15 из 15; оси: Layout, Tone.
-- Борда: «Toast — борда · шаблон v3», разделов 11.
+- Борда: «Toast — борда · шаблон v3», разделов 12.
 - Описание: 1694 знаков, разделы: Status: Level: Layout: Когда использовать: Правила: A11y: Legacy: Токены: Поверхность —
 
 ## 13. Code projection
