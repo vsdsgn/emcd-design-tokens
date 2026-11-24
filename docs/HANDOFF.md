@@ -51,7 +51,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 Репо — источник правды по состоянию; чат может обрываться. После каждого заметного шага: обновить этот файл / OPEN-QUESTIONS, `npm run all`, commit, push.
 
 ## 24.11 — текущий этап: миграция цветов и компонентов на токены DS 2.0
-План и статус — `docs/PLAN-migration.md` (приоритет Стефана: 1) старые цвета → токены; 2) компоненты Storybook → токены; потом Цель 3). Пилот перепривязки цветов в Figma — Web Migration test, «🧪 Миграция цветов · пилот»; скрипт `scripts/figma/color-swap.plugin.js`, сборка `scripts/color-swap-build.py`. Storybook (`ds-playground`) отсюда — 403 (VPN): нужен доступ.
+План и статус — `docs/PLAN-migration.md` (приоритет Стефана: 1) старые цвета → токены; 2) компоненты Storybook → токены; потом Цель 3). Пилот перепривязки цветов в Figma — Web Migration test, «🧪 Миграция цветов · пилот»; скрипт `scripts/figma/color-swap.plugin.js`, сборка `scripts/color-swap-build.py`. Storybook (`ds-playground`) отсюда — 403 (VPN): нужен доступ. **Доски миграции (24.11):** Web Migration test — «🧭 Миграция токенов» и «🧭 Миграция компонентов»; ждём комментарии Стефана по номерам, после правок — организмы / виджеты, затем лейауты / конструкции / экраны.
 
 ## 22.11 — новый аудит компонентов (текущий этап)
 - Стефан: «назад на аудит компонентов и бордов; законченные атомы … конструкции и правила, затем экраны». Документ — `docs/audit-2026-11-22.md`, скрипт `scripts/figma/audit-v2.plugin.js`, обзорная страница Components «🔍 Аудит 22.11».
