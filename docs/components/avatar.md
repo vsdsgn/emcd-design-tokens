@@ -22,7 +22,7 @@
 - `circle` (обрезает содержимое, `radius/full`; фон `status/neutral/subtle`, у Icon — `accent/subtle`) → `initials` (`text/tertiary`, как legacy — 24.11; было `accent/on-subtle`) | `icon` (`icon/size/md`) | `image (заменить)` + `placeholder`. Type=Text — все 6 размеров (2XS и S добавлены 24.11 по production).
 - `status` — точка с обводкой `surface/current` (`border/width/strong`): на любой поверхности L0–L3 обводка совпадает с фоном.
 - Вложено: иконки ×8, `symbol/coin/bitcoin-btc` ×18, `symbol/coin/tether-usdt` ×18.
-- Служебные слои (вариантов из 42): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Служебные слои (вариантов из 46): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент; Skeleton — загрузка.
@@ -39,16 +39,16 @@
 | Network | Off · On | — |
 | State | Default · Skeleton | Default |
 
-Матрица: 42 из 96.
+Матрица: 46 из 96.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Initials | текст | «E» | 8 из 42 |
-| Status | булево | выкл | 24 из 42 |
-| Coin | замена экземпляра | `symbol/coin/bitcoin-btc` | 18 из 42 |
-| Network coin | замена экземпляра | `symbol/coin/tether-usdt` | 18 из 42 |
+| Initials | текст | «E» | 12 из 46 |
+| Status | булево | выкл | 28 из 46 |
+| Coin | замена экземпляра | `symbol/coin/bitcoin-btc` | 18 из 46 |
+| Network coin | замена экземпляра | `symbol/coin/tether-usdt` | 18 из 46 |
 
 ## 6. Content / slots
 - Initials — 1 буква; длиннее — обрезается кругом (проверено на стенде), поэтому усечение делает код до передачи.
@@ -69,20 +69,20 @@
 
 ## 10. Tokens
 - `корень`: заливка / цвет `skeleton/base`; высота `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xl`, `size/media/xs`; радиус `radius/full`; ширина `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xl`, `size/media/xs`.
-- `circle`: заливка / цвет `accent/subtle`, `status/neutral/subtle`; высота `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`; радиус `radius/full`; ширина `size/media/lg`, `size/media/md`, `size/media/xl`, `size/media/xs`.
-- `initials`: заливка / цвет `accent/on-subtle`, `text/secondary`; типографика `font-weight/bold`, `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/sm`, `type/label/md`, `type/label/sm`.
+- `circle`: заливка / цвет `accent/subtle`, `status/neutral/subtle`; высота `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xl`, `size/media/xs`; радиус `radius/full`; ширина `size/media/2xs`, `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xl`, `size/media/xs`.
+- `initials`: заливка / цвет `text/tertiary`; типографика `font-weight/bold`, `font-weight/medium`, `font/family/display`, `font/family/text`, `type/heading/sm`, `type/label/md`, `type/label/sm`.
 - `status`: заливка / цвет `status/success/solid`; обводка `surface/current`; толщина обводки `border/width/strong`.
 - `icon`: высота `icon/size/md`; ширина `icon/size/md`.
 - `image (заменить)`: заливка / цвет `accent/subtle`.
 - `placeholder`: заливка / цвет `text/accent`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - `network`: радиус `radius/full`; обводка `surface/current`; толщина обводки `border/width/strong`.
-- Значений без переменной: 16 (напр. `circle:o=0`, `network:o=0`) — размеры слоёв зон и то, что перечислено в разделе 14.
+- Значений без переменной: 18 (напр. `circle:o=0`, `network:o=0`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
 
 ## 12. Figma projection
-- Набор `Avatar`, вариантов 42 из 96; оси: Size, Type, Network, State.
+- Набор `Avatar`, вариантов 46 из 96; оси: Size, Type, Network, State.
 - Борда: «Avatar — борда · шаблон v3», разделов 12.
 - Описание: 1077 знаков, разделы: Status: Level: Type: Правила: Когда использовать: A11y: Поиск: Legacy:
 

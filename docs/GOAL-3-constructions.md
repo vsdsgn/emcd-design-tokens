@@ -51,6 +51,7 @@
 - ~~`space/section` Large 64 → 48~~ — сделано 22.11 (Foundations + репо: Expanded 40, Large 48, XLarge 64).
 
 ## Очередь на Publish Components
+- **Avatar** (24.11): Type=Text — Size 2XS 16 и S 24 (Default, Skeleton); инициалы `text/tertiary`. После Publish — повторить замену аватаров на тесте «🧪 Миграция компонентов · Web App» (Начисления: 8 буквенных аватаров).
 - **Foundations → затем Components** (24.11): новый токен `type/display/sm` + стиль Display/SM (32/40 на всех ширинах). Amount XL → Display/SM в Components — сделано 24.11 после Publish Foundations (ждёт Publish Components). Tooltip — Label/LG 16 `text/secondary` (как production); Code cell L — Heading/XL.
 - **Modal, Chart card** (24.11): заголовок модалки MD и значение Chart card — Heading/XL вместо Display/MD (на 1440 было 48 при 28 / 24–30 в production).
 - **Multiselect** (23.11): ось Label position = Above · On border (через вложенный Select), 24 варианта. После Publish — форма «Площадка — редактирование»: Multiselect на On border.
