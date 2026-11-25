@@ -16,12 +16,32 @@ async function legacy(id){ if(id in vcache) return vcache[id]; const v=await fig
 function anc(n,re){ let p=n; for(let i=0;i<8&&p;i++){ if(re.test(p.name)) return true; p=p.parent; } return false; }
 const isIcon=n=>n.type!=='TEXT'&&(['VECTOR','BOOLEAN_OPERATION','STAR','POLYGON','LINE'].includes(n.type)||anc(n,/^(ic[-_ ]|icon|ico\b|smbl)/i));
 function lum(c){ return 0.2126*c.r+0.7152*c.g+0.0722*c.b; }
-function byValue(n,prop,c,a){ const L=lum(c);
+// По значению (нет строки в карте). ARGS.theme: 'Dark' (по умолчанию) | 'Light' (WL B2B, Geometria — 25.11).
+// Насыщенный цвет (серии графиков, иллюстрации, бренд-примитивы) без строки в карте не трогаем — null, считается в keptSaturated.
+function sat(c){ return Math.max(c.r,c.g,c.b)-Math.min(c.r,c.g,c.b); }
+function byValue(n,prop,c,a){ const L=lum(c); const light=ARGS.theme==='Light';
+  if(sat(c)>0.15&&!(n.type==='TEXT'||isIcon(n))) return null;
+  if(light){
+    if(prop==='strokes') return L<0.5&&a>0.5?'border/strong':'border/subtle';
+    if(n.type==='TEXT'||isIcon(n)){ const p=n.type==='TEXT'?'text/':'icon/'; if(sat(c)>0.15) return null; if(L>0.9) return n.type==='TEXT'?'text/on-accent':'icon/on-accent'; return p+(L<0.2?'primary':L<0.45?'secondary':L<0.65?'tertiary':'disabled'); }
+    if(a<0.5) return 'surface/level-2';
+    return L>0.99?'surface/level-1':L>0.95?'surface/level-0':L>0.9?'surface/level-3':L<0.2?'surface/inverse':'action/secondary/default'; }
   if(prop==='strokes') return L>0.5&&a>0.5?'border/strong':'border/subtle';
-  if(n.type==='TEXT'||isIcon(n)){ const p=n.type==='TEXT'?'text/':'icon/'; return p+(L>0.85?'primary':L>0.55?'secondary':L>0.35?'tertiary':'disabled'); }
+  if(n.type==='TEXT'||isIcon(n)){ if(sat(c)>0.15) return null; const p=n.type==='TEXT'?'text/':'icon/'; return p+(L>0.85?'primary':L>0.55?'secondary':L>0.35?'tertiary':'disabled'); }
   if(a<0.5) return 'surface/level-2';
   return L<0.05?'surface/level-0':L<0.085?'surface/level-1':L<0.12?'surface/level-2':L<0.2?'surface/level-3':'action/secondary/default'; }
-function pick(lg,n,prop,paint){ const nm=lg.name, opts=MAP[nm];
+// Geometria (25.11): свои семантические коллекции «Collection 1» и копия legacy-палитры «Pallete :: Semantic/…».
+function geo(nm,n,prop){ const T=n.type==='TEXT', S=prop==='strokes';
+  const R=[[/^Semantic\/Text\/Primary$/,'text/primary'],[/^Semantic\/Text\/Secondary$/,'text/secondary'],[/^Semantic\/Text\/(Tertiary|Placeholder)$/,'text/tertiary'],[/^Components\/Input\/Placeholder$/,'text/tertiary'],
+   [/^Semantic\/Text\/Link$/,S?'border/accent':T?'text/link':'action/primary/default'],[/^Semantic\/Border\/Primary$/,'border/subtle'],[/^Semantic\/Border\/Secondary$/,'border/strong'],[/^Semantic\/Border\/Link$/,'border/accent'],
+   [/^Semantic\/Status\/Process$/,S?'border/accent':T?'text/accent':'accent/subtle'],[/^Semantic\/Status\/(Danger|Success|Warning)$/,null],
+   [/^Components\/Button\/Primary\/Background$/,'action/primary/default'],[/^Components\/Button\/Secondary\/Background$/,'action/secondary/default'],[/^Components\/Button\/Tertiary\/Background$/,'action/secondary/default'],[/^Components\/Logo\//,'KEEP'],
+   [/^Components\/Button\/Disabled\/Background$/,'action/disabled'],[/^Components\/Button\/Danger\/Background$/,'action/danger/default'],
+   [/^Components\/Input\/Background/,'control/surface/default'],[/^Components\/Input\/Border$/,'control/border/default'],[/^Components\/Input\/BorderTyping$/,'control/border/focus'],
+   [/^Components\/Modal\/Overlay$/,'surface/overlay'],[/^Core\/Brand\/ElectricGreen/,'highlight/solid']];
+  for(const [re,t] of R) if(re.test(nm)){ if(t) return t; const m=nm.match(/(Danger|Success|Warning)$/)[1].toLowerCase(); return 'status/'+m+'/solid'; }
+  return null; }
+function pick(lg,n,prop,paint){ const g=geo(lg.name,n,prop); if(g) return g; const nm=lg.name.replace(/^Semantic\//,''), opts=MAP[nm];
   if(nm==='Color 3 [Back]') return anc(n,/menu|dropdown|popover|tooltip|options|list ?box|select ?list/i)?'surface/raised':'surface/level-2';
   if(nm==='Brand'){ if(prop==='strokes') return 'border/accent'; if(n.type==='TEXT') return 'text/accent'; if(isIcon(n)) return 'icon/accent'; if(anc(n,/checkbox|radio|toggle|switch/i)) return 'control/checked'; return 'action/primary/default'; }
   if(nm==='surface/base'){ if(prop==='fills') return 'surface/level-2'; if(anc(n,/checkbox|radio/i)) return 'border/strong'; if(anc(n,/input|select|field|daterange|period|multiselect/i)) return 'control/border/default'; return 'border/subtle'; }
@@ -40,19 +60,19 @@ function fix(t,n,prop){ if(!t) return t;
 const root=await figma.getNodeByIdAsync(SRC);
 const ids=[root.id,...root.findAll(()=>true).map(n=>n.id)];
 const fontsLoaded=new Set();
-async function loadFonts(n){ for(const s of n.getStyledTextSegments(['fontName'])){ const k=s.fontName.family+'|'+s.fontName.style; if(!fontsLoaded.has(k)){ await figma.loadFontAsync(s.fontName); fontsLoaded.add(k);} } }
+async function loadFonts(n){ for(const s of n.getStyledTextSegments(['fontName'])){ const k=s.fontName.family+'|'+s.fontName.style; if(!fontsLoaded.has(k)){ try{ await figma.loadFontAsync(s.fontName); }catch(e){ stats.missingFont=k; } fontsLoaded.add(k);} } }
 const stats={swapped:0,already:0,raw:0,byRule:{},unmapped:{},missingTarget:{},mixedText:0};
 for(const id of ids){ const n=await figma.getNodeByIdAsync(id); if(!n){stats.gone=(stats.gone||0)+1; continue;}
   for(const prop of ['fills','strokes']){
-    const ps=n[prop]; if(ps===figma.mixed){ if(prop==='fills'&&n.type==='TEXT'){ await loadFonts(n); for(const s of n.getStyledTextSegments(['fills'])){ const nf=[]; let ch=false; for(const q of s.fills){ const b=q.boundVariables&&q.boundVariables.color; const lg=b&&await legacy(b.id); if(!lg||lg.ds2){nf.push(q);continue;} let t=pick(lg,n,prop,q); if(!t) t=byValue(n,prop,q.color,q.opacity??1); t=fix(t,n,prop); const v=await tv(t); if(!v){nf.push(q);continue;} nf.push(figma.variables.setBoundVariableForPaint({...q,opacity:q.opacity??1},'color',v)); ch=true; const key=lg.name+' → '+t+' (сегмент)'; stats.byRule[key]=(stats.byRule[key]||0)+1; stats.swapped++; } if(ch&&!DRY) n.setRangeFills(s.start,s.end,nf); } } continue; } if(!Array.isArray(ps)||!ps.length) continue;
+    let ps; try{ ps=n[prop]; }catch(e){ stats.gone=(stats.gone||0)+1; continue; } if(ps===figma.mixed){ if(prop==='fills'&&n.type==='TEXT'){ await loadFonts(n); for(const s of n.getStyledTextSegments(['fills'])){ const nf=[]; let ch=false; for(const q of s.fills){ const b=q.boundVariables&&q.boundVariables.color; const lg=b&&await legacy(b.id); if(!lg||lg.ds2){nf.push(q);continue;} let t=pick(lg,n,prop,q); if(!t) t=byValue(n,prop,q.color,q.opacity??1); if(!t){nf.push(q);continue;} t=fix(t,n,prop); const v=await tv(t); if(!v){nf.push(q);continue;} nf.push(figma.variables.setBoundVariableForPaint({...q,opacity:q.opacity??1},'color',v)); ch=true; const key=lg.name+' → '+t+' (сегмент)'; stats.byRule[key]=(stats.byRule[key]||0)+1; stats.swapped++; } if(ch&&!DRY){ try{ n.setRangeFills(s.start,s.end,nf); }catch(e){ stats.err=(stats.err||0)+1; } } } } continue; } if(!Array.isArray(ps)||!ps.length) continue;
     let changed=false; const out=[];
     for(const p of ps){ if(p.type!=='SOLID'){out.push(p);continue;}
       const b=p.boundVariables&&p.boundVariables.color;
       if(!b){ if(p.visible!==false) stats.raw++; out.push(p); continue; }
       const lg=await legacy(b.id);
       if(!lg||lg.ds2){ stats.already++; out.push(p); continue; }
-      let t=pick(lg,n,prop,p), how='map';
-      if(!t){ t=byValue(n,prop,p.color,p.opacity??1); how='value'; stats.unmapped[lg.col+' :: '+lg.name]=(stats.unmapped[lg.col+' :: '+lg.name]||0)+1; }
+      let t=pick(lg,n,prop,p), how='map'; if(t==='KEEP'){ out.push(p); continue; }
+      if(!t){ t=byValue(n,prop,p.color,p.opacity??1); how='value'; if(!t){ stats.keptSaturated=(stats.keptSaturated||0)+1; out.push(p); continue; } stats.unmapped[lg.col+' :: '+lg.name]=(stats.unmapped[lg.col+' :: '+lg.name]||0)+1; }
       t=fix(t,n,prop);
       const v=await tv(t);
       if(!v){ stats.missingTarget[t]=(stats.missingTarget[t]||0)+1; out.push(p); continue; }

@@ -10,10 +10,10 @@ const V={}; async function tv(n){ if(!key[n]) return null; if(!(n in V)){ V[n]=n
 const hx=c=>'#'+[c.r,c.g,c.b].map(x=>Math.round(x*255).toString(16).padStart(2,'0')).join('');
 function anc(n,re){ let p=n; for(let i=0;i<6&&p;i++){ if(re.test(p.name)) return true; p=p.parent; } return false; }
 const root=await figma.getNodeByIdAsync(ARGS.src); const st={bound:0,skipped:0,byRule:{},missing:{}};
-const fonts=new Set(); async function lf(n){ for(const s of n.getStyledTextSegments(['fontName'])){ const k=s.fontName.family+s.fontName.style; if(!fonts.has(k)){ await figma.loadFontAsync(s.fontName); fonts.add(k);} } }
+const fonts=new Set(); async function lf(n){ for(const s of n.getStyledTextSegments(['fontName'])){ const k=s.fontName.family+s.fontName.style; if(!fonts.has(k)){ try{ await figma.loadFontAsync(s.fontName); }catch(e){ st.missingFont=k; } fonts.add(k);} } }
 const ids=[root.id,...root.findAll(()=>true).map(n=>n.id)];
 for(const id of ids){ const n=await figma.getNodeByIdAsync(id); if(!n) continue;
- for(const prop of ['fills','strokes']){ const ps=n[prop]; if(!Array.isArray(ps)||!ps.length) continue; let ch=false; const out=[];
+ for(const prop of ['fills','strokes']){ let ps; try{ ps=n[prop]; }catch(e){ continue; } if(!Array.isArray(ps)||!ps.length) continue; let ch=false; const out=[];
   for(const p of ps){ if(p.type!=='SOLID'||p.visible===false||(p.boundVariables&&p.boundVariables.color)||(p.opacity??1)<1){ out.push(p); continue; }
    const h=hx(p.color); let t=null;
    const isVec=['VECTOR','BOOLEAN_OPERATION','STAR','POLYGON','LINE','ELLIPSE'].includes(n.type);
