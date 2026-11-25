@@ -1,5 +1,6 @@
 // Шаг 1 на странице продукта в общем файле «🟣 Migration — все продукты» (25.11): режимы DS 2.0 + перекраска + сырые hex.
 // ARGS: {page:<id страницы>, from:0, to:99 (индексы рядов «⟶ …»), dry:false}. Скрипты — текстом на странице «⚑ Скрипты миграции»:
+figma.skipInvisibleInstanceChildren = false; // иначе пропускаются слои внутри экземпляров
 // «⚑ builder · color-swap» (build/figma/color-swap.js без строки ARGS), «⚑ builder · raw-hex».
 // Режимы по продукту (имя страницы): Theme, Brand, платформа мобильных экранов (App-продукты — iOS, веб — Mobile web); Viewport по ширине.
 const P = { 'WL B2B': ['Light', 'WL Default', 'Mobile web'], 'WL B2C': ['Dark', 'WL Default', 'Mobile web'], 'Geometria App': ['Light', 'Geometria', 'iOS'], 'Geometria Web': ['Light', 'Geometria', 'Mobile web'],

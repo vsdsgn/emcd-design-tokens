@@ -83,3 +83,12 @@
 - Правки по ходу: Geometria Tertiary-кнопка (серая) → `action/secondary/default`; `Components/Logo/*` не трогаем; отсутствующий шрифт (EMCD Demo Roobert в Firmware) и «пропавшие» узлы инстансов больше не роняют скрипт.
 - Проверено глазами: Geometria Web Профиль, WL B2B вход, Monitoring регистрация, Mining Web калькулятор, Firmware дашборд, Geometria App регистрация, Mining App начисления — как оригинал.
 - Дальше: замена компонентов и иконок (builders переносятся в общий файл), Monitoring / WL / Geometria — новые карты legacy-наборов. Стефану: подключить в общем файле Foundations / Components / Icons DS 2.0.
+- Второй проход цвета (25.11): первый шёл с `skipInvisibleInstanceChildren=true` и пропускал слои внутри экземпляров (пустые чекбоксы WL B2B остались тёмными, поля Geometria — белыми). Повтор по всем 924 экранам с `false` (раннеры migrate-colors и color-cursor — курсор по экранам для больших рядов).
+
+### Шаг 1б в общем файле — компоненты и иконки (25.11)
+
+Стефан подключил Foundations / Components / Icons / Illustrations DS 2.0. На «⚑ Скрипты миграции»: builder component-swap, builder icon-swap, data icon-map, runner migrate-components (`scripts/figma/migrate-components.plugin.js`). Пройдены все страницы.
+- Заменено наборами DS Web / DS App: Button / Icon button, Select / Select compact, Search, Badge, Tab, Segmented, Chip, Menu item, Date range, Avatar; иконки legacy → DS Icons (~12 тыс.).
+- Правки скриптов: Geometria-кнопки (`Type` Secondary / Tertiary / Disabled, `IconOnly`) — свои правила; legacy Primary с серой заливкой (переключатель языка RU) → Tertiary; сегменты Segmented делят ширину (FILL); иконки без «ic» в имени (Geometria «Chevron - Left») распознаются в кнопках; на новую иконку переносится только переменная DS 2.0 (legacy Brand → icon/accent); устойчивость к «пропавшим» узлам инстансов.
+- Проверено глазами: Monitoring регистрация и устройство, Geometria Web профиль, Geometria App регистрация, WL B2B пользователи, Mining App начисления. Системные отличия: кнопки 32 вместо 36 (шкала DS), поля Geometria — заливка control/surface вместо белой с обводкой.
+- Не покрыто (нужны карты, следующий шаг): Monitoring — Sidebar item (~580), baseCheckbox (~400), tab item (~350), #Submenu tab, baseChip, .field.left / right, base overlay, Accordion, Coinhold list item, base badge status; Geometria / WL B2C — Input & Select, BottomNavi, GroupItem, Row, Currency Item, SideMenu; иконки без пары в DS — ic-arrow-repeat, ic-emcd-icon, ic-eye-open, ic-lines-menu-3, ic-close-small, ic-house, ic-profile-add, ic-calc.

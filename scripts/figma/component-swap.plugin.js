@@ -9,7 +9,8 @@ function variant(s,want){ const ok=c=>Object.entries(want).every(([a,b])=>c.vari
 function propKey(inst,base){ return Object.keys(inst.componentProperties).find(k=>k.split('#')[0]===base); }
 const fonts=new Set(); async function lf(t){ for(const s of t.getStyledTextSegments(['fontName'])){ const k=s.fontName.family+s.fontName.style; if(!fonts.has(k)){ await figma.loadFontAsync(s.fontName); fonts.add(k);} } }
 function texts(n){ return n.findAll(x=>x.type==='TEXT'&&x.visible).sort((a,b)=>a.absoluteTransform[0][2]-b.absoluteTransform[0][2]); }
-function icons(n){ return n.findAll(x=>x.type==='INSTANCE'&&x.visible&&x!==n&&/^(ic|icon|smbl)/i.test(x.name)&&x.width<=32); }
+function icons(n){ return n.findAll(x=>x.type==='INSTANCE'&&x.visible&&x!==n&&x.width<=32&&x.height<=32&&(/^(ic|icon|smbl)/i.test(x.name)||!x.findOne(t=>t.type==='TEXT'))); } // 25.11: иконки Geometria называются иначе («Chevron - Left»)
+async function fillVar(n){ const f=Array.isArray(n.fills)&&n.fills.find(p=>p.type==='SOLID'&&p.visible!==false&&p.boundVariables&&p.boundVariables.color); if(!f) return ''; const v=await figma.variables.getVariableByIdAsync(f.boundVariables.color.id); return v?v.name:''; }
 function sz(h,map){ let best=null; for(const [k,v] of map){ if(best===null||Math.abs(v-h)<Math.abs(best[1]-h)) best=[k,v]; } return best[0]; }
 const root=await figma.getNodeByIdAsync(ARGS.src); const stats={swapped:{},skipped:{},errors:[]};
 const cands=root.findAll(n=>n.type==='INSTANCE').filter(i=>{ let p=i.parent; while(p&&p!==root){ if(p.type==='INSTANCE') return false; p=p.parent; } return true; });
@@ -20,10 +21,12 @@ for(const inst of cands){ const mc=await inst.getMainComponentAsync(); if(!mc) c
  try{
   const tx=texts(inst); const label=tx[0]?tx[0].characters:''; const ic=icons(inst); const h=Math.round(inst.height), w=Math.round(inst.width);
   let want={}, after=[];
-  if(kind==='Button'){ const T=vp.Type||'Primary'; const map={'Primary':['Primary','Default'],'Secondary base':['Tertiary','Default'],'Secondary accent':['Secondary','Default'],'Stroke base':['Tertiary outline','Default'],'Stroke accent':['Tertiary outline','Default'],'Error':['Primary','Danger'],'Success':['Primary','Default'],'Link':['Text','Default'],'Text':['Text','Default'],'Text accent':['Text','Default'],'white':['Inverted','Default']}[T]||['Tertiary','Default'];
+  if(kind==='Button'){ const T=vp.Type||'Primary'; const map={'Primary':['Primary','Default'],'Secondary base':['Tertiary','Default'],'Secondary accent':['Secondary','Default'],'Stroke base':['Tertiary outline','Default'],'Stroke accent':['Tertiary outline','Default'],'Error':['Primary','Danger'],'Success':['Primary','Default'],'Link':['Text','Default'],'Text':['Text','Default'],'Text accent':['Text','Default'],'white':['Inverted','Default'],'Secondary':['Secondary','Default'],'Tertiary':['Tertiary','Default'],'Disabled':['Primary','Default']}[T]||['Tertiary','Default']; // Secondary / Tertiary / Disabled — наборы Geometria
    let size=sz(h,[['XS',24],['S',32],['M',40],['L',48]]); if(map[0]==='Text') size=h<=26?'XS':h<=36?'S':'M';
-   want={Type:map[0],Tone:map[1],Size:size,State:vp.Active==='No'?'Disabled':'Default'};
-   if(!label&&ic.length){ kind='IconButton'; const it={'Primary':'Primary','Secondary accent':'Secondary','Stroke base':'Tertiary outline','Stroke accent':'Tertiary outline','Link':'Ghost','Text':'Ghost','Text accent':'Text','white':'Inverted','Error':'Primary'}[T]||'Tertiary'; want={Type:it,Tone:T==='Error'?'Danger':'Default',Size:sz(h,[['XS',24],['S',32],['M',40],['L',48]]),Loading:'False',State:vp.Active==='No'?'Disabled':'Default'}; after=[['Icon',(await ic[0].getMainComponentAsync()).id],['Label',ic[0].name.replace(/^ic[-_]?/,'')]]; }
+   want={Type:map[0],Tone:map[1],Size:size,State:vp.Active==='No'||T==='Disabled'?'Disabled':'Default'};
+   // 25.11: legacy Primary с переопределённой серой заливкой (переключатель языка RU в Monitoring) — по факту Tertiary
+   const fv=await fillVar(inst); if(map[0]==='Primary'&&/^(surface\/|action\/secondary|action\/tertiary|control\/)/.test(fv)) want.Type='Tertiary';
+   if(!label&&ic.length){ kind='IconButton'; const it={'Primary':'Primary','Secondary accent':'Secondary','Stroke base':'Tertiary outline','Stroke accent':'Tertiary outline','Link':'Ghost','Text':'Ghost','Text accent':'Text','white':'Inverted','Error':'Primary','Secondary':'Secondary'}[T]||'Tertiary'; want={Type:it,Tone:T==='Error'?'Danger':'Default',Size:sz(h,[['XS',24],['S',32],['M',40],['L',48]]),Loading:'False',State:vp.Active==='No'?'Disabled':'Default'}; after=[['Icon',(await ic[0].getMainComponentAsync()).id],['Label',ic[0].name.replace(/^ic[-_]?/,'')]]; }
    else {
    const tl=tx[0]; const leftIc=ic.find(i=>tl&&i.absoluteTransform[0][2]<tl.absoluteTransform[0][2]); const rightIc=ic.find(i=>tl&&i.absoluteTransform[0][2]>tl.absoluteTransform[0][2]);
    after=[['Label',label],['Icon left',!!leftIc],['Icon right',!!rightIc]]; if(leftIc) after.push(['Icon left · swap',(await leftIc.getMainComponentAsync()).id]); if(rightIc) after.push(['Icon right · swap',(await rightIc.getMainComponentAsync()).id]); } }
@@ -60,6 +63,8 @@ for(const inst of cands){ const mc=await inst.getMainComponentAsync(); if(!mc) c
   if(keepW==='FILL'){ try{ inst.layoutSizingHorizontal='FILL'; }catch(e){} }
   // 24.11: legacy-кнопка шириной по контейнеру в родителе без auto layout (CTA «Начать майнить») после замены сжималась по подписи — возвращаем прежнюю ширину
   else if(oldW-inst.width>12&&kind!=='Avatar'&&kind!=='Badge'&&kind!=='BadgeApp'){ try{ inst.resize(oldW,inst.height); }catch(e){} }
+  // 25.11: сегменты legacy делят ширину поровну — в DS по умолчанию HUG
+  if(kind==='Segmented'){ try{ for(const n of inst.children) if(n.visible) n.layoutSizingHorizontal='FILL'; }catch(e){} }
   stats.swapped[kind]=(stats.swapped[kind]||0)+1;
  }catch(e){ stats.errors.push(kind+': '+String(e).slice(0,100)); } }
 return stats;
