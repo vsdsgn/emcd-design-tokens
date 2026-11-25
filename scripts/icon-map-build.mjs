@@ -10,7 +10,7 @@ const map = {}; let miss = [];
 for (const l of rows) { const [name, , , legacy] = parse(l); if (!keys[name]) { miss.push(name); continue; }
   for (const part of (legacy || '').split(/,\s*(?![^()]*\))/)) { const n = part.replace(/\s*\(\d+\)\s*$/, '').trim(); if (n && !/^\d+$/.test(n)) map[n] = keys[name]; } }
 // Ручные пары (25.11, экраны майнинга App): имени нет в аудите или оно не сводится к DS по правилу.
-const ALIAS = { ic_arrow_list: 'icon/chevron-right', ic_arrow_list_down: 'icon/chevron-down', 'ic-corner-small-down-x1': 'icon/chevron-down', 'ic-corner-small-down': 'icon/chevron-down', 'ic-info-tooltip': 'icon/info', 'ic-time': 'icon/history', ic_ethereum_classic: 'symbol/coin/ethereum-classic-etc', ic_Gram: 'symbol/coin/toncoin-ton', calculator: 'icon/calculator' };
+const ALIAS = { ic_arrow_list: 'icon/chevron-right', ic_arrow_list_down: 'icon/chevron-down', 'ic-corner-small-down-x1': 'icon/chevron-down', 'ic-corner-small-down': 'icon/chevron-down', 'ic-info-tooltip': 'icon/info', 'ic-time': 'icon/history', ic_ethereum_classic: 'symbol/coin/ethereum-classic-etc', ic_Gram: 'symbol/coin/toncoin-ton', calculator: 'icon/calculator', 'ic-kebab-horizontal-menu': 'icon/more-horizontal', 'ic-info-tooltip-small': 'icon/info', ic_group: 'icon/folder', 'ic-corner-small-down': 'icon/chevron-down' };
 for (const [l, n] of Object.entries(ALIAS)) if (keys[n]) map[l] = keys[n];
 for (const [n, k] of Object.entries(keys)) if (n.startsWith('symbol/coin/')) map['_coin:' + n.split('/').pop().split('-').pop()] = k;
 fs.writeFileSync('docs/migration/icon-map.json', JSON.stringify(map, null, 0));

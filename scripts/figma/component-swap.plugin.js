@@ -43,7 +43,7 @@ for(const inst of cands){ const mc=await inst.getMainComponentAsync(); if(!mc) c
    const grab=n=>{ if(!n||!('children' in n)) return []; return n.children.filter(c=>c.visible).map(c=>{ const k=c.clone(); figma.currentPage.appendChild(k); k.visible=false; return k; }); };
    mi={label:lab?lab.characters:label,desc:des?des.characters:'',lead:grab(la),trail:grab(rs)}; }
   if(kind==='Avatar'){ want={Size:sz(w,[['2XS',16],['XS',20],['S',24],['M',32],['L',40],['XL',56]]),Type:'Text',Network:'Off',State:'Default'}; after=[['Initials',label||'A']]; }
-  if(kind==='Tab'){ want={Size:sz(h,[['S',40],['M',48],['L',56]]),Selected:vp.selected==='true'?'On':'Off',State:'Default'}; after=[['Label',label],['Counter',tx.length>1]]; }
+  if(kind==='Tab'){ want={Size:sz(h,[['S',32],['M',48],['L',56]]),Selected:vp.selected==='true'?'On':'Off',State:'Default'}; after=[['Label',label],['Counter',tx.length>1]]; }
   if(kind==='Badge'){ const tone={neutral:'Neutral',brand:'Accent',danger:'Danger',success:'Success',warning:'Warning'}[(sname.match(/\/ (\w+)/)||[])[1]]||'Neutral'; want={Size:{sm:'S',md:'M',lg:'L'}[vp.size]||sz(h,[['XS',16],['S',20],['M',24],['L',32]]),Tone:tone,Style:vp.style==='filled'?'Solid':'Subtle',State:'Default',Content:'Text'}; after=[['Label',label]]; }
   const s=await set(kind); const v=variant(s,want); if(!v){ stats.errors.push(kind+' нет варианта '+JSON.stringify(want)); continue; }
   if(ARGS.dry){ stats.swapped[kind]=(stats.swapped[kind]||0)+1; continue; }
