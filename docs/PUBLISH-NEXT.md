@@ -11,8 +11,14 @@
 
 После Publish: в Web Migration test принять обновление библиотеки; агент повторит замену аватаров на «🧪 Миграция компонентов · Web App».
 
-## Foundations — `v0.3.x — статусы как production: success #43a047, danger #e53935`
+## ~~Foundations~~ (опубликовано 24.11) — `v0.3.x — статусы как production: success #43a047, danger #e53935`
 - `status/success/solid` → green/500, `status/danger/solid` → red/500, `action/success/default` → green/650.
 
-## Components (после Foundations) — `v0.3.x — Badge Solid и Toast Informer: фон action/success|danger`
+## ~~Components~~ (опубликовано 24.11) — `v0.3.x — Badge Solid и Toast Informer: фон action/success|danger`
 - Badge Solid Success / Danger, Toast Informer Success / Danger → `action/success|danger/default`.
+
+## Icons — `v0.x — icon/home: исправлен контур (дверь была у верхнего края)`
+- `icon/home` — глиф пересобран по Lucide house в тех же границах 15 × 15.8, привязки обводки (цвет, толщина) сохранены. Было видно как «лист с загнутым углом» в Tab bar App и Sidebar.
+- Код: `icons/svg/home.svg` исправлен тем же контуром (уже в репо).
+
+После Publish: в файлах Migration test принять обновление Icons.

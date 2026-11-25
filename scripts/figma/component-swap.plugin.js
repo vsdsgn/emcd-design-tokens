@@ -47,7 +47,8 @@ for(const inst of cands){ const mc=await inst.getMainComponentAsync(); if(!mc) c
   if(kind==='Badge'){ const tone={neutral:'Neutral',brand:'Accent',danger:'Danger',success:'Success',warning:'Warning'}[(sname.match(/\/ (\w+)/)||[])[1]]||'Neutral'; want={Size:{sm:'S',md:'M',lg:'L'}[vp.size]||sz(h,[['XS',16],['S',20],['M',24],['L',32]]),Tone:tone,Style:vp.style==='filled'?'Solid':'Subtle',State:'Default',Content:'Text'}; after=[['Label',label]]; }
   const s=await set(kind); const v=variant(s,want); if(!v){ stats.errors.push(kind+' нет варианта '+JSON.stringify(want)); continue; }
   if(ARGS.dry){ stats.swapped[kind]=(stats.swapped[kind]||0)+1; continue; }
-  const keepW=inst.layoutSizingHorizontal, oldW=inst.width; inst.swapComponent(v); inst.resetOverrides(); // переопределения legacy-корня (заливки, обводки) не переносим
+  const keepW=inst.layoutSizingHorizontal, oldW=inst.width, pos=inst.layoutPositioning, ox=inst.x, oy=inst.y, op=inst.opacity; inst.swapComponent(v); inst.resetOverrides(); // переопределения legacy-корня (заливки, обводки) не переносим
+  if(pos==='ABSOLUTE'){ try{ inst.layoutPositioning='ABSOLUTE'; inst.x=ox; inst.y=oy; }catch(e){} } inst.opacity=op; // 25.11: resetOverrides сбрасывал ABSOLUTE (бейдж «Новое» съезжал под текст) и прозрачность
   const props={}; for(const [b,val] of after){ const k=propKey(inst,b); if(k) props[k]=val; } if(Object.keys(props).length) inst.setProperties(props);
   if(kind==='MenuItem'&&mi){ const row=inst.exposedInstances.find(e=>e.name==='_List row'); if(row){ const rp={}; const k=b=>Object.keys(row.componentProperties).find(x=>x.split('#')[0]===b);
     rp[k('Label')]=mi.label; if(mi.desc){ rp[k('Description')]=mi.desc; rp[k('Show description')]=true; } else rp[k('Show description')]=false;
