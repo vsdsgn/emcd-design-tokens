@@ -1,7 +1,7 @@
 Уровень,Production (legacy),DS 2.0,Статус,Как сделать,Всего,Правило / отличие от production,Mining Web,Mining App,Monitoring,WL B2B,WL B2C,Geometria Web,Geometria App,Mining US,Firmware
 Атом,baseButton · Button (DS Web / DS App / Geometria),Button / Icon button,заменено,,2155,"Type: Secondary base → Tertiary, Stroke → Tertiary outline, Error → Primary Danger, Link / Text → Text; Geometria Secondary / Tertiary / Disabled; размер 24 / 32 / 40 / 48 по высоте (36 → 32, шкала DS); без подписи → Icon button; серый Primary → Tertiary",645,395,602,106,147,134,40,54,32
 Атом,Links,Button · Type=Text,заменено,[пример в ячейке: Button],113,"решение 26.11: ссылка-действие — текстовая кнопка, отдельного Link нет",17,62,,,4,6,8,16,
-Атом,Переключатель языка RU / EN (кнопка с серой заливкой поверх),Select compact,заменено,добавить размеры как у кнопок и полей,207,правило: Button не перекрашиваем; язык — Select compact,22,29,93,26,27,,2,4,4
+Атом,Переключатель языка RU / EN (кнопка с серой заливкой поверх),Select compact,заменено,"добавить размеры как у кнопок и полей, а ещё разве этот селектор не вариант селектора на базе инпута? надо бы их как то объединить может или это даже вариант кнопки, раз это кнопка с дропдауном, как будто не нужен нам отдельный компонент",207,правило: Button не перекрашиваем; язык — Select compact,22,29,93,26,27,,2,4,4
 Атом,base badge / <tone> · Badge (App),Badge,заменено,,825,neutral / brand / danger / success / warning → Neutral / Accent / Danger / Success / Warning; filled → Solid,161,196,221,,212,6,,16,13
 Атом,base badge counter · сounter · Counter badge,Badge · Content=Number,заменено,[пример в ячейке: Badge],20,Counter слит в Badge (22.11),6,4,,,10,,,,
 Атом,base badge status (точка 8 px),Status без подписи,заменено,"не понимаю, тут точка должна быть или точка + подпись",36,,14,,1,,21,,,,
@@ -9,43 +9,43 @@
 Атом,baseCheckbox · checkbox · Checkbox,Checkbox (без подписи),заменено,"вернуть стиль чекбокса и скругление, почему мы сравниваем разные стейты, избавиться от дробных значений [пример в ячейке: Checkbox]",557,"рамка видна всегда, в таблицах тоже (решение 26.11); legacy with box=false (рамка при наведении) не переносим",28,55,396,61,11,4,1,,1
 Атом,baseToggle · toggle,Toggle (без подписи),заменено,"вернуть стиль тогла и уменьшить текст, почему мы сравниваем разные стейты",187,включённый — accent (как в DS),129,8,9,5,18,,,18,
 Атом,base tab item · tab item · tabs/x · navbar-item · #Submenu tab · Menu Item (Geometria),Tab,заменено,,1267,S 32 / M 48 / L 56 по высоте; подменю — M,588,49,546,,26,29,4,25,
-Атом,baseChip / base --1.5 · Period selector item,Chip,заменено,,434,,125,95,138,18,39,12,,7,
+Атом,baseChip / base --1.5 · Period selector item,Chip,заменено,[пример в ячейке: Chip],434,,125,95,138,18,39,12,,7,
 Атом,base avatar / single · avatar,Avatar,заменено,,41,,9,,7,25,,,,,
 Атом,Separator,Divider,заменено,,23,,12,1,9,,1,,,,
-Молекула,input · baseInput · Input · Input & Select · input & select · Selector + Input · Select White,Input / Select / Search / Password field,заменено,"сравниваем селект с инпутом, нужно поправить стейт",752,"Size M 40 / L 48 (решение 26.11; в продуктах 56 и 64); подпись всегда видна — на рамке (плейсхолдер её не заменяет); с шевроном → Select, с лупой → Search, с глазом → Password field (вложенный Input открыт, Publish 26.11 — размер и подпись как у соседних полей); в Light — белое с обводкой",239,106,70,28,33,178,52,13,33
+Молекула,input · baseInput · Input · Input & Select · input & select · Selector + Input · Select White,Input / Select / Search / Password field,заменено,"сравниваем селект с инпутом, нужно поправить стейт и видимо иметь вохможность отключать тайтл, а может сразу выбирать один из вариантов: инпут, селект, поиск, дейтпикер и тд, но с доступом к настройкам пока не знаю как лучше [пример в ячейке: Input]",752,"Size M 40 / L 48 (решение 26.11; в продуктах 56 и 64); подпись всегда видна — на рамке (плейсхолдер её не заменяет); с шевроном → Select, с лупой → Search, с глазом → Password field (вложенный Input открыт, Publish 26.11 — размер и подпись как у соседних полей); в Light — белое с обводкой",239,106,70,28,33,178,52,13,33
 Молекула,Selector small · dropdown,Select compact,заменено,это тот же компонет что select compact — ok,324,,71,38,114,14,82,,1,4,
 Молекула,Search,Search,заменено,"это как будто бы просто модифицированный инпут, надо слить",81,,39,4,11,26,,,1,,
 Молекула,Dropdown item,Menu item,заменено,сравнивать стейты корректно [пример в ячейке: Menu item],186,,136,14,30,6,,,,,
-Молекула,DateRange.Field,Date range field,заменено,,27,,15,3,2,,7,,,,
-Молекула,base segmented picker group,Segmented,заменено,,74,сегменты делят ширину поровну (набор исправлен и опубликован 26.11),57,2,7,,8,,,,
-Молекула,Accordion · accordion --1.5,Accordion,заменено,,201,"Open = !Collapsed; текст раскрытого — в слот; M на Compact, L на Web",68,102,17,,,5,5,4,
+Молекула,DateRange.Field,Date range field,заменено,"сделать вёрстку внутри как в оригинале, чтобы поля дат разводились, заменить иконку календаря на оригинальную [пример в ячейке: DateRange.Field]",27,,15,3,2,,7,,,,
+Молекула,base segmented picker group,Segmented,заменено,"вижу что компонент swith это тоже самое, их надо смёрджить, а размеры относительно высоты как у инпутов/кнопок и тд",74,сегменты делят ширину поровну (набор исправлен и опубликован 26.11),57,2,7,,8,,,,
+Молекула,Accordion · accordion --1.5,Accordion,заменено,убрать подложку у стрелочки [пример в ячейке: Accordion],201,"Open = !Collapsed; текст раскрытого — в слот; M на Compact, L на Web",68,102,17,,,5,5,4,
 Молекула,List (App) · Coinhold-строки в App · строки с toggle,List item M · Toggle M,заменено,,330,Amount справа (сумма начисления зелёная — Amount Positive); строка с toggle → Toggle с описанием,,316,,,,,,14,
 Организм,"tabs (App, полоса tabs/x)",Tabs M,заменено,,41,вкладки делят ширину или прокрутка; подпись 14 вместо 16 (Tabs M),,41,,,,,,,
 Иконка,ic-* · smbl-* · монеты,DS Icons · symbol/coin,заменено,,22059,"размер прежний, цвет — переменная DS; +35 алиасов 26.11 (corner-small → chevron, profile → user …); соцсети и магазины → Logo (Mono), icon/social и icon/store удалены 26.11; знак EMCD — Brand logo",9982,3047,4631,531,1215,1353,297,655,348
 Атом,avatar group line,Avatar group,заменено,,100,"Person: Count 2 / 3 / 4, Size S — набор дополнен и опубликован 26.11; размер по аватару (XS 20 · S 24 · M 32 · L 40), нахлёст 20 %; в коде — AvatarGroup (React / Vue)",63,12,3,,13,,,9,
 Атом,baseRadio · Radiogroup · Radio,Radio · List item + Radio,нужна карта,,90,,13,74,2,,,1,,,
-Атом,Switch · baseCheckbox with text,Toggle · Checkbox с подписью,нужна карта,,12,,5,6,,,,1,,,
-Атом,badge/30px · table / badge · .🔸 badge,Badge,нужна карта,,19,,8,10,,,1,,,,
-Атом,Button / Desktop · Buttons / Desktop-tablet · Button / Mobile · button float · button xsmall,Button / Icon button / Floating button,нужна карта,,132,ещё один legacy-набор кнопок майнинга (Type / Size / Icon / State),114,10,,,,3,,5,
-Атом,baseCircleLoader · base divider layout · empty state,Progress circle · Divider · Empty state,нужна карта,,11,,8,2,1,,,,,,
+Атом,Switch · baseCheckbox with text,Toggle · Checkbox с подписью,нужна карта,"поправить вёрстку, про то что это segmented я уже написал в другой ячейке [пример в ячейке: Segmented]",12,,5,6,,,,1,,,
+Атом,badge/30px · table / badge · .🔸 badge,Badge,нужна карта,"это тот же бейдж, надо объединять [пример в ячейке: Badge]",19,,8,10,,,1,,,,
+Атом,Button / Desktop · Buttons / Desktop-tablet · Button / Mobile · button float · button xsmall,Button / Icon button / Floating button,нужна карта,button icon/ floating button etc делаем таких же размеров (высот) как и остальные контролы),132,ещё один legacy-набор кнопок майнинга (Type / Size / Icon / State),114,10,,,,3,,5,
+Атом,baseCircleLoader · base divider layout · empty state,Progress circle · Divider · Empty state,нужна карта,"компонент такой есть, но как заведён в дс я хз",11,,8,2,1,,,,,,
 Молекула,base segmented picker item / text (без группы) · SegmentedPicker · ViewSelector,Segmented,нужна карта,,99,одиночные сегменты собрать в Segmented по родителю,6,,45,31,6,11,,,
-Молекула,Input amount · input amount · search · Dropdown · Slider,Input amount · Search · Select · Slider,нужна карта,,17,,9,8,,,,,,,
-Молекула,base notification · Notifications · Notification Center · informer,Toast · Notification,нужна карта,,23,,5,3,7,2,2,3,1,,
-Молекула,tooltip · base tooltip · tooltip tour · Onboarding tooltip,Tooltip · Tooltip tour,нужна карта,,19,,13,2,3,,,,,,1
-Молекула,Step Trail · Step Text · Step Symbol · slider counter,Step progress · Step,нужна карта,,8,,,,8,,,,,,
-Молекула,base Banner --2.0 · baseCard / banner,Suggest,нужна карта,,2,Banner и Alert в DS 2.0 — deprecated (→ Suggest / Toast),1,,,,,,,,1
-Часть,.field.left · .field.right · #corner input · .period,слоты Input (Leading / Trailing),решить,,277,остатки рядом с заменёнными полями: удалить или перенести в слот,35,28,138,35,39,1,1,,
-Часть,Content · Left · Right · Left addon · Right slot · label · .text (части строк),слоты List item,вместе с List item,,674,уходят вместе со строкой,265,239,57,4,30,65,,14,
-Организм,Coinhold list item · Row · Cell · Summ item · CH card · List · list,List item · Card,нужна карта,,113,,20,28,10,,,44,11,,
+Молекула,Input amount · input amount · search · Dropdown · Slider,Input amount · Search · Select · Slider,нужна карта,нет у нас в майнинге такого организма (это точно не молекула уже),17,,9,8,,,,,,,
+Молекула,base notification · Notifications · Notification Center · informer,Toast · Notification,нужна карта,"текст не сокращаем, справа делаем опции действий (кнопка/иконка закрыть или даже всё вместе и тд). так же нужны правила по кол-ву контента [пример в ячейке: Toast]",23,,5,3,7,2,2,3,1,,
+Молекула,tooltip · base tooltip · tooltip tour · Onboarding tooltip,Tooltip · Tooltip tour,нужна карта,уменьшить шрифт [пример в ячейке: Tooltip],19,,13,2,3,,,,,,1
+Молекула,Step Trail · Step Text · Step Symbol · slider counter,Step progress · Step,нужна карта,не вижу до/после,8,,,,8,,,,,,
+Молекула,base Banner --2.0 · baseCard / banner,Suggest,нужна карта,не вижу до/после,2,Banner и Alert в DS 2.0 — deprecated (→ Suggest / Toast),1,,,,,,,,1
+Часть,.field.left · .field.right · #corner input · .period,слоты Input (Leading / Trailing),решить,не вижу до/после,277,остатки рядом с заменёнными полями: удалить или перенести в слот,35,28,138,35,39,1,1,,
+Часть,Content · Left · Right · Left addon · Right slot · label · .text (части строк),слоты List item,вместе с List item,"это всё смерджить в list item, там могут быть разные вариации",674,уходят вместе со строкой,265,239,57,4,30,65,,14,
+Организм,Coinhold list item · Row · Cell · Summ item · CH card · List · list,List item · Card,нужна карта,не вижу до/после,113,,20,28,10,,,44,11,,
 Организм,tabs · tabs / fix · Navigation submenu · base tabbar --1.5 · navbar-lvl-2 · navbar tab · Tab menu,Tabs,нужна карта,,140,"контейнеры, где вкладки не tabs/x; полоса Web — Tabs L, подменю — второй уровень",46,35,9,,34,5,3,8,
-Организм,sidebar / default · sidebar · .🔸 fm sidebar · SideMenu · Sidebar banner,Sidebar,нужна карта,,172,баланс и кнопки CHW — вне DS (решение); бейджи пунктов — в Nav item,146,,1,,,17,,6,2
-Организм,Navbar mobile · Navbar desktop · Toolbar · navigation bar · //title · Header · Headers / Main pages,Top bar · Page header,нужна карта,,170,,83,53,1,,2,27,,3,1
-Организм,tabbar · --2.0-- tabbar · ic_tabbar_stage · BottomNavi,Tab bar,нужна карта,,130,,6,96,,,,14,9,5,
-Организм,base modal header / footer · modal content · Modal bar · modal footer · Modal · Mobile Modal,Modal (Web) · Sheet (App),нужна карта,,148,legacy собран из отдельных частей,43,62,27,3,6,5,2,,
+Организм,sidebar / default · sidebar · .🔸 fm sidebar · SideMenu · Sidebar banner,Sidebar,нужна карта,"не вижу до/после, если смотреть на base, то ±ок но нужно убрать кнопку подключения и поменять логотип на брендовый, отработать отступы/стейты menu item и того что может лежать внутри при этом заложить правила поведения, фейды, разную высоту, что может располагаться сверху/снизу к expressive есть вопросы, эффекты переносятся некорректно",172,баланс и кнопки CHW — вне DS (решение); бейджи пунктов — в Nav item,146,,1,,,17,,6,2
+Организм,Navbar mobile · Navbar desktop · Toolbar · navigation bar · //title · Header · Headers / Main pages,Top bar · Page header,нужна карта,"тут нужно разводить, у нас есть несколько хэдеров для веба (десктоп/моб) и для приложений тоже самое с navbar/tabbar etc",170,,83,53,1,,2,27,,3,1
+Организм,tabbar · --2.0-- tabbar · ic_tabbar_stage · BottomNavi,Tab bar,нужна карта,не вижу до/после,130,,6,96,,,,14,9,5,
+Организм,base modal header / footer · modal content · Modal bar · modal footer · Modal · Mobile Modal,Modal (Web) · Sheet (App),нужна карта,"тут что-то непонятное, почему-то хэдер мобильной модалки заменяем на целую вебовскую модалку",148,legacy собран из отдельных частей,43,62,27,3,6,5,2,,
 Организм,base overlay · overlay · Overlay,surface/overlay (подложка),нужна карта,,123,"прямоугольник с токеном, компонента не нужно",25,16,52,12,15,,,,3
-Организм,cell · line · stroke · table / * · table title / * · header-table,Table cell · Table row · Table header cell,нужна карта,,686,таблицы майнинга Web,672,,,,,,,14,
-Виджет,Account · StatisticCard · Currency Item · Profile block · AuthorizationWidget · SettingsVerification · GroupItem · TaskCard,Stat card · Balance widget · конструкции,решить,,86,продуктовые виджеты: собрать из DS или оставить продукту,18,,3,,2,55,8,,
-Иконка,icon · #icon · ic-* без пары в DS,DS Icons,решить,,477,нет в Icons: добавить или подобрать замену,90,173,109,30,62,,2,9,2
+Организм,cell · line · stroke · table / * · table title / * · header-table,Table cell · Table row · Table header cell,нужна карта,показываешь разные компоненты,686,таблицы майнинга Web,672,,,,,,,14,
+Виджет,Account · StatisticCard · Currency Item · Profile block · AuthorizationWidget · SettingsVerification · GroupItem · TaskCard,Stat card · Balance widget · конструкции,решить,это разные виджеты,86,продуктовые виджеты: собрать из DS или оставить продукту,18,,3,,2,55,8,,
+Иконка,icon · #icon · ic-* без пары в DS,DS Icons,решить,"icons и тд заменяем на нашу новую либу конечно же, кстати там всё ещё надо прибираться в структуре и вложенностях, а именно упрощать навигацию и избавляться от субпапок по самим иконкам в base мы используем lucide, но в каждом бренде могут быть свои, вот например в emcd mining уникальные иконки, желательно подтащить их из старых библиотек",477,нет в Icons: добавить или подобрать замену,90,173,109,30,62,,2,9,2
 —,base EMCD Logo · Logotype · ic-emcd-icon,логотип / Nav icon (Expressive),оставить,,535,бренд,65,291,128,,,17,7,23,4
-—,home indicator · status bar · Keyboard · Cursor · hand,системное (iOS / макет),оставить,,460,,62,270,21,5,2,38,47,15,
-—,.Onboarding image · .app icon · picture slot · Photo · Iconly Pro · .chart · Chip (Firmware),иллюстрации,оставить,,212,,46,31,15,,1,10,1,7,101
+—,home indicator · status bar · Keyboard · Cursor · hand,системное (iOS / макет),оставить,все системные обвязки для разных платформ нужно затащить,460,,62,270,21,5,2,38,47,15,
+—,.Onboarding image · .app icon · picture slot · Photo · Iconly Pro · .chart · Chip (Firmware),иллюстрации,оставить,"для иллюстраций теперь библиотека с разбивкой по брендам, как и для иконок но база у нас всегда одна — Base",212,,46,31,15,,1,10,1,7,101
