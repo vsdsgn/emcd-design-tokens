@@ -6,7 +6,7 @@
 // base tabbar --1.5 · navbar-lvl-2 · tabs / fix · tabs (Web) · Tab menu · TabMenu → Tabs: пункты — вложенные tab item / //Tab / navbar tab; размер по высоте (S 32 · M 48 · L 56 · Page 64).
 // baseRadio → Radio без подписи.
 figma.skipInvisibleInstanceChildren = false;
-const K = { Button: '2be8e84200d3048665f4264661a03d47dc58a2b6', IconButton: '316b6554fa0dc6bbb5e07253c6cb92296f62bc44', Tabs: '2663ccdd7adbf5bca76c0e6703952656ca387001', Radio: '7888491bce9f0e35fb6290533e029cf2de842f1b' };
+const K = { Button: '2be8e84200d3048665f4264661a03d47dc58a2b6', IconButton: '316b6554fa0dc6bbb5e07253c6cb92296f62bc44', Tabs: '2663ccdd7adbf5bca76c0e6703952656ca387001', Radio: '7888491bce9f0e35fb6290533e029cf2de842f1b', Chip: '3f74c25f9995add339d0ee560df0f6d00addc344', Segment: '498a3bdf5954fd9f36988dbed26ca36dbd8e02cd' };
 const THEME = '663c113f032f46cf39f7641bd6a67133805a2142';
 const SETS = {}; async function set(k) { for (let i = 0; i < 4 && !SETS[k]; i++) { try { SETS[k] = await figma.importComponentSetByKeyAsync(K[k]); } catch (e) {} } return SETS[k]; }
 const variant = (s, want) => s.children.find((c) => Object.entries(want).every(([a, b]) => c.variantProperties[a] === b)) || null;
@@ -27,6 +27,9 @@ const KIND = (s) => {
   if (/^(base overlay|overlay|Overlay)$/.test(s)) return 'Overlay';
   if (/^(base tabbar --1\.5|navbar-lvl-2|tabs \/ fix|Tab menu|TabMenu)$/.test(s)) return 'Tabs';
   if (s === 'baseRadio') return 'Radio';
+  // 26.11: Radiogroup (App, Active / Size) — это чип периода с метой («360 дней · 7%») → Chip; одиночные сегменты (группа-фрейм на 5–6 пунктов) → Segment
+  if (s === 'Radiogroup') return 'Chip';
+  if (/^base segmented picker item \//.test(s)) return 'Segment';
   return null; };
 const root = await figma.getNodeByIdAsync(ARGS.src); const st = { swapped: {}, skipped: {}, errors: [] };
 const cands = root.findAll((n) => n.type === 'INSTANCE').filter((i) => { let p = i.parent; while (p && p !== root) { if (p.type === 'INSTANCE') return false; p = p.parent; } return true; });
@@ -47,6 +50,8 @@ for (const inst of cands) { try {
     else { S = await set('Button'); v = variant(S, { Type: type, Tone: danger ? 'Danger' : 'Default', Size: size, State: dis ? 'Disabled' : 'Default' }) || variant(S, { Type: type, Tone: 'Default', Size: 'L', State: dis ? 'Disabled' : 'Default' });
       props = { Label: label }; if (ic) { const left = !tx[0] || ic.absoluteTransform[0][2] < tx[0].absoluteTransform[0][2]; props[left ? 'Icon left' : 'Icon right'] = true; props[(left ? 'Icon left' : 'Icon right') + ' · swap'] = (await dsIcon(ic)).id; } } }
   if (kind === 'Radio') { S = await set('Radio'); v = variant(S, { Status: on(vp.active) ? 'On' : 'Off', Tone: on(vp.danger) ? 'Danger' : 'Default', Size: 'M', 'Control position': 'Start', State: on(vp.disable) ? 'Disabled' : 'Default' }); }
+  if (kind === 'Chip') { if (!('Active' in vp)) continue; const tx = texts(inst); S = await set('Chip'); v = variant(S, { Size: h <= 34 ? 'S' : 'M', Selected: on(vp.Active) ? 'On' : 'Off', State: 'Default' }); props = { Label: tx[0] ? tx[0].characters : '', Meta: tx.length > 1, 'Meta text': tx[1] ? tx[1].characters : '' }; }
+  if (kind === 'Segment') { const tx = texts(inst); S = await set('Segment'); v = variant(S, { Size: sz(h, [['S', 32], ['M', 40], ['L', 48]]), Selected: on(vp.active) ? 'On' : 'Off', Tone: 'Neutral', State: 'Default' }); props = { Label: tx[0] ? tx[0].characters : '', 'Show label': !!tx[0] }; }
   let items = null;
   if (kind === 'Tabs') { items = inst.findAll((x) => x.type === 'INSTANCE' && x.visible && /tab/i.test(x.name) && x.findOne((t) => t.type === 'TEXT' && t.visible))
       .filter((x) => !x.parent || !/tab/i.test(x.parent.name) || x.parent === inst || x.parent.type !== 'INSTANCE')
@@ -68,7 +73,7 @@ for (const inst of cands) { try {
     const tabs = inst.children.filter((c) => c.type === 'INSTANCE' && c.visible);
     tabs.forEach((tb, j) => { const it = items[j]; if (!it) return; const p = {}; const l = pk(tb, 'Label'), se = pk(tb, 'Selected'), c = pk(tb, 'Counter'); if (l) p[l] = it.label; if (se) p[se] = it.on ? 'On' : 'Off'; if (c) p[c] = false; tb.setProperties(p); }); }
   if (keepW === 'FILL') { try { inst.layoutSizingHorizontal = 'FILL'; } catch (e) {} }
-  else if (kind === 'Tabs' || (kind === 'Button' && oldW - inst.width > 12)) { try { inst.resize(oldW, inst.height); } catch (e) {} }
+  else if (kind === 'Tabs' || kind === 'Segment' || (kind === 'Button' && oldW - inst.width > 12)) { try { inst.resize(oldW, inst.height); } catch (e) {} }
   // 26.11: в родителе без auto layout позиция после замены съезжала (кнопка «Создать аккаунт») — возвращаем
   if (pos !== 'ABSOLUTE' && (!par.layoutMode || par.layoutMode === 'NONE')) { inst.x = ox; inst.y = oy; }
   st.swapped[kind] = (st.swapped[kind] || 0) + 1;
