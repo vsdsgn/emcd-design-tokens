@@ -35,7 +35,7 @@
 - Группа модели состояний (`docs/components.md`): Поле: Hover — обводка `control/border/hover` + слой `state/layer` × `state/hover`; Pressed нет; Focus — обводка `control/border/focus` + кольцо; Disabled — токены `*/disabled`; Skeleton — загрузка (всё из `_Field base`).
 - Default — плейсхолдер `text/tertiary`, рамка `control/border/default`.
 - Hover — обводка `control/border/hover` (нейтральная, плотнее) и слой `state/layer` × `state/hover`.
-- Focus — рамка `control/border/focus` и каретка; с клавиатуры — ещё кольцо фокуса.
+- Focus — рамка `control/border/focus` и каретка; с клавиатуры — ещё кольцо фокуса. Каретка во всех полях (Input, Select, Code cell) — 2 px, скругление 1, цвет бренда `border/accent` (2026-11-26).
 - Filled — значение `text/primary`.
 - Error — рамка `control/border/error`, подсказка `text/danger`: текст ошибки — что сделать.
 - Disabled — фон `control/surface/disabled`, все тексты `text/disabled`; причина — рядом.

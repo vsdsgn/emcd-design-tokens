@@ -16,13 +16,13 @@
   - Tone: Neutral — по умолчанию (`surface/raised`); Accent — предложение и информационное объявление (`accent/subtle`; тона Info нет — Info = цвет бренда, 2026-11-16); Success, Warning, Danger — системное объявление (`status/*/subtle`).
   - Primary action / Secondary action: 0, 1 или 2 кнопки; Secondary action без Primary action не включается. Ряд кнопок скрывается вместе с Primary action (13.11).
   - Show title / Show description: хотя бы одно включено. Show leading — левый блок вкл / выкл; Leading — слот: по умолчанию иконка тона, можно логотип продукта или монету (Coin) (слот с 2026-11-16). Close — крестик, если сообщение можно скрыть.
-  - Основная кнопка: на Neutral — Secondary, на Accent и тонах Success / Warning / Danger — Primary (на тонированной подложке Secondary сливается; решение 2026-11-16).
+  - Кнопка действия — всегда Tertiary S (решение 2026-11-26; заменяет решение 2026-11-16 про Secondary / Primary). Ошибку сервера в форме показываем не Suggest, а плашкой над CTA — `docs/patterns.md` 3.15.
 - Не делаем: больше двух кнопок; автоскрытие по таймеру (это Toast).
 
 ## 3. Anatomy
 - Корень: подложка `surface/raised` (Neutral) / `accent/subtle` (Accent) / `status/*/subtle`, обводка `border/subtle` (`border/width/default`), Card — `radius/surface`, Strip — `radius/inner` (17.11, по продукту: плашка, не капсула); отступы `space/16` / `space/12`, справа у Card `space/48` под крестик, у Strip `space/16`; у Strip заголовок `type/label/md` цвета тона (`status/*/on-subtle`, `accent/on-subtle`), центр по вертикали, зазор `space/16`; ширина 480 (Card) / 960 (Strip) числом.
 - Иконка `icon/size/md` по тону (`icon/info`, `icon/check-circle`, `icon/alert-triangle`, `icon/alert-circle`) → `content` (`space/12`): `text` (`space/4`; `title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) и `actions` (`space/8`).
-- `primary` — вложенная Button `control/height/sm` (Neutral — Secondary, `action/accent/default`; Accent и тона Success / Warning / Danger — Primary `action/primary/default`, 2026-11-16); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).
+- `primary` — вложенная Button `control/height/sm`: Tertiary S во всех вариантах (2026-11-26: Secondary / Primary на тонированной подложке сливались с цветом сообщения, кнопка выглядела полупрозрачной); `secondary` — Button с обводкой (`action/tertiary/default`, `control/border/default`).
 - `close` — Icon button `control/height/sm` в правом верхнем углу.
 - Вложено: иконки ×10, `Button` ×20, `Icon button` ×10.
 - Служебные слои (вариантов из 10): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.

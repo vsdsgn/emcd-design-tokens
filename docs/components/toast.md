@@ -13,20 +13,20 @@
 - Когда использовать: подтверждение действия, результат фоновой операции.
 - Когда нет: сообщение, которое должно остаться на странице, — Suggest; блокирующий вопрос — Modal; событие без участия пользователя в ленте — Notification.
 - Правило выбора варианта:
-  - Layout: Card — Web (справа сверху): карточка, иконка статуса, заголовок, необязательные описание и кнопки; Informer — App (сверху под статус-баром): цветная полоса на всю ширину, заголовок и крестик.
+  - Layout: Card — Web (справа сверху): карточка, иконка статуса, заголовок, необязательные описание и кнопки; Informer — только нативное App (сверху, полоса начинается от верха экрана вместе со статус-баром; в макетах стоит в потоке и сдвигает контент вниз, а не накладывается на него — при двух строках заголовка контент не перекрывается): цветная полоса на всю ширину, заголовок и крестик. Web Desktop и Web Mobile — Card (Mobile: сверху по ширине экрана с полями 16).
   - Tone: Success — выполнено; Info — справка о фоновой операции (цвет бренда — Info = Accent, 2026-11-16); Warning — выполнено с оговоркой; Danger — не выполнено; Neutral — без оценки, у Card без иконки (отличие от Info; 2026-11-16). У Card тон несёт иконка, у Informer — заливка полосы (`status/*/solid`, Neutral — `surface/inverse`).
   - Show description, Actions, Icon, Timer — только Card (привязаны в 5 вариантах из 10; Icon — в 4: у Neutral иконки нет). Timer — оставшееся время автоскрытия (Circle timer у крестика).
   - Safe area — только Informer: полоса под статус-баром (`os/safe-area/top`).
-  - Snack (22.11, бывший набор Snack) — App, у нижнего края над Tab bar / Action bar: тёмная плашка 343, одна строка, линейная иконка цвета тона, необязательное действие (Button Text «Отменить»), без крестика и описания. Свойства: Title, Icon, Actions.
+  - Snack (22.11; с 2026-11-26 — нейтральная подложка как у Card) — действие «в моменте» (скопировать, удалить, изменить, отменить), у нижнего края над Tab bar / Action bar: плашка 343, одна строка, линейная иконка цвета тона, необязательное действие (Button Text «Отменить»), без крестика и описания. Не для отклика об ошибке или успехе — это Card / Informer. Свойства: Title, Icon, Actions.
   - Close — по умолчанию вкл.
-- Не делаем: Informer и Snack на Web; Snack с крестиком или в две строки; больше 3 Toast одновременно; Toast вместо сообщения, которое должно остаться на странице.
+- Не делаем: Informer на Web и Web Mobile; Snack как сообщение об ошибке или успехе; Snack с крестиком или в две строки; больше 3 Toast одновременно; Toast вместо сообщения, которое должно остаться на странице.
 
 ## 3. Anatomy
 - Корень: зазор `space/12`, отступы `space/12` / `space/16` / `space/20` / `space/48`, радиус `radius/control`, min-ширина `size/toast/min` (280), ширина 400 (Card) / 375 (Informer) числом.
 - `overlay surface` — экземпляр `_Overlay surface` (Kind=Toast): Card — `surface/raised`, обводка `border/subtle`, тени `shadow/key` + `shadow/ambient`; Informer — Success / Danger `action/success|danger/default` (белый текст ≥ 4.5, 24.11), Info / Warning `status/*/solid`, Neutral `surface/inverse`.
 - Card: иконка `media/status/*` → `content` (`title` — `type/label/lg`, `text/primary`; `description` — `type/label/md`, `text/secondary`) → `actions` (вложенные Button, `control/height/sm`); `timer` (Circle timer, `icon/size/sm`) и `close` (Icon button, `control/height/sm`).
-- Snack: корень `action/inverse/default`, отступы `space/12` / `space/16`, `radius/control`, тень `shadow/key` + `shadow/ambient`; `icon` 20 (Neutral — `icon/inverse`, остальные — `status/*/solid`) → `title` (`type/label/lg`, `text/inverse`, одна строка) → `action` (Button Text M).
-- Informer: `safe area` (`os/safe-area/top`) → `row`: `title` (`text/on-accent`; Warning — `text/on-warning`; Neutral — `text/inverse`) и `close`.
+- Snack: корень `surface/raised`, обводка `border/subtle` (`border/width/default`, 26.11) и тень как у Card (`shadow/key` + `shadow/ambient`), отступы `space/12` / `space/16`, `radius/control`; `icon` 20 (Neutral — `icon/secondary`, остальные — `status/*/solid`) → `title` (`type/label/lg`, `text/primary`, одна строка) → `action` (Button Text M).
+- Informer: `safe area` (`os/safe-area/top`, статус-бар входит в полосу — над заголовком пусто до верха экрана) → `row`: `title` (`text/on-accent`; Warning — `text/on-warning`; Neutral — `text/inverse`) и `close`.
 - Вложено: `_Overlay surface` ×10, `media/status/danger` ×1, `Button` ×15, `Icon button` ×10, `Progress circle` ×5, `media/status/info` ×2, `media/status/success` ×1, `media/status/warning` ×1, иконки ×5.
 - Служебные слои (вариантов из 15): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 5.
 
@@ -98,7 +98,7 @@
 - Значений без переменной: 15 (напр. `(root):w=400`, `(root):w=375`, `(root):w=343`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
-- Card — Web; Informer и Snack — App (iOS · Android). Высота `safe area` — `os/safe-area/top` (на Web 0).
+- Card — Web Desktop и Web Mobile; Informer — только нативное App (iOS · Android); Snack — действия в моменте, App и Web Mobile. Высота `safe area` — `os/safe-area/top` (на Web 0).
 - Пауза автоскрытия по наведению — только с указателем (Web).
 
 ## 12. Figma projection
