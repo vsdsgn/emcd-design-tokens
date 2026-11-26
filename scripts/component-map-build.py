@@ -69,15 +69,15 @@ INV={
 'Иконки — алиасы (corner-small-*, profile, pen-edit, lines-menu, kebab-x3, close-small, eye-open, check-small, smbl-status-*, bonkcoin, qr_small, arrow select_list_down, calc, …)':dict(MA=260,MW=270,Mon=290,B2B=98,B2C=130,US=35,FW=12,GW=7,GA=4),
 }
 TGT={
-'Sidebar item':('Nav item','Организм','нужна карта: selected → Selected, иконка → слот, подпись','нужна карта'),
+'Sidebar item':('Nav item','Организм','selected → Selected, иконка → Icon · swap (через карту иконок), подпись, ширина FILL (component-swap-2)','заменено'),
 'sidebar / default · .🔸 fm sidebar · SideMenu':('Sidebar','Организм','как на майнинге Web (Sidebar DS, баланс / CHW не переносим)','нужна карта'),
-'baseCheckbox · checkbox · Checkbox':('Checkbox','Атом','status active/default → Checked, disable → Disabled, danger → Error; with box=false → без подписи','нужна карта'),
-'baseToggle · toggle':('Toggle','Атом','active → On, size → S/M, disable','нужна карта'),
+'baseCheckbox · checkbox · Checkbox':('Checkbox','Атом','status active/default → Checked, disable → Disabled, danger → Error; with box=false → без подписи','заменено'),
+'baseToggle · toggle':('Toggle','Атом','active → On, size → S/M, disable','заменено'),
 'Radiogroup':('Radio (List item + Radio)','Молекула','как «Ручной вывод» App: List item + Radio','нужна карта'),
-'tab item · tabs/x · navbar-item · Menu Item (Geometria)':('Tab','Атом','active → Selected, размер по высоте','нужна карта'),
-'#Submenu tab':('Tab (S)','Атом','подменю — Tab S внутри Tabs; Active → Selected','нужна карта'),
+'tab item · tabs/x · navbar-item · Menu Item (Geometria)':('Tab','Атом','active → Selected, размер по высоте','заменено'),
+'#Submenu tab':('Tab (S)','Атом','подменю — Tab S внутри Tabs; Active → Selected','заменено'),
 'tabs · base tabbar --1.5 · tabs / fix · TabMenu · Tab menu · Navigation submenu · navbar-lvl-2':('Tabs','Молекула','контейнер вкладок; App — «Tabs · прокрутка» (как майнинг App)','нужна карта'),
-'baseChip / base --1.5':('Chip','Атом','active → Selected, size → S/M, disable','нужна карта'),
+'baseChip / base --1.5':('Chip','Атом','active → Selected, size → S/M, disable','заменено'),
 'base segmented picker item / text (без группы) · SegmentedPicker · ViewSelector':('Segmented','Молекула','одиночные item собрать в Segmented по родителю','нужна карта'),
 'input · baseInput · Input · #corner input':('Input','Молекула','type (with label / without) → Label position; size по высоте 48/56/64; state → State; .field.left/right → слоты','нужна карта'),
 'Input & Select · input & select · input / --password (Geometria)':('Input / Select','Молекула','Filled → State Filled, Error → Error, Copy Link → слот Trailing (copy)','нужна карта'),
@@ -105,7 +105,7 @@ TGT={
 'base EMCD Logo · Logotype · ic-emcd-icon':('Логотип (Illustrations)','—','оставить как есть, бренд','оставить'),
 'Системное: Keyboard, home indicator, status bar, Cursor, hand':('— (системное iOS / макет)','—','оставить','оставить'),
 'Иллюстрации: .Onboarding image, .app icon, picture slot, Fixed Aspect Ratio, Iconly Pro, .chart, Chip (Firmware)':('— (иллюстрации)','—','оставить; Iconly Pro — проверить замену на DS Icons','оставить'),
-'Иконки — алиасы (corner-small-*, profile, pen-edit, lines-menu, kebab-x3, close-small, eye-open, check-small, smbl-status-*, bonkcoin, qr_small, arrow select_list_down, calc, …)':('DS Icons','Иконка','chevron-*, user, edit, menu, more-horizontal, close, eye, check, check-circle / alert-circle, ¤bonk, qr, chevron-down, calculator; суффиксы -x2/-x3','алиасы'),
+'Иконки — алиасы (corner-small-*, profile, pen-edit, lines-menu, kebab-x3, close-small, eye-open, check-small, smbl-status-*, bonkcoin, qr_small, arrow select_list_down, calc, …)':('DS Icons','Иконка','chevron-*, user, edit, menu, more-horizontal, close, eye, check, check-circle / alert-circle, ¤bonk, qr, chevron-down, calculator — алиасы добавлены 26.11','заменено'),
 }
 rows=[]
 for kind,leg,ds,cat,rule in AUTO:

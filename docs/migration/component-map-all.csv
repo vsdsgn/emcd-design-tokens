@@ -1,27 +1,27 @@
 legacy,ds2,cat,status,total,Mining Web,Mining App,Monitoring,WL B2B,WL B2C,Geometria Web,Geometria App,Mining US,Firmware,rule
 baseButton · Button (DS Web / DS App / Geometria),Button / Icon button,Атом,заменено,2166,645,398,602,106,147,142,40,54,32,"Type → Type (Secondary base → Tertiary, Stroke → Tertiary outline, Error → Primary Danger, Link/Text → Text); размер по высоте 24/32/40/48; без подписи → Icon button; серый Primary → Tertiary"
+"Иконки — алиасы (corner-small-*, profile, pen-edit, lines-menu, kebab-x3, close-small, eye-open, check-small, smbl-status-*, bonkcoin, qr_small, arrow select_list_down, calc, …)",DS Icons,Иконка,заменено,1106,270,260,290,98,130,7,4,35,12,"chevron-*, user, edit, menu, more-horizontal, close, eye, check, check-circle / alert-circle, ¤bonk, qr, chevron-down, calculator — алиасы добавлены 26.11"
 base badge / <tone> · Badge (App),Badge,Атом,заменено,820,157,192,250,0,186,6,0,16,13,neutral/brand/danger/success/warning → Neutral/Accent/Danger/Success/Warning; filled → Solid
+Sidebar item,Nav item,Организм,заменено,775,137,0,581,0,0,0,0,40,17,"selected → Selected, иконка → Icon · swap (через карту иконок), подпись, ширина FILL (component-swap-2)"
+tab item · tabs/x · navbar-item · Menu Item (Geometria),Tab,Атом,заменено,696,251,34,353,0,0,29,4,25,0,"active → Selected, размер по высоте"
+baseCheckbox · checkbox · Checkbox,Checkbox,Атом,заменено,564,28,55,403,61,11,4,1,0,1,"status active/default → Checked, disable → Disabled, danger → Error; with box=false → без подписи"
+#Submenu tab,Tab (S),Атом,заменено,423,257,0,158,0,8,0,0,0,0,подменю — Tab S внутри Tabs; Active → Selected
 Selector small · dropdown,Select compact,Молекула,заменено,324,71,38,114,14,82,0,1,4,0,текст + ведущая иконка в слот
+baseChip / base --1.5,Chip,Атом,заменено,244,56,11,138,0,39,0,0,0,0,"active → Selected, size → S/M, disable"
 Selector + Input,Select,Молекула,заменено,193,49,66,7,28,17,0,0,13,13,"подпись на рамке, значение → Value, Filled по наличию"
 Dropdown item,Menu item,Молекула,заменено,186,136,14,30,6,0,0,0,0,0,"Label / Description, слоты Leading / Trailing"
+baseToggle · toggle,Toggle,Атом,заменено,177,129,0,7,5,18,0,0,18,0,"active → On, size → S/M, disable"
 Period selector item · baseChip (Geometria),Chip,Атом,заменено,158,65,56,0,18,0,12,0,7,0,"S/M по высоте, Selected"
 base tab item,Tab,Атом,заменено,128,68,7,35,0,18,0,0,0,0,"S 32 / M 48 / L 56, selected"
 Search,Search,Молекула,заменено,81,39,4,11,26,0,0,1,0,0,M 40 / S 32
 base segmented picker group,Segmented,Молекула,заменено,74,57,2,7,0,8,0,0,0,0,"2–4 сегмента, ширина делится поровну"
 DateRange.Field,Date range field,Молекула,заменено,27,15,3,2,0,7,0,0,0,0,даты «начало → конец»
 base avatar / single,Avatar,Атом,заменено,8,1,0,7,0,0,0,0,0,0,"размер по ширине, инициалы"
-"Иконки — алиасы (corner-small-*, profile, pen-edit, lines-menu, kebab-x3, close-small, eye-open, check-small, smbl-status-*, bonkcoin, qr_small, arrow select_list_down, calc, …)",DS Icons,Иконка,алиасы,1106,270,260,290,98,130,7,4,35,12,"chevron-*, user, edit, menu, more-horizontal, close, eye, check, check-circle / alert-circle, ¤bonk, qr, chevron-down, calculator; суффиксы -x2/-x3"
-Sidebar item,Nav item,Организм,нужна карта,775,137,0,581,0,0,0,0,40,17,"нужна карта: selected → Selected, иконка → слот, подпись"
-tab item · tabs/x · navbar-item · Menu Item (Geometria),Tab,Атом,нужна карта,696,251,34,353,0,0,29,4,25,0,"active → Selected, размер по высоте"
 cell · line · stroke · table / * · table title / *,Table cell / Table row / Table header cell,Организм,нужна карта,630,618,0,0,0,0,0,0,12,0,таблицы майнинга Web; сначала проверить Table DS на 1–2 экранах
-baseCheckbox · checkbox · Checkbox,Checkbox,Атом,нужна карта,564,28,55,403,61,11,4,1,0,1,"status active/default → Checked, disable → Disabled, danger → Error; with box=false → без подписи"
-#Submenu tab,Tab (S),Атом,нужна карта,423,257,0,158,0,8,0,0,0,0,подменю — Tab S внутри Tabs; Active → Selected
 input · baseInput · Input · #corner input,Input,Молекула,нужна карта,353,166,61,63,0,40,3,0,0,20,type (with label / without) → Label position; size по высоте 48/56/64; state → State; .field.left/right → слоты
-baseChip / base --1.5,Chip,Атом,нужна карта,244,56,11,138,0,39,0,0,0,0,"active → Selected, size → S/M, disable"
 Input & Select · input & select · input / --password (Geometria),Input / Select,Молекула,нужна карта,227,0,0,0,0,0,172,55,0,0,"Filled → State Filled, Error → Error, Copy Link → слот Trailing (copy)"
 List · Coinhold list item · Row · Cell · Summ item,List item,Молекула,нужна карта,223,19,139,10,0,0,44,11,0,0,"как майнинг App (List item M, Amount trailing)"
 Accordion · accordion --1.5 · GroupItem,Accordion,Молекула,нужна карта,217,68,106,17,0,2,8,12,4,0,Collapsed → Open; GroupItem (Openned) — Accordion со списком
-baseToggle · toggle,Toggle,Атом,нужна карта,177,129,0,7,5,18,0,0,18,0,"active → On, size → S/M, disable"
 sidebar / default · .🔸 fm sidebar · SideMenu,Sidebar,Организм,нужна карта,154,131,0,0,0,0,16,0,5,2,"как на майнинге Web (Sidebar DS, баланс / CHW не переносим)"
 tabs · base tabbar --1.5 · tabs / fix · TabMenu · Tab menu · Navigation submenu · navbar-lvl-2,Tabs,Молекула,нужна карта,146,14,73,9,0,34,5,3,8,0,контейнер вкладок; App — «Tabs · прокрутка» (как майнинг App)
 avatar · avatar group line,Avatar / Avatar group,Атом,нужна карта,125,63,12,3,25,13,0,0,9,0,как Avatar group на Web
