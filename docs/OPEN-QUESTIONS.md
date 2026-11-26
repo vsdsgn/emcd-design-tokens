@@ -1,3 +1,23 @@
+## Решения Стефана 26.11 (разбор отложенного и парковки)
+- [ ] 1 Поля — **Б**: Search влить в Input (иконка слева), Select compact → вариант Button с шевроном; Select / Date range / Amount — отдельные на общей базе Field.
+- [ ] 2 Field — слот Content; Date range field: две даты со стрелкой, как в оригинале; иконка календаря — брендовая EMCD (п. 5).
+- [ ] 3 Sidebar — сейчас: убрать «Подключить оборудование», логотип → брендовый знак, отступы и состояния Nav item; отдельной задачей: правила поведения (скролл, фейды, высота, верх / низ), эффекты Expressive.
+- [ ] 4 Навигация по платформам: Web desktop — Page header + Sidebar; Mobile web — Top bar + Tabs; App — Top bar + Tab bar; модалки Web — Modal, App / мобильный веб — Sheet. Меню для разделов, не влезших в Tab bar (мобильный веб) — **показать все варианты** («Ещё» в Tab bar → Sheet, бургер в Top bar → Drawer, оба).
+- [ ] 5 Библиотека «Icons/Symbols»: папки icon / logo / symbol / flag (бренды — подпапкой внутри типа); **media → в Illustrations**. Аудит уникальных иконок EMCD Mining в legacy и перенос.
+- [ ] 6 Системные обвязки платформ (home indicator, клавиатура iOS / Android) — добавить в DS отдельной группой «Платформа».
+- [x] 7 Status: правило — в таблицах и списках точка с подписью; без подписи — только рядом с текстом, уже называющим статус.
+- [x] 8 Progress circle: legacy-лоадер → Indeterminate («наверно»).
+- [ ] 9 **Amount → deprecated**: суммы — текстовые стили + правила форматирования (копейки, валюта, знак, цвет) в доке; главный баланс — Heading XL. Компонентов «для текстов» не держим.
+- [x] 10 Card Accent (обводки, градиенты, свечения) — только Expressive; в Base — обычная Card. Новой оси нет.
+- [x] 11 Итог цветом без «+» — правило текста (text/success без знака), не ось (Amount уходит, п. 9).
+- [ ] 12 List item плотный 48 без полей (строки монет «История» Web) — попробовать Size S.
+- [ ] 13 Подписи Toggle / Checkbox / Radio: перенос строк (интерлиньяж, отступ от контрола), правила min size и длины контента.
+- [x] 14 Полоса тикеров — виджет продукта, не компонент DS.
+- [ ] 15 Палитра графиков: развести data/2 ↔ data/4 (Light), 3 ↔ 7 и 2 ↔ 4 (Dark) — Foundations, «сдвинь».
+- [ ] 16 Promo card: действие везде Button Text, крестик — свойство Show close.
+- [x] 17 Breakpoints — ждут конструкций и лейаутов.
+- Парковка снята: Pagination (для B2B), Slider (заложить), File upload (Geometria, нужен майнингу), Side panel (B2B) — развиваем в Base.
+
 # Открытые вопросы и отложенное
 
 ## ~~Цвета тёмной темы и подложки (26.11)~~ — решено 26.11 («ок, исправляй»): в Foundations (ждёт Publish) — Dark: L1 → neutral/900 #111111, L2 → neutral/850 #1a1a1a, L3 → новая neutral/750 #232323, raised → neutral/800 #202020; accent/fg-on-dark (все бренды) → accent/400 (#ac65fb / Geo #3c8eff); text|icon/danger → red/400 #ef625e, success → green/500 #43a047, warning → amber/600 #ce8300 (ступени шкал вместо hex из предложения, контраст ≥ 4.5 на L3); status/*/subtle → */950, accent/subtle → accent/950. Сайдбар (material → surface/level-1) меняется автоматически. Light не трогали.
