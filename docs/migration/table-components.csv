@@ -12,17 +12,17 @@
 Атом,baseChip / base --1.5 · Period selector item,Chip,заменено,,434,,125,95,138,18,39,12,,7,
 Атом,base avatar / single · avatar,Avatar,заменено,,41,,9,,7,25,,,,,
 Атом,Separator,Divider,заменено,,23,,12,1,9,,1,,,,
-Молекула,input · baseInput · Input · Input & Select · input & select · Selector + Input · Select White,Input / Select / Search / Password field,заменено,,752,"Size M 40 / L 48 (решение 26.11; в продуктах 56 и 64); подпись всегда видна — на рамке (плейсхолдер её не заменяет); с шевроном → Select, с лупой → Search, с глазом → Password field; в Light — белое с обводкой",239,106,70,28,33,178,52,13,33
+Молекула,input · baseInput · Input · Input & Select · input & select · Selector + Input · Select White,Input / Select / Search / Password field,заменено,,752,"Size M 40 / L 48 (решение 26.11; в продуктах 56 и 64); подпись всегда видна — на рамке (плейсхолдер её не заменяет); с шевроном → Select, с лупой → Search, с глазом → Password field (вложенный Input открыт, Publish 26.11 — размер и подпись как у соседних полей); в Light — белое с обводкой",239,106,70,28,33,178,52,13,33
 Молекула,Selector small · dropdown,Select compact,заменено,,324,,71,38,114,14,82,,1,4,
 Молекула,Search,Search,заменено,,81,,39,4,11,26,,,1,,
 Молекула,Dropdown item,Menu item,заменено,,186,,136,14,30,6,,,,,
 Молекула,DateRange.Field,Date range field,заменено,,27,,15,3,2,,7,,,,
-Молекула,base segmented picker group,Segmented,заменено,,74,"сегменты делят ширину поровну (набор исправлен 26.11, ждёт Publish)",57,2,7,,8,,,,
+Молекула,base segmented picker group,Segmented,заменено,,74,сегменты делят ширину поровну (набор исправлен и опубликован 26.11),57,2,7,,8,,,,
 Молекула,Accordion · accordion --1.5,Accordion,заменено,,201,"Open = !Collapsed; текст раскрытого — в слот; M на Compact, L на Web",68,102,17,,,5,5,4,
 Молекула,List (App) · Coinhold-строки в App · строки с toggle,List item M · Toggle M,заменено,,330,Amount справа (сумма начисления зелёная — Amount Positive); строка с toggle → Toggle с описанием,,316,,,,,,14,
 Организм,"tabs (App, полоса tabs/x)",Tabs M,заменено,,41,вкладки делят ширину или прокрутка; подпись 14 вместо 16 (Tabs M),,41,,,,,,,
-Иконка,ic-* · smbl-* · монеты,DS Icons · symbol/coin,заменено,,22059,"размер прежний, цвет — переменная DS; +35 алиасов 26.11 (corner-small → chevron, profile → user …)",9982,3047,4631,531,1215,1353,297,655,348
-Атом,avatar group line,Avatar group,ждёт Publish,,100,"набор дополнен 26.11 (Person: Count 2 / 3, Size S) — заменить после Publish",63,12,3,,13,,,9,
+Иконка,ic-* · smbl-* · монеты,DS Icons · symbol/coin,заменено,,22059,"размер прежний, цвет — переменная DS; +35 алиасов 26.11 (corner-small → chevron, profile → user …); соцсети и магазины → Logo (Mono), icon/social и icon/store удалены 26.11; знак EMCD — Brand logo",9982,3047,4631,531,1215,1353,297,655,348
+Атом,avatar group line,Avatar group,заменено,,100,"Person: Count 2 / 3 / 4, Size S — набор дополнен и опубликован 26.11; размер по аватару (XS 20 · S 24 · M 32 · L 40), нахлёст 20 %; в коде — AvatarGroup (React / Vue)",63,12,3,,13,,,9,
 Атом,baseRadio · Radiogroup · Radio,Radio · List item + Radio,нужна карта,,90,,13,74,2,,,1,,,
 Атом,Switch · baseCheckbox with text,Toggle · Checkbox с подписью,нужна карта,,12,,5,6,,,,1,,,
 Атом,badge/30px · table / badge · .🔸 badge,Badge,нужна карта,,19,,8,10,,,1,,,,
