@@ -6,20 +6,26 @@ Sidebar item,Nav item,Организм,заменено,775,137,0,581,0,0,0,0,40
 tab item · tabs/x · navbar-item · Menu Item (Geometria),Tab,Атом,заменено,696,251,34,353,0,0,29,4,25,0,"active → Selected, размер по высоте"
 baseCheckbox · checkbox · Checkbox,Checkbox,Атом,заменено,564,28,55,403,61,11,4,1,0,1,"status active/default → Checked, disable → Disabled, danger → Error; with box=false → без подписи"
 #Submenu tab,Tab (S),Атом,заменено,423,257,0,158,0,8,0,0,0,0,подменю — Tab S внутри Tabs; Active → Selected
+input · baseInput · Input · #corner input,Input,Молекула,заменено,353,166,61,63,0,40,3,0,0,20,type (with label / without) → Label position; size по высоте 48/56/64; state → State; .field.left/right → слоты
 Selector small · dropdown,Select compact,Молекула,заменено,324,71,38,114,14,82,0,1,4,0,текст + ведущая иконка в слот
 baseChip / base --1.5,Chip,Атом,заменено,244,56,11,138,0,39,0,0,0,0,"active → Selected, size → S/M, disable"
+.field.left · .field.right (части поля),Input — слоты Leading / Trailing,Часть,заменено,235,29,26,134,35,10,0,1,0,0,уходят вместе с полем
+Input & Select · input & select · input / --password (Geometria),Input / Select,Молекула,заменено,227,0,0,0,0,0,172,55,0,0,"Filled → State Filled, Error → Error, Copy Link → слот Trailing (copy)"
 Selector + Input,Select,Молекула,заменено,193,49,66,7,28,17,0,0,13,13,"подпись на рамке, значение → Value, Filled по наличию"
 Dropdown item,Menu item,Молекула,заменено,186,136,14,30,6,0,0,0,0,0,"Label / Description, слоты Leading / Trailing"
 baseToggle · toggle,Toggle,Атом,заменено,177,129,0,7,5,18,0,0,18,0,"active → On, size → S/M, disable"
 Period selector item · baseChip (Geometria),Chip,Атом,заменено,158,65,56,0,18,0,12,0,7,0,"S/M по высоте, Selected"
 base tab item,Tab,Атом,заменено,128,68,7,35,0,18,0,0,0,0,"S 32 / M 48 / L 56, selected"
+Links,Button · Text,Атом,заменено,113,17,62,0,0,4,6,8,16,0,"Size → XS/S, Active → акцент"
 Search,Search,Молекула,заменено,81,39,4,11,26,0,0,1,0,0,M 40 / S 32
 base segmented picker group,Segmented,Молекула,заменено,74,57,2,7,0,8,0,0,0,0,"2–4 сегмента, ширина делится поровну"
+base badge status,Status (точка),Атом,заменено,35,14,0,0,0,21,0,0,0,0,status → Tone
 DateRange.Field,Date range field,Молекула,заменено,27,15,3,2,0,7,0,0,0,0,даты «начало → конец»
+base badge counter · сounter,Counter,Атом,заменено,10,0,0,0,0,10,0,0,0,0,—
+Separator,Divider,Атом,заменено,9,0,0,9,0,0,0,0,0,0,—
 base avatar / single,Avatar,Атом,заменено,8,1,0,7,0,0,0,0,0,0,"размер по ширине, инициалы"
+Select White (Geometria),Select,Молекула,заменено,3,0,0,0,0,0,3,0,0,0,—
 cell · line · stroke · table / * · table title / *,Table cell / Table row / Table header cell,Организм,нужна карта,630,618,0,0,0,0,0,0,12,0,таблицы майнинга Web; сначала проверить Table DS на 1–2 экранах
-input · baseInput · Input · #corner input,Input,Молекула,нужна карта,353,166,61,63,0,40,3,0,0,20,type (with label / without) → Label position; size по высоте 48/56/64; state → State; .field.left/right → слоты
-Input & Select · input & select · input / --password (Geometria),Input / Select,Молекула,нужна карта,227,0,0,0,0,0,172,55,0,0,"Filled → State Filled, Error → Error, Copy Link → слот Trailing (copy)"
 List · Coinhold list item · Row · Cell · Summ item,List item,Молекула,нужна карта,223,19,139,10,0,0,44,11,0,0,"как майнинг App (List item M, Amount trailing)"
 Accordion · accordion --1.5 · GroupItem,Accordion,Молекула,нужна карта,217,68,106,17,0,2,8,12,4,0,Collapsed → Open; GroupItem (Openned) — Accordion со списком
 sidebar / default · .🔸 fm sidebar · SideMenu,Sidebar,Организм,нужна карта,154,131,0,0,0,0,16,0,5,2,"как на майнинге Web (Sidebar DS, баланс / CHW не переносим)"
@@ -28,24 +34,18 @@ avatar · avatar group line,Avatar / Avatar group,Атом,нужна карта
 Button / Desktop · Buttons / Desktop-tablet,Button / Icon button,Атом,нужна карта,119,114,0,0,0,0,0,0,5,0,ещё один legacy-набор кнопок майнинга (Type/Size/Icon/State) — дописать в правила Button
 tabbar · BottomNavi · ic_tabbar_stage,Tab bar,Организм,нужна карта,119,0,91,0,0,0,14,9,5,0,как майнинг App (Tab bar)
 navigation bar · Navbar mobile · Toolbar · //title,Top bar,Организм,нужна карта,114,62,47,0,0,2,0,0,3,0,как майнинг App (Top bar Root / Inner)
-Links,Button · Text,Атом,нужна карта,113,17,62,0,0,4,6,8,16,0,"Size → XS/S, Active → акцент"
 base overlay · overlay · Overlay,Overlay (surface/overlay),Часть,нужна карта,112,14,16,52,12,15,0,0,0,3,"прямоугольник с токеном, компонента не нужно"
 base segmented picker item / text (без группы) · SegmentedPicker · ViewSelector,Segmented,Молекула,нужна карта,93,0,0,45,31,6,11,0,0,0,одиночные item собрать в Segmented по родителю
 baseFocus,— (кольцо фокуса встроено в DS),Часть,нужна карта,88,21,0,0,67,0,0,0,0,0,удалить слой
 base modal header / footer · modal content · modal footer · Modal bar · Modal · modal header / fullscreen,Modal / Sheet,Организм,нужна карта,82,0,49,22,3,3,3,2,0,0,Web — Modal (header / body / footer); App — Sheet
 Radiogroup,Radio (List item + Radio),Молекула,нужна карта,72,0,72,0,0,0,0,0,0,0,как «Ручной вывод» App: List item + Radio
-base badge status,Status (точка),Атом,нужна карта,35,14,0,0,0,21,0,0,0,0,status → Tone
 Navbar · Header · Header-title · Subheader,Page header,Организм,нужна карта,26,0,0,0,0,0,25,0,0,1,—
 base notification · Notifications,Toast / List item,Молекула,нужна карта,12,0,0,7,2,2,0,1,0,0,base notification → Toast; Notifications (центр уведомлений) → List item
-base badge counter · сounter,Counter,Атом,нужна карта,10,0,0,0,0,10,0,0,0,0,—
 badge/30px,Badge,Атом,нужна карта,10,0,10,0,0,0,0,0,0,0,—
-Separator,Divider,Атом,нужна карта,9,0,0,9,0,0,0,0,0,0,—
 Step Trail · Step Text,Stepper,Молекула,нужна карта,6,0,0,6,0,0,0,0,0,0,—
-Select White (Geometria),Select,Молекула,нужна карта,3,0,0,0,0,0,3,0,0,0,—
 base Banner --2.0,Banner,Молекула,нужна карта,1,0,0,0,0,0,0,0,0,1,—
 tooltip,Tooltip,Молекула,нужна карта,1,0,0,0,0,0,0,0,0,1,—
 Content · Left · Right · Left addon · Right slot (части строк),List item — слоты,Часть,вместе с List item,1038,261,622,26,4,18,65,0,42,0,уходят вместе со строкой
-.field.left · .field.right (части поля),Input — слоты Leading / Trailing,Часть,вместе с Input,235,29,26,134,35,10,0,1,0,0,уходят вместе с полем
 StatisticCard · Currency Item · Account,Stat card / Balance widget,Организм,решить,44,18,0,0,0,0,26,0,0,0,проверить по месту
 base EMCD Logo · Logotype · ic-emcd-icon,Логотип (Illustrations),—,оставить,537,67,293,128,0,0,13,7,25,4,"оставить как есть, бренд"
 "Системное: Keyboard, home indicator, status bar, Cursor, hand",— (системное iOS / макет),—,оставить,411,23,264,19,5,3,35,48,14,0,оставить

@@ -17,7 +17,7 @@
 | A6 | Переключатель языка RU/EN — Primary-кнопка с серой заливкой поверх (~10) | правило: язык — Select compact; Button не перекрашиваем (контракты Button, Select compact 26.11); экземпляры на экранах — заменить | правило ✅ |
 | A7 | Links (~130): компонента Link нет | Button Type=Text (решение Стефана 26.11); заменены на экранах (component-swap-2), правило в контракте Button | ✅ 26.11 |
 | A8 | Точка статуса 8 px (~35) | Status без подписи — проверить размер точки S | — |
-| A9 | Avatar group (Person): только Count=4 и размеры XS / M / L; в продуктах группы из 2–3 человек размера S (~100: WL, майнинг) | Count 2 / 3 / 4 и Size S, как у Type=Coin | — |
+| A9 | Avatar group (Person): только Count=4 и размеры XS / M / L; в продуктах группы из 2–3 человек размера S (~100: WL, майнинг) | Count 2 / 3 / 4 и Size S, как у Type=Coin | ✅ 26.11, ждёт Publish |
 
 ### Молекулы
 | # | Находка | Правка | Решение |
@@ -25,8 +25,8 @@
 | M1 | Segmented: растянутый экземпляр не делил ширину (корень и сегменты HUG — расходилось с контрактом) | Components: корень фиксированной ширины, сегменты Fill (26.11, ждёт Publish); код — `block` уже был | ✅ 26.11 |
 | M2 | Input только M 40 / L 48; в продуктах 56 и 64 (~330 полей) | оставить M / L (решение Стефана 26.11): Web — M, App и формы — L | ✅ 26.11 |
 | M3 | Поля с копированием, паролем, угловым селектом (`#corner input`), периодом (`.period`) | варианты через слоты Input — правило и примеры на борде | — |
-| M4 | Geometria / WL Light: поле белое с обводкой, в DS — заливка | Стефан: «белое с обводкой ок» — готовлю варианты по Brand (какие токены, влияние на EMCD), правка Foundations — после «ок» | в работе |
-| M6 | Password field: Size и Label position только у вложенного Input (не открыт) — в форме с Input L / On border пароль встаёт M / Above | открыть вложенный Input или вынести Size / Label position на корень | — |
+| M4 | Geometria / WL Light: поле белое с обводкой, после миграции — серое | серое — ошибка перекраски legacy-поля (фон → surface/level-0); DS Input в Light уже белый с обводкой (`control/surface/default` white, `control/border/default` black 12 %) — Foundations не меняем; поля заменены на DS Input | ✅ 26.11 |
+| M6 | Password field: Size и Label position только у вложенного Input (не открыт) — в форме с Input L / On border пароль встаёт M / Above | вложенный Input открыт (26.11, ждёт Publish) | ✅ |
 | M5 | Контейнеры вкладок (~150: tabs, base tabbar, navbar-lvl-2, подменю) | Tabs: число вкладок, прокрутка, уровень 2 = Size S | — |
 
 ### Организмы и виджеты
@@ -51,5 +51,6 @@
 | P5 | **Правила** | людям: борда «Когда / когда нет» у каждого компонента + страница «Как собрать экран» в Figma; агентам: manifest + `agent-brief-ds2.md` (дерево решений «задача → компонент»), проверки `npm run all` + инвентаризация legacy = 0 | [ ] |
 
 ## Журнал
+- 26.11 — поля → DS Input / Select / Search / Password field на всех продуктах (~650); M4 закрыт без правки Foundations; Password field — вложенный Input открыт; Avatar group — Count 2 / 3, Size S.
 - 26.11 — решения Стефана: A2 рамка всегда, A4 шкала Icon button, A7 Links → Button Text, M2 поля M / L, M4 белое с обводкой — варианты. Сделано: Segmented (Fill), `showLabel` у Checkbox / Radio / Toggle в коде, правила в контрактах, Links / Status / счётчики / Divider / Avatar заменены на экранах. Найдено: A9 Avatar group.
 - 26.11 — цель поставлена; находки из миграции 9 продуктов.
