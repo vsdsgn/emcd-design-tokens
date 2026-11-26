@@ -52,6 +52,11 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 - **Claude DS синхронизирован 24.11** (`4d90e23`): токены 20 изм. (display/sm), React 74, +36 компонентов с README / превью; версия артефакта 72. Foundations ↔ репо: 969 переменных, 0 расхождений (сверка хешами после Publish 24.11).
 
+## 26.11 — после следующего Publish (Foundations, Components, Icons, Illustrations)
+1. Components и экраны: media/status, media/badge/verified → из Illustrations (по ключам 550cead7… / cfdea272…); старые в Icons — «· deprecated».
+2. Экраны общего файла: Search → Input (Show label Off, Leading icon/search), Select compact (и язык) → Button Tertiary + Icon left + chevron-down, Amount → тексты (patterns §0.4), повторный icon-swap по новой карте (211 имён).
+3. Новые таблицы сравнения (цвета 208, компоненты 74) — `scripts/migration-tables-figma.py` → Figma, картинки `migration-tables-vis.plugin.js`; ответы Стефана из CSV сохраняются.
+
 ## 26.11 — правки Components по «Как сделать» Стефана (ждут Publish)
 - Checkbox: обводка border/strong → border/subtle, скругление radius/control-xs (6), фокус-кольцо radius/sm — как legacy (осознанно ниже WCAG 1.4.11 3:1 — решение Стефана «вернуть стиль»).
 - Toggle Off: дорожка control/box + обводка border/subtle, бегунок icon/disabled (как legacy); подпись Label/MD 14.
