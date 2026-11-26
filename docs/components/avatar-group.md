@@ -1,4 +1,4 @@
-# Avatar group — контракт (2026-11-24)
+# Avatar group — контракт (2026-11-26)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -22,8 +22,8 @@
 - Корень — горизонтальный ряд экземпляров Avatar (`size/media/*`) с отрицательным зазором: нахлёст 20 % размера — `size/overlap/xs` / `sm` / `md` (−4 / −6 / −8 у XS / S / M; привязано 2026-11-16).
 - Каждый аватар и `more` — кольцо `surface/current` (`border/width/focus`, OUTSIDE): на любой поверхности L0–L3 совпадает с фоном и отделяет круг от соседа. Корни аватаров скруглены `radius/full`.
 - `more` — круг «+N»: непрозрачная подложка `surface/next` + тон `status/neutral/subtle`, `radius/chip`; `count` — `text/primary`, `type/label/sm`, `font-weight/medium`.
-- Вложено: `Avatar` ×24, `symbol/coin/bitcoin-btc` ×9, `symbol/coin/ethereum-eth` ×9, `symbol/coin/litecoin-ltc` ×6, `symbol/coin/tether-usdt` ×3.
-- Служебные слои (вариантов из 15): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
+- Вложено: `Avatar` ×72, `symbol/coin/bitcoin-btc` ×9, `symbol/coin/ethereum-eth` ×9, `symbol/coin/litecoin-ltc` ×6, `symbol/coin/tether-usdt` ×3.
+- Служебные слои (вариантов из 33): кольцо фокуса 0 · зона Web 0 · зона касания 0 · безопасное поле 0.
 
 ## 4. States
 - Группа модели состояний (`docs/components.md`): нет: неинтерактивный элемент.
@@ -39,14 +39,14 @@
 | Count | 4 · 2 · 3 | — |
 | More | Off · On | Off |
 
-Матрица: 15 из 48.
+Матрица: 33 из 48.
 
 Свойства:
 
 | Свойство | Тип | По умолчанию | Привязано в вариантах |
 |---|---|---|---|
-| Show more | булево | выкл | 9 из 15 |
-| More text | текст | «+2» | 9 из 15 |
+| Show more | булево | выкл | 9 из 33 |
+| More text | текст | «+2» | 9 из 33 |
 
 ## 6. Content / slots
 - Своих текстовых свойств нет: инициалы — у вложенных Avatar (1 буква, длиннее — обрезается кругом), число — в `count` в виде «+N».
@@ -67,7 +67,7 @@
 
 ## 10. Tokens
 - `корень`: интервал `size/overlap/lg`, `size/overlap/md`, `size/overlap/sm`, `size/overlap/xs`.
-- `Avatar`: высота `size/media/lg`, `size/media/md`, `size/media/xs`; радиус `radius/full`; обводка `surface/current`; толщина обводки `border/width/focus`; ширина `size/media/lg`, `size/media/md`, `size/media/xs`.
+- `Avatar`: высота `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xs`; радиус `radius/full`; обводка `surface/current`; толщина обводки `border/width/focus`; ширина `size/media/lg`, `size/media/md`, `size/media/sm`, `size/media/xs`.
 - `more`: заливка / цвет `status/neutral/subtle`, `surface/next`; радиус `radius/chip`, `radius/full`; обводка `surface/current`; толщина обводки `border/width/focus`.
 - `count`: заливка / цвет `text/primary`; типографика `font-weight/medium`, `font/family/text`, `type/label/sm`.
 - `coin 1`: обводка `surface/current`.
@@ -80,17 +80,17 @@
 - От режима Platform не зависит: на стенде iOS / Android совпадают с Web.
 
 ## 12. Figma projection
-- Набор `Avatar group`, вариантов 15 из 48; оси: Type, Size, Count, More.
+- Набор `Avatar group`, вариантов 33 из 48; оси: Type, Size, Count, More.
 - Борда: «Avatar group — борда · шаблон v3», разделов 11.
 - Описание: 874 знаков, разделы: Status: Level: Type: Когда использовать: Правила: A11y:
 
 ## 13. Code projection
-Кода в репо пока нет; прод (DSP / ui-emcd-web, Flutter) недоступен (`docs/dsp-check-2026-11-12.md`). Ожидаемый API по правилам имён `scripts/parity.mjs`.
+Код в репо: React `packages/react/src/index.js` (`AvatarGroup`), Vue `packages/vue/src/DsAvatarGroup.vue`, CSS `claude-ds/components/AvatarGroup/style.css`; проверка — `npm run test:code`. Прод (DSP / ui-emcd-web, Flutter) — сверка через `scripts/parity.mjs`, когда появится манифест кода.
 
 - Vue: `<DsAvatarGroup>`; Flutter: `DsAvatarGroup`.
 - Props: `type`: person | coin; `size`: xs | m | l | s; `count`: 4 | 2 | 3; `more`: boolean; `showMore`: boolean = false; `moreText`: string или слот.
 
-## 14. Acceptance (2026-11-24)
+## 14. Acceptance (2026-11-26)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: отрицательный зазор −4 / −6 / −8 (нахлёст аватаров).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

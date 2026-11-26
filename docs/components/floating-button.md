@@ -1,4 +1,4 @@
-# Floating button — контракт (2026-11-24)
+# Floating button — контракт (2026-11-26)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -110,7 +110,7 @@
 - `layout`: icon | extended; `size` (l | m) и `type` (primary | secondary) действуют только при `layout="extended"` — Icon всегда L 56 Primary.
 - `label` обязателен: подпись Extended или `aria-label` Icon; `icon` — имя иконки DS (по умолчанию `plus`) или узел; позиция справа снизу — у продукта.
 
-## 14. Acceptance (2026-11-24)
+## 14. Acceptance (2026-11-26)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — 0 замечаний.
 - `audit-parity.plugin.js` — 0 (2026-11-13).

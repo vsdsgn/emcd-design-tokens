@@ -1,4 +1,4 @@
-# Segmented — контракт (2026-11-24)
+# Segmented — контракт (2026-11-26)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -75,6 +75,7 @@
 - `segment 2`: интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `segment 3`: интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
 - `segment 4`: интервал `space/6`; высота `control/height/md`, `control/height/sm`, `control/height/xs`; отступы `control/padding-x/lg`, `control/padding-x/sm`, `space/12`; радиус `radius/sm`, `radius/xs`.
+- Значений без переменной: 9 (напр. `(root):w=143`, `(root):w=204`, `(root):w=270`, `(root):w=171`) — размеры слоёв зон и то, что перечислено в разделе 14.
 
 ## 11. Platforms
 - Размеры и плотность — из режима Platform (Web · Mobile web · iOS · Android); цвета от платформы не зависят.
@@ -91,7 +92,7 @@
 - Vue: `<DsSegmented>`; Flutter: `DsSegmented`.
 - Props: `size`: s | m | l; `items`: 2 | 3 | 4.
 
-## 14. Acceptance (2026-11-24)
+## 14. Acceptance (2026-11-26)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — только реестр: maxWidth текстового слоя числом (вложенный Segment, label).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

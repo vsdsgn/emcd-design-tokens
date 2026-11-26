@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24",
+ "generated": "2026-11-26",
  "source": "Figma Components, scripts/figma/manifest.plugin.js, manifest-bases.plugin.js (read-only)",
  "summary": {
   "pages": {
@@ -14,11 +14,11 @@
    "service": 3,
    "template": 1
   },
-  "variants": 1768,
+  "variants": 1786,
   "incompleteMatrix": 25,
   "propsNotBoundEverywhere": 25,
   "rawMinMax": 1,
-  "withRawValues": 73,
+  "withRawValues": 74,
   "withFocusRing": 22,
   "withHitArea": 22,
   "withSafeMargin": 24,
@@ -884,7 +884,7 @@
    "boards": [
     {
      "name": "Avatar group — борда · шаблон v3",
-     "id": "2203:721",
+     "id": "2450:4767",
      "v3": true,
      "sections": [
       "01 · Когда применять",
@@ -942,7 +942,7 @@
        "On"
       ]
      },
-     "variants": 15,
+     "variants": 33,
      "full": 48,
      "props": [
       {
@@ -959,7 +959,7 @@
       }
      ],
      "nested": {
-      "Avatar": 24,
+      "Avatar": 72,
       "symbol/coin/bitcoin-btc": 9,
       "symbol/coin/ethereum-eth": 9,
       "symbol/coin/litecoin-ltc": 6,
@@ -985,12 +985,14 @@
       "Avatar": [
        "h:size/media/lg",
        "h:size/media/md",
+       "h:size/media/sm",
        "h:size/media/xs",
        "r:radius/full",
        "s:surface/current",
        "sw:border/width/focus",
        "w:size/media/lg",
        "w:size/media/md",
+       "w:size/media/sm",
        "w:size/media/xs"
       ],
       "more": [
@@ -9336,8 +9338,18 @@
       "hit": 0,
       "safe": 0
      },
-     "rawCount": 0,
-     "raw": [],
+     "rawCount": 9,
+     "raw": [
+      "(root):w=143",
+      "(root):w=204",
+      "(root):w=270",
+      "(root):w=171",
+      "(root):w=252",
+      "(root):w=334",
+      "(root):w=202",
+      "(root):w=300",
+      "(root):w=398"
+     ],
      "tokens": {
       "(root)": [
        "f:control/segment-track",

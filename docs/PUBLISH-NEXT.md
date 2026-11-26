@@ -33,3 +33,4 @@
 - **Illustrations** (26.11): `status/pending | warning | attention | error | success` → один набор **status** (State × Product); `security/2fa`, `security/api-keys` — отдельные наборы, ось `product` → `Product`; секции. Ключи вариантов сохранены (Theme demo — связи целы).
 - Правило (HOW-IT-WORKS): варианты — свойство одного объекта (тон, размер, стиль, продукт); другой объект (страна, ОС, монета, иконка) — отдельный компонент, выбор — instance swap.
 
+## Опубликовано 26.11 (Стефан): Icons, Illustrations, Components (Segmented, Password field, Avatar group) — в общем файле приняты. После: avatar group line → Avatar group на экранах (~100), манифест — дельта трёх наборов (`scripts/manifest-delta.mjs`), код AvatarGroup (Person) в React / Vue, монеты JKC / LKY 32 в `icons/symbols`.

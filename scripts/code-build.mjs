@@ -17,7 +17,7 @@ const ORDER = ['Button', 'IconButton', 'Badge', 'Chip', 'Checkbox', 'Radio', 'To
   'Counter', 'Status', 'Avatar', 'Divider', 'Spinner', 'Skeleton', 'Progress', 'StatusBar', 'BulkActionBar', 'Amount', 'Card', 'SectionHeader', 'Breadcrumbs', 'PageHeader', 'StatCard', 'Tooltip', 'Toast', 'Suggest',
   'Tabs', 'Segmented', 'Slider', 'ListItem', 'Transaction', 'Menu', 'Select', 'PasswordField',
   // пачка 3 — экраны майнинга: атомы → молекулы → организмы → конструкции (draft)
-  'Icon', 'Coin', 'CoinStack', 'LegendSwatch', 'LegendItem', 'PageIndicator', 'NavItem', 'KeyValueRow', 'Search', 'SelectCompact', 'DateRangeField', 'Calendar', 'DateRangePanel', 'ChartMetric',
+  'Icon', 'Coin', 'CoinStack', 'AvatarGroup', 'LegendSwatch', 'LegendItem', 'PageIndicator', 'NavItem', 'KeyValueRow', 'Search', 'SelectCompact', 'DateRangeField', 'Calendar', 'DateRangePanel', 'ChartMetric',
   'TableHeaderCell', 'TableCell', 'TableRow', 'Table', 'PromoCard', 'Sidebar', 'ChartCrosshair', 'ChartTooltip', 'ChartPlot', 'Sparkline', 'ChartCard', 'TopBar', 'StatusSummary', 'PromoCarousel', 'ActionBar', 'Sheet',
   // пачка 5 — App: плавающая кнопка, нижняя навигация
   'FloatingButton', 'TabBarItem', 'TabBar'];

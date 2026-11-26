@@ -763,6 +763,18 @@ export interface CoinProps {
   label?: string;
   className?: string;
 }
+export interface AvatarGroupProps {
+  /** Люди по порядку. */
+  people?: { name?: string; src?: string; initials?: string }[];
+  size?: 'xs' | 's' | 'm' | 'l';
+  /** Сколько показать: 2–4. */
+  count?: number;
+  showMore?: boolean;
+  more?: string;
+  /** Имя группы для читалки («Участники, 8»). */
+  label?: string;
+  className?: string;
+}
 export interface CoinStackProps {
   /** Тикеры по значимости: первая — главная. */
   coins: string[];
@@ -1323,6 +1335,7 @@ export interface TabBarProps {
 export declare function Icon(props: IconProps): JSX.Element;
 export declare function Coin(props: CoinProps): JSX.Element;
 export declare function CoinStack(props: CoinStackProps): JSX.Element;
+export declare function AvatarGroup(props: AvatarGroupProps): JSX.Element;
 export declare function NavItem(props: NavItemProps): JSX.Element;
 export declare function KeyValueRow(props: KeyValueRowProps): JSX.Element;
 export declare function Search(props: SearchProps): JSX.Element;

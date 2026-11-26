@@ -1,4 +1,4 @@
-# List item — контракт (2026-11-24)
+# List item — контракт (2026-11-26)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -90,7 +90,7 @@
 - Состояния (Default, Hover, Pressed, Disabled) — не props: Hover / Pressed / Focus из платформы; `disabled` — props.
 - `inset` (boolean = true; в Figma — поля `_List row`): `false` — без боковых полей и мин. высоты, список внутри Card (19.11).
 
-## 14. Acceptance (2026-11-24)
+## 14. Acceptance (2026-11-26)
 - `audit.plugin.js` — 0 по набору после замены на месте 13.11; после снятия Style=Card (15.11) не перезапускался.
 - `variables-check.plugin.js` — ширина корня 375 числом.
 - `audit-parity.plugin.js` — 0 по набору после замены 13.11; после 15.11 не перезапускался.

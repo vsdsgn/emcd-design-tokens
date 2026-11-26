@@ -46,6 +46,7 @@ export { default as DsPasswordField } from './DsPasswordField.vue';
 export { default as DsIcon } from './DsIcon.vue';
 export { default as DsCoin } from './DsCoin.vue';
 export { default as DsCoinStack } from './DsCoinStack.vue';
+export { default as DsAvatarGroup } from './DsAvatarGroup.vue';
 export { default as DsNavItem } from './DsNavItem.vue';
 export { default as DsKeyValueRow } from './DsKeyValueRow.vue';
 export { default as DsSearch } from './DsSearch.vue';

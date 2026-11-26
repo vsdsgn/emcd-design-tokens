@@ -1,4 +1,4 @@
-# Sheet — контракт (2026-11-24)
+# Sheet — контракт (2026-11-26)
 
 Схема разделов — `docs/component-contract.md`. Системные правила (состояния, фокус, зоны, движение) — ссылками, не повтором.
 Собрано `scripts/contract-build.mjs` из `docs/ds-manifest.json` и `scripts/contract-data.mjs` — править там, не здесь.
@@ -105,7 +105,7 @@
 - Vue: `<DsSheet>`; Flutter: `DsSheet`.
 - Props: `title`: string или слот; `showGrabber`: boolean = true; `showClose`: boolean = true; `showFooter`: boolean = true; `headerActions`: string или слот; `body`: string или слот; `footer`: string или слот; `showHeaderActions`: boolean = false.
 
-## 14. Acceptance (2026-11-24)
+## 14. Acceptance (2026-11-26)
 - `audit.plugin.js` — 0 замечаний.
 - `variables-check.plugin.js` — ширина корня 375 — числом (max — `size/sheet/max`).
 - `audit-parity.plugin.js` — 0 (2026-11-13).

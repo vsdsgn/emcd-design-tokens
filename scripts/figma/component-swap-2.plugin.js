@@ -39,7 +39,7 @@ const KIND = (s, vp) => {
   if (/^(Accordion|accordion --1\.5|baseAccordion --1\.5)$/.test(s)) return 'Accordion';
   // 26.11: поля — input / baseInput / Input (App) / Input & Select · input & select (Geometria) / Select White; шеврон → Select, лупа → Search, иначе Input
   if (/^(input|baseInput|Input|Input & Select|input & select|Select White|input \/ --password --v1\.5)$/.test(s)) return 'Field';
-  // avatar group line → Avatar group: ждёт правки набора (Person — только Count=4 и XS / M / L; в продуктах 2–3 человека, S) — GOAL-4 A9
+  if (s === 'avatar group line') return 'AvatarGroup'; // 26.11: после Publish Avatar group (Person: Count 2 / 3 / 4, Size S)
   return null; };
 const root = await figma.getNodeByIdAsync(ARGS.src); const st = { swapped: {}, skipped: {}, errors: [] };
 const cands = root.findAll((n) => n.type === 'INSTANCE').filter((i) => { let p = i.parent; while (p && p !== root) { if (p.type === 'INSTANCE') return false; p = p.parent; } return true; });
@@ -62,7 +62,7 @@ for (const inst of cands) { try {
   if (kind === 'Badge') { want = { Size: 'XS', Tone: tn === 'Danger' || tn === 'Accent' ? tn : 'Neutral', Style: tn === 'Danger' || tn === 'Accent' ? 'Solid' : 'Subtle', State: 'Default', Content: 'Number' }; props = [['Value', label]]; }
   if (kind === 'Divider') { want = { Orientation: inst.width >= inst.height ? 'Horizontal' : 'Vertical', Label: 'Off', Style: 'Solid' }; }
   if (kind === 'Avatar') { want = { Size: sz(inst.width, [['2XS', 16], ['XS', 20], ['S', 24], ['M', 32], ['L', 40], ['XL', 56]]), Type: label ? 'Text' : 'Icon', Network: 'Off', State: 'Default' }; props = [['Initials', label || 'A']]; }
-  if (kind === 'AvatarGroup') { const n = inst.findAll((x) => x.type === 'INSTANCE' && x.visible && Math.abs(x.width - x.height) < 1 && x.width >= 14 && x.width <= 44).length; want = { Type: 'Person', Size: { small: 'S', medium: 'M', large: 'L' }[vp.size] || sz(h, [['XS', 20], ['S', 24], ['M', 32], ['L', 40]]), Count: String(Math.min(4, Math.max(2, n || 3))), More: on(vp.more) ? 'On' : 'Off' }; }
+  if (kind === 'AvatarGroup') { const n = inst.findAll((x) => x.type === 'INSTANCE' && x.visible && Math.abs(x.width - x.height) < 1 && x.width >= 14 && x.width <= 44).length; const av = inst.findAll((x) => x.type === 'INSTANCE' && x.visible && Math.abs(x.width - x.height) < 1 && x.width >= 14 && x.width <= 44)[0]; want = { Type: 'Person', Size: sz(av ? av.width : h, [['XS', 20], ['S', 24], ['M', 32], ['L', 40]]), Count: String(Math.min(4, Math.max(2, n || 3))), More: on(vp.more) ? 'On' : 'Off' }; }
   let accBody = null;
   if (kind === 'Accordion') { const col = String(vp.Collapsed ?? '').toLowerCase(); const open = col ? /^(false|no|off)$/.test(col) : on(vp.open ?? vp.Open); const tt = inst.findAll((x) => x.type === 'TEXT' && x.visible && x.characters.trim()).sort((a, b) => a.absoluteTransform[1][2] - b.absoluteTransform[1][2]);
     want = { Size: root.width <= 460 ? 'M' : 'L', Open: open ? 'On' : 'Off', State: 'Default' }; props = [['Label', tt[0] ? tt[0].characters : label]]; if (open && tt.length > 1) accBody = tt.slice(1).map((t) => t.characters).join('\n'); }

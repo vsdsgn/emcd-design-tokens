@@ -795,6 +795,18 @@ export function Coin({ coin = 'btc', size = 'xs', network = false, networkCoin =
   !skeleton && network && size !== 'xs' && h('span', { className: 'emcd-coin__network' }, h(CoinGlyph, { coin: networkCoin })));
 }
 
+/** Avatar group (Person, 26.11) — аватары внахлёст 20 % размера. people — [{ name, src, initials }]; size: xs (20) · s (24) · m (32) · l (40);
+ *  count — сколько показать (2–4, по умолчанию все до 4); showMore + more — «+N» (по умолчанию, когда людей больше count). label — имя группы («Участники, 8»). Монеты — CoinStack. */
+export function AvatarGroup({ people = [], size = 'xs', count, showMore, more, label, className, ...rest }) {
+  const shown = people.slice(0, Math.max(1, Math.min(4, count ?? people.length)));
+  const hidden = people.length - shown.length;
+  const moreOn = showMore ?? hidden > 0;
+  return h('span', { className: cx('emcd-avatar-group', size !== 'xs' && 'emcd-avatar-group--' + size, className),
+    role: label ? 'group' : undefined, 'aria-label': label, ...rest },
+  shown.map((p, i) => h(Avatar, { key: i, size, name: p.name, src: p.src, alt: p.name || '', initials: p.initials, className: 'emcd-avatar-group__item' })),
+  moreOn && h('span', { className: 'emcd-avatar-group__more', 'aria-label': label ? 'и ещё ' + hidden : undefined }, more ?? '+' + hidden));
+}
+
 const STACK_COIN = { s: 'm', m: 'l', l: 'xl' };
 /** Coin stack — монеты внахлёст. coins — тикеры по значимости; size: s (монеты 24) · m (32) · l (40); count — сколько показать (2–4, по умолчанию все до 4).
  *  showMore + more — кружок «+N» со скрытыми (по умолчанию — когда монет больше count). Декоративна: список монет — текстом рядом (или label). */
@@ -1612,6 +1624,6 @@ export function TabBar({ items, value, defaultValue, onChange, onAction, safeAre
 export const components = { Button, IconButton, Badge, Chip, Checkbox, Radio, RadioGroup, Toggle, Input, Textarea, Modal,
   Counter, Status, Avatar, Divider, Spinner, Skeleton, Progress, StatusBar, BulkActionBar, Amount, Card, SectionHeader, PageHeader, StatCard, Tooltip, Toast, Suggest, Tab, Tabs, Segment, Segmented,
   ListItem, Transaction, MenuItem, Menu, Select, PasswordField,
-  Icon, Coin, CoinStack, NavItem, KeyValueRow, Search, SelectCompact, DateRangeField, DateCell, Calendar, DateRangePanel, PageIndicator, LegendSwatch, LegendItem, ChartMetric,
+  Icon, Coin, CoinStack, AvatarGroup, NavItem, KeyValueRow, Search, SelectCompact, DateRangeField, DateCell, Calendar, DateRangePanel, PageIndicator, LegendSwatch, LegendItem, ChartMetric,
   TableHeaderCell, TableCell, TableRow, Table, PromoCard, Sidebar, ChartCrosshair, ChartTooltip, ChartPlot, ChartCard, TopBar, StatusSummary, PromoCarousel, ActionBar,
   FloatingButton, TabBarItem, TabBar, Sheet };

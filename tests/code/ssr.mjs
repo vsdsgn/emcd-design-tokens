@@ -162,6 +162,8 @@ const RC = {
     { coin: 'usdt', size: 'l', network: true, networkCoin: 'trx' }, { coin: 'btc', size: 'xs', network: true }, { skeleton: true, size: 'm' }, { coin: 'kas', label: 'Kaspa' }],
   CoinStack: [...['s', 'm', 'l'].flatMap((size) => [2, 3, 4].map((count) => ({ size, count, coins: ['kas', 'btc', 'ltc', 'doge'] }))),
     { coins: ['ltc', 'eth', 'btc', 'doge', 'kas', 'bel', 'pep'], count: 2 }, { coins: ['kas', 'eth'], showMore: true, more: '+1', label: 'KAS и ETH' }],
+  AvatarGroup: [...['xs', 's', 'm', 'l'].flatMap((size) => [2, 3, 4].map((count) => ({ size, count, people: [{ name: 'Анна' }, { name: 'Борис' }, { name: 'Вера' }, { name: 'Глеб' }, { name: 'Дина' }] }))),
+    { people: [{ name: 'Анна' }, { name: 'Борис' }], label: 'Участники, 2' }, { people: [{ name: 'Анна', src: 'a.png' }], showMore: true, more: '+5' }],
   NavItem: [{ label: 'Майнинг', icon: 'mining-coin', href: '#', selected: true }, { label: 'P2P', icon: 'exchange', badge: true, badgeLabel: '0% Комиссия' },
     { label: 'Стейкинг', icon: 'percentage', badge: h(R.Badge, { size: 's', tone: 'accent', style: 'solid', label: 'Новое' }) }, { label: 'Воркеры', counter: 3 },
     { label: 'Дашборд', collapsed: true, counter: true }, { label: 'Активы', icon: ico(), collapsed: true, selected: true }, { label: 'OnLock', icon: 'lock', disabled: true, href: '#' }],
@@ -357,6 +359,7 @@ const VC = {
   DsIcon: ['sm', 'md', 'lg', 'xl'].map((size) => [{ name: 'chart-bar', size }]).concat([[{ name: 'file-excel', label: 'Выгрузить' }], [{ name: 'нет-такой' }]]),
   DsCoin: ['xs', 's', 'm', 'l', 'xl'].map((size) => [{ coin: 'kas', size }]).concat([[{ coin: 'eth', size: 'm' }], [{ coin: 'usdt', size: 'l', network: true, networkCoin: 'trx' }], [{ skeleton: true }], [{ coin: 'btc', label: 'Bitcoin' }]]),
   DsCoinStack: ['s', 'm', 'l'].map((size) => [{ size, coins: ['kas', 'btc', 'ltc', 'doge'] }]).concat([[{ coins: ['ltc', 'eth', 'btc', 'doge', 'kas'], count: 2 }], [{ coins: ['kas', 'eth'], showMore: true, more: '+1', label: 'x' }]]),
+  DsAvatarGroup: ['xs', 's', 'm', 'l'].map((size) => [{ size, people: [{ name: 'Анна' }, { name: 'Борис' }, { name: 'Вера' }, { name: 'Глеб' }, { name: 'Дина' }] }]).concat([[{ people: [{ name: 'Анна' }, { name: 'Борис' }], count: 2, label: 'Участники, 2' }]]),
   DsNavItem: [[{ label: 'Майнинг', icon: 'mining-coin', href: '#', selected: true }], [{ label: 'P2P', icon: 'exchange', badge: true, badgeLabel: '0% Комиссия' }], [{ label: 'x', counter: 3 }],
     [{ label: 'Дашборд', collapsed: true, counter: true }], [{ label: 'x', disabled: true, href: '#' }], [{ label: 'x' }, { icon: vico, badge: () => 'бейдж' }]],
   DsKeyValueRow: ['default', 'total', 'muted'].map((emphasis, i) => [{ emphasis, leader: i === 1, label: 'Комиссия сети', value: '0.00050000 BTC' }])

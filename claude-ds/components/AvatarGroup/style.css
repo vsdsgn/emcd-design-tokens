@@ -1,0 +1,15 @@
+/* Avatar group — 🟡 beta (Figma «🟡 Avatar group», Type=Person: Size XS · S · M · L × Count 2–4 × More). Аватары внахлёст 20 % размера
+   (size/overlap: XS −4 · S −4 · M −6 · L −8), кольцо — цвет подложки (surface/current); «+N» — как у Coin stack. Монеты — Coin stack (Type=Coin). */
+.emcd-avatar-group { --ov: var(--size-overlap-xs, -4px); --ring: var(--surface-current, var(--surface-level-0)); display: inline-flex; align-items: center; flex: none; vertical-align: middle; }
+.emcd-avatar-group--m { --ov: var(--size-overlap-sm, -6px); }
+.emcd-avatar-group--l { --ov: var(--size-overlap-md, -8px); }
+.emcd-avatar-group > * + * { margin-inline-start: var(--ov); }
+.emcd-avatar-group__item .emcd-avatar__circle { box-shadow: 0 0 0 var(--border-width-strong, 2px) var(--ring); }
+.emcd-avatar-group__more { position: relative; display: inline-grid; place-items: center; box-sizing: border-box; flex: none;
+  min-width: var(--size-media-xs, 20px); height: var(--size-media-xs, 20px); padding: 0 var(--space-4, 4px); border-radius: var(--radius-full, 999px);
+  background: linear-gradient(var(--status-neutral-subtle), var(--status-neutral-subtle)), var(--surface-next, var(--surface-level-1));
+  box-shadow: 0 0 0 var(--border-width-strong, 2px) var(--ring); color: var(--text-primary);
+  font: 500 var(--type-label-sm-size, 12px)/var(--type-label-sm-line-height, 16px) var(--font-sans); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.emcd-avatar-group--s .emcd-avatar-group__more { min-width: var(--size-media-sm, 24px); height: var(--size-media-sm, 24px); }
+.emcd-avatar-group--m .emcd-avatar-group__more { min-width: var(--size-media-md, 32px); height: var(--size-media-md, 32px); }
+.emcd-avatar-group--l .emcd-avatar-group__more { min-width: var(--size-media-lg, 40px); height: var(--size-media-lg, 40px); }
