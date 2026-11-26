@@ -1,17 +1,17 @@
 ## Решения Стефана 26.11 (разбор отложенного и парковки)
-- [ ] 1 Поля — **Б**: Search влить в Input (иконка слева), Select compact → вариант Button с шевроном; Select / Date range / Amount — отдельные на общей базе Field.
-- [ ] 2 Field — слот Content; Date range field: две даты со стрелкой, как в оригинале; иконка календаря — брендовая EMCD (п. 5).
+- [x] 1 (26.11: «Search · deprecated» → Input без подписи + Leading icon/search, M 40; «Select compact · deprecated» → Button Tertiary + Icon left + Icon right chevron-down; экраны — следующим проходом) Поля — **Б**: Search влить в Input (иконка слева), Select compact → вариант Button с шевроном; Select / Date range / Amount — отдельные на общей базе Field.
+- [x] 2 (26.11: Date range field — даты в слоте Inline базы поля: начало → конец, стрелка icon/arrow-right, зазор 12, во всех 7 состояниях; отдельный слот Content не понадобился) Field — слот Content; Date range field: две даты со стрелкой, как в оригинале; иконка календаря — брендовая EMCD (п. 5).
 - [x] 3 Sidebar (первый шаг сделан 26.11: убрано «Подключить», логотип — Brand logo Wordmark / Mark в свёрнутом, Nav item 40 и radius/control 12) — сейчас: убрать «Подключить оборудование», логотип → брендовый знак, отступы и состояния Nav item; отдельной задачей: правила поведения (скролл, фейды, высота, верх / низ), эффекты Expressive.
 - [ ] 4 Навигация по платформам: Web desktop — Page header + Sidebar; Mobile web — Top bar + Tabs; App — Top bar + Tab bar; модалки Web — Modal, App / мобильный веб — Sheet. Меню для разделов, не влезших в Tab bar (мобильный веб) — **показать все варианты** (26.11: страница «⚑ Навигация мобильного веба · варианты» в основном файле миграции, А / Б / В × закрыто / открыто) («Ещё» в Tab bar → Sheet, бургер в Top bar → Drawer, оба).
 - [ ] 5 Библиотека «Icons/Symbols»: папки icon / logo / symbol / flag (бренды — подпапкой внутри типа); **media → в Illustrations**. Аудит уникальных иконок EMCD Mining в legacy и перенос.
-- [ ] 6 Системные обвязки платформ (home indicator, клавиатура iOS / Android) — добавить в DS отдельной группой «Платформа».
+- [x] 6 (26.11: страница «🟡 Платформа» — Home indicator на токене text/primary, Keyboard Platform iOS / Android — обёртки китов Apple iOS 26 и Material 3; Status bar — прежний) Системные обвязки платформ (home indicator, клавиатура iOS / Android) — добавить в DS отдельной группой «Платформа».
 - [x] 7 Status: правило — в таблицах и списках точка с подписью; без подписи — только рядом с текстом, уже называющим статус.
 - [x] 8 Progress circle: legacy-лоадер → Indeterminate («наверно»).
 - [x] 9 (26.11: набор → «Amount · deprecated», внутри 34 вариантов _List row / Status screen — detach в тексты; правила — patterns.md §0.4; экраны — при следующем проходе) **Amount → deprecated**: суммы — текстовые стили + правила форматирования (копейки, валюта, знак, цвет) в доке; главный баланс — Heading XL. Компонентов «для текстов» не держим.
 - [x] 10 Card Accent (обводки, градиенты, свечения) — только Expressive; в Base — обычная Card. Новой оси нет.
 - [x] 11 Итог цветом без «+» — правило текста (text/success без знака), не ось (Amount уходит, п. 9).
-- [ ] 12 List item плотный 48 без полей (строки монет «История» Web) — попробовать Size S.
-- [ ] 13 Подписи Toggle / Checkbox / Radio: перенос строк (интерлиньяж, отступ от контрола), правила min size и длины контента.
+- [x] 12 (26.11: Size S у _List row Type=List и List item — 48, поля 0 по бокам, space/6 сверху и снизу, 16 + 16 вариантов) List item плотный 48 без полей (строки монет «История» Web) — попробовать Size S.
+- [x] 13 (26.11: _Selection control — подпись и описание переносятся по ширине (Fill + авто-высота), контрол у первой строки; набор по-прежнему по ширине текста до 480) Подписи Toggle / Checkbox / Radio: перенос строк (интерлиньяж, отступ от контрола), правила min size и длины контента.
 - [x] 14 Полоса тикеров — виджет продукта, не компонент DS.
 - [x] 15 Палитра графиков (26.11, ждёт Publish Foundations): худшая пара была 5 ↔ 8 (emerald ↔ teal, ΔE 15 / 11); data/8 → indigo 600 / 400, data/7 Dark → orange/500; минимальная ΔE пар Light 35, Dark 41.
 - [x] 16 Promo card (26.11): действие во всех 12 вариантах — Button Text; крестик уже был свойством Show close.
