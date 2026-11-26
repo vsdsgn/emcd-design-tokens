@@ -1,3 +1,4 @@
+// См. docs/LESSONS.md#l-006 (не вызывать resetOverrides: сбрасывает замену и ABSOLUTE), #l-011, #l-012
 // Замена legacy-иконок на экране → DS 2.0 Icons (25.11). ARGS: {src:<id фрейма>, data:{m:{legacy: имя DS}, k:{имя DS: ключ}}, dry}; имена сжаты: «~» = icon/, «¤» = symbol/coin/.
 // Данные — scripts/icon-map-build.mjs → docs/migration/icon-map.json + icon-keys.tsv; в Figma лежат текстом в узле «⚑ data · icon-map».
 // Поиск: точное имя legacy в карте; затем нормализация (ic-/ic_/smbl- срезаются, суффиксы -x1/-x2/-md/-sm, «_» → «-») и совпадение с icon/<имя>;
