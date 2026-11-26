@@ -14,6 +14,7 @@ const pk = (i, b) => Object.keys(i.componentProperties).find((k) => k.split('#')
 const fonts = new Set(); const lf = async (n) => { for (const t of n.findAll((x) => x.type === 'TEXT')) for (const s of t.getStyledTextSegments(['fontName'])) { const k = s.fontName.family + s.fontName.style; if (!fonts.has(k)) { await figma.loadFontAsync(s.fontName); fonts.add(k); } } };
 const root = await figma.getNodeByIdAsync(ARGS.src); const old = root.findOne((x) => x.type === 'INSTANCE' && x.name === 'tabs'); if (!old) return { skip: 'нет tabs' };
 const items = old.findAll((x) => x.name === 'tabs/x' && x.visible).map((x) => ({ label: (x.findOne((y) => y.type === 'TEXT') || {}).characters || '', on: x.variantProperties.active === 'yes', x: x.absoluteTransform[0][2] - old.absoluteTransform[0][2] }));
+if (items.length < 2) return { skip: 'нет вкладок tabs/x' }; // 26.11: полоса tabs без пунктов (общий файл) — не трогаем
 const ons = items.filter((i) => i.on); const sel = ons.find((i) => i.x < old.width) || ons[0]; items.forEach((i) => { i.on = i === sel; });
 const t = S.children.find((c) => c.variantProperties.Size === 'M').createInstance(); root.appendChild(t); await lf(t);
 const bp = {}; for (const k of [3, 4, 5, 6]) bp[pk(t, 'Tab ' + k)] = items.length >= k; t.setProperties(bp);
