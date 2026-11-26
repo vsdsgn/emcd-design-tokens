@@ -61,7 +61,7 @@
   --brand-accent-solid-hover: var(--brand-accent-600);
   --brand-accent-solid-pressed: var(--brand-accent-700);
   --brand-accent-fg-on-light: var(--brand-accent-600);
-  --brand-accent-fg-on-dark: var(--brand-accent-350);
+  --brand-accent-fg-on-dark: var(--brand-accent-400);
   --brand-accent-fg-strong-on-light: var(--brand-accent-600);
   --brand-accent-fg-strong-on-dark: var(--brand-accent-300);
 }

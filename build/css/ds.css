@@ -16,6 +16,7 @@ html { font-size: 100%; }
   --color-neutral-500: #7a7a7a;
   --color-neutral-600: #4d4d4d;
   --color-neutral-700: #262626;
+  --color-neutral-750: #232323;
   --color-neutral-800: #202020;
   --color-neutral-850: #1a1a1a;
   --color-neutral-900: #111111;
@@ -562,7 +563,7 @@ html { font-size: 100%; }
   --brand-accent-solid-hover: var(--brand-accent-600);
   --brand-accent-solid-pressed: var(--brand-accent-700);
   --brand-accent-fg-on-light: var(--brand-accent-600);
-  --brand-accent-fg-on-dark: var(--brand-accent-350);
+  --brand-accent-fg-on-dark: var(--brand-accent-400);
   --brand-accent-fg-strong-on-light: var(--brand-accent-600);
   --brand-accent-fg-strong-on-dark: var(--brand-accent-300);
 }
@@ -626,7 +627,7 @@ html { font-size: 100%; }
   --brand-accent-solid-hover: var(--brand-accent-600);
   --brand-accent-solid-pressed: var(--brand-accent-700);
   --brand-accent-fg-on-light: var(--brand-accent-600);
-  --brand-accent-fg-on-dark: var(--brand-accent-350);
+  --brand-accent-fg-on-dark: var(--brand-accent-400);
   --brand-accent-fg-strong-on-light: var(--brand-accent-600);
   --brand-accent-fg-strong-on-dark: var(--brand-accent-300);
 }
@@ -690,7 +691,7 @@ html { font-size: 100%; }
   --brand-accent-solid-hover: var(--brand-accent-600);
   --brand-accent-solid-pressed: var(--brand-accent-700);
   --brand-accent-fg-on-light: var(--brand-accent-600);
-  --brand-accent-fg-on-dark: var(--brand-accent-350);
+  --brand-accent-fg-on-dark: var(--brand-accent-400);
   --brand-accent-fg-strong-on-light: var(--brand-accent-600);
   --brand-accent-fg-strong-on-dark: var(--brand-accent-300);
 }
@@ -700,7 +701,7 @@ html { font-size: 100%; }
   --mode-is-dark: true;
   --bg-subtle: var(--color-neutral-900);
   --bg-inverse: var(--color-white);
-  --surface-raised: var(--color-neutral-700);
+  --surface-raised: var(--color-neutral-800);
   --surface-sunken: var(--color-neutral-950);
   --surface-hover: var(--color-alpha-white-8);
   --surface-active: var(--color-alpha-white-12);
@@ -711,18 +712,18 @@ html { font-size: 100%; }
   --surface-glass-thick: var(--color-alpha-neutral-900-88);
   --surface-glass-regular: var(--color-alpha-neutral-900-88);
   --surface-level-0: var(--color-neutral-950);
-  --surface-level-1: var(--color-neutral-850);
-  --surface-level-2: var(--color-neutral-800);
-  --surface-level-3: var(--color-neutral-700);
+  --surface-level-1: var(--color-neutral-900);
+  --surface-level-2: var(--color-neutral-850);
+  --surface-level-3: var(--color-neutral-750);
   --surface-inverse: var(--color-neutral-50);
   --text-primary: var(--color-neutral-50);
   --text-secondary: var(--color-alpha-white-56);
   --text-tertiary: var(--color-alpha-white-48);
   --text-disabled: var(--color-alpha-white-40);
   --text-inverse: var(--color-neutral-950);
-  --text-danger: var(--color-red-350);
-  --text-success: var(--color-green-450);
-  --text-warning: var(--color-amber-450);
+  --text-danger: var(--color-red-400);
+  --text-success: var(--color-green-500);
+  --text-warning: var(--color-amber-600);
   --text-on-warning: var(--color-neutral-950);
   --text-danger-hover: var(--color-red-300);
   --text-danger-pressed: var(--color-red-200);
@@ -732,9 +733,9 @@ html { font-size: 100%; }
   --icon-tertiary: var(--color-alpha-white-48);
   --icon-disabled: var(--color-alpha-white-40);
   --icon-inverse: var(--color-neutral-950);
-  --icon-danger: var(--color-red-350);
-  --icon-success: var(--color-green-450);
-  --icon-warning: var(--color-amber-450);
+  --icon-danger: var(--color-red-400);
+  --icon-success: var(--color-green-500);
+  --icon-warning: var(--color-amber-600);
   --border-subtle: var(--color-alpha-white-8);
   --border-default: var(--color-alpha-white-12);
   --border-strong: var(--color-alpha-white-40);
@@ -760,15 +761,15 @@ html { font-size: 100%; }
   --action-danger-subtle-hover: var(--color-alpha-red-32);
   --action-danger-subtle-pressed: var(--color-alpha-red-40);
   --status-danger-solid: var(--color-red-500);
-  --status-danger-subtle: var(--color-red-900);
+  --status-danger-subtle: var(--color-red-950);
   --status-danger-border: var(--color-alpha-red-48);
   --status-danger-on-subtle: var(--color-red-200);
   --status-success-solid: var(--color-green-500);
-  --status-success-subtle: var(--color-green-900);
+  --status-success-subtle: var(--color-green-950);
   --status-success-border: var(--color-alpha-green-32);
   --status-success-on-subtle: var(--color-green-200);
   --status-warning-solid: var(--color-amber-500);
-  --status-warning-subtle: var(--color-amber-900);
+  --status-warning-subtle: var(--color-amber-950);
   --status-warning-border: var(--color-alpha-amber-24);
   --status-warning-on-subtle: var(--color-amber-200);
   --status-neutral-solid: var(--color-alpha-white-40);
@@ -835,7 +836,7 @@ html { font-size: 100%; }
   --action-accent-pressed: var(--brand-accent-glow-strong);
   --highlight-solid: var(--brand-highlight-500);
   --highlight-subtle: var(--brand-highlight-900);
-  --accent-subtle: var(--brand-accent-900);
+  --accent-subtle: var(--brand-accent-950);
   --accent-subtle-hover: var(--brand-accent-tint-strong);
   --accent-on-subtle: var(--brand-accent-200);
   --status-info-solid: var(--brand-accent-solid);
@@ -2133,15 +2134,15 @@ html { font-size: 100%; }
     --control-border-default: var(--color-alpha-white-40);
     --text-tertiary: var(--color-alpha-white-56);
     --icon-tertiary: var(--color-alpha-white-56);
-    --text-accent: var(--brand-accent-50);
-    --text-link: var(--brand-accent-50);
-    --icon-accent: var(--brand-accent-50);
-    --text-danger: var(--color-red-50);
-    --icon-danger: var(--color-red-50);
-    --text-success: var(--color-green-50);
-    --icon-success: var(--color-green-50);
-    --text-warning: var(--color-amber-50);
-    --icon-warning: var(--color-amber-50);
+    --text-accent: var(--brand-accent-300);
+    --text-link: var(--brand-accent-300);
+    --icon-accent: var(--brand-accent-300);
+    --text-danger: var(--color-red-300);
+    --icon-danger: var(--color-red-300);
+    --text-success: var(--color-green-400);
+    --icon-success: var(--color-green-400);
+    --text-warning: var(--color-amber-500);
+    --icon-warning: var(--color-amber-500);
     --text-info: var(--text-accent);
     --icon-info: var(--icon-accent);
   }

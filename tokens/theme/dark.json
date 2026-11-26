@@ -20,7 +20,7 @@
     },
     "raised": {
       "$type": "color",
-      "$value": "{color.neutral.700}"
+      "$value": "{color.neutral.800}"
     },
     "sunken": {
       "$type": "color",
@@ -68,15 +68,15 @@
     },
     "level-1": {
       "$type": "color",
-      "$value": "{color.neutral.850}"
+      "$value": "{color.neutral.900}"
     },
     "level-2": {
       "$type": "color",
-      "$value": "{color.neutral.800}"
+      "$value": "{color.neutral.850}"
     },
     "level-3": {
       "$type": "color",
-      "$value": "{color.neutral.700}"
+      "$value": "{color.neutral.750}"
     },
     "accent": {
       "$type": "color",
@@ -130,15 +130,15 @@
     },
     "danger": {
       "$type": "color",
-      "$value": "{color.red.350}"
+      "$value": "{color.red.400}"
     },
     "success": {
       "$type": "color",
-      "$value": "{color.green.450}"
+      "$value": "{color.green.500}"
     },
     "warning": {
       "$type": "color",
-      "$value": "{color.amber.450}"
+      "$value": "{color.amber.600}"
     },
     "info": {
       "$type": "color",
@@ -204,15 +204,15 @@
     },
     "danger": {
       "$type": "color",
-      "$value": "{color.red.350}"
+      "$value": "{color.red.400}"
     },
     "success": {
       "$type": "color",
-      "$value": "{color.green.450}"
+      "$value": "{color.green.500}"
     },
     "warning": {
       "$type": "color",
-      "$value": "{color.amber.450}"
+      "$value": "{color.amber.600}"
     },
     "info": {
       "$type": "color",
@@ -406,7 +406,7 @@
   "accent": {
     "subtle": {
       "$type": "color",
-      "$value": "{brand.accent.900}"
+      "$value": "{brand.accent.950}"
     },
     "subtle-hover": {
       "$type": "color",
@@ -425,7 +425,7 @@
       },
       "subtle": {
         "$type": "color",
-        "$value": "{color.red.900}"
+        "$value": "{color.red.950}"
       },
       "border": {
         "$type": "color",
@@ -443,7 +443,7 @@
       },
       "subtle": {
         "$type": "color",
-        "$value": "{color.green.900}"
+        "$value": "{color.green.950}"
       },
       "border": {
         "$type": "color",
@@ -461,7 +461,7 @@
       },
       "subtle": {
         "$type": "color",
-        "$value": "{color.amber.900}"
+        "$value": "{color.amber.950}"
       },
       "border": {
         "$type": "color",
