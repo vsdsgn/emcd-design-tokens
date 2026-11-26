@@ -650,11 +650,11 @@
     },
     "7": {
       "$type": "color",
-      "$value": "{color.orange.400}"
+      "$value": "{color.orange.500}"
     },
     "8": {
       "$type": "color",
-      "$value": "{color.teal.300}"
+      "$value": "{color.indigo.400}"
     }
   },
   "fixed": {
