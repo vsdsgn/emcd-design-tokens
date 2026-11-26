@@ -18,7 +18,7 @@ Web·App,Color 5 [Text],,text/disabled,Keep,,,#00000066,#4d4d4d,#ffffff66,12.9,�
 Web·App,Brand,заливка,action/primary/default,Split,,,#8f42ff,#8f42ff,#8f42ff,0.0,=,,DS Web 237 · DS App 106 · DS Site 9 · Web App 3 280 · App 786 · Monitoring 5 399 · Firmware 38 · WL B2B 245 · Geo Web 40 · Geo App 57 · Сайт 3 640,
 Web·App,Brand,отмеченный контрол,control/checked,Split,,,#8f42ff,#8f42ff,#8f42ff,0.0,=,,DS Web 237 · DS App 106 · DS Site 9 · Web App 3 280 · App 786 · Monitoring 5 399 · Firmware 38 · WL B2B 245 · Geo Web 40 · Geo App 57 · Сайт 3 640,
 Web·App,Brand,текст / иконка,text/accent,Split,,,#7a38db,#8f42ff,#b678fd,33.4,Δ принято,Цветной текст ≥ 4.5 (06.10),DS Web 237 · DS App 106 · DS Site 9 · Web App 3 280 · App 786 · Monitoring 5 399 · Firmware 38 · WL B2B 245 · Geo Web 40 · Geo App 57 · Сайт 3 640,
-Web·App,Brand fill hover,,action/primary/default+layer@6,Deprecate,,,#873ef0,#6724b1,#964dff,25.2,Δ принято,Слой состояний 6/10 % (06.10),DS Web 17 · DS App 6 · Web App 17 · App 14 · Monitoring 6 · WL B2B 1,action/primary/hover — кандидат deprecated
+Web·App,Brand fill hover,,action/primary/default + state/layer@6,Merge,,,#873ef0,#6724b1,#964dff,25.2,Δ принято,решение 26.11: hover = основной цвет + слой 6 %,DS Web 17 · DS App 6 · Web App 17 · App 14 · Monitoring 6 · WL B2B 1,action/primary/hover — кандидат deprecated
 Web·App,Brand hover,,text/accent,Merge,,,#7a38db,#ac63fc,#b678fd,12.6,Δ принято,Ближайшая системная ступень (24.11),DS Web 3 · DS App 1 · Web App 81 · App 47 · Monitoring 113 · Firmware 3 · WL B2B 26 · Сайт 62,
 Web·App,Brand light,,text/link-hover,Keep,,,#7a38db,#c18afd,#c18afe,0.5,=,,DS Web 1 · Web App 90 · App 68 · WL B2B 1 · Сайт 33,
 Web·App,Brand disable,,action/disabled,Split,,,#00000014,#2c0754,#ffffff14,51.4,Δ принято,Disabled 8 / 40 % (06.10),DS Web 15 · DS App 22 · Web App 171 · App 103 · Monitoring 28 · WL B2B 1 · Geo Web 31 · Geo App 8,2026-10-16: в бейджах DS App (Default tinted Badge RTL / primary) → accent/subtle
@@ -29,24 +29,20 @@ Web·App,Error back / Red [Back],,status/danger/subtle,Merge,,,#ffdada,#350a09,#
 Web·App,Error back 2 / Red [Back] 2,,status/danger/subtle,Merge,,,#ffdada,#480f0e,#57100e,8.0,≈,status/*/subtle альфой (05.10),DS App 20 · Web App 29 · App 96 · Monitoring 9 · Geo App 12,
 Web·App,Error secondary text / Red [Secondary text],,text/danger,Keep,,,#c4302c,#be2f2b,#f47572,25.7,Δ принято,Цветной текст ≥ 4.5 (06.10),DS Web 2 · DS App 3,см. П1 (контраст на L1–L3)
 Web·App,Success / Green [Main],,status/success/solid,Keep,,,#43a047,#43a047,#43a047,0.0,=,,DS Web 82 · DS App 48 · Web App 1 071 · App 209 · Monitoring 22 370 · Firmware 49 · WL B2B 61 · Geo App 50 · Сайт 271,
-Web·App,Success hover / Green [Hover],,action/success/default+layer@6,Deprecate,,,#2e7431,#38823b,#3d8340,2.6,≈,Слой состояний 6/10 % (06.10),DS Web 3 · Web App 2 · Geo App 4,
+Web·App,Success hover / Green [Hover],,action/success/default + state/layer@6,Merge,,,#2e7431,#38823b,#3d8340,2.6,≈,решение 26.11: hover = основной цвет + слой 6 %,DS Web 3 · Web App 2 · Geo App 4,
 Web·App,Success back / Green [Back],,status/success/subtle,Merge,,,#d7edd8,#112412,#123914,16.1,Δ принято,status/*/subtle альфой (05.10),DS Web 20 · DS App 22 · Web App 34 · App 2 · Monitoring 157 · WL B2B 4 · Geo App 3,
 Web·App,Success back 2 / Green [Back] 2,,status/success/subtle,Merge,,,#d7edd8,#173318,#123914,7.5,≈,status/*/subtle альфой (05.10),DS Web 2 · DS App 18 · Web App 123 · App 2 · Geo Web 6 · Geo App 5 · Сайт 24,
 Web·App,Success secondary text / Green [Secondary text],,text/success,Keep,,,#2b6e2e,#38823b,#54a958,15.0,Δ принято,Цветной текст ≥ 4.5 (06.10),DS Web 3 · DS App 1 · Firmware 384,
 Web·App,Attention / Orange [Main],,status/warning/solid,Keep,,,#f59e0b,#f59e0b,#f59e0b,0.0,=,,DS Web 23 · DS App 24 · Web App 1 819 · App 378 · Monitoring 5 994 · Firmware 11 · WL B2B 48 · Geo Web 28 · Geo App 80 · Сайт 1 071,
-Web·App,Attention hover,,status/warning/solid+layer@6,Deprecate,,,#e7950a,#c68009,#f6a419,17.5,Δ принято,Слой состояний 6/10 % (06.10),Web App 2 · Firmware 1,
+Web·App,Attention hover,,status/warning/solid + state/layer@6,Merge,,,#e7950a,#c68009,#f6a419,17.5,Δ принято,решение 26.11: hover = основной цвет + слой 6 %,Web App 2 · Firmware 1,
 Web·App,Attention back / Orange [back],,status/warning/subtle,Merge,,,#fbead0,#221601,#4d2e00,24.8,Δ принято,status/*/subtle альфой (05.10),DS Web 18 · DS App 22 · Web App 141 · App 111 · Geo App 3,
 Web·App,Attention back 2 / Orange [back] 2,,status/warning/subtle,Merge,,,#fbead0,#3a2502,#4d2e00,10.3,Δ принято,status/*/subtle альфой (05.10),DS App 18 · Web App 53 · App 85 · Geo App 5 · Сайт 42,
 Web·App,Attention secondary text / Orange [secondary text],,text/warning,Keep,,,#7a4c00,#976207,#f4a835,32.0,Δ принято,Цветной текст ≥ 4.5 (06.10),DS Web 3 · DS App 1 · App 5 · Monitoring 4,
 Web·App,accent base,,highlight/solid,Keep,,,#ebff00,#ebff00,#ebff00,0.0,=,,DS Web 12 · Web App 39 · App 10 · Monitoring 60 · Сайт 14,текст на нём — text/on-highlight
-Web·App,accent soft,,—,Deprecate,,,,#f6fe9e,,,—,Этап 1: 0 потребителей,0,подтверждено 2026-10-14 — скан всех продуктов закрыт
-Web·App,accent bold,,—,Deprecate,,,,#9d8701,,,—,Этап 1: 0 потребителей,0,подтверждено 2026-10-14 — скан всех продуктов закрыт
-Web·App,accent background,,highlight/subtle,Deprecate,,,#f9fcd5,#231f00,#3d4300,25.2,Δ принято,Этап 1: 0 потребителей,0,цель — если найдётся потребитель; подтверждено 2026-10-14 — скан всех продуктов закрыт
 Web·App,theme · surface/base,обводка плашек и карточек,border/subtle,Split,,,#00000014,#d0d0d012,#ffffff14,2.5,≈,Обводки и плашки альфой (05.10),DS Web 334 · DS App 417 · Web App 2 634 · App 1 127 · Monitoring 4 482 · Firmware 6 · WL B2B 29 · Geo Web 77 · Geo App 37 · Сайт 526,
 Web·App,theme · surface/base,граница контрола (checkbox / radio),border/strong,Split,,,#0000007a,#d0d0d012,#ffffff66,37.4,Δ принято,WCAG 1.4.11,DS Web 334 · DS App 417 · Web App 2 634 · App 1 127 · Monitoring 4 482 · Firmware 6 · WL B2B 29 · Geo Web 77 · Geo App 37 · Сайт 526,граница — единственный признак контрола → ≥ 3:1
 Web·App,theme · divider/base,,border/subtle,Keep,,,#00000014,#d0d0d012,#ffffff14,2.5,≈,Обводки и плашки альфой (05.10),DS Web 99 · DS App 92 · Web App 1 032 · App 680 · Monitoring 2 063 · Firmware 20 · WL B2B 46 · Geo Web 46 · Geo App 17 · Сайт 105,
 Web·App,Main [Primary],сайт,action/primary/default,Merge,,,#8f42ff,,#8f42ff,,—,,Сайт 34,значение уточнить (Website)
-App,Back [Primary] 2,Pressed бейджа brand,—,Deprecate,,,,#380d66,,,—,Слой состояний 6/10 % (06.10),DS App 18,2026-10-16: 18/18 — Pressed tinted Badge RTL / primary (DS App); Pressed везде слоем state/layer
 Core,Alias · Background/Color default,,surface/level-0,Merge,,,#f5f5f5,#0a0a0a,#0a0a0a,0.0,=,,Web App 36 · App 11,
 Core,Alias · Background/Shade color default,,surface/level-3,Merge,,,#ececec,#232323,#262626,1.4,=,Уровни L0–L3 (05–06.10),Web App 299 · App 30 · Monitoring 15,
 Core,Alias · Divider/Color default,,border/subtle,Merge,,,#00000014,#232323,#ffffff14,2.9,≈,Обводки и плашки альфой (05.10),Web App 106 · App 152 · Monitoring 157 · Geo App 8 · Сайт 8,
@@ -66,9 +62,16 @@ Core,Alias · Background/Color accent,трек Toggle выкл.,control/track,Sp
 Core,Alias · Background/Color focus,карточка на фоне экрана,surface/level-1,Split,,,#ffffff,#1a1a1a,#1a1a1a,0.0,=,Уровни L0–L3 (05–06.10),Web App 22 · App 110 · Geo App 6 · Сайт 15,"экраны 2026-10-14: App Главная / CH Wallet / Настройки, Web App Demo ASIC; обводка монет в стопке = цвет карточки"
 Core,Alias · Background/Color focus,кнопка Secondary,action/secondary/default,Split,,,#00000014,#1a1a1a,#ffffff14,1.5,=,,Web App 22 · App 110 · Geo App 6 · Сайт 15,экраны 2026-10-14: App Demo «Сохранить черновик» — по компоненту Button
 Core,Alias · Background/Color focus,тултип,surface/raised,Split,,,#ffffff,#1a1a1a,#262626,5.9,≈,,Web App 22 · App 110 · Geo App 6 · Сайт 15,"экраны 2026-10-14: Tooltip (App Калькулятор, Web App Счета)"
-Core,Basic color · Neutral/* напрямую,сырые примитивы на экранах,по роли слоя,Rebind,,,,,,,этап 2,,DS Web 18 · DS App 13 · DS Site 48 · Web App 4 534 · App 391 · Monitoring 12 · WL B2B 9 574 · Geo Web 102 · Geo App 210 · Сайт 39 622,этап 2 — перепривязка по роли
-Core,Basic color · Green / Red / Amber/* напрямую,бейджи / транзакции,status/*/subtle | solid,Rebind,,,,,,,этап 2,,DS App 50 · Web App 40 · App 836 · Monitoring 120 · WL B2B 459 · Geo Web 36 · Geo App 133 · Сайт 21,этап 2
-Core,Basic color · Yellow/500,,highlight/solid,Rebind,,,#ebff00,#ebff00,#ebff00,0.0,этап 2,,Web App 28 · App 28 · WL B2B 21,
+Core,Basic color · Neutral/*,текст / иконка (тёмные продукты),text|icon/primary · secondary · tertiary · disabled,Split,,,,,,,=,решение 26.11: по роли слоя,,по яркости: светлее #d9 → primary · #8c–#d9 → secondary · #59–#8c → tertiary · темнее → disabled
+Core,Basic color · Neutral/*,"текст / иконка (светлые: WL, Geo, сайт)",text|icon/primary · secondary · tertiary · disabled · on-accent,Split,,,,,,,=,решение 26.11: по роли слоя,,темнее #33 → primary · до #73 → secondary · до #a6 → tertiary · светлее → disabled; почти белый на акценте → on-accent
+Core,Basic color · Neutral/*,обводка,border/strong · border/subtle,Split,,,,,,,=,решение 26.11: по роли слоя,,"непрозрачная контрастная (светлая на тёмном / тёмная на светлом) → strong, остальные → subtle"
+Core,Basic color · Neutral/*,фон (тёмные продукты),surface/level-0 · 1 · 2 · 3 · action/secondary/default,Split,,,,,,,=,решение 26.11: по роли слоя,,до #0d → L0 · до #16 → L1 · до #1f → L2 · до #33 → L3 · светлее → action/secondary; полупрозрачный → L2
+Core,Basic color · Neutral/*,фон (светлые продукты),surface/level-1 · 0 · 3 · inverse · action/secondary/default,Split,,,,,,,=,решение 26.11: по роли слоя,,#fe+ → L1 · светлее #f2 → L0 · светлее #e6 → L3 · тёмный → inverse · остальные → action/secondary
+Core,Basic color · Green / Red / Amber · Orange · Sky · Violet,текст,text/success · danger · warning · info · accent,Split,,,,,,,=,решение 26.11: по роли слоя,,"по оттенку (Green → success, Red → danger, Amber / Orange → warning, Sky / Blue → info, Violet → accent)"
+Core,Basic color · Green / Red / Amber · Orange · Sky · Violet,иконка,icon/success · danger · warning · info · accent,Split,,,,,,,=,решение 26.11: по роли слоя,,"скан 26.11: Orange/300 в иконках (MW, MA, Mon, FW, US), Green/300"
+Core,Basic color · Green / Red / Amber · Orange · Sky · Violet,фон насыщенный (500–700),status/*/solid · Violet → action/primary/default,Split,,,,,,,=,решение 26.11: по роли слоя,,"скан 26.11: Amber/500, Green/700, Violet/500 (WL B2B), Sky/500"
+Core,Basic color · Green / Red / Amber · Orange · Sky · Violet,фон-тинт (50–200 / 800–900),status/*/subtle · Violet → accent/subtle,Split,,,,,,,=,решение 26.11: по роли слоя,,
+Core,Basic color · Yellow/500,,highlight/solid,Merge,,,#ebff00,#ebff00,#ebff00,0.0,=,решение 26.11,Web App 28 · App 28 · WL B2B 21,текст на нём — text/on-highlight
 Core,Alias · Inactive/Color default,,action/disabled,Merge,,,#00000014,,#ffffff14,,—,Disabled 8 / 40 % (06.10),WL B2B 153 · Geo Web 193,значение не снято: в App Migration test не используется (24.11) — цель по имени
 WL B2B,WL B2B · pallete/gray/0,текст,text/primary,Merge,,#1a1a1a,#0a0a0a,,#fafafa,6.5,≈,,WL B2B 15 215,локальная палитра WL (Day)
 WL B2B,WL B2B · pallete/gray/50,,text/primary,Merge,,#242424,#0a0a0a,,#fafafa,11.5,Δ принято,Ближайшая системная ступень (24.11),WL B2B 538,
@@ -81,12 +84,13 @@ WL B2B,WL B2B · pallete/gray/800,фон,surface/level-1,Merge,,#f7f7f7,#ffffff,
 WL B2B,WL B2B · pallete/gray/900,,surface/level-0,Merge,,#fdfdfd,#f5f5f5,,#0a0a0a,2.8,≈,,WL B2B 392,
 WL B2B,WL B2B · pallete/white/900,,surface/level-0,Merge,,#ffffff,#f5f5f5,,#0a0a0a,3.5,≈,,WL B2B 3 378,
 WL B2B,WL B2B · pallete/violet/200,,action/primary/default,Merge,,#8e42ff,#8f42ff,,#8f42ff,0.3,=,,WL B2B 1 891,
-WL B2B,WL B2B · pallete/*-300 (9 серий графиков),графики,data/1…8,Rebind,,,,,,,этап 2,,WL B2B 20 933,этап 2: серии по порядку; 9-я — подписи / штрихи
+WL B2B,WL B2B · pallete/*/300 · green/400,серии графиков,data/1 … data/8,Split,,,,,,,=,решение 26.11: по роли слоя,,по порядку серий: violet → 1 · green → 2 · orange → 3 · red → 4 · pink → 5 · amber → 6 · blue → 7 · myata / mint → 8; 9-я серия — повтор data/8 с штриховкой (скан 26.11: ~800 заливок)
 WL B2B,WL B2B · pallete/red/200,,status/danger/solid,Merge,,#e53733,#e53935,,#e53935,1.0,=,,WL B2B 741,
 WL B2B,WL B2B · pallete/orange/200,,status/warning/solid,Merge,,#f59f0b,#f59e0b,,#f59e0b,0.6,=,,WL B2B 1 073,
 WL B2B,WL B2B · pallete/green/300,,status/success/solid,Merge,,#45a148,#43a047,,#43a047,0.5,=,,WL B2B 1 351,
-WL B2B,WL B2B · pallete/*-600…800 (тинты),тинты статусов / тегов,status/*/subtle,Rebind,,,,,,,этап 2,,WL B2B 1 707,этап 2: по роли
-Geo,Geo · S/Text/Primary,,text/primary,Merge,,#181818,#0a0a0a,#ffffff,#fafafa,5.5 / 1.7,≈,,Geo Web 8 793 · Geo App 128,локальная коллекция Geometria Web (Collection 1)
+WL B2B,WL B2B · pallete/*/600–800,тинты статусов и тегов,status/success · danger · warning · info/subtle · accent/subtle,Split,,,,,,,=,решение 26.11: по роли слоя,,по оттенку: green → success · red → danger · orange / amber → warning · blue → info · violet → accent
+WL B2B,WL B2B · pallete red/200 · green/300 · violet/200,текст,text/danger · text/success · text/accent,Split,,,,,,,=,решение 26.11: по роли слоя,,"скан 26.11: 85 текстов (суммы, статусы)"
+Geo,Geo · S/Text/Primary,,text/primary,Merge,,#181818,#0a0a0a,#ffffff,#fafafa,5.5 / 1.7,≈,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo Web 8 793 · Geo App 128,локальная коллекция Geometria Web (Collection 1)
 Geo,Geo · S/Text/Tertiary,,text/tertiary,Merge,,#71727c,#0000008f,#71727c,#ffffff7a,6.5 / 7.7,≈,Текст альфой 72/56/40 (05.10),Geo Web 7 590 · Geo App 135,
 Geo,Geo · S/Text/Placeholder,,text/tertiary,Merge,,#a2a2a2,#0000008f,#a2a2a2,#ffffff7a,21.0 / 13.4,Δ принято,Текст альфой 72/56/40 (05.10),Geo Web 234 · Geo App 15,
 Geo,Geo · C/Input/Placeholder,,text/tertiary,Merge,,#a2a2a2,#0000008f,,#ffffff7a,21.0,Δ принято,Текст альфой 72/56/40 (05.10),Geo Web 379 · Geo App 9,
@@ -98,24 +102,27 @@ Geo,Geo · S/Background/Primary,,surface/level-0,Merge,,#ffffff,#f5f5f5,#181818,
 Geo,Geo · S/Background/Secondary,,surface/level-1,Merge,,#fafafa,#ffffff,#1f1f1f,#1a1a1a,1.7 / 2.5,≈,Уровни L0–L3 (05–06.10),Geo Web 1 733 · Geo App 6,
 Geo,Geo · S/Background/Tertiary,,surface/level-2,Merge,,#ececec,#f5f5f5,#282828,#202020,3.1 / 3.9,≈,Уровни L0–L3 (05–06.10),Geo Web 1 984 · Geo App 23,
 Geo,Geo · C/Input/Border,,control/border/default,Merge,,#ececec,#0000001f,,#ffffff1f,7.4,≈,Обводки и плашки альфой (05.10),Geo Web 2 549 · Geo App 67,
-Geo,Geo · C/Input/Background-White,,control/surface/default,Merge,,#fafafa,#ffffff,,#0a0a0a,1.7,=,,Geo Web 2 472 · Geo App 59,
-Geo,Geo · C/Input/Text,,text/primary,Merge,,#181818,#0a0a0a,,#fafafa,5.5,≈,,Geo Web 652,
+Geo,Geo · C/Input/Background-White,,control/surface/default,Merge,,#fafafa,#ffffff,,#0a0a0a,1.7,=,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo Web 2 472 · Geo App 59,
+Geo,Geo · C/Input/Text,,text/primary,Merge,,#181818,#0a0a0a,,#fafafa,5.5,≈,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo Web 652,
 Geo,Geo · C/Input/Icon,,icon/secondary,Merge,,#5a5a5a,#000000b8,,#ffffff8f,9.4,Δ принято,Текст альфой 72/56/40 (05.10),Geo Web 495,
 Geo,Geo · C/Button/Primary/Background,,action/primary/default,Merge,,#1470ff,#105fdb,,#105fdb,11.5,Δ принято,Цветной текст ≥ 4.5 (06.10),Geo Web 738 · Geo App 51,Geo accent/solid = 600 (белый текст ≥ 4.5)
-Geo,Geo · C/Button/Primary/Text,,text/on-accent,Merge,,#ffffff,#ffffff,,#ffffff,0.0,=,,Geo Web 426,
+Geo,Geo · C/Button/Primary/Text,,text/on-accent,Merge,,#ffffff,#ffffff,,#ffffff,0.0,=,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo Web 426,
 Geo,Geo · C/Button/Tertiary/Background,,action/secondary/default,Merge,,#ececec,#00000014,,#ffffff14,3.5,≈,Обводки и плашки альфой (05.10),Geo Web 2 152 · Geo App 48,Button · Tertiary
-Geo,Geo · C/Button/Tertiary/Text,,text/primary,Merge,,#181818,#0a0a0a,,#fafafa,5.5,≈,,Geo Web 976,
+Geo,Geo · C/Button/Tertiary/Text,,text/primary,Merge,,#181818,#0a0a0a,,#fafafa,5.5,≈,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo Web 976,
 Geo,Geo · C/Button/Tertiary/Icon,,icon/secondary,Merge,,#5a5a5a,#000000b8,,#ffffff8f,9.4,Δ принято,Текст альфой 72/56/40 (05.10),Geo Web 1 095 · Geo App 9,
 Geo,Geo · S/Icon/Tertiary,,icon/secondary,Merge,,#5a5a5a,#000000b8,#a2a2a2,#ffffff8f,9.4 / 5.7,Δ принято,Текст альфой 72/56/40 (05.10),Geo Web 737,
 Geo,Geo · S/Icon/Quantertiary,,icon/tertiary,Merge,,#a2a2a2,#0000008f,#a2a2a2,#ffffff7a,21.0 / 13.4,Δ принято,Текст альфой 72/56/40 (05.10),Geo Web 1 380,
 Geo,Geo · S/Icon/Quinary,,icon/accent,Merge,,#1470ff,#105fdb,#1470ff,#559cff,11.5 / 33.0,Δ принято,Цветной текст ≥ 4.5 (06.10),Geo Web 498 · Geo App 3,
-Geo,Geo · C/Logo/Fill,,icon/primary,Merge,,#181818,#0a0a0a,,#fafafa,5.5,≈,,Geo Web 2 050,"монохромный логотип → icon/primary (как Logo · Style=Mono в Icons), 24.11"
+Geo,Geo · C/Logo/Fill,,icon/primary,Merge,,#181818,#0a0a0a,,#fafafa,5.5,≈,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo Web 2 050,"монохромный логотип → icon/primary (как Logo · Style=Mono в Icons), 24.11"
 Geo,Geo · S/Status/Success,,status/success/solid,Merge,,#009945,#43a047,#009945,#43a047,8.7 / 8.7,Δ принято,Ближайшая системная ступень (24.11),Geo Web 600 · Geo App 9,статусы системные — у Geo был брендовый зелёный; 24.11: статусы системные — значения EMCD для всех брендов
 Geo,Geo · S/Status/Danger,,status/danger/solid,Merge,,#ff5f6e,#e53935,#ff5f6e,#e53935,21.5 / 21.5,Δ принято,Ближайшая системная ступень (24.11),Geo Web 563 · Geo App 9,статусы системные; 24.11: статусы системные — значения EMCD для всех брендов
-Geo,Geo · C/Modal/Overlay,,surface/overlay,Merge,,#00000080,#0000007a,,#000000a3,2.4,≈,,Geo Web 286,
-Geo,Geo · Pallete/Semantic/* (копия legacy Color),,как строки Geo App,Deprecate,,,,,,,—,,Geo Web 2 334,локальная копия — значения Geo (светлые); мапится как строки Geo App
-Geo,Geo · Variable collection/* (Black / Green / Bright white / Electric Blue),,по роли слоя,Rebind,,,,,,,этап 2,,Geo Web 442 · Geo App 15,этап 2
-Geo App,Geo App · Pallete/Color 1 [Back],,surface/level-0,Merge,,#ffffff,#f5f5f5,,#0a0a0a,3.5,≈,,Geo App 628,локальная Pallete (копия legacy Color в светлой Geo-версии)
+Geo,Geo · C/Modal/Overlay,,surface/overlay,Merge,,#00000080,#0000007a,,#000000a3,2.4,≈,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo Web 286,
+Geo,Geo · Pallete/Semantic/* (копия legacy Color),,как строки Geo App,Merge,,,,,,,—,решение 26.11: локальный дубль → токен,Geo Web 2 334,локальная копия — значения Geo (светлые); мапится как строки Geo App
+Geo,Geo · Variable collection/Black,текст / иконка · фон,text|icon/primary · surface/inverse,Split,,,,,,,=,решение 26.11: по роли слоя,,
+Geo,Geo · Variable collection/Bright white,фон · текст на акценте,surface/level-1 · text/on-accent,Split,,,,,,,=,решение 26.11: по роли слоя,,
+Geo,Geo · Variable collection/Electric Blue,заливка · текст / иконка,action/primary/default · text|icon/accent,Split,,,,,,,=,решение 26.11: по роли слоя,,Geo accent (бренд Geometria)
+Geo,Geo · Variable collection/Green,акцент-маркер,highlight/solid,Split,,,,,,,=,решение 26.11: по роли слоя,,как Core/Brand/ElectricGreen
+Geo App,Geo App · Pallete/Color 1 [Back],,surface/level-0,Merge,,#ffffff,#f5f5f5,,#0a0a0a,3.5,≈,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo App 628,локальная Pallete (копия legacy Color в светлой Geo-версии)
 Geo App,Geo App · Pallete/Color 2 [Back],,surface/level-1,Merge,,#fafafa,#ffffff,,#1a1a1a,1.7,=,Уровни L0–L3 (05–06.10),Geo App 802,
 Geo App,Geo App · Pallete/Color 3 [Back],,surface/level-2,Merge,,#ececec,#f5f5f5,,#202020,3.1,≈,Уровни L0–L3 (05–06.10),Geo App 1 253,
 Geo App,Geo App · Pallete/Color 35 [Back],текст в поле / плейсхолдер,text/tertiary,Split,,#a5a5a5,#0000008f,,#ffffff7a,22.1,Δ принято,Текст альфой 72/56/40 (05.10),Geo App 26,"экраны 2026-10-14: имя [Back], роль — текст; #a5a5a5 на белом 2.4:1"
@@ -123,34 +130,34 @@ Geo App,Geo App · Pallete/Color 35 [Back],иконка,icon/tertiary,Split,,#a5
 Geo App,Geo App · Pallete/Color 35 [Back],обводка счётчика в табах,border/default,Split,,#a5a5a5,#0000001f,,#ffffff1f,18.2,Δ принято,Компонент Tabs 2.0,Geo App 26,экраны 2026-10-14: tabs/x — counter
 Geo App,Geo App · Pallete/Color 4 [Back],"лейбл, описание, вторичное значение",text/tertiary,Split,,#858690,#0000008f,,#ffffff7a,12.0,Δ принято,Текст альфой 72/56/40 (05.10),Geo App 97,"экраны 2026-10-14: имя [Back], роль — текст (поля, строки выплат); = Geo Color 3 [Text]"
 Geo App,Geo App · Pallete/Color 4 [Back],иконка,icon/tertiary,Split,,#858690,#0000008f,,#ffffff7a,12.0,Δ принято,Текст альфой 72/56/40 (05.10),Geo App 97,"экраны 2026-10-14: chevron, поиск, стрелки списков"
-Geo App,Geo App · Pallete/Inactive [Back],"иконка, обводка таба",—,Deprecate,,#282828,,,,,—,Этап 1: только (old)-страницы,Geo App 4,2026-10-16: только (old)-страницы; в актуальных (Auth/Statistics/Workers/Payouts/Profile) Period selector на Color 1 / Color 3 [Back] — не мигрируем
-Geo App,Geo App · Pallete/Color 1 [Text],,text/primary,Merge,,#181818,#0a0a0a,,#fafafa,5.5,≈,,Geo App 1 367,
+Geo App,Geo App · Pallete/Color 1 [Text],,text/primary,Merge,,#181818,#0a0a0a,,#fafafa,5.5,≈,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo App 1 367,
 Geo App,Geo App · Pallete/Color 2 [Text],,text/disabled,Merge,,#c4c4c4,#00000066,,#ffffff66,18.2,Δ принято,Disabled 8 / 40 % (06.10),Geo App 16,
 Geo App,Geo App · Pallete/Color 3 [Text],,text/tertiary,Merge,,#858690,#0000008f,,#ffffff7a,12.0,Δ принято,Текст альфой 72/56/40 (05.10),Geo App 500,⚠ у Geo Color 3 светлее Color 4 — обратный порядок EMCD; мапим по значению
 Geo App,Geo App · Pallete/Color 4 [Text],,text/secondary,Merge,,#5a5a5a,#000000b8,,#ffffff8f,9.4,Δ принято,Текст альфой 72/56/40 (05.10),Geo App 401,⚠ то же: Color 4 = вторичный
 Geo App,Geo App · Pallete/Color 5 [Text],,text/primary,Merge,,#282828,#0a0a0a,,#fafafa,13.4,Δ принято,Ближайшая системная ступень (24.11),Geo App 35,⚠ у EMCD Color 5 = disabled; одно имя — разные роли
 Geo App,Geo App · Pallete/Brand,,action/primary/default,Merge,,#1470ff,#105fdb,,#105fdb,11.5,Δ принято,Цветной текст ≥ 4.5 (06.10),Geo App 195,Geo accent/solid = 600
-Geo App,Geo App · Pallete/Brand fill hover,,action/primary/default+layer@6,Deprecate,,#65a6ff,#0f59ce,,#1e68dd,36.7,Δ принято,Слой состояний 6/10 % (06.10),Geo App 35,
+Geo App,Geo App · Pallete/Brand fill hover,,action/primary/default + state/layer@6,Merge,,#65a6ff,#0f59ce,,#1e68dd,36.7,Δ принято,решение 26.11: hover = основной цвет + слой 6 %,Geo App 35,
 Geo App,Geo App · Pallete/Brand hover,,text/accent,Merge,,#3a8dff,#105fdb,,#559cff,20.7,Δ принято,Цветной текст ≥ 4.5 (06.10),нет данных,
 Geo App,Geo App · Pallete/Brand disable,,action/disabled,Merge,,#0c4399,#00000014,,#ffffff14,80.8,Δ принято,Disabled 8 / 40 % (06.10),Geo App 11,
 Geo App,Geo App · Pallete/Brand light,,accent/subtle,Merge,,#bcd9ff,#d2e5ff,,#052964,8.3,Δ принято,Ближайшая системная ступень (24.11),Geo App 3,
 Geo App,Geo App · Pallete/Red [Main],,status/danger/solid,Merge,,#ff5f6e,#e53935,,#e53935,21.5,Δ принято,Ближайшая системная ступень (24.11),Geo App 166,статусы системные; 24.11: статусы системные — значения EMCD для всех брендов
-Geo App,Geo App · Pallete/Orange [Main],,status/warning/solid,Merge,,#f59e0b,#f59e0b,,#f59e0b,0.0,=,,Geo App 249,
+Geo App,Geo App · Pallete/Orange [Main],,status/warning/solid,Merge,,#f59e0b,#f59e0b,,#f59e0b,0.0,=,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo App 249,
 Geo App,Geo App · Pallete/Orange [secondary text],,text/warning,Merge,,#976207,#7a4c00,,#f4a835,11.5,Δ принято,Цветной текст ≥ 4.5 (06.10),Geo App 35,
 Geo App,Geo App · Pallete/Green [Main],,status/success/solid,Merge,,#63f282,#43a047,,#43a047,31.6,Δ принято,Ближайшая системная ступень (24.11),Geo App 12,статусы системные — у Geo был брендовый зелёный; 24.11: статусы системные — значения EMCD для всех брендов
-Geo App,Geo App · Pallete/Green [Hover],,action/success/default+layer@6,Deprecate,,#00cc5c,#2e7431,,#3d8340,43.5,Δ принято,Слой состояний 6/10 % (06.10),Geo App 6,
+Geo App,Geo App · Pallete/Green [Hover],,action/success/default + state/layer@6,Merge,,#00cc5c,#2e7431,,#3d8340,43.5,Δ принято,решение 26.11: hover = основной цвет + слой 6 %,Geo App 6,
 Geo App,Geo App · Pallete/Green [Secondary text],,text/success,Merge,,#009945,#2b6e2e,,#54a958,23.4,Δ принято,Цветной текст ≥ 4.5 (06.10),Geo App 42,
 Geo App,Geo App · Pallete/accent base,"текстовая кнопка, каретка",text/accent,Split,,#1470ff,#105fdb,,#559cff,11.5,Δ принято,Цветной текст ≥ 4.5 (06.10),Geo App 19,"экраны 2026-10-14: у Geo «accent» = бренд; Button Main, каретка поля"
 Geo App,Geo App · Pallete/accent base,иконка,icon/accent,Split,,#1470ff,#105fdb,,#559cff,11.5,Δ принято,Цветной текст ≥ 4.5 (06.10),Geo App 19,экраны 2026-10-14: ic-device
 Geo App,Geo App · Pallete/accent soft,,accent/subtle,Merge,,#bcd9ff,#d2e5ff,,#052964,8.3,Δ принято,Ближайшая системная ступень (24.11),Geo App 9,
-Geo App,Geo App · Pallete/accent bold,,action/primary/default,Merge,,#105acc,#105fdb,,#105fdb,5.8,≈,,Geo App 14,
-Product,Monitoring · pallete/violet/200,,action/primary/default,Deprecate,,,#8f42ff,#8e42ff,#8f42ff,0.3,=,,Monitoring 4,локальный дубль Brand
-Product,Monitoring · pallete/red/200,,status/danger/solid,Deprecate,,,#e53935,#e53733,#e53935,1.0,=,,Monitoring 67 · Сайт 65,локальный дубль
-Product,Monitoring · pallete/orange/200,,status/warning/solid,Deprecate,,,#f59e0b,#f59f0b,#f59e0b,0.6,=,,Monitoring 67 · Сайт 65,локальный дубль
-Product,Monitoring · pallete/green/300,,status/success/solid,Deprecate,,,#43a047,#45a148,#43a047,0.5,=,,Monitoring 67 · Сайт 65,локальный дубль
-Product,Monitoring · Collection 1/Color 1 [Text],,text/primary,Deprecate,,,#0a0a0a,#fafafa,#fafafa,0.0,=,,Monitoring 893 · Geo App 11 · Сайт 9,локальный дубль
-Product,Monitoring · Variables/Theme/* (внешний UI-кит),text-primary / action-selected / text-secondary / primary-main …,по роли слоя,Rebind,,,,,,,этап 2,,Monitoring 530,стороннего кита — перепривязать на этапе 2
-Product,Web App · Text Color 3,,text/secondary,Deprecate,,,#000000b8,,#ffffff8f,,—,,Web App 4,локальный дубль
+Geo App,Geo App · Pallete/accent bold,,action/primary/default,Merge,,#105acc,#105fdb,,#105fdb,5.8,≈,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",Geo App 14,
+Product,Monitoring · pallete/violet/200,,action/primary/default,Merge,,,#8f42ff,#8e42ff,#8f42ff,0.3,=,решение 26.11: локальный дубль → токен,Monitoring 4,локальный дубль Brand
+Product,Monitoring · pallete/red/200,,status/danger/solid,Merge,,,#e53935,#e53733,#e53935,1.0,=,решение 26.11: локальный дубль → токен,Monitoring 67 · Сайт 65,локальный дубль
+Product,Monitoring · pallete/orange/200,,status/warning/solid,Merge,,,#f59e0b,#f59f0b,#f59e0b,0.6,=,решение 26.11: локальный дубль → токен,Monitoring 67 · Сайт 65,локальный дубль
+Product,Monitoring · pallete/green/300,,status/success/solid,Merge,,,#43a047,#45a148,#43a047,0.5,=,решение 26.11: локальный дубль → токен,Monitoring 67 · Сайт 65,локальный дубль
+Product,Monitoring · Collection 1/Color 1 [Text],,text/primary,Merge,,,#0a0a0a,#fafafa,#fafafa,0.0,=,решение 26.11: локальный дубль → токен,Monitoring 893 · Geo App 11 · Сайт 9,локальный дубль
+Product,Monitoring · Theme/text-primary · text-secondary,текст,text/primary · text/secondary,Split,,,,,,,=,решение 26.11: по роли слоя,,скан 26.11: в общем файле не осталось — заменено по значению
+Product,Monitoring · Theme/primary-main · action-selected,заливка · выбранная строка,action/primary/default · state/layer@10,Split,,,,,,,=,решение 26.11: по роли слоя,,
+Product,Web App · Text Color 3,,text/secondary,Merge,,,#000000b8,,#ffffff8f,,—,решение 26.11: локальный дубль → токен,Web App 4,локальный дубль
 Product,Color · border (Web App / Monitoring),"обводка плашек, карточек, навбара",border/subtle,Split,,,#00000014,#d0d0d012,#ffffff14,2.5,≈,Обводки и плашки альфой (05.10),Web App 6 · Monitoring 255 · Firmware 10 · Geo Web 5 · Geo App 6 · Сайт 37,"= theme · surface/base (#d0d0d0 7 %); библиотека-источник не опубликована; экраны 2026-10-14: Web App История 2025 — навбар и карточки; 2026-10-16 Monitoring 187/255 проверено (площадка, отчёты, детали устройства, устройства) — все обводки карточек r12"
 Product,Color · border (Web App / Monitoring),граница контрола,border/strong,Split,,,#0000007a,#d0d0d012,#ffffff66,37.4,Δ принято,WCAG 1.4.11,Web App 6 · Monitoring 255 · Firmware 10 · Geo Web 5 · Geo App 6 · Сайт 37,"24.11, Web App (37 страниц): обводка полей (baseInput 771, Selector 55, DateRange 44, Period 135) → control/border/default; checkbox / radio (20) → border/strong"
 Site,text/neutral/base,,text/primary,Keep,,#000000,#0a0a0a,#f5f5f5,#fafafa,2.7 / 1.7,≈,,DS Site 159 · Сайт 37,
@@ -176,23 +183,27 @@ Site,background/neutral/bold-1,,surface/level-1,Keep,,#eeeeee,#ffffff,#1a1a1a,#1
 Site,background/neutral/bold-2,,surface/level-3,Keep,,#e0e0e0,#ececec,#232323,#262626,4.2 / 1.4,≈,Уровни L0–L3 (05–06.10),DS Site 12,
 Site,background/neutral/bold-3,,bg/inverse,Keep,,#0a0a0a,#0a0a0a,#ffffff,#ffffff,0.0 / 0.0,=,,DS Site 24,
 Site,background/brand/basic,,action/primary/default,Keep,,#8f42ff,#8f42ff,#8f42ff,#8f42ff,0.0 / 0.0,=,,DS Site 18,
-Site,background/brand/bold-1,hover заливки,action/primary/default+layer@6,Deprecate,,#7f30d6,#873ef0,#ac63fc,#964dff,8.4 / 14.9,Δ принято,Слой состояний 6/10 % (06.10),DS Site 12,
+Site,background/brand/bold-1,hover заливки,action/primary/default + state/layer@6,Merge,,#7f30d6,#873ef0,#ac63fc,#964dff,8.4 / 14.9,Δ принято,решение 26.11: hover = основной цвет + слой 6 %,DS Site 12,
 Site,background/brand/nbasic-1,,accent/subtle,Keep,,#f5ecff,#ecdbff,#380d66,#351664,10.6 / 5.9,Δ принято,Ближайшая системная ступень (24.11),DS Site 12,
 Site,text/brand/base,,text/accent,Keep,,#8f42ff,#7a38db,#8f42ff,#b678fd,13.7 / 33.4,Δ принято,Цветной текст ≥ 4.5 (06.10),DS Site 3,
 Site,text/brand/bold-1,,text/accent,Merge,,#7f30d6,#7a38db,#ac63fc,#b678fd,3.3 / 12.6,Δ принято,Цветной текст ≥ 4.5 (06.10),0,
-Geometria,Semantic/Text/Primary · Secondary · Tertiary · Placeholder,текст,text/primary · secondary · tertiary,Rule,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
-Geometria,Semantic/Text/Link,ссылка / кнопка / обводка,text/link · action/primary/default · border/accent,Split,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
-Geometria,Semantic/Border/Primary · Secondary · Link,обводка,border/subtle · border/strong · border/accent,Rule,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
-Geometria,Semantic/Status/Process · Danger · Success · Warning,статус,accent/subtle · status/*/solid (текст — text/*),Rule,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
-Geometria,Components/Button/Primary · Secondary · Tertiary · Disabled · Danger / Background,кнопка,action/primary · secondary · secondary (Tertiary серая) · disabled · danger,Rule,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
-Geometria,Components/Input/Background · Border · BorderTyping,поле,control/surface/default · control/border/default · control/border/focus,Rule,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
-Geometria,Components/Modal/Overlay · Core/Brand/ElectricGreen,подложка · акцент,surface/overlay · highlight/solid,Rule,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
-Geometria,Components/Logo/*,логотип,не трогаем,Keep,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
-Geometria,Semantic/Background/* · Semantic/Icon/*,фон · иконка,"по значению (Light): уровни surface, icon/*",Value,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
+Geometria,Semantic/Text/Primary · Secondary · Tertiary · Placeholder,текст,text/primary · secondary · tertiary,Rule,,,,,,,общий файл 25–26.11,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",,правило скрипта color-swap / raw-hex
+Geometria,Semantic/Text/Link,ссылка / кнопка / обводка,text/link · action/primary/default · border/accent,Split,,,,,,,общий файл 25–26.11,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",,правило скрипта color-swap / raw-hex
+Geometria,Semantic/Border/Primary · Secondary · Link,обводка,border/subtle · border/strong · border/accent,Rule,,,,,,,общий файл 25–26.11,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",,правило скрипта color-swap / raw-hex
+Geometria,Semantic/Status/Process · Danger · Success · Warning,статус,accent/subtle · status/*/solid (текст — text/*),Rule,,,,,,,общий файл 25–26.11,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",,правило скрипта color-swap / raw-hex
+Geometria,Components/Button/Primary · Secondary · Tertiary · Disabled · Danger / Background,кнопка,action/primary · secondary · secondary (Tertiary серая) · disabled · danger,Rule,,,,,,,общий файл 25–26.11,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",,правило скрипта color-swap / raw-hex
+Geometria,Components/Input/Background · Border · BorderTyping,поле,control/surface/default · control/border/default · control/border/focus,Rule,,,,,,,общий файл 25–26.11,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",,правило скрипта color-swap / raw-hex
+Geometria,Components/Modal/Overlay · Core/Brand/ElectricGreen,подложка · акцент,surface/overlay · highlight/solid,Rule,,,,,,,общий файл 25–26.11,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",,правило скрипта color-swap / raw-hex
+Geometria,Components/Logo/*,логотип,не трогаем,Keep,,,,,,,общий файл 25–26.11,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",,правило скрипта color-swap / raw-hex
+Geometria,Semantic/Background/* · Semantic/Icon/*,фон · иконка,"по значению (Light): уровни surface, icon/*",Value,,,,,,,общий файл 25–26.11,"решение 26.11: Geo — свой accent, статусы и нейтральные EMCD",,правило скрипта color-swap / raw-hex
 WL B2B / WL B2C,pallete gray/* · white/* · violet/*,фон / текст / обводка,по значению с учётом темы (Light / Dark),Value,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
-Все продукты,Basic color Neutral/* · Green/* · Light/*,фон / текст,по значению; насыщенные (графики) — оставлены,Value,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
 Firmware,"EMCD Web demo · source CSS (web/text-*, web/bg-*)",фон / текст,по значению (Dark),Value,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
 Тёмные продукты,сырой hex #0a0a0a · #111111 · #1a1a1a · #232323 · #2d2d2d (фон),фон,surface/level-0 · 1 · 2 · 3 · control/track,Raw hex,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
 Тёмные продукты,сырой hex #fafafa · #d0d0d0 · #a3a3a3 · #7a7a7a · #4d4d4d (текст / иконка),текст / иконка,text|icon/primary · secondary · secondary · tertiary · disabled,Raw hex,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
 Тёмные продукты,сырой hex #8f42ff · #43a047 · #e53935 · #f59e0b,акцент / статус,action/primary · text/accent · success · danger · warning,Raw hex,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
 Все продукты,насыщенные цвета графиков без переменной DS,графики,оставлены как есть (нет токенов chart/*),Keep,,,,,,,общий файл 25–26.11,,,правило скрипта color-swap / raw-hex
+Web·App,accent soft,,—,Удалено,,,,#f6fe9e,,,—,решение 26.11: не мигрируем (нет потребителей / только old-страницы),0,подтверждено 2026-10-14 — скан всех продуктов закрыт
+Web·App,accent bold,,—,Удалено,,,,#9d8701,,,—,решение 26.11: не мигрируем (нет потребителей / только old-страницы),0,подтверждено 2026-10-14 — скан всех продуктов закрыт
+Web·App,accent background,,highlight/subtle,Удалено,,,#f9fcd5,#231f00,#3d4300,25.2,—,решение 26.11: не мигрируем (нет потребителей / только old-страницы),0,цель — если найдётся потребитель; подтверждено 2026-10-14 — скан всех продуктов закрыт
+App,Back [Primary] 2,Pressed бейджа brand,—,Удалено,,,,#380d66,,,—,решение 26.11: не мигрируем (нет потребителей / только old-страницы),DS App 18,2026-10-16: 18/18 — Pressed tinted Badge RTL / primary (DS App); Pressed везде слоем state/layer
+Geo App,Geo App · Pallete/Inactive [Back],"иконка, обводка таба",—,Удалено,,#282828,,,,,—,решение 26.11: не мигрируем (нет потребителей / только old-страницы),Geo App 4,2026-10-16: только (old)-страницы; в актуальных (Auth/Statistics/Workers/Payouts/Profile) Period selector на Color 1 / Color 3 [Back] — не мигрируем

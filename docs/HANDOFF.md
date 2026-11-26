@@ -52,6 +52,13 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 - **Claude DS синхронизирован 24.11** (`4d90e23`): токены 20 изм. (display/sm), React 74, +36 компонентов с README / превью; версия артефакта 72. Foundations ↔ репо: 969 переменных, 0 расхождений (сверка хешами после Publish 24.11).
 
+## 26.11 — таблицы миграции в Figma (основной файл миграции, страница «⚑ Таблицы миграции»)
+- Две таблицы с жёлтой колонкой «Как сделать» (Стефан пишет прямо в ячейку; «…» = оставляем как есть). Чтение ответов: `scripts/figma/migration-tables-read.plugin.js` → `python3 scripts/migration-tables-figma.py --merge <json>`.
+- «Компоненты prod → DS 2.0» (50 строк): колонки «Было» / «Стало» — живые legacy-примеры (клон из экранов или инстанс DS Web / DS App EMCD) и инстанс DS 2.0 (Theme = Dark). Картинки — отдельным проходом `migration-tables-vis.plugin.js` (импорт 2–5 с на компонент).
+- «Цвета → токены» (208 строк). Решения Стефана 26.11: hover-цвета → основной + state/layer@6; без пары / 0 потребителей → блок «Удалено» внизу; «по роли слоя» разложено на строки (правила color-swap byValue + скан); Geo — свой accent, статусы и нейтральные EMCD (подтверждено).
+- В DS 2.0 Banner, Alert, Stepper — deprecated: в карте компонентов → Suggest, Toast / Notification, Step progress.
+- Скан 26.11: внутри вложенных инстансов остались legacy-переменные (Color 1 [Text] в Monitoring 1546, Mining Web 605 и др.) — повторный проход color-swap.
+
 ## 24.11 — текущий этап: миграция цветов и компонентов на токены DS 2.0
 **26.11, вечер — итоговые таблицы миграции** (Sheets, ссылка в `docs/private/LINKS.md`; источники `docs/migration/table-colors.csv`, `table-components.csv`, сборка `scripts/migration-tables-build.py`): цвета → токены (197 строк, вкл. правила общего файла: Geometria, WL pallete, Basic color, Web demo, сырые hex) и компоненты prod → DS 2.0 (50 групп, счётчики по 9 продуктам). Колонка «Как сделать» — решения Стефана; пусто = оставляем. Перед следующим проходом — прочитать её из Sheets.
 **26.11 — Цель 4** (`docs/GOAL-4-base-production.md`): Base-набор до production по уровням (атомы / молекулы → организмы → конструкции → лейауты / экраны + правила для людей и агентов); находки аудита 9 продуктов A1–A8, M1–M5, O1–O7; 5 решений ждут Стефана (A2, A4, A7, M2, M4).

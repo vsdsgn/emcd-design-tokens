@@ -30,10 +30,10 @@
 Атом,baseCircleLoader · base divider layout · empty state,Progress circle · Divider · Empty state,нужна карта,,11,,8,2,1,,,,,,
 Молекула,base segmented picker item / text (без группы) · SegmentedPicker · ViewSelector,Segmented,нужна карта,,99,одиночные сегменты собрать в Segmented по родителю,6,,45,31,6,11,,,
 Молекула,Input amount · input amount · search · Dropdown · Slider,Input amount · Search · Select · Slider,нужна карта,,17,,9,8,,,,,,,
-Молекула,base notification · Notifications · Notification Center · informer,Toast · List item,нужна карта,,23,,5,3,7,2,2,3,1,,
+Молекула,base notification · Notifications · Notification Center · informer,Toast · Notification,нужна карта,,23,,5,3,7,2,2,3,1,,
 Молекула,tooltip · base tooltip · tooltip tour · Onboarding tooltip,Tooltip · Tooltip tour,нужна карта,,19,,13,2,3,,,,,,1
-Молекула,Step Trail · Step Text · Step Symbol · slider counter,Stepper · Step progress,нужна карта,,8,,,,8,,,,,,
-Молекула,base Banner --2.0 · baseCard / banner,Banner · Alert,нужна карта,,2,,1,,,,,,,,1
+Молекула,Step Trail · Step Text · Step Symbol · slider counter,Step progress · Step,нужна карта,,8,,,,8,,,,,,
+Молекула,base Banner --2.0 · baseCard / banner,Suggest,нужна карта,,2,Banner и Alert в DS 2.0 — deprecated (→ Suggest / Toast),1,,,,,,,,1
 Часть,.field.left · .field.right · #corner input · .period,слоты Input (Leading / Trailing),решить,,277,остатки рядом с заменёнными полями: удалить или перенести в слот,35,28,138,35,39,1,1,,
 Часть,Content · Left · Right · Left addon · Right slot · label · .text (части строк),слоты List item,вместе с List item,,674,уходят вместе со строкой,265,239,57,4,30,65,,14,
 Организм,Coinhold list item · Row · Cell · Summ item · CH card · List · list,List item · Card,нужна карта,,113,,20,28,10,,,44,11,,

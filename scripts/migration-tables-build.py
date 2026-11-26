@@ -45,10 +45,10 @@ C = [
  ('Атом','baseCircleLoader · base divider layout · empty state','Progress circle · Divider · Empty state','нужна карта',dict(Mon=1,MA=2,MW=8),''),
  ('Молекула','base segmented picker item / text (без группы) · SegmentedPicker · ViewSelector','Segmented','нужна карта',dict(Mon=45,B2B=31,B2C=6,MW=6,GW=11),'одиночные сегменты собрать в Segmented по родителю'),
  ('Молекула','Input amount · input amount · search · Dropdown · Slider','Input amount · Search · Select · Slider','нужна карта',dict(MA=8,MW=9),''),
- ('Молекула','base notification · Notifications · Notification Center · informer','Toast · List item','нужна карта',dict(Mon=7,B2B=2,MW=5,B2C=2,GA=1,GW=3,MA=3),''),
+ ('Молекула','base notification · Notifications · Notification Center · informer','Toast · Notification','нужна карта',dict(Mon=7,B2B=2,MW=5,B2C=2,GA=1,GW=3,MA=3),''),
  ('Молекула','tooltip · base tooltip · tooltip tour · Onboarding tooltip','Tooltip · Tooltip tour','нужна карта',dict(Mon=3,MW=13,MA=2,FW=1),''),
- ('Молекула','Step Trail · Step Text · Step Symbol · slider counter','Stepper · Step progress','нужна карта',dict(Mon=8),''),
- ('Молекула','base Banner --2.0 · baseCard / banner','Banner · Alert','нужна карта',dict(FW=1,MW=1),''),
+ ('Молекула','Step Trail · Step Text · Step Symbol · slider counter','Step progress · Step','нужна карта',dict(Mon=8),''),
+ ('Молекула','base Banner --2.0 · baseCard / banner','Suggest','нужна карта',dict(FW=1,MW=1),'Banner и Alert в DS 2.0 — deprecated (→ Suggest / Toast)'),
  ('Часть','.field.left · .field.right · #corner input · .period','слоты Input (Leading / Trailing)','решить',dict(Mon=138,B2B=35,B2C=39,GA=1,GW=1,MW=35,MA=28),'остатки рядом с заменёнными полями: удалить или перенести в слот'),
  ('Часть','Content · Left · Right · Left addon · Right slot · label · .text (части строк)','слоты List item','вместе с List item',dict(Mon=57,B2B=4,B2C=30,GW=65,US=14,MW=265,MA=239),'уходят вместе со строкой'),
  ('Организм','Coinhold list item · Row · Cell · Summ item · CH card · List · list','List item · Card','нужна карта',dict(Mon=10,MW=20,MA=28,GA=11,GW=44),''),
@@ -99,6 +99,61 @@ X = [
 ]
 for s_, leg, role, tgt, act in X:
     out.append([s_, leg, role, tgt, act, '', '', '', '', '', '', 'общий файл 25–26.11', '', '', 'правило скрипта color-swap / raw-hex'])
+# ---------- решения Стефана 26.11 ----------
+# 1) отдельные hover-цвета → основной цвет + слой состояний 6 % (своих hover-токенов нет)
+# 2) без потребителей / без пары → блок «Удалено» внизу (не мигрируем)
+# 3) «по роли слоя» → разложено на строки «семейство + роль → токен» (правила color-swap byValue + скан общего файла 26.11)
+# 4) Geometria: свой accent (#1470ff → #105fdb), статусы и нейтральные — общие EMCD; Color 3 / 4 [Text] — по значению
+HOVER = {'Brand fill hover','Success hover / Green [Hover]','Attention hover','Geo App · Pallete/Brand fill hover','Geo App · Pallete/Green [Hover]','background/brand/bold-1'}
+GONE = {'accent soft','accent bold','accent background','Back [Primary] 2','Geo App · Pallete/Inactive [Back]'}
+DUP = {'Monitoring · pallete/violet/200','Monitoring · pallete/red/200','Monitoring · pallete/orange/200','Monitoring · pallete/green/300','Monitoring · Collection 1/Color 1 [Text]','Web App · Text Color 3','Geo · Pallete/Semantic/* (копия legacy Color)'}
+D26 = 'решение 26.11'
+def role(src, leg, rl, tgt, note):
+    return [src, leg, rl, tgt, 'Split', '', '', '', '', '', '', '=', D26 + ': по роли слоя', '', note]
+SPLIT = {
+ 'Basic color · Neutral/* напрямую': [
+  role('Core','Basic color · Neutral/*','текст / иконка (тёмные продукты)','text|icon/primary · secondary · tertiary · disabled','по яркости: светлее #d9 → primary · #8c–#d9 → secondary · #59–#8c → tertiary · темнее → disabled'),
+  role('Core','Basic color · Neutral/*','текст / иконка (светлые: WL, Geo, сайт)','text|icon/primary · secondary · tertiary · disabled · on-accent','темнее #33 → primary · до #73 → secondary · до #a6 → tertiary · светлее → disabled; почти белый на акценте → on-accent'),
+  role('Core','Basic color · Neutral/*','обводка','border/strong · border/subtle','непрозрачная контрастная (светлая на тёмном / тёмная на светлом) → strong, остальные → subtle'),
+  role('Core','Basic color · Neutral/*','фон (тёмные продукты)','surface/level-0 · 1 · 2 · 3 · action/secondary/default','до #0d → L0 · до #16 → L1 · до #1f → L2 · до #33 → L3 · светлее → action/secondary; полупрозрачный → L2'),
+  role('Core','Basic color · Neutral/*','фон (светлые продукты)','surface/level-1 · 0 · 3 · inverse · action/secondary/default','#fe+ → L1 · светлее #f2 → L0 · светлее #e6 → L3 · тёмный → inverse · остальные → action/secondary'),
+ ],
+ 'Basic color · Green / Red / Amber/* напрямую': [
+  role('Core','Basic color · Green / Red / Amber · Orange · Sky · Violet','текст','text/success · danger · warning · info · accent','по оттенку (Green → success, Red → danger, Amber / Orange → warning, Sky / Blue → info, Violet → accent)'),
+  role('Core','Basic color · Green / Red / Amber · Orange · Sky · Violet','иконка','icon/success · danger · warning · info · accent','скан 26.11: Orange/300 в иконках (MW, MA, Mon, FW, US), Green/300'),
+  role('Core','Basic color · Green / Red / Amber · Orange · Sky · Violet','фон насыщенный (500–700)','status/*/solid · Violet → action/primary/default','скан 26.11: Amber/500, Green/700, Violet/500 (WL B2B), Sky/500'),
+  role('Core','Basic color · Green / Red / Amber · Orange · Sky · Violet','фон-тинт (50–200 / 800–900)','status/*/subtle · Violet → accent/subtle',''),
+ ],
+ 'Basic color · Yellow/500': [['Core','Basic color · Yellow/500','','highlight/solid','Merge','','','#ebff00','#ebff00','#ebff00','0.0','=',D26,'Web App 28 · App 28 · WL B2B 21','текст на нём — text/on-highlight']],
+ 'WL B2B · pallete/*-300 (9 серий графиков)': [
+  role('WL B2B','WL B2B · pallete/*/300 · green/400','серии графиков','data/1 … data/8','по порядку серий: violet → 1 · green → 2 · orange → 3 · red → 4 · pink → 5 · amber → 6 · blue → 7 · myata / mint → 8; 9-я серия — повтор data/8 с штриховкой (скан 26.11: ~800 заливок)'),
+ ],
+ 'WL B2B · pallete/*-600…800 (тинты)': [
+  role('WL B2B','WL B2B · pallete/*/600–800','тинты статусов и тегов','status/success · danger · warning · info/subtle · accent/subtle','по оттенку: green → success · red → danger · orange / amber → warning · blue → info · violet → accent'),
+  role('WL B2B','WL B2B · pallete red/200 · green/300 · violet/200','текст','text/danger · text/success · text/accent','скан 26.11: 85 текстов (суммы, статусы)'),
+ ],
+ 'Geo · Variable collection/* (Black / Green / Bright white / Electric Blue)': [
+  role('Geo','Geo · Variable collection/Black','текст / иконка · фон','text|icon/primary · surface/inverse',''),
+  role('Geo','Geo · Variable collection/Bright white','фон · текст на акценте','surface/level-1 · text/on-accent',''),
+  role('Geo','Geo · Variable collection/Electric Blue','заливка · текст / иконка','action/primary/default · text|icon/accent','Geo accent (бренд Geometria)'),
+  role('Geo','Geo · Variable collection/Green','акцент-маркер','highlight/solid','как Core/Brand/ElectricGreen'),
+ ],
+ 'Monitoring · Variables/Theme/* (внешний UI-кит)': [
+  role('Product','Monitoring · Theme/text-primary · text-secondary','текст','text/primary · text/secondary','скан 26.11: в общем файле не осталось — заменено по значению'),
+  role('Product','Monitoring · Theme/primary-main · action-selected','заливка · выбранная строка','action/primary/default · state/layer@10',''),
+ ],
+}
+fin, gone = [], []
+for r in out:
+    leg = r[1]
+    if leg in SPLIT: fin += SPLIT[leg]; continue
+    if leg == 'Basic color Neutral/* · Green/* · Light/*': continue  # заменено разложенными строками выше
+    if leg in GONE: r[4] = 'Удалено'; r[11] = '—'; r[12] = D26 + ': не мигрируем (нет потребителей / только old-страницы)'; gone.append(r); continue
+    if leg in HOVER: r[4] = 'Merge'; r[3] = r[3].replace('+layer@6', ' + state/layer@6'); r[12] = D26 + ': hover = основной цвет + слой 6 %'
+    if leg in DUP: r[4] = 'Merge'; r[12] = D26 + ': локальный дубль → токен'
+    if r[0].startswith('Geo') and not r[12]: r[12] = D26 + ': Geo — свой accent, статусы и нейтральные EMCD'
+    fin.append(r)
+out = fin + gone
 with open(R/'docs/migration/table-colors.csv', 'w', newline='') as f:
     w = csv.writer(f); w.writerow(['Источник','Legacy','Роль','Токен DS 2.0','Действие','Как сделать','Light до','Light после','Dark до','Dark после','ΔE (L / D)','Статус','Решение','Где используется','Примечание']); w.writerows(out)
 print('components', len(rows), 'colors', len(out))
