@@ -80,6 +80,8 @@ interface CheckBase {
   description?: ReactNode;
   /** Бейдж после подписи (Badge S Accent Subtle, 21.11): выгода или новизна опции — «8% APR». */
   badge?: ReactNode;
+  /** false — контрол без видимой подписи (строка таблицы, слот List item); label уходит в aria-label (26.11). */
+  showLabel?: boolean;
   size?: 'm' | 's';
   disabled?: boolean;
   onChange?: (checked: boolean, event: Event) => void;

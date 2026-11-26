@@ -27,6 +27,7 @@
 - Корень: подложка, радиус `radius/control` (12; 16.11 по продукту Web App, было `radius/container` 16), отступы, min-width 64.
 - `icon left`, `label`, `icon right`; `Spinner` (Loading) — вместо содержимого, ширина не меняется; цвет спиннера — по тону кнопки (дорожка и дуга; у Danger — `text/danger` / `icon/danger`), Disabled — дуга `icon/disabled`.
 - Служебные: `state layer`, `focus ring`, зоны `hit area · web` / `· app`, `safe area · outer`.
+- Ссылка-действие отдельной строкой («Подробнее», «Активировать промокод») — Type=Text; отдельного компонента Link нет (решение Стефана 26.11; legacy Links → Button Text). Заливку и цвет экземпляра не переопределяем: нужен другой вид — другой Type.
 - Вложено: `Progress circle` ×220, иконки ×440, `Badge` ×220.
 - Служебные слои (вариантов из 220): кольцо фокуса 220 · зона Web 220 · зона касания 220 · безопасное поле 220.
 

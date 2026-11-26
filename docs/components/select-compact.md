@@ -66,6 +66,7 @@
 ## 7. Events
 - `click` — открывает Menu (Compact — Sheet).
 - `change` — выбрано другое значение; список закрывается.
+- Переключатель языка (RU / EN) — Select compact; не Button с переопределённой заливкой (аудит 26.11: Monitoring, WL).
 
 ## 8. Behavior
 - Hover: слой 0 → 6 %, `motion/duration/feedback` (120 мс), `motion/easing/standard`. «Уменьшить движение»: длительности ≈ 0.
