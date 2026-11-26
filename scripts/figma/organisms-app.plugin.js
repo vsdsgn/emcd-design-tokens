@@ -8,7 +8,8 @@ const K = { TabBar: '3acdc5313bf6f0355e40040c1f25f28153cdcd06', Mark: '9fb75b568
 const E = (n) => n.replace(/^~/, 'icon/').replace(/^¤/, 'symbol/coin/'); const KEYS = {};
 if (ARGS.data) for (const [n, k] of Object.entries(ARGS.data.k)) KEYS[E(n)] = k;
 const MAP = { home: 'home', workers: 'lightning', mining: 'lightning', wallet: 'wallet', income: 'dollar-circle', p2p: 'exchange', 'p2p-2': 'exchange', history: 'history', profile: 'user',
-  statistics: 'chart-bar', statistic: 'chart-bar', dashboard: 'chart-bar', settings: 'settings', watcher: 'link', 'watcher link': 'link', referral: 'users' };
+  statistics: 'chart-bar', statistic: 'chart-bar', dashboard: 'chart-bar', settings: 'settings', watcher: 'link', 'watcher link': 'link', referral: 'users',
+  user: 'user', link: 'link', card: 'card', earn: 'percentage', exchange: 'exchange' };
 const LABEL = { 'главная': 'home', 'майнинг': 'lightning', 'кошелек': 'wallet', 'кошелёк': 'wallet', 'доход': 'dollar-circle', 'p2p': 'exchange', 'история': 'history', 'профиль': 'user',
   'статистика': 'chart-bar', 'дашборд': 'chart-bar', 'воркеры': 'lightning', 'настройки': 'settings', 'watcher link': 'link' };
 const GEO = { 'статистика': 'home', 'воркеры': 'devices' };
@@ -17,14 +18,16 @@ const pk = (inst, base) => Object.keys(inst.componentProperties).find((k) => k.s
 const lum = (t) => { const f = Array.isArray(t.fills) && t.fills.find((q) => q.visible !== false && q.type === 'SOLID'); return f ? { l: 0.2126 * f.color.r + 0.7152 * f.color.g + 0.0722 * f.color.b, sat: Math.max(f.color.r, f.color.g, f.color.b) - Math.min(f.color.r, f.color.g, f.color.b) } : { l: 0, sat: 0 }; };
 const root = await figma.getNodeByIdAsync(ARGS.src); const st = { swapped: {}, errors: [] };
 let TB = null; for (let i = 0; i < 4 && !TB; i++) { try { TB = await figma.importComponentByKeyAsync(K.TabBar); } catch (e) {} }
-const cands = root.findAll((n) => n.type === 'INSTANCE' && /^(tabbar|--2\.0-- tabbar|BottomNavi)$/.test(n.name)).filter((i) => { let p = i.parent; while (p && p !== root) { if (p.type === 'INSTANCE') return false; p = p.parent; } return true; });
+// 26.11: + отвязанные фреймы «tabbar» (иконки ic-emcd-icon, вариант var: home / workers / history / user / link …)
+const shown = (n, top) => { for (let q = n; q && q !== top; q = q.parent) if (q.visible === false) return false; return true; };
+const cands = root.findAll((n) => (n.type === 'INSTANCE' && /^(tabbar|--2\.0-- tabbar|BottomNavi)$/.test(n.name)) || (n.type === 'FRAME' && /^tabbar$/i.test(n.name))).filter((i) => { let p = i.parent; while (p && p !== root) { if (p.type === 'INSTANCE') return false; p = p.parent; } return true; });
 for (const old of cands) { try {
   const ob = old.absoluteBoundingBox;
-  const tx = old.findAll((t) => t.type === 'TEXT' && t.visible && t.characters.trim() && t.absoluteBoundingBox && t.absoluteBoundingBox.height < 24);
+  const tx = old.findAll((t) => t.type === 'TEXT' && shown(t, old) && t.characters.trim() && t.absoluteBoundingBox && t.absoluteBoundingBox.height < 24);
   const items = tx.map((t) => { let p = t.parent; while (p && p !== old && !(p.findAll && p.findAll((x) => x.type === 'INSTANCE' && x.width <= 40).length)) p = p.parent; const ic = p && p !== old ? p.findAll((x) => x.type === 'INSTANCE' && x.width <= 40)[0] : null;
-    const vp = ic && ic.variantProperties || {}; const lb = t.characters.trim(); const ty = String(vp.Type || '').toLowerCase();
+    const vp = ic && ic.variantProperties || {}; const lb = t.characters.trim(); const ty = String(vp.Type || vp.var || '').toLowerCase();
     const geo = old.name === 'BottomNavi' && GEO[lb.toLowerCase()]; // 26.11: Geometria — свои иконки (Статистика — домик, Воркеры — сервер)
-    return { label: lb, x: t.absoluteBoundingBox.x, active: /^(yes|true|on)$/i.test(vp.Active || vp.active || ''), icon: geo || MAP[ty] || LABEL[lb.toLowerCase()] || null, action: ic && /emcd/i.test(ic.name), ...lum(t) }; })
+    return { label: lb, x: t.absoluteBoundingBox.x, active: /^(yes|true|on)$/i.test(vp.Active || vp.active || ''), icon: geo || MAP[ty] || LABEL[lb.toLowerCase()] || null, action: !!(ic && /emcd/i.test(ic.name) && !vp.var), ...lum(t) }; })
     .sort((a, b) => a.x - b.x).slice(0, 5);
   if (items.length < 3) { st.errors.push('мало пунктов: ' + old.name); continue; }
   // 26.11: в App EMCD центральный пункт — кнопка «E» (знак EMCD поверх, подпись скрыта) → Type=Action
