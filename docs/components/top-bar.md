@@ -15,7 +15,7 @@
 - Правило выбора варианта:
   - Platform: Mobile web — мобильный веб пула; App — приложение (iOS / Android). Размеры одинаковые: высота 56, поля `space/8` / `space/16`.
   - Level: Root — корневой экран раздела; Inner — вложенный экран, куда пришли из раздела.
-  - Mobile web · Root: слот Logo (по умолчанию Logo · Network=EMCD, Style=Mono, 24) → аккаунт (имя + шеврон) → баланс (Show balance, копейки `text/tertiary`) → Icon button Ghost M «Меню» в конце; зазор `space/12`.
+  - Mobile web · Root: слот Logo (по умолчанию Brand logo · Brand=EMCD, Type=Mark, 24) → аккаунт (имя + шеврон) → баланс (Show balance, копейки `text/tertiary`) → Icon button Ghost M «Меню» в конце; зазор `space/12`.
   - App · Root: Select compact аккаунта (без leading) в начале → в конце Select compact монеты (leading — Coin stack) и Icon button Tertiary M «+» («Подключить»); без логотипа, баланса и меню; зазор `space/8`.
   - Inner (обе Platform): Icon button Ghost M «Назад» (`chevron-left`) → Title по центру (Label/LG Medium, одна строка) → место 40 под одно действие; зазор `space/8`.
   - Show action (Inner): Off по умолчанию; On — одно действие экрана, Icon button Ghost M. Место 40 справа остаётся и при Off — заголовок всегда по центру.

@@ -25,3 +25,4 @@
 - **Components · Segmented** (26.11): корень фиксированной ширины, сегменты Fill — растянутый экземпляр делит ширину поровну (контракт). Существующие экземпляры с HUG станут фиксированной ширины по умолчанию варианта.
 - **Components · Password field** (26.11): вложенный Input открыт (exposed) — Size и Label position ставятся как у соседних полей формы (GOAL-4 M6).
 - **Components · Avatar group** (26.11): Type=Person — Count 2 / 3 / 4 и Size S (было только Count=4, XS / M / L); +18 вариантов. После Publish — заменить `avatar group line` на экранах (component-swap-2, строка AvatarGroup включить).
+- **Icons · Media** (26.11): логотипы EMCD вынесены из `Logo` (соцсети и магазины) в отдельный набор **Brand logo** — Brand=EMCD × Type=Mark (знак 24) | Wordmark (65×18); ключи компонентов сохранены (Tab bar «E», Top bar mobile web — связи не рвутся). У `Logo` снова только Network × Style (Mono / Color), сетка выровнена, слои Google Color названы.
