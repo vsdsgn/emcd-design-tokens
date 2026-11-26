@@ -1,21 +1,21 @@
 Уровень,Production (legacy),DS 2.0,Статус,Как сделать,Всего,Правило / отличие от production,Mining Web,Mining App,Monitoring,WL B2B,WL B2C,Geometria Web,Geometria App,Mining US,Firmware
 Атом,baseButton · Button (DS Web / DS App / Geometria),Button / Icon button,заменено,,2155,"Type: Secondary base → Tertiary, Stroke → Tertiary outline, Error → Primary Danger, Link / Text → Text; Geometria Secondary / Tertiary / Disabled; размер 24 / 32 / 40 / 48 по высоте (36 → 32, шкала DS); без подписи → Icon button; серый Primary → Tertiary",645,395,602,106,147,134,40,54,32
-Атом,Links,Button · Type=Text,заменено,,113,"решение 26.11: ссылка-действие — текстовая кнопка, отдельного Link нет",17,62,,,4,6,8,16,
-Атом,Переключатель языка RU / EN (кнопка с серой заливкой поверх),Select compact,заменено,,207,правило: Button не перекрашиваем; язык — Select compact,22,29,93,26,27,,2,4,4
+Атом,Links,Button · Type=Text,заменено,[пример в ячейке: Button],113,"решение 26.11: ссылка-действие — текстовая кнопка, отдельного Link нет",17,62,,,4,6,8,16,
+Атом,Переключатель языка RU / EN (кнопка с серой заливкой поверх),Select compact,заменено,добавить размеры как у кнопок и полей,207,правило: Button не перекрашиваем; язык — Select compact,22,29,93,26,27,,2,4,4
 Атом,base badge / <tone> · Badge (App),Badge,заменено,,825,neutral / brand / danger / success / warning → Neutral / Accent / Danger / Success / Warning; filled → Solid,161,196,221,,212,6,,16,13
-Атом,base badge counter · сounter · Counter badge,Badge · Content=Number,заменено,,20,Counter слит в Badge (22.11),6,4,,,10,,,,
-Атом,base badge status (точка 8 px),Status без подписи,заменено,,36,,14,,1,,21,,,,
-Атом,Sidebar item,Nav item,заменено,,776,"подпись, иконка, выбранный; текст бейджа («14% APY», «New») — во вложенном Badge, при замене не перенесён",137,8,574,,,,,40,17
-Атом,baseCheckbox · checkbox · Checkbox,Checkbox (без подписи),заменено,,557,"рамка видна всегда, в таблицах тоже (решение 26.11); legacy with box=false (рамка при наведении) не переносим",28,55,396,61,11,4,1,,1
-Атом,baseToggle · toggle,Toggle (без подписи),заменено,,187,включённый — accent (как в DS),129,8,9,5,18,,,18,
+Атом,base badge counter · сounter · Counter badge,Badge · Content=Number,заменено,[пример в ячейке: Badge],20,Counter слит в Badge (22.11),6,4,,,10,,,,
+Атом,base badge status (точка 8 px),Status без подписи,заменено,"не понимаю, тут точка должна быть или точка + подпись",36,,14,,1,,21,,,,
+Атом,Sidebar item,Nav item,заменено,"уменьшить шрифт и возможно иконку, сделать ближе к оригиналу [пример в ячейке: Nav item]",776,"подпись, иконка, выбранный; текст бейджа («14% APY», «New») — во вложенном Badge, при замене не перенесён",137,8,574,,,,,40,17
+Атом,baseCheckbox · checkbox · Checkbox,Checkbox (без подписи),заменено,"вернуть стиль чекбокса и скругление, почему мы сравниваем разные стейты, избавиться от дробных значений [пример в ячейке: Checkbox]",557,"рамка видна всегда, в таблицах тоже (решение 26.11); legacy with box=false (рамка при наведении) не переносим",28,55,396,61,11,4,1,,1
+Атом,baseToggle · toggle,Toggle (без подписи),заменено,"вернуть стиль тогла и уменьшить текст, почему мы сравниваем разные стейты",187,включённый — accent (как в DS),129,8,9,5,18,,,18,
 Атом,base tab item · tab item · tabs/x · navbar-item · #Submenu tab · Menu Item (Geometria),Tab,заменено,,1267,S 32 / M 48 / L 56 по высоте; подменю — M,588,49,546,,26,29,4,25,
 Атом,baseChip / base --1.5 · Period selector item,Chip,заменено,,434,,125,95,138,18,39,12,,7,
 Атом,base avatar / single · avatar,Avatar,заменено,,41,,9,,7,25,,,,,
 Атом,Separator,Divider,заменено,,23,,12,1,9,,1,,,,
-Молекула,input · baseInput · Input · Input & Select · input & select · Selector + Input · Select White,Input / Select / Search / Password field,заменено,,752,"Size M 40 / L 48 (решение 26.11; в продуктах 56 и 64); подпись всегда видна — на рамке (плейсхолдер её не заменяет); с шевроном → Select, с лупой → Search, с глазом → Password field (вложенный Input открыт, Publish 26.11 — размер и подпись как у соседних полей); в Light — белое с обводкой",239,106,70,28,33,178,52,13,33
-Молекула,Selector small · dropdown,Select compact,заменено,,324,,71,38,114,14,82,,1,4,
-Молекула,Search,Search,заменено,,81,,39,4,11,26,,,1,,
-Молекула,Dropdown item,Menu item,заменено,,186,,136,14,30,6,,,,,
+Молекула,input · baseInput · Input · Input & Select · input & select · Selector + Input · Select White,Input / Select / Search / Password field,заменено,"сравниваем селект с инпутом, нужно поправить стейт",752,"Size M 40 / L 48 (решение 26.11; в продуктах 56 и 64); подпись всегда видна — на рамке (плейсхолдер её не заменяет); с шевроном → Select, с лупой → Search, с глазом → Password field (вложенный Input открыт, Publish 26.11 — размер и подпись как у соседних полей); в Light — белое с обводкой",239,106,70,28,33,178,52,13,33
+Молекула,Selector small · dropdown,Select compact,заменено,это тот же компонет что select compact — ok,324,,71,38,114,14,82,,1,4,
+Молекула,Search,Search,заменено,"это как будто бы просто модифицированный инпут, надо слить",81,,39,4,11,26,,,1,,
+Молекула,Dropdown item,Menu item,заменено,сравнивать стейты корректно [пример в ячейке: Menu item],186,,136,14,30,6,,,,,
 Молекула,DateRange.Field,Date range field,заменено,,27,,15,3,2,,7,,,,
 Молекула,base segmented picker group,Segmented,заменено,,74,сегменты делят ширину поровну (набор исправлен и опубликован 26.11),57,2,7,,8,,,,
 Молекула,Accordion · accordion --1.5,Accordion,заменено,,201,"Open = !Collapsed; текст раскрытого — в слот; M на Compact, L на Web",68,102,17,,,5,5,4,

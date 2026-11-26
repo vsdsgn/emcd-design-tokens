@@ -65,10 +65,15 @@ C = [
  ('—','home indicator · status bar · Keyboard · Cursor · hand','системное (iOS / макет)','оставить',dict(MA=270,GA=47,GW=38,US=15,MW=62,Mon=21,B2B=5,B2C=2),''),
  ('—','.Onboarding image · .app icon · picture slot · Photo · Iconly Pro · .chart · Chip (Firmware)','иллюстрации','оставить',dict(MA=31,US=7,MW=46,Mon=15,GW=10,GA=1,FW=101,B2C=1),''),
 ]
+def keep_how(path, key):  # 26.11: ответы Стефана в «Как сделать» не затираем при пересборке
+    try: return {r[key]: r['Как сделать'] for r in csv.DictReader(open(path)) if r.get('Как сделать')}
+    except FileNotFoundError: return {}
+HOW_C = keep_how(R/'docs/migration/table-components.csv', 'Production (legacy)')
+HOW_K = keep_how(R/'docs/migration/table-colors.csv', 'Legacy')
 rows = []
 for lvl, leg, ds, st, d, rule in C:
     n = {AB[k]: v for k, v in d.items()}
-    rows.append([lvl, leg, ds, st, '', sum(n.values()), rule] + [n.get(p, '') for p in P])
+    rows.append([lvl, leg, ds, st, HOW_C.get(leg, ''), sum(n.values()), rule] + [n.get(p, '') for p in P])
 with open(R/'docs/migration/table-components.csv', 'w', newline='') as f:
     w = csv.writer(f); w.writerow(['Уровень','Production (legacy)','DS 2.0','Статус','Как сделать','Всего','Правило / отличие от production'] + P); w.writerows(rows)
 
@@ -154,6 +159,7 @@ for r in out:
     if r[0].startswith('Geo') and not r[12]: r[12] = D26 + ': Geo — свой accent, статусы и нейтральные EMCD'
     fin.append(r)
 out = fin + gone
+for r in out: r[5] = r[5] or HOW_K.get(r[1], '')
 with open(R/'docs/migration/table-colors.csv', 'w', newline='') as f:
     w = csv.writer(f); w.writerow(['Источник','Legacy','Роль','Токен DS 2.0','Действие','Как сделать','Light до','Light после','Dark до','Dark после','ΔE (L / D)','Статус','Решение','Где используется','Примечание']); w.writerows(out)
 print('components', len(rows), 'colors', len(out))

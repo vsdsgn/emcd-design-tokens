@@ -33,7 +33,7 @@ function cell(row, w, kind, v, head) {
 function mkRow(tb, name) { const r = figma.createAutoLayout('HORIZONTAL'); r.name = name; r.itemSpacing = 0; r.fills = G(1); r.strokes = G(0.88); r.strokeTopWeight = r.strokeLeftWeight = r.strokeRightWeight = 0; r.strokeBottomWeight = 1; r.counterAxisAlignItems = 'MIN'; tb.appendChild(r); return r; }
 const PEND = [];
 let tb = page.children.find((n) => n.name === D.t);
-if (tb && D.reset) { const filled = tb.findAll((n) => n.type === 'TEXT' && n.name === 'how' && n.characters.trim() && n.characters.trim() !== '…'); if (filled.length) return { error: 'в «Как сделать» есть ответы — не сношу', n: filled.length }; tb.remove(); tb = null; }
+if (tb && D.reset) { const filled = tb.findAll((n) => n.name === 'how-cell' && n.children.some((k) => k.type !== 'TEXT' || (k.characters.trim() && k.characters.trim() !== '…'))); if (filled.length) return { error: 'в «Как сделать» есть ответы — не сношу', n: filled.length }; tb.remove(); tb = null; }
 if (!tb) {
   tb = figma.createAutoLayout('VERTICAL'); tb.name = D.t; tb.itemSpacing = 0; tb.fills = G(1); tb.x = D.x; tb.y = 0; page.appendChild(tb);
   const h1 = txt(D.t, 800, true); h1.fontSize = 24; h1.lineHeight = { unit: 'PIXELS', value: 32 }; h1.name = 'title'; tb.appendChild(h1);
