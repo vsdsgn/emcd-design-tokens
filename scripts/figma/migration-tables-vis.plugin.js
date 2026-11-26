@@ -18,3 +18,7 @@ for (const c of todo) { const v = c.name.slice(6); let n = null;
   c.name = 'vis ✓'; }
 st.left = tb.findAll((n) => n.type === 'FRAME' && n.name.startsWith('vis · ')).length; return st;
 // 26.11: проход ширины (ARGS.widths=true): колонки «Было» / «Стало» = max(240, самый широкий пример + 16), целые px, у заголовка и всех строк одинаково.
+// 26.11 (по комментариям Стефана «сравнивать стейты корректно»): «Стало» подогнано под состояние «Было» отдельным вызовом —
+//   01 Primary L + левая иконка · 02 Text · 04 Accent Subtle L · 05 Number · 06 без подписи · 07 Selected Off + бейдж · 08 / 09 голый контрол без подписи
+//   10 / 11 невыбранные, подписи как в legacy · 14 → Select Open «Выбрано» (было Input) · 17 подпись Bitcoin · 19 L · 2 · 20 L закрыт · 25 On Hover
+//   26 → Segmented M · 2 (Switch — это сегменты) · 27 Text 25% · 32 Snack Success · 41 App Root. Дробные размеры примеров округлены до целых.
