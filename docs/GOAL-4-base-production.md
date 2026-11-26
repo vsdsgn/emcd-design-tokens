@@ -27,6 +27,7 @@
 | M3 | Поля с копированием, паролем, угловым селектом (`#corner input`), периодом (`.period`) | варианты через слоты Input — правило и примеры на борде | — |
 | M4 | Geometria / WL Light: поле белое с обводкой, после миграции — серое | серое — ошибка перекраски legacy-поля (фон → surface/level-0); DS Input в Light уже белый с обводкой (`control/surface/default` white, `control/border/default` black 12 %) — Foundations не меняем; поля заменены на DS Input | ✅ 26.11 |
 | M6 | Password field: Size и Label position только у вложенного Input (не открыт) — в форме с Input L / On border пароль встаёт M / Above | вложенный Input открыт (26.11, ждёт Publish) | ✅ |
+| A10 | DS Sidebar: язык в шапке — Button Tertiary XS, а правило — язык = Select compact | заменить вложенный language на Select compact S | — |
 | M5 | Контейнеры вкладок (~150: tabs, base tabbar, navbar-lvl-2, подменю) | Tabs: число вкладок, прокрутка, уровень 2 = Size S | — |
 
 ### Организмы и виджеты
