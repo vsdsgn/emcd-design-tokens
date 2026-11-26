@@ -52,6 +52,9 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 - **Claude DS синхронизирован 24.11** (`4d90e23`): токены 20 изм. (display/sm), React 74, +36 компонентов с README / превью; версия артефакта 72. Foundations ↔ репо: 969 переменных, 0 расхождений (сверка хешами после Publish 24.11).
 
+## 26.11 — тёмная тема поправлена в Foundations (ждёт Publish Стефана)
+- См. OPEN-QUESTIONS «Цвета тёмной темы»: после Publish — экспорт `figma/export-*.json` → `npm run all` → push; сверка — страница «⚑ Цвета · тёмная тема (сверка)».
+
 ## 26.11 — таблицы миграции в Figma (основной файл миграции, страница «⚑ Таблицы миграции»)
 - Две таблицы с жёлтой колонкой «Как сделать» (Стефан пишет прямо в ячейку; «…» = оставляем как есть). Чтение ответов: `scripts/figma/migration-tables-read.plugin.js` → `python3 scripts/migration-tables-figma.py --merge <json>`.
 - «Компоненты prod → DS 2.0» (50 строк): колонки «Было» / «Стало» — живые legacy-примеры (клон из экранов или инстанс DS Web / DS App EMCD) и инстанс DS 2.0 (Theme = Dark). Картинки — отдельным проходом `migration-tables-vis.plugin.js` (импорт 2–5 с на компонент).
