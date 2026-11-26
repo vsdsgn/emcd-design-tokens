@@ -1,0 +1,76 @@
+<title>Карта компонентов DS 2.0</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* layout: сводка статусов сверху, фильтры, таблица на всю ширину с горизонтальной прокруткой */
+:root{--bg:#f6f6f8;--surface:#ffffff;--fg:#17161c;--muted:#6b6878;--line:#e4e2ea;--accent:#7a3cf0;
+--ok:#1f8a4c;--ok-bg:#e5f4eb;--warn:#a35d00;--warn-bg:#fdf0dc;--todo:#7a3cf0;--todo-bg:#efe8fd;--gray-bg:#eeedf2;
+--f-body:"Inter",system-ui,sans-serif;--f-head:"Space Grotesk","Inter",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0d12;--surface:#17161d;--fg:#ecebf2;--muted:#9c99aa;--line:#2a2833;--accent:#a57cff;--ok:#5fd08e;--ok-bg:#16301f;--warn:#f0b259;--warn-bg:#352611;--todo:#b597ff;--todo-bg:#251c3d;--gray-bg:#222029;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e0d12;--surface:#17161d;--fg:#ecebf2;--muted:#9c99aa;--line:#2a2833;--accent:#a57cff;--ok:#5fd08e;--ok-bg:#16301f;--warn:#f0b259;--warn-bg:#352611;--todo:#b597ff;--todo-bg:#251c3d;--gray-bg:#222029;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:14px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+h1{font-family:var(--f-head);font-size:26px;margin:0 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;max-width:75ch;line-height:1.5}
+.sum{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:130px;cursor:pointer;font:inherit;color:inherit;text-align:left}
+.tile[aria-pressed="true"]{outline:2px solid var(--accent)}
+.tile b{display:block;font-family:var(--f-head);font-size:20px;font-variant-numeric:tabular-nums}
+.tile span{color:var(--muted);font-size:12px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+select,input{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+input{min-width:0;flex:1 1 200px;max-width:320px}
+.wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:1180px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{font-size:12px;color:var(--muted);font-weight:500;position:sticky;top:0;background:var(--surface);cursor:pointer;white-space:nowrap}
+td.n{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+td.n.has{color:var(--fg)}
+td.tot{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+td.leg{min-width:240px;font-weight:500}
+td.rule{min-width:280px;color:var(--muted);line-height:1.45}
+.pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;white-space:nowrap}
+.s-заменено{background:var(--ok-bg);color:var(--ok)}
+.s-нужна{background:var(--todo-bg);color:var(--todo)}
+.s-алиасы,.s-решить{background:var(--warn-bg);color:var(--warn)}
+.s-оставить,.s-вместе{background:var(--gray-bg);color:var(--muted)}
+.cat{color:var(--muted);font-size:12px}
+.foot{color:var(--muted);font-size:12px;margin-top:12px;max-width:80ch;line-height:1.5}
+</style>
+<h1>Карта компонентов: legacy → DS 2.0</h1>
+<p class="sub">Все продукты общего файла миграции, 924 экрана. Число — экземпляры верхнего уровня на экранах. «Заменено» — уже сделано скриптом 25.11, остальное — остаток на 26.11.</p>
+<div class="sum" id="sum"></div>
+<div class="bar">
+<label for="prod">Продукт</label><select id="prod"><option value="">Все</option></select>
+<label for="cat">Уровень</label><select id="cat"><option value="">Все</option></select>
+<input id="q" type="search" placeholder="Поиск по названию">
+</div>
+<div class="wrap"><table><thead><tr id="head"></tr></thead><tbody id="body"></tbody></table></div>
+<p class="foot">Статусы: «заменено» — компонент DS 2.0 уже стоит на экранах; «нужна карта» — цель в DS есть, пишу правило замены; «вместе с …» — часть другого компонента, уходит с ним; «алиасы» — иконки, нужна только пара имён; «решить» — подобрать цель по месту; «оставить» — системные слои и иллюстрации.</p>
+<script>
+const D=__DATA__;
+const P=D.P, short={'Mining Web':'Майн. Web','Mining App':'Майн. App','Monitoring':'Monitoring','WL B2B':'WL B2B','WL B2C':'WL B2C','Geometria Web':'Geo Web','Geometria App':'Geo App','Mining US':'Mining US','Firmware':'Firmware'};
+const st={prod:'',cat:'',q:'',status:'',sort:null,dir:-1};
+const $=id=>document.getElementById(id);
+P.forEach(p=>$('prod').insertAdjacentHTML('beforeend',`<option>${p}</option>`));
+[...new Set(D.rows.map(r=>r.cat))].forEach(c=>$('cat').insertAdjacentHTML('beforeend',`<option>${c}</option>`));
+const cls=s=>'s-'+s.split(' ')[0];
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function cnt(r){return st.prod?r[st.prod]:r.total}
+function render(){
+ const rows=D.rows.filter(r=>(!st.cat||r.cat===st.cat)&&(!st.q||(r.legacy+' '+r.ds2).toLowerCase().includes(st.q))&&(!st.prod||r[st.prod]>0));
+ const sums={}; rows.forEach(r=>{sums[r.status]=(sums[r.status]||0)+cnt(r)});
+ const order=['заменено','нужна карта','вместе с Input','вместе с List item','алиасы','решить','оставить'];
+ $('sum').innerHTML=order.filter(s=>sums[s]).map(s=>`<button class="tile" aria-pressed="${st.status===s}" data-s="${s}"><b>${sums[s].toLocaleString('ru')}</b><span>${s}</span></button>`).join('');
+ document.querySelectorAll('.tile').forEach(b=>b.onclick=()=>{st.status=st.status===b.dataset.s?'':b.dataset.s;render()});
+ let list=rows.filter(r=>!st.status||r.status===st.status);
+ if(st.sort) list=[...list].sort((a,b)=>((a[st.sort]>b[st.sort])?1:(a[st.sort]<b[st.sort])?-1:0)*st.dir);
+ const cols=[['legacy','Legacy'],['ds2','DS 2.0'],['status','Статус'],['total','Всего'],...(st.prod?[[st.prod,short[st.prod]]]:P.map(p=>[p,short[p]])),['rule','Правило']];
+ $('head').innerHTML=cols.map(([k,l])=>`<th data-k="${k}">${l}${st.sort===k?(st.dir>0?' ↑':' ↓'):''}</th>`).join('');
+ document.querySelectorAll('th').forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(st.sort===k) st.dir*=-1; else {st.sort=k; st.dir=['legacy','ds2','status','rule'].includes(k)?1:-1;} render()});
+ $('body').innerHTML=list.map(r=>`<tr><td class="leg">${esc(r.legacy)}<div class="cat">${esc(r.cat)}</div></td><td>${esc(r.ds2)}</td><td><span class="pill ${cls(r.status)}">${r.status}</span></td><td class="tot">${r.total.toLocaleString('ru')}</td>${(st.prod?[st.prod]:P).map(p=>`<td class="n ${r[p]?'has':''}">${r[p]||'·'}</td>`).join('')}<td class="rule">${esc(r.rule)}</td></tr>`).join('');
+}
+$('prod').onchange=e=>{st.prod=e.target.value;render()};
+$('cat').onchange=e=>{st.cat=e.target.value;render()};
+$('q').oninput=e=>{st.q=e.target.value.toLowerCase();render()};
+render();
+</script>
