@@ -52,6 +52,15 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 - **Claude DS синхронизирован 24.11** (`4d90e23`): токены 20 изм. (display/sm), React 74, +36 компонентов с README / превью; версия артефакта 72. Foundations ↔ репо: 969 переменных, 0 расхождений (сверка хешами после Publish 24.11).
 
+## 26.11 — правки Components по «Как сделать» Стефана (ждут Publish)
+- Checkbox: обводка border/strong → border/subtle, скругление radius/control-xs (6), фокус-кольцо radius/sm — как legacy (осознанно ниже WCAG 1.4.11 3:1 — решение Стефана «вернуть стиль»).
+- Toggle Off: дорожка control/box + обводка border/subtle, бегунок icon/disabled (как legacy); подпись Label/MD 14.
+- Accordion: без подложки у шеврона. Tooltip и Nav item: текст Label/MD 14.
+- Floating button L: 56 → 48 (control/height/lg). Select compact: ось Size S 32 / M 40 / L 48 (старые варианты → M, на экранах 36 → 40).
+- Toast Snack: заголовок без обрезки, справа «закрыть» (свойство Close), действие — свойство Actions.
+- Таблица компонентов: +24 строки DS 2.0, которых не было (74 строки), «Стало» строки 14 → Select, 26 → Segmented. Пересобрать Figma-таблицы после Publish.
+- Отложено (нужна архитектура / решение): Date range field (две даты внутри — у Field нет слота под содержимое), слияния Search → Input и Select compact → Select / Button, Sidebar (правила поведения, фейды, Expressive), шапки по платформам, иконки (чистка структуры, брендовые из legacy), иллюстрации по брендам.
+
 ## 26.11 — тёмная тема поправлена в Foundations (ждёт Publish Стефана)
 - См. OPEN-QUESTIONS «Цвета тёмной темы»: после Publish — экспорт `figma/export-*.json` → `npm run all` → push; сверка — страница «⚑ Цвета · тёмная тема (сверка)».
 
