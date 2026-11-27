@@ -5,7 +5,7 @@
 4. Toast Snack — тёмный или нейтральный? От этого зависит цвет действия (`text/link-inverse` сейчас не виден на белом) и крестик.
 5. Date cell Disabled — зачёркивать или нет (описание ≠ слои).
 6. ~~Токены~~ — сделано 27.11: `layer/*`, `space/toast/offset|gap` (Foundations, ждёт Publish), длительности в описаниях → 120 / 200 / 320.
-2–5: сравнение на странице Components «🧪 Сравнение 27.11» — ждёт выбора.
+2–5 решено 27.11: Checkbox / Radio Off — новый `control/border/selection` (32 %, привязать после Publish Foundations); Toggle — Б (control/track + control/knob, сделано); Snack — А, светлый (действие text/link, сделано); Date cell Disabled — зачёркнут (сделано).
 7. Вопросы раздела 5 сверки (99+, Квартал / Год, Chart plot, Table header cell, Tooltip Accent обводка, Chart tooltip «ещё N», Dropdown panel роль, Sheet, Empty state иллюстрации, логотип).
 Сделаю без решения: кольца фокуса (Page indicator, «i» в Table header cell, профиль в Sidebar), числа → токены (раздел 3), описания ↔ слои (раздел 4).
 

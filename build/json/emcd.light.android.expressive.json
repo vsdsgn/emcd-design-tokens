@@ -197,6 +197,7 @@
   "controlSurfaceDisabled": "#00000014",
   "controlBorderDefault": "#0000001f",
   "controlBorderHover": "#0000003d",
+  "controlBorderSelection": "#00000052",
   "controlBorderFocus": "#0000008f",
   "controlBorderError": "#c4302c",
   "controlBorderDisabled": "#00000014",

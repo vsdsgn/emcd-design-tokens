@@ -525,6 +525,10 @@
         "$type": "color",
         "$value": "{color.alpha.white.24}"
       },
+      "selection": {
+        "$type": "color",
+        "$value": "{color.alpha.white.32}"
+      },
       "focus": {
         "$type": "color",
         "$value": "{border.focus}"

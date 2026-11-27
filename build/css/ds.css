@@ -787,6 +787,7 @@ html { font-size: 100%; }
   --control-surface-disabled: var(--color-alpha-white-8);
   --control-border-default: var(--color-alpha-white-12);
   --control-border-hover: var(--color-alpha-white-24);
+  --control-border-selection: var(--color-alpha-white-32);
   --control-border-error: var(--color-red-400);
   --control-border-disabled: var(--color-alpha-white-8);
   --control-track: var(--color-alpha-white-16);
@@ -950,6 +951,7 @@ html { font-size: 100%; }
   --control-surface-disabled: var(--color-alpha-black-8);
   --control-border-default: var(--color-alpha-black-12);
   --control-border-hover: var(--color-alpha-black-24);
+  --control-border-selection: var(--color-alpha-black-32);
   --control-border-error: var(--color-red-600);
   --control-border-disabled: var(--color-alpha-black-8);
   --control-track: var(--color-alpha-black-12);
