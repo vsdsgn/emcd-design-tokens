@@ -52,6 +52,14 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 - **Claude DS синхронизирован 24.11** (`4d90e23`): токены 20 изм. (display/sm), React 74, +36 компонентов с README / превью; версия артефакта 72. Foundations ↔ репо: 969 переменных, 0 расхождений (сверка хешами после Publish 24.11).
 
+## 27.11 — правки по сверке разработчика (`docs/ds-figma-fixes-2026-11-27.md`), ждут Publish Components
+- Блокеры сняты: Input amount и Top bar — Select compact → Button Tertiary + chevron-down (монета — Icon left); List item и Transaction — Amount внутри слота Trailing → тексты (68); `_List row` S — Leading / Trailing стали слотами, привязаны все 14–15 свойств (как у M); Sidebar Fullscreen — Header / Nav / Footer слоты + Promo; Modal — свойства привязаны во всех 24 вариантах (Body / Footer slot стали слотами).
+- Select пересобран как Input: экспонированный экземпляр `_Field base` (Open → Focus без каретки, шеврон в слоте Trailing); собственные свойства Select (Label, Value, Helper, Show label / leading, Leading, Focus ring) удалены — тексты задаются во вложенном Field. На экранах тексты Select после принятия обновления сбросятся к умолчанию — проверить.
+- Ловушка API: `createSlot()` создаёт новое SLOT-свойство набора — после переназначения ссылок удалять осиротевшие (сделано: Modal 21, _List row 32, Sidebar 3).
+- Progress Indeterminate, Toast Card · Neutral (Icon), Card Ambient light (72), Button / Icon button Primary S, XS Disabled — hit area на переменной; Radio card Off — детали скрыты; Checkbox — вложенный контрол везде «Control»; Textarea — свои тексты, без USDT; Dropdown panel — поиск без USDT и подсказки; Multiselect — «Multiselect option/Selected» → набор Multiselect option + Selected (54).
+- Контраст: Segment Accent выбранный — иконка accent/on-subtle; Floating Secondary Loading — спиннер text/primary + icon/primary; Tooltip tour Accent — «Пропустить» text/on-accent. Password field — описание «глаза» по WAI-ARIA.
+- Не сделано (решение Стефана / следующий проход): см. OPEN-QUESTIONS «Сверка разработчика 27.11».
+
 ## 26.11 — после Publish: сделано (Media в Toast → Illustrations; экраны: Search → Input 83, Select compact / язык → Button 530, иконки 238; новые таблицы на «⚑ Таблицы миграции», ответы 26.11 — «🗄 Таблицы миграции · 26.11 (с ответами)»)
 ## (план был) после следующего Publish (Foundations, Components, Icons, Illustrations)
 1. Components и экраны: media/status, media/badge/verified → из Illustrations (по ключам 550cead7… / cfdea272…); старые в Icons — «· deprecated».
