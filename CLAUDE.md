@@ -1,6 +1,6 @@
 # EMCD DS 2.0 — правила для агента (Claude Code)
 
-1. В начале сессии читай `docs/HANDOFF.md` → `docs/OPEN-QUESTIONS.md` → `docs/HOW-IT-WORKS.md` → `docs/LESSONS.md` (реестр ошибок) → `docs/RULES.md` (правила поведения). Обновляй их по ходу и пушь.
+1. В начале сессии читай `docs/HANDOFF.md` → `docs/OPEN-QUESTIONS.md` → `docs/HOW-IT-WORKS.md` → `docs/LESSONS.md` (реестр ошибок) → `docs/RULES.md` (правила поведения) → `docs/BUILD-RULES.md` (правила построения). Обновляй их по ходу и пушь.
 2. Фокус на текущем этапе (см. HANDOFF). Новая идея: быстрая и не ломает — делай, иначе в парковку OPEN-QUESTIONS.
 3. Работай автономно до результата, минимум вопросов. Рутину (экспорт Foundations, `npm run all`, таблица миграции, push) делай сам.
 4. Миграция компонента: legacy DS Web / App → новые токены → апгрейд 2.0. Перед новым дизайном ищи в legacy и продуктах.
