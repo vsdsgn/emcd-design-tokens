@@ -6,7 +6,7 @@
 5. Date cell Disabled — зачёркивать или нет (описание ≠ слои).
 6. ~~Токены~~ — сделано 27.11: `layer/*`, `space/toast/offset|gap` (Foundations, ждёт Publish), длительности в описаниях → 120 / 200 / 320.
 2–5 решено 27.11: Checkbox / Radio Off — новый `control/border/selection` (32 %, привязать после Publish Foundations); Toggle — Б (control/track + control/knob, сделано); Snack — А, светлый (действие text/link, сделано); Date cell Disabled — зачёркнут (сделано).
-7. Вопросы раздела 5 сверки (99+, Квартал / Год, Chart plot, Table header cell, Tooltip Accent обводка, Chart tooltip «ещё N», Dropdown panel роль, Sheet, Empty state иллюстрации, логотип).
+7. Раздел 5 (27.11): 1 99+ в Badge — сделано; 6 Chart tooltip «+N» (Show more + More) — сделано; 8 Sheet уже beta (Figma и status.json); 9 иллюстрация `empty` (Illustrations, из макета Monitoring) — после Publish Illustrations поставить в Empty state; 10 Brand logo: + Geometria (Mark, Wordmark 124×32), WL Default (Wordmark «Your Logo»; Mark нет), SVG в `icons/symbols/logo/`. На выбор (Components → «🧪 Сравнение 27.11», «Раздел 5»): 2 Квартал / Год, 3 сетка Bars и градиент Dual area, 4 цикл сортировки, 5 обводка Tooltip Accent (Стефан: чёрная полупрозрачная везде, позже — 0.5 px), 7 роли Dropdown panel (пояснение).
 Сделаю без решения: кольца фокуса (Page indicator, «i» в Table header cell, профиль в Sidebar), числа → токены (раздел 3), описания ↔ слои (раздел 4).
 
 ## Решения Стефана 26.11 (разбор отложенного и парковки)
