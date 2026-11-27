@@ -1,10 +1,11 @@
 ## Сверка разработчика 27.11 — на решение (`docs/ds-figma-fixes-2026-11-27.md`)
-1. Avatar group: «+N» — ось More и свойство Show more дублируют друг друга. Предложение: оставить ось, удалить Show more.
+1. ~~Avatar group~~ — сделано 27.11: Show more удалено, «+N» — только ось More.
 2. Checkbox Off — `border/subtle` (решение 26.11) vs WCAG 1.4.11 ≥ 3:1 (`border/strong`, как Radio).
 3. Toggle Off — ползунок `icon/disabled` (legacy-стиль 26.11) выглядит отключённым; вернуть `control/knob`?
 4. Toast Snack — тёмный или нейтральный? От этого зависит цвет действия (`text/link-inverse` сейчас не виден на белом) и крестик.
 5. Date cell Disabled — зачёркивать или нет (описание ≠ слои).
-6. Новые токены: `layer/*` (z-index), размещение Toast (отступ, промежуток), длительности 100 / 150 / 300 мс (или привести описания к 120 / 200 / 320).
+6. ~~Токены~~ — сделано 27.11: `layer/*`, `space/toast/offset|gap` (Foundations, ждёт Publish), длительности в описаниях → 120 / 200 / 320.
+2–5: сравнение на странице Components «🧪 Сравнение 27.11» — ждёт выбора.
 7. Вопросы раздела 5 сверки (99+, Квартал / Год, Chart plot, Table header cell, Tooltip Accent обводка, Chart tooltip «ещё N», Dropdown panel роль, Sheet, Empty state иллюстрации, логотип).
 Сделаю без решения: кольца фокуса (Page indicator, «i» в Table header cell, профиль в Sidebar), числа → токены (раздел 3), описания ↔ слои (раздел 4).
 

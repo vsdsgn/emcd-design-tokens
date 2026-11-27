@@ -494,5 +494,39 @@
       "$type": "number",
       "$value": 0.96
     }
+  },
+  "layer": {
+    "base": {
+      "$type": "number",
+      "$value": 0
+    },
+    "raised": {
+      "$type": "number",
+      "$value": 1
+    },
+    "sticky": {
+      "$type": "number",
+      "$value": 100
+    },
+    "dropdown": {
+      "$type": "number",
+      "$value": 1000
+    },
+    "overlay": {
+      "$type": "number",
+      "$value": 1100
+    },
+    "modal": {
+      "$type": "number",
+      "$value": 1200
+    },
+    "toast": {
+      "$type": "number",
+      "$value": 1300
+    },
+    "tooltip": {
+      "$type": "number",
+      "$value": 1400
+    }
   }
 }

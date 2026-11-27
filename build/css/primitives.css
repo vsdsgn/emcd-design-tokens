@@ -499,4 +499,12 @@
   --easing-standard: cubic-bezier(0.2, 0, 0, 1);
   --easing-out: cubic-bezier(0, 0, 0.58, 1);
   --scale-press: 0.96;
+  --layer-base: 0;
+  --layer-raised: 1;
+  --layer-sticky: 100;
+  --layer-dropdown: 1000;
+  --layer-overlay: 1100;
+  --layer-modal: 1200;
+  --layer-toast: 1300;
+  --layer-tooltip: 1400;
 }

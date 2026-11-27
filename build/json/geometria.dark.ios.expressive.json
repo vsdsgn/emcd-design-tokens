@@ -277,6 +277,8 @@
   "spaceXl": 32,
   "space2xl": 48,
   "space3xl": 64,
+  "spaceToastOffset": 16,
+  "spaceToastGap": 8,
   "spaceSection": 24,
   "touchMin": 44,
   "touchIsCoarse": true,

@@ -38,3 +38,8 @@ CSS: `--motion-duration-*`, `--motion-easing-*`, `--motion-scale-press` (build/c
 ## Демо
 
 Живая страница со всеми компонентами, анимациями и переключателями темы / бренда / платформы / reduced motion: (ссылка в `docs/private/LINKS.md`, не в git)
+
+## Слои (z-index), 27.11
+`layer/*` (Primitives · Scale, в коде `--layer-*`, число): base 0 · raised 1 · sticky 100 · dropdown 1000 (Menu, Select, Dropdown panel) · overlay 1100 (затемнение) · modal 1200 (Modal, Sheet, Side panel) · toast 1300 · tooltip 1400 (Tooltip, Tooltip tour).
+Toast: отступ от края — `space/toast/offset` (Web 24, Compact 16 + safe area), между тостами — `space/toast/gap` 8.
+Длительности в описаниях компонентов приведены к токенам: feedback / exit 120, enter / overlay 200 (App overlay 320), duration/slow 320 (Progress, Code input).

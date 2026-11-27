@@ -92,6 +92,8 @@
   --space-xl: var(--dimension-32);
   --space-2xl: var(--dimension-48);
   --space-3xl: var(--dimension-64);
+  --space-toast-offset: var(--dimension-24);
+  --space-toast-gap: var(--dimension-8);
   --control-height-sm: var(--dimension-32);
   --control-height-md: var(--dimension-40);
   --control-height-lg: var(--dimension-48);
