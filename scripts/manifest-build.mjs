@@ -1,3 +1,4 @@
+// См. docs/LESSONS.md#l-015 (лишний старый файл куска ломает разбор JSON)
 // Сборка docs/ds-manifest.json из ответов scripts/figma/manifest.plugin.js.
 // Вход: папка с файлами <батч>.<кусок>.txt (первая строка «chunk i/N», дальше кусок JSON).
 // Уровень по первой букве батча: A — atom, M — molecule, O — organism. bases.json в той же папке (ответ
