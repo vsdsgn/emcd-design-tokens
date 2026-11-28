@@ -55,6 +55,7 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 ## 28.11 — после Publish (Foundations, Components, Icons, Illustrations)
 - Checkbox / Radio Off — обводка `control/border/selection`; Empty state — иллюстрация Illustrations · empty (L 200, M 96).
 - Графики: Sparkline + End point (точка на последнем значении, как WL B2B); новые draft — Chart axis (Left / Right / Bottom: вторая ось Y, как в Monitoring) и Chart gauge (полукольцо по статусам, как «Устройства» в Monitoring). Ждут Publish и сборки примера в Chart card.
+- Select на экранах (499 шт.) ещё в старой версии; тексты сохранены в «⚑ data · select-texts» (страница скриптов). После принятия обновления Components в файле миграции — `scripts/figma/select-restore.plugin.js` по страницам, затем проверка слотов (L-036).
 - Дальше: сверка экранов после `component-swap-4` (L-023); раздел 3 сверки разработчика — числа → токены; кольца фокуса (Page indicator, «i» в Table header cell, профиль в Sidebar); варианты компонентов со Стефаном; Multiselect и дропы.
 
 ## 27.11 — правки по сверке разработчика (`docs/ds-figma-fixes-2026-11-27.md`), ждут Publish Components
