@@ -76,7 +76,7 @@
     "Tooltip": "beta",
     "TopBar": "beta",
     "Transaction": "beta",
-    "Chart axis": "draft",
-    "Chart gauge": "draft"
+    "ChartAxis": "draft",
+    "ChartGauge": "draft"
   }
 }
