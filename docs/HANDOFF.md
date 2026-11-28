@@ -52,6 +52,11 @@ Legacy: DS Web FIGMA_FILE_KEY_REDACTED · DS App FIGMA_FILE_KEY_REDACTED · DS S
 
 - **Claude DS синхронизирован 24.11** (`4d90e23`): токены 20 изм. (display/sm), React 74, +36 компонентов с README / превью; версия артефакта 72. Foundations ↔ репо: 969 переменных, 0 расхождений (сверка хешами после Publish 24.11).
 
+## 28.11 — после Publish (Foundations, Components, Icons, Illustrations)
+- Checkbox / Radio Off — обводка `control/border/selection`; Empty state — иллюстрация Illustrations · empty (L 200, M 96).
+- Графики: Sparkline + End point (точка на последнем значении, как WL B2B); новые draft — Chart axis (Left / Right / Bottom: вторая ось Y, как в Monitoring) и Chart gauge (полукольцо по статусам, как «Устройства» в Monitoring). Ждут Publish и сборки примера в Chart card.
+- Дальше: сверка экранов после `component-swap-4` (L-023); раздел 3 сверки разработчика — числа → токены; кольца фокуса (Page indicator, «i» в Table header cell, профиль в Sidebar); варианты компонентов со Стефаном; Multiselect и дропы.
+
 ## 27.11 — правки по сверке разработчика (`docs/ds-figma-fixes-2026-11-27.md`), ждут Publish Components
 - Блокеры сняты: Input amount и Top bar — Select compact → Button Tertiary + chevron-down (монета — Icon left); List item и Transaction — Amount внутри слота Trailing → тексты (68); `_List row` S — Leading / Trailing стали слотами, привязаны все 14–15 свойств (как у M); Sidebar Fullscreen — Header / Nav / Footer слоты + Promo; Modal — свойства привязаны во всех 24 вариантах (Body / Footer slot стали слотами).
 - Select пересобран как Input: экспонированный экземпляр `_Field base` (Open → Focus без каретки, шеврон в слоте Trailing); собственные свойства Select (Label, Value, Helper, Show label / leading, Leading, Focus ring) удалены — тексты задаются во вложенном Field. На экранах тексты Select после принятия обновления сбросятся к умолчанию — проверить.
